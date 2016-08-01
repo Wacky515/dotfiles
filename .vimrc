@@ -3,11 +3,12 @@ scriptencoding utf-8
 
 """ Leader篇 """
 
-" <Space> を Leader に割当て
+" <Space> を "Leader" に割当て
 let mapleader = "\<Space>"
 
 " <Space> + "o": ファイルを開く
-nnoremap <Leader>o :CtrlP<CR>
+" !!!: プラグインが必要
+" nnoremap <Leader>o :CtrlP<CR>
 
 " <Space> + "w": ファイルを保存
 nnoremap <Leader>w :w<CR>
@@ -41,11 +42,13 @@ set wrapscan
 " 検索マッチテキストをハイライト
 set hlsearch
 
-" "\" や "?" を状況にあわせてエスケープ
+" 検索時に "\" や "?" のエスケープを簡素化
+" TODO: 動作確認
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 
 " grep検索の設定
+" TODO: 動作確認
 set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
 set grepprg=grep\ -nh
 
@@ -58,7 +61,7 @@ set clipboard=unnamed,autoselect
 " < http://nanasi.jp/articles/howto/editing/clipboard.html >
 
 " 自動的に閉じ括弧を入力
-" ※ あまりスマートではない・・・
+" !!!: あまりスマートではない・・・
 imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
@@ -75,15 +78,17 @@ set number
 " シンタックスハイライト
 syntax on
 
-" 画面上のタブ幅
+" 自動インデント時の空白数
+set shiftwidth=4
+" タブ文字の幅
 set tabstop=4
-" ダブ文字をスペースに置き換える
+" ダブ文字をスペースに置き換え
 set expandtab
 " 現在行と同じインデントを挿入
 set autoindent
 " "<" 、 ">" でインデントする時、"shiftwidth" の倍数に丸める
 set shiftround
-" 行頭で <Tab> を入力すると "shiftwidth" 分インデントし、それ以外のは "tabstop" 分インデントする
+" 行頭は "shiftwidth" 分、それ以外は "tabstop" 分インデント
 set smarttab
 
 " カーソル行の背景色変更
@@ -94,19 +99,18 @@ set showmatch
 
 " 改行時に前行のインデントを継続
 set autoindent
-" 改行時に入力された行末尾に合わせ、次行インデントを増減
+" 前行末尾に合わせ、次行インデントを増減
 set smartindent
 
-" 全角スペースの可視化
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
-au BufNewFile,BufRead * match ZenkakuSpace /　/
-
 """"""""""""""""""""""""""""""""""""""""""""""""""
+" !!!: 不可視文字の可視化は見難いのでkillしている
 " 不可視文字（タブ、空白、改行）の可視化
-set list
+" set list
+" ↑ or ↓
 " 不可視文字（タブ、空白、改行）を "Unicode" で表示
 " set listchars=tab:≫-,trail:-,extends:≫,precedes:≪,nbsp:%,eol:?
-set listchars=tab:>.,trail:_,eol:?,extends:>,precedes:<,nbsp:%
+" ↑ or ↓
+" set listchars=tab:>.,trail:_,eol:?,extends:>,precedes:<,nbsp:%
 
 "全角スペースをハイライト表示
 function! ZenkakuSpace()
@@ -125,8 +129,8 @@ endif
 " < http://inari.hatenablog.com/entry/2014/05/05/231307 >
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
-" スクロール送りを開始する前後の行数指定
-set scrolloff=5
+" スクロール時の上・下端行数指定
+set scrolloff=3
 
 " ファイルを開いた時に最後のカーソル位置を復元する
 if has("autocmd")
@@ -183,10 +187,11 @@ endif
 set title
 
 " <Shift> + <矢印>: ウィンドウサイズ変更
-nnoremap <S-Left>  <C-w><<CR>
-nnoremap <S-Right> <C-w>><CR>
-nnoremap <S-Up>    <C-w>-<CR>
-nnoremap <S-Down>  <C-w>+<CR>
+" FIXME: 動作せず
+" nnoremap <S-Left>  <C-w><<CR>
+" nnoremap <S-Right> <C-w>><CR>
+" nnoremap <S-Up>    <C-w>-<CR>
+" nnoremap <S-Down>  <C-w>+<CR>
 
 " ウィンドウ右下に入力中のコマンドを表示
 set showcmd
@@ -213,7 +218,9 @@ function! s:mkdir(dir, force)
     call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
   endif
 endfunction
-autocmd MyAutoCmd BufWritePre * call s:mkdir(expand('<afile>:p:h'), v:cmdbang)
+if has('unix') || has('mac')
+        autocmd MyAutoCmd BufWritePre * call s:mkdir(expand('<afile>:p:h'), v:cmdbang)
+endif
 
 
 """ コマンドラインモード篇 """
@@ -224,15 +231,27 @@ set wildmenu
 
 """ 一般設定篇 """
 
-" スワップファイルのディレクトリ変更
-set directory=C:/Temp
-set directory=~/vimfiles/tmp
-set directory=.
+if has('unix') || has('mac')
+".swp" のディレクトリ変更
+set directory=/tmp
+" "~" のディレクトリ変更
+set backupdir=/tmp
+" ".un~" のディレクトリ変更
+set undodir=/tmp
+" ".viminfo" のディレクトリ変更
+set viminfo+=n/tmp
+endif
 
-" バックアップファイルのディレクトリ変更
+if has('win32') || has ('win64')
+".swp" のディレクトリ変更
+set directory=C:/Temp
+" "~" のディレクトリ変更
 set backupdir=C:/Temp
-set backupdir=~/vimfiles/tmp
-set backupdir=.
+" ".un~" のディレクトリ変更
+set undodir=C:/Temp
+" ".viminfo" のディレクトリ変更
+set viminfo+=nC:/Temp
+endif
 
 " .vimrc と .gvimrc を分割配置
 set runtimepath+=~/.vimfiles/
