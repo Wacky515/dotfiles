@@ -1,16 +1,12 @@
 scriptencoding utf-8
-" test from raspi
-" test from raspi 2nd
-" test from Debian
-" test from Xacti
-" test from Xacti Windows
+
 
 """ Leader篇 """
 
 " <Space> を Leader に割当て
 let mapleader = "\<Space>"
 
-" <Space>+ "o": ファイルを開く
+" <Space> + "o": ファイルを開く
 nnoremap <Leader>o :CtrlP<CR>
 
 " <Space> + "w": ファイルを保存
@@ -34,19 +30,18 @@ nnoremap g# g#zz
 " ※ 検索文字入力で即時検索開始
 set incsearch
 
+" 大文字・小文字を区別しない
+set ignorecase
+" 検索文字に大文字がある場合は大文字・小文字を区別
+set smartcase
+
 " 最後のヒットまで検索したら最初のヒットに戻る
 set wrapscan
 
 " 検索マッチテキストをハイライト
 set hlsearch
 
-" 大文字・小文字を区別しない
-set ignorecase
-
-" 検索文字に大文字がある場合は大文字・小文字を区別
-set smartcase
-
-" "\" や "?" を状況に合せ自動エスケープ
+" "\" や "?" を状況にあわせてエスケープ
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 
@@ -59,8 +54,8 @@ set grepprg=grep\ -nh
 
 " ヤンクしたデータをクリップボードで使用＆選択範囲自動コピー
 " ※ 使用できるかは環境による
-" 参考: http://nanasi.jp/articles/howto/editing/clipboard.html
 set clipboard=unnamed,autoselect
+" < http://nanasi.jp/articles/howto/editing/clipboard.html >
 
 " 自動的に閉じ括弧を入力
 " ※ あまりスマートではない・・・
@@ -68,11 +63,9 @@ imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
 
-" "<" 、 ">" でインデントする時、"shiftwidth" の倍数に丸める
-set shiftround
-
 " 入力コマンド履歴の保存数
 set history=1000
+
 
 """ メイン表示篇 """
 
@@ -84,20 +77,18 @@ syntax on
 
 " 画面上のタブ幅
 set tabstop=4
-
+" ダブ文字をスペースに置き換える
+set expandtab
+" 現在行と同じインデントを挿入
+set autoindent
+" "<" 、 ">" でインデントする時、"shiftwidth" の倍数に丸める
+set shiftround
 " 行頭で <Tab> を入力すると "shiftwidth" 分インデントし、それ以外のは "tabstop" 分インデントする
 set smarttab
 
-" 現在行と同じインデントを挿入
-set autoindent
-
-" ダブ文字をスペースに置き換える
-set expandtab
-
-
 " カーソル行の背景色変更
 set cursorline
-"
+
 " 対になる括弧を強調
 set showmatch
 
@@ -121,7 +112,7 @@ set listchars=tab:>.,trail:_,eol:?,extends:>,precedes:<,nbsp:%
 function! ZenkakuSpace()
     highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
 endfunction
-   
+
 if has('syntax')
     augroup ZenkakuSpace
         autocmd!
@@ -131,7 +122,7 @@ if has('syntax')
     call ZenkakuSpace()
 endif
 
-" <http://inari.hatenablog.com/entry/2014/05/05/231307>
+" < http://inari.hatenablog.com/entry/2014/05/05/231307 >
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 " スクロール送りを開始する前後の行数指定
@@ -145,9 +136,21 @@ if has("autocmd")
     \ endif
 endif
 
+
 """ 外観テーマ篇 """
+
 " 暗背景用の配色にする
 " set background=dark
+
+" フォントの設定
+""" Windows の場合
+if has('win32') || has ('win64')
+    set guifont=Ricty_Diminished:h16
+endif
+
+" TODO: Windows用gVim使用時は.gvimrcを編集する
+" コマンドラインの行数
+set cmdheight=3
 
 
 """ コンソール表示篇 """
@@ -155,11 +158,26 @@ endif
 " カーソルの行列表示
 set ruler
 
-" コマンドラインの行数
-set cmdheight=3
-
 
 """ ウィンドウ表示篇 """
+
+" 終了時にウィンドウサイズを記憶する
+let g:save_window_file = expand('~/.vimwinpos')
+augroup SaveWindow
+    autocmd!
+    autocmd VimLeavePre * call s:save_window()
+    function! s:save_window()
+        let options = [
+            \ 'set columns=' . &columns,
+            \ 'set lines=' . &lines,
+            \ 'winpos ' . getwinposx() . ' ' . getwinposy(),
+            \ ]
+        call writefile(options, g:save_window_file)
+    endfunction
+augroup END
+if filereadable(g:save_window_file)
+    execute 'source' g:save_window_file
+endif
 
 " ウインドウタイトルにファイルのパス情報等を表示
 set title
@@ -176,7 +194,7 @@ set showcmd
 
 """ マクロ ＆ キーアサイン篇 """
 
-" 入力モード中 "jj" : <Esc>
+" 入力モード中 "jj": <Esc>
 inoremap jj <Esc>
 
 " "v" + "v": 行末まで選択
@@ -204,6 +222,23 @@ autocmd MyAutoCmd BufWritePre * call s:mkdir(expand('<afile>:p:h'), v:cmdbang)
 set wildmenu
 
 
+""" 一般設定篇 """
+
+" スワップファイルのディレクトリ変更
+set directory=C:/Temp
+set directory=~/vimfiles/tmp
+set directory=.
+
+" バックアップファイルのディレクトリ変更
+set backupdir=C:/Temp
+set backupdir=~/vimfiles/tmp
+set backupdir=.
+
+" .vimrc と .gvimrc を分割配置
+set runtimepath+=~/.vimfiles/
+runtime! userautoload/*.vim
+
+
 """ Vimスクリプト 記述法 Memo """
 
 """ OS固有の設定を持つ場合
@@ -223,7 +258,7 @@ set wildmenu
 "         " Unix と Mac の共通設定
 " endif
 
-""" Windlws の場合
+""" Windows の場合
 " if has('win32') || has ('win64')
 "         " Windows 32bit、 Windows 64bit 用設定
 " endif
