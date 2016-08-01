@@ -5,24 +5,24 @@ scriptencoding utf-8
 " test from Xacti
 " test from Xacti Windows
 
-""" Leader�� """
+""" Leader篇 """
 
-" <Space> �� Leader �Ɋ�����
+" <Space> を Leader に割当て
 let mapleader = "\<Space>"
 
-" <Space>+ "o": �t�@�C�����J��
+" <Space>+ "o": ファイルを開く
 nnoremap <Leader>o :CtrlP<CR>
 
-" <Space> + "w": �t�@�C����ۑ�
+" <Space> + "w": ファイルを保存
 nnoremap <Leader>w :w<CR>
 "
-" <Space> + <Space>: �r�W���A�����C�����[�h�ɐؑւ�
+" <Space> + <Space>: ビジュアルラインモードに切替え
 nmap <Leader><Leader> V
 
 
-""" ������ """
+""" 検索篇 """
 
-" �����W�����v����ʒ����ɕ\��
+" 検索ジャンプを画面中央に表示
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
@@ -30,68 +30,68 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
-" �C���N�������^���T�[�`
-" �� �����������͂ő��������J�n
+" インクリメンタルサーチ
+" ※ 検索文字入力で即時検索開始
 set incsearch
 
-" �����}�b�`�e�L�X�g���n�C���C�g
+" 検索マッチテキストをハイライト
 set hlsearch
 
-" �啶���E����������ʂ��Ȃ�
+" 大文字・小文字を区別しない
 set ignorecase
 
-" ���������ɑ啶��������ꍇ�͑啶���E�����������
+" 検索文字に大文字がある場合は大文字・小文字を区別
 set smartcase
 
-" "\" �� "?" ���󋵂ɍ��������G�X�P�[�v
+" "\" や "?" を状況に合せ自動エスケープ
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 
 
-""" �ҏW�� """
+""" 編集篇 """
 
-" �����N�����f�[�^���N���b�v�{�[�h�Ŏg�p���I��͈͎����R�s�[
-" �� �g�p�ł��邩�͊��ɂ��
-" �Q�l: http://nanasi.jp/articles/howto/editing/clipboard.html
+" ヤンクしたデータをクリップボードで使用＆選択範囲自動コピー
+" ※ 使用できるかは環境による
+" 参考: http://nanasi.jp/articles/howto/editing/clipboard.html
 set clipboard=unnamed,autoselect
 
-" �����I�ɕ����ʂ����
-" �� ���܂�X�}�[�g�ł͂Ȃ��E�E�E
+" 自動的に閉じ括弧を入力
+" ※ あまりスマートではない・・・
 imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
 
-" "<" �A ">" �ŃC���f���g���鎞�A"shiftwidth" �̔{���Ɋۂ߂�
+" "<" 、 ">" でインデントする時、"shiftwidth" の倍数に丸める
 set shiftround
 
 
-""" ���C���\���� """
+""" メイン表示篇 """
 
-" �s�ԍ��̕\��
+" 行番号の表示
 set number
 
-" �V���^�b�N�X�n�C���C�g
+" シンタックスハイライト
 syntax on
 
-" �J�[�\���s�̔w�i�F�ύX
+" カーソル行の背景色変更
 set cursorline
 "
-" �΂ɂȂ銇�ʂ�����
+" 対になる括弧を強調
 set showmatch
 
-" ���s���ɑO�s�̃C���f���g���p��
+" 改行時に前行のインデントを継続
 set autoindent
-" ���s���ɓ��͂��ꂽ�s�����ɍ��킹�A���s�C���f���g�𑝌�
+" 改行時に入力された行末尾に合わせ、次行インデントを増減
 set smartindent
 
-" �S�p�X�y�[�X�̉���
+" 全角スペースの可視化
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
-au BufNewFile,BufRead * match ZenkakuSpace /�@/
+au BufNewFile,BufRead * match ZenkakuSpace /　/
 
-" �X�N���[��������J�n����O��̍s���w��
+" スクロール送りを開始する前後の行数指定
 set scrolloff=5
 
-" �t�@�C�����J�������ɍŌ�̃J�[�\���ʒu�𕜌�����
+" ファイルを開いた時に最後のカーソル位置を復元する
 if has("autocmd")
     autocmd BufReadPost *
     \ if line("'\"") > 0 && line ("'\"") <= line("$") |
@@ -99,56 +99,56 @@ if has("autocmd")
     \ endif
 endif
 
-" �s�������̉���
+" 不可視文字の可視化
 set list
-" �s�������� "Unicode" �ŕ\��
-set listchars=tab:��-,trail:-,extends:��,precedes:��,nbsp:%,eol:?
+" 不可視文字を "Unicode" で表示
+set listchars=tab:≫-,trail:-,extends:≫,precedes:≪,nbsp:%,eol:?
 
 
-""" �O�σe�[�}�� """
-" �Ôw�i�p�̔z�F�ɂ���
+""" 外観テーマ篇 """
+" 暗背景用の配色にする
 set background=dark
 
 
-""" �R���\�[���\���� """
+""" コンソール表示篇 """
 
-" �J�[�\���̍s��\��
+" カーソルの行列表示
 set ruler
 
-" �R�}���h���C���̍s��
+" コマンドラインの行数
 set cmdheight=3
 
 
-""" �E�B���h�E�\���� """
+""" ウィンドウ表示篇 """
 
-" �E�C���h�E�^�C�g���Ƀt�@�C���̃p�X��񓙂�\��
+" ウインドウタイトルにファイルのパス情報等を表示
 set title
 
-" <Shift> + <���>: �E�B���h�E�T�C�Y�ύX
+" <Shift> + <矢印>: ウィンドウサイズ変更
 nnoremap <S-Left>  <C-w><<CR>
 nnoremap <S-Right> <C-w>><CR>
 nnoremap <S-Up>    <C-w>-<CR>
 nnoremap <S-Down>  <C-w>+<CR>
 
-" �E�B���h�E�E���ɓ��͒��̃R�}���h��\��
+" ウィンドウ右下に入力中のコマンドを表示
 set showcmd
 
 
-""" �}�N�� �� �L�[�A�T�C���� """
+""" マクロ ＆ キーアサイン篇 """
 
-" ���̓��[�h�� "jj" : <Esc>
+" 入力モード中 "jj" : <Esc>
 inoremap jj <Esc>
 
-" "v" + "v": �s���܂őI��
+" "v" + "v": 行末まで選択
 vnoremap v $h
 
-" <ESC> + <ESC>: �n�C���C�g����
+" <ESC> + <ESC>: ハイライト消去
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
-" "w!!" :�X�[�p�[���[�U�[�Ƃ��ĕۑ��isudo���g���������j
+" "w!!" :スーパーユーザーとして保存（sudoが使える環境限定）
 cmap w!! w !sudo tee > /dev/null %
 
-" ":e" �ȂǂŃt�@�C�����J�����A�t�H���_�����݂��Ȃ��ꍇ�͎����쐬
+" ":e" などでファイルを開く時、フォルダが存在しない場合は自動作成
 function! s:mkdir(dir, force)
   if !isdirectory(a:dir) && (a:force ||
         \ input(printf('"%s" does not exist. Create? [y/N]', a:dir)) =~? '^y\%[es]$')
@@ -158,32 +158,32 @@ endfunction
 autocmd MyAutoCmd BufWritePre * call s:mkdir(expand('<afile>:p:h'), v:cmdbang)
 
 
-""" �R�}���h���C�����[�h�� """
+""" コマンドラインモード篇 """
 "
-" �R�}���h���C�����[�h��<Tab>�L�[�ɂ��t�@�C�����⊮��L���ɂ���
+" コマンドラインモードで<Tab>キーによるファイル名補完を有効にする
 set wildmenu
 
 
-""" Vim�X�N���v�g �L�q�@ Memo """
+""" Vimスクリプト 記述法 Memo """
 
-""" OS�ŗL�̐ݒ�����ꍇ
+""" OS固有の設定を持つ場合
 
-""" Unix �̏ꍇ
-" if has('unix') 
-"         " Unix �p�ݒ�
+""" Unix の場合
+" if has('unix')
+"         " Unix 用設定
 " endif
 
-""" Mac �̏ꍇ
+""" Mac の場合
 " if has('mac')
-"         " Mac �p�ݒ�
+"         " Mac 用設定
 " endif
 
-" Unix �� Mac ���ʂ̐ݒ�̏ꍇ
+" Unix と Mac 共通の設定の場合
 " if has('unix') || has('mac')
-"         " Unix �� Mac �̋��ʐݒ�
+"         " Unix と Mac の共通設定
 " endif
 
-""" Windlws �̏ꍇ
+""" Windlws の場合
 " if has('win32') || has ('win64')
-"         " Windows 32bit�A Windows 64bit �p�ݒ�
+"         " Windows 32bit、 Windows 64bit 用設定
 " endif
