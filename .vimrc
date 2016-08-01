@@ -34,6 +34,9 @@ nnoremap g# g#zz
 " ※ 検索文字入力で即時検索開始
 set incsearch
 
+" 最後のヒットまで検索したら最初のヒットに戻る
+set wrapscan
+
 " 検索マッチテキストをハイライト
 set hlsearch
 
@@ -46,6 +49,10 @@ set smartcase
 " "\" や "?" を状況に合せ自動エスケープ
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
+
+" grep検索の設定
+set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
+set grepprg=grep\ -nh
 
 
 """ 編集篇 """
@@ -64,6 +71,8 @@ imap ( ()<LEFT>
 " "<" 、 ">" でインデントする時、"shiftwidth" の倍数に丸める
 set shiftround
 
+" 入力コマンド履歴の保存数
+set history=1000
 
 """ メイン表示篇 """
 
@@ -72,6 +81,19 @@ set number
 
 " シンタックスハイライト
 syntax on
+
+" 画面上のタブ幅
+set tabstop=4
+
+" 行頭で <Tab> を入力すると "shiftwidth" 分インデントし、それ以外のは "tabstop" 分インデントする
+set smarttab
+
+" 現在行と同じインデントを挿入
+set autoindent
+
+" ダブ文字をスペースに置き換える
+set expandtab
+
 
 " カーソル行の背景色変更
 set cursorline
@@ -88,6 +110,30 @@ set smartindent
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
 au BufNewFile,BufRead * match ZenkakuSpace /　/
 
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" 不可視文字（タブ、空白、改行）の可視化
+set list
+" 不可視文字（タブ、空白、改行）を "Unicode" で表示
+" set listchars=tab:≫-,trail:-,extends:≫,precedes:≪,nbsp:%,eol:?
+set listchars=tab:>.,trail:_,eol:?,extends:>,precedes:<,nbsp:%
+
+"全角スペースをハイライト表示
+function! ZenkakuSpace()
+    highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
+endfunction
+   
+if has('syntax')
+    augroup ZenkakuSpace
+        autocmd!
+        autocmd ColorScheme       * call ZenkakuSpace()
+        autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
+    augroup END
+    call ZenkakuSpace()
+endif
+
+" <http://inari.hatenablog.com/entry/2014/05/05/231307>
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " スクロール送りを開始する前後の行数指定
 set scrolloff=5
 
@@ -99,15 +145,9 @@ if has("autocmd")
     \ endif
 endif
 
-" 不可視文字の可視化
-set list
-" 不可視文字を "Unicode" で表示
-set listchars=tab:≫-,trail:-,extends:≫,precedes:≪,nbsp:%,eol:?
-
-
 """ 外観テーマ篇 """
 " 暗背景用の配色にする
-set background=dark
+" set background=dark
 
 
 """ コンソール表示篇 """
@@ -160,7 +200,7 @@ autocmd MyAutoCmd BufWritePre * call s:mkdir(expand('<afile>:p:h'), v:cmdbang)
 
 """ コマンドラインモード篇 """
 "
-" コマンドラインモードで<Tab>キーによるファイル名補完を有効にする
+" コマンドラインモードで <Tab> によるファイル名補完を有効にする
 set wildmenu
 
 
