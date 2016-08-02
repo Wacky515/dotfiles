@@ -88,14 +88,17 @@ syntax on
 set shiftwidth=4
 " タブ文字の幅
 set tabstop=4
-" ダブ文字をスペースに置き換え
+" ダブ文字を空白文字に置き換え
 set expandtab
-" 現在行と同じインデントを挿入
-set autoindent
-" "<" 、 ">" でインデントする時、"shiftwidth" の倍数に丸める
-set shiftround
 " 行頭は "shiftwidth" 分、それ以外は "tabstop" 分インデント
 set smarttab
+
+" 現在行と同じインデントを挿入
+set autoindent
+" 前行末尾に合わせ、次行インデントを増減
+set smartindent
+" "<" 、 ">" でインデントする時、"shiftwidth" の倍数に丸める
+set shiftround
 
 " カーソル行の背景色変更
 set cursorline
@@ -104,11 +107,6 @@ set cursorline
 set showmatch
 " 対応括弧に "<" と ">" を追加
 set matchpairs& matchpairs+=<:>
-
-" 改行時に前行のインデントを継続
-set autoindent
-" 前行末尾に合わせ、次行インデントを増減
-set smartindent
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " !!!: 不可視文字の可視化は見難いのでkillしている
@@ -152,12 +150,13 @@ endif
 
 " カラースキーマの指定
 colorscheme desert
+" colorscheme hybird
 
 " 行番号の色
 highlight LineNr ctermfg=darkyellow
 
 " 暗背景用の配色にする
-" set background=dark
+set background=dark
 
 " フォントの設定
 """ Windows の場合
@@ -254,8 +253,8 @@ set wildmenu
 """ 基本設定篇 """
 
 " .vimrc と .gvimrc を分割配置
-set runtimepath+=~/.vimfiles/
-runtime! userautoload/*.vim
+" set runtimepath+=~/.vimfiles/
+" runtime! userautoload/*.vim
 
 if has('unix') || has('mac')
     " ".swp" のディレクトリ変更
@@ -289,6 +288,7 @@ endif
 " ステータス行に現在のgitブランチを表示
 " !!!: プラグインが必要
 " set statusline+=%{fugitive#statusline()}
+
 
 
 """ Vimスクリプト 記述法 Memo """
