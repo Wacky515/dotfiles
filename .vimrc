@@ -181,7 +181,12 @@ set ruler
 """ ウィンドウ表示篇 """
 
 " 終了時にウィンドウサイズを記憶する
-let g:save_window_file = expand('~/.vaimwinpos')
+if has('unix') || has('mac')
+    let g:save_window_file = '/tmp/.vimwinpos'
+endif
+if has('win32') || has ('win64')
+let g:save_window_file = 'C:/Temp/.vimwinpos'
+endif
 augroup SaveWindow
     autocmd!
     autocmd VimLeavePre * call s:save_window()
@@ -246,39 +251,44 @@ endif
 set wildmenu
 
 
-""" 一般設定篇 """
-
-if has('unix') || has('mac')
-".swp" のディレクトリ変更
-set directory=/tmp
-" "~" のディレクトリ変更
-set backupdir=/tmp
-" ".un~" のディレクトリ変更
-set undodir=/tmp
-" ".viminfo" のディレクトリ変更
-set viminfo+=n/tmp/viminfo.txt
-endif
-
-if has('win32') || has ('win64')
-".swp" のディレクトリ変更
-set directory=C:/Temp
-" "~" のディレクトリ変更
-set backupdir=C:/Temp
-" ".un~" のディレクトリ変更
-set undodir=C:/Temp
-" ".viminfo" のディレクトリ変更
-set viminfo+=nC:/Temp/viminfo.txt
-endif
+""" 基本設定篇 """
 
 " .vimrc と .gvimrc を分割配置
 set runtimepath+=~/.vimfiles/
 runtime! userautoload/*.vim
 
+if has('unix') || has('mac')
+    " ".swp" のディレクトリ変更
+    set directory=/tmp
+    " "~" のディレクトリ変更
+    set backupdir=/tmp
+    " ".un~" のディレクトリ変更
+    set undodir=/tmp
+    " ".viminfo" のディレクトリ変更
+    set viminfo+=n/tmp/viminfo.txt
+endif
+
+if has('win32') || has ('win64')
+    " ".swp" のディレクトリ変更
+    set directory=C:/Temp
+    " "~" のディレクトリ変更
+    set backupdir=C:/Temp
+    " ".un~" のディレクトリ変更
+    set undodir=C:/Temp
+    " ".viminfo" のディレクトリ変更
+    set viminfo+=nC:/Temp/viminfo.txt
+endif
+
+" モードラインの設定
+" ※ ファイル毎のエディタ設定
+:set modeline
+
 
 """ ステータス行篇 """
 
 " ステータス行に現在のgitブランチを表示
-set statusline+=%{fugitive#statusline()}
+" !!!: プラグインが必要
+" set statusline+=%{fugitive#statusline()}
 
 
 """ Vimスクリプト 記述法 Memo """
