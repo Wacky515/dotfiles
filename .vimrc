@@ -1,6 +1,12 @@
 scriptencoding utf-8
 
 
+" マクロの初期化
+" !!!: 必ず先頭に記述
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
 """ Leader篇 """
 
 " <Space> を "Leader" に割当て
@@ -96,6 +102,8 @@ set cursorline
 
 " 対になる括弧を強調
 set showmatch
+" 対応括弧に "<" と ">" を追加
+set matchpairs& matchpairs+=<:>
 
 " 改行時に前行のインデントを継続
 set autoindent
@@ -106,7 +114,6 @@ set smartindent
 " !!!: 不可視文字の可視化は見難いのでkillしている
 " 不可視文字（タブ、空白、改行）の可視化
 " set list
-" ↑ or ↓
 " 不可視文字（タブ、空白、改行）を "Unicode" で表示
 " set listchars=tab:≫-,trail:-,extends:≫,precedes:≪,nbsp:%,eol:?
 " ↑ or ↓
