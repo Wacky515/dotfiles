@@ -149,8 +149,8 @@ endif
 """ 外観テーマ篇 """
 
 " カラースキーマの指定
-colorscheme desert
-" colorscheme hybird
+colorscheme hybird
+" colorscheme desert
 
 " 行番号の色
 highlight LineNr ctermfg=darkyellow
@@ -159,6 +159,7 @@ highlight LineNr ctermfg=darkyellow
 set background=dark
 
 " フォントの設定
+" TODO: フォントのインストール
 """ Windows の場合
 if has('win32') || has ('win64')
     set guifont=Ricty_Diminished:h16
@@ -256,6 +257,7 @@ set wildmenu
 " set runtimepath+=~/.vimfiles/
 " runtime! userautoload/*.vim
 
+" FIXME: 動作せず
 if has('unix') || has('mac')
     " ".swp" のディレクトリ変更
     set directory=/tmp
@@ -313,4 +315,12 @@ endif
 """ Windows の場合
 " if has('win32') || has ('win64')
 "         " Windows 32bit、 Windows 64bit 用設定
+" endif
+
+""" 環境固有の設定を持つ場合
+
+" if ( has ('python') || has('python3') )
+" 	" Python 用設定
+" else
+" 	" Python 以外の設定
 " endif
