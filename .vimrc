@@ -1,11 +1,11 @@
 scriptencoding utf-8
 
-
 " マクロの初期化
 " !!!: 必ず先頭に記述
 augroup MyAutoCmd
   autocmd!
 augroup END
+
 
 """ Leader篇 """
 
@@ -150,6 +150,12 @@ endif
 
 """ 外観テーマ篇 """
 
+" カラースキーマの指定
+colorscheme desert
+
+" 行番号の色
+highlight LineNr ctermfg=darkyellow
+
 " 暗背景用の配色にする
 " set background=dark
 
@@ -159,9 +165,11 @@ if has('win32') || has ('win64')
     set guifont=Ricty_Diminished:h16
 endif
 
-" TODO: Windows用gVim使用時は.gvimrcを編集する
 " コマンドラインの行数
-set cmdheight=3
+" DONE: Windows用gVim使用時は.gvimrcを編集する
+if has('unix') || has('mac')
+    set cmdheight=3
+endif
 
 
 """ コンソール表示篇 """
@@ -173,7 +181,7 @@ set ruler
 """ ウィンドウ表示篇 """
 
 " 終了時にウィンドウサイズを記憶する
-let g:save_window_file = expand('~/.vimwinpos')
+let g:save_window_file = expand('~/.vaimwinpos')
 augroup SaveWindow
     autocmd!
     autocmd VimLeavePre * call s:save_window()
@@ -194,7 +202,7 @@ endif
 set title
 
 " <Shift> + <矢印>: ウィンドウサイズ変更
-" FIXME: 動作せず
+" FIXME: Windows動作せず
 " nnoremap <S-Left>  <C-w><<CR>
 " nnoremap <S-Right> <C-w>><CR>
 " nnoremap <S-Up>    <C-w>-<CR>
@@ -216,7 +224,9 @@ vnoremap v $h
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
 " "w!!" :スーパーユーザーとして保存（sudoが使える環境限定）
-cmap w!! w !sudo tee > /dev/null %
+if has('unix') || has('mac')
+    cmap w!! w !sudo tee > /dev/null %
+endif
 
 " ":e" などでファイルを開く時、フォルダが存在しない場合は自動作成
 function! s:mkdir(dir, force)
@@ -246,7 +256,7 @@ set backupdir=/tmp
 " ".un~" のディレクトリ変更
 set undodir=/tmp
 " ".viminfo" のディレクトリ変更
-set viminfo+=n/tmp
+set viminfo+=n/tmp/viminfo.txt
 endif
 
 if has('win32') || has ('win64')
@@ -257,12 +267,18 @@ set backupdir=C:/Temp
 " ".un~" のディレクトリ変更
 set undodir=C:/Temp
 " ".viminfo" のディレクトリ変更
-set viminfo+=nC:/Temp
+set viminfo+=nC:/Temp/viminfo.txt
 endif
 
 " .vimrc と .gvimrc を分割配置
 set runtimepath+=~/.vimfiles/
 runtime! userautoload/*.vim
+
+
+""" ステータス行篇 """
+
+" ステータス行に現在のgitブランチを表示
+set statusline+=%{fugitive#statusline()}
 
 
 """ Vimスクリプト 記述法 Memo """
