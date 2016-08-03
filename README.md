@@ -3,7 +3,7 @@
 
 # Layout
 `
-~/
+~/  
 ├── dotfiles  
 │    ├── README.md  
 │    ├── link.sh  
@@ -12,7 +12,7 @@
 │    ├── .vim  
 │    ├── .vimrc  
 │    └── .gvimrc  
-│
+│  
 │     # Symbolic link  
 ├── .vim -&gt; /root/dotfiles/.vim  
 ├── .vimrc -&gt; /root/dotfiles/.vimrc  
