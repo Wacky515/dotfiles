@@ -48,5 +48,6 @@ Thumbs.db
 # 追記
 # ------------------------------
 tags
+memo.txt
 *.old
 *.modifying
