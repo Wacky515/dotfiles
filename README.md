@@ -4,19 +4,19 @@
 # Layout
 `
 ~/
-„¥„Ÿ„Ÿ dotfiles
-„     „¥„Ÿ„Ÿ README.md
-„     „¥„Ÿ„Ÿ link.sh
-„     „¥„Ÿ„Ÿ .git
-„     „¥„Ÿ„Ÿ .gitignore
-„     „¥„Ÿ„Ÿ .vim
-„     „¥„Ÿ„Ÿ .vimrc
-„     „¤„Ÿ„Ÿ .gvimrc
-„ 
-„      # Symbolic link
-„¥„Ÿ„Ÿ .vim -&gt; /root/dotfiles/.vim
-„¥„Ÿ„Ÿ .vimrc -&gt; /root/dotfiles/.vimrc
-„¤„Ÿ„Ÿ .gvimrc -&gt; /root/dotfiles/.gvimrc
+â”œâ”€â”€ dotfiles
+â”‚    â”œâ”€â”€ README.md
+â”‚    â”œâ”€â”€ link.sh
+â”‚    â”œâ”€â”€ .git
+â”‚    â”œâ”€â”€ .gitignore
+â”‚    â”œâ”€â”€ .vim
+â”‚    â”œâ”€â”€ .vimrc
+â”‚    â””â”€â”€ .gvimrc
+â”‚
+â”‚     # Symbolic link
+â”œâ”€â”€ .vim -&gt; /root/dotfiles/.vim
+â”œâ”€â”€ .vimrc -&gt; /root/dotfiles/.vimrc
+â””â”€â”€ .gvimrc -&gt; /root/dotfiles/.gvimrc
 `
 
 # FIXME: Color scheme directory
