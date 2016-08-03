@@ -13,7 +13,7 @@
 │    └── .gvimrc  
 │  
 │     # Symbolic link  
-├── .vimfiles -&gt; /root/dotfiles/.vimfiles  
+├── .vim -&gt; /root/dotfiles/.vim  
 ├── .vimrc -&gt; /root/dotfiles/.vimrc  
 └── .gvimrc -&gt; /root/dotfiles/.gvimrc  
 
