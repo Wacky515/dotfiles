@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# 暫定的にコマンドを決め打ちにする
+# 暫定的にコマンドを決め打ちにsita
 echo Start link
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/.gvimrc ~/.gvimrc
-ln -sf ~/dotfiles/.vimfiles ~/.vimfiles
+ln -sf ~/dotfiles/.vim ~/.vim
 echo Done link
 
 
