@@ -7,22 +7,6 @@ augroup MyAutoCmd
 augroup END
 
 
-""" Leader篇 """
-
-" <Space> を "Leader" に割当て
-let mapleader = "\<Space>"
-
-" <Space> + "o": ファイルを開く
-" !!!: プラグインが必要
-" nnoremap <Leader>o :CtrlP<CR>
-
-" <Space> + "w": ファイルを保存
-nnoremap <Leader>w :w<CR>
-"
-" <Space> + <Space>: ビジュアルラインモードに切替え
-nmap <Leader><Leader> V
-
-
 """ 検索篇 """
 
 " 検索ジャンプを画面中央に表示
@@ -37,9 +21,9 @@ nnoremap g# g#zz
 " ※ 検索文字入力で即時検索開始
 set incsearch
 
-" 大文字・小文字を区別しない
+" 検索時に大文字・小文字を区別しない
 set ignorecase
-" 検索文字に大文字がある場合は大文字・小文字を区別
+" 検索時に大文字がある場合は大文字・小文字を区別
 set smartcase
 
 " 最後のヒットまで検索したら最初のヒットに戻る
@@ -72,9 +56,6 @@ imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
 
-" 入力コマンド履歴の保存数
-set history=1000
-
 
 """ コンソール表示篇 """
 
@@ -87,7 +68,7 @@ set ruler
 " フォントの設定
 " TODO: フォントのインストール
 """ Windows の場合
-if has('win32') || has ('win64')
+if has('win32') || has ('win64') || ('mac')
     set guifont=Ricty_Diminished:h16
 endif
 
@@ -164,9 +145,6 @@ endif
 
 """ ウィンドウ表示篇 """
 
-" ウィンドウ 半透明化
-:autocmd GUIEnter * set transparency=235
-
 " 終了時にウィンドウサイズを記憶する
 if has('unix') || has('mac')
     let g:save_window_file = '/tmp/.vimwinpos'
@@ -216,7 +194,14 @@ set wildmenu
 set runtimepath+=~/.vimfiles/
 runtime! userautoload/*.vim
 
-" FIXME: 動作せず
+
+" 入力コマンド履歴の保存数
+set history=1000
+
+" 折り畳みの設定
+:set foldmethod=marker
+
+" FIXME: 動作せず(Mac OK!)
 if has('unix') || has('mac')
     " ".swp" のディレクトリ変更
     set directory=~/.vim/tmp
@@ -239,15 +224,6 @@ if has('win32') || has ('win64')
     set viminfo+=nC:/Temp/viminfo.txt
 endif
 
-" 折り畳みの設定
-:set foldmethod=marker
-
-" 一つ前のバッファを開く
-nnoremap <silent>bp :bprevious<CR>
-" 次のバッファを開く
-nnoremap <silent>bn :bnext<CR>
-" 直前のバッファを開く
-nnoremap <silent>bb :b#<CR>
 
 " モードラインの設定
 " ※ ファイル毎のエディタ設定

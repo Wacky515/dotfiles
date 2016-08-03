@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-""" マクロ ＆ キーアサイン篇 """
+""" マップキー篇 """
 
 " 入力モード中 "jj": <Esc>
 inoremap jj <Esc>
@@ -10,6 +10,13 @@ vnoremap v $h
 
 " <ESC> + <ESC>: ハイライト消去
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
+
+" 一つ前のバッファを開く
+nnoremap <silent>bp :bprevious<CR>
+" 次のバッファを開く
+nnoremap <silent>bn :bnext<CR>
+" 直前のバッファを開く
+nnoremap <silent>bb :b#<CR>
 
 " vimrc、gvimrcを開く
 nmap ,v :edit $MYVIMRC<CR>
@@ -33,3 +40,19 @@ endfunction
 if has('unix') || has('mac')
     autocmd MyAutoCmd BufWritePre * call s:mkdir(expand('<afile>:p:h'), v:cmdbang)
 endif
+
+
+""" Leader篇 """
+
+" <Space> を "Leader" に割当て
+let mapleader = "\<Space>"
+
+" <Space> + "o": ファイルを開く
+" !!!: プラグインが必要
+" nnoremap <Leader>o :CtrlP<CR>
+
+" <Space> + "w": ファイルを保存
+nnoremap <Leader>w :w<CR>
+"
+" <Space> + <Space>: ビジュアルラインモードに切替え
+nmap <Leader><Leader> V
