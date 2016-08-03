@@ -76,13 +76,29 @@ imap ( ()<LEFT>
 set history=1000
 
 
+""" コンソール表示篇 """
+
+" カーソルの行列表示
+set ruler
+
+
 """ メイン表示篇 """
+
+" フォントの設定
+" TODO: フォントのインストール
+""" Windows の場合
+if has('win32') || has ('win64')
+    set guifont=Ricty_Diminished:h16
+endif
+
+" コマンドラインの行数
+" DONE: Windows用gVim使用時は.gvimrcを編集する
+if has('unix') || has('mac')
+    set cmdheight=3
+endif
 
 " 行番号の表示
 set number
-
-" シンタックスハイライト
-syntax on
 
 " 自動インデント時の空白数
 set shiftwidth=4
@@ -146,39 +162,10 @@ if has("autocmd")
 endif
 
 
-""" 外観テーマ篇 """
-
-" カラースキーマの指定
-colorscheme hybrid
-" colorscheme desert
-
-" 行番号の色
-highlight LineNr ctermfg=darkyellow
-
-" 暗背景用の配色にする
-set background=dark
-
-" フォントの設定
-" TODO: フォントのインストール
-""" Windows の場合
-if has('win32') || has ('win64')
-    set guifont=Ricty_Diminished:h16
-endif
-
-" コマンドラインの行数
-" DONE: Windows用gVim使用時は.gvimrcを編集する
-if has('unix') || has('mac')
-    set cmdheight=3
-endif
-
-
-""" コンソール表示篇 """
-
-" カーソルの行列表示
-set ruler
-
-
 """ ウィンドウ表示篇 """
+
+" ウィンドウ 半透明化
+:autocmd GUIEnter * set transparency=235
 
 " 終了時にウィンドウサイズを記憶する
 if has('unix') || has('mac')
@@ -217,34 +204,6 @@ set title
 set showcmd
 
 
-""" マクロ ＆ キーアサイン篇 """
-
-" 入力モード中 "jj": <Esc>
-inoremap jj <Esc>
-
-" "v" + "v": 行末まで選択
-vnoremap v $h
-
-" <ESC> + <ESC>: ハイライト消去
-nmap <silent> <Esc><Esc> :nohlsearch<CR>
-
-" "w!!" :スーパーユーザーとして保存（sudoが使える環境限定）
-if has('unix') 
-    cmap w!! w !sudo tee > /dev/null %
-endif
-
-" ":e" などでファイルを開く時、フォルダが存在しない場合は自動作成
-function! s:mkdir(dir, force)
-  if !isdirectory(a:dir) && (a:force ||
-        \ input(printf('"%s" does not exist. Create? [y/N]', a:dir)) =~? '^y\%[es]$')
-    call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
-  endif
-endfunction
-if has('unix') || has('mac')
-        autocmd MyAutoCmd BufWritePre * call s:mkdir(expand('<afile>:p:h'), v:cmdbang)
-endif
-
-
 """ コマンドラインモード篇 """
 "
 " コマンドラインモードで <Tab> によるファイル名補完を有効にする
@@ -254,8 +213,8 @@ set wildmenu
 """ 基本設定篇 """
 
 " .vimrc と .gvimrc を分割配置
-" set runtimepath+=~/.vimfiles/
-" runtime! userautoload/*.vim
+set runtimepath+=~/.vimfiles/
+runtime! userautoload/*.vim
 
 " FIXME: 動作せず
 if has('unix') || has('mac')
@@ -280,17 +239,41 @@ if has('win32') || has ('win64')
     set viminfo+=nC:/Temp/viminfo.txt
 endif
 
+" 折り畳みの設定
+:set foldmethod=marker
+
+" 一つ前のバッファを開く
+nnoremap <silent>bp :bprevious<CR>
+" 次のバッファを開く
+nnoremap <silent>bn :bnext<CR>
+" 直前のバッファを開く
+nnoremap <silent>bb :b#<CR>
+
 " モードラインの設定
 " ※ ファイル毎のエディタ設定
 :set modeline
 
+" FIXME: ↓効かない
+" vimrc 即時反映
+" augroup MyAutoCmd
+"     autocmd!
+" augroup END
+" 
+" if !has('gui_running') && !(has('win32') || has('win64'))
+"     " .vimrcの再読込時にも色が変化するようにする
+"     autocmd MyAutoCmd BufWritePost $MYVIMRC nested source $MYVIMRC
+" else
+"     " .vimrcの再読込時にも色が変化するようにする
+"     autocmd MyAutoCmd BufWritePost $MYVIMRC source $MYVIMRC |
+"                 \if has('gui_running') | source $MYGVIMRC
+"     autocmd MyAutoCmd BufWritePost $MYGVIMRC if has('gui_running') | source $MYGVIMRC
+" endif
 
 """ ステータス行篇 """
 
 " ステータス行に現在のgitブランチを表示
 " !!!: プラグインが必要
 " set statusline+=%{fugitive#statusline()}
-
 
 
 """ Vimスクリプト 記述法 Memo """
