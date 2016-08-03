@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# 暫定的にコマンドを決め打ちにする
 echo Start link
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
@@ -8,6 +9,7 @@ ln -sf ~/dotfiles/.vimfiles ~/.vimfiles
 echo Done link
 
 
+# 将来的には以下の様に汎用化する
 # for f in .??*
 # do
 #     [[ "$f" == ".git" ]] && continue

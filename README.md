@@ -2,22 +2,20 @@
 `./link.sh`
 
 # Layout
-`
 ~/  
 ├── dotfiles  
 │    ├── README.md  
-│    ├── link.sh  
 │    ├── .git  
 │    ├── .gitignore  
-│    ├── .vim  
+│    ├── link.sh  
+│    ├── .vimfiles  
 │    ├── .vimrc  
 │    └── .gvimrc  
 │  
 │     # Symbolic link  
-├── .vim -&gt; /root/dotfiles/.vim  
+├── .vimfiles -&gt; /root/dotfiles/.vimfiles  
 ├── .vimrc -&gt; /root/dotfiles/.vimrc  
 └── .gvimrc -&gt; /root/dotfiles/.gvimrc  
-`
 
 # FIXME: Color scheme directory
 Windows:    ~/vimfiles/colors  
