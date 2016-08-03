@@ -149,7 +149,7 @@ endif
 """ 外観テーマ篇 """
 
 " カラースキーマの指定
-colorscheme hybird
+colorscheme hybrid
 " colorscheme desert
 
 " 行番号の色
