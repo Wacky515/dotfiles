@@ -229,7 +229,7 @@ vnoremap v $h
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
 " "w!!" :スーパーユーザーとして保存（sudoが使える環境限定）
-if has('unix') || has('mac')
+if has('unix') 
     cmap w!! w !sudo tee > /dev/null %
 endif
 
@@ -260,13 +260,13 @@ set wildmenu
 " FIXME: 動作せず
 if has('unix') || has('mac')
     " ".swp" のディレクトリ変更
-    set directory=/tmp
+    set directory=~/.vim/tmp
     " "~" のディレクトリ変更
-    set backupdir=/tmp
+    set backupdir=~/.vim/tmp
     " ".un~" のディレクトリ変更
-    set undodir=/tmp
+    set undodir=~/.vim/tmp
     " ".viminfo" のディレクトリ変更
-    set viminfo+=n/tmp/viminfo.txt
+    set viminfo+=n~/.vim/tmp/viminfo.txt
 endif
 
 if has('win32') || has ('win64')
