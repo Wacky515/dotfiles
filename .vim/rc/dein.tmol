@@ -1,0 +1,3 @@
+# 基本は github.com のりポジトリを指定するだけ
+[[plugins]]
+repo = 'Shougo/dein.vim'

@@ -19,7 +19,7 @@ nnoremap <silent>bn :bnext<CR>
 nnoremap <silent>bb :b#<CR>
 
 " vimrcAgvimrc‚ğŠJ‚­
-gmap ,v :edit $MYVIMRC<CR>
+nmap ,v :edit $MYVIMRC<CR>
 nmap ,g :edit $MYGVIMRC<CR>
 " vimrcAgvimrc‚ğ”½‰f
 nnoremap <silent> <Space>rv :<C-u>source $MYVIMRC \| if has('gui_running') \| source $MYGVIMRC \| endif <CR>
