@@ -53,7 +53,8 @@ endif
 
 
 " Windows環境が設定ファイルの場所を、Mac OSX環境にあわせる
-set runtimepath+=$HOME/.vim,$HOME/.vim/after
+" set runtimepath+=$HOME/.vim,$HOME/.vim/after
+set runtimepath+=$HOME/.vim
 
 " .vimrc と .gvimrc を分割配置
 set runtimepath+=~/.vim/

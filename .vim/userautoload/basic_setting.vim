@@ -207,7 +207,7 @@ if has('unix') || has('mac')
     " ".viminfo" のディレクトリ変更
     set viminfo+=n~/.vim/tmp/viminfo.txt
 endif
-
+" TODO: ↓ディレクトリ（.vim）を変更する
 if has('win32') || has ('win64')
     " ".swp" のディレクトリ変更
     set directory=C:/Temp
