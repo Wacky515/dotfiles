@@ -1,15 +1,15 @@
 #!/bin/bash
 
-# b’è“I‚ÉƒRƒ}ƒ“ƒh‚ğŒˆ‚ß‘Å‚¿‚Ésita
+# æš«å®šçš„ã«ã‚³ãƒãƒ³ãƒ‰ã‚’æ±ºã‚æ‰“ã¡
 echo Start link
-ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
-ln -sf ~/dotfiles/.vimrc ~/.vimrc
-ln -sf ~/dotfiles/.gvimrc ~/.gvimrc
-ln -sf ~/dotfiles/.vim ~/.vim
+ln -sf â€¾/dotfiles/.gitconfig â€¾/.gitconfig
+ln -sf â€¾/dotfiles/.vimrc â€¾/.vimrc
+ln -sf â€¾/dotfiles/.gvimrc â€¾/.gvimrc
+ln -sf â€¾/dotfiles/.vim â€¾/.vim
 echo Done link
 
 
-# «—ˆ“I‚É‚ÍˆÈ‰º‚Ì—l‚É”Ä—p‰»‚·‚é
+# å°†æ¥çš„ã«ã¯ä»¥ä¸‹ã®æ§˜ã«æ±ç”¨åŒ–ã™ã‚‹
 # for f in .??*
 # do
 #     [[ "$f" == ".git" ]] && continue
@@ -23,11 +23,11 @@ echo Done link
 # 
 # for f in .??*
 # 
-# # –³‹‚µ‚½‚¢ƒtƒ@ƒCƒ‹‚âƒfƒBƒŒƒNƒgƒŠ‚ÍˆÈ‰º‚É’Ç‹L
+# # ç„¡è¦–ã—ãŸã„ãƒ•ã‚¡ã‚¤ãƒ«ã‚„ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã¯ä»¥ä¸‹ã«è¿½è¨˜
 # do
 #     [[ ${f} = "README.md" ]] && continue
-#     [[ ${f} = "*. ~" ]] && continue
-#     [[ ${f} = "*.un~" ]] && continue
+#     [[ ${f} = "*. â€¾" ]] && continue
+#     [[ ${f} = "*.unâ€¾" ]] && continue
 #     [[ ${f} = "*.swp" ]] && continue
 # 
 #     [[ ${f} = "*.old" ]] && continue
