@@ -279,5 +279,3 @@ endif
 " else
 " 	" Python ˆÈŠO‚Ìİ’è
 " endif
-
-" test write
