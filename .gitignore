@@ -52,5 +52,7 @@ tags
 memo.txt
 *.old
 *.modifying
+/.vim/tmp/*
 
 # 無視しない者共
+!/.vim/tmp/README.md
