@@ -54,4 +54,3 @@ memo.txt
 *.modifying
 
 # 無視しない者共
-!.vim/tmp
