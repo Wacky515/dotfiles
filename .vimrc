@@ -52,10 +52,10 @@ endif
 " --------------------------------------------------------------------------------
 
 
-" Windows環境が設定ファイルの場所を、Mac OSX環境にあわせる
+" Windows環境の設定ファイルの場所を、Mac/Linux環境にあわせる
 " set runtimepath+=$HOME/.vim,$HOME/.vim/after
 set runtimepath+=$HOME/.vim
 
-" .vimrc と .gvimrc を分割配置
+" ".vimrc" と ".gvimrc" を分割配置
 set runtimepath+=~/.vim/
 runtime! userautoload/*.vim

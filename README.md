@@ -1,5 +1,5 @@
 # Install command
-`./link.sh`
+`./link.sh`  
 `./link.bat`
 
 # Layout
@@ -7,9 +7,11 @@
 ├── dotfiles  
 │    ├── README.md  
 │    ├── .git  
+│    ├── .gitconfig
 │    ├── .gitignore  
 │    ├── link.sh  
 │    ├── link.bat  
+│    │
 │    ├── .vim  
 │    │     ├──userautoload     # *.vim files  
 │    │     ├──colors           # Color schemer  

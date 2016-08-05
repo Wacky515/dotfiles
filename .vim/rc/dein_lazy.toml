@@ -23,7 +23,7 @@ on_ft = 'python'
 [[plugins]]
 repo = 'sscrooloose/syntastic'
 # PEP8に準拠
-# TODO: Kill cause error
+# TODO: エラーの為、一旦Kill
 # let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
 # コメントON/OFFを手軽に実行
