@@ -10,11 +10,11 @@
 │    ├── link.sh  
 │    ├── link.bat  
 │    ├── .vim  
-│    │     ├userautoload     # *.vim files
-│    │     ├colors           # Color schemer
-│    │     ├rc               # Plugin(*.tmol)
-│    │     └tmp              # Temporary directory
-│    │
+│    │     ├userautoload     # *.vim files  
+│    │     ├colors           # Color schemer  
+│    │     ├rc               # Plugin(*.tmol)  
+│    │     └tmp              # Temporary directory  
+│    │  
 │    ├── .vimrc             # dein.vim setting  
 │    └── .gvimrc            # Graphic setting  
 │  
