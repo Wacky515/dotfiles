@@ -1,11 +1,15 @@
 #!/bin/bash
 
 # 暫定的にコマンドを決め打ちにした
+# FIXME: Linuxではできない
+
 echo Start link
+
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/.gvimrc ~/.gvimrc
 ln -sf ~/dotfiles/.vim ~/.vim
+
 echo Done link
 
 

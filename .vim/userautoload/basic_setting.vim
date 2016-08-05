@@ -147,10 +147,10 @@ endif
 
 " 終了時にウィンドウサイズを記憶する
 if has('unix') || has('mac')
-    let g:save_window_file = '/tmp/.vimwinpos'
+    let g:save_window_file = '/vim/tmp/.vimwinpos'
 endif
 if has('win32') || has ('win64')
-let g:save_window_file = 'C:/Temp/.vimwinpos'
+    let g:save_window_file = 'C:/Temp/.vimwinpos'
 endif
 augroup SaveWindow
     autocmd!

@@ -3,8 +3,8 @@ scriptencoding utf-8
 """ 外観テーマ篇 """
 
 " カラースキーマの指定
-" colorscheme hybrid
-colorscheme desert
+colorscheme hybrid
+" colorscheme desert
 
 " 暗背景用の配色にする
 set background=dark
