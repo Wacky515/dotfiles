@@ -1,5 +1,6 @@
 # Install command
 `./link.sh`
+`./link.bat`
 
 # Layout
 ~/  
@@ -10,13 +11,13 @@
 │    ├── link.sh  
 │    ├── link.bat  
 │    ├── .vim  
-│    │     ├userautoload     # *.vim files  
-│    │     ├colors           # Color schemer  
-│    │     ├rc               # Plugin(*.tmol)  
-│    │     └tmp              # Temporary directory  
+│    │     ├──userautoload     # *.vim files  
+│    │     ├──colors           # Color schemer  
+│    │     ├──rc               # Plugin(*.toml)  
+│    │     └──tmp              # Temporary directory  
 │    │  
-│    ├── .vimrc             # dein.vim setting  
-│    └── .gvimrc            # Graphic setting  
+│    ├── .vimrc                 # dein.vim setting  
+│    └── .gvimrc                # Graphic setting  
 │  
 │     # Symbolic link  
 ├── .vim -&gt; /root/dotfiles/.vim  
