@@ -9,7 +9,7 @@ inoremap jj <Esc>
 vnoremap v $h
 nnoremap Y y$
 
-FIXME: "Mac" では効かない
+" FIXME: "Mac" では効かない
 " <Esc><Esc>: ハイライト消去
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
