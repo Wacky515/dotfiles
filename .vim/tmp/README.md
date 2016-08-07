@@ -1,1 +1,1 @@
-VIM temporary files
+VIM temporary files for Linux and Mac
