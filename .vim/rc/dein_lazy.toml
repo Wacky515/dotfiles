@@ -1,8 +1,3 @@
-# ファイルオープンを便利にする
-[[plugins]]
-repo = 'Shougo/unite.vim'
-depends = 'neomru.vim'
-
 # スニペット
 [[plugins]]
 repo = 'Shougo/neosnippet'
@@ -10,45 +5,24 @@ depends = ['neosnippet-snippets']
 on_i = 1
 on_ft = ['snippet']
 
-# Git用プラグイン
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-
 # Python開発用プラグイン
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
 on_ft = 'python'
 
+# DONE: エラーの為、一旦Kill
 # 構文チェッカー
 [[plugins]]
 repo = 'sscrooloose/syntastic'
 # PEP8に準拠
-# TODO: エラーの為、一旦Kill
-# let g:syntastic_python_checkers = ['pyflakes', 'pep8']
+let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
-# コメントON/OFFを手軽に実行
-[[plugins]]
-repo = 'tomtom/tcomment_vim'
-
-# インデントをカラー化
-[[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
-
-# 行末の半角スペースを可視化
-[[plugins]]
-repo = 'bronson/vim-trailing-whitespace'
-
- # カラースキーマ
+# カラースキーマ
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
 hook_add = '''
-  set background=dark
-  " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
-  " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
-  au MyAutoCmd VimEnter * nested colorscheme hybrid
-'''
-
-# ステータスラインのビジュアルを強化する
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-# <http://itchyny.hatenablog.com/entry/20130828/1377653592>
+    set background=dark
+    " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
+    " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
+    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    '''

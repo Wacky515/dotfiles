@@ -1,3 +1,36 @@
-# 基本は github.com のりポジトリを指定するだけ
+# "github.com" のリポジトリを指定し、"Plugin" を追加
+# "dein.vim" 本体
 [[plugins]]
 repo = 'Shougo/dein.vim'
+
+# 統合ユーザインターフェース
+[[plugins]]
+repo = 'Shougo/unite.vim'
+depends = 'neomru.vim'
+
+# カーソル位置のコンテキストに合わせて "filetype" を切り替え
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
+
+# Git用プラグイン
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+# コメントのON/OFFをショートカットキーでトグル
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+# インデントをカラー化
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+# 行末の半角スペースを可視化
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+
+# ステータスラインのビジュアルを強化
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+# <http://itchyny.hatenablog.com/entry/20130828/1377653592>
+

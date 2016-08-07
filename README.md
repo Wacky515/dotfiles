@@ -7,11 +7,11 @@
 ├── dotfiles  
 │    ├── README.md  
 │    ├── .git  
-│    ├── .gitconfig
+│    ├── .gitconfig  
 │    ├── .gitignore  
 │    ├── link.sh  
 │    ├── link.bat  
-│    │
+│    │  
 │    ├── .vim  
 │    │     ├──userautoload     # *.vim files  
 │    │     ├──colors           # Color schemer  

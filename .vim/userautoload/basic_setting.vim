@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-" マクロの初期化
+" "autocmd"（マクロ） の初期化
 " !!!: 必ず先頭に記述
 augroup MyAutoCmd
     autocmd!
@@ -65,15 +65,8 @@ set ruler
 
 """ メイン表示篇 """
 
-" フォントの設定
-" TODO: フォントのインストール
-""" Windows の場合
-if has('win32') || has ('win64') || ('mac')
-    set guifont=Ricty_Diminished:h16
-endif
-
-" コマンドラインの行数
-" DONE: Windows用gVim使用時は.gvimrcを編集する
+" コマンドラインの行数表示
+" DONE: Windows用GVim使用時は.gvimrcを編集する
 if has('unix') || has('mac')
     set cmdheight=3
 endif

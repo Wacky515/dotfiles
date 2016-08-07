@@ -17,6 +17,15 @@ if has('win32') || ('win64')
     :autocmd GUIEnter * set transparency=235
 endif
 
+" フォントの設定
+" TODO: フォントのインストール
+""" Windows の場合
+if has ('mac')
+    set guifont=Ricty_Diminished:h18
+elseif has('win32') || has ('win64')
+    set guifont=Ricty_Diminished:h16
+endif
+
 " シンタックスハイライト
 syntax on
 
