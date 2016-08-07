@@ -9,7 +9,7 @@ if !&compatible
 endif
 
 " Proxyの設定
-let g:dein#types#git#default_protocol = 'ssh'
+" let g:dein#types#git#default_protocol = 'ssh'
 " let g:dein#types#git#default_protocol = 'https'
 " let g:dein#types#git#default_protocol = 'http'
 " Vim起動完了時にインストール
@@ -62,6 +62,12 @@ endif
 """ Jedi-vim """
 " docstringは表示しない
 autocmd FileType python setlocal completeopt-=preview
+
+""" syntastic """
+" PEP8に準拠
+" FIXME: エラーの為、一旦Kill
+let g:syntastic_python_checkers = ['pyflakes', 'pep8']
+" let g:syntastic_python_checkers = ['pyflakes']
 
 """ vim_indent_guides """
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする

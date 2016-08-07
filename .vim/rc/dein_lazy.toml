@@ -16,10 +16,6 @@ on_ft = 'python'
 # 構文チェッカー
 [[plugins]]
 repo = 'scrooloose/syntastic'
-# PEP8に準拠
-# FIXME: エラーの為、一旦Kill
-# let g:syntastic_python_checkers = ['pyflakes', 'pep8']
-let g:syntastic_python_checkers = ['pyflakes']
 
 # TODO: 動作未検証
 # # カラースキーマ

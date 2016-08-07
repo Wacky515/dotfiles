@@ -15,11 +15,14 @@ repo = 'Shougo/neosnippet-snippets'
 # TODO: 動作未検証
 
 # カーソル位置のコンテキストに合わせて "filetype" を切り替え
-[[plugins]]
-repo = 'context_filetype.vim'
+# !!!: 下に移動
+# [[plugins]]
+# repo = 'Shougo/context_filetype.vim'
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = ['context_filetype.vim']
+
+[[plugins]] repo = 'Shougo/context_filetype.vim'
 
 # TODO: 動作未検証
 # Git用プラグイン
