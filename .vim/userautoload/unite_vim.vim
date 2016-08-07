@@ -11,6 +11,8 @@ nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
 nnoremap <silent> [unite]w :<C-u>Unite window<CR>
+
+" FIXME: NeoBundleになっている
 let s:hooks = neobundle#get_hooks("unite.vim")
 
 function! s:hooks.on_source(bundle)
