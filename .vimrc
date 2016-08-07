@@ -8,7 +8,12 @@ if !&compatible
     set nocompatible
 endif
 
+" Proxyの設定
+let g:dein#types#git#default_protocol = 'ssh'
+" let g:dein#types#git#default_protocol = 'https'
+" let g:dein#types#git#default_protocol = 'http'
 " Vim起動完了時にインストール
+
 augroup PluginInstall
     autocmd!
     autocmd VimEnter * if dein#check_install() | call dein#install() | endif
