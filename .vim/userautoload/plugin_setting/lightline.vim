@@ -1,4 +1,5 @@
 scriptencoding utf-8
 
-if has("linux")
+if has("unix")
     set laststatus=2
+endif
