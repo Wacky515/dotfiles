@@ -13,22 +13,22 @@ nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
 nnoremap <silent> [unite]w :<C-u>Unite window<CR>
 
 " FIXME: NeoBundleになっている
-let s:hooks = neobundle#get_hooks("unite.vim")
+" let s:hooks = neobundle#get_hooks("unite.vim")
 
-function! s:hooks.on_source(bundle)
-    " 挿入モードで開始
-    " start unite in insert mode
-    let g:unite_enable_start_insert = 1
-    " ディレクトリを開く時に "vimfiler" を使用
-    " use vimfiler to open directory
-    call unite#custom_default_action("source/bookmark/directory", "vimfiler")
-    call unite#custom_default_action("directory", "vimfiler")
-    call unite#custom_default_action("directory_mru", "vimfiler")
-    autocmd MyAutoCmd FileType unite call s:unite_settings()
-    function! s:unite_settings()
-        imap <buffer> <Esc><Esc> <Plug>(unite_exit)
-        nmap <buffer> <Esc> <Plug>(unite_exit)
-        nmap <buffer> <C-n> <Plug>(unite_select_next_line)
-        nmap <buffer> <C-p> <Plug>(unite_select_previous_line)
-    endfunction
-endfunction
+" function! s:hooks.on_source(bundle)
+"     " 挿入モードで開始
+"     " start unite in insert mode
+"     let g:unite_enable_start_insert = 1
+"     " ディレクトリを開く時に "vimfiler" を使用
+"     " use vimfiler to open directory
+"     call unite#custom_default_action("source/bookmark/directory", "vimfiler")
+"     call unite#custom_default_action("directory", "vimfiler")
+"     call unite#custom_default_action("directory_mru", "vimfiler")
+"     autocmd MyAutoCmd FileType unite call s:unite_settings()
+"     function! s:unite_settings()
+"         imap <buffer> <Esc><Esc> <Plug>(unite_exit)
+"         nmap <buffer> <Esc> <Plug>(unite_exit)
+"         nmap <buffer> <C-n> <Plug>(unite_select_next_line)
+"         nmap <buffer> <C-p> <Plug>(unite_select_previous_line)
+"     endfunction
+" endfunction

@@ -1,5 +1,3 @@
-scriptencoding utf-8
-
 # "github.com" のリポジトリを指定し、"Plugin" を追加
 # "dein.vim" 本体
 [[plugins]]
@@ -11,6 +9,9 @@ repo = 'Shougo/dein.vim'
 repo = 'Shougo/unite.vim'
 depends = 'neomru.vim'
 
+# スニペット
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
 # TODO: 動作未検証
 # カーソル位置のコンテキストに合わせて "filetype" を切り替え
 [[plugins]]
