@@ -8,7 +8,12 @@ if !&compatible
     set nocompatible
 endif
 
+" Proxyの設定
+let g:dein#types#git#default_protocol = 'ssh'
+" let g:dein#types#git#default_protocol = 'https'
+" let g:dein#types#git#default_protocol = 'http'
 " Vim起動完了時にインストール
+
 augroup PluginInstall
     autocmd!
     autocmd VimEnter * if dein#check_install() | call dein#install() | endif
@@ -50,8 +55,6 @@ endif
 if dein#check_install()
     call dein#install()
 endif
-" プラグインの追加・削除やtomlファイルの設定を変更した後は
-" 適宜 "call dein#update()" や "call dein#clear_state()" を実行する
 
 " 以下から "Plugin" 個別の設定
 " 切出せるなら切出す
@@ -64,6 +67,8 @@ autocmd FileType python setlocal completeopt-=preview
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
 let g:indent_guides_enable_on_vim_startup = 1
 
+" プラグインの追加・削除やtomlファイルの設定を変更した後は
+" 適宜 "call dein#update()" や "call dein#clear_state()" を実行する
 " --------------------------------------------------------------------------------
 
 
