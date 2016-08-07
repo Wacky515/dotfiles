@@ -7,7 +7,6 @@
 ├── dotfiles  
 │    ├── README.md  
 │    ├── .git  
-│    ├── .gitconfig  
 │    ├── .gitignore  
 │    ├── link.sh  
 │    ├── link.bat  
@@ -23,6 +22,7 @@
 │    └── .gvimrc				# Graphic setting  
 │  
 │     # Symbolic link  
+├── .gitconfig -&gt; /root/dotfiles/.gitconfig  
 ├── .vim -&gt; /root/dotfiles/.vim  
 ├── .vimrc -&gt; /root/dotfiles/.vimrc  
 └── .gvimrc -&gt; /root/dotfiles/.gvimrc  
