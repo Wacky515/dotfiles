@@ -16,6 +16,7 @@
 │    │     ├──userautoload     # *.vim files  
 │    │     ├──colors           # Color schemer  
 │    │     ├──rc               # Plugin(*.toml)  
+│    │     ├──template         # Template files  
 │    │     └──tmp              # Temporary directory  
 │    │  
 │    ├── .vimrc                 # dein.vim setting  
