@@ -2,31 +2,33 @@ scriptencoding utf-8
 
 """ マップキー篇 """
 
-" 入力モード中 "jj": <Esc>
+" 入力モード中 jj: <Esc>
 inoremap jj <Esc>
 
-" "v" + "v": 行末まで選択
+" vv: 行末まで選択
 vnoremap v $h
 
-" <ESC> + <ESC>: ハイライト消去
+" <Esc><Esc>: ハイライト消去
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
-" 一つ前のバッファを開く
+" bp: 一つ前のバッファを開く
 nnoremap <silent>bp :bprevious<CR>
-" 次のバッファを開く
+" bn: 次のバッファを開く
 nnoremap <silent>bn :bnext<CR>
-" 直前のバッファを開く
+" bb: 直前のバッファを開く
 nnoremap <silent>bb :b#<CR>
 
-" vimrc、gvimrcを開く
+" ,v: vimrcを開く
 nmap ,v :edit $MYVIMRC<CR>
+" ,g: gvimrcを開く
 nmap ,g :edit $MYGVIMRC<CR>
-" vimrc、gvimrcを反映
+" <Space>rv: vimrcを反映
 nnoremap <silent> <Space>rv :<C-u>source $MYVIMRC \| if has('gui_running') \| source $MYGVIMRC \| endif <CR>
+" <Space>rg: gvimrcを反映
 nnoremap <silent> <Space>rg :<C-u>source $MYGVIMRC<CR>
 
-" "w!!" :スーパーユーザーとして保存（sudoが使える環境限定）
-if has('unix') 
+" w!!: スーパーユーザーとして保存（sudoが使える環境限定）
+if has('unix')
     cmap w!! w !sudo tee > /dev/null %
 endif
 
@@ -47,12 +49,12 @@ endif
 " <Space> を "Leader" に割当て
 let mapleader = "\<Space>"
 
-" <Space> + "o": ファイルを開く
+" <Space>o: ファイルを開く
 " !!!: プラグインが必要
 " nnoremap <Leader>o :CtrlP<CR>
 
-" <Space> + "w": ファイルを保存
+" <Space>w: ファイルを保存
 nnoremap <Leader>w :w<CR>
 "
-" <Space> + <Space>: ビジュアルラインモードに切替え
+" <Space><Space>: ビジュアルラインモードに切替え
 nmap <Leader><Leader> V

@@ -1,3 +1,6 @@
+scriptencoding utf-8
+
+# TODO: 動作未検証
 # スニペット
 [[plugins]]
 repo = 'Shougo/neosnippet'
@@ -5,11 +8,13 @@ depends = ['neosnippet-snippets']
 on_i = 1
 on_ft = ['snippet']
 
+# !!!: "help jedi" が出るところまで確認済み
 # Python開発用プラグイン
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
 on_ft = 'python'
 
+# TODO: 動作未検証
 # DONE: エラーの為、一旦Kill
 # 構文チェッカー
 [[plugins]]
@@ -17,6 +22,7 @@ repo = 'sscrooloose/syntastic'
 # PEP8に準拠
 let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
+# TODO: 動作未検証
 # カラースキーマ
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
@@ -26,3 +32,10 @@ hook_add = '''
     " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
     au MyAutoCmd VimEnter * nested colorscheme hybrid
     '''
+
+# 導入予定
+
+# TODOリスト
+# [[plugins]]
+# repo = 'davidhalter/jedi-vim'
+# on_ft = 'python'

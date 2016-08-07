@@ -1,18 +1,23 @@
+scriptencoding utf-8
+
 # "github.com" のリポジトリを指定し、"Plugin" を追加
 # "dein.vim" 本体
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+# TODO: 動作未検証
 # 統合ユーザインターフェース
 [[plugins]]
 repo = 'Shougo/unite.vim'
 depends = 'neomru.vim'
 
+# TODO: 動作未検証
 # カーソル位置のコンテキストに合わせて "filetype" を切り替え
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = ['context_filetype.vim']
 
+# TODO: 動作未検証
 # Git用プラグイン
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -34,3 +39,31 @@ repo = 'bronson/vim-trailing-whitespace'
 repo = 'itchyny/lightline.vim'
 # <http://itchyny.hatenablog.com/entry/20130828/1377653592>
 
+
+# 導入予定
+
+# テンプレート作成
+# [[plugins]]
+# repo = 'thinca/vim-template'
+# <http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
+
+# ファイラー
+# [[plugins]]
+# repo = 'Shougo/vimfiler'
+# <http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
+
+# "()" 、 "[]" などの操作
+# [[plugins]]
+# repo = 'tpope/vim-surround'
+# <http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
+
+# テキスト整形
+# [[plugins]]
+# repo = 'vim-scripts/Align'
+# <http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
+# <http://nanasi.jp/vim/align.html>
+
+# コピペの履歴を保存
+# [[plugins]]
+# repo = 'vim-scripts/YankRing.vim'
+# <http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
