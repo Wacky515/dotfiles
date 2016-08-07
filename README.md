@@ -13,7 +13,7 @@
 │    ├── link.bat  
 │    │  
 │    ├── .vim  
-│    │     ├──userautoload     # *.vim files  
+│    │     ├──userautoload\t# *.vim files  
 │    │     ├──colors           # Color schemer  
 │    │     ├──rc               # Plugin(*.toml)  
 │    │     ├──template         # Template files  
