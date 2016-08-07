@@ -52,6 +52,18 @@ if dein#check_install()
 endif
 " プラグインの追加・削除やtomlファイルの設定を変更した後は
 " 適宜 "call dein#update()" や "call dein#clear_state()" を実行する
+
+" 以下から "Plugin" 個別の設定
+" 切出せるなら切出す
+
+""" Jedi-vim """
+" docstringは表示しない
+autocmd FileType python setlocal completeopt-=preview
+
+""" vim_indent_guides """
+" vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
+let g:indent_guides_enable_on_vim_startup = 1
+
 " --------------------------------------------------------------------------------
 
 
