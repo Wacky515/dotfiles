@@ -13,14 +13,14 @@
 │    ├── link.bat  
 │    │  
 │    ├── .vim  
-│    │     ├──userautoload\t# *.vim files  
-│    │     ├──colors           # Color schemer  
-│    │     ├──rc               # Plugin(*.toml)  
-│    │     ├──template         # Template files  
-│    │     └──tmp              # Temporary directory  
+│    │     ├──userautoloa		# *.vim files  
+│    │     ├──colors			# Color schemer  
+│    │     ├──rc				# Plugin(*.toml)  
+│    │     ├──templat			# Template files  
+│    │     └──tm				# Temporary directory  
 │    │  
-│    ├── .vimrc                 # dein.vim setting  
-│    └── .gvimrc                # Graphic setting  
+│    ├── .vimr					# dein.vim setting  
+│    └── .gvimrc				# Graphic setting  
 │  
 │     # Symbolic link  
 ├── .vim -&gt; /root/dotfiles/.vim  
