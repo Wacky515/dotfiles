@@ -88,13 +88,21 @@ set title
 " ウィンドウ右下に入力中のコマンドを表示
 set showcmd
 
+" FIXME: Windows効かない
 " 終了時にウィンドウサイズを記憶する
 if has('unix') || has('mac')
     let g:save_window_file = '/vim/tmp/.vimwinpos'
 endif
 if has('win32') || has ('win64')
-    let g:save_window_file = 'C:/Temp/.vimwinpos'
+    let g:save_window_file = expand('~/.vim/tmp/.vimwinpos')
+    " let g:save_window_file = expand('C:/Temp/.vimwinpos')
 endif
+
+" {{{
+" let g:save_window_file = expand('~/.vim/tmp/.vimwinpos')
+" let g:save_window_file = expand('C:Temp/.vimwinpos')
+" }}}
+
 augroup SaveWindow
     autocmd!
     autocmd VimLeavePre * call s:save_window()

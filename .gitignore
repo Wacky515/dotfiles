@@ -8,6 +8,7 @@ memo.txt
 *.new
 *.modifying
 /.vim/tmp/*
+/.vim/dein/*
 
 # 無視しない者共
 !/.vim/tmp/README.md
