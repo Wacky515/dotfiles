@@ -8,15 +8,11 @@ augroup END
 
 """ 基本設定篇 """
 
-" TODO: ↓の意味を調べる
-" 読み込んだプラグインも含め、ファイルタイプの検出、ファイルタイプ別プラグイン/インデントを有効化する
-" filetype plugin indent on
-
 " 入力コマンド履歴の保存数
 set history=1000
 
 " 折り畳みの設定
-:set foldmethod=marker
+set foldmethod=marker
 
 " ".swp" のディレクトリ変更
 set directory=~/.vim/tmp
@@ -50,7 +46,7 @@ set viminfo+=n~/.vim/tmp/viminfo.txt
 
 " モードラインの設定
 " ※ ファイル毎のエディタ設定
-:set modeline
+set modeline
 
 " FIXME: ↓効かない
 " !!!: 先頭行にも記述がある

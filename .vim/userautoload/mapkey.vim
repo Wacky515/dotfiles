@@ -27,6 +27,11 @@ nnoremap <silent> <Space>rv :<C-u>source $MYVIMRC \| if has('gui_running') \| so
 " <Space>rg: gvimrcを反映
 nnoremap <silent> <Space>rg :<C-u>source $MYGVIMRC<CR>
 
+"Macの時ノーマルモードで:と;を入れ替える
+if has("mac")
+    noremap : ;
+    noremap ; :
+
 " w!!: スーパーユーザーとして保存（sudoが使える環境限定）
 if has('unix')
     cmap w!! w !sudo tee > /dev/null %

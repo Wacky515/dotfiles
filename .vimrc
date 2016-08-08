@@ -8,62 +8,35 @@ if !&compatible
     set nocompatible
 endif
 
-"{{{
-" !!!: 不要
-" Proxyの設定
-" let g:dein#types#git#default_protocol = 'ssh'
-" let g:dein#types#git#default_protocol = 'https'
-" let g:dein#types#git#default_protocol = 'http'
-"}}}
-
 " Vim起動完了時にインストール
 augroup PluginInstall
     autocmd!
     autocmd VimEnter * if dein#check_install() | call dein#install() | endif
 augroup END
 
-"{{{
-" TODO: もし "Linux" 、 "OS X" で使用する場合は下記にあわせる
-" " プラグインが実際にインストールされるディレクトリ
-" let s:dein_dir = expand('~/.cache/dein')
-" " dein.vim 本体
-" let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-" " execute 'set runtimepath+=' . s:dein_repo_dir
-
-" " dein.vim がなければ github から落としてくる
-" if &runtimepath !~# '/dein.vim'
-"     if !isdirectory(s:dein_repo_dir)
-"         execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-"     endif
-"     execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
-" endif
-" <http://qiita.com/delphinus35/items/00ff2c0ba972c6e41542>
-"}}}
-
-" 各プラグインをインストールするディレクトリ
+" プラグインをインストールするディレクトリ
 let s:plugin_dir = expand('~/.cache/dein/')
-" dein.vimをインストールするディレクトリをランタイムパスへ追加
+" "dein.vim" をインストールするディレクトリをランタイムパスへ追加
 let s:dein_dir = s:plugin_dir . 'repos/github.com/Shougo/dein.vim'
 execute 'set runtimepath+=' . s:dein_dir
 
-" dein.vimがまだ入ってなければ 最初に`git clone`
+" dein.vimが入っていなければ "git clone"
 if !isdirectory(s:dein_dir)
     call mkdir(s:dein_dir, 'p')
     silent execute printf('!git clone %s %s', 'https://github.com/Shougo/dein.vim', s:dein_dir)
 endif
-" <http://yuheikagaya.hatenablog.jp/entry/2016/03/20/171907>
+" < http://yuheikagaya.hatenablog.jp/entry/2016/03/20/171907 >
 
 " 設定開始
 if dein#load_state(s:plugin_dir)
     call dein#begin(s:plugin_dir)
 
-    " プラグインリストを収めた TOML ファイル
-    " （予め TOML ファイルを用意しておく）
+    " プラグインリストの "*.toml" を指定
     let g:rc_dir    = expand('~/.vim/rc')
     let s:toml      = g:rc_dir . '/dein.toml'
     let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
-    " TOML を読み込み、キャッシュしておく
+    " "*.toml" を読込み、キャッシュ
     call dein#load_toml(s:toml,      {'lazy': 0})
     call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
@@ -80,10 +53,6 @@ endif
 " ----------------------------------------
 " 以下から "Plugin" 個別の設定
 " 切出せるなら切出す
-
-""" Jedi-vim """
-" docstringは表示しない
-autocmd FileType python setlocal completeopt-=preview
 
 """ syntastic """
 " PEP8に準拠
@@ -110,3 +79,8 @@ set runtimepath+=$HOME/.vim
 " ".vimrc" と ".gvimrc" を分割配置
 set runtimepath+=~/.vim/
 runtime! userautoload/*.vim
+"
+" 読み込んだプラグインも含め、ファイルタイプの検出
+" ファイルタイプ別プラグイン/インデントを有効化する
+filetype plugin indent on
+
