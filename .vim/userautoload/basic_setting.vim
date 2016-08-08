@@ -8,33 +8,45 @@ augroup END
 
 """ 基本設定篇 """
 
+" TODO: ↓の意味を調べる
+" 読み込んだプラグインも含め、ファイルタイプの検出、ファイルタイプ別プラグイン/インデントを有効化する
+" filetype plugin indent on
+
 " 入力コマンド履歴の保存数
 set history=1000
 
 " 折り畳みの設定
 :set foldmethod=marker
 
-" FIXME: 動作せず(Mac OK!)
-if has('unix') || has('mac')
-    " ".swp" のディレクトリ変更
-    set directory=~/.vim/tmp
-    " "~" のディレクトリ変更
-    set backupdir=~/.vim/tmp
-    " ".un~" のディレクトリ変更
-    set undodir=~/.vim/tmp
-    " ".viminfo" のディレクトリ変更
-    set viminfo+=n~/.vim/tmp/viminfo.txt
-endif
-if has('win32') || has ('win64')
-    " ".swp" のディレクトリ変更
-    set directory=C:/Temp
-    " "~" のディレクトリ変更
-    set backupdir=C:/Temp
-    " ".un~" のディレクトリ変更
-    set undodir=C:/Temp
-    " ".viminfo" のディレクトリ変更
-    set viminfo+=nC:/Temp/viminfo.txt
-endif
+" ".swp" のディレクトリ変更
+set directory=~/.vim/tmp
+" "~" のディレクトリ変更
+set backupdir=~/.vim/tmp
+" ".un~" のディレクトリ変更
+set undodir=~/.vim/tmp
+" ".viminfo" のディレクトリ変更
+set viminfo+=n~/.vim/tmp/viminfo.txt
+
+"{{{ " if has('unix') || has('mac')
+"     " ".swp" のディレクトリ変更
+"     set directory=~/.vim/tmp
+"     " "~" のディレクトリ変更
+"     set backupdir=~/.vim/tmp
+"     " ".un~" のディレクトリ変更
+"     set undodir=~/.vim/tmp
+"     " ".viminfo" のディレクトリ変更
+"     set viminfo+=n~/.vim/tmp/viminfo.txt
+" endif
+" if has('win32') || has ('win64')
+"     " ".swp" のディレクトリ変更
+"     set directory=C:/Temp
+"     " "~" のディレクトリ変更
+"     set backupdir=C:/Temp
+"     " ".un~" のディレクトリ変更
+"     set undodir=C:/Temp
+"     " ".viminfo" のディレクトリ変更
+"     set viminfo+=nC:/Temp/viminfo.txt
+" endif "}}}
 
 " モードラインの設定
 " ※ ファイル毎のエディタ設定

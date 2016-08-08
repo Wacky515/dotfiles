@@ -1,15 +1,15 @@
 scriptencoding utf-8
 
-""" ŠOŠÏƒe[ƒ}•Ñ """
+""" å¤–è¦³ãƒ†ãƒ¼ãƒç¯‡ """
 
-" ƒJƒ‰[ƒXƒL[ƒ}‚Ìw’è
+" ã‚«ãƒ©ãƒ¼ã‚¹ã‚­ãƒ¼ãƒã®æŒ‡å®š
 colorscheme hybrid
 " colorscheme desert
 
-" ˆÃ”wŒi—p‚Ì”zF‚É‚·‚é
+" æš—èƒŒæ™¯ç”¨ã®é…è‰²ã«ã™ã‚‹
 set background=dark
 
-" ƒEƒBƒ“ƒhƒE ”¼“§–¾‰»
+" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ åŠé€æ˜åŒ–
 if has('mac')
     set transparency=10
 endif
@@ -17,17 +17,17 @@ if has('win32') || ('win64')
     :autocmd GUIEnter * set transparency=235
 endif
 
-" ƒtƒHƒ“ƒg‚Ìİ’è
-" TODO: ƒtƒHƒ“ƒg‚ÌƒCƒ“ƒXƒg[ƒ‹
-""" Windows ‚Ìê‡
+" ãƒ•ã‚©ãƒ³ãƒˆã®è¨­å®š
+" TODO: ãƒ•ã‚©ãƒ³ãƒˆã®ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
+""" Windows ã®å ´åˆ
 if has ('mac')
     set guifont=Ricty_Diminished:h18
 elseif has('win32') || has ('win64')
     set guifont=Ricty_Diminished:h16
 endif
 
-" ƒVƒ“ƒ^ƒbƒNƒXƒnƒCƒ‰ƒCƒg
+" ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ãƒã‚¤ãƒ©ã‚¤ãƒˆ
 syntax on
 
-" s”Ô†‚ÌF
+" è¡Œç•ªå·ã®è‰²
 highlight LineNr ctermfg=darkyellow

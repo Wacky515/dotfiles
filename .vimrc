@@ -11,7 +11,7 @@ endif
 " Proxyの設定
 " let g:dein#types#git#default_protocol = 'ssh'
 " let g:dein#types#git#default_protocol = 'https'
-" let g:dein#types#git#default_protocol = 'http'
+let g:dein#types#git#default_protocol = 'http'
 " Vim起動完了時にインストール
 
 augroup PluginInstall
@@ -56,6 +56,7 @@ if dein#check_install()
     call dein#install()
 endif
 
+" ---------------------------------------- 
 " 以下から "Plugin" 個別の設定
 " 切出せるなら切出す
 
@@ -72,6 +73,7 @@ let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 """ vim_indent_guides """
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
 let g:indent_guides_enable_on_vim_startup = 1
+" ---------------------------------------- 
 
 " プラグインの追加・削除やtomlファイルの設定を変更した後は
 " 適宜 "call dein#update()" や "call dein#clear_state()" を実行する
