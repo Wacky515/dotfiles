@@ -1,11 +1,5 @@
 scriptencoding utf-8
 
-" "autocmd"（マクロ） の初期化
-" !!!: 必ず先頭に記述
-augroup MyAutoCmd
-    autocmd!
-augroup END
-
 """ 編集篇 """
 
 " ヤンクしたデータをクリップボードで使用＆選択範囲自動コピー

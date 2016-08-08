@@ -23,7 +23,7 @@ nmap ,v :edit $MYVIMRC<CR>
 " ,g: gvimrcを開く
 nmap ,g :edit $MYGVIMRC<CR>
 " <Space>rv: vimrcを反映
-nnoremap <silent> <Space>rv :<C-u>source $MYVIMRC \| if has('gui_running') \| source $MYGVIMRC \| endif <CR>
+nnoremap <silent> <Space>rv :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
 " <Space>rg: gvimrcを反映
 nnoremap <silent> <Space>rg :<C-u>source $MYGVIMRC<CR>
 
@@ -31,9 +31,10 @@ nnoremap <silent> <Space>rg :<C-u>source $MYGVIMRC<CR>
 if has("mac")
     noremap : ;
     noremap ; :
+endif
 
 " w!!: スーパーユーザーとして保存（sudoが使える環境限定）
-if has('unix')
+if has("unix")
     cmap w!! w !sudo tee > /dev/null %
 endif
 
@@ -41,11 +42,11 @@ endif
 function! s:mkdir(dir, force)
     if !isdirectory(a:dir) && (a:force ||
             \ input(printf('"%s" does not exist. Create? [y/N]', a:dir)) =~? '^y\%[es]$')
-        call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
+        call mkdir(iconv(a:dir, &encoding, &termencoding), "p")
     endif
 endfunction
-if has('unix') || has('mac')
-    autocmd MyAutoCmd BufWritePre * call s:mkdir(expand('<afile>:p:h'), v:cmdbang)
+if has("unix") || has("mac")
+    autocmd MyAutoCmd BufWritePre * call s:mkdir(expand("<afile>:p:h"), v:cmdbang)
 endif
 
 
@@ -60,6 +61,6 @@ let mapleader = "\<Space>"
 
 " <Space>w: ファイルを保存
 nnoremap <Leader>w :w<CR>
-"
+
 " <Space><Space>: ビジュアルラインモードに切替え
 nmap <Leader><Leader> V
