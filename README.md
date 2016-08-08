@@ -12,14 +12,14 @@
 │    ├── link.bat  
 │    │  
 │    ├── .vim  
-│    │     ├──userautoloa		# *.vim files  
-│    │     ├──colors			# Color schemer  
-│    │     ├──rc				# Plugin(*.toml)  
-│    │     ├──templat			# Template files  
-│    │     └──tm				# Temporary directory  
+│    │     ├──userautoloa		" *.vim files  
+│    │     ├──colors			" Color schemer  
+│    │     ├──rc				" Plugin(*.toml)  
+│    │     ├──templat			" Template files  
+│    │     └──tm				" Temporary directory  
 │    │  
-│    ├── .vimr					# dein.vim setting  
-│    └── .gvimrc				# Graphic setting  
+│    ├── .vimr					" dein.vim setting  
+│    └── .gvimrc				" Graphic setting  
 │  
 │     # Symbolic link  
 ├── .gitconfig -&gt; /root/dotfiles/.gitconfig  
