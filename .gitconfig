@@ -3,3 +3,5 @@
 	email = wacky515@gmail.com
 [color]
 	ui = auto
+[http]
+	proxy = http://proxy.intra.xacti-co.com:8080
