@@ -5,3 +5,5 @@
 	ui = auto
 [http]
 	proxy = http://proxy.intra.xacti-co.com:8080
+[https]
+	proxy = https://proxy.intra.xacti-co.com:8080

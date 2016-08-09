@@ -1,25 +1,28 @@
 scriptencoding utf-8
 
-" "autocmd"（マクロ） の初期化
-" !!!: 必ず先頭に記述
-augroup MyAutoCmd
-    autocmd!
-augroup END
+" .vimrcの先頭に記述したからKillして様子見
+" " "autocmd"（マクロ） の初期化
+" " !!!: 必ず先頭に記述
+" augroup MyAutoCmd
+"     autocmd!
+" augroup END
 
 
 """ メイン表示篇 """
-
-" コマンドラインの行数表示
-" DONE: Windows用GVim使用時は.gvimrcを編集する
-if has('unix') || has('mac')
-    set cmdheight=3
-endif
 
 " 行番号の表示
 set number
 
 " スクロール時の上・下端行数指定
 set scrolloff=3
+
+" コマンドラインの行数表示
+" DONE: Windows用GVim使用時は.gvimrcを編集する ← 不要
+set cmdheight=5
+" !!!: 条件分岐の必要ないのでKill
+" if has("unix") || has("mac")
+"     set cmdheight=10
+" endif
 
 " 自動インデント時の空白文字数
 set shiftwidth=4
@@ -54,7 +57,7 @@ if has("autocmd")
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" !!!: 不可視文字の可視化は見難いのでkillしている
+" !!!: 不可視文字の可視化は見難いのでKillしている
 " 不可視文字（タブ、空白、改行）の可視化
 " set list
 " 不可視文字（タブ、空白、改行）を "Unicode" で表示
@@ -66,8 +69,7 @@ endif
 function! ZenkakuSpace()
     highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
 endfunction
-
-if has('syntax')
+if has("syntax")
     augroup ZenkakuSpace
         autocmd!
         autocmd ColorScheme       * call ZenkakuSpace()
@@ -75,52 +77,36 @@ if has('syntax')
     augroup END
     call ZenkakuSpace()
 endif
-
 " < http://inari.hatenablog.com/entry/2014/05/05/231307 >
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """ ウィンドウ表示篇 """
 
+" !!!: 変化ない
 " ウインドウタイトルにファイルのパス情報等を表示
-set title
+" set title
 
+" !!!: 変化ない
 " ウィンドウ右下に入力中のコマンドを表示
-set showcmd
+" set showcmd
 
 " 終了時にウィンドウサイズを記憶する
-let g:save_window_file = expand('~/.vim/tmp/.vimwinpos')
-
-"{{{
-" if has('unix') || has('mac')
-"     " let g:save_window_file = '/.vim/tmp/.vimwinpos'
-"     let g:save_window_file = expand('~/.vim/tmp/.vimwinpos')
-" endif
-" if has('win32') || has ('win64')
-"     let g:save_window_file = expand('~/.vim/tmp/.vimwinpos')
-"     " let g:save_window_file = expand('C:/Temp/.vimwinpos')
-" endif
-"}}}
-
-" {{{
-" let g:save_window_file = expand('~/.vim/tmp/.vimwinpos')
-" let g:save_window_file = expand('C:Temp/.vimwinpos')
-" }}}
-
+let g:save_window_file = expand("~/.vim/tmp/.vimwinpos")
 augroup SaveWindow
     autocmd!
     autocmd VimLeavePre * call s:save_window()
     function! s:save_window()
         let options = [
-            \ 'set columns=' . &columns,
-            \ 'set lines=' . &lines,
-            \ 'winpos ' . getwinposx() . ' ' . getwinposy(),
+            \ "set columns=" . &columns,
+            \ "set lines=" . &lines,
+            \ "winpos " . getwinposx() . " " . getwinposy(),
             \ ]
         call writefile(options, g:save_window_file)
     endfunction
 augroup END
 if filereadable(g:save_window_file)
-    execute 'source' g:save_window_file
+    execute "source" g:save_window_file
 endif
 
 " <Shift> + <矢印>: ウィンドウサイズ変更
@@ -132,14 +118,16 @@ endif
 
 
 """ コマンドラインモード表示篇 """
-"
+
+" !!!: 変化ない
 " コマンドラインモードで <Tab> によるファイル名補完を有効にする
-set wildmenu
+" set wildmenu
 
 """ ステータス行表示篇 """
 
+" !!!: 変化ない
 " カーソルの行列表示
-set ruler
+" set ruler
 
 " ステータス行に現在のgitブランチを表示
 " !!!: プラグインが必要

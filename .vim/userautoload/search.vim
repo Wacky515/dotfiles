@@ -1,12 +1,5 @@
 scriptencoding utf-8
 
-" "autocmd"（マクロ） の初期化
-" !!!: 必ず先頭に記述
-augroup MyAutoCmd
-    autocmd!
-augroup END
-
-
 """ 検索篇 """
 
 " 検索ジャンプを画面中央に表示
@@ -34,8 +27,8 @@ set hlsearch
 
 " 検索時に "\" や "?" のエスケープを簡素化
 " TODO: 動作確認
-cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
-cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
+cnoremap <expr> / getcmdtype() == "/" ? "\/" : "/"
+cnoremap <expr> ? getcmdtype() == "?" ? "\?" : "?"
 
 " grep検索の設定
 " TODO: 動作確認

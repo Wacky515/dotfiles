@@ -1,9 +1,14 @@
 scriptencoding utf-8
 
+" "autocmd"（マクロ） の初期化
+" !!!: 必ず先頭に記述
+augroup MyAutoCmd
+    autocmd!
+augroup END
+
 " --------------------------------------------------------------------------------
 " dein.vimの設定
 " --------------------------------------------------------------------------------
-
 if !&compatible
     set nocompatible
 endif
@@ -15,15 +20,15 @@ augroup PluginInstall
 augroup END
 
 " プラグインをインストールするディレクトリ
-let s:plugin_dir = expand('~/.cache/dein/')
+let s:plugin_dir = expand("~/.cache/dein/")
 " "dein.vim" をインストールするディレクトリをランタイムパスへ追加
-let s:dein_dir = s:plugin_dir . 'repos/github.com/Shougo/dein.vim'
-execute 'set runtimepath+=' . s:dein_dir
+let s:dein_dir = s:plugin_dir . "repos/github.com/Shougo/dein.vim"
+execute "set runtimepath+=" . s:dein_dir
 
 " dein.vimが入っていなければ "git clone"
 if !isdirectory(s:dein_dir)
-    call mkdir(s:dein_dir, 'p')
-    silent execute printf('!git clone %s %s', 'https://github.com/Shougo/dein.vim', s:dein_dir)
+    call mkdir(s:dein_dir, "p")
+    silent execute printf("!git clone %s %s", "https://github.com/Shougo/dein.vim", s:dein_dir)
 endif
 " < http://yuheikagaya.hatenablog.jp/entry/2016/03/20/171907 >
 
@@ -32,13 +37,13 @@ if dein#load_state(s:plugin_dir)
     call dein#begin(s:plugin_dir)
 
     " プラグインリストの "*.toml" を指定
-    let g:rc_dir    = expand('~/.vim/rc')
-    let s:toml      = g:rc_dir . '/dein.toml'
-    let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+    let g:rc_dir    = expand("~/.vim/rc")
+    let s:toml      = g:rc_dir . "/dein.toml"
+    let s:lazy_toml = g:rc_dir . "/dein_lazy.toml"
 
     " "*.toml" を読込み、キャッシュ
-    call dein#load_toml(s:toml,      {'lazy': 0})
-    call dein#load_toml(s:lazy_toml, {'lazy': 1})
+    call dein#load_toml(s:toml,      {"lazy": 0})
+    call dein#load_toml(s:lazy_toml, {"lazy": 1})
 
     " 設定終了
     call dein#end()
@@ -51,14 +56,14 @@ if dein#check_install()
 endif
 
 " ----------------------------------------
-" 以下から "Plugin" 個別の設定
-" 切出せるなら切出す
+" "Plugin" 設定
+" ----------------------------------------
+" TODO: 切出せるなら切出す
 
 """ syntastic """
 " PEP8に準拠
-" FIXME: エラーの為、一旦Kill
-let g:syntastic_python_checkers = ['pyflakes', 'pep8']
-" let g:syntastic_python_checkers = ['pyflakes']
+let g:syntastic_python_checkers = ["pyflakes", "pep8"]
+" let g:syntastic_python_checkers = ["pyflakes"]
 
 """ vim_indent_guides """
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
@@ -73,7 +78,6 @@ let g:indent_guides_enable_on_vim_startup = 1
 " --------------------------------------------------------------------------------
 " Windows環境の設定ファイルの場所を、Mac/Linux環境にあわせる
 " --------------------------------------------------------------------------------
-" set runtimepath+=$HOME/.vim,$HOME/.vim/after
 set runtimepath+=$HOME/.vim
 
 " ".vimrc" と ".gvimrc" を分割配置
