@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # 暫定的にコマンドを決め打ちにした
-# FIXME: Linuxではできない
+# FIXME: Linuxでは実行権限が必要
 # !!!: 実行結果出力の動作確認
 
 echo Start link
-
+# FIXME: 出力できない
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig ; $?
 ln -sf ~/dotfiles/.vimrc ~/.vimrc ; $?
 ln -sf ~/dotfiles/.gvimrc ~/.gvimrc ; $?
