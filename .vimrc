@@ -55,21 +55,6 @@ if dein#check_install()
     call dein#install()
 endif
 
-" ----------------------------------------
-" "Plugin" 設定
-" ----------------------------------------
-" TODO: 切出せるなら切出す
-
-""" syntastic """
-" PEP8に準拠
-let g:syntastic_python_checkers = ["pyflakes", "pep8"]
-" let g:syntastic_python_checkers = ["pyflakes"]
-
-""" vim_indent_guides """
-" vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
-let g:indent_guides_enable_on_vim_startup = 1
-" ----------------------------------------
-
 " プラグインの追加・削除やtomlファイルの設定を変更した後は
 " 適宜 "call dein#update()" や "call dein#clear_state()" を実行する
 " --------------------------------------------------------------------------------

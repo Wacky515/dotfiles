@@ -45,22 +45,22 @@ endif
 
 """ Unix の場合
 " if has("unix")
-"         " Unix 用設定
+"     " Unix 用設定
 " endif
 
 """ Mac の場合
 " if has("mac")
-"         " Mac 用設定
+"     " Mac 用設定
 " endif
 
 " Unix と Mac 共通の設定の場合
 " if has("unix") || has("mac")
-"         " Unix と Mac の共通設定
+"     " Unix と Mac の共通設定
 " endif
 
 """ Windows の場合
 " if has("win32") || has ("win64")
-"         " Windows 32bit、 Windows 64bit 用設定
+"     " Windows 32bit、 Windows 64bit 用設定
 " endif
 
 """ 環境固有の設定を持つ場合

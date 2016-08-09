@@ -3,16 +3,17 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# TODO: 動作未検証
 # 統合ユーザインターフェース
 [[plugins]]
 repo = 'Shougo/unite.vim'
 depends = 'neomru.vim'
 
+# TODO: 動作未検証
 # スニペット
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
-# TODO: 動作未検証
+[[plugins]]
+repo = 'Shougo/neocomplcache.vim'
 
 # カーソル位置のコンテキストに合わせて "filetype" を切り替え
 # !!!: 下に移動

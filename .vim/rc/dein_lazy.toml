@@ -6,6 +6,11 @@ depends = ['neosnippet-snippets']
 on_i = 1
 on_ft = ['snippet']
 
+# unite用mru
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_path = '.*'
+
 # !!!: "help jedi" が出るところまで確認済み
 # Python開発用プラグイン
 [[plugins]]
@@ -27,10 +32,3 @@ repo = 'scrooloose/syntastic'
 #     " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
 #     au MyAutoCmd VimEnter * nested colorscheme hybrid
 #     '''
-
-# 導入予定
-
-# TODOリスト
-# [[plugins]]
-# repo = 'davidhalter/jedi-vim'
-# on_ft = 'python'
