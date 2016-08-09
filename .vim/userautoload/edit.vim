@@ -12,3 +12,4 @@ set clipboard=unnamed,autoselect
 imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
+imap i ij<LEFT>

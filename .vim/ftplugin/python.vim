@@ -8,6 +8,11 @@ let b:did_ftplugin_python = 1
 " Python用のシンタックスハイライトをON
 let python_highlight_all =1
 
+" " FIXME: 動作せず
+" " "self" のハイライト
+" syn keyword pythonSpecialWord self
+" hi link pythonSpecialWord    Special
+
 " タブの設定
 setlocal smarttab
 setlocal expandtab
