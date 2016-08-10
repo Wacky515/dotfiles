@@ -56,8 +56,8 @@ repo = 'itchyny/lightline.vim'
 # <http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
 
 # ファイラー
-# [[plugins]]
-# repo = 'Shougo/vimfiler'
+[[plugins]]
+repo = 'Shougo/vimfiler'
 # <http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
 
 # "()" 、 "[]" などの操作

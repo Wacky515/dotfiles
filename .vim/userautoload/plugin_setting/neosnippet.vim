@@ -24,7 +24,7 @@ if has("conceal")
 endif
 
 " 自作スニペットのディレクトリ
-let g:neosnippet#snippets_directory='~/.vim/snippets/'
-" let g:neosnippet#snippets_directory='~/.cache/dein/repos/github.com/Shougo/neosnippet-snippets'
-" let g:neosnippet#snippets_directory='~/.cache/dein/repos/github.com/Shougo/neosnippet-snippets','~/.vim/snippets/'
-" let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets'
+let g:neosnippet#snippets_directory="~/.cache/dein/repos/github.com/Shougo/neosnippet-snippets,~/.vim/snippets/"
+" let g:neosnippet#snippets_directory="~/.vim/snippets/"
+" let g:neosnippet#snippets_directory="~/.cache/dein/repos/github.com/Shougo/neosnippet-snippets"
+" let g:neosnippet#snippets_directory="~/.vim/bundle/snipmate-snippets/snippets"
