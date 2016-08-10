@@ -68,7 +68,9 @@ set runtimepath+=$HOME/.vim
 " ".vimrc" と ".gvimrc" を分割配置
 set runtimepath+=~/.vim/
 runtime! userautoload/*.vim
-"
+" "Plugin" の設定ファイル
+runtime! userautoload/plugin_setting/*.vim
+
 " 読み込んだプラグインも含め、ファイルタイプの検出
 " ファイルタイプ別プラグイン/インデントを有効化する
 filetype plugin indent on

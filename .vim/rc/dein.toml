@@ -61,8 +61,8 @@ repo = 'itchyny/lightline.vim'
 # <http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
 
 # "()" 、 "[]" などの操作
-# [[plugins]]
-# repo = 'tpope/vim-surround'
+[[plugins]]
+repo = 'tpope/vim-surround'
 # <http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
 
 # テキスト整形
@@ -75,3 +75,6 @@ repo = 'itchyny/lightline.vim'
 # [[plugins]]
 # repo = 'vim-scripts/YankRing.vim'
 # <http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
+
+# Undu管理
+# gundo.vim
