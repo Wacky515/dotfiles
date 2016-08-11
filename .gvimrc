@@ -30,10 +30,13 @@ endif
 " フォントの設定（Linuxは保留）
 " TODO: フォントの自動インストール化（初期化スクリプトに記述）
 """ Windows の場合
-if has ("mac")
+if has("mac")
     set guifont=Ricty_Diminished:h18
-elseif has("win32") || has ("win64")
+elseif has("win32") || has("win64")
     set guifont=Ricty_Diminished:h16
+endif
+if has("unix")
+    set guifont=DejaVu\ Sans\ Mono\ 13
 endif
 
 " 行番号の色

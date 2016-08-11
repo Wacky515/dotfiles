@@ -29,6 +29,10 @@ nmap <Leader>j [jedi]
 xmap <Leader>j [jedi]
 
 " !!!: <Ctrl>の代わりに<Leader>で発動するために一旦Kill
+" !!!: "Linux" は<Ctrl><Space>dehokanが使えない
+if has("unix")
+    let g:jedi#completions_command = "<C-N>"
+endif
 " TODO: キーを潰していないか確認
 " <Ctrl>g: 変数宣言へジャンプ
 " let g:jedi#goto_assignments_command = "<C-g>"
