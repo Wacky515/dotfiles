@@ -26,12 +26,12 @@ set tags=~/.tags
 set modeline
 
 " FIXME: ↓効かないのかもわからない
-" !!!: 先頭行にも記述があるので一旦Kill
-" !!!: "Linux" でエラーになるのでKill
 " vimrc 即時反映"{{{
+" !!!: 先頭行にも記述があるので一旦Kill
 " augroup MyAutoCmd
 "     autocmd!
 " augroup END
+" !!!: "Linux" でエラーになるのでKill
 " if !has("gui_running") && !(has("win32") || has("win64"))
 "     " .vimrcの再読込時にも色が変化するようにする
 "     autocmd MyAutoCmd BufWritePost $MYVIMRC nested source $MYVIMRC

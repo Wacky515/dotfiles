@@ -52,6 +52,10 @@ repo = 'bronson/vim-trailing-whitespace'
 repo = 'itchyny/lightline.vim'
 # <http://itchyny.hatenablog.com/entry/20130828/1377653592>
 
+# ミニマップ
+[[plugins]]
+repo = 'mipmip/vim-minimap'
+
 
 # 導入予定
 
