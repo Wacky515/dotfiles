@@ -16,7 +16,6 @@ on_path = '.*'
 repo = 'davidhalter/jedi-vim'
 on_ft = 'python'
 
-# TODO: 動作未検証
 # Pythonシンタックスハイライト
 [[plugins]]
 # repo = 'hdima/python-syntax'
@@ -29,7 +28,6 @@ on_ft = 'python'
 [[plugins]]
 repo = 'scrooloose/syntastic'
 
-# TODO: 移植後の動作未検証
 # カラースキーマ
 [[plugins]]
 repo = 'w0ng/vim-hybrid'

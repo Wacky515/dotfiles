@@ -8,36 +8,6 @@ let b:did_ftplugin_python = 1
 " Python用のシンタックスハイライトをON
 let python_highlight_all =1
 
-" " FIXME: 動作せず
-" " " 演算子と "self" のハイライト
-" if version < 600
-"   syntax clear
-" elseif exists('b:current_after_syntax')
-"   finish
-" endif
-"
-" let s:cpo_save = &cpo
-" set cpo&vim
-"
-" syn match pythonOperator "\(+\|=\|-\|\^\|\*\)"
-" syn match pythonDelimiter "\(,\|\.\|:\)"
-" syn keyword pythonSpecialWord self
-" hi link pythonSpecialWord    Special
-" hi link pythonDelimiter      Special
-"
-" let b:current_after_syntax = 'python'
-" let &cpo = s:cpo_save
-" unlet s:cpo_save
-
-" タブの設定
-setlocal smarttab
-setlocal expandtab
-setlocal tabstop=4
-setlocal shiftwidth=4
-
-" 80文字目に赤いラインマークを入れる
-set colorcolumn=80
-
 " カラースキーマの指定
 " colorscheme hybrid
 " colorscheme desert
@@ -48,6 +18,15 @@ set background=dark
 " syntax on
 syntax enable
 set t_Co=256
+
+" 80文字目に赤いラインマークを入れる
+set colorcolumn=80
+
+" タブの設定
+setlocal smarttab
+setlocal expandtab
+setlocal tabstop=4
+setlocal shiftwidth=4
 
 " スクリプトを実行
 " DONE: 実行前に ":w" をする
