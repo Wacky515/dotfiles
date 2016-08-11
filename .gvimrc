@@ -34,8 +34,7 @@ if has("mac")
     set guifont=Ricty_Diminished:h18
 elseif has("win32") || has("win64")
     set guifont=Ricty_Diminished:h16
-endif
-if has("unix")
+elseif has("unix")
     set guifont=DejaVu\ Sans\ Mono\ 13
 endif
 

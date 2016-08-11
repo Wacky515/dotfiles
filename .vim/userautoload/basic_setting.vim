@@ -28,7 +28,7 @@ set modeline
 " FIXME: ↓効かないのかもわからない
 " !!!: 先頭行にも記述があるので一旦Kill
 " !!!: "Linux" でエラーになるのでKill
-" vimrc 即時反映
+" vimrc 即時反映"{{{
 " augroup MyAutoCmd
 "     autocmd!
 " augroup END
@@ -40,11 +40,11 @@ set modeline
 "     autocmd MyAutoCmd BufWritePost $MYVIMRC source $MYVIMRC |
 "     ¥if has("gui_running") | source $MYGVIMRC
 "     autocmd MyAutoCmd BufWritePost $MYGVIMRC if has("gui_running") | source $MYGVIMRC
-" endif
+" endif"}}}
 
 
 """ Vimスクリプト 記述法 Memo """
-
+"{{{
 """ OS固有の設定を持つ場合
 
 """ Unix の場合
@@ -74,3 +74,4 @@ set modeline
 " else
 " 	" Python 以外の設定
 " endif
+"}}}

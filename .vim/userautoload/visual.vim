@@ -88,6 +88,9 @@ endif
 " ウィンドウ右下に入力中のコマンドを表示
 " set showcmd
 
+"タブラベルを常に表示する
+:set showtabline=3
+
 " 終了時にウィンドウサイズを記憶する
 let g:save_window_file = expand("~/.vim/tmp/.vimwinpos")
 augroup SaveWindow

@@ -18,6 +18,12 @@ repo = 'davidhalter/jedi-vim'
 on_ft = 'python'
 
 # TODO: 動作未検証
+# Pythonシンタックスハイライト
+[[plugins]]
+repo = 'hdima/python-syntax'
+on_ft = 'python'
+
+# TODO: 動作未検証
 # 構文チェッカー
 [[plugins]]
 repo = 'scrooloose/syntastic'
