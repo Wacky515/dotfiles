@@ -2,10 +2,10 @@ scriptencoding utf-8
 
 " 基本設定
 " unite general settings
-"インサートモードで開始
+" 挿入モードで開始
 let g:unite_enable_start_insert = 1
-"最近開いたファイル履歴の保存数
-let g:unite_source_file_mru_limit = 100
+" 最近開いたファイル履歴の保存数
+let g:unite_source_file_mru_limit = 1000
 
 " 前置キー
 " unite prefix key.

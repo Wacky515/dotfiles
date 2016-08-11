@@ -5,49 +5,69 @@ if exists("b:did_ftplugin_python")
 endif
 let b:did_ftplugin_python = 1
 
-" Python—p‚ÌƒVƒ“ƒ^ƒbƒNƒXƒnƒCƒ‰ƒCƒg‚ğON
+" Pythonç”¨ã®ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ãƒã‚¤ãƒ©ã‚¤ãƒˆã‚’ON
 let python_highlight_all =1
 
-" " FIXME: “®ì‚¹‚¸
-" " "self" ‚ÌƒnƒCƒ‰ƒCƒg
+" " FIXME: å‹•ä½œã›ãš
+" " " æ¼”ç®—å­ã¨ "self" ã®ãƒã‚¤ãƒ©ã‚¤ãƒˆ
+" if version < 600
+"   syntax clear
+" elseif exists('b:current_after_syntax')
+"   finish
+" endif
+"
+" let s:cpo_save = &cpo
+" set cpo&vim
+"
+" syn match pythonOperator "\(+\|=\|-\|\^\|\*\)"
+" syn match pythonDelimiter "\(,\|\.\|:\)"
 " syn keyword pythonSpecialWord self
 " hi link pythonSpecialWord    Special
+" hi link pythonDelimiter      Special
+"
+" let b:current_after_syntax = 'python'
+" let &cpo = s:cpo_save
+" unlet s:cpo_save
 
-" ƒ^ƒu‚Ìİ’è
+" ã‚¿ãƒ–ã®è¨­å®š
 setlocal smarttab
 setlocal expandtab
 setlocal tabstop=4
 setlocal shiftwidth=4
 
-" 80•¶š–Ú‚ÉÔ‚¢ƒ‰ƒCƒ“ƒ}[ƒN‚ğ“ü‚ê‚é
+" 80æ–‡å­—ç›®ã«èµ¤ã„ãƒ©ã‚¤ãƒ³ãƒãƒ¼ã‚¯ã‚’å…¥ã‚Œã‚‹
 set colorcolumn=80
 
-" ƒJƒ‰[ƒXƒL[ƒ}‚Ìw’è
+" ã‚«ãƒ©ãƒ¼ã‚¹ã‚­ãƒ¼ãƒã®æŒ‡å®š
 " colorscheme hybrid
-colorscheme desert
-" ˆÃ”wŒi—p‚Ì”zF‚É‚·‚é
+" colorscheme desert
+colorscheme jellybeans
+" æš—èƒŒæ™¯ç”¨ã®é…è‰²ã«ã™ã‚‹
 set background=dark
+" syntax on
+syntax enable
+set t_Co=256
 
-" ƒXƒNƒŠƒvƒg‚ğÀs
-" DONE: Às‘O‚É ":w" ‚ğ‚·‚é
+" ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’å®Ÿè¡Œ
+" DONE: å®Ÿè¡Œå‰ã« ":w" ã‚’ã™ã‚‹
 " nnoremap <F5> :!python % <ENTER>
 nnoremap <F5> :w <ENTER> :!python % <ENTER>
-" ƒfƒoƒbƒO‚ğÀs
+" ãƒ‡ãƒãƒƒã‚°ã‚’å®Ÿè¡Œ
 nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
 
-" FIXME: ƒpƒX‚ğ’Ê‚¹‚È‚¢
-" "Anaconda" ‚ÌƒpƒX
+" FIXME: ãƒ‘ã‚¹ã‚’é€šã›ãªã„
+" "Anaconda" ã®ãƒ‘ã‚¹
 " python << EOF
 " import os
 " import sys
-" 
-" home = os.path.expanduser("~")
+
+" home = os.path.expanduser("â€¾")
 " " path = home + "/anaconda/lib/python2.7/site-packages"
 " " path = home + "/Anaconda2/Lib/site-packages"
 " " path = home + "/Anaconda2"
-" " path = home + "\Anaconda2\Lib\site-packages"
+" " path = home + "Â¥Anaconda2Â¥LibÂ¥site-packages"
 " " path = home + "/Anaconda2/Lib/site-packages/"
-" path = "C:/i‹ŒŠÂ‹«j_Python27/Lib/site-packages"
+" path = "C:/ï¼ˆæ—§ç’°å¢ƒï¼‰_Python27/Lib/site-packages"
 " if not path in sys.path:
 "     sys.path.insert(0, path)
 " EOF
@@ -57,7 +77,7 @@ nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
 "     import os
 "     import sys
 "
-"     home = os.path.expanduser("~")
+"     home = os.path.expanduser("â€¾")
 "     " path = home + "/anaconda/lib/python2.7/site-packages"
 "     path = home + "/Anaconda2/Lib/site-packages"
 "     if not path in sys.path:

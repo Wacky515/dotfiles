@@ -10,7 +10,9 @@ imap <Leader>k     <Plug>(neosnippet_expand_or_jump)
 " smap <Leader>k     <Plug>(neosnippet_expand_or_jump)
 " xmap <Leader>k     <Plug>(neosnippet_expand_target)
 
+"<Tab>で下を見て<Shift><Tab>で上に戻る
 " SuperTab like snippets behavior.
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
 \: pumvisible() ? "\<C-n>" : "\<TAB>"

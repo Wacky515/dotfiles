@@ -16,14 +16,6 @@ set number
 " スクロール時の上・下端行数指定
 set scrolloff=3
 
-" コマンドラインの行数表示
-" DONE: Windows用GVim使用時は.gvimrcを編集する ← 不要
-set cmdheight=5
-" !!!: 条件分岐の必要ないのでKill
-" if has("unix") || has("mac")
-"     set cmdheight=10
-" endif
-
 " 自動インデント時の空白文字数
 set shiftwidth=4
 " タブ文字の幅
@@ -42,9 +34,14 @@ set shiftround
 
 " カーソル行の背景色変更
 set cursorline
-
+" 長い行を省略表示しない
+set display=lastline
+" 補完メニューの高さ
+set pumheight=10
 " 対になる括弧を強調
 set showmatch
+" ↑の強調時間[msec]
+set matchtime=1
 " 対応括弧に "<" と ">" を追加
 set matchpairs& matchpairs+=<:>
 
@@ -119,9 +116,6 @@ endif
 
 """ コマンドラインモード表示篇 """
 
-" !!!: 変化ない
-" コマンドラインモードで <Tab> によるファイル名補完を有効にする
-" set wildmenu
 
 """ ステータス行表示篇 """
 

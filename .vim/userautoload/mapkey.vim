@@ -5,8 +5,9 @@ scriptencoding utf-8
 " 入力モード中 jj: <Esc>
 inoremap jj <Esc>
 
-" vv: 行末まで選択
+" vv / Y: 行末まで選択
 vnoremap v $h
+nnoremap Y y$
 
 " <Esc><Esc>: ハイライト消去
 nmap <silent> <Esc><Esc> :nohlsearch<CR>

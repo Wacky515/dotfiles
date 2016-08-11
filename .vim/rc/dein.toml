@@ -7,8 +7,12 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'Shougo/unite.vim'
 depends = 'neomru.vim'
+# "unite.vim" 用colorschemeプレビュー
+[[plugins]]
+repo = 'ujihisa/unite-colorscheme'
+# TODO: ショートカットキーに登録
+# ":Unite -auto-preview colorscheme" でプレビュー
 
-# TODO: 動作未検証
 # スニペット
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
@@ -16,13 +20,9 @@ repo = 'Shougo/neosnippet-snippets'
 repo = 'Shougo/neocomplcache.vim'
 
 # カーソル位置のコンテキストに合わせて "filetype" を切り替え
-# !!!: 下に移動
-# [[plugins]]
-# repo = 'Shougo/context_filetype.vim'
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = ['context_filetype.vim']
-
 [[plugins]] repo = 'Shougo/context_filetype.vim'
 
 # TODO: 動作未検証
@@ -46,6 +46,47 @@ repo = 'bronson/vim-trailing-whitespace'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 # <http://itchyny.hatenablog.com/entry/20130828/1377653592>
+
+# TODO: 動作未検証
+# カラースキーマ
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
+hook_add = '''
+    set background=dark
+    " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
+    " 但し Colorscheme イベントの発生が抑制されないよう nested を付ける。
+    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    '''
+[[plugins]]
+repo = 'chriskempson/vim-tomorrow-theme'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    '''
+[[plugins]]
+repo = 'tomasr/molokai'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    '''
+[[plugins]]
+repo = 'sjl/badwolf'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    '''
+[[plugins]]
+repo = 'vim-scripts/twilight'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    '''
+[[plugins]]
+repo = 'nanotech/jellybeans.vim'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    '''
 
 
 # 導入予定
@@ -78,3 +119,22 @@ repo = 'tpope/vim-surround'
 
 # Undu管理
 # gundo.vim
+
+# Toml
+# [[plugins]]
+# repo  = 'cespare/vim-toml'
+# on_ft = 'toml'
+
+# Markdown
+# [[plugins]]
+# repo = 'rcmdnk/vim-markdown'
+# on_ft = ['markdown','mkd']
+# hook_add = '''
+#   let g:vim_markdown_frontmatter = 1
+#   let g:vim_markdown_math = 1
+# '''
+
+# Japanese doc
+# [[plugins]]
+# repo = 'vim-jp/vimdoc-ja'
+# on_ft = 'help'

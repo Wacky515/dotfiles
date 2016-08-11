@@ -1,72 +1,75 @@
 scriptencoding utf-8
 
-""" Šî–{İ’è•Ñ """
+""" åŸºæœ¬è¨­å®šç¯‡ """
 
-" “ü—ÍƒRƒ}ƒ“ƒh—š—ğ‚Ì•Û‘¶”
+" å…¥åŠ›ã‚³ãƒãƒ³ãƒ‰å±¥æ­´ã®ä¿å­˜æ•°
 set history=1000
 
-" Ü‚èô‚İ‚Ìİ’è
+" æŠ˜ã‚Šç•³ã¿ã®è¨­å®š
 set foldmethod=marker
 
-" ".swp" ‚ÌƒfƒBƒŒƒNƒgƒŠ•ÏX
+" ".swp" ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå¤‰æ›´
 set directory=~/.vim/tmp
-" "~" ‚ÌƒfƒBƒŒƒNƒgƒŠ•ÏX
+" "~" ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå¤‰æ›´
 set backupdir=~/.vim/tmp
-" ".un~" ‚ÌƒfƒBƒŒƒNƒgƒŠ•ÏX
+" ".un~" ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå¤‰æ›´
 set undodir=~/.vim/tmp
-" ".viminfo" ‚ÌƒfƒBƒŒƒNƒgƒŠ•ÏX
+" ".viminfo" ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå¤‰æ›´
 set viminfo+=n~/.vim/tmp/viminfo.txt
 
-" !!!: “®ì–¢Šm”F
-" ƒ‚[ƒhƒ‰ƒCƒ“‚ğON
-" ¦ ƒtƒ@ƒCƒ‹–ˆ‚Ìİ’è
+" ã‚¿ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ã®æŒ‡å®š
+set tags=~/.tags
+
+" !!!: å‹•ä½œæœªç¢ºèª
+" ãƒ¢ãƒ¼ãƒ‰ãƒ©ã‚¤ãƒ³ã‚’ON
+" â€» ãƒ•ã‚¡ã‚¤ãƒ«æ¯ã®è¨­å®š
 set modeline
 
-" FIXME: «Œø‚©‚È‚¢‚Ì‚©‚à‚í‚©‚ç‚È‚¢
-" !!!: æ“ªs‚É‚à‹Lq‚ª‚ ‚é‚Ì‚Åˆê’UKill
-" vimrc ‘¦”½‰f
+" FIXME: â†“åŠ¹ã‹ãªã„ã®ã‹ã‚‚ã‚ã‹ã‚‰ãªã„
+" !!!: å…ˆé ­è¡Œã«ã‚‚è¨˜è¿°ãŒã‚ã‚‹ã®ã§ä¸€æ—¦Kill
+" vimrc å³æ™‚åæ˜ 
 " augroup MyAutoCmd
 "     autocmd!
 " augroup END
 if !has("gui_running") && !(has("win32") || has("win64"))
-    " .vimrc‚ÌÄ“Ç‚É‚àF‚ª•Ï‰»‚·‚é‚æ‚¤‚É‚·‚é
+    " .vimrcã®å†èª­è¾¼æ™‚ã«ã‚‚è‰²ãŒå¤‰åŒ–ã™ã‚‹ã‚ˆã†ã«ã™ã‚‹
     autocmd MyAutoCmd BufWritePost $MYVIMRC nested source $MYVIMRC
 else
-    " .vimrc‚ÌÄ“Ç‚É‚àF‚ª•Ï‰»‚·‚é‚æ‚¤‚É‚·‚é
+    " .vimrcã®å†èª­è¾¼æ™‚ã«ã‚‚è‰²ãŒå¤‰åŒ–ã™ã‚‹ã‚ˆã†ã«ã™ã‚‹
     autocmd MyAutoCmd BufWritePost $MYVIMRC source $MYVIMRC |
-                \if has("gui_running") | source $MYGVIMRC
+                Â¥if has("gui_running") | source $MYGVIMRC
     autocmd MyAutoCmd BufWritePost $MYGVIMRC if has("gui_running") | source $MYGVIMRC
 endif
 
 
-""" VimƒXƒNƒŠƒvƒg ‹Lq–@ Memo """
+""" Vimã‚¹ã‚¯ãƒªãƒ—ãƒˆ è¨˜è¿°æ³• Memo """
 
-""" OSŒÅ—L‚Ìİ’è‚ğ‚Âê‡
+""" OSå›ºæœ‰ã®è¨­å®šã‚’æŒã¤å ´åˆ
 
-""" Unix ‚Ìê‡
+""" Unix ã®å ´åˆ
 " if has("unix")
-"     " Unix —pİ’è
+"     " Unix ç”¨è¨­å®š
 " endif
 
-""" Mac ‚Ìê‡
+""" Mac ã®å ´åˆ
 " if has("mac")
-"     " Mac —pİ’è
+"     " Mac ç”¨è¨­å®š
 " endif
 
-" Unix ‚Æ Mac ‹¤’Ê‚Ìİ’è‚Ìê‡
+" Unix ã¨ Mac å…±é€šã®è¨­å®šã®å ´åˆ
 " if has("unix") || has("mac")
-"     " Unix ‚Æ Mac ‚Ì‹¤’Êİ’è
+"     " Unix ã¨ Mac ã®å…±é€šè¨­å®š
 " endif
 
-""" Windows ‚Ìê‡
+""" Windows ã®å ´åˆ
 " if has("win32") || has ("win64")
-"     " Windows 32bitA Windows 64bit —pİ’è
+"     " Windows 32bitã€ Windows 64bit ç”¨è¨­å®š
 " endif
 
-""" ŠÂ‹«ŒÅ—L‚Ìİ’è‚ğ‚Âê‡
+""" ç’°å¢ƒå›ºæœ‰ã®è¨­å®šã‚’æŒã¤å ´åˆ
 
 " if ( has ("python") || has("python3") )
-" 	" Python —pİ’è
+" 	" Python ç”¨è¨­å®š
 " else
-" 	" Python ˆÈŠO‚Ìİ’è
+" 	" Python ä»¥å¤–ã®è¨­å®š
 " endif
