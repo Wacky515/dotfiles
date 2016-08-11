@@ -41,7 +41,8 @@ set colorcolumn=80
 " カラースキーマの指定
 " colorscheme hybrid
 " colorscheme desert
-colorscheme jellybeans
+" colorscheme jellybeans
+colorscheme molokai
 " 暗背景用の配色にする
 set background=dark
 " syntax on

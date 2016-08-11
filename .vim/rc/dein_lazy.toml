@@ -11,7 +11,6 @@ on_ft = ['snippet']
 repo = 'Shougo/neomru.vim'
 on_path = '.*'
 
-# !!!: "help jedi" が出るところまで確認済み
 # Python開発用プラグイン
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
@@ -20,7 +19,9 @@ on_ft = 'python'
 # TODO: 動作未検証
 # Pythonシンタックスハイライト
 [[plugins]]
-repo = 'hdima/python-syntax'
+# repo = 'hdima/python-syntax'
+# repo = 'kh3phr3n/python-syntax'
+repo = 'pfdevilliers/Pretty-Vim-Python'
 on_ft = 'python'
 
 # TODO: 動作未検証
@@ -28,13 +29,43 @@ on_ft = 'python'
 [[plugins]]
 repo = 'scrooloose/syntastic'
 
-# TODO: 動作未検証
-# # カラースキーマ
-# [[plugins]]
-# repo = 'w0ng/vim-hybrid'
-# hook_add = '''
-#     set background=dark
-#     " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
-#     " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
-#     au MyAutoCmd VimEnter * nested colorscheme hybrid
-#     '''
+# TODO: 移植後の動作未検証
+# カラースキーマ
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
+hook_add = '''
+    set background=dark
+    " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
+    " 但し Colorscheme イベントの発生が抑制されないよう nested を付ける。
+    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    '''
+[[plugins]]
+repo = 'chriskempson/vim-tomorrow-theme'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    '''
+[[plugins]]
+repo = 'tomasr/molokai'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    '''
+[[plugins]]
+repo = 'sjl/badwolf'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    '''
+[[plugins]]
+repo = 'vim-scripts/twilight'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    '''
+[[plugins]]
+repo = 'nanotech/jellybeans.vim'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    '''
