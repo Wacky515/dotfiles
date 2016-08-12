@@ -80,13 +80,11 @@ endif
 
 """ ウィンドウ表示篇 """
 
-" !!!: 変化ない
 " ウインドウタイトルにファイルのパス情報等を表示
-" set title
+set title
 
-" !!!: 変化ない
 " ウィンドウ右下に入力中のコマンドを表示
-" set showcmd
+set showcmd
 
 "タブラベルを常に表示する
 set showtabline=3
