@@ -1,7 +1,7 @@
 scriptencoding utf-8
 
-" "autocmd"（マクロ） の初期化
 " !!!: 必ず先頭に記述
+" "autocmd"（マクロ） の初期化
 augroup MyAutoCmd
     autocmd!
 augroup END
@@ -36,7 +36,7 @@ endif
 if dein#load_state(s:plugin_dir)
     call dein#begin(s:plugin_dir)
 
-    " プラグインリストの "*.toml" を指定
+    " プラグインリスト "*.toml" を指定
     let g:rc_dir    = expand("~/.vim/rc")
     let s:toml      = g:rc_dir . "/dein.toml"
     let s:lazy_toml = g:rc_dir . "/dein_lazy.toml"
@@ -65,13 +65,16 @@ endif
 " --------------------------------------------------------------------------------
 set runtimepath+=$HOME/.vim
 
+" --------------------------------------------------------------------------------
 " ".vimrc" と ".gvimrc" を分割配置
+" --------------------------------------------------------------------------------
 set runtimepath+=~/.vim/
 runtime! userautoload/*.vim
 " "Plugin" の設定ファイル
 runtime! userautoload/plugin_setting/*.vim
 
+" --------------------------------------------------------------------------------
 " 読み込んだプラグインも含め、ファイルタイプの検出
 " ファイルタイプ別プラグイン/インデントを有効化する
+" --------------------------------------------------------------------------------
 filetype plugin indent on
-

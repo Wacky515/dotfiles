@@ -2,16 +2,25 @@
 
 # 暫定的にコマンドを決め打ちにした
 # FIXME: Linuxでは実行権限が必要
-# !!!: 実行結果出力の動作確認
 
 echo Start link
-# FIXME: 出力できない
-ln -sf ~/dotfiles/.gitconfig ~/.gitconfig ; $?
-ln -sf ~/dotfiles/.vimrc ~/.vimrc ; $?
-ln -sf ~/dotfiles/.gvimrc ~/.gvimrc ; $?
-ln -sf ~/dotfiles/.vim ~/.vim ; $?
-
-echo Done link
+ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
+if [ $? = 0 ]; then
+    echo ".gitconfig link success!"
+fi
+ln -sn ~/dotfiles/.vimrc ~/.vimrc
+if [ $? = 0 ]; then
+    echo ".vimrc link success!"
+fi
+ln -sn ~/dotfiles/.gvimrc ~/.gvimrc
+if [ $? = 0 ]; then
+    echo ".gvimrc link success!"
+fi
+ln -sn ~/dotfiles/.vim ~/.vim
+if [ $? = 0 ]; then
+    echo ".vim link success!"
+fi
+echo End link
 
 
 # 将来的には以下の様に汎用化する
