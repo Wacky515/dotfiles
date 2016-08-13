@@ -25,12 +25,12 @@ set wrapscan
 " 検索マッチテキストをハイライト
 set hlsearch
 
-" 検索時に "¥" や "?" のエスケープを簡素化
+" 検索時に "\" や "?" のエスケープを簡素化
 " TODO: 動作確認
-cnoremap <expr> / getcmdtype() == "/" ? "¥/" : "/"
-cnoremap <expr> ? getcmdtype() == "?" ? "¥?" : "?"
+cnoremap <expr> / getcmdtype() == "/" ? "\/" : "/"
+cnoremap <expr> ? getcmdtype() == "?" ? "\?" : "?"
 
 " grep検索の設定
 " TODO: 動作確認
-set grepformat=%f:%l:%m,%f:%l%m,%f¥ ¥ %l%m,%f
-set grepprg=grep¥ -nh
+set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
+set grepprg=grep\ -nh

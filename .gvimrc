@@ -37,5 +37,5 @@ elseif has("win32") || has("win64")
     set guifont=Ricty_Diminished:h16
 endif
 
-" sentaku行番号の色
+" 選択行番号の色
 highlight LineNr ctermfg=darkyellow

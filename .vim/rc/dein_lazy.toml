@@ -1,4 +1,3 @@
-# TODO: 動作未検証
 # スニペット
 [[plugins]]
 repo = 'Shougo/neosnippet'
@@ -23,10 +22,10 @@ on_ft = 'python'
 repo = 'pfdevilliers/Pretty-Vim-Python'
 on_ft = 'python'
 
-# TODO: 動作未検証
 # 構文チェッカー
 [[plugins]]
 repo = 'scrooloose/syntastic'
+on_ft = 'python'
 
 # カラースキーマ
 [[plugins]]

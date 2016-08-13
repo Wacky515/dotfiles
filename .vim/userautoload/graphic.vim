@@ -90,7 +90,7 @@ set showcmd
 set showtabline=3
 
 " ミニマップを表示
-autocmd VimEnter * execute 'Minimap'
+autocmd VimEnter * execute "Minimap"
 
 " 終了時にウィンドウサイズを記憶する
 let g:save_window_file = expand("~/.vim/tmp/.vimwinpos")
