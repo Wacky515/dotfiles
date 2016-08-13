@@ -64,3 +64,16 @@ nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
 "         sys.path.insert(0, path)
 "     EOF
 " endif
+python << EOF
+import os
+import sys
+
+home = os.path.expanduser("‾")
+path = home + "/anaconda/lib/python2.7/site-packages"
+" path = os.path.expanduser("C:\\Users\\22683\\Anaconda2\\Lib\\site-packages")
+" path = os.path.expanduser("~/22683\Anaconda2\Lib\site-packages")
+" path = os.path.expanduser("~/.pyenv/versions/anaconda-2.3.0/lib/python2.7/site-packages")
+" C:\Users\22683\Anaconda2\Lib\site-packages
+if not path in sys.path:
+    sys.path.append(path)
+EOF
