@@ -1,40 +1,40 @@
-# TODO: “®ì–¢ŒŸØ
-# ƒXƒjƒyƒbƒg
+# TODO: å‹•ä½œæœªæ¤œè¨¼
+# ã‚¹ãƒ‹ãƒšãƒƒãƒˆ
 [[plugins]]
 repo = 'Shougo/neosnippet'
 depends = ['neosnippet-snippets']
 on_i = 1
 on_ft = ['snippet']
 
-# unite—pmru
+# uniteç”¨mru
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 on_path = '.*'
 
-# PythonŠJ”­—pƒvƒ‰ƒOƒCƒ“
+# Pythoné–‹ç™ºç”¨ãƒ—ãƒ©ã‚°ã‚¤ãƒ³
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
 on_ft = 'python'
 
-# PythonƒVƒ“ƒ^ƒbƒNƒXƒnƒCƒ‰ƒCƒg
+# Pythonã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ãƒã‚¤ãƒ©ã‚¤ãƒˆ
 [[plugins]]
 # repo = 'hdima/python-syntax'
 # repo = 'kh3phr3n/python-syntax'
 repo = 'pfdevilliers/Pretty-Vim-Python'
 on_ft = 'python'
 
-# TODO: “®ì–¢ŒŸØ
-# \•¶ƒ`ƒFƒbƒJ[
+# TODO: å‹•ä½œæœªæ¤œè¨¼
+# æ§‹æ–‡ãƒã‚§ãƒƒã‚«ãƒ¼
 [[plugins]]
 repo = 'scrooloose/syntastic'
 
-# ƒJƒ‰[ƒXƒL[ƒ}
+# ã‚«ãƒ©ãƒ¼ã‚¹ã‚­ãƒ¼ãƒ
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
 hook_add = '''
     set background=dark
-    " colorscheme İ’è‚Í source Œã‚És‚¤•K—v‚ª‚ ‚é‚Ì‚Å VimEnter ‚Ås‚¤B
-    " ’A‚µ Colorscheme ƒCƒxƒ“ƒg‚Ì”­¶‚ª—}§‚³‚ê‚È‚¢‚æ‚¤ nested ‚ğ•t‚¯‚éB
+    " colorscheme è¨­å®šã¯ source å¾Œã«è¡Œã†å¿…è¦ãŒã‚ã‚‹ã®ã§ VimEnter ã§è¡Œã†ã€‚
+    " ä½†ã— Colorscheme ã‚¤ãƒ™ãƒ³ãƒˆã®ç™ºç”ŸãŒæŠ‘åˆ¶ã•ã‚Œãªã„ã‚ˆã† nested ã‚’ä»˜ã‘ã‚‹ã€‚
     au MyAutoCmd VimEnter * nested colorscheme hybrid
     '''
 [[plugins]]

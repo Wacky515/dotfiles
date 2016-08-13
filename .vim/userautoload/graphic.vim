@@ -1,51 +1,51 @@
 scriptencoding utf-8
 
-" .vimrc‚Ìæ“ª‚É‹Lq‚µ‚½‚©‚çKill‚µ‚Ä—lqŒ©
-" " "autocmd"iƒ}ƒNƒj ‚Ì‰Šú‰»
-" " !!!: •K‚¸æ“ª‚É‹Lq
+" .vimrcã®å…ˆé ­ã«è¨˜è¿°ã—ãŸã‹ã‚‰Killã—ã¦æ§˜å­è¦‹
+" " "autocmd"ï¼ˆãƒã‚¯ãƒ­ï¼‰ ã®åˆæœŸåŒ–
+" " !!!: å¿…ãšå…ˆé ­ã«è¨˜è¿°
 " augroup MyAutoCmd
 "     autocmd!
 " augroup END
 
 
-""" ƒƒCƒ“•\¦•Ñ """
+""" ãƒ¡ã‚¤ãƒ³è¡¨ç¤ºç¯‡ """
 
-" s”Ô†‚Ì•\¦
+" è¡Œç•ªå·ã®è¡¨ç¤º
 set number
 
-" ƒXƒNƒ[ƒ‹‚ÌãE‰º’[s”w’è
+" ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«æ™‚ã®ä¸Šãƒ»ä¸‹ç«¯è¡Œæ•°æŒ‡å®š
 set scrolloff=3
 
-" ©“®ƒCƒ“ƒfƒ“ƒg‚Ì‹ó”’•¶š”
+" è‡ªå‹•ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆæ™‚ã®ç©ºç™½æ–‡å­—æ•°
 set shiftwidth=4
-" ƒ^ƒu•¶š‚Ì•
+" ã‚¿ãƒ–æ–‡å­—ã®å¹…
 set tabstop=4
-" ƒ_ƒu•¶š‚ğ‹ó”’•¶š‚É’uŠ·‚¦
+" ãƒ€ãƒ–æ–‡å­—ã‚’ç©ºç™½æ–‡å­—ã«ç½®æ›ãˆ
 set expandtab
-" s“ª‚Í "shiftwidth" •ªA‚»‚êˆÈŠO‚Í "tabstop" •ªƒCƒ“ƒfƒ“ƒg
+" è¡Œé ­ã¯ "shiftwidth" åˆ†ã€ãã‚Œä»¥å¤–ã¯ "tabstop" åˆ†ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆ
 set smarttab
 
-" Œ»İs‚Æ“¯‚¶ƒCƒ“ƒfƒ“ƒg‚ğ‘}“ü
+" ç¾åœ¨è¡Œã¨åŒã˜ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’æŒ¿å…¥
 set autoindent
-" ‘Os––”ö‚É‡‚í‚¹AŸsƒCƒ“ƒfƒ“ƒg‚ğ‘Œ¸
+" å‰è¡Œæœ«å°¾ã«åˆã‚ã›ã€æ¬¡è¡Œã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’å¢—æ¸›
 set smartindent
-" "<" A ">" ‚ÅƒCƒ“ƒfƒ“ƒg‚·‚éA"shiftwidth" ‚Ì”{”‚ÉŠÛ‚ß‚é
+" "<" ã€ ">" ã§ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã™ã‚‹æ™‚ã€"shiftwidth" ã®å€æ•°ã«ä¸¸ã‚ã‚‹
 set shiftround
 
-" ƒJ[ƒ\ƒ‹s‚Ì”wŒiF•ÏX
+" ã‚«ãƒ¼ã‚½ãƒ«è¡Œã®èƒŒæ™¯è‰²å¤‰æ›´
 set cursorline
-" ’·‚¢s‚ğÈ—ª•\¦‚µ‚È‚¢
+" é•·ã„è¡Œã‚’çœç•¥è¡¨ç¤ºã—ãªã„
 set display=lastline
-" •âŠ®ƒƒjƒ…[‚Ì‚‚³
+" è£œå®Œãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®é«˜ã•
 set pumheight=10
-" ‘Î‚É‚È‚éŠ‡ŒÊ‚ğ‹­’²
+" å¯¾ã«ãªã‚‹æ‹¬å¼§ã‚’å¼·èª¿
 set showmatch
-" ª‚Ì‹­’²ŠÔ[msec]
+" â†‘ã®å¼·èª¿æ™‚é–“[msec]
 set matchtime=1
-" ‘Î‰Š‡ŒÊ‚É "<" ‚Æ ">" ‚ğ’Ç‰Á
+" å¯¾å¿œæ‹¬å¼§ã« "<" ã¨ ">" ã‚’è¿½åŠ 
 set matchpairs& matchpairs+=<:>
 
-" ƒtƒ@ƒCƒ‹‚ğŠJ‚¢‚½‚ÉÅŒã‚ÌƒJ[ƒ\ƒ‹ˆÊ’u‚ğ•œŒ³‚·‚é
+" ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã„ãŸæ™‚ã«æœ€å¾Œã®ã‚«ãƒ¼ã‚½ãƒ«ä½ç½®ã‚’å¾©å…ƒã™ã‚‹
 if has("autocmd")
     autocmd BufReadPost *
     \ if line("'\"") > 0 && line ("'\"") <= line("$") |
@@ -54,15 +54,15 @@ if has("autocmd")
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" !!!: •s‰Â‹•¶š‚Ì‰Â‹‰»‚ÍŒ©“ï‚¢‚Ì‚ÅKill‚µ‚Ä‚¢‚é
-" •s‰Â‹•¶šiƒ^ƒuA‹ó”’A‰üsj‚Ì‰Â‹‰»
+" !!!: ä¸å¯è¦–æ–‡å­—ã®å¯è¦–åŒ–ã¯è¦‹é›£ã„ã®ã§Killã—ã¦ã„ã‚‹
+" ä¸å¯è¦–æ–‡å­—ï¼ˆã‚¿ãƒ–ã€ç©ºç™½ã€æ”¹è¡Œï¼‰ã®å¯è¦–åŒ–
 " set list
-" •s‰Â‹•¶šiƒ^ƒuA‹ó”’A‰üsj‚ğ "Unicode" ‚Å•\¦
-" set listchars=tab:â-,trail:-,extends:â,precedes:á,nbsp:%,eol:?
-" ª or «
+" ä¸å¯è¦–æ–‡å­—ï¼ˆã‚¿ãƒ–ã€ç©ºç™½ã€æ”¹è¡Œï¼‰ã‚’ "Unicode" ã§è¡¨ç¤º
+" set listchars=tab:â‰«-,trail:-,extends:â‰«,precedes:â‰ª,nbsp:%,eol:?
+" â†‘ or â†“
 " set listchars=tab:>.,trail:_,eol:?,extends:>,precedes:<,nbsp:%
 
-"‘SŠpƒXƒy[ƒX‚ğƒnƒCƒ‰ƒCƒg
+"å…¨è§’ã‚¹ãƒšãƒ¼ã‚¹ã‚’ãƒã‚¤ãƒ©ã‚¤ãƒˆ
 function! ZenkakuSpace()
     highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
 endfunction
@@ -70,7 +70,7 @@ if has("syntax")
     augroup ZenkakuSpace
         autocmd!
         autocmd ColorScheme       * call ZenkakuSpace()
-        autocmd VimEnter,WinEnter * match ZenkakuSpace /@/
+        autocmd VimEnter,WinEnter * match ZenkakuSpace /ã€€/
     augroup END
     call ZenkakuSpace()
 endif
@@ -78,21 +78,21 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 
-""" ƒEƒBƒ“ƒhƒE•\¦•Ñ """
+""" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦è¡¨ç¤ºç¯‡ """
 
-" ƒEƒCƒ“ƒhƒEƒ^ƒCƒgƒ‹‚Éƒtƒ@ƒCƒ‹‚ÌƒpƒXî•ñ“™‚ğ•\¦
+" ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚¿ã‚¤ãƒˆãƒ«ã«ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹æƒ…å ±ç­‰ã‚’è¡¨ç¤º
 set title
 
-" ƒEƒBƒ“ƒhƒE‰E‰º‚É“ü—Í’†‚ÌƒRƒ}ƒ“ƒh‚ğ•\¦
+" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦å³ä¸‹ã«å…¥åŠ›ä¸­ã®ã‚³ãƒãƒ³ãƒ‰ã‚’è¡¨ç¤º
 set showcmd
 
-"ƒ^ƒuƒ‰ƒxƒ‹‚ğí‚É•\¦‚·‚é
+"ã‚¿ãƒ–ãƒ©ãƒ™ãƒ«ã‚’å¸¸ã«è¡¨ç¤ºã™ã‚‹
 set showtabline=3
 
-" ƒ~ƒjƒ}ƒbƒv‚ğ•\¦
+" ãƒŸãƒ‹ãƒãƒƒãƒ—ã‚’è¡¨ç¤º
 autocmd VimEnter * execute 'Minimap'
 
-" I—¹‚ÉƒEƒBƒ“ƒhƒEƒTƒCƒY‚ğ‹L‰¯‚·‚é
+" çµ‚äº†æ™‚ã«ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚ºã‚’è¨˜æ†¶ã™ã‚‹
 let g:save_window_file = expand("~/.vim/tmp/.vimwinpos")
 augroup SaveWindow
     autocmd!
@@ -110,23 +110,21 @@ if filereadable(g:save_window_file)
     execute "source" g:save_window_file
 endif
 
-" <Shift> + <–îˆó>: ƒEƒBƒ“ƒhƒEƒTƒCƒY•ÏX
-" FIXME: Windows“®ì‚¹‚¸
+" <Shift> + <çŸ¢å°>: ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚ºå¤‰æ›´
+" FIXME: Windowså‹•ä½œã›ãš
 " nnoremap <S-Left>  <C-w><<CR>
 " nnoremap <S-Right> <C-w>><CR>
 " nnoremap <S-Up>    <C-w>-<CR>
 " nnoremap <S-Down>  <C-w>+<CR>
 
 
-""" ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ƒ‚[ƒh•\¦•Ñ """
+""" ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ãƒ¢ãƒ¼ãƒ‰è¡¨ç¤ºç¯‡ """
 
 
-""" ƒXƒe[ƒ^ƒXs•\¦•Ñ """
+""" ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹è¡Œè¡¨ç¤ºç¯‡ """
 
-" !!!: •Ï‰»‚È‚¢
-" ƒJ[ƒ\ƒ‹‚Ìs—ñ•\¦
-" set ruler
+" ã‚«ãƒ¼ã‚½ãƒ«ã®è¡Œåˆ—è¡¨ç¤º
+set ruler
 
-" ƒXƒe[ƒ^ƒXs‚ÉŒ»İ‚Ìgitƒuƒ‰ƒ“ƒ`‚ğ•\¦
-" !!!: ƒvƒ‰ƒOƒCƒ“‚ª•K—v
-" set statusline+=%{fugitive#statusline()}
+" ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹è¡Œã«ç¾åœ¨ã®gitãƒ–ãƒ©ãƒ³ãƒã‚’è¡¨ç¤º
+set statusline+=%{fugitive#statusline()}

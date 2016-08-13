@@ -1,48 +1,49 @@
 scriptencoding utf-8
 
-""" ƒ}ƒbƒvƒL[•Ñ """
+""" ãƒãƒƒãƒ—ã‚­ãƒ¼ç¯‡ """
 
-" “ü—Íƒ‚[ƒh’† jj: <Esc>
+" å…¥åŠ›ãƒ¢ãƒ¼ãƒ‰ä¸­ jj: <Esc>
 inoremap jj <Esc>
 
-" vv / Y: s––‚Ü‚Å‘I‘ğ
+" vv / Y: è¡Œæœ«ã¾ã§é¸æŠ
 vnoremap v $h
 nnoremap Y y$
 
-" <Esc><Esc>: ƒnƒCƒ‰ƒCƒgÁ‹
+" <Esc><Esc>: ãƒã‚¤ãƒ©ã‚¤ãƒˆæ¶ˆå»
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
-" bp: ˆê‚Â‘O‚Ìƒoƒbƒtƒ@‚ğŠJ‚­
+" bp: ä¸€ã¤å‰ã®ãƒãƒƒãƒ•ã‚¡ã‚’é–‹ã
 nnoremap <silent>bp :bprevious<CR>
-" bn: Ÿ‚Ìƒoƒbƒtƒ@‚ğŠJ‚­
+" bn: æ¬¡ã®ãƒãƒƒãƒ•ã‚¡ã‚’é–‹ã
 nnoremap <silent>bn :bnext<CR>
-" bb: ’¼‘O‚Ìƒoƒbƒtƒ@‚ğŠJ‚­
+" bb: ç›´å‰ã®ãƒãƒƒãƒ•ã‚¡ã‚’é–‹ã
 nnoremap <silent>bb :b#<CR>
 
-" ,v: vimrc‚ğŠJ‚­
+" ,v: vimrcã‚’é–‹ã
 nmap ,v :edit $MYVIMRC<CR>
-" ,g: gvimrc‚ğŠJ‚­
+" ,g: gvimrcã‚’é–‹ã
 nmap ,g :edit $MYGVIMRC<CR>
-" <Space>rv: vimrc‚ğ”½‰f
+" <Space>rv: vimrcã‚’åæ˜ 
 nnoremap <silent> <Space>rv :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
-" <Space>rg: gvimrc‚ğ”½‰f
+" <Space>rg: gvimrcã‚’åæ˜ 
 nnoremap <silent> <Space>rg :<C-u>source $MYGVIMRC<CR>
 
-"Mac‚Ìƒm[ƒ}ƒ‹ƒ‚[ƒh‚Å:‚Æ;‚ğ“ü‚ê‘Ö‚¦‚é
+"Macã®æ™‚ãƒãƒ¼ãƒãƒ«ãƒ¢ãƒ¼ãƒ‰ã§:ã¨;ã‚’å…¥ã‚Œæ›¿ãˆã‚‹
 if has("mac")
     noremap : ;
     noremap ; :
 endif
 
-" w!!: ƒX[ƒp[ƒ†[ƒU[‚Æ‚µ‚Ä•Û‘¶isudo‚ªg‚¦‚éŠÂ‹«ŒÀ’èj
+" w!!: ã‚¹ãƒ¼ãƒ‘ãƒ¼ãƒ¦ãƒ¼ã‚¶ãƒ¼ã¨ã—ã¦ä¿å­˜ï¼ˆsudoãŒä½¿ãˆã‚‹ç’°å¢ƒé™å®šï¼‰
 if has("unix")
     cmap w!! w !sudo tee > /dev/null %
 endif
 
-" ":e" ‚È‚Ç‚Åƒtƒ@ƒCƒ‹‚ğŠJ‚­AƒtƒHƒ‹ƒ_‚ª‘¶İ‚µ‚È‚¢ê‡‚Í©“®ì¬
+" TODO: å‹•ä½œç¢ºèª
+" ":e" ãªã©ã§ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ãæ™‚ã€ãƒ•ã‚©ãƒ«ãƒ€ãŒå­˜åœ¨ã—ãªã„å ´åˆã¯è‡ªå‹•ä½œæˆ
 function! s:mkdir(dir, force)
     if !isdirectory(a:dir) && (a:force ||
-            \ input(printf('"%s" does not exist. Create? [y/N]', a:dir)) =~? '^y\%[es]$')
+            \ input(printf('"%s" does not exist. Create? [y/N]', a:dir)) =~? '^y/%[es]$')
         call mkdir(iconv(a:dir, &encoding, &termencoding), "p")
     endif
 endfunction
@@ -51,17 +52,17 @@ if has("unix") || has("mac")
 endif
 
 
-""" Leader•Ñ """
+""" Leaderç¯‡ """
 
-" <Space> ‚ğ "Leader" ‚ÉŠ„“–‚Ä
+" <Space> ã‚’ "Leader" ã«å‰²å½“ã¦
 let mapleader = "\<Space>"
 
-" <Space>o: ƒtƒ@ƒCƒ‹‚ğŠJ‚­
-" !!!: ƒvƒ‰ƒOƒCƒ“‚ª•K—v
+" <Space>o: ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
+" !!!: ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ãŒå¿…è¦
 " nnoremap <Leader>o :CtrlP<CR>
 
-" <Space>w: ƒtƒ@ƒCƒ‹‚ğ•Û‘¶
+" <Space>w: ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä¿å­˜
 nnoremap <Leader>w :w<CR>
 
-" <Space><Space>: ƒrƒWƒ…ƒAƒ‹ƒ‰ƒCƒ“ƒ‚[ƒh‚ÉØ‘Ö‚¦
+" <Space><Space>: ãƒ“ã‚¸ãƒ¥ã‚¢ãƒ«ãƒ©ã‚¤ãƒ³ãƒ¢ãƒ¼ãƒ‰ã«åˆ‡æ›¿ãˆ
 nmap <Leader><Leader> V

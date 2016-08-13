@@ -33,7 +33,7 @@ nnoremap <F5> :w <ENTER> :!python % <ENTER>
 " デバッグを実行
 nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
 
-"Anaconda" のパス
+" "Anaconda" のパス
 python << EOF
 import os
 
@@ -43,7 +43,7 @@ if not path in sys.path:
     sys.path.insert(0, path)
 EOF
 
-" if has("win32") || has("win64")
+" if has("win32") || has("win64")"{{{
 "     python << EOF
 "     import os
 "     import sys
@@ -52,4 +52,4 @@ EOF
 "     if not path in sys.path:
 "         sys.path.insert(0, path)
 "     EOF
-" endif
+" endif"}}}

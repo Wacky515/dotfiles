@@ -1,8 +1,8 @@
 scriptencoding utf-8
 
-""" ŒŸõ•Ñ """
+""" æ¤œç´¢ç¯‡ """
 
-" ŒŸõƒWƒƒƒ“ƒv‚ð‰æ–Ê’†‰›‚É•\Ž¦
+" æ¤œç´¢ã‚¸ãƒ£ãƒ³ãƒ—ã‚’ç”»é¢ä¸­å¤®ã«è¡¨ç¤º
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
@@ -10,27 +10,27 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
-" ƒCƒ“ƒNƒŠƒƒ“ƒ^ƒ‹ƒT[ƒ`
-" ¦ ŒŸõ•¶Žš“ü—Í‚Å‘¦ŽžŒŸõŠJŽn
+" ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒ
+" â€» æ¤œç´¢æ–‡å­—å…¥åŠ›ã§å³æ™‚æ¤œç´¢é–‹å§‹
 set incsearch
 
-" ŒŸõŽž‚É‘å•¶ŽšE¬•¶Žš‚ð‹æ•Ê‚µ‚È‚¢
+" æ¤œç´¢æ™‚ã«å¤§æ–‡å­—ãƒ»å°æ–‡å­—ã‚’åŒºåˆ¥ã—ãªã„
 set ignorecase
-" ŒŸõŽž‚É‘å•¶Žš‚ª‚ ‚éê‡‚Í‘å•¶ŽšE¬•¶Žš‚ð‹æ•Ê
+" æ¤œç´¢æ™‚ã«å¤§æ–‡å­—ãŒã‚ã‚‹å ´åˆã¯å¤§æ–‡å­—ãƒ»å°æ–‡å­—ã‚’åŒºåˆ¥
 set smartcase
 
-" ÅŒã‚Ìƒqƒbƒg‚Ü‚ÅŒŸõ‚µ‚½‚çÅ‰‚Ìƒqƒbƒg‚É–ß‚é
+" æœ€å¾Œã®ãƒ’ãƒƒãƒˆã¾ã§æ¤œç´¢ã—ãŸã‚‰æœ€åˆã®ãƒ’ãƒƒãƒˆã«æˆ»ã‚‹
 set wrapscan
 
-" ŒŸõƒ}ƒbƒ`ƒeƒLƒXƒg‚ðƒnƒCƒ‰ƒCƒg
+" æ¤œç´¢ãƒžãƒƒãƒãƒ†ã‚­ã‚¹ãƒˆã‚’ãƒã‚¤ãƒ©ã‚¤ãƒˆ
 set hlsearch
 
-" ŒŸõŽž‚É "\" ‚â "?" ‚ÌƒGƒXƒP[ƒv‚ðŠÈ‘f‰»
-" TODO: “®ìŠm”F
-cnoremap <expr> / getcmdtype() == "/" ? "\/" : "/"
-cnoremap <expr> ? getcmdtype() == "?" ? "\?" : "?"
+" æ¤œç´¢æ™‚ã« "Â¥" ã‚„ "?" ã®ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã‚’ç°¡ç´ åŒ–
+" TODO: å‹•ä½œç¢ºèª
+cnoremap <expr> / getcmdtype() == "/" ? "Â¥/" : "/"
+cnoremap <expr> ? getcmdtype() == "?" ? "Â¥?" : "?"
 
-" grepŒŸõ‚ÌÝ’è
-" TODO: “®ìŠm”F
-set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
-set grepprg=grep\ -nh
+" grepæ¤œç´¢ã®è¨­å®š
+" TODO: å‹•ä½œç¢ºèª
+set grepformat=%f:%l:%m,%f:%l%m,%fÂ¥ Â¥ %l%m,%f
+set grepprg=grepÂ¥ -nh

@@ -33,7 +33,7 @@ let g:unite_source_file_mru_filename_format = ''
 
 " uniteを開いている間のキーマッピング
 autocmd FileType unite call s:unite_my_settings()
-function! s:unite_my_settings() "{{{
+function! s:unite_my_settings()
 	" <Esc>: 終了
 	nmap <buffer> <ESC> <Plug>(unite_exit)
 	" jj: ノーマルモードに移動
@@ -49,7 +49,7 @@ function! s:unite_my_settings() "{{{
 	" <Ctrl>o: その場所に開く
 	nnoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
 	inoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
-endfunction "}}}
+endfunction
 
 " FIXME: NeoBundleになっている"{{{
 " let s:hooks = neobundle#get_hooks("unite.vim")

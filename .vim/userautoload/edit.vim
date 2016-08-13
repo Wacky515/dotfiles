@@ -1,22 +1,22 @@
 scriptencoding utf-8
 
-""" �ҏW�� """
+""" 編集篇 """
 
-" !!!: �ω��Ȃ�
-" �R�}���h���C�����[�h��<Tab>: �t�@�C�����⊮
+" !!!: 変化ない
+" コマンドラインモードで<Tab>: ファイル名補完
 set wildmenu
 
-"���{��̍s�A���͋󔒂���͂��Ȃ�
+"日本語の行連結は空白を入力しない
 set formatoptions=Mm
 
-" �����N�����f�[�^���N���b�v�{�[�h�Ŏg�p���I��͈͎����R�s�[
-" �� �g�p�ł��邩�͊��ɂ��
+" ヤンクしたデータをクリップボードで使用＆選択範囲自動コピー
+" ※ 使用できるかは環境による
 set clipboard=unnamed,autoselect
 " < http://nanasi.jp/articles/howto/editing/clipboard.html >
 
-" �����I�ɕ����ʂ����
-" !!!: ���܂�X�}�[�g�ł͂Ȃ��E�E�E
+" 自動的に閉じ括弧を入力
+" !!!: あまりスマートではない・・・
 imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
-imap �i �i�j<LEFT>
+imap （ （）<LEFT>

@@ -1,91 +1,90 @@
-# "github.com" ‚ÌƒŠƒ|ƒWƒgƒŠ‚ğw’è‚µA"Plugin" ‚ğ’Ç‰Á
-# "dein.vim" –{‘Ì
+# "github.com" ã®ãƒªãƒã‚¸ãƒˆãƒªã‚’æŒ‡å®šã—ã€"Plugin" ã‚’è¿½åŠ 
+# "dein.vim" æœ¬ä½“
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# “‡ƒ†[ƒUƒCƒ“ƒ^[ƒtƒF[ƒX
+# çµ±åˆãƒ¦ãƒ¼ã‚¶ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹
 [[plugins]]
 repo = 'Shougo/unite.vim'
 depends = 'neomru.vim'
-# "unite.vim" —pcolorschemeƒvƒŒƒrƒ…[
+# "unite.vim" ç”¨colorschemeãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼
 [[plugins]]
 repo = 'ujihisa/unite-colorscheme'
-# TODO: ƒVƒ‡[ƒgƒJƒbƒgƒL[‚É“o˜^
-# ":Unite -auto-preview colorscheme" ‚ÅƒvƒŒƒrƒ…[
+# TODO: ã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆã‚­ãƒ¼ã«ç™»éŒ²
+# ":Unite -auto-preview colorscheme" ã§ãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼
 
-# "unite.vim" —pƒtƒHƒ“ƒgƒvƒŒƒrƒ…[
+# "unite.vim" ç”¨ãƒ•ã‚©ãƒ³ãƒˆãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼
 [[plugins]]
 repo = 'ujihisa/unite-font'
-# ":Unite font" ‚ÅƒvƒŒƒrƒ…[
+# ":Unite font" ã§ãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼
 
-# ƒXƒjƒyƒbƒg
+# ãƒ•ã‚¡ã‚¤ãƒ©ãƒ¼
+[[plugins]]
+repo = 'Shougo/vimfiler'
+# <http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
+
+# ã‚¹ãƒ‹ãƒšãƒƒãƒˆ
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 [[plugins]]
 repo = 'Shougo/neocomplcache.vim'
 
-# ƒJ[ƒ\ƒ‹ˆÊ’u‚ÌƒRƒ“ƒeƒLƒXƒg‚É‡‚í‚¹‚Ä "filetype" ‚ğØ‚è‘Ö‚¦
+# ã‚«ãƒ¼ã‚½ãƒ«ä½ç½®ã®ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã«åˆã‚ã›ã¦ "filetype" ã‚’åˆ‡ã‚Šæ›¿ãˆ
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = ['context_filetype.vim']
 [[plugins]] repo = 'Shougo/context_filetype.vim'
 
-# TODO: “®ì–¢ŒŸØ
-# Git—pƒvƒ‰ƒOƒCƒ“
+# Gitç”¨ãƒ—ãƒ©ã‚°ã‚¤ãƒ³
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
-# ƒRƒƒ“ƒg‚ÌON/OFF‚ğƒVƒ‡[ƒgƒJƒbƒgƒL[‚ÅƒgƒOƒ‹
-[[plugins]]
-repo = 'tomtom/tcomment_vim'
-
-# ƒCƒ“ƒfƒ“ƒg‚ğƒJƒ‰[‰»
-[[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
-
-# s––‚Ì”¼ŠpƒXƒy[ƒX‚ğ‰Â‹‰»
-[[plugins]]
-repo = 'bronson/vim-trailing-whitespace'
-
-# ƒXƒe[ƒ^ƒXƒ‰ƒCƒ“‚ÌƒrƒWƒ…ƒAƒ‹‚ğ‹­‰»
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-# <http://itchyny.hatenablog.com/entry/20130828/1377653592>
-
-# ƒ~ƒjƒ}ƒbƒv
-[[plugins]]
-repo = 'mipmip/vim-minimap'
-
-
-# “±“ü—\’è
-
-# ƒeƒ“ƒvƒŒ[ƒgì¬
-# [[plugins]]
-# repo = 'thinca/vim-template'
-# <http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
-
-# ƒtƒ@ƒCƒ‰[
-[[plugins]]
-repo = 'Shougo/vimfiler'
-# <http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
-
-# "()" A "[]" ‚È‚Ç‚Ì‘€ì
+# "()" ã€ "[]" ãªã©ã®æ“ä½œ
 [[plugins]]
 repo = 'tpope/vim-surround'
 # <http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
 
-# ƒeƒLƒXƒg®Œ`
+# ã‚³ãƒ¡ãƒ³ãƒˆã®ON/OFFã‚’ã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆã‚­ãƒ¼ã§ãƒˆã‚°ãƒ«
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+# ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’ã‚«ãƒ©ãƒ¼åŒ–
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+# è¡Œæœ«ã®åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ã‚’å¯è¦–åŒ–
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+
+# ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ©ã‚¤ãƒ³ã®ãƒ“ã‚¸ãƒ¥ã‚¢ãƒ«ã‚’å¼·åŒ–
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+# <http://itchyny.hatenablog.com/entry/20130828/1377653592>
+
+# ãƒŸãƒ‹ãƒãƒƒãƒ—
+[[plugins]]
+repo = 'mipmip/vim-minimap'
+
+
+# å°å…¥äºˆå®š
+
+# ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆä½œæˆ
+# [[plugins]]
+# repo = 'thinca/vim-template'
+# <http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
+
+# ãƒ†ã‚­ã‚¹ãƒˆæ•´å½¢
 # [[plugins]]
 # repo = 'vim-scripts/Align'
 # <http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
 # <http://nanasi.jp/vim/align.html>
 
-# ƒRƒsƒy‚Ì—š—ğ‚ğ•Û‘¶
+# ã‚³ãƒ”ãƒšã®å±¥æ­´ã‚’ä¿å­˜
 # [[plugins]]
 # repo = 'vim-scripts/YankRing.vim'
 # <http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
 
-# UnduŠÇ—
+# Undoç®¡ç†
 # gundo.vim
 
 # Toml
