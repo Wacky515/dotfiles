@@ -5,6 +5,12 @@ scriptencoding utf-8
 " "/" でvery magic検索
 nnoremap /  /\v
 
+" !!!: 変化ない
+" !!!: ↑は多分Kaoriyaはすでに設定されているから
+" !!!: Linuxで動作確認必要
+" コマンドラインモードで<Tab>: ファイル名補完
+set wildmenu
+
 " コマンドライン補完
 " !!!: 重複チェックする
 set wildmode=longest,longest

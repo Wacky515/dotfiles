@@ -2,12 +2,6 @@ scriptencoding utf-8
 
 """ 編集篇 """
 
-" !!!: 変化ない
-" !!!: ↑は多分Kaoriyaはすでに設定されているから
-" !!!: Linuxで動作確認必要
-" コマンドラインモードで<Tab>: ファイル名補完
-set wildmenu
-
 " 複数行のインデント操作時に選択を解除せず連続操作できるようにする
 vnoremap > >gv
 vnoremap < <gv
