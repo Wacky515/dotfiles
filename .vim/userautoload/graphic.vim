@@ -1,13 +1,5 @@
 scriptencoding utf-8
 
-" .vimrcの先頭に記述したからKillして様子見
-" " "autocmd"（マクロ） の初期化
-" " !!!: 必ず先頭に記述
-" augroup MyAutoCmd
-"     autocmd!
-" augroup END
-
-
 """ メイン表示篇 """
 
 " 行番号の表示
@@ -119,6 +111,18 @@ endif
 
 
 """ コマンドラインモード表示篇 """
+
+" !!!: 変化ない
+" !!!: ↑は多分Kaoriyaはすでに設定されているから
+" !!!: Linuxで動作確認必要
+" コマンドラインモードで<Tab>: ファイル名補完
+set wildmenu
+
+" コマンドラインモードの補完GUI
+" !!!: 重複チェックする
+set wildmode=longest,longest
+" zsh様の補完
+" set wildmode=longest:full,full
 
 
 """ ステータス行表示篇 """
