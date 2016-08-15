@@ -18,7 +18,7 @@ set t_Co=256
 " コマンドラインの行数
 set cmdheight=5
 
-" ウィンドウ 半透明化（Linuxは設定がめんどくさいので保留）
+" ウィンドウ 半透明化（LinuxはVimから設定できない）
 if has("mac")
     set transparency=10
 endif

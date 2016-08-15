@@ -5,12 +5,6 @@ scriptencoding utf-8
 " "/" でvery magic検索
 nnoremap /  /\v
 
-" コマンドライン補完
-" !!!: 重複チェックする
-set wildmode=longest,longest
-" zsh様の補完
-" set wildmode=longest:full,full
-
 " 検索時に "\" や "?" のエスケープを簡素化
 " TODO: 動作確認
 cnoremap <expr> / getcmdtype() == "/" ? "\/" : "/"
