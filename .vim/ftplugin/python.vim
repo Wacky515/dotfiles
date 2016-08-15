@@ -9,10 +9,10 @@ let b:did_ftplugin_python = 1
 let python_highlight_all =1
 
 " カラースキーマの指定
+colorscheme molokai
 " colorscheme hybrid
 " colorscheme desert
 " colorscheme jellybeans
-colorscheme molokai
 " 暗背景用の配色にする
 set background=dark
 " syntax on

@@ -27,7 +27,7 @@
 ├── .vimrc -&gt; /root/dotfiles/.vimrc  
 └── .gvimrc -&gt; /root/dotfiles/.gvimrc  
 
-# !!!: Must install "Flake8"
+# !!!: Must install "Flake8
 
 # TODO: Aautomatically install
 

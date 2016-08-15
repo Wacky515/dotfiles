@@ -2,6 +2,36 @@ scriptencoding utf-8
 
 """ 検索篇 """
 
+" "/" でvery magic検索
+nnoremap /  /\v
+
+" コマンドライン補完
+" !!!: 重複チェックする
+set wildmode=longest,longest
+" zsh様の補完
+" set wildmode=longest:full,full
+
+" 検索時に "\" や "?" のエスケープを簡素化
+" TODO: 動作確認
+cnoremap <expr> / getcmdtype() == "/" ? "\/" : "/"
+cnoremap <expr> ? getcmdtype() == "?" ? "\?" : "?"
+
+" grep検索の設定
+" TODO: 動作確認
+set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
+set grepprg=grep\ -nh
+
+" <Ctrl>h: 垂直分割で "ctags" 表示
+nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+" <Ctrl>h: 水平分割で "ctags" 表示
+nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+
+" unite-tagsの設定
+autocmd BufEnter *
+\   if empty(&buftype)
+\|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
+\|  endif
+
 " 検索ジャンプを画面中央に表示
 nnoremap n nzz
 nnoremap N Nzz
@@ -24,13 +54,3 @@ set wrapscan
 
 " 検索マッチテキストをハイライト
 set hlsearch
-
-" 検索時に "\" や "?" のエスケープを簡素化
-" TODO: 動作確認
-cnoremap <expr> / getcmdtype() == "/" ? "\/" : "/"
-cnoremap <expr> ? getcmdtype() == "?" ? "\?" : "?"
-
-" grep検索の設定
-" TODO: 動作確認
-set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
-set grepprg=grep\ -nh

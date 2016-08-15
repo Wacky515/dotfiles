@@ -3,8 +3,14 @@ scriptencoding utf-8
 """ 編集篇 """
 
 " !!!: 変化ない
+" !!!: ↑は多分Kaoriyaはすでに設定されているから
+" !!!: Linuxで動作確認必要
 " コマンドラインモードで<Tab>: ファイル名補完
 set wildmenu
+
+" 複数行のインデント操作時に選択を解除せず連続操作できるようにする
+vnoremap > >gv
+vnoremap < <gv
 
 "日本語の行連結は空白を入力しない
 set formatoptions=Mm
@@ -15,8 +21,13 @@ set clipboard=unnamed,autoselect
 " < http://nanasi.jp/articles/howto/editing/clipboard.html >
 
 " 自動的に閉じ括弧を入力
-" !!!: あまりスマートではない・・・
-imap { {}<LEFT>
-imap [ []<LEFT>
-imap ( ()<LEFT>
-imap （ （）<LEFT>
+" <Enter> 押下で補完する
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+" これで良くなければ右記を試す < https://github.com/Townk/vim-autoclose >
+" !!!: 旧版あまりスマートではない・・・"{{{
+" imap { {}<LEFT>
+" imap [ []<LEFT>
+" imap ( ()<LEFT>
+" imap （ （）<LEFT>"}}}
