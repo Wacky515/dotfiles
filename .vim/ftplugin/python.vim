@@ -34,7 +34,7 @@ nnoremap <F5> :w <ENTER> :!python % <ENTER>
 nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
 
 " "Anaconda" のパス
-if has!("unix")
+if !has("unix")
     python << EOF
     import os
 
