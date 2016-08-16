@@ -34,18 +34,28 @@ nnoremap <F5> :w <ENTER> :!python % <ENTER>
 nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
 
 " "Anaconda" のパス
-if !has("unix")
-    python << EOF
-    import os
+python << EOF
+import os
 
-    home = os.path.expanduser("~")
-    path = home + "/Anaconda2/Lib/site-packages"
-    if not path in sys.path:
-        sys.path.insert(0, path)
-    EOF
-endif
+home = os.path.expanduser("~")
+path = home + "/Anaconda2/Lib/site-packages"
+if not path in sys.path:
+    sys.path.insert(0, path)
+EOF
 
-" if has("win32") || has("win64")"{{{
+" 以下の条件分けは "endif" 無しエラーが解決できないためKill
+" if !has("unix")"{{{
+"     python << EOF
+"     import os
+" 
+"     home = os.path.expanduser("~")
+"     path = home + "/Anaconda2/Lib/site-packages"
+"     if not path in sys.path:
+"         sys.path.insert(0, path)
+"     EOF
+" endif
+
+" if has("win32") || has("win64")
 "     python << EOF
 "     import os
 "     import sys

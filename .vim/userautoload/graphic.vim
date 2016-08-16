@@ -120,9 +120,9 @@ set wildmenu
 
 " コマンドラインモードの補完GUI
 " !!!: 重複チェックする
-set wildmode=longest,longest
+" set wildmode=longest,longest
 " zsh様の補完
-" set wildmode=longest:full,full
+set wildmode=longest:full,full
 
 
 """ ステータス行表示篇 """

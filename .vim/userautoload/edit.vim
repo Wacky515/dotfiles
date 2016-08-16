@@ -25,3 +25,17 @@ inoremap (<Enter> ()<Left><CR><ESC><S-o>
 " imap [ []<LEFT>
 " imap ( ()<LEFT>
 " imap （ （）<LEFT>"}}}
+
+" 全角英数字を半角にする
+nnoremap <Leader>zh :HzjaConvert han_eisu
+vnoremap <Leader>zh :HzjaConvert han_eisu
+
+" 日時を挿入
+inoremap <expr> ,df strftime('%Y-%m-%d %H:%M')
+inoremap <expr> ,dd strftime('%Y-%m-%d')
+inoremap <expr> ,dt strftime('%H:%M')
+
+" 曜日を挿入
+let weeks = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ]
+let wday = strftime("%w")
+inoremap <expr> ,ds strftime('%Y-%m-%d ').weeks[wday]
