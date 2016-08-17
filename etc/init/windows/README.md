@@ -1,3 +1,3 @@
-# OS X install list
+Windows install list
 
 'brew list >> *list.txt'
