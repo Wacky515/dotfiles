@@ -1,3 +1,3 @@
 # OS X install list
 
-'brew list >> *list.txt'
+`brew list >> *_list.txt`

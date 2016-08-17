@@ -1,3 +1,3 @@
-Windows install list
+# Windows install list
 
-'brew list >> *list.txt'
+`brew list >> *_list.txt`
