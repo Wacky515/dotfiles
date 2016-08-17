@@ -8,7 +8,7 @@ vnoremap < <gv
 
 "日本語の行連結は空白を入力しない
 set formatoptions=Mm
-
+()
 " ヤンクしたデータをクリップボードで使用＆選択範囲自動コピー
 " ※ 使用できるかは環境による
 set clipboard=unnamed,autoselect
@@ -16,10 +16,19 @@ set clipboard=unnamed,autoselect
 
 " 自動的に閉じ括弧を入力
 " <Enter> 押下で補完する
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap [<Enter> []<Left><CR><ESC><S-o>
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
-" これで良くなければ右記を試す < https://github.com/Townk/vim-autoclose >
+inoremap {<Enter> {}<Left>
+inoremap [<Enter> []<Left>
+inoremap (<Enter> ()<Left>
+inoremap '<Enter>  <Space>'' <Left><Left>
+inoremap "<Enter> <Space>"" <Left><Left>
+" . 押下で補完する(改行版)
+inoremap {. {}<Left><CR><ESC><S-o>
+inoremap {. {}<Left><CR><ESC><S-o>
+inoremap [. []<Left><CR><ESC><S-o>
+inoremap (. ()<Left><CR><ESC><S-o>
+inoremap '.  '' <Left><Left><CR><ESC><S-o>
+inoremap ".  "" <Left><Left><CR><ESC><S-o>
+" これで動作が良くなければ右記を試す < https://github.com/Townk/vim-autoclose >
 " !!!: 旧版あまりスマートではない・・・"{{{
 " imap { {}<LEFT>
 " imap [ []<LEFT>
