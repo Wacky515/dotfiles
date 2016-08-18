@@ -92,13 +92,13 @@ repo = 'mipmip/vim-minimap'
 # on_ft = 'toml'
 
 # Markdown
-# [[plugins]]
-# repo = 'rcmdnk/vim-markdown'
-# on_ft = ['markdown','mkd']
-# hook_add = '''
-#   let g:vim_markdown_frontmatter = 1
-#   let g:vim_markdown_math = 1
-# '''
+[[plugins]]
+repo = 'rcmdnk/vim-markdown'
+on_ft = ['markdown','mkd']
+hook_add = '''
+  let g:vim_markdown_frontmatter = 1
+  let g:vim_markdown_math = 1
+'''
 
 # Japanese doc
 # [[plugins]]

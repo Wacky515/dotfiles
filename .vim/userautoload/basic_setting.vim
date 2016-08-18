@@ -63,13 +63,13 @@ set modeline
 " endif
 
 """ Windows の場合
-" if has("win32") || has ("win64")
+" if has("win32") || has("win64")
 "     " Windows 32bit、 Windows 64bit 用設定
 " endif
 
 """ 環境固有の設定を持つ場合
 
-" if ( has ("python") || has("python3") )
+" if ( has("python") || has("python3") )
 " 	" Python 用設定
 " else
 " 	" Python 以外の設定
