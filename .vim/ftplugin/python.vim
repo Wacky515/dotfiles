@@ -34,24 +34,24 @@ nnoremap <F5> :w <ENTER> :!python % <ENTER>
 nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
 
 " "Anaconda" のパス
-if !has("unix")
+" if !has("unix")
+"     python << EOF
+"         import os
+" 
+"         home = os.path.expanduser("~")
+"         path = home + "/Anaconda2/Lib/site-packages"
+"         if not path in sys.path:
+"             sys.path.insert(0, path)
+"     EOF
+" endif
+
+if has("win32") || has("win64")"{{{
     python << EOF
     import os
-
+    import sys
     home = os.path.expanduser("~")
     path = home + "/Anaconda2/Lib/site-packages"
     if not path in sys.path:
         sys.path.insert(0, path)
     EOF
-endif
-
-" if has("win32") || has("win64")"{{{
-"     python << EOF
-"     import os
-"     import sys
-"     home = os.path.expanduser("~")
-"     path = home + "/Anaconda2/Lib/site-packages"
-"     if not path in sys.path:
-"         sys.path.insert(0, path)
-"     EOF
-" endif"}}}
+endif"}}}
