@@ -4,4 +4,7 @@ augroup filetypedetect
     au BufRead,BufNewFile *.py setfiletype python
 augroup END
 
-autocmd MyAutoGroup BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup filetypedetect
+    au BufRead,BufNewFile *.{md,mdwn,mkd,mkdn,mark*} setfiletype markdown
+augroup END
+" autocmd MyAutoGroup BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown

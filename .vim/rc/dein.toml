@@ -62,8 +62,14 @@ repo = 'itchyny/lightline.vim'
 
 # ミニマップ
 [[plugins]]
-repo = 'mipmip/vim-minimap'
+# repo = 'mipmip/vim-minimap'
+# TODO: 下記の条件分岐は未動作確認
+# if = '''! has ('windows')'''
+repo = "koron/minimap-vim"
 
+# カレンダー
+[[plugins]]
+repo = 'itchyny/calendar.vim'
 
 # 導入予定
 
@@ -92,6 +98,7 @@ repo = 'mipmip/vim-minimap'
 # on_ft = 'toml'
 
 # Markdown
+# ハイライト
 [[plugins]]
 repo = 'rcmdnk/vim-markdown'
 on_ft = ['markdown','mkd']
@@ -99,6 +106,10 @@ hook_add = '''
   let g:vim_markdown_frontmatter = 1
   let g:vim_markdown_math = 1
 '''
+# プレビュー
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['markdown','mkd']
 
 # Japanese doc
 # [[plugins]]

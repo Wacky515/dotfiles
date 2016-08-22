@@ -34,29 +34,6 @@ nnoremap <F5> :w <ENTER> :!python % <ENTER>
 nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
 
 " "Anaconda" のパス
-<<<<<<< HEAD
-" if !has("unix")
-"     python << EOF
-"         import os
-" 
-"         home = os.path.expanduser("~")
-"         path = home + "/Anaconda2/Lib/site-packages"
-"         if not path in sys.path:
-"             sys.path.insert(0, path)
-"     EOF
-" endif
-
-if has("win32") || has("win64")"{{{
-    python << EOF
-    import os
-    import sys
-    home = os.path.expanduser("~")
-    path = home + "/Anaconda2/Lib/site-packages"
-    if not path in sys.path:
-        sys.path.insert(0, path)
-    EOF
-endif"}}}
-=======
 python << EOF
 import os
 
@@ -67,6 +44,28 @@ if not path in sys.path:
 EOF
 
 " 以下の条件分けは "endif" 無しエラーが解決できないためKill
+" if !has("unix")"{{{
+"     python << EOF
+"         import os
+" 
+"         home = os.path.expanduser("~")
+"         path = home + "/Anaconda2/Lib/site-packages"
+"         if not path in sys.path:
+"             sys.path.insert(0, path)
+"     EOF
+" endif
+
+" if has("win32") || has("win64")
+"     python << EOF
+"     import os
+"     import sys
+"     home = os.path.expanduser("~")
+"     path = home + "/Anaconda2/Lib/site-packages"
+"     if not path in sys.path:
+"         sys.path.insert(0, path)
+"     EOF
+" endif"}}}
+
 " if !has("unix")"{{{
 "     python << EOF
 "     import os
@@ -88,4 +87,3 @@ EOF
 "         sys.path.insert(0, path)
 "     EOF
 " endif"}}}
->>>>>>> 18200887a5a1f2caac9f5e9623218ab0bfe1d275
