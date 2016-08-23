@@ -5,6 +5,10 @@ augroup filetypedetect
 augroup END
 
 augroup filetypedetect
+    au BufRead,BufNewFile *.{ino,pde} setfiletype arduino
+augroup END
+
+augroup filetypedetect
     au BufRead,BufNewFile *.{md,mdwn,mkd,mkdn,mark*} setfiletype markdown
 augroup END
 " autocmd MyAutoGroup BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown

@@ -25,6 +25,18 @@ on_ft = 'python'
 repo = 'scrooloose/syntastic'
 on_ft = 'python'
 
+# # TODO: 動作確認
+# # Arduino開発用プラグイン
+# [[plugins]]
+# repo = "platformio/platformio"
+# on_ft = "arduino"
+
+# TODO: 動作確認
+# Arduinoシンタックスハイライト
+[[plugins]]
+repo = "sudar/vim-arduino-syntax"
+on_ft = "arduino"
+
 # カラースキーマ
 [[plugins]]
 repo = 'w0ng/vim-hybrid'

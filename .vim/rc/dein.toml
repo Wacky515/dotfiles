@@ -38,7 +38,7 @@ depends = ['context_filetype.vim']
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
-# "()" 、 "[]" などの操作
+# "()"、 "[]" などの操作
 [[plugins]]
 repo = 'tpope/vim-surround'
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
