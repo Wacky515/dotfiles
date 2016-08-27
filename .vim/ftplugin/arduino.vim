@@ -65,3 +65,9 @@ hi def link arduinoStdFunc Function
 hi def link arduinoFunc Function
 hi def link arduinoMethod Function
 hi def link arduinoModule Identifier
+
+" タブの設定
+setlocal smarttab
+setlocal expandtab
+setlocal tabstop=2
+setlocal shiftwidth=2
