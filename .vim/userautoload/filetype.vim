@@ -6,6 +6,12 @@ augroup filetypedetect
     au BufRead,BufNewFile *.{md,mdwn,mkd,mkdn,mark*} setfiletype markdown
 augroup END
 
+" FIXME: "autocmd" 実行時に "lightline" を有効にできない
+" augroup reload_gvimrc
+"     autocmd!
+"     autocmd bufwritepost $GMYVIMRC nested source $GMYVIMRC
+" augroup END
+
 " augroup filetypedetect
 "     au BufRead,BufNewFile *.py setfiletype python
 " augroup END

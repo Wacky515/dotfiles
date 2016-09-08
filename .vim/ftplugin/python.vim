@@ -8,16 +8,17 @@ let b:did_ftplugin_python = 1
 " Python用のシンタックスハイライトをON
 let python_highlight_all =1
 
+" !!!: .gvimの設定を記述すると "lightline" が有効にならない
 " カラースキーマの指定
-colorscheme molokai
+" colorscheme molokai
 " colorscheme hybrid
 " colorscheme desert
 " colorscheme jellybeans
 " 暗背景用の配色にする
-set background=dark
+" set background=dark
 " syntax on
-syntax enable
-set t_Co=256
+" syntax enable
+" set t_Co=256
 
 " 80文字目に赤いラインマークを入れる
 set colorcolumn=80

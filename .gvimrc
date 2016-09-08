@@ -3,8 +3,11 @@ scriptencoding utf-8
 """ 外観テーマ篇 """
 
 " カラースキーマの指定
+" colorscheme desert
+" colorscheme molokai
 colorscheme hybrid
 " colorscheme desert
+" colorscheme jellybeans
 " 暗背景用の配色にする
 set background=dark
 " 明背景用の配色にする
