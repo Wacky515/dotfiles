@@ -13,10 +13,10 @@ let g:syntastic_mode_map = {"mode": "active"}
 " let g:syntastic_mode_map = {"mode": "passive",
 "                 \ "active_filetypes": ["python"] }
 
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='！'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '！'
+let g:syntastic_error_symbol="✗"
+let g:syntastic_warning_symbol="！"
+let g:syntastic_style_error_symbol = "✗"
+let g:syntastic_style_warning_symbol = "！"
 
 " ":wq"  で "syntastic" を実行 "しない"
 let g:syntastic_check_on_wq = 0
