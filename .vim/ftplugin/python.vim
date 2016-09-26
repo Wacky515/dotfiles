@@ -48,7 +48,7 @@ EOF
 " if !has("unix")"{{{
 "     python << EOF
 "         import os
-" 
+
 "         home = os.path.expanduser("~")
 "         path = home + "/Anaconda2/Lib/site-packages"
 "         if not path in sys.path:
@@ -70,7 +70,7 @@ EOF
 " if !has("unix")"{{{
 "     python << EOF
 "     import os
-" 
+
 "     home = os.path.expanduser("~")
 "     path = home + "/Anaconda2/Lib/site-packages"
 "     if not path in sys.path:
@@ -88,3 +88,38 @@ EOF
 "         sys.path.insert(0, path)
 "     EOF
 " endif"}}}
+
+" シンタックスハイライトに追加 Test3
+augroup python
+    autocmd!
+    autocmd FileType python
+                \   syn keyword pythonSelf self
+                \ | highlight def link pythonSelf Special
+augroup end
+
+" シンタックスハイライトに追加 Test2
+" syn match pythonBoolean "\(\W\|^\)\@<=self\(\.\)\@="
+
+" " シンタックスハイライトに追加 Test1
+" if version < 600
+"   syntax clear
+" elseif exists('b:current_after_syntax')
+"   finish
+" endif
+"
+" " We need nocompatible mode in order to continue lines with backslashes.
+" " Original setting will be restored.
+" let s:cpo_save = &cpo
+" set cpo&vim
+"
+" syn match pythonOperator "\(+\|=\|-\|\^\|\*\)"
+" syn match pythonDelimiter "\(,\|\.\|:\)"
+" syn keyword pythonSpecialWord self
+"
+" hi link pythonSpecialWord    Special
+" hi link pythonDelimiter      Special
+"
+" let b:current_after_syntax = 'python'
+"
+" let &cpo = s:cpo_save
+" unlet s:cpo_save
