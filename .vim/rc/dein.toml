@@ -71,6 +71,20 @@ repo = "koron/minimap-vim"
 [[plugins]]
 repo = 'itchyny/calendar.vim'
 
+# Markdown
+# ハイライト
+[[plugins]]
+repo = 'rcmdnk/vim-markdown'
+on_ft = ['markdown','mkd']
+hook_add = '''
+  let g:vim_markdown_frontmatter = 1
+  let g:vim_markdown_math = 1
+'''
+# プレビュー
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['markdown','mkd']
+
 # 導入予定
 
 # テンプレート作成
@@ -96,20 +110,6 @@ repo = 'itchyny/calendar.vim'
 # [[plugins]]
 # repo  = 'cespare/vim-toml'
 # on_ft = 'toml'
-
-# Markdown
-# ハイライト
-[[plugins]]
-repo = 'rcmdnk/vim-markdown'
-on_ft = ['markdown','mkd']
-hook_add = '''
-  let g:vim_markdown_frontmatter = 1
-  let g:vim_markdown_math = 1
-'''
-# プレビュー
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
-on_ft = ['markdown','mkd']
 
 # Japanese doc
 # [[plugins]]

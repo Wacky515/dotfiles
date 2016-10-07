@@ -29,15 +29,24 @@ if has("win32") || ("win64")
     :autocmd GUIEnter * set transparency=235
 endif
 
-" TODO: フォントの自動インストール化（初期化スクリプトに記述）
+" DONE: フォントの自動インストール化（初期化スクリプトに記述）
+" ↑はPCローカルの設定をすることで代替した
 " !!!: 順番を変えない
 " フォントの設定
 if has("mac")
-    set guifont=Ricty_Diminished:h18
+    if hostname() == "macserver"
+        set guifont=Ricty_Diminished:h22
+    else
+        set guifont=Ricty_Diminished:h18
+    endif
 elseif has("unix")
     set guifont=DejaVu\ Sans\ Mono\ 13
 elseif has("win32") || has("win64")
-    set guifont=Ricty_Diminished:h16
+    if hostname() == "CAD0021"
+        set guifont=Ricty_Diminished:h16
+    else
+        set guifont=Ricty_Diminished:h16
+    endif
 endif
 
 " 選択行番号の色

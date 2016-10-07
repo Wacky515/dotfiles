@@ -39,6 +39,14 @@ inoremap ".  "" <Left><Left><CR><ESC><S-o>
 nnoremap <Leader>zh :HzjaConvert han_eisu
 vnoremap <Leader>zh :HzjaConvert han_eisu
 
+" 保存時に行末の空白を削除
+autocmd BufWritePre * :%s/\s\+$//ge
+
+" スペルチェック機能を使う
+" set spell
+" 日本語を除外
+" set spelllang=en,cjk
+
 " 日時を挿入
 inoremap <expr> ,df strftime('%Y-%m-%d %H:%M')
 inoremap <expr> ,dd strftime('%Y-%m-%d')

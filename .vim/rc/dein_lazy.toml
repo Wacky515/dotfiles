@@ -25,6 +25,11 @@ on_ft = 'python'
 repo = 'scrooloose/syntastic'
 on_ft = 'python'
 
+# Python自動折りたたみ
+[[plugins]]
+repo = 'vim-scripts/python_fold'
+on_ft = 'python'
+
 # # TODO: 動作確認
 # # Arduino開発用プラグイン
 # [[plugins]]

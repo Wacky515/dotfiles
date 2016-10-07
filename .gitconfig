@@ -9,9 +9,10 @@
 # 	proxy = https://proxy.intra.xacti-co.com:8080
 [core]
 	excludesfile = /Users/wacky515/.gitignore_global
+    excludesfile = ~/.gitignore
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
