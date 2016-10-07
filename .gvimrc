@@ -33,8 +33,8 @@ endif
 " !!!: 順番を変えない
 " フォントの設定
 if has("mac")
-    if hostname() == "PloSalad13.local"
-        set guifont=Ricty_Diminished:h18
+    if hostname() == "ProSalad13.local"
+        set guifont=Ricty_Diminished:h16
     elseif hostname() == "macserver"
         set guifont=Ricty_Diminished:h22
     else
