@@ -3,7 +3,6 @@ scriptencoding utf-8
 """ 外観テーマ篇 """
 
 " カラースキーマの指定
-" colorscheme desert
 " colorscheme molokai
 colorscheme hybrid
 " colorscheme desert
@@ -41,11 +40,17 @@ if has("mac")
     else
         set guifont=Ricty_Diminished:h18
     endif
+
 elseif has("unix")
     set guifont=DejaVu\ Sans\ Mono\ 13
+
 elseif has("win32") || has("win64")
     if hostname() == "CAD0021"
         set guifont=Ricty_Diminished:h16
+    elseif hostname() == "PC-SA4110204580"
+        set guifont=Ricty_Diminished:h13
+        " colorscheme desert
+        " colorscheme jellybeans
     else
         set guifont=Ricty_Diminished:h16
     endif
