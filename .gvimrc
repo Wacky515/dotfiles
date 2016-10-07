@@ -35,8 +35,9 @@ endif
 if has("mac")
     if hostname() == "ProSalad13.local"
         set guifont=Ricty_Diminished:h16
-    elseif hostname() == "macserver"
-        set guifont=Ricty_Diminished:h22
+    elseif hostname() == "saladserver.com"
+        " set guifont=Ricty_Diminished:h24
+        set guifont=Osaka:h24
     else
         set guifont=Ricty_Diminished:h18
     endif
