@@ -36,8 +36,8 @@ if has("mac")
     if hostname() == "ProSalad13.local"
         set guifont=Ricty_Diminished:h16
     elseif hostname() == "saladserver.com"
-        " set guifont=Ricty_Diminished:h24
         set guifont=Osaka:h24
+        " set guifont=Ricty_Diminished:h24
     else
         set guifont=Ricty_Diminished:h18
     endif
@@ -50,8 +50,6 @@ elseif has("win32") || has("win64")
         set guifont=Ricty_Diminished:h16
     elseif hostname() == "PC-SA4110204580"
         set guifont=Ricty_Diminished:h13
-        " colorscheme desert
-        " colorscheme jellybeans
     else
         set guifont=Ricty_Diminished:h16
     endif
