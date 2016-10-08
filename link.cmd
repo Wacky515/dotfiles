@@ -1,6 +1,7 @@
-echo Start link
+echo "Start link"
 
 mklink %HOMEPATH%"\.gitconfig" ".\dotfiles\.gitconfig"
+mklink %HOMEPATH%"\.gitignore" ".\dotfiles\.gitignore"
 
 mklink %HOMEPATH%"\.vimrc" ".\dotfiles\.vimrc"
 mklink %HOMEPATH%"\.gvimrc" ".\dotfiles\.gvimrc"
@@ -17,7 +18,7 @@ mklink /D %HOMEPATH%"\.vim" ".\dotfiles\.vim"
 @rem mklink /D %HOMEPATH%"\.vim\colors" %HOMEPATH%"\.vim\dotfiles\colors"
 @rem /*}}}*/
 
-echo End link
+echo "End link"
 
 pause
 

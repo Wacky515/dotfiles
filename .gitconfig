@@ -3,16 +3,25 @@
 	email = wacky515@gmail.com
 [color]
 	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
 # [http]
 # 	proxy = http://proxy.intra.xacti-co.com:8080
 # [https]
 # 	proxy = https://proxy.intra.xacti-co.com:8080
 [core]
-	excludesfile = /Users/wacky515/.gitignore_global
+	# excludesfile = /Users/wacky515/.gitignore_global
     excludesfile = ~/.gitignore
+	editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[alias]
+	ci = commit
+	st = status
+	co = checkout
+	br = branch
