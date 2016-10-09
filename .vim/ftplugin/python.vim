@@ -3,10 +3,19 @@ scriptencoding utf-8
 if exists("b:did_ftplugin_python")
     finish
 endif
+
 let b:did_ftplugin_python = 1
 
 " Python用のシンタックスハイライトをON
 let python_highlight_all =1
+
+" シンタックスハイライトに "self" 追加
+augroup python
+    autocmd!
+    autocmd FileType python
+                \   syn keyword pythonSelf self
+                \ | highlight def link pythonSelf Special
+augroup end
 
 " !!!: .gvimの設定を記述すると "lightline" が有効にならない
 " カラースキーマの指定
@@ -88,38 +97,3 @@ EOF
 "         sys.path.insert(0, path)
 "     EOF
 " endif"}}}
-
-" シンタックスハイライトに追加 Test3
-augroup python
-    autocmd!
-    autocmd FileType python
-                \   syn keyword pythonSelf self
-                \ | highlight def link pythonSelf Special
-augroup end
-
-" シンタックスハイライトに追加 Test2
-" syn match pythonBoolean "\(\W\|^\)\@<=self\(\.\)\@="
-
-" " シンタックスハイライトに追加 Test1
-" if version < 600
-"   syntax clear
-" elseif exists('b:current_after_syntax')
-"   finish
-" endif
-"
-" " We need nocompatible mode in order to continue lines with backslashes.
-" " Original setting will be restored.
-" let s:cpo_save = &cpo
-" set cpo&vim
-"
-" syn match pythonOperator "\(+\|=\|-\|\^\|\*\)"
-" syn match pythonDelimiter "\(,\|\.\|:\)"
-" syn keyword pythonSpecialWord self
-"
-" hi link pythonSpecialWord    Special
-" hi link pythonDelimiter      Special
-"
-" let b:current_after_syntax = 'python'
-"
-" let &cpo = s:cpo_save
-" unlet s:cpo_save
