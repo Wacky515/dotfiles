@@ -6,25 +6,25 @@
 echo "Start link"
 
 ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
-if [ $? = 0 ]; then
-    echo ".gitconfig link success!"
+    if [ $? = 0 ]; then
+        echo ".gitconfig link success!"
 
-    proxy_pc=(`cat ~/dotfiles/office_pc.txt`);
-    IFS_SAVE=$IFS
-    IFS=$'\n'
+        pc_name=$HOSTNAME
+        proxy_pc=(`cat ~/dotfiles/office_pc.txt`);
+        IFS_SAVE=$IFS
+        IFS=$'\n'
 
-    pc_name=$HOSTNAME
+        echo "This PC name: "$pc_name
+        echo "In office PCs: "${proxy_pc[@]}
 
-    echo "This PC name: "$pc_name
-    echo "In office PCs: "${proxy_pc[@]}
-
-    if ! `echo ${proxy_pc[@]} | grep -q "$pc_name"` ; then
-        echo "In normal network"
-    else
-        echo "In proxy, set proxy"
-        su -c "git config --system http.proxy http://proxy.intra.xacti-co.com:8080"
-        su -c "git config --system https.proxy https://proxy.intra.xacti-co.com:8080"
-    fi
+        if ! `echo ${proxy_pc[@]} | grep -q "$pc_name"` ; then
+            echo "In normal network"
+        else
+            echo "In proxy, set proxy"
+            echo "Enter password to "su" command(2times)"
+            su -c "git config --system http.proxy http://proxy.intra.xacti-co.com:8080"
+            su -c "git config --system https.proxy https://proxy.intra.xacti-co.com:8080"
+        fi
 
 fi
 ln -sn ~/dotfiles/.gitignore ~/.gitignore

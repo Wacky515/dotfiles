@@ -18,7 +18,6 @@ mklink %HOMEPATH%"\.gitconfig" ".\dotfiles\.gitconfig"
         echo "In normal network"
         goto end_gitconfig
 	) else (
-	rem ) else if %ERRORLEVEL% == "0" (
     goto end_gitconfig)
 
 :set_proxy
