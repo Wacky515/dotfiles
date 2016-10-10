@@ -18,7 +18,7 @@ mklink %HOMEPATH%"\.gitconfig" ".\dotfiles\.gitconfig"
     )
 :set_proxy
 echo "In proxy, set proxy"
-rem git config --list
+git config --list
 rem git config --system http.proxy http://proxy.intra.xacti-co.com:8080
 rem git config --system https.proxy https://proxy.intra.xacti-co.com:8080
 
