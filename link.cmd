@@ -1,12 +1,15 @@
 echo off
 echo Start link
 
+rem "link.cmd" のフォルダに移動
+cd /d %~dp0
+
 mklink %HOMEPATH%"\.gitconfig" ".\dotfiles\.gitconfig"
     rem echo %ERRORLEVEL%
     if %ERRORLEVEL% == 0 (
         echo ".gitconfig link success!"
         echo This PC name: %COMPUTERNAME%
-        for /f "delims=" %%i in (office_pc.txt) do (
+        for /f "delims=" %%i in (C:.\office_pc.txt) do (
             echo In office PC: %%i
             if /i %%i == %COMPUTERNAME% (
                 goto set_proxy
