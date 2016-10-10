@@ -15,15 +15,15 @@ if [ $? = 0 ]; then
 
     pc_name=$HOSTNAME
 
-    echo "In office PCs: "${proxy_pc[@]}
     echo "This PC name: "$pc_name
+    echo "In office PCs: "${proxy_pc[@]}
 
     if ! `echo ${proxy_pc[@]} | grep -q "$pc_name"` ; then
         echo "In normal network"
     else
         echo "In proxy, set proxy"
-        # git config --global http.proxy http://proxy.intra.xacti-co.com:8080
-        # git config --global https.proxy https://proxy.intra.xacti-co.com:8080
+        # git config --system http.proxy http://proxy.intra.xacti-co.com:8080
+        # git config --system https.proxy https://proxy.intra.xacti-co.com:8080
     fi
 
 fi
