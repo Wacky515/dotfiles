@@ -22,8 +22,8 @@ if [ $? = 0 ]; then
         echo "In normal network"
     else
         echo "In proxy, set proxy"
-        # git config --system http.proxy http://proxy.intra.xacti-co.com:8080
-        # git config --system https.proxy https://proxy.intra.xacti-co.com:8080
+        su -c "git config --system http.proxy http://proxy.intra.xacti-co.com:8080"
+        su -c "git config --system https.proxy https://proxy.intra.xacti-co.com:8080"
     fi
 
 fi
