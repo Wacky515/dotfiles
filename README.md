@@ -1,6 +1,6 @@
 # Install command
 `./link.sh`  
-`./link.bat`
+`./link.cmd`
 
 # Layout
 ~/  
