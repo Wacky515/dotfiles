@@ -1,4 +1,4 @@
-echo off
+﻿@echo off
 echo Start link
 
 rem "link.cmd" のフォルダに移動
