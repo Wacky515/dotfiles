@@ -1,7 +1,7 @@
-ï»¿@echo off
+@echo off
 echo Start link
 
-rem "link.cmd" ã®ãƒ•ã‚©ãƒ«ãƒ€ã«ç§»å‹•
+rem "link.cmd" ‚ÌƒtƒHƒ‹ƒ_‚ÉˆÚ“®
 cd /d %~dp0
 
 mklink %HOMEPATH%"\.gitconfig" ".\dotfiles\.gitconfig"
