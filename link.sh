@@ -27,21 +27,30 @@ ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
         fi
 
 fi
+
 ln -sn ~/dotfiles/.gitignore ~/.gitignore
 if [ $? = 0 ]; then
     echo ".gitignore link success!"
 fi
+
 ln -sn ~/dotfiles/.vimrc ~/.vimrc
 if [ $? = 0 ]; then
     echo ".vimrc link success!"
 fi
+
 ln -sn ~/dotfiles/.gvimrc ~/.gvimrc
 if [ $? = 0 ]; then
     echo ".gvimrc link success!"
 fi
+
 ln -sn ~/dotfiles/.vim ~/.vim
 if [ $? = 0 ]; then
     echo ".vim link success!"
+fi
+
+ln -sn ~/dotfiles/.zshrc ~/.zshrc
+if [ $? = 0 ]; then
+    echo ".zshrc link success!"
 fi
 
 echo "End link"
