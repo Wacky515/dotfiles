@@ -1,4 +1,3 @@
-
 # 環境変数
 export LANG=ja_JP.UTF-8
 
@@ -24,11 +23,11 @@ PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %B%{${fg[red]}%}
 autoload -U compinit
 compinit
 
-# sudo の後ろでコマンド名を補完する
+# "sudo" の後ろでコマンド名を補完する
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
         /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
-## 履歴系
+## コマンド履歴系
 # 履歴をファイルに保存
 HISTFILE=$HOME/.zsh-history
 # メモリ保存数
@@ -86,17 +85,19 @@ case ${OSTYPE} in
 esac
 
 ## エイリアス
-# alias la='ls -a'
-# alias ll='ls -l'
+alias la='ls -a'
+alias ll='ls -l'
 
+# 削除確認
 # alias rm='rm -i'
 # alias cp='cp -i'
 # alias mv='mv -i'
 
+# 親ディレクトリも作成
 # alias mkdir='mkdir -p'
 
 # # sudo の後のコマンドでエイリアスを有効にする
-# alias sudo='sudo '
+alias sudo='sudo '
 
 # # グローバルエイリアス
 # alias -g L='| less'
