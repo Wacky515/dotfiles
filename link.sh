@@ -5,6 +5,7 @@
 
 echo "Start link"
 
+# まず "git" の設定
 ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
     if [ $? = 0 ]; then
         echo ".gitconfig link success!"
@@ -20,7 +21,7 @@ ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
         if ! `echo ${proxy_pc[@]} | grep -q "$pc_name"` ; then
             echo "In normal network"
         else
-            echo "In proxy, set proxy"
+            echo "In proxy network, set proxy"
             echo "Enter password to "su" command(2times)"
             su -c "git config --system http.proxy http://proxy.intra.xacti-co.com:8080"
             su -c "git config --system https.proxy https://proxy.intra.xacti-co.com:8080"
@@ -28,64 +29,110 @@ ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
 
 fi
 
-ln -sn ~/dotfiles/.gitignore ~/.gitignore
-if [ $? = 0 ]; then
-    echo ".gitignore link success!"
-fi
+# # 以下から汎用化が必要
+# ln -sn ~/dotfiles/.gitignore ~/.gitignore
+# if [ $? = 0 ]; then
+#     echo ".gitignore link success!"
+# fi
+#
+# ln -sn ~/dotfiles/.vimrc ~/.vimrc
+# if [ $? = 0 ]; then
+#     echo ".vimrc link success!"
+# fi
+#
+# ln -sn ~/dotfiles/.gvimrc ~/.gvimrc
+# if [ $? = 0 ]; then
+#     echo ".gvimrc link success!"
+# fi
+#
+# ln -sn ~/dotfiles/.vim ~/.vim
+# if [ $? = 0 ]; then
+#     echo ".vim link success!"
+# fi
+#
+# ln -sn ~/dotfiles/.zshrc ~/.zshrc
+# if [ $? = 0 ]; then
+#     echo ".zshrc link success!"
+# fi
+#
+# echo "End link"
 
-ln -sn ~/dotfiles/.vimrc ~/.vimrc
-if [ $? = 0 ]; then
-    echo ".vimrc link success!"
-fi
+# 汎用化テスト（未実施）
+for f in .??*
+do
+# 無視したいファイルやディレクトリは以下に追記
+    [[ ${f} = ".git" ]] && continue
+    [[ ${f} = ".gitignore" ]] && continue
 
-ln -sn ~/dotfiles/.gvimrc ~/.gvimrc
-if [ $? = 0 ]; then
-    echo ".gvimrc link success!"
-fi
+    [[ ${f} = "README.md" ]] && continue
 
-ln -sn ~/dotfiles/.vim ~/.vim
-if [ $? = 0 ]; then
-    echo ".vim link success!"
-fi
+    [[ "$f" == ".DS_Store" ]] && continue
 
-ln -sn ~/dotfiles/.zshrc ~/.zshrc
-if [ $? = 0 ]; then
-    echo ".zshrc link success!"
-fi
+    [[ ${f} = "*.sh" ]] && continue
+    [[ ${f} = ".modfying" ]] && continue
 
-echo "End link"
+    [[ ${f} = "*. ~" ]] && continue
+    [[ ${f} = "*.un~" ]] && continue
+    [[ ${f} = "*.swp" ]] && continue
 
+    [[ ${f} = "*.old" ]] && continue
+
+    echo "Ignore: $f"
+    echo "End link"
+done
 
 # 将来的には以下の様に汎用化する
-# for f in .??*#{{{
+# 参考1 #{{{
+# for f in .??*
 # do
-#     [[ "$f" == ".git" ]] && continue
+# # 無視したいファイルやディレクトリは以下に追記
+#     [[ ${f} = ".git" ]] && continue
+#     [[ ${f} = ".gitignore" ]] && continue
+
+#     [[ ${f} = "README.md" ]] && continue
+
 #     [[ "$f" == ".DS_Store" ]] && continue
 
-#     echo "$f"
-# done
+#     [[ ${f} = "*.sh" ]] && continue
+#     [[ ${f} = ".modfying" ]] && continue
 
-
-# cd ${DOT_DIRECTORY}
-
-# for f in .??*
-
-# # 無視したいファイルやディレクトリは以下に追記
-# do
-#     [[ ${f} = "README.md" ]] && continue
 #     [[ ${f} = "*. ~" ]] && continue
 #     [[ ${f} = "*.un~" ]] && continue
 #     [[ ${f} = "*.swp" ]] && continue
 
 #     [[ ${f} = "*.old" ]] && continue
 
-#     [[ ${f} = "*.sh" ]] && continue
-#     [[ ${f} = ".modfying" ]] && continue
-#     [[ ${f} = ".gitignore" ]] && continue
-
-#     [[ ${f} = ".git" ]] && continue
-
-#     ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
+#     echo "Ignore: $f"
+#     echo "End link"
 # done
 
-# echo $(tput setaf 2)Deploy dotfiles complete!. ??$(tput sgr0)#}}}
+
+# 参考2
+## cd ${DOT_DIRECTORY}
+
+# for f in .??*
+
+# # 無視したいファイルやディレクトリは以下に追記
+# do
+#     [[ ${f} = ".git" ]] && continue
+#     [[ ${f} = ".gitignore" ]] && continue
+
+#     [[ ${f} = "README.md" ]] && continue
+
+#     [[ "$f" == ".DS_Store" ]] && continue
+
+#     [[ ${f} = "*.sh" ]] && continue
+#     [[ ${f} = ".modfying" ]] && continue
+
+#     [[ ${f} = "*. ~" ]] && continue
+#     [[ ${f} = "*.un~" ]] && continue
+#     [[ ${f} = "*.swp" ]] && continue
+
+#     [[ ${f} = "*.old" ]] && continue
+
+#     ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
+
+# done
+
+# echo $(tput setaf 2)Deploy dotfiles complete!. ??$(tput sgr0)
+#}}}
