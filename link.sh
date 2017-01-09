@@ -3,6 +3,8 @@
 # 暫定的にコマンドを決め打ちにした
 # FIXME: Linuxでは実行権限が必要
 
+DOT_DIRECTORY="${HOME}/dotfiles"
+
 echo "Start link"
 
 # まず "git" の設定
@@ -26,11 +28,10 @@ ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
             su -c "git config --system http.proxy http://proxy.intra.xacti-co.com:8080"
             su -c "git config --system https.proxy https://proxy.intra.xacti-co.com:8080"
         fi
-
 fi
 
 # # 以下から汎用化が必要
-# ln -sn ~/dotfiles/.gitignore ~/.gitignore
+# ln -sn ~/dotfiles/.gitignore ~/.gitignore  #{{{
 # if [ $? = 0 ]; then
 #     echo ".gitignore link success!"
 # fi
@@ -56,6 +57,7 @@ fi
 # fi
 #
 # echo "End link"
+#}}}
 
 # 汎用化テスト（未実施）
 for f in .??*
@@ -77,9 +79,12 @@ do
 
     [[ ${f} = "*.old" ]] && continue
 
-    echo "Ignore: $f"
-    echo "End link"
+    ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
 done
+
+# TODO: "tput setaf 2" と "tput setaf 2" がわからない
+echo $(tput setaf 2)Deploy dotfiles complete!. ??$(tput sgr0)
+echo "End link"
 
 # 将来的には以下の様に汎用化する
 # 参考1 #{{{
@@ -103,9 +108,8 @@ done
 #     [[ ${f} = "*.old" ]] && continue
 
 #     echo "Ignore: $f"
-#     echo "End link"
 # done
-
+# echo "End link"
 
 # 参考2
 ## cd ${DOT_DIRECTORY}

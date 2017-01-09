@@ -1,8 +1,8 @@
 @echo off
 
-echo Start set link
+echo "Start set link"
 
-rem "link.cmd" ‚ª‚ ‚éDir‚ð "cd" ‚É‚·‚é
+rem "link.cmd" ‚ª‚ ‚é "Dir" ‚É "cd"
 cd /d %~dp0
 
 mklink %HOMEPATH%"\.gitconfig" ".\dotfiles\.gitconfig"
@@ -30,6 +30,7 @@ if %ERRORLEVEL% == 0 (
     :end_gitconfig
 
     mklink %HOMEPATH%"\.gitignore" ".\dotfiles\.gitignore"
+    mklink %HOMEPATH%"\.zshrc" ".\dotfiles\.zshrc"
 
     mklink %HOMEPATH%"\.vimrc" ".\dotfiles\.vimrc"
     mklink %HOMEPATH%"\.gvimrc" ".\dotfiles\.gvimrc"
