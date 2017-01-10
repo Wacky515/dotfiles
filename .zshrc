@@ -40,9 +40,13 @@ setopt hist_ignore_dups
 # 追加コマンドが古いものと同じなら古いものを削除
 setopt hist_ignore_all_dups
 
-# "Ctrl + r"でインクリメンタルサーチ、"Ctrl + s" で逆順
+# "Ctrl + r"でインクリメンタルサーチ、"Ctrl + s" で逆順（vim風キーバインドでは動作しない）
 bindkey '^r' history-incremental-pattern-search-backward
 bindkey '^s' history-incremental-pattern-search-forward
+# bindkey "^R" history-incremental-search-backward
+# bindkey "^S" history-incremental-search-forward
+# bindkey '^P' history-beginning-search-backward
+# bindkey '^N' history-beginning-search-forward
 
 # 他の端末と "history" を共有
 setopt share_history
@@ -56,13 +60,15 @@ setopt hist_reduce_blanks
 function history-all { history -E 1 }UNCTION HISTORY-ALL { HISTORY -E 1 }
 
 ## オプション系
-# ディレクトリ名だけで  ”cd"
+# ディレクトリ名だけで ”cd"
 setopt auto_cd
 # コマンドミスを修正
 setopt correct
 
-# Vim風キーバインド
-bindkey -v
+# Vim風キーバインド（インクリメンタルサーチが動作しないのでkill）
+# bindkey -v
+# Emacs風キーバインド
+bindkey -e
 
 # 日本語ファイル名を表示
 setopt print_eight_bit
@@ -96,7 +102,7 @@ alias ll='ls -l'
 # 親ディレクトリも作成
 # alias mkdir='mkdir -p'
 
-# # sudo の後のコマンドでエイリアスを有効にする
+# sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
 
 # # グローバルエイリアス
