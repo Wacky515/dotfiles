@@ -1,3 +1,6 @@
-# OS X install list
+#Initial setting scrpts for OS X
 
-`brew list >> *_list.txt`
+## None
+
+## OS X install list
+`brew list >> manually_install_list.txt`
