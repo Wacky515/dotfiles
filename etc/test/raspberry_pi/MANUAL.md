@@ -61,9 +61,9 @@ $ sudo apt -y install git
 Execute following command(last command takes about half an hour):
 ```sh
 $ cd
-$ git clone https://github.com/wacky515
-$ cd raspberry_pi_init
-$ ./init_raspi_jessie.sh
+$ git clone https://github.com/wacky515/dotfiles.git
+$ cd ./dotfiles/etc/test/raspberry_pi
+$ sh ./init_raspi_jessie.sh
 ```
 At the end of script, set the password for vnc.
 
@@ -71,8 +71,8 @@ At the end of script, set the password for vnc.
 Execute following command(last command takes about half an hour):
 ```sh
 $ cd
-$ git clone https://github.com/wacky515
-$ cd raspberry_pi_init
-$ ./init_raspi_jessie_lite.sh
+$ git clone https://github.com/wacky515/dotfiles.git
+$ cd ./dotfiles/etc/test/raspberry_pi
+$ sh ./init_raspi_jessie_lite.sh
 ```
 Raspberry Pi setup is done!
