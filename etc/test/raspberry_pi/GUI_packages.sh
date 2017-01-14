@@ -1,8 +1,4 @@
 #!/bin/bash
-# TODO:
-
-# DONE:
-
 # "Lite" ではない時の処理
 REV=`cat /proc/cmdline | /
 awk -v RS=" " -F= '/boardrev/ { print $2 }'`
