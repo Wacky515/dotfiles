@@ -9,55 +9,56 @@ echo "Start link"
 
 # まず "git" の設定
 ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
-    if [ $? = 0 ]; then
-        echo ".gitconfig link success!"
+if [ $? = 0 ]; then
+    echo ".gitconfig link success!"
 
-        pc_name=$HOSTNAME
-        proxy_pc=(`cat ~/dotfiles/office_pc.txt`);
-        IFS_SAVE=$IFS
-        IFS=$'\n'
+    pc_name=$HOSTNAME
+    proxy_pc=(`cat ~/dotfiles/office_pc.txt`);
+    # proxy_pc=`cat ~/dotfiles/office_pc.txt`;
+    IFS_SAVE=$IFS
+    IFS=$'\n'
 
-        echo "This PC name: "$pc_name
-        echo "In office PCs: "${proxy_pc[@]}
+    echo "This PC name: "$pc_name
+    echo "In office PCs: "${proxy_pc[@]}
 
-        if ! `echo ${proxy_pc[@]} | grep -q "$pc_name"` ; then
-            echo "In normal network"
-        else
-            echo "In proxy network, set proxy"
-            echo "Enter password to "su" command(2times)"
-            su -c "git config --system http.proxy http://proxy.intra.xacti-co.com:8080"
-            su -c "git config --system https.proxy https://proxy.intra.xacti-co.com:8080"
-        fi
+    if ! `echo ${proxy_pc[@]} | grep -q "$pc_name"` ; then
+        echo "In normal network"
+    else
+        echo "In proxy network, set proxy"
+        echo "Enter password to "su" command(2times)"
+        su -c "git config --system http.proxy http://proxy.intra.xacti-co.com:8080"
+        su -c "git config --system https.proxy https://proxy.intra.xacti-co.com:8080"
+    fi
 fi
 
-## 以下から汎用化が必要
-# ln -sn ~/dotfiles/.gitignore ~/.gitignore  #{{{
+# # 以下から汎用化が必要
+# ln -snfv ~/dotfiles/.gitignore ~/.gitignore  #{{{
 # if [ $? = 0 ]; then
 #     echo ".gitignore link success!"
 # fi
-#
-# ln -sn ~/dotfiles/.vimrc ~/.vimrc
+# 
+# ln -snfv ~/dotfiles/.vimrc ~/.vimrc
 # if [ $? = 0 ]; then
 #     echo ".vimrc link success!"
 # fi
-#
-# ln -sn ~/dotfiles/.gvimrc ~/.gvimrc
+# 
+# ln -snfv ~/dotfiles/.gvimrc ~/.gvimrc
 # if [ $? = 0 ]; then
 #     echo ".gvimrc link success!"
 # fi
-#
-# ln -sn ~/dotfiles/.vim ~/.vim
+# 
+# ln -snfv ~/dotfiles/.vim ~/.vim
 # if [ $? = 0 ]; then
 #     echo ".vim link success!"
 # fi
-#
-# ln -sn ~/dotfiles/.zshrc ~/.zshrc
+# 
+# ln -snfv ~/dotfiles/.zshrc ~/.zshrc
 # if [ $? = 0 ]; then
 #     echo ".zshrc link success!"
 # fi
-#
+# 
 # echo "End link"
-#}}}
+# # }}}
 
 # 汎用化テスト（未実施）
 for f in .??*
@@ -82,8 +83,8 @@ do
     ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
 done
 
-# TODO: "tput setaf 2" と "tput setaf 2" がわからない
-echo $(tput setaf 2)Deploy dotfiles complete!. ??$(tput sgr0)
+# TODO: "tput setaf 2" と "tput sgr0" gr0)わからない
+echo $(tput setaf 2)Deploy dotfiles complete!$(tput sgr0)
 echo "End link"
 
 # 将来的には以下の様に汎用化する
