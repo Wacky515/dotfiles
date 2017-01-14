@@ -9,16 +9,25 @@
 # ファームとパッケージ アップデート
 update_package(){
 	# パッケージ アップデート
+    echo "Init package update"
 	sudo apt update
 	sudo apt -y upgrade
 	sudo apt -y dist-upgrade
 
 	# ファーム アップデート
 	sudo rpi-update
+
+    if [ "$?" -eq 0 ]
+    then
+        echo "Success init package update"
+    else
+        echo "fail init package update"
+    fi
 }
 
 # 各パッケージ インストール
 install_package(){
+    echo "Init install package"
     # 日本語環境 インストール
     # sudo apt install -y fonts-ipafont
     # sudo apt install -y fonts-ipaexfont
@@ -37,6 +46,7 @@ install_package(){
     sudo apt install -y zsh
 
     # "Chromium" インストール
+    echo "Install Chromium"
     wget -qO - \
         http://bintray.com/user/downloadSubjectPublicKey?username=bintray \
         | sudo apt-key add -
@@ -46,6 +56,12 @@ install_package(){
     sudo apt install chromium-browser rpi-youtube -y
     ginstall-ytdl
 
+    if [ "$?" -eq 0 ]
+    then
+        echo "Success install Chromium"
+    else
+        echo "fail init install Chromium"
+    fi
 
 	# 端末 インストール
 	# sudo apt-get install -y gnome-terminal
@@ -60,8 +76,16 @@ install_package(){
 # 独自設定
 setup_dotfiles(){
     # 実行権限 付与
+    echo "Change mod"
     sudo chmod +x *.sh
     sudo chmod +x /dotfiles/etc/test/raspberry_pi/*.sh
+
+    if [ "$?" -eq 0 ]
+    then
+        echo "Success change mod"
+    else
+        echo "fail change mod"
+    fi
 
     # "link.sh" 実施
     sudo sh ./ dotfiles/link.sh
@@ -129,14 +153,14 @@ echo "Input password for VNC server"
 sudo /etc/init.d/vncboot start
 
 echo "Please reboot"
-sudo shotdown -r now
-## TODO: select y/n in STDINPUT -> sudo shotdown -r now
-# while true
-# do
-#     if
-#         input rebt
-#         if [ "$yesno" = "yes" ]
-#         then
-#             sudo shotdown -r now
-#     fi
-# done
+# sudo shotdown -r now
+# TODO: select y/n in STDINPUT -> sudo shotdown -r now
+while true
+do
+    if
+        input rebt
+        if [ "$yesno" = "yes" ]
+        then
+            sudo shotdown -r now
+    fi
+done

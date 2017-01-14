@@ -1,3 +1,4 @@
+#!/bin/sh
 echo "Enable SSH"
 touch /boot/ssh
 ## 有効化
@@ -6,7 +7,7 @@ touch /boot/ssh
 # update-rc.d ssh disable && invoke-rc.d ssh stop
 if [ "$?" -eq 0 ]
 then
-    echo "Success"
+    echo "Success enable SSH"
 else
-    echo "fail"
+    echo "fail enable SSH"
 fi
