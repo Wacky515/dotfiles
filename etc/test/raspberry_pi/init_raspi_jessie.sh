@@ -61,6 +61,10 @@ install_package(){
 setup_dotfiles(){
     # 実行権限 付与
     sudo chmod +x *.sh
+    sudo chmod +x /dotfiles/etc/test/raspberry_pi/*.sh
+
+    # "link.sh" 実施
+    sudo sh ./ dotfiles/link.sh
 
     # IPアドレス 固定
     sudo sh ./dotfiles/etc/test/raspberry_pi/fix_ipaddr.sh
@@ -125,13 +129,14 @@ echo "Input password for VNC server"
 sudo /etc/init.d/vncboot start
 
 echo "Please reboot"
-# TODO: select y/n in STDINPUT -> sudo shotdown -r now
-while true
-do
-    if
-        input rebt
-        if [ "$yesno" = "yes" ]
-        then
-            sudo shotdown -r now
-    fi
-done
+sudo shotdown -r now
+## TODO: select y/n in STDINPUT -> sudo shotdown -r now
+# while true
+# do
+#     if
+#         input rebt
+#         if [ "$yesno" = "yes" ]
+#         then
+#             sudo shotdown -r now
+#     fi
+# done
