@@ -27,7 +27,8 @@ update_package(){
 
 # 各パッケージ インストール
 install_package(){
-    echo "Init install package"
+    echo "Init install packages"
+    echo "Install Japanese environment"
     # 日本語環境 インストール
     # sudo apt install -y fonts-ipafont
     # sudo apt install -y fonts-ipaexfont
@@ -36,17 +37,20 @@ install_package(){
 	sudo apt install -y tightvncserver
 
     # "man" コマンド日本語化
+    echo "Install japanese \"man\'"
     sudo apt install manpages-ja manpages-ja-dev
 
 	# "Vim" インストール
+    echo "Install \"Vim\""
 	sudo apt install -y vim
 	sudo apt install -y vim-gtk
 
     # "zsh" インストール
+    echo "Install \"zsh\""
     sudo apt install -y zsh
 
     # "Chromium" インストール
-    echo "Install Chromium"
+    echo "Install \"Chromium\""
     wget -qO - \
         http://bintray.com/user/downloadSubjectPublicKey?username=bintray \
         | sudo apt-key add -
@@ -58,9 +62,9 @@ install_package(){
 
     if [ "$?" -eq 0 ]
     then
-        echo "Success install Chromium"
+        echo "Success install \"Chromium\""
     else
-        echo "fail init install Chromium"
+        echo "fail init install \"Chromium\""
     fi
 
 	# 端末 インストール
@@ -76,15 +80,15 @@ install_package(){
 # 独自設定
 setup_dotfiles(){
     # 実行権限 付与
-    echo "Change mod"
+    echo "Change mode"
     sudo chmod +x *.sh
     sudo chmod +x /dotfiles/etc/test/raspberry_pi/*.sh
 
     if [ "$?" -eq 0 ]
     then
-        echo "Success change mod"
+        echo "Success change mode"
     else
-        echo "fail change mod"
+        echo "fail change mode"
     fi
 
     # "link.sh" 実施
@@ -103,6 +107,9 @@ setup_dotfiles(){
     # ホスト名 変更
     sudo sh ./dotfiles/etc/test/raspberry_pi/setting_hostname.sh
 
+    # キーボード配列 変更
+    sudo sh ./dotfiles/etc/test/raspberry_pi/setting_keyboard.sh
+
     # パスワード 変更
     echo "Input password for this pi(root)"
     sudo passwd
@@ -115,7 +122,7 @@ setup_dotfiles(){
 
     # ".bashrc" ."zhrc" の設定
 	# sudo cp ./dotfiles/etc/test/raspberry_pi/.bashrc ~/.bashrc
-	sudo cp ./dotfiles/etc/test/raspberry_pi/.zhrc ~/.zhrc
+	# sudo cp ./dotfiles/etc/test/raspberry_pi/.zhrc ~/.zhrc
 
     # "config.txt" 設定
 	sudo cp ./dotfiles/etc/test/raspberry_pi/config.txt /boot/config.txt
