@@ -34,10 +34,24 @@ install_package(){
     echo "Install \"zsh\""
     sudo apt install -y zsh
 
+    if [ "$?" -eq 0 ]
+    then
+        echo "Success install \"zsh\""
+    else
+        echo "fail install \"zsh\""
+    fi
+
 	# "Vim" インストール
     echo "Install \"Vim\""
 	sudo apt install -y vim
 	sudo apt install -y vim-gtk
+
+    if [ "$?" -eq 0 ]
+    then
+        echo "Success install \"Vim\""
+    else
+        echo "fail install \"Vim\""
+    fi
 
 	# 仮想端末 インストール
 	# sudo apt-get install -y byobu

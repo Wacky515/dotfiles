@@ -49,7 +49,7 @@ raspberry pi auto setup script
 - Raspberry Pi power on
 - Install Git
 
-## Git installation
+不要と思われる！！！ ## Git installation
 ```sh
 $ sudo apt update
 $ sudo apt -y install git
@@ -63,7 +63,7 @@ Execute following command(last command takes about half an hour):
 $ cd
 $ git clone https://github.com/wacky515/dotfiles.git
 $ cd ./dotfiles/etc/test/raspberry_pi
-$ sh ./init_raspi_jessie.sh
+$ sudo sh ./init_raspi_jessie.sh
 ```
 At the end of script, set the password for vnc.
 
