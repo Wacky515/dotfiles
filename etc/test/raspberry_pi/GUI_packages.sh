@@ -1,8 +1,4 @@
 #!/bin/bash
-# TODO:
-
-# DONE:
-
 # "Lite" ではない時の処理
 REV=`cat /proc/cmdline | /
 awk -v RS=" " -F= '/boardrev/ { print $2 }'`
@@ -16,31 +12,55 @@ then
     sudo apt install -y fonts-vlgothic
     sudo apt install -y ibus-mozc
 
+    if [ "$?" -eq 0 ]
+    then
+        echo "Success install Japanese environment"
+    else
+        echo "fail install Japanese environment"
+    fi
+    echo ""
+
     # TightVNCViewer インストール
     echo "Install \"TightVNCViewer\""
     sudo apt install -y tightvncserver
+
+    if [ "$?" -eq 0 ]
+    then
+        echo "Success install \"TightVNCViewer\"
+    else
+        echo "fail install \"TightVNCViewer\"
+    fi
+    echo ""
 
     # "man" コマンド日本語化
     echo "Install japanese \"man\""
     sudo apt install manpages-ja manpages-ja-dev
 
-    # "Chromium" インストール
-    echo "Install \"Chromium\""
-    wget -qO - http://bintray.com/user/ \
-        downloadSubjectPublicKey?username=bintray \
-        | sudo apt-key add -
-    echo "deb http://dl.bintray.com/kusti8/chromium-rpi jessie main" \
-        | sudo tee -a /etc/apt/sources.list
-    sudo apt update
-    sudo apt install chromium-browser rpi-youtube -y
-    ginstall-ytdl
-
     if [ "$?" -eq 0 ]
     then
-        echo "Success install \"Chromium\""
+        echo "Success install \"man\""
     else
-        echo "fail init install \"Chromium\""
+        echo "fail install \"man\""
     fi
+    echo ""
+
+    # # "Chromium" インストール
+    # echo "Install \"Chromium\""
+    # wget -qO - http://bintray.com/user/ \
+    #     downloadSubjectPublicKey?username=bintray \
+    #     | sudo apt-key add -
+    # echo "deb http://dl.bintray.com/kusti8/chromium-rpi jessie main" \
+    #     | sudo tee -a /etc/apt/sources.list
+    # sudo apt update
+    # sudo apt install chromium-browser rpi-youtube -y
+    # ginstall-ytdl
+    #
+    # if [ "$?" -eq 0 ]
+    # then
+    #     echo "Success install \"Chromium\""
+    # else
+    #     echo "fail init install \"Chromium\""
+    # fi
 
     # TODO: no_lite
     # 端末 インストール
