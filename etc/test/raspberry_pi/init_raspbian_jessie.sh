@@ -68,7 +68,7 @@ setup_dotfiles(){
     # # 実行権限 付与
     # echo "Change mode"
     # sudo chmod +x *.sh
-    # sudo chmod +x ~/dotfiles/etc/test/raspberry_pi/*.sh
+    # sudo chmod +x ./etc/test/raspberry_pi/*.sh
 
     if [ "$?" -eq 0 ]
     then
@@ -79,20 +79,20 @@ setup_dotfiles(){
     echo ""
 
     # "link.sh" 実施
-    sudo sh ./ dotfiles/link.sh
+    sudo bash ./link.sh
 
     # IPアドレス 固定
-    sudo sh ~/dotfiles/etc/test/raspberry_pi/fix_ipaddr.sh
+    sudo sh ./fix_ipaddr.sh
 
     # 時計 JSTに設定
-    sudo mv /etc/localtime /etc/localtime.bak
+    sudo mv /eltime.bak
     sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
     # ホスト名 変更
-    sudo sh ~/dotfiles/etc/test/raspberry_pi/setting_hostname.sh
+    sudo sh ./etc/test/raspberry_pi/setting_hostname.sh
 
     # キーボード配列 変更
-    sudo sh ~/dotfiles/etc/test/raspberry_pi/setting_keyboard.sh
+    sudo sh ./etc/test/raspberry_pi/setting_keyboard.sh
 
     # パスワード 変更
     echo "Input password for this pi(root)"
@@ -102,7 +102,7 @@ setup_dotfiles(){
     passwd
 
     # SSH 有効化
-    sudo sh ~/dotfiles/etc/test/raspberry_pi/setting_ssh.sh
+    sudo sh ./etc/test/raspberry_pi/setting_ssh.sh
 
     # ".bashrc" ."zhrc" の設定
 	# sudo cp ~/dotfiles/etc/test/raspberry_pi/.bashrc ~/.bashrc
