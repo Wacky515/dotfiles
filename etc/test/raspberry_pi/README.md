@@ -1,17 +1,17 @@
-# raspberry-pi-setup
+﻿# raspberry-pi-setup
 raspberry pi auto setup script
 
 ## Setting
 ### Raspbian Jessie
 - IPアドレス 固定 ✔
 - 無線LAN 設定 ✔
-- 時計 JSTに設定 ✔
+- 時計 JSTに設定 ✔再起動前OK
 - ホスト名 設定 ✔
-- パスワード 変更 ✔
-- SSH Enable ✔
+- パスワード 変更 ✔OK
+- SSH Enable ✔NG スクリプトのミス 修正した
 - Camera Enable # 設定方法不明
 - Set Locale # 設定不要
-- Set Timezone # 設定不要
+- Set Timezone # 設定不要 JSTになってる
 - Set Keyboard # 設定不要
 
 - Custom `.zshrc`
@@ -26,12 +26,12 @@ raspberry pi auto setup script
 ## Install Package
 ### Raspbian Jessie
 - JAPANESE environment(fonts-vlgothic, ibus-mozc)
-- VNC Server(tightvncserver)
-- Editor(vim,vim-gtk)
+- VNC Server(tightvncserver) ✔OK
+- Editor(vim,vim-gtk) ✔OK
 
 #### 以下から追加したパッケージ
-- zsh ✔
-- Chromium ✔
+- zsh ✔OK
+- Chromium ✔OK
 
 #### 以下はオミット
 - Terminal(gnome-terminal)
