@@ -16,7 +16,7 @@ then
     then
         echo "Success install Japanese environment"
     else
-        echo "fail install Japanese environment"
+        echo "Fail install Japanese environment"
     fi
     echo ""
 
@@ -28,7 +28,7 @@ then
     then
         echo "Success install \"TightVNCViewer\"
     else
-        echo "fail install \"TightVNCViewer\"
+        echo "Fail install \"TightVNCViewer\"
     fi
     echo ""
 
@@ -40,7 +40,7 @@ then
     then
         echo "Success install \"man\""
     else
-        echo "fail install \"man\""
+        echo "Fail install \"man\""
     fi
     echo ""
 

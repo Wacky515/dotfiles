@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 echo "Setting keyboard layout"
 sudo mv /etc/default/keyboard /etc/default/keyboard.bak
-sudo cp ./dotfiles/etc/test/raspberry_pi/keyboard /etc/default/
+sudo cp ./keyboard /etc/default/
 
 if [ "$?" -eq 0 ]
 then

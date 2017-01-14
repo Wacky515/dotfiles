@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 echo "Setting hostname"
 sudo cp /etc/hostname /etc/hostname.bak
-input newname
+read newname
 $newname > /etc/hostname
 
 if [ "$?" -eq 0 ]

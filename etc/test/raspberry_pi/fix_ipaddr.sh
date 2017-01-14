@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo "Input IP addr"
 read ipaddr
 
@@ -29,8 +29,9 @@ else
     echo "Fail setting DNS"
 fi
 
-cat << EOS >> etc/dhcpcd.conf
 # cat << EOS >> test_ip_addr.txt
+# "Directory nonexistent" になる
+cat << EOS >> etc/dhcpcd.conf
 interface eth0
 static ip_address=$ipaddr/24
 static routers=$rout

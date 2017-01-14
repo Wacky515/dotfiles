@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo "Enable SSH"
 touch /boot/ssh
 ## 有効化
@@ -9,5 +9,5 @@ if [ "$?" -eq 0 ]
 then
     echo "Success enable SSH"
 else
-    echo "fail enable SSH"
+    echo "Fail enable SSH"
 fi
