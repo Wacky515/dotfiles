@@ -12,21 +12,17 @@ update_package(){
 	# パッケージ アップデート
     echo "Init package update"
     echo ""
-	sudo apt update
-	sudo apt -y upgrade
-	sudo apt -y dist-upgrade
+	sudo apt update && \
+	sudo apt -y upgrade && \
+	sudo apt -y dist-upgrade && \
 
 	# ファーム アップデート
-	sudo rpi-update
+	sudo rpi-update && \
 
-	sudo apt -y autoremove
+	sudo apt-get autoremove && \
 
-    if [ "$?" -eq 0 ]
-    then
-        echo "Success init package update"
-    else
-        echo "fail init package update"
-    fi
+    echo "Success init package update" || \
+    echo "fail init package update"
     echo ""
 }
 
@@ -64,7 +60,7 @@ install_package(){
 	# sudo apt-get install -y byobu
 
     # "Lite" ではない時の処理
-    REV = `cat /proc/cmdline | /
+    REV=`cat /proc/cmdline | /
     awk -v RS=" " -F= '/boardrev/ { print $2 }'`
     if [ ! "$REV" -eq "900092" ]
     then
