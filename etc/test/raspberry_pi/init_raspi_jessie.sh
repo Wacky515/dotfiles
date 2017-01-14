@@ -11,6 +11,7 @@
 update_package(){
 	# パッケージ アップデート
     echo "Init package update"
+    echo ""
 	sudo apt update
 	sudo apt -y upgrade
 	sudo apt -y dist-upgrade
@@ -18,17 +19,21 @@ update_package(){
 	# ファーム アップデート
 	sudo rpi-update
 
+	sudo apt -y autoremove
+
     if [ "$?" -eq 0 ]
     then
         echo "Success init package update"
     else
         echo "fail init package update"
     fi
+    echo ""
 }
 
 # 各パッケージ インストール
 install_package(){
     echo "Init install packages"
+    echo ""
 
     # "zsh" インストール
     echo "Install \"zsh\""
@@ -40,6 +45,7 @@ install_package(){
     else
         echo "fail install \"zsh\""
     fi
+    echo ""
 
 	# "Vim" インストール
     echo "Install \"Vim\""
@@ -52,6 +58,7 @@ install_package(){
     else
         echo "fail install \"Vim\""
     fi
+    echo ""
 
 	# 仮想端末 インストール
 	# sudo apt-get install -y byobu
@@ -97,6 +104,7 @@ install_package(){
         else
             echo "fail init install \"Chromium\""
         fi
+    echo ""
 
         # TODO: no_lite
         # 端末 インストール
@@ -121,6 +129,7 @@ setup_dotfiles(){
     else
         echo "fail change mode"
     fi
+    echo ""
 
     # "link.sh" 実施
     sudo sh ./ dotfiles/link.sh
