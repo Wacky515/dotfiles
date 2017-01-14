@@ -71,16 +71,16 @@ setup_dotfiles(){
     # sudo chmod +x *.sh
     # sudo chmod +x ./etc/test/raspberry_pi/*.sh
 
-    if [ "$?" -eq 0 ]
-    then
-        echo "Success change mode"
-    else
-        echo "fail change mode"
-    fi
-    echo ""
+    # if [ "$?" -eq 0 ]
+    # then
+    #     echo "Success change mode"
+    # else
+    #     echo "fail change mode"
+    # fi
+    # echo ""
 
     # "link.sh" 実施
-    sudo bash ./link.sh
+    sudo bash ~/dotfiles//link.sh
 
     # IPアドレス 固定
     sudo sh ./fix_ipaddr.sh
@@ -132,18 +132,22 @@ SS=`expr ${SS} % 60`
 
 echo "Total Time: ${HH}:${MM}:${SS} (h:m:s)"
 
-echo "Input password for VNC server"
-sudo /etc/init.d/vncboot start
+# "Lite" ではない時の処理
+REV=`cat /proc/cmdline | /
+awk -v RS=" " -F= '/boardrev/ { print $2 }'`
+if [ "$REV" != "900092" ]
+    echo "Input password for VNC server"
+    sudo /etc/init.d/vncboot start
+fi
 
 echo "Please reboot"
 # sudo shotdown -r now
 # TODO: select y/n in STDINPUT -> sudo shotdown -r now
 while true
 do
-    if
-        input rebt
-        if [ "$yesno" = "yes" ]
-        then
-            sudo shotdown -r now
+    input rebt
+    if [ "$yesno" = "yes" ]
+    then
+        sudo shotdown -r now
     fi
 done

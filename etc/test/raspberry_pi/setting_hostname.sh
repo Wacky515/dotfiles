@@ -2,7 +2,7 @@
 echo "Setting hostname"
 sudo cp /etc/hostname /etc/hostname.bak
 read newname
-$newname > /etc/hostname
+"$newname" > /etc/hostname
 
 if [ "$?" -eq 0 ]
 then
