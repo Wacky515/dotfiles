@@ -1,5 +1,6 @@
 #!/bin/bash
 # TODO:
+    # "jessie" と "lite" の処理 分ける
 
 # DONE:
     # IP Addr 固定（アドレスを標準入力する）
@@ -28,27 +29,38 @@ update_package(){
 # 各パッケージ インストール
 install_package(){
     echo "Init install packages"
-    echo "Install Japanese environment"
-    # 日本語環境 インストール
-    # sudo apt install -y fonts-ipafont
-    # sudo apt install -y fonts-ipaexfont
-	sudo apt install -y fonts-vlgothic
-	sudo apt install -y ibus-mozc
-	sudo apt install -y tightvncserver
 
-    # "man" コマンド日本語化
-    echo "Install japanese \"man\'"
-    sudo apt install manpages-ja manpages-ja-dev
+    # "zsh" インストール
+    echo "Install \"zsh\""
+    sudo apt install -y zsh
 
 	# "Vim" インストール
     echo "Install \"Vim\""
 	sudo apt install -y vim
 	sudo apt install -y vim-gtk
 
-    # "zsh" インストール
-    echo "Install \"zsh\""
-    sudo apt install -y zsh
+	# 仮想端末 インストール
+	# sudo apt-get install -y byobu
 
+    # TODO: no_lite
+    # 日本語環境 インストール
+    echo "Install Japanese environment"
+    # sudo apt install -y fonts-ipafont
+    # sudo apt install -y fonts-ipaexfont
+	sudo apt install -y fonts-vlgothic
+	sudo apt install -y ibus-mozc
+
+    # TODO: no_lite
+    # TightVNCViewer インストール
+    echo "Install \"TightVNCViewer\""
+	sudo apt install -y tightvncserver
+
+    # TODO: no_lite
+    # "man" コマンド日本語化
+    echo "Install japanese \"man\""
+    sudo apt install manpages-ja manpages-ja-dev
+
+    # TODO: no_lite
     # "Chromium" インストール
     echo "Install \"Chromium\""
     wget -qO - \
@@ -67,14 +79,13 @@ install_package(){
         echo "fail init install \"Chromium\""
     fi
 
+    # TODO: no_lite
 	# 端末 インストール
 	# sudo apt-get install -y gnome-terminal
 
+    # TODO: no_lite
 	# パーティションツール インストール
 	# sudo apt-get install -y gparted
-
-	# 仮想端末 インストール
-	# sudo apt-get install -y byobu
 }
 
 # 独自設定
@@ -96,9 +107,6 @@ setup_dotfiles(){
 
     # IPアドレス 固定
     sudo sh ./dotfiles/etc/test/raspberry_pi/fix_ipaddr.sh
-
-    # Wi-Fi 設定
-    sudo sh ./dotfiles/etc/test/raspberry_pi/setting_wifi.sh
 
     # 時計 JSTに設定
     sudo mv /etc/localtime /etc/localtime.bak
@@ -124,17 +132,29 @@ setup_dotfiles(){
 	# sudo cp ./dotfiles/etc/test/raspberry_pi/.bashrc ~/.bashrc
 	# sudo cp ./dotfiles/etc/test/raspberry_pi/.zhrc ~/.zhrc
 
+    # TODO: no_lite
     # "config.txt" 設定
 	sudo cp ./dotfiles/etc/test/raspberry_pi/config.txt /boot/config.txt
 
+    # TODO: no_lite
+    # Wi-Fi 設定
+    sudo sh ./dotfiles/etc/test/raspberry_pi/setting_wifi.sh
+
+    # TODO: no_lite
     # 仮想デスクトップ環境 設定
 	sudo cp ./dotfiles/etc/test/raspberry_pi/lxpolkit.desktop \
         /etc/xdg/autostart/lxpolkit.desktop
 
+    # TODO: no_lite
     # Automatically start up VNC
 	sudo cp ./dotfiles/etc/test/raspberry_pi/vncboot /etc/init.d/vncboot
 	sudo update-rc.d -f lightdm remove
 	sudo update-rc.d vncboot defaults
+
+
+    # TODO: lite
+    # "config.txt" 設定
+	sudo cp ./dotfiles/etc/test/raspberry_pi/config_lite.txt /boot/config.txt
 }
 
 START_TIME=`date +%s`
