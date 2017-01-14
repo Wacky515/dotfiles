@@ -31,7 +31,36 @@ if [ $? = 0 ]; then
     fi
 fi
 
-# # 以下から汎用化が必要
+# 汎用化テスト（未テスト）
+for f in .??*
+do
+    # 無視したいファイルやディレクトリは以下に追記
+    [[ ${f} = ".git" ]] && continue
+    [[ ${f} = ".gitignore" ]] && continue
+
+    [[ ${f} = "README.md" ]] && continue
+
+    [[ "$f" == ".DS_Store" ]] && continue
+
+    [[ ${f} = "*.sh" ]] && continue
+    [[ ${f} = ".modfying" ]] && continue
+
+    [[ ${f} = "*. ~" ]] && continue
+    [[ ${f} = "*.un~" ]] && continue
+    [[ ${f} = "*.swp" ]] && continue
+
+    [[ ${f} = "*.old" ]] && continue
+
+    # シンボリックリンク 作成
+    ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
+done
+
+# TODO: "tput setaf 2" と "tput sgr0" gr0)わからない
+echo $(tput setaf 2)Deploy dotfiles complete!$(tput sgr0)
+echo "End link"
+echo ""
+
+# 汎用化前
 # ln -snfv ~/dotfiles/.gitignore ~/.gitignore  #{{{
 # if [ $? = 0 ]; then
 #     echo ".gitignore link success!"
@@ -60,34 +89,7 @@ fi
 # echo "End link"
 # # }}}
 
-# 汎用化テスト（未実施）
-for f in .??*
-do
-# 無視したいファイルやディレクトリは以下に追記
-    [[ ${f} = ".git" ]] && continue
-    [[ ${f} = ".gitignore" ]] && continue
-
-    [[ ${f} = "README.md" ]] && continue
-
-    [[ "$f" == ".DS_Store" ]] && continue
-
-    [[ ${f} = "*.sh" ]] && continue
-    [[ ${f} = ".modfying" ]] && continue
-
-    [[ ${f} = "*. ~" ]] && continue
-    [[ ${f} = "*.un~" ]] && continue
-    [[ ${f} = "*.swp" ]] && continue
-
-    [[ ${f} = "*.old" ]] && continue
-
-    ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
-done
-
-# TODO: "tput setaf 2" と "tput sgr0" gr0)わからない
-echo $(tput setaf 2)Deploy dotfiles complete!$(tput sgr0)
-echo "End link"
-
-# 将来的には以下の様に汎用化する
+# 汎用化 参考
 # 参考1 #{{{
 # for f in .??*
 # do

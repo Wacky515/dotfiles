@@ -80,11 +80,7 @@ setup_dotfiles(){
     echo ""
 
     # "link.sh" 実施
-<<<<<<< HEAD
     sudo bash ./link.sh
-=======
-    sudo sh ./link.sh
->>>>>>> 219b916eb6be88150175e571308b72a3f2603e07
 
     # IPアドレス 固定
     sudo sh ./fix_ipaddr.sh
@@ -94,14 +90,10 @@ setup_dotfiles(){
     sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
     # ホスト名 変更
-    sudo sh ./etc/test/raspberry_pi/setting_hostname.sh
+    sudo sh ./setting_hostname.sh
 
     # キーボード配列 変更
-<<<<<<< HEAD
-    sudo sh ./etc/test/raspberry_pi/setting_keyboard.sh
-=======
     sudo sh ./setting_keyboard.sh
->>>>>>> 219b916eb6be88150175e571308b72a3f2603e07
 
     # パスワード 変更
     echo "Input password for this pi(root)"
@@ -111,7 +103,7 @@ setup_dotfiles(){
     passwd
 
     # SSH 有効化
-    sudo sh ./etc/test/raspberry_pi/setting_ssh.sh
+    sudo sh ./setting_ssh.sh
 
     # ".bashrc" ."zhrc" の設定
 	# sudo cp ~/dotfiles/etc/test/raspberry_pi/.bashrc ~/.bashrc
