@@ -73,6 +73,6 @@ Execute following command(last command takes about half an hour):
 $ cd
 $ git clone https://github.com/wacky515/dotfiles.git
 $ cd ./dotfiles/etc/test/raspberry_pi
-$ sh ./init_raspi_jessie_lite.sh
+$ sudo sh ./init_raspi_jessie_lite.sh
 ```
 Raspberry Pi setup is done!
