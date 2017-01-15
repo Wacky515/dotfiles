@@ -36,7 +36,7 @@ raspberry pi auto setup script
 - Custom `/boot/config.txt`
 
 - IPアドレス 固定 ✔OK
-- パスワード 変更 ✔OK
+- パスワード 変更 ✔NG
 - ホスト名 設定 ✔OK
 
 - NotYet Camera Enable # 設定方法不明
