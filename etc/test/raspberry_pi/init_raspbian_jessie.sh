@@ -61,7 +61,7 @@ install_package(){
 	# sudo apt-get install -y byobu
 
     # "Lite" ではない時の処理
-    sudo sh ./GUI_packages.sh
+    sudo bash ./GUI_packages.sh
 }
 
 # 独自設定
@@ -84,9 +84,6 @@ setup_dotfiles(){
     # "link.sh" 実施
     sudo bash ~/dotfiles/link.sh
 
-    # IPアドレス 固定
-    sudo bash ./fix_ipaddr.sh
-
     # 時計 JSTに設定
     # sudo mv /etc/localtimetime.bak
     # sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
@@ -94,13 +91,6 @@ setup_dotfiles(){
 
     # キーボード配列 変更
     sudo bash ./setting_keyboard.sh
-
-    # パスワード 変更
-    y_echo ">> Input password for this pi(root)"
-    sudo passwd
-
-    y_echo ">> Input password for this pi"
-    passwd
 
     # SSH 有効化
     sudo bash ./setting_ssh.sh
@@ -111,6 +101,16 @@ setup_dotfiles(){
 
     # "Lite" ではない時の処理
     sudo sh ./GUI_setting.sh
+
+    # IPアドレス 固定
+    sudo bash ./fix_ipaddr.sh
+
+    # パスワード 変更
+    y_echo ">> Input password for this pi(root)"
+    sudo passwd
+
+    y_echo ">> Input password for this pi"
+    passwd
 
     # ホスト名 変更（必ず最後に実施）
     sudo bash ./setting_hostname.sh
