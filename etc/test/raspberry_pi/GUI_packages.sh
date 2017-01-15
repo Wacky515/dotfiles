@@ -1,12 +1,16 @@
 #!/bin/bash
 # "Lite" ではない時の処理
-REV=`cat /proc/cmdline | /
-awk -v RS=" " -F= '/boardrev/ { print $2 }'`
-if [ "$REV" != "900092" ]
+
+# REV=`cat /proc/cmdline | /
+# awk -v RS=" " -F= '/boardrev/ { print $2 }'`
+# if [ "$REV" != "900092" ]
+
+VER=`dpkg -l | grep xinit`
+if [ "$VER" != "" ]
 then
-    echo "Install packages for GUI"
+    echo ">> Install packages for GUI"
     # 日本語環境 インストール
-    echo "Install Japanese environment"
+    echo ">> Install Japanese environment"
     # sudo apt install -y fonts-ipafont
     # sudo apt install -y fonts-ipaexfont
     sudo apt install -y fonts-vlgothic
@@ -14,42 +18,42 @@ then
 
     if [ "$?" -eq 0 ]
     then
-        echo "Success install Japanese environment"
+        echo ">> Success install Japanese environment"
     else
-        echo "Fail install Japanese environment"
+        echo ">> Fail install Japanese environment"
     fi
     echo ""
 
     # TightVNCViewer インストール
-    echo "Install \"TightVNCViewer\""
+    echo ">> Install \"TightVNCViewer\""
     sudo apt install -y tightvncserver
 
     if [ "$?" -eq 0 ]
     then
-        echo "Success install \"TightVNCViewer\"
+        echo ">> Success install \"TightVNCViewer\""
     else
-        echo "Fail install \"TightVNCViewer\"
+        echo ">> Fail install \"TightVNCViewer\""
     fi
     echo ""
 
     # "man" コマンド日本語化
-    echo "Install japanese \"man\""
+    echo ">> Install japanese \"man\""
     sudo apt install manpages-ja manpages-ja-dev
 
     if [ "$?" -eq 0 ]
     then
-        echo "Success install \"man\""
+        echo ">> Success install \"man\""
     else
-        echo "Fail install \"man\""
+        echo ">> Fail install \"man\""
     fi
     echo ""
 
-    # # "Chromium" インストール
-    # echo "Install \"Chromium\""
+    # # "Chromium" インストール#{{{
+    # echo ">> Install \"Chromium\""
     # wget -qO - http://bintray.com/user/ \
     #     downloadSubjectPublicKey?username=bintray \
     #     | sudo apt-key add -
-    # echo "deb http://dl.bintray.com/kusti8/chromium-rpi jessie main" \
+    # echo ">> deb http://dl.bintray.com/kusti8/chromium-rpi jessie main" \
     #     | sudo tee -a /etc/apt/sources.list
     # sudo apt update
     # sudo apt install chromium-browser rpi-youtube -y
@@ -57,9 +61,9 @@ then
     #
     # if [ "$?" -eq 0 ]
     # then
-    #     echo "Success install \"Chromium\""
+    #     echo ">> Success install \"Chromium\""
     # else
-    #     echo "fail init install \"Chromium\""
+    #     echo ">> fail init install \"Chromium\""
     # fi
 
     # TODO: no_lite
@@ -69,8 +73,9 @@ then
     # TODO: no_lite
     # パーティションツール インストール
     # sudo apt-get install -y gparted
+#}}}
 
 else
-    echo "This is raspberry pi zero"
+    echo ">> This is Raspbian jessie lite"
 fi
 echo ""

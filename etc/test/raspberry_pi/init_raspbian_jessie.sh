@@ -1,6 +1,9 @@
 #!/bin/bash
+source ./color_echo.sh
+
 # TODO:
     # "jessie" と "lite" の処理 分ける
+    # 色付き "echo" 切り出し
 
 # DONE:
     # IP Addr 固定（アドレスを標準入力する）
@@ -27,6 +30,17 @@ update_package(){
     echo ""
 }
 
+result(){
+    # TODO: 共通関数に切り出し
+    if [ "$1" -eq 0 ]
+    then
+        y_echo ">> Success install $2"
+    else
+        rb_echo ">> Fail install $2"
+    fi
+    echo ""
+}
+
 # 各パッケージ インストール
 install_package(){
     y_echo ">> Init install packages"
@@ -35,14 +49,7 @@ install_package(){
     # "zsh" インストール
     y_echo ">> Install \"zsh\""
     sudo apt install -y zsh
-
-    if [ "$?" -eq 0 ]
-    then
-        y_echo ">> Success install \"zsh\""
-    else
-        rb_echo ">> Fail install \"zsh\""
-    fi
-    echo ""
+    result $? \"zsh\"
 
 	# "Vim" インストール
     y_echo ">> Install \"Vim\""
@@ -61,14 +68,14 @@ install_package(){
 	# sudo apt-get install -y byobu
 
     # "Lite" ではない時の処理
-    sudo bash ./GUI_packages.sh
+    sudo bash ./gui_packages.sh
 }
 
 # 独自設定
 setup_dotfiles(){
     y_echo ">> Init setting"
     echo ""
-    # # 実行権限 付与
+    # # 実行権限 付与#{{{
     # y_echo ">> Change mode"
     # sudo chmod +x *.sh
     # sudo chmod +x ./etc/test/raspberry_pi/*.sh
@@ -80,6 +87,7 @@ setup_dotfiles(){
     #     rb_echo ">> Fail change mode"
     # fi
     # echo ""
+#}}}
 
     # "link.sh" 実施
     sudo bash ~/dotfiles/link.sh
@@ -94,10 +102,6 @@ setup_dotfiles(){
 
     # SSH 有効化
     sudo bash ./setting_ssh.sh
-
-    # ".bashrc" ."zhrc" の設定
-	# sudo cp ~/dotfiles/etc/test/raspberry_pi/.bashrc ~/.bashrc
-	# sudo cp ~/dotfiles/etc/test/raspberry_pi/.zhrc ~/.zhrc
 
     # "Lite" ではない時の処理
     sudo sh ./GUI_setting.sh
@@ -114,16 +118,6 @@ setup_dotfiles(){
 
     # ホスト名 変更（必ず最後に実施）
     sudo bash ./setting_hostname.sh
-}
-
-# "echo" 強調（メッセージ用: 黄色）
-function y_echo {
-    echo -e "\e[33m$*\e[m"
-}
-
-# "echo" 強調（NG用: 赤色 太字 下線）
-function rb_echo {
-    echo -e "\e[31;4m;$*\e[m"
 }
 
 # Main routine
@@ -147,9 +141,12 @@ SS=`expr ${SS} % 60`
 y_echo ">> Total Time: ${HH}:${MM}:${SS} (h:m:s)"
 
 # "Lite" ではない時の処理
-REV=`cat /proc/cmdline | /
-awk -v RS=" " -F= '/boardrev/ { print $2 }'`
-if [ "$REV" != "900092" ]
+# REV=`cat /proc/cmdline | /
+# awk -v RS=" " -F= '/boardrev/ { print $2 }'`
+# if [ "$REV" != "900092" ]
+
+VER=`dpkg -l | grep xinit`
+if [ "$VER" != "" ]
     y_echo ">> Input password for VNC server"
     sudo /etc/init.d/vncboot start
 fi
