@@ -9,24 +9,24 @@ else
     echo ">> Fail fixed IP addr"
 fi
 
-echo">> Input routers"
+echo ">> Input routers"
 read rout
 
 if [ "$?" -eq 0 ]
 then
-    echo">> Routers: $rout"
+    echo ">> Routers: $rout"
 else
-    echo">> Fail setting routers"
+    echo ">> Fail setting routers"
 fi
 
-echo">> Input DNS"
+echo ">> Input DNS"
 read dns
 
 if [ "$?" -eq 0 ]
 then
-    echo">> DNS: $dns"
+    echo ">> DNS: $dns"
 else
-    echo">> Fail setting DNS"
+    echo ">> Fail setting DNS"
 fi
 
 # cat << EOS >> test_ip_addr.txt
@@ -40,7 +40,7 @@ EOS
 
 if [ "$?" -eq 0 ]
 then
-    echo">> Success fixed IP addr"
+    echo ">> Success fixed IP addr"
 else
-    echo">> Fail fixed IP addr"
+    echo ">> Fail fixed IP addr"
 fi
