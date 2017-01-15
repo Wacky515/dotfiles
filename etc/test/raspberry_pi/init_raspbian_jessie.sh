@@ -10,7 +10,7 @@
 # ファームとパッケージ アップデート
 update_package(){
 	# パッケージ アップデート
-    rb_echo ">> Init package update"
+    y_echo ">> Init package update"
     echo ""
 	sudo apt update && \
 	sudo apt -y upgrade && \
@@ -22,38 +22,38 @@ update_package(){
     # アップデート 後処理
 	sudo apt-get autoremove && \
 
-    echo ">> Success init package update" || \
-    echo ">> Fail init package update"
+    y_echo ">> Success init package update" || \
+    rb_echo ">> Fail init package update"
     echo ""
 }
 
 # 各パッケージ インストール
 install_package(){
-    echo ">> Init install packages"
+    y_echo ">> Init install packages"
     echo ""
 
     # "zsh" インストール
-    echo ">> Install \"zsh\""
+    y_echo ">> Install \"zsh\""
     sudo apt install -y zsh
 
     if [ "$?" -eq 0 ]
     then
-        echo ">> Success install \"zsh\""
+        y_echo ">> Success install \"zsh\""
     else
-        echo ">> Fail install \"zsh\""
+        rb_echo ">> Fail install \"zsh\""
     fi
     echo ""
 
 	# "Vim" インストール
-    echo ">> Install \"Vim\""
+    y_echo ">> Install \"Vim\""
 	sudo apt install -y vim
 	sudo apt install -y vim-gtk
 
     if [ "$?" -eq 0 ]
     then
-        echo ">> Success install \"Vim\""
+        y_echo ">> Success install \"Vim\""
     else
-        echo ">> Fail install \"Vim\""
+        rb_echo ">> Fail install \"Vim\""
     fi
     echo ""
 
@@ -68,15 +68,15 @@ install_package(){
 # 独自設定
 setup_dotfiles(){
     # # 実行権限 付与
-    # echo ">> Change mode"
+    # y_echo ">> Change mode"
     # sudo chmod +x *.sh
     # sudo chmod +x ./etc/test/raspberry_pi/*.sh
 
     # if [ "$?" -eq 0 ]
     # then
-    #     echo ">> Success change mode"
+    #     y_echo ">> Success change mode"
     # else
-    #     echo ">> Fail change mode"
+    #     rb_echo ">> Fail change mode"
     # fi
     # echo ""
 
@@ -84,27 +84,28 @@ setup_dotfiles(){
     sudo bash ~/dotfiles/link.sh
 
     # IPアドレス 固定
-    sudo sh ./fix_ipaddr.sh
+    sudo bash ./fix_ipaddr.sh
 
     # 時計 JSTに設定
-    sudo mv /eltime.bak
-    sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+    # sudo mv /etc/localtimetime.bak
+    # sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+    sudo bash ./setting_jst.sh
 
     # ホスト名 変更
-    sudo sh ./setting_hostname.sh
+    sudo bash ./setting_hostname.sh
 
     # キーボード配列 変更
-    sudo sh ./setting_keyboard.sh
+    sudo bash ./setting_keyboard.sh
 
     # パスワード 変更
-    echo ">> Input password for this pi(root)"
+    y_echo ">> Input password for this pi(root)"
     sudo passwd
 
-    echo ">> Input password for this pi"
+    y_echo ">> Input password for this pi"
     passwd
 
     # SSH 有効化
-    sudo sh ./setting_ssh.sh
+    sudo bash ./setting_ssh.sh
 
     # ".bashrc" ."zhrc" の設定
 	# sudo cp ~/dotfiles/etc/test/raspberry_pi/.bashrc ~/.bashrc
@@ -114,9 +115,14 @@ setup_dotfiles(){
     sudo sh ./GUI_setting.sh
 }
 
-# "echo" 強調（赤色 太字）
+# "echo" 強調（メッセージ用: 黄色）
+function y_echo {
+    echo -e "\e[33m$*\e[m"
+}
+
+# "echo" 強調（NG用: 赤色 太字 下線）
 function rb_echo {
-    echo -e "\e[1;31m$*\e[m"
+    echo -e "\e[31;41;44m$*\e[m"
 }
 
 # Main routine
@@ -137,17 +143,17 @@ SS=`expr ${SS} % 3600`
 MM=`expr ${SS} / 60`
 SS=`expr ${SS} % 60`
 
-echo ">> Total Time: ${HH}:${MM}:${SS} (h:m:s)"
+y_echo ">> Total Time: ${HH}:${MM}:${SS} (h:m:s)"
 
 # "Lite" ではない時の処理
 REV=`cat /proc/cmdline | /
 awk -v RS=" " -F= '/boardrev/ { print $2 }'`
 if [ "$REV" != "900092" ]
-    echo ">> Input password for VNC server"
+    y_echo ">> Input password for VNC server"
     sudo /etc/init.d/vncboot start
 fi
 
-echo ">> Please reboot"
+y_echo ">> Please reboot"
 # sudo shotdown -r now
 # TODO: select y/n in STDINPUT -> sudo shotdown -r now
 while true

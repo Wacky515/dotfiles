@@ -1,12 +1,14 @@
 #!/bin/bash
-echo "Setting hostname"
-sudo cp /etc/hostname /etc/hostname.bak
+echo ">> Setting hostname"
+sudo mv /etc/hostname /etc/hostname.bak
+sudo mv /etc/hosts /etc/hosts.bak
 read newname
-"$newname" > /etc/hostname
+echo "$newname" > /etc/hostname
+echo "$newname" > /etc/hosts
 
 if [ "$?" -eq 0 ]
 then
-    echo "Success setting hostname"
+    echo ">> Success setting hostname"
 else
-    echo "Fail setting hostname"
+    echo ">> Fail setting hostname"
 fi
