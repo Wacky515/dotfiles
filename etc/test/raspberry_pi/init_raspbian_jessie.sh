@@ -10,7 +10,7 @@
 # ファームとパッケージ アップデート
 update_package(){
 	# パッケージ アップデート
-    echo "Init package update"
+    rb_echo ">> Init package update"
     echo ""
 	sudo apt update && \
 	sudo apt -y upgrade && \
@@ -19,40 +19,41 @@ update_package(){
 	# ファーム アップデート
 	sudo rpi-update && \
 
+    # アップデート 後処理
 	sudo apt-get autoremove && \
 
-    echo "Success init package update" || \
-    echo "fail init package update"
+    echo ">> Success init package update" || \
+    echo ">> Fail init package update"
     echo ""
 }
 
 # 各パッケージ インストール
 install_package(){
-    echo "Init install packages"
+    echo ">> Init install packages"
     echo ""
 
     # "zsh" インストール
-    echo "Install \"zsh\""
+    echo ">> Install \"zsh\""
     sudo apt install -y zsh
 
     if [ "$?" -eq 0 ]
     then
-        echo "Success install \"zsh\""
+        echo ">> Success install \"zsh\""
     else
-        echo "fail install \"zsh\""
+        echo ">> Fail install \"zsh\""
     fi
     echo ""
 
 	# "Vim" インストール
-    echo "Install \"Vim\""
+    echo ">> Install \"Vim\""
 	sudo apt install -y vim
 	sudo apt install -y vim-gtk
 
     if [ "$?" -eq 0 ]
     then
-        echo "Success install \"Vim\""
+        echo ">> Success install \"Vim\""
     else
-        echo "fail install \"Vim\""
+        echo ">> Fail install \"Vim\""
     fi
     echo ""
 
@@ -67,20 +68,20 @@ install_package(){
 # 独自設定
 setup_dotfiles(){
     # # 実行権限 付与
-    # echo "Change mode"
+    # echo ">> Change mode"
     # sudo chmod +x *.sh
     # sudo chmod +x ./etc/test/raspberry_pi/*.sh
 
     # if [ "$?" -eq 0 ]
     # then
-    #     echo "Success change mode"
+    #     echo ">> Success change mode"
     # else
-    #     echo "fail change mode"
+    #     echo ">> Fail change mode"
     # fi
     # echo ""
 
     # "link.sh" 実施
-    sudo bash ~/dotfiles//link.sh
+    sudo bash ~/dotfiles/link.sh
 
     # IPアドレス 固定
     sudo sh ./fix_ipaddr.sh
@@ -96,10 +97,10 @@ setup_dotfiles(){
     sudo sh ./setting_keyboard.sh
 
     # パスワード 変更
-    echo "Input password for this pi(root)"
+    echo ">> Input password for this pi(root)"
     sudo passwd
 
-    echo "Input password for this pi"
+    echo ">> Input password for this pi"
     passwd
 
     # SSH 有効化
@@ -113,6 +114,12 @@ setup_dotfiles(){
     sudo sh ./GUI_setting.sh
 }
 
+# "echo" 強調（赤色 太字）
+function rb_echo {
+    echo -e "\e[1;31m$*\e[m"
+}
+
+# Main routine
 START_TIME=`date +%s`
 
 # 実行したフォルダに "cd"
@@ -130,17 +137,17 @@ SS=`expr ${SS} % 3600`
 MM=`expr ${SS} / 60`
 SS=`expr ${SS} % 60`
 
-echo "Total Time: ${HH}:${MM}:${SS} (h:m:s)"
+echo ">> Total Time: ${HH}:${MM}:${SS} (h:m:s)"
 
 # "Lite" ではない時の処理
 REV=`cat /proc/cmdline | /
 awk -v RS=" " -F= '/boardrev/ { print $2 }'`
 if [ "$REV" != "900092" ]
-    echo "Input password for VNC server"
+    echo ">> Input password for VNC server"
     sudo /etc/init.d/vncboot start
 fi
 
-echo "Please reboot"
+echo ">> Please reboot"
 # sudo shotdown -r now
 # TODO: select y/n in STDINPUT -> sudo shotdown -r now
 while true
