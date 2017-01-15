@@ -61,8 +61,7 @@ install_package(){
 	# sudo apt-get install -y byobu
 
     # "Lite" ではない時の処理
-    # sudo sh ./GUI_packages.sh
-    sudo sh ./test_lite.sh
+    sudo sh ./GUI_packages.sh
 }
 
 # 独自設定
