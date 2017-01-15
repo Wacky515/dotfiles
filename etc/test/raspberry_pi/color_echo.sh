@@ -6,6 +6,6 @@ function y_echo {
 
 # "echo" 強調（NG用: 赤色 太字 下線）
 function rb_echo {
-    echo -e "\e[31;4m;$*\e[m"
+    echo -e "\e[31;4m$*\e[m"
 }
 

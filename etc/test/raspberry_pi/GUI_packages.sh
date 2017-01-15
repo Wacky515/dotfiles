@@ -76,6 +76,6 @@ then
 #}}}
 
 else
-    echo ">> This is Raspbian jessie lite"
+    echo ">> This is Raspbian Jessie Lite"
 fi
 echo ""

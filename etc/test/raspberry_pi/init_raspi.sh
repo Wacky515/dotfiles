@@ -104,7 +104,7 @@ setup_dotfiles(){
     sudo bash ./setting_ssh.sh
 
     # "Lite" ではない時の処理
-    sudo sh ./GUI_setting.sh
+    sudo sh ./gui_setting.sh
 
     # IPアドレス 固定
     sudo bash ./fix_ipaddr.sh
@@ -138,7 +138,7 @@ SS=`expr ${SS} % 3600`
 MM=`expr ${SS} / 60`
 SS=`expr ${SS} % 60`
 
-y_echo ">> Total Time: ${HH}:${MM}:${SS} (h:m:s)"
+y_echo ">> Total time: ${HH}:${MM}:${SS}"
 
 # "Lite" ではない時の処理
 # REV=`cat /proc/cmdline | /
@@ -147,6 +147,7 @@ y_echo ">> Total Time: ${HH}:${MM}:${SS} (h:m:s)"
 
 VER=`dpkg -l | grep xinit`
 if [ "$VER" != "" ]
+then
     y_echo ">> Input password for VNC server"
     sudo /etc/init.d/vncboot start
 fi

@@ -26,7 +26,7 @@ raspberry pi auto setup script
 ## Setting
 ### Raspbian Jessie
 - Set dotfiles ✔
-- Set Timezone # ✔再起動前OK
+- Set Timezone # 設定不要✔再起動前OK
 - Set Keyboard # 設定不要
 - SSH Enable ✔NG スクリプトのミス 修正した
 
@@ -84,7 +84,7 @@ At the end of script, set the password for vnc.
 ## Raspbian Jessie LITE setup case
 Execute following command(last command takes about half an hour):
 ```sh
-$ sudo update
+$ sudo apt update
 $ sudo apt -y install git
 $ cd
 $ git clone https://github.com/wacky515/dotfiles.git

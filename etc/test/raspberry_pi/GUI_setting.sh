@@ -22,7 +22,7 @@ then
     # "config.txt" 設定
     sudo cp ./config.txt /boot/config.txt
 else
-    echo ">> This is Raspbian jessie lite"
+    echo ">> This is Raspbian Jessie Lite"
     # "config.txt" 設定
     sudo cp ./config_lite.txt /boot/config.txt
 fi
