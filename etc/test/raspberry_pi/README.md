@@ -3,10 +3,7 @@ raspberry pi auto setup script
 
 ## Setting
 ### Raspbian Jessie
-- IPアドレス 固定 ✔
 - 無線LAN 設定 ✔
-- ホスト名 設定 ✔
-- パスワード 変更 ✔OK
 - Set Timezone # ✔再起動前OK
 - SSH Enable ✔NG スクリプトのミス 修正した
 
@@ -18,6 +15,10 @@ raspberry pi auto setup script
 - Custom `/boot/config.txt`
 - Auto start VNC
 
+- IPアドレス 固定 ✔OK
+- パスワード 変更 ✔OK
+- ホスト名 設定 ✔OK
+
 ### Raspbian Jessie LITE
 - Custom `/boot/config.txt`
 
@@ -25,7 +26,7 @@ raspberry pi auto setup script
 
 ## Install Package
 ### Raspbian Jessie
-- JAPANESE environment(fonts-vlgothic, ibus-mozc)
+- JAPANESE environment(fonts-vlgothic, ibus-mozc) ✔OK
 - VNC Server(tightvncserver) ✔OK
 - Editor(vim,vim-gtk) ✔OK
 
@@ -49,30 +50,30 @@ raspberry pi auto setup script
 - Raspberry Pi power on
 - Install Git
 
-不要と思われる！！！ ## Git installation
-```sh
-$ sudo apt update
-$ sudo apt -y install git
-```
-
+<!-- 不要と思われる！！！ ## Git installation -->
+<!-- ```sh -->
+<!-- $ sudo apt update -->
+<!-- $ sudo apt -y install git -->
+<!-- ``` -->
+<!--  -->
 # Run this script
 
 ## Raspbian Jessie setup case
 Execute following command(last command takes about half an hour):
 ```sh
 $ cd
-$ git clone https://github.com/wacky515/dotfiles.git
+$ git clone https://github.com/Wacky515/dotfiles.git
 $ cd ./dotfiles/etc/test/raspberry_pi
-$ sudo sh ./init_raspi_jessie.sh
+$ sudo bash ./init_raspbian_jessie.sh
 ```
 At the end of script, set the password for vnc.
 
-## Raspbian Jessie LITE setup case
-Execute following command(last command takes about half an hour):
-```sh
-$ cd
-$ git clone https://github.com/wacky515/dotfiles.git
-$ cd ./dotfiles/etc/test/raspberry_pi
-$ sudo sh ./init_raspi_jessie_lite.sh
-```
+<!-- ## Raspbian Jessie LITE setup case -->
+<!-- Execute following command(last command takes about half an hour): -->
+<!-- ```sh -->
+<!-- $ cd -->
+<!-- $ git clone https://github.com/wacky515/dotfiles.git -->
+<!-- $ cd ./dotfiles/etc/test/raspberry_pi -->
+<!-- $ sudo bash ./init_raspi_jessie_lite.sh -->
+<!-- ``` -->
 Raspberry Pi setup is done!

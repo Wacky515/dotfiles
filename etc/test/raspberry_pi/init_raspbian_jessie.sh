@@ -20,7 +20,7 @@ update_package(){
 	sudo rpi-update && \
 
     # アップデート 後処理
-	sudo apt-get autoremove && \
+	sudo apt-get -y autoremove && \
 
     y_echo ">> Success init package update" || \
     rb_echo ">> Fail init package update"
@@ -66,6 +66,8 @@ install_package(){
 
 # 独自設定
 setup_dotfiles(){
+    y_echo ">> Init setting"
+    echo ""
     # # 実行権限 付与
     # y_echo ">> Change mode"
     # sudo chmod +x *.sh
@@ -90,9 +92,6 @@ setup_dotfiles(){
     # sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
     sudo bash ./setting_jst.sh
 
-    # ホスト名 変更
-    sudo bash ./setting_hostname.sh
-
     # キーボード配列 変更
     sudo bash ./setting_keyboard.sh
 
@@ -112,6 +111,9 @@ setup_dotfiles(){
 
     # "Lite" ではない時の処理
     sudo sh ./GUI_setting.sh
+
+    # ホスト名 変更（必ず最後に実施）
+    sudo bash ./setting_hostname.sh
 }
 
 # "echo" 強調（メッセージ用: 黄色）
