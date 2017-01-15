@@ -31,7 +31,7 @@ fi
 
 # cat << EOS >> test_ip_addr.txt
 # "Directory nonexistent" になる
-cat << EOS >> ./etc/dhcpcd.conf
+cat << EOS >> /etc/dhcpcd.conf
 interface eth0
 static ip_address=$ipaddr/24
 static routers=$rout
