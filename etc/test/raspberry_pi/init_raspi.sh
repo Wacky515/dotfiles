@@ -4,6 +4,7 @@ source ./result_echo.sh
 
 # TODO:
     # "jessie" と "lite" の処理 分ける
+    # 切り出した関数 フォルダ作る
 
 # DONE:
     # 実行結果 "echo" 関数 切り出し
@@ -75,8 +76,10 @@ setup_dotfiles(){
 #}}}
 
     # "link.sh" 実施
+    ym_echo ">> Make symbolic link"
     # pi/dotfiles/link.sh
-    dotfiles/link.sh
+    ./dotfiles/link.sh
+    result $? "make symbolic link"
 
     # 時計 "JST" に設定（デフォルトで "JST" になってるっぽい）
     # # sudo mv /etc/localtimetime.bak
