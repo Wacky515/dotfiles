@@ -11,7 +11,7 @@ sudo mv /etc/hostname /etc/hostname.bak
 sudo cp /etc/hosts /etc/hosts.bak
 
 read newname
-echo "$newname" > /etc/hostname
+sudo echo "$newname" > /etc/hostname
 # sed -e "s/raspberrypi/"$newname"/g" /etc/hosts
-sed -i "s/raspberrypi/"$newname"/g" /etc/hosts
+sudo sed -i "s/raspberrypi/"$newname"/g" /etc/hosts
 result_echo $? $PROCESS
