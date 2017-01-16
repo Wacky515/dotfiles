@@ -2,8 +2,7 @@
 
 # ファイル自身の絶対パス 取得
 path=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
-
-source $path/color_echo.sh
+source ${path}/color_echo.sh
 
 result_echo(){
     # TODO: 共通関数に切り出し

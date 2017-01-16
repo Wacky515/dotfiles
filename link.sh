@@ -1,13 +1,14 @@
 #!/bin/bash
 
+# TEST: 暫定的にコマンドを決め打ちにした
 # TODO: リンクの "path" を全体的に変えたので確認
+
 # 実行したフォルダに "cd"
 cd `dirname $0`
 
-source ./function/color_echo.sh
-
-# 暫定的にコマンドを決め打ちにした
-# FIXME: Linuxでは実行権限が必要
+# ファイル自身の絶対パス 取得
+path=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
+source ${path}/function/color_echo.sh
 
 DOT_DIRECTORY="${HOME}/dotfiles"
 
@@ -15,7 +16,8 @@ ym_echo ">> Make symbolic link"
 
 # まず "git" の設定
 # ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
-ln -sn .gitconfig ../.gitconfig
+ln -sn ${path}/.gitconfig ../${path}/.gitconfig
+
 if [ $? = 0 ]; then
     ym_echo ">> .gitconfig link success!"
 
@@ -62,7 +64,7 @@ do
     # シンボリックリンク 作成
     # ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
     # ln -snfv ~/dotfiles/${f} ~/${f}
-    ln -snfv ./${f} ../${f}
+    ln -snfv ${path}/${f} ../${path}/${f}
 done
 
 # TODO: "tput setaf 2" と "tput sgr0" gr0)わからない
