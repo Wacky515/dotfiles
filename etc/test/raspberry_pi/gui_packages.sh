@@ -15,17 +15,17 @@ then
     # sudo apt install -y fonts-ipaexfont
     sudo apt install -y fonts-vlgothic
     sudo apt install -y ibus-mozc
-    result_echo $? "japanese environment"
+    result_echo $? "install japanese environment"
 
     # TightVNCViewer インストール
     ym_echo ">> Install \"TightVNCViewer\""
     sudo apt install -y tightvncserver
-    result_echo $? "TightVNCViewer"
+    result_echo $? "install TightVNCViewer"
 
     # "man" コマンド日本語化
     ym_echo ">> Install japanese \"man\""
     sudo apt install manpages-ja manpages-ja-dev
-    result_echo $? \"man\"
+    result_echo $? "install \"man\"'
 
 
     # # "Chromium" インストール  #{{{

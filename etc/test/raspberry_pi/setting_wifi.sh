@@ -6,10 +6,10 @@ PROCESS="setting Wi-Fi"
 
 ym_echo ">> ${PROCESS^}"
 
-echo "Input SSID"
+ym_echo ">> Input SSID"
 read ssid
 
-echo "Input passphrase"
+ym_echo ">> Input passphrase"
 read pasph
 
 echo "SSID: ${ssid} Passphrase: ${pasph}"

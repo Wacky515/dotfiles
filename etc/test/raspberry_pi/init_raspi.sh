@@ -129,6 +129,7 @@ SS=`expr ${SS} % 60`
 
 ym_echo ">> Total time: ${HH}:${MM}:${SS}"
 
+# FIXME: "command not found"  になる
 # "Jessie Lite" ではない時の処理
 VER=`dpkg -l | grep xinit`
 if [ "$VER" != "" ]

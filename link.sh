@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# TODO: リンクの "path" を全体的に変えたので確認
 # 実行したフォルダに "cd"
 cd `dirname $0`
 
@@ -13,12 +14,14 @@ DOT_DIRECTORY="${HOME}/dotfiles"
 ym_echo ">> Make symbolic link"
 
 # まず "git" の設定
-ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
+# ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
+ln -sn .gitconfig ../.gitconfig
 if [ $? = 0 ]; then
     ym_echo ">> .gitconfig link success!"
 
     pc_name=$HOSTNAME
-    proxy_pc=(`cat ~/dotfiles/office_pc.txt`);
+    # proxy_pc=(`cat ~/dotfiles/office_pc.txt`);
+    proxy_pc=(`cat ./office_pc.txt`);
     # proxy_pc=`cat ~/dotfiles/office_pc.txt`;
     IFS_SAVE=$IFS
     IFS=$'\n'
@@ -58,7 +61,8 @@ do
 
     # シンボリックリンク 作成
     # ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
-    ln -snfv ~/dotfiles/${f} ~/${f}
+    # ln -snfv ~/dotfiles/${f} ~/${f}
+    ln -snfv ./${f} ../${f}
 done
 
 # TODO: "tput setaf 2" と "tput sgr0" gr0)わからない
