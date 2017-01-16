@@ -4,7 +4,7 @@
 cd `dirname $0`
 echo `dirname $0`
 
-source ./color_echo.sh
+source color_echo.sh
 
 result_echo(){
     # TODO: 共通関数に切り出し
