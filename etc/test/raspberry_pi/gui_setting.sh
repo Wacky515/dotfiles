@@ -6,6 +6,9 @@ source /home/pi/dotfiles/function/result_echo.sh
 path=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 setting=${path}/setting
 
+echo $path
+echo $setting
+
 # "Jessie Lite" 判別処理
 VER=`dpkg -l | grep xinit`
 if [ "$VER" != "" ]
