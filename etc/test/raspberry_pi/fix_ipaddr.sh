@@ -4,7 +4,7 @@ source /home/pi/dotfiles/function/result_echo.sh
 
 PROCESS="input IP addr"
 
-ym_echo "${PROCESS^}"
+ym_echo ">> ${PROCESS^}"
 
 read ipaddr
 result_echo $? "fixed ip addr"
