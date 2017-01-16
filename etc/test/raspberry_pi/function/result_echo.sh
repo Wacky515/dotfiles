@@ -1,5 +1,5 @@
 #!/bin/bash
-source ./color_echo.sh
+source ./functions/color_echo.sh
 
 result_echo(){
     # TODO: 共通関数に切り出し
