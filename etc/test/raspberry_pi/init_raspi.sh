@@ -3,8 +3,8 @@
 # 実行したフォルダに "cd"
 cd `dirname $0`
 
-source ./dotfiles/function/color_echo.sh
-source ./dotfiles/function/result_echo.sh
+source ${HOME}/dotfiles/function/color_echo.sh
+source ${HOME}/dotfiles/function/result_echo.sh
 
 # TODO:
     # "Jessie" と "Jessie Lite" の処理 分ける
