@@ -1,9 +1,9 @@
 #!/bin/bash
-source ./function/color_echo.sh
-source ./function/result_echo.sh
+source /home/pi/dotfiles/function/color_echo.sh
+source /home/pi/dotfiles/function/result_echo.sh
 
 # TODO:
-    # "jessie" と "lite" の処理 分ける
+    # "Jessie" と "Jessie Lite" の処理 分ける
 
     # 切り出した関数 フォルダ作る
 
@@ -50,13 +50,13 @@ install_package(){
     # "zsh" インストール
     ym_echo ">> Install \"zsh\""
     sudo apt install -y zsh
-    result $? \"zsh\"
+    result_echo $? \"zsh\"
 
 	# "Vim" インストール
     ym_echo ">> Install \"Vim\""
 	sudo apt install -y vim
 	sudo apt install -y vim-gtk
-    result $? \"Vim\"
+    result_echo $? \"Vim\"
 
 	# 仮想端末 インストール
 	# sudo apt-get install -y byobu
@@ -73,13 +73,13 @@ setup_dotfiles(){
     # # 実行権限 付与  #{{{
     # ym_echo ">> Change mode"
     # sudo chmod +x *.sh # sudo chmod +x ./etc/test/raspberry_pi/*.sh
-    # result $? change mode
+    # result_echo $? change mode
 #}}}
 
     # "link.sh" 実施
     ym_echo ">> Make symbolic link"
     /home/pi/dotfiles/link.sh
-    result $? "make symbolic link"
+    result_echo $? "make symbolic link"
 
     # 時計 "JST" に設定（デフォルトで "JST" になってるっぽい）
     # # sudo mv /etc/localtimetime.bak

@@ -1,5 +1,9 @@
 #!/bin/bash
-source /home/pi/dotfiles/etc/test/raspberry_pi/function/color_echo.sh
+
+# 実行したフォルダに "cd"
+cd `dirname $0`
+
+./color_echo.sh
 
 result_echo(){
     # TODO: 共通関数に切り出し
