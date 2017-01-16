@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# 実行したフォルダに "cd"
-cd `dirname $0`
-echo `dirname $0`
+# ファイル自身の絶対パス 取得
+path=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
+echo $path
 
-source color_echo.sh
+source $path/color_echo.sh
 
 result_echo(){
     # TODO: 共通関数に切り出し
