@@ -74,7 +74,7 @@ setup_dotfiles(){
 #}}}
 
     # "link.sh" 実施
-    bash pi/dotfiles/link.sh
+    pi/dotfiles/link.sh
 
     # 時計 "JST" に設定（デフォルトで "JST" になってるっぽい）
     # # sudo mv /etc/localtimetime.bak
@@ -82,16 +82,16 @@ setup_dotfiles(){
     # sudo bash ./setting_jst.sh
 
     # キーボード配列 変更
-    sudo bash ./setting_keyboard.sh
+    ./setting_keyboard.sh
 
     # SSH 有効化
-    sudo bash ./setting_ssh.sh
+    ./setting_ssh.sh
 
     # "Jessie Lite" ではない時の処理
-    sudo sh ./gui_setting.sh
+    ./gui_setting.sh
 
     # IPアドレス 固定
-    sudo bash ./fix_ipaddr.sh
+    ./fix_ipaddr.sh
 
     # パスワード 変更
     ym_echo ">> Change password for root"
@@ -102,7 +102,7 @@ setup_dotfiles(){
     sudo passwd pi
 
     # ホスト名 変更（必ず最後に実施）
-    sudo bash ./setting_hostname.sh
+    ./setting_hostname.sh
 }
 
 # Main routine
