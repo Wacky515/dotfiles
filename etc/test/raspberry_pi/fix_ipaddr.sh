@@ -21,8 +21,8 @@ result_echo $? "input DNS"
 # "Directory nonexistent" になる -> DONEのはず
 cat << EOS >> /etc/dhcpcd.conf
 interface eth0
-static ip_address=$ipaddr/24
-static routers=$rout
-static domain_name_servers=$dns
+static ip_address=${ipaddr}/24
+static routers=${rout}
+static domain_name_servers=${dns}
 EOS
-result_echo $? $PROCESS
+result_echo $? "${PROCESS}"

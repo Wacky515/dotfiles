@@ -11,4 +11,4 @@ ym_echo ">> ${PROCESS^}"
 sudo mv /etc/default/keyboard /etc/default/keyboard.bak
 sudo cp ${path}/setting/keyboard \
     /etc/default/
-result_echo $? ${PROCESS}
+result_echo $? "${PROCESS}"

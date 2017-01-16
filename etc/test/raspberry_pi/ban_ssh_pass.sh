@@ -4,8 +4,8 @@ source /home/pi/dotfiles/function/result_echo.sh
 
 PROCESS="ban SSH password login"
 
-ym_echo "${PROCESS}^"
+ym_echo ">> ${PROCESS}^"
 
 PasswordAuthentication no
 sudo /etc/init.d/ssh restart
-result_echo $? $PROCESS
+result_echo $? "${PROCESS}"
