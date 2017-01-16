@@ -6,9 +6,6 @@ source /home/pi/dotfiles/function/result_echo.sh
 path=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 setting=${path}/setting
 
-echo $path
-echo $setting
-
 # "Jessie Lite" 判別処理
 VER=`dpkg -l | grep xinit`
 if [ "$VER" != "" ]
@@ -39,8 +36,7 @@ else
     ym_echo "-> Skip GUI setting"
 
     # "config.txt" 設定
-    # sudo cp ${setting}/config_lite.txt \
-    sudo cp /home/pi/dotfiles/etc/test/raspberry_pi/setting/config_lite.txt \
+    sudo cp ${setting}/config_lite.txt \
         /boot/config.txt
     # sudo cp ./setting/config_lite.txt /boot/config.txt
 fi
