@@ -6,7 +6,6 @@
 *.sw*
 
 *.avi
-MANUAL.md
 
 ./
 old/
@@ -14,13 +13,11 @@ old/
 !*.txt
 !*.md
 
-LogImage/
 dist/
 build/
 *.png
 *.dbm
 *.dump
-*.txt
 *.exe
 *.zip
 tags
