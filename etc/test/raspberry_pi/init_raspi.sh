@@ -1,6 +1,6 @@
 #!/bin/bash
-source ./color_echo.sh
-source ./result_echo.sh
+source ./function/color_echo.sh
+source ./function/result_echo.sh
 
 # TODO:
     # "jessie" と "lite" の処理 分ける
