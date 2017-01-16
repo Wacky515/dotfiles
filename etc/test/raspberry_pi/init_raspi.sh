@@ -27,8 +27,8 @@ update_package(){
     then
         # ファーム アップデート
         ym_echo ">> Execute \"rpi-update\""
-        # sudo rpi-update && \
-        sudo rpi-update
+        sudo rpi-update || \
+        rb_echo ">> Fail \"rpi-update\""
     fi
 
     # アップデート 後処理
@@ -75,7 +75,8 @@ setup_dotfiles(){
 #}}}
 
     # "link.sh" 実施
-    pi/dotfiles/link.sh
+    # pi/dotfiles/link.sh
+    dotfiles/link.sh
 
     # 時計 "JST" に設定（デフォルトで "JST" になってるっぽい）
     # # sudo mv /etc/localtimetime.bak
@@ -127,10 +128,6 @@ SS=`expr ${SS} % 60`
 y_echo ">> Total time: ${HH}:${MM}:${SS}"
 
 # "Jessie Lite" ではない時の処理
-# REV=`cat /proc/cmdline | /
-# awk -v RS=" " -F= '/boardrev/ { print $2 }'`
-# if [ "$REV" != "900092" ]
-
 VER=`dpkg -l | grep xinit`
 if [ "$VER" != "" ]
 then
@@ -139,8 +136,6 @@ then
 fi
 
 ym_echo ">> Please reboot"
-# sudo shotdown -r now
-# TODO: select y/n in STDINPUT -> sudo shotdown -r now
 while true
 do
     read rebt
