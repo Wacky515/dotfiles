@@ -1,4 +1,4 @@
-#Initial setting scrpts for OS X
+#Initial setting scripts for OS X
 
 ## None
 

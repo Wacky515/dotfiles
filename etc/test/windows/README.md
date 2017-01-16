@@ -1,3 +1,3 @@
-#Test scrpts for Windows
+#Test scripts for Windows
 
 ## None

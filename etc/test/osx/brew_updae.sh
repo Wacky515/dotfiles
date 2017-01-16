@@ -1,4 +1,6 @@
-brew update && \ 
+#!bin/bash
+
+bash brew update && \ 
 brew upgrade && \
 brew cleanup && \
 brew doctor && \

@@ -1,4 +1,4 @@
-#Initial setting scrpts for Linux
+#Initial setting scripts for Linux
 
 ## None
 

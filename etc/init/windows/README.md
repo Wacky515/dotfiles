@@ -1,4 +1,4 @@
-#Initial setting scrpts for Windows
+#Initial setting scripts for Windows
 
 ## None
 
