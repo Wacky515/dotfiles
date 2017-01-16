@@ -28,7 +28,7 @@ update_package(){
         # ファーム アップデート
         ym_echo ">> Execute \"rpi-update\""
         # sudo rpi-update && \
-        sudo rpi-update && \
+        sudo rpi-update
     fi
 
     # アップデート 後処理
