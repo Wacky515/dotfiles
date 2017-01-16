@@ -1,4 +1,7 @@
 #!/bin/bash
+source ./color_echo.sh
+source ./result_echo.sh
+
 echo "Input SSID"
 read ssid
 

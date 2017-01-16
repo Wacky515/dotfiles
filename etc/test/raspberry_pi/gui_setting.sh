@@ -1,5 +1,9 @@
 #!/bin/bash
-# "Lite" ではない時の処理
+source ./color_echo.sh
+source ./result_echo.sh
+
+# "Jessie Lite" 判別処理
+
 # REV=`cat /proc/cmdline | /
 # awk -v RS=" " -F= '/boardrev/ { print $2 }'`
 # if [ "$REV" != "900092" ]
@@ -7,7 +11,9 @@
 VER=`dpkg -l | grep xinit`
 if [ "$VER" != "" ]
 then
-    echo ">> Setting packages for GUI"
+    # "Jessie Lite" ではない時の処理
+    ym_echo ">> Setting packages for GUI"
+
     # Wi-Fi 設定
     sudo sh ./setting_wifi.sh
 
@@ -22,7 +28,9 @@ then
     # "config.txt" 設定
     sudo cp ./config.txt /boot/config.txt
 else
-    echo ">> This is Raspbian Jessie Lite"
+    # "Jessie Lite" 時の処理
+    rb_echo ">> This is Raspbian Jessie Lite"
+
     # "config.txt" 設定
     sudo cp ./config_lite.txt /boot/config.txt
 fi

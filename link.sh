@@ -31,63 +31,64 @@ if [ $? = 0 ]; then
     fi
 fi
 
-# 汎用化テスト（未テスト）
-for f in .??*
-do
-    # 無視したいファイルやディレクトリは以下に追記
-    [[ ${f} = ".git" ]] && continue
-    [[ ${f} = ".gitignore" ]] && continue
+# # 汎用化テスト（未テスト）
+# for f in .??*
+# do
+#     # 無視したいファイルやディレクトリは以下に追記
+#     [[ ${f} = ".git" ]] && continue
+#     [[ ${f} = ".gitignore" ]] && continue
 
-    [[ ${f} = "README.md" ]] && continue
+#     [[ ${f} = "README.md" ]] && continue
 
-    [[ "$f" == ".DS_Store" ]] && continue
+#     [[ "$f" == ".DS_Store" ]] && continue
 
-    [[ ${f} = "*.sh" ]] && continue
-    [[ ${f} = ".modfying" ]] && continue
+#     [[ ${f} = "*.sh" ]] && continue
+#     [[ ${f} = ".modfying" ]] && continue
 
-    [[ ${f} = "*. ~" ]] && continue
-    [[ ${f} = "*.un~" ]] && continue
-    [[ ${f} = "*.swp" ]] && continue
+#     [[ ${f} = "*. ~" ]] && continue
+#     [[ ${f} = "*.un~" ]] && continue
+#     [[ ${f} = "*.swp" ]] && continue
 
-    [[ ${f} = "*.old" ]] && continue
+#     [[ ${f} = "*.old" ]] && continue
 
-    # シンボリックリンク 作成
-    ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
-done
+#     # シンボリックリンク 作成
+#     # ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
+#     ln -snfv ~/dotfiles/${f} ~/${f}
+# done
 
-# TODO: "tput setaf 2" と "tput sgr0" gr0)わからない
-echo $(tput setaf 2)Deploy dotfiles complete!$(tput sgr0)
-echo "End link"
-echo ""
+# # TODO: "tput setaf 2" と "tput sgr0" gr0)わからない
+# echo $(tput setaf 2)Deploy dotfiles complete!$(tput sgr0)
+# echo "End link"
+# echo ""
 
 # 汎用化前
-# ln -snfv ~/dotfiles/.gitignore ~/.gitignore  #{{{
-# if [ $? = 0 ]; then
-#     echo ".gitignore link success!"
-# fi
-# 
-# ln -snfv ~/dotfiles/.vimrc ~/.vimrc
-# if [ $? = 0 ]; then
-#     echo ".vimrc link success!"
-# fi
-# 
-# ln -snfv ~/dotfiles/.gvimrc ~/.gvimrc
-# if [ $? = 0 ]; then
-#     echo ".gvimrc link success!"
-# fi
-# 
-# ln -snfv ~/dotfiles/.vim ~/.vim
-# if [ $? = 0 ]; then
-#     echo ".vim link success!"
-# fi
-# 
-# ln -snfv ~/dotfiles/.zshrc ~/.zshrc
-# if [ $? = 0 ]; then
-#     echo ".zshrc link success!"
-# fi
-# 
-# echo "End link"
-# # }}}
+ln -snfv ~/dotfiles/.gitignore ~/.gitignore  #{{{
+if [ $? = 0 ]; then
+    echo ".gitignore link success!"
+fi
+
+ln -snfv ~/dotfiles/.vimrc ~/.vimrc
+if [ $? = 0 ]; then
+    echo ".vimrc link success!"
+fi
+
+ln -snfv ~/dotfiles/.gvimrc ~/.gvimrc
+if [ $? = 0 ]; then
+    echo ".gvimrc link success!"
+fi
+
+ln -snfv ~/dotfiles/.vim ~/.vim
+if [ $? = 0 ]; then
+    echo ".vim link success!"
+fi
+
+ln -snfv ~/dotfiles/.zshrc ~/.zshrc
+if [ $? = 0 ]; then
+    echo ".zshrc link success!"
+fi
+
+echo "End link"
+# }}}
 
 # 汎用化 参考
 # 参考1 #{{{

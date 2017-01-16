@@ -1,11 +1,13 @@
 #!/bin/bash
 source ./color_echo.sh
+source ./result_echo.sh
 
 # TODO:
     # "jessie" と "lite" の処理 分ける
-    # 色付き "echo" 切り出し
+    # 実行結果 "echo" 関数 切り出し
 
 # DONE:
+    # 色付き "echo" 関数 切り出し
     # IP Addr 固定（アドレスを標準入力する）
     # Wi-Fi（自宅・会社Proxy） SSID Pass 設定
     # 時計合わせ
@@ -13,7 +15,7 @@ source ./color_echo.sh
 # ファームとパッケージ アップデート
 update_package(){
 	# パッケージ アップデート
-    y_echo ">> Init package update"
+    ym_echo ">> Init package update"
     echo ""
 	sudo apt update && \
 	sudo apt -y upgrade && \
@@ -23,42 +25,32 @@ update_package(){
 	sudo rpi-update && \
 
     # アップデート 後処理
+    # "autoremove" だけは "apt-get" のまま
 	sudo apt-get -y autoremove && \
 
-    y_echo ">> Success init package update" || \
+    ym_echo ">> Success init package update" || \
     rb_echo ">> Fail init package update"
-    echo ""
-}
-
-result(){
-    # TODO: 共通関数に切り出し
-    if [ "$1" -eq 0 ]
-    then
-        y_echo ">> Success install $2"
-    else
-        rb_echo ">> Fail install $2"
-    fi
     echo ""
 }
 
 # 各パッケージ インストール
 install_package(){
-    y_echo ">> Init install packages"
+    ym_echo ">> Init install packages"
     echo ""
 
     # "zsh" インストール
-    y_echo ">> Install \"zsh\""
+    ym_echo ">> Install \"zsh\""
     sudo apt install -y zsh
     result $? \"zsh\"
 
 	# "Vim" インストール
-    y_echo ">> Install \"Vim\""
+    ym_echo ">> Install \"Vim\""
 	sudo apt install -y vim
 	sudo apt install -y vim-gtk
 
     if [ "$?" -eq 0 ]
     then
-        y_echo ">> Success install \"Vim\""
+        ym_echo ">> Success install \"Vim\""
     else
         rb_echo ">> Fail install \"Vim\""
     fi
@@ -67,35 +59,28 @@ install_package(){
 	# 仮想端末 インストール
 	# sudo apt-get install -y byobu
 
-    # "Lite" ではない時の処理
+    # "Jessie Lite" ではない時の処理
     sudo bash ./gui_packages.sh
 }
 
 # 独自設定
 setup_dotfiles(){
-    y_echo ">> Init setting"
+    ym_echo ">> Init setting"
     echo ""
-    # # 実行権限 付与#{{{
-    # y_echo ">> Change mode"
-    # sudo chmod +x *.sh
-    # sudo chmod +x ./etc/test/raspberry_pi/*.sh
 
-    # if [ "$?" -eq 0 ]
-    # then
-    #     y_echo ">> Success change mode"
-    # else
-    #     rb_echo ">> Fail change mode"
-    # fi
-    # echo ""
+    # # 実行権限 付与  #{{{
+    # ym_echo ">> Change mode"
+    # sudo chmod +x *.sh # sudo chmod +x ./etc/test/raspberry_pi/*.sh
+    # result $? change mode
 #}}}
 
     # "link.sh" 実施
     sudo bash ~/dotfiles/link.sh
 
-    # 時計 JSTに設定
-    # sudo mv /etc/localtimetime.bak
-    # sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
-    sudo bash ./setting_jst.sh
+    # 時計 "JST" に設定（デフォルトで "JST" になってるっぽい）
+    # # sudo mv /etc/localtimetime.bak
+    # # sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+    # sudo bash ./setting_jst.sh
 
     # キーボード配列 変更
     sudo bash ./setting_keyboard.sh
@@ -103,18 +88,19 @@ setup_dotfiles(){
     # SSH 有効化
     sudo bash ./setting_ssh.sh
 
-    # "Lite" ではない時の処理
+    # "Jessie Lite" ではない時の処理
     sudo sh ./gui_setting.sh
 
     # IPアドレス 固定
     sudo bash ./fix_ipaddr.sh
 
     # パスワード 変更
-    y_echo ">> Input password for this pi(root)"
-    sudo passwd
+    ym_echo ">> Change password for root"
+    sudo passwd root
 
-    y_echo ">> Input password for this pi"
-    passwd
+    # FIXME: NG
+    ym_echo ">> Change password for pi"
+    sudo passwd pi
 
     # ホスト名 変更（必ず最後に実施）
     sudo bash ./setting_hostname.sh
@@ -140,7 +126,7 @@ SS=`expr ${SS} % 60`
 
 y_echo ">> Total time: ${HH}:${MM}:${SS}"
 
-# "Lite" ではない時の処理
+# "Jessie Lite" ではない時の処理
 # REV=`cat /proc/cmdline | /
 # awk -v RS=" " -F= '/boardrev/ { print $2 }'`
 # if [ "$REV" != "900092" ]
@@ -148,11 +134,11 @@ y_echo ">> Total time: ${HH}:${MM}:${SS}"
 VER=`dpkg -l | grep xinit`
 if [ "$VER" != "" ]
 then
-    y_echo ">> Input password for VNC server"
+    ym_echo ">> Input password for VNC server"
     sudo /etc/init.d/vncboot start
 fi
 
-y_echo ">> Please reboot"
+ym_echo ">> Please reboot"
 # sudo shotdown -r now
 # TODO: select y/n in STDINPUT -> sudo shotdown -r now
 while true

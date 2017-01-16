@@ -1,6 +1,6 @@
 #!/bin/bash
 # "echo" 強調（メッセージ用: 黄色）
-function y_echo {
+function ym_echo {
     echo -e "\e[33m$*\e[m"
 }
 

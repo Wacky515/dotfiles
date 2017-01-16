@@ -1,4 +1,7 @@
 #!/bin/bash
+source ./color_echo.sh
+source ./result_echo.sh
+
 echo ">> Input IP addr"
 read ipaddr
 
@@ -30,7 +33,7 @@ else
 fi
 
 # cat << EOS >> test_ip_addr.txt
-# "Directory nonexistent" になる
+# "Directory nonexistent" になる -> DONEのはず
 cat << EOS >> /etc/dhcpcd.conf
 interface eth0
 static ip_address=$ipaddr/24

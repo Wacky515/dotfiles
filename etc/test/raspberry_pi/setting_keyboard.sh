@@ -1,4 +1,7 @@
 #!/bin/bash
+source ./color_echo.sh
+source ./result_echo.sh
+
 echo "Setting keyboard layout"
 sudo mv /etc/default/keyboard /etc/default/keyboard.bak
 sudo cp ./keyboard /etc/default/

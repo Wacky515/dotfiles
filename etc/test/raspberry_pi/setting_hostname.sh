@@ -1,7 +1,10 @@
 #!/bin/bash
+source ./color_echo.sh
+source ./result_echo.sh
+
 echo ">> Setting hostname"
 sudo mv /etc/hostname /etc/hostname.bak
-sudo mv /etc/hosts /etc/hosts.bak
+sudo cp /etc/hosts /etc/hosts.bak
 read newname
 echo "$newname" > /etc/hostname
 # echo "$newname" > /etc/hosts
