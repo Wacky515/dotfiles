@@ -1,15 +1,12 @@
 #!/bin/bash
-
-# 実行したフォルダに "cd"
-cd `dirname $0`
-
-source ${HOME}/dotfiles/function/color_echo.sh
-source ${HOME}/dotfiles/function/result_echo.sh
+source /home/pi/dotfiles/function/color_echo.sh
+source /home/pi/dotfiles/function/result_echo.sh
 
 # TODO:
     # "Jessie" と "Jessie Lite" の処理 分ける
 
     # 切り出した関数 フォルダ作る
+    # "source" を動的にする
 
 # DONE:
     # 実行結果 "echo" 関数 切り出し
