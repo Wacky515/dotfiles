@@ -1,5 +1,5 @@
 #!/bin/bash
-source ./functions/color_echo.sh
+source /home/pi/dotfiles/etc/test/raspberry_pi/functions/color_echo.sh
 
 result_echo(){
     # TODO: 共通関数に切り出し
