@@ -13,7 +13,7 @@ ym_echo ">> Input passphrase"
 read -sp pasph
 
 # echo "SSID: ${ssid} Passphrase: ${pasph}"
-echo "SSID: ${ssid}
+echo "SSID: ${ssid}"
 
 sudo sh -c "wpa_passphrase ${ssid} ${pasph} >> \
     /etc/wpa_supplicant/wpa_supplicant.conf"
