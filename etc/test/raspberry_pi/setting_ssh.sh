@@ -1,10 +1,6 @@
 #!/bin/bash
-
-# 実行したフォルダに "cd"
-cd `dirname $0`
-
-source ./dotfiles/function/color_echo.sh
-source ./dotfiles/function/result_echo.sh
+source /home/pi/dotfiles/function/color_echo.sh
+source /home/pi/dotfiles/function/result_echo.sh
 
 PROCESS="enable SSH"
 
