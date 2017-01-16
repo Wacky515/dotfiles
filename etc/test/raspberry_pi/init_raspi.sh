@@ -143,6 +143,6 @@ do
     read yesno
     if [ "$yesno" = "yes" ]
     then
-        sudo shotdown -r now
+        sudo shutdown -r now
     fi
 done

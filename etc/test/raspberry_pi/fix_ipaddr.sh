@@ -2,10 +2,11 @@
 source /home/pi/dotfiles/function/color_echo.sh
 source /home/pi/dotfiles/function/result_echo.sh
 
-PROCESS="input IP addr"
+PROCESS="fixed IP addr"
 
 ym_echo ">> ${PROCESS^}"
 
+ym_echo ">> Input IP addr"
 read ipaddr
 result_echo $? "fixed ip addr"
 
