@@ -4,7 +4,7 @@ source ./result_echo.sh
 
 PROCESS="Setting hostname"
 
-echo "$PROCESS^"
+ym_echo "${PROCESS^}"
 
 # デフォルト設定 バックアップ
 sudo mv /etc/hostname /etc/hostname.bak
@@ -14,5 +14,4 @@ read newname
 echo "$newname" > /etc/hostname
 # sed -e "s/raspberrypi/"$newname"/g" /etc/hosts
 sed -i "s/raspberrypi/"$newname"/g" /etc/hosts
-
 result_echo $? $PROCESS

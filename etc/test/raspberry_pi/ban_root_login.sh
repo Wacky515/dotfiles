@@ -4,8 +4,7 @@ source ./result_echo.sh
 
 PROCESS="ban root login"
 
-echo "$PROCESS^"
+ym_echo "${PROCESS}^"
 
 PermitRootLogin no
-
 result_echo $? $PROCESS

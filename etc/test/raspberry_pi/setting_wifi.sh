@@ -2,6 +2,10 @@
 source ./color_echo.sh
 source ./result_echo.sh
 
+PROCESS="setting Wi-Fi"
+
+ym_echo "${PROCESS^}"
+
 echo "Input SSID"
 read ssid
 
@@ -13,10 +17,4 @@ echo "SSID: $ssid Passphrase: $pasph"
 sudo sh -c "wpa_passphrase $ssid $pasph >> \
     /etc/wpa_supplicant/wpa_supplicant.conf"
 # sudo sh -c "wpa_passphrase $ssid $pasph >> test_wifi.txt"
-
-if [ "$?" -eq 0 ]
-then
-    echo "Success setting Wi-Fi"
-else
-    echo "fail setting Wi-Fi"
-fi
+result_echo $? $PROCESS

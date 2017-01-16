@@ -4,8 +4,7 @@ source ./result_echo.sh
 
 PROCESS=process_name
 
-echo "$PROCESS^"
+ym_echo "${PROCESS^}"
 
 # Code
-
 result_echo $? $PROCESS

@@ -2,7 +2,9 @@
 source ./color_echo.sh
 source ./result_echo.sh
 
-echo "Setting network time"
+PROCESS="Setting network time"
+
+ym_echo "${PROCESS^}"
 
 # 以下のエラー 発生
 # mv: `/eltime.bak' の後に宛先のファイルオペランドがありません
@@ -14,10 +16,4 @@ echo "Setting network time"
 # sudo mv /etc/localtime /etc/localtime~
 sudo mv /etc/localtime /etc/localtime.bak
 sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
-
-if [ "$?" -eq 0 ]
-then
-    echo "Success setting network time"
-else
-    echo "Fail setting network time"
-fi
+result_echo $? $PROCESS

@@ -4,9 +4,8 @@ source ./result_echo.sh
 
 PROCESS="ban SSH password login"
 
-echo "$PROCESS^"
+ym_echo "${PROCESS}^"
 
 PasswordAuthentication no
 sudo /etc/init.d/ssh restart
-
 result_echo $? $PROCESS

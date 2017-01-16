@@ -125,7 +125,7 @@ SS=`expr ${SS} % 3600`
 MM=`expr ${SS} / 60`
 SS=`expr ${SS} % 60`
 
-y_echo ">> Total time: ${HH}:${MM}:${SS}"
+ym_echo ">> Total time: ${HH}:${MM}:${SS}"
 
 # "Jessie Lite" ではない時の処理
 VER=`dpkg -l | grep xinit`
@@ -135,10 +135,10 @@ then
     sudo /etc/init.d/vncboot start
 fi
 
-ym_echo ">> Please reboot"
+ym_echo ">> Please reboot(yes/no)"
 while true
 do
-    read rebt
+    read yesno
     if [ "$yesno" = "yes" ]
     then
         sudo shotdown -r now

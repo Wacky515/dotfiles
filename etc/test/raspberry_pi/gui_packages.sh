@@ -15,38 +15,18 @@ then
     # sudo apt install -y fonts-ipaexfont
     sudo apt install -y fonts-vlgothic
     sudo apt install -y ibus-mozc
-
-    if [ "$?" -eq 0 ]
-    then
-        ym_echo ">> Success install Japanese environment"
-    else
-        rb_echo ">> Fail install Japanese environment"
-    fi
-    echo ""
+    result $? "japanese environment"
 
     # TightVNCViewer インストール
     ym_echo ">> Install \"TightVNCViewer\""
     sudo apt install -y tightvncserver
-
-    if [ "$?" -eq 0 ]
-    then
-        ym_echo ">> Success install \"TightVNCViewer\""
-    else
-        rb_echo ">> Fail install \"TightVNCViewer\""
-    fi
-    echo ""
+    result $? "TightVNCViewer"
 
     # "man" コマンド日本語化
     ym_echo ">> Install japanese \"man\""
     sudo apt install manpages-ja manpages-ja-dev
+    result $? \"man\"
 
-    if [ "$?" -eq 0 ]
-    then
-        ym_echo ">> Success install \"man\""
-    else
-        rb_echo ">> Fail install \"man\""
-    fi
-    echo ""
 
     # # "Chromium" インストール  #{{{
     # ym_echo ">> Install \"Chromium\""

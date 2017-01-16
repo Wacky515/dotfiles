@@ -4,9 +4,8 @@ source ./result_echo.sh
 
 PROCESS="add user account"
 
-echo "$PROCESS^"
+ym_echo "${PROCESS}^"
 
 read ACCT
 sudo adduser $ACCT
-
 result_echo $? $PROCESS
