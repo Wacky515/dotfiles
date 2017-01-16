@@ -11,4 +11,4 @@ ym_echo "${PROCESS^}"
 ## 無効化
 # update-rc.d ssh disable && invoke-rc.d ssh stop
 touch /boot/ssh
-result_echo $? $PROCESS
+result_echo $? ${PROCESS}

@@ -58,6 +58,6 @@ then
 else
     # "Jessie Lite" 時の処理
     rb_echo ">> This is Raspbian Jessie Lite"
-    ym_echo "-> Skip GUI setting"
+    ym_echo "-> Skip Install packages for GUI"
 fi
 echo ""

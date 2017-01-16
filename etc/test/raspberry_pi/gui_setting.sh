@@ -4,30 +4,31 @@ source /home/pi/dotfiles/function/result_echo.sh
 
 # ファイル自身の絶対パス 取得
 path=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
+setting=${path}/setting
 
 # "Jessie Lite" 判別処理
 VER=`dpkg -l | grep xinit`
 if [ "$VER" != "" ]
 then
     # "Jessie Lite" ではない時の処理
-    ym_echo ">> Setting packages for GUI"
+    ym_echo ">> Setting for GUI"
 
     # Wi-Fi 設定
     ./setting_wifi.sh
 
     # 仮想デスクトップ環境 設定
-    sudo cp ${path}/lxpolkit.desktop \
+    sudo cp ${setting}/lxpolkit.desktop \
         /etc/xdg/autostart/lxpolkit.desktop
 
     # Automatically start up VNC
-    sudo cp ${path}/vncboot \
+    sudo cp ${setting}/vncboot \
         /etc/init.d/vncboot
     sudo update-rc.d -f lightdm remove
     sudo update-rc.d vncboot defaults
 
     # "config.txt" 設定
     # sudo cp ./config.txt /boot/config.txt
-    sudo cp ${path}/config.txt \
+    sudo cp ${setting}/config.txt \
         /boot/config.txt
 else
     # "Jessie Lite" 時の処理
@@ -35,7 +36,7 @@ else
     ym_echo "-> Skip GUI setting"
 
     # "config.txt" 設定
-    sudo cp ${path}/config_lite.txt \
+    sudo cp ${setting}/config_lite.txt \
         /boot/config.txt
     # sudo cp ./config_lite.txt /boot/config.txt
 fi
