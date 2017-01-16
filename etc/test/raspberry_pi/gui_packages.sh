@@ -25,8 +25,7 @@ then
     # "man" コマンド日本語化
     ym_echo ">> Install japanese \"man\""
     sudo apt install manpages-ja manpages-ja-dev
-    result_echo $? "install \"man\"'
-
+    result_echo $? "install \"man\""
 
     # # "Chromium" インストール  #{{{
     # ym_echo ">> Install \"Chromium\""
