@@ -3,63 +3,58 @@ raspberry pi auto setup script
 
 ## Install Package
 
-### Common
-- Editor(vim,vim-gtk) ✔OK
+### Common install
+- Editor(vim,vim-gtk)
+- zsh(Added)
 
-#### 以下から追加したパッケージ
-- zsh ✔OK
-
-#### 以下はオミット
+#### Ignored
 - Virtual Terminal(byobu)
 
 ### Raspbian Jessie
 - JAPANESE environment(fonts-vlgothic, ibus-mozc) ✔OK
 - VNC Server(tightvncserver) ✔OK
 
-#### 以下から追加したパッケージ
-- 不要 Chromium ✔OK
+- (Default) Chromium ✔OK(added)
 
-#### 以下はオミット
+#### Ignored
 - Terminal(gnome-terminal)
 - Pertition tool(gparted)
 
 ### Raspbian Jessie LITE
 - Git
 
-#### 以下はオミット
+#### Ignored
 
 ## Setting
 ### Raspbian Jessie
-- Set dotfiles ✔
-- Set Timezone # 設定不要✔再起動前OK
-- Set Keyboard # 設定不要
-- SSH Enable ✔NG スクリプトのミス 修正した
+- Set dotfiles
+- Set Keyboard # Not yet
+- SSH Enable
 
 - 無線LAN 設定 ✔
-- Auto start VNC
+- Auto start VNC # Not yet
 
-- Custom `/boot/config.txt`
+- Custom `/boot/config.txt` # Not yet
 
-- IPアドレス 固定 ✔OK
-- パスワード 変更 ✔NG
-- ホスト名 設定 ✔OK
+- Fixed IP addr
+- Change password
+- Change host name
 
 - NotYet Camera Enable # 設定方法不明
 - NotYet Set Locale # 設定不要
 
 ### Raspbian Jessie LITE
-- Set dotfiles ✔
-- Set Timezone # ✔再起動前OK
-- Set Keyboard # 設定不要
-- SSH Enable ✔NG スクリプトのミス 修正した
+- Set dotfiles
+- Set Keyboard # Not yet
+- SSH Enable
 
 - 無線LAN 設定 ✔
 
 - Custom `/boot/config.txt`
 
-- IPアドレス 固定 ✔OK
-- パスワード 変更 ✔OK
-- ホスト名 設定 ✔OK
+- Fixed IP addr
+- Change password
+- Change host name
 
 # Preparation
 - Make SD disk of Raspbian Jessie
@@ -67,12 +62,6 @@ raspberry pi auto setup script
 - Insert SD disk to Raspberry Pi
 - Network Enable (Ether or WiFi)
 - Raspberry Pi power on
-
-<!-- 不要と思われる！！！ ## Git installation -->
-<!-- ```sh -->
-<!-- $ sudo apt update -->
-<!-- $ sudo apt -y install git -->
-<!-- ``` -->
 
 # Run this script
 
