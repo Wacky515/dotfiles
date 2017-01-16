@@ -75,7 +75,7 @@ setup_dotfiles(){
 #}}}
 
     # "link.sh" 実施
-    sudo bash ~/dotfiles/link.sh
+    bash ~/dotfiles/link.sh
 
     # 時計 "JST" に設定（デフォルトで "JST" になってるっぽい）
     # # sudo mv /etc/localtimetime.bak

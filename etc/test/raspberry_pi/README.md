@@ -2,26 +2,31 @@
 raspberry pi auto setup script
 
 ## Install Package
-### Raspbian Jessie
+
+### Common
 - Editor(vim,vim-gtk) ✔OK
+
+#### 以下から追加したパッケージ
+- zsh ✔OK
+
+#### 以下はオミット
+- Virtual Terminal(byobu)
+
+### Raspbian Jessie
 - JAPANESE environment(fonts-vlgothic, ibus-mozc) ✔OK
 - VNC Server(tightvncserver) ✔OK
 
 #### 以下から追加したパッケージ
-- zsh ✔OK
 - 不要 Chromium ✔OK
 
 #### 以下はオミット
 - Terminal(gnome-terminal)
 - Pertition tool(gparted)
-- Virtual Terminal(byobu)
 
 ### Raspbian Jessie LITE
 - Git
-- Editor(vim,vim-gtk)
 
 #### 以下はオミット
-- Virtual Terminal(byobu)
 
 ## Setting
 ### Raspbian Jessie
