@@ -6,7 +6,7 @@ source /home/pi/dotfiles/function/result_echo.sh
     # "Jessie" と "Jessie Lite" の処理 分ける
 
     # 切り出した関数 フォルダ作る
-    # "source" を動的にする
+    # "source" の参照先を動的にする
 
 # DONE:
     # 実行結果 "echo" 関数 切り出し
@@ -51,13 +51,13 @@ install_package(){
     # "zsh" インストール
     ym_echo ">> Install \"zsh\""
     sudo apt install -y zsh
-    result_echo $? \"zsh\"
+    result_echo $? "install \"zsh\""
 
 	# "Vim" インストール
     ym_echo ">> Install \"Vim\""
 	sudo apt install -y vim
 	sudo apt install -y vim-gtk
-    result_echo $? \"Vim\"
+    result_echo $? "Install \"Vim\""
 
 	# 仮想端末 インストール
 	# sudo apt-get install -y byobu

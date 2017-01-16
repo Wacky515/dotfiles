@@ -2,12 +2,10 @@
 source /home/pi/dotfiles/function/color_echo.sh
 source /home/pi/dotfiles/function/result_echo.sh
 
+# ファイル自身の絶対パス 取得
+path=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
+
 # "Jessie Lite" 判別処理
-
-# REV=`cat /proc/cmdline | /
-# awk -v RS=" " -F= '/boardrev/ { print $2 }'`
-# if [ "$REV" != "900092" ]
-
 VER=`dpkg -l | grep xinit`
 if [ "$VER" != "" ]
 then
@@ -18,25 +16,26 @@ then
     ./setting_wifi.sh
 
     # 仮想デスクトップ環境 設定
-    sudo cp ./dotfiles/etc/test/raspberry_pi/lxpolkit.desktop \
+    sudo cp ${path}/lxpolkit.desktop \
         /etc/xdg/autostart/lxpolkit.desktop
 
     # Automatically start up VNC
-    sudo cp ./dotfiles/etc/test/raspberry_pi/vncboot \
+    sudo cp ${path}/vncboot \
         /etc/init.d/vncboot
     sudo update-rc.d -f lightdm remove
     sudo update-rc.d vncboot defaults
 
     # "config.txt" 設定
     # sudo cp ./config.txt /boot/config.txt
-    sudo cp ./dotfiles/etc/test/raspberry_pi/config.txt \
+    sudo cp ${path}/config.txt \
         /boot/config.txt
 else
     # "Jessie Lite" 時の処理
     rb_echo ">> This is Raspbian Jessie Lite"
+    ym_echo "-> Skip GUI setting"
 
     # "config.txt" 設定
-    sudo cp ./dotfiles/etc/test/raspberry_pi/config_lite.txt \
+    sudo cp ${path}/config_lite.txt \
         /boot/config.txt
     # sudo cp ./config_lite.txt /boot/config.txt
 fi
