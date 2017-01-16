@@ -16,7 +16,7 @@ ym_echo ">> Make symbolic link"
 
 # まず "git" の設定
 # ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
-ln -sn ${path}/.gitconfig ../${path}/.gitconfig
+ln -sn ${path}/.gitconfig ../.gitconfig
 
 if [ $? = 0 ]; then
     ym_echo ">> .gitconfig link success!"
@@ -64,7 +64,7 @@ do
     # シンボリックリンク 作成
     # ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
     # ln -snfv ~/dotfiles/${f} ~/${f}
-    ln -snfv ${path}/${f} ../${path}/${f}
+    ln -snfv ${path}/${f} ../${f}
 done
 
 # TODO: "tput setaf 2" と "tput sgr0" gr0)わからない
