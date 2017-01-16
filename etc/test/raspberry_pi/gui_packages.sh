@@ -3,11 +3,6 @@ source ./color_echo.sh
 source ./result_echo.sh
 
 # "Jessie Lite" 判別処理
-
-# REV=`cat /proc/cmdline | /
-# awk -v RS=" " -F= '/boardrev/ { print $2 }'`
-# if [ "$REV" != "900092" ]
-
 VER=`dpkg -l | grep xinit`
 if [ "$VER" != "" ]
 then
@@ -83,5 +78,6 @@ then
 else
     # "Jessie Lite" 時の処理
     rb_echo ">> This is Raspbian Jessie Lite"
+    ym_echo ">> Skip GUI setting"
 fi
 echo ""

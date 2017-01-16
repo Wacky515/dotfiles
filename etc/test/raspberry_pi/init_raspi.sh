@@ -22,7 +22,13 @@ update_package(){
 	sudo apt -y dist-upgrade && \
 
 	# ファーム アップデート
-	sudo rpi-update && \
+    # "Jessie Lite" ではない時の処理
+    VER=`dpkg -l | grep xinit`
+    if [ "$VER" != "" ]
+    then
+        ym_echo ">> Execute \"rpi-update\""
+        sudo rpi-update && \
+    fi
 
     # アップデート 後処理
     # "autoremove" だけは "apt-get" のまま
@@ -47,14 +53,7 @@ install_package(){
     ym_echo ">> Install \"Vim\""
 	sudo apt install -y vim
 	sudo apt install -y vim-gtk
-
-    if [ "$?" -eq 0 ]
-    then
-        ym_echo ">> Success install \"Vim\""
-    else
-        rb_echo ">> Fail install \"Vim\""
-    fi
-    echo ""
+    result $? \"Vim\"
 
 	# 仮想端末 インストール
 	# sudo apt-get install -y byobu
@@ -75,7 +74,7 @@ setup_dotfiles(){
 #}}}
 
     # "link.sh" 実施
-    bash ~/dotfiles/link.sh
+    bash pi/dotfiles/link.sh
 
     # 時計 "JST" に設定（デフォルトで "JST" になってるっぽい）
     # # sudo mv /etc/localtimetime.bak
@@ -143,7 +142,7 @@ ym_echo ">> Please reboot"
 # TODO: select y/n in STDINPUT -> sudo shotdown -r now
 while true
 do
-    input rebt
+    read rebt
     if [ "$yesno" = "yes" ]
     then
         sudo shotdown -r now
