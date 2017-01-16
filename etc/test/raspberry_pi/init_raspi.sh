@@ -4,9 +4,9 @@ source ./result_echo.sh
 
 # TODO:
     # "jessie" と "lite" の処理 分ける
-    # 実行結果 "echo" 関数 切り出し
 
 # DONE:
+    # 実行結果 "echo" 関数 切り出し
     # 色付き "echo" 関数 切り出し
     # IP Addr 固定（アドレスを標準入力する）
     # Wi-Fi（自宅・会社Proxy） SSID Pass 設定
@@ -21,12 +21,13 @@ update_package(){
 	sudo apt -y upgrade && \
 	sudo apt -y dist-upgrade && \
 
-	# ファーム アップデート
     # "Jessie Lite" ではない時の処理
     VER=`dpkg -l | grep xinit`
     if [ "$VER" != "" ]
     then
+        # ファーム アップデート
         ym_echo ">> Execute \"rpi-update\""
+        # sudo rpi-update && \
         sudo rpi-update && \
     fi
 
