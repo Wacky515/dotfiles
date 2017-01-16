@@ -1,6 +1,6 @@
 #!/bin/bash
-source ./color_echo.sh
-source ./result_echo.sh
+source ./function/color_echo.sh
+source ./function/result_echo.sh
 
 # "Jessie Lite" 判別処理
 VER=`dpkg -l | grep xinit`
@@ -15,17 +15,17 @@ then
     # sudo apt install -y fonts-ipaexfont
     sudo apt install -y fonts-vlgothic
     sudo apt install -y ibus-mozc
-    result $? "japanese environment"
+    result_echo $? "japanese environment"
 
     # TightVNCViewer インストール
     ym_echo ">> Install \"TightVNCViewer\""
     sudo apt install -y tightvncserver
-    result $? "TightVNCViewer"
+    result_echo $? "TightVNCViewer"
 
     # "man" コマンド日本語化
     ym_echo ">> Install japanese \"man\""
     sudo apt install manpages-ja manpages-ja-dev
-    result $? \"man\"
+    result_echo $? \"man\"
 
 
     # # "Chromium" インストール  #{{{
@@ -58,6 +58,6 @@ then
 else
     # "Jessie Lite" 時の処理
     rb_echo ">> This is Raspbian Jessie Lite"
-    ym_echo ">> Skip GUI setting"
+    ym_echo "-> Skip GUI setting"
 fi
 echo ""

@@ -1,7 +1,7 @@
 #!/bin/bash
 source ./color_echo.sh
 
-result(){
+result_echo(){
     # TODO: 共通関数に切り出し
     if [ "$1" -eq 0 ]
     then
