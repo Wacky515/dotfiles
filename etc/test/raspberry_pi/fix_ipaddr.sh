@@ -1,6 +1,6 @@
 #!/bin/bash
-source ./color_echo.sh
-source ./result_echo.sh
+source /home/pi/dotfiles/function/color_echo.sh
+source /home/pi/dotfiles/function/result_echo.sh
 
 PROCESS="input IP addr"
 

@@ -62,7 +62,7 @@ do
 done
 
 # TODO: "tput setaf 2" と "tput sgr0" gr0)わからない
-echo $(tput setaf 2) >>Deploy dotfiles complete$(tput sgr0)
+echo $(tput setaf 2)\>\> Deploy dotfiles complete$(tput sgr0)
 ym_echo ">> End link"
 ym_echo ""
 

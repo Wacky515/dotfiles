@@ -1,8 +1,4 @@
 #!/bin/bash
-
-# 実行したフォルダに "cd"
-cd `dirname $0`
-
 source /home/pi/dotfiles/function/color_echo.sh
 source /home/pi/dotfiles/function/result_echo.sh
 
