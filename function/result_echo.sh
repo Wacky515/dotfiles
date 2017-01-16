@@ -2,7 +2,6 @@
 
 # ファイル自身の絶対パス 取得
 path=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
-echo $path
 
 source $path/color_echo.sh
 
