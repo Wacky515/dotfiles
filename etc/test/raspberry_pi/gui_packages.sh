@@ -1,6 +1,6 @@
 #!/bin/bash
-source ./function/color_echo.sh
-source ./function/result_echo.sh
+source /home/pi/dotfiles/function/color_echo.sh
+source /home/pi/dotfiles/function/result_echo.sh
 
 # "Jessie Lite" 判別処理
 VER=`dpkg -l | grep xinit`

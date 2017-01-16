@@ -3,7 +3,7 @@
 # 実行したフォルダに "cd"
 cd `dirname $0`
 
-./color_echo.sh
+source ./color_echo.sh
 
 result_echo(){
     # TODO: 共通関数に切り出し

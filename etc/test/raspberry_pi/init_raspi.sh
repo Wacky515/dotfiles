@@ -77,9 +77,7 @@ setup_dotfiles(){
 #}}}
 
     # "link.sh" 実施
-    ym_echo ">> Make symbolic link"
     /home/pi/dotfiles/link.sh
-    result_echo $? "make symbolic link"
 
     # 時計 "JST" に設定（デフォルトで "JST" になってるっぽい）
     # # sudo mv /etc/localtimetime.bak
