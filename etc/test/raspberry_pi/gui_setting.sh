@@ -36,8 +36,9 @@ else
     ym_echo "-> Skip GUI setting"
 
     # "config.txt" 設定
-    sudo cp ${setting}/config_lite.txt \
+    # sudo cp ${setting}/config_lite.txt \
+    sudo cp/home/pi/dotfiles/etc/test/raspberry_pi/setting/config_lite.txt \
         /boot/config.txt
-    # sudo cp ./config_lite.txt /boot/config.txt
+    # sudo cp ./setting/config_lite.txt /boot/config.txt
 fi
 echo ""
