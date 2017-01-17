@@ -2,24 +2,22 @@
 source /home/pi/dotfiles/function/color_echo.sh
 source /home/pi/dotfiles/function/result_echo.sh
 
-PROCESS="fixed IP addr"
+readonly PROCESS="fixed IP addr"
 
 ym_echo ">> ${PROCESS^}"
 
 ym_echo ">> Input IP addr"
 read ipaddr
-result_echo $? "fixed ip addr"
+result_echo $? "input ip addr"
 
 ym_echo ">> Input routers"
 read rout
-result_echo $? "setting routers"
+result_echo $? "input routers"
 
 ym_echo ">> Input DNS"
 read dns
 result_echo $? "input DNS"
 
-# cat << EOS >> test_ip_addr.txt
-# "Directory nonexistent" になる -> DONEのはず
 cat << EOS >> /etc/dhcpcd.conf
 interface eth0
 static ip_address=${ipaddr}/24

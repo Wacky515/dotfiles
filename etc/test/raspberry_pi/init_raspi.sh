@@ -3,12 +3,11 @@ source /home/pi/dotfiles/function/color_echo.sh
 source /home/pi/dotfiles/function/result_echo.sh
 
 # TODO:
-    # "Jessie" と "Jessie Lite" の処理 分ける
-
-    # 切り出した関数 フォルダ作る
-    # "source" の参照先を動的にする
+    # "source" の参照先 "/home/pi" を動的にする
 
 # DONE:
+    # "Jessie" と "Jessie Lite" の処理 分ける
+    # 切り出した関数 フォルダ作る
     # 実行結果 "echo" 関数 切り出し
     # 色付き "echo" 関数 切り出し
     # IP Addr 固定（アドレスを標準入力する）
@@ -25,7 +24,7 @@ update_package(){
 	sudo apt -y dist-upgrade && \
 
     # "Jessie Lite" ではない時の処理
-    VER=`dpkg -l | grep xinit`
+    readonly VER=`dpkg -l | grep xinit`
     if [ "$VER" != "" ]
     then
         # ファーム アップデート
@@ -35,7 +34,7 @@ update_package(){
     fi
 
     # アップデート 後処理
-    # "autoremove" だけは "apt-get" のまま
+    # MEMO: "autoremove" だけは "apt-get" のまま
 	sudo apt-get -y autoremove && \
 
     ym_echo ">> Success init package update" || \
@@ -57,10 +56,10 @@ install_package(){
     ym_echo ">> Install \"Vim\""
 	sudo apt install -y vim
 	sudo apt install -y vim-gtk
-    result_echo $? "Install \"Vim\""
+    result_echo $? "install \"Vim\""
 
 	# 仮想端末 インストール
-	# sudo apt-get install -y byobu
+	# sudo apt install -y byobu
 
     # "Jessie Lite" ではない時の処理
     sudo bash ./gui_packages.sh
@@ -73,8 +72,8 @@ setup_dotfiles(){
 
     # # 実行権限 付与  #{{{
     # ym_echo ">> Change mode"
-    # sudo chmod +x *.sh # sudo chmod +x ./etc/test/raspberry_pi/*.sh
-    # result_echo $? change mode
+    # sudo chmod +x ./*.sh
+    # result_echo $? "change mode"
 #}}}
 
     # "link.sh" 実施
@@ -83,19 +82,19 @@ setup_dotfiles(){
     # 時計 "JST" に設定（デフォルトで "JST" になってるっぽい）
     # # sudo mv /etc/localtimetime.bak
     # # sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
-    # ./setting_jst.sh
+    # sudo bash ./setting_jst.sh
 
     # キーボード配列 変更
-    ./setting_keyboard.sh
+    sudo bash ./setting_keyboard.sh
 
     # SSH 有効化
-    ./setting_ssh.sh
+    sudo bash ./setting_ssh.sh
 
     # "Jessie Lite" ではない時の処理
-    ./gui_setting.sh
+    sudo bash ./gui_setting.sh
 
     # IPアドレス 固定
-    ./fix_ipaddr.sh
+    sudo bash ./fix_ipaddr.sh
 
     # パスワード 変更
     ym_echo ">> Change password for root"
@@ -106,26 +105,26 @@ setup_dotfiles(){
     sudo passwd pi
 
     # ホスト名 変更（必ず最後に実施）
-    ./setting_hostname.sh
+    sudo bash ./setting_hostname.sh
 }
 
 # Main routine
-START_TIME=`date +%s`
+readonly START_TIME=`date +%s`
 
-# 実行したフォルダに "cd"
-cd `dirname $0`
+# # 実行したフォルダに "cd"
+# cd `dirname $0`
 
 update_package
 install_package
 setup_dotfiles
 
-END_TIME=`date +%s`
+readonly END_TIME=`date +%s`
 
-SS=`expr ${END_TIME} - ${START_TIME}`
-HH=`expr ${SS} / 3600`
-SS=`expr ${SS} % 3600`
-MM=`expr ${SS} / 60`
-SS=`expr ${SS} % 60`
+readonly SS=`expr ${END_TIME} - ${START_TIME}`
+readonly HH=`expr ${SS} / 3600`
+readonly SS=`expr ${SS} % 3600`
+readonly MM=`expr ${SS} / 60`
+readonly SS=`expr ${SS} % 60`
 
 ym_echo ">> Total time: ${HH}:${MM}:${SS}"
 

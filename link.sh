@@ -3,35 +3,37 @@
 # TEST: 暫定的にコマンドを決め打ちにした
 # TODO: リンクの "path" を全体的に変えたので確認
 
-# 実行したフォルダに "cd"
-cd `dirname $0`
+# # 実行したフォルダに "cd"
+# cd `dirname $0`
+
+# DOT_DIRECTORY="${HOME}/dotfiles"
 
 # ファイル自身の絶対パス 取得
-path=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
-source ${path}/function/color_echo.sh
-
-DOT_DIRECTORY="${HOME}/dotfiles"
+PATH=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
+source ${PATH}/function/color_echo.sh
 
 ym_echo ">> Make symbolic link"
 
 # まず "git" の設定
 # ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
-ln -sn ${path}/.gitconfig ../.gitconfig
+ln -sn ${PATH}/.gitconfig ../.gitconfig
 
 if [ $? = 0 ]; then
     ym_echo ">> .gitconfig link success!"
 
-    pc_name=$HOSTNAME
-    # proxy_pc=(`cat ~/dotfiles/office_pc.txt`);
-    proxy_pc=(`cat ./office_pc.txt`);
-    # proxy_pc=`cat ~/dotfiles/office_pc.txt`;
-    IFS_SAVE=$IFS
-    IFS=$'\n'
+    readonly PC_NAME=$HOSTNAME
+    # PROXY_PC=(`cat ~/dotfiles/office_pc.txt`);
+    # PROXY_PC=`cat ~/dotfiles/office_pc.txt`;
+    # PROXY_PC=(`cat ./office_pc.txt`);
+    readonly PROXY_PC=(&{cat ./office_pc.txt});
+    readonly IFS_SAVE=$IFS
+    readonly IFS=$'\n'
 
-    ym_echo ">> This PC name: "$pc_name
-    ym_echo ">> In office PCs: "${proxy_pc[@]}
+    ym_echo ">> This PC name: "$PC_NAME
+    ym_echo ">> In office PCs: "${PROXY_PC[@]}
 
-    if ! `echo ${proxy_pc[@]} | grep -q "$pc_name"` ; then
+    # if ! `echo ${PROXY_PC[@]} | grep -q "$PC_NAME"` ; then
+    if ! ${echo ${PROXY_PC[@]} | grep -q "$PC_NAME"} ; then
         ym_echo ">> In normal network"
     else
         ym_echo ">> In proxy network, set proxy"
@@ -64,10 +66,10 @@ do
     # シンボリックリンク 作成
     # ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
     # ln -snfv ~/dotfiles/${f} ~/${f}
-    ln -snfv ${path}/${f} ../${f}
+    ln -snfv ${PATH}/${f} ../${f}
 done
 
-# TODO: "tput setaf 2" と "tput sgr0" gr0)わからない
+# TODO: "tput setaf 2" と "tput sgr0" gr0)わからない -> 文字色？？ 
 echo $(tput setaf 2)\>\> Deploy dotfiles complete$(tput sgr0)
 ym_echo ">> End link"
 ym_echo ""
