@@ -18,14 +18,15 @@ ym_echo ">> Make symbolic link"
 # ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sn ${PATH}/.gitconfig ../.gitconfig
 
-if [ $? = 0 ]; then
+if [ $? = 0 ]
+then
     ym_echo ">> .gitconfig link success!"
 
     readonly PC_NAME=$HOSTNAME
     # PROXY_PC=(`cat ~/dotfiles/office_pc.txt`);
     # PROXY_PC=`cat ~/dotfiles/office_pc.txt`;
     # PROXY_PC=(`cat ./office_pc.txt`);
-    readonly PROXY_PC=(&(cat ./office_pc.txt));
+    readonly PROXY_PC=($(cat ./office_pc.txt));
     readonly IFS_SAVE=$IFS
     readonly IFS=$'\n'
 
@@ -33,7 +34,7 @@ if [ $? = 0 ]; then
     ym_echo ">> In office PCs: "${PROXY_PC[@]}
 
     # if ! `echo ${PROXY_PC[@]} | grep -q "$PC_NAME"` ; then
-    if ! $(echo $(PROXY_PC[@]) | grep -q "$PC_NAME")
+    if ! $(echo ${PROXY_PC[@]} | grep -q "$PC_NAME")
     then
         ym_echo ">> In normal network"
     else
