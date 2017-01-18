@@ -1,6 +1,9 @@
 # Install command
-`./link.sh`  
-`./link.cmd`
+```Bash
+$ cd
+$ ./link.sh
+$ ./link.cmd
+```
 
 # Layout
 ~/  
