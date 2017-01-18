@@ -2,7 +2,7 @@
 source /home/pi/dotfiles/function/color_echo.sh
 source /home/pi/dotfiles/function/result_echo.sh
 
-PROCESS="setting Wi-Fi"
+readonly PROCESS="setting Wi-Fi"
 
 ym_echo ">> ${PROCESS^}"
 

@@ -1,10 +1,10 @@
-#!bin/bash
+#!/bin/bash
 source /home/pi/dotfiles/function/color_echo.sh
 source /home/pi/dotfiles/function/result_echo.sh
 
-PROCESS="setting network time"
+readonly PROCESS="setting network time"
 
-ym_echo ">> ${PROCESS^}"
+ym_echo ">> ${PROCESS}^"
 
 # 以下のエラー 発生
 # mv: `/eltime.bak' の後に宛先のファイルオペランドがありません

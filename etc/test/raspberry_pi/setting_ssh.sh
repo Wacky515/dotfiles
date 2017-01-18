@@ -2,7 +2,7 @@
 source /home/pi/dotfiles/function/color_echo.sh
 source /home/pi/dotfiles/function/result_echo.sh
 
-PROCESS="enable SSH"
+readonly PROCESS="enable SSH"
 
 ym_echo ">> ${PROCESS^}"
 

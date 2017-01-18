@@ -2,7 +2,7 @@
 source /home/pi/dotfiles/function/color_echo.sh
 source /home/pi/dotfiles/function/result_echo.sh
 
-PROCESS="setting hostname"
+readonly PROCESS="setting hostname"
 
 ym_echo ">> ${PROCESS^}"
 
