@@ -48,13 +48,13 @@ on_ft = ['markdown','mkd']
 [[plugins]]
 repo = 'kannokanno/previm'
 on_ft = ['markdown','mkd']
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-on_ft = ['markdown','mkd']
-hook_add = '''
-    let g:previm_open_cmd = \
-    'C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe'
-'''
+# [[plugins]]
+# repo = 'tyru/open-browser.vim'
+# on_ft = ['markdown','mkd']
+# hook_add = '''
+#   let g:previm_open_cmd = 'C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe'
+#   # "C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe"
+# '''
 # ハイライト
 [[plugins]]
 repo = 'rcmdnk/vim-markdown'
