@@ -12,11 +12,14 @@
 readonly PATH=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 source ${PATH}/function/color_echo.sh
 
+# ファイルの親ディレクトリの絶対パス 取得
+readonly HOME=$(cd $(dirname ${BASH_SOURCE:-$0})/..;pwd)
+
 ym_echo ">> Make symbolic link"
 
 # まず "git" の設定
 # ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
-ln -sn ${PATH}/.gitconfig ../.gitconfig
+ln -sn ${PATH}/.gitconfig ${HOME}/.gitconfig
 
 if [ $? = 0 ]
 then
@@ -68,7 +71,7 @@ do
     # シンボリックリンク 作成
     # ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
     # ln -snfv ~/dotfiles/${f} ~/${f}
-    ln -snfv ${PATH}/${f} ../${f}
+    ln -snfv ${PATH}/${f} ${HOME}/${f}
 done
 
 # TODO: "tput setaf 2" と "tput sgr0" gr0)わからない -> 文字色？？
