@@ -1,11 +1,13 @@
 #!/bin/bash
-source /home/pi/dotfiles/function/color_echo.sh
-source /home/pi/dotfiles/function/result_echo.sh
 
 # TODO:
     # "source" の参照先 "/home/pi" を動的にする
+    # インストール用スクリプトの共通・GUI・Liteフォルダ分け
+# FIXME:
+    # TightVNCServerVNC 自動起動
+    # Wi-Fi 自動設定
 
-# DONE:
+# DONE  :#{{{
     # "Jessie" と "Jessie Lite" の処理 分ける
     # 切り出した関数 フォルダ作る
     # 実行結果 "echo" 関数 切り出し
@@ -13,6 +15,10 @@ source /home/pi/dotfiles/function/result_echo.sh
     # IP Addr 固定（アドレスを標準入力する）
     # Wi-Fi（自宅・会社Proxy） SSID Pass 設定
     # 時計合わせ
+#}}}
+
+source /home/pi/dotfiles/function/color_echo.sh
+source /home/pi/dotfiles/function/result_echo.sh
 
 # ファームとパッケージ アップデート
 update_package(){
@@ -24,7 +30,7 @@ update_package(){
 	sudo apt -y dist-upgrade && \
 
     # "Jessie Lite" ではない時の処理
-    readonly VER=`dpkg -l | grep xinit`
+    readonly VER=$(dpkg -l | grep xinit)
     if [ "$VER" != "" ]
     then
         # ファーム アップデート
@@ -79,10 +85,8 @@ setup_dotfiles(){
     # "link.sh" 実施
     /home/pi/dotfiles/link.sh
 
-    # 時計 "JST" に設定（デフォルトで "JST" になってるっぽい）
-    # # sudo mv /etc/localtimetime.bak
-    # # sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
-    # sudo bash ./setting_jst.sh
+    # 時計 "JST" に設定
+    sudo bash ./setting_jst.sh
 
     # キーボード配列 変更
     sudo bash ./setting_keyboard.sh
@@ -128,11 +132,11 @@ readonly SS=`expr ${SS} % 60`
 
 ym_echo ">> Total time: ${HH}:${MM}:${SS}"
 
-# FIXME: "command not found"  になる
 # "Jessie Lite" ではない時の処理
-VER=`dpkg -l | grep xinit`
+readonly VER=$(dpkg -l | grep xinit)
 if [ "$VER" != "" ]
 then
+    # FIXME: "command not found"  になる
     ym_echo ">> Input password for VNC server"
     sudo /etc/init.d/vncboot start
 fi

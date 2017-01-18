@@ -7,7 +7,7 @@ readonly PATH=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 readonly SETTING=${PATH}/SETTING
 
 # "Jessie Lite" 判別処理
-readonly VER=`dpkg -l | grep xinit`
+readonly VER=$(dpkg -l | grep xinit)
 if [ "$VER" != "" ]
 then
     # "Jessie Lite" ではない時の処理
