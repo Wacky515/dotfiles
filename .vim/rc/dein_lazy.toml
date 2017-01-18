@@ -36,6 +36,34 @@ on_ft = 'python'
 # repo = "platformio/platformio"
 # on_ft = "arduino"
 
+# カレンダー
+[[plugins]]
+repo = 'itchyny/calendar.vim'
+
+# Markdown
+# プレビュー
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['markdown','mkd']
+[[plugins]]
+repo = 'kannokanno/previm'
+on_ft = ['markdown','mkd']
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_ft = ['markdown','mkd']
+hook_add = '''
+    let g:previm_open_cmd = \
+    'C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe'
+'''
+# ハイライト
+[[plugins]]
+repo = 'rcmdnk/vim-markdown'
+on_ft = ['markdown','mkd']
+hook_add = '''
+  let g:vim_markdown_frontmatter = 1
+  let g:vim_markdown_math = 1
+'''
+
 # TODO: 動作確認
 # Arduinoシンタックスハイライト
 [[plugins]]

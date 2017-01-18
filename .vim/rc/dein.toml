@@ -60,30 +60,12 @@ repo = 'bronson/vim-trailing-whitespace'
 repo = 'itchyny/lightline.vim'
 # < http://itchyny.hatenablog.com/entry/20130828/1377653592 >
 
-# ミニマップ
-[[plugins]]
-# repo = 'mipmip/vim-minimap'
-# TODO: 下記の条件分岐は未動作確認
-# if = '''! has ('windows')'''
-repo = "koron/minimap-vim"
-
-# カレンダー
-[[plugins]]
-repo = 'itchyny/calendar.vim'
-
-# Markdown
-# ハイライト
-[[plugins]]
-repo = 'rcmdnk/vim-markdown'
-on_ft = ['markdown','mkd']
-hook_add = '''
-  let g:vim_markdown_frontmatter = 1
-  let g:vim_markdown_math = 1
-'''
-# プレビュー
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
-on_ft = ['markdown','mkd']
+# # ミニマップ
+# [[plugins]]
+# # repo = 'mipmip/vim-minimap'
+# # TODO: 下記の条件分岐は未動作確認
+# # if = '''! has ('windows')'''
+# repo = "koron/minimap-vim"
 
 # 導入予定
 
