@@ -145,5 +145,7 @@ do
     if [ "$yesno" = "yes" ]
     then
         sudo shutdown -r now
+    else [ "$yesno" = "no" ]
+        break
     fi
 done
