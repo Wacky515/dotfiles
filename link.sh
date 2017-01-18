@@ -9,7 +9,7 @@
 # DOT_DIRECTORY="${HOME}/dotfiles"
 
 # ファイル自身の絶対パス 取得
-PATH=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
+readonly PATH=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 source ${PATH}/function/color_echo.sh
 
 ym_echo ">> Make symbolic link"
@@ -25,7 +25,7 @@ if [ $? = 0 ]; then
     # PROXY_PC=(`cat ~/dotfiles/office_pc.txt`);
     # PROXY_PC=`cat ~/dotfiles/office_pc.txt`;
     # PROXY_PC=(`cat ./office_pc.txt`);
-    readonly PROXY_PC=(&{cat ./office_pc.txt});
+    readonly PROXY_PC=(&(cat ./office_pc.txt));
     readonly IFS_SAVE=$IFS
     readonly IFS=$'\n'
 
@@ -33,7 +33,8 @@ if [ $? = 0 ]; then
     ym_echo ">> In office PCs: "${PROXY_PC[@]}
 
     # if ! `echo ${PROXY_PC[@]} | grep -q "$PC_NAME"` ; then
-    if ! ${echo ${PROXY_PC[@]} | grep -q "$PC_NAME"} ; then
+    if ! $(echo $(PROXY_PC[@]) | grep -q "$PC_NAME")
+    then
         ym_echo ">> In normal network"
     else
         ym_echo ">> In proxy network, set proxy"
@@ -52,7 +53,7 @@ do
 
     [[ ${f} = "README.md" ]] && continue
 
-    [[ "$f" == ".DS_Store" ]] && continue
+    [[ ${f} == ".DS_Store" ]] && continue
 
     [[ ${f} = "*.sh" ]] && continue
     [[ ${f} = ".modfying" ]] && continue
@@ -69,7 +70,7 @@ do
     ln -snfv ${PATH}/${f} ../${f}
 done
 
-# TODO: "tput setaf 2" と "tput sgr0" gr0)わからない -> 文字色？？ 
+# TODO: "tput setaf 2" と "tput sgr0" gr0)わからない -> 文字色？？
 echo $(tput setaf 2)\>\> Deploy dotfiles complete$(tput sgr0)
 ym_echo ">> End link"
 ym_echo ""
