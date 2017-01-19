@@ -1,12 +1,13 @@
 #!/bin/bash
 
-# TEST: 暫定的にコマンドを決め打ちにした
 # TODO: リンクの "path" を全体的に変えたので確認
 
-# # 実行したフォルダに "cd"
-# cd `dirname $0`
+# DONE: 暫定的にコマンドを決め打ちにした
 
-# DOT_DIRECTORY="${HOME}/dotfiles"
+# # 実行したフォルダに "cd"
+# cd ${dirname $0}
+
+# readonly DOT_DIRECTORY="${HOME}/dotfiles"
 
 # ファイル自身の絶対パス 取得
 readonly PATH=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
@@ -14,7 +15,8 @@ source ${PATH}/function/color_echo.sh
 
 # ファイルの親ディレクトリの絶対パス 取得
 # readonly HOME=../${PATH}
-readonly HOME=$(cd $(dirname $0)/..;pwd)
+# readonly HOME=$(cd $(dirname $0)/..;pwd)
+echo ${HOME}
 
 ym_echo ">> Make symbolic link"
 
