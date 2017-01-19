@@ -16,13 +16,14 @@ echo ""
 # echo "SSID: ${ssid} Passphrase: ${pasph}"
 echo "SSID: ${SSID}"
 
-# sudo sh -c "wpa_passphrase ${SSID} ${PASPH} >> \
-#     /etc/wpa_supplicant/wpa_supplicant.conf"
+sudo sh -c `wpa_passphrase ${SSID} ${PASPH} >> \
+    /etc/wpa_supplicant/wpa_supplicant.conf`
 # sudo sh -c "wpa_passphrase $ssid $pasph >> test_wifi.txt"
 # sudo wpa_passphrase ${SSID} ${PASPH} >> \
 #     /etc/wpa_supplicant/wpa_supplicant.conf
-stty -echo
-wpa_passphrase ${SSID} ${PASPH} | sudo tee -a \
-    /etc/wpa_supplicant/wpa_supplicant.conf
-stty echo
+
+# stty -echo
+# wpa_passphrase ${SSID} ${PASPH} | sudo tee -a \
+#     /etc/wpa_supplicant/wpa_supplicant.conf
+# stty echo
 result_echo $? "${PROCESS}"
