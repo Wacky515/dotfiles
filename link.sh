@@ -1,6 +1,9 @@
 #!/bin/bash
 
-# TODO: リンクの "path" を全体的に変えたので確認
+# TODO:
+    # リンクの "path" を全体的に変えたので確認
+# FIXME:
+    # ${HOME} を単体起動と外部起動で通常動作させる
 
 # DONE: 暫定的にコマンドを決め打ちにした
 
@@ -16,6 +19,8 @@ source ${PATH}/function/color_echo.sh
 # ファイルの親ディレクトリの絶対パス 取得
 # readonly HOME=../${PATH}
 # readonly HOME=$(cd $(dirname $0)/..;pwd)
+
+# ここから！！！
 echo ${HOME}
 
 ym_echo ">> Make symbolic link"
