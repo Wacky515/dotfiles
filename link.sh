@@ -22,7 +22,8 @@ ym_echo ">> Make symbolic link"
 
 # まず "git" の設定
 # ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
-ln -sn ${PATH}/.gitconfig ${HOME}/.gitconfig
+# ln -sn ${PATH}/.gitconfig ${HOME}/.gitconfig
+ln -sn ${PATH}/.gitconfig ~/.gitconfig
 
 if [ $? = 0 ]
 then
