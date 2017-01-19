@@ -13,7 +13,8 @@ readonly PATH=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 source ${PATH}/function/color_echo.sh
 
 # ファイルの親ディレクトリの絶対パス 取得
-readonly HOME=../${PATH}
+# readonly HOME=../${PATH}
+readonly HOME=$(cd $(dirname $0)/..;pwd)
 
 ym_echo ">> Make symbolic link"
 
