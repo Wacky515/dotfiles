@@ -1,6 +1,10 @@
 #!bin/bash
 
-echo "./"
+path='$HOME'
 
-echo "~/"
-echo "$HOME"
+echo "WD: "./
+
+echo "HOME: "~/
+echo "HOME: "$path
+
+echo "HOME: "$HOME
