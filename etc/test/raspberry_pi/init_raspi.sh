@@ -83,7 +83,7 @@ setup_dotfiles(){
 #}}}
 
     # "link.sh" 実施
-    /home/pi/dotfiles/link.sh
+    bash /home/pi/dotfiles/link.sh
 
     # 時計 "JST" に設定
     sudo bash ./setting_jst.sh
