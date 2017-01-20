@@ -2,12 +2,12 @@
 
 # TODO:
     # "source" の参照先 "/home/pi" を動的にする
-    # インストール用スクリプトの共通・GUI・Liteフォルダ分け
 # FIXME:
-    # TightVNCServerVNC 自動起動
-    # Wi-Fi 自動設定
 
 # DONE  :#{{{
+    # TightVNCServerVNC 自動起動
+    # Wi-Fi 自動設定
+    # インストール用スクリプトの共通・GUI・Liteフォルダ分け
     # "Jessie" と "Jessie Lite" の処理 分ける
     # 切り出した関数 フォルダ作る
     # 実行結果 "echo" 関数 切り出し
