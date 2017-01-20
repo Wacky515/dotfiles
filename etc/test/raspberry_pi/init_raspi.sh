@@ -86,19 +86,19 @@ setup_dotfiles(){
     bash /home/pi/dotfiles/link.sh
 
     # 時計 "JST" に設定
-    sudo bash ./setting_jst.sh
+    bash ./setting_jst.sh
 
     # キーボード配列 変更
-    sudo bash ./setting_keyboard.sh
+    bash ./setting_keyboard.sh
 
     # SSH 有効化
-    sudo bash ./setting_ssh.sh
+    bash ./setting_ssh.sh
 
     # "Jessie Lite" ではない時の処理
-    sudo bash ./gui_setting.sh
+    bash ./gui_setting.sh
 
     # IPアドレス 固定
-    sudo bash ./fix_ipaddr.sh
+    bash ./fix_ipaddr.sh
 
     # パスワード 変更
     ym_echo ">> Change password for root"
@@ -107,9 +107,6 @@ setup_dotfiles(){
     # FIXME: NG
     ym_echo ">> Change password for pi"
     sudo passwd pi
-
-    # ホスト名 変更（必ず最後に実施）
-    sudo bash ./setting_hostname.sh
 }
 
 # Main routine
@@ -140,6 +137,9 @@ then
     ym_echo ">> Input password for VNC server"
     sudo /etc/init.d/vncboot start
 fi
+
+# ホスト名 変更（必ず最後に実施）
+sudo bash ./setting_hostname.sh
 
 ym_echo ">> Please reboot(yes/no)"
 while true
