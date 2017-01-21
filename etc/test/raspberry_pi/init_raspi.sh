@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # TODO:
+    # Wi-Fi 自動設定
     # "source" の参照先 "/home/pi" を動的にする
 # FIXME:
 
 # DONE  :#{{{
     # TightVNCServerVNC 自動起動
-    # Wi-Fi 自動設定
     # インストール用スクリプトの共通・GUI・Liteフォルダ分け
     # "Jessie" と "Jessie Lite" の処理 分ける
     # 切り出した関数 フォルダ作る
@@ -89,7 +89,7 @@ setup_dotfiles(){
     bash ./setting_jst.sh
 
     # キーボード配列 変更
-    bash ./setting_keyboard.sh
+    sudo bash ./setting_keyboard.sh
 
     # SSH 有効化
     bash ./setting_ssh.sh

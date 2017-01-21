@@ -21,7 +21,8 @@ source ${PATH}/function/color_echo.sh
 # readonly HOME=$(cd $(dirname $0)/..;pwd)
 
 # ここから！！！
-echo ${HOME}
+echo "HOME dir:" ${HOME}
+echo "Current dir:" ${PATH}
 
 ym_echo ">> Make symbolic link"
 
@@ -84,7 +85,8 @@ do
 done
 
 # TODO: "tput setaf 2" と "tput sgr0" gr0)わからない -> 文字色？？
-echo $(tput setaf 2)\>\> Deploy dotfiles complete$(tput sgr0)
+# echo $(tput setaf 2)\>\> Deploy dotfiles complete$(tput sgr0)
+ym_echo ">> Deploy dotfiles complete"
 ym_echo ">> End link"
 ym_echo ""
 
