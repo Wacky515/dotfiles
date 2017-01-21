@@ -5,11 +5,14 @@
 # FIXME:
     # ${HOME} を単体起動と外部起動で通常動作させる
 
-# DONE: 暫定的にコマンドを決め打ちにした
+# DONE:
+    # 暫定的にコマンドを決め打ちにした
 
 source ~/dotfiles/function/result_echo.sh
 
 # 実行したフォルダに "cd"
+# ↓に "grep" 置換
+# 実行したファイルのディレクトリに "cd"
 cd $(dirname $0)
 
 # readonly DOT_DIRECTORY="${HOME}/dotfiles"

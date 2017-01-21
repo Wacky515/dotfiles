@@ -24,5 +24,10 @@ interface eth0
 static ip_address=${ipaddr}/24
 static routers=${rout}
 static domain_name_servers=${dns}
+
+interface wlan0
+static ip_address=${ipaddr}/24
+static routers=${rout}
+static domain_name_servers=${dns}
 EOS
 result_echo $? "${PROCESS}"
