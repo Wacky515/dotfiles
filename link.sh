@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# @(#) Setting keyboard layout.
 # TODO:
     # リンクの "path" を全体的に変えたので確認
 # FIXME:
@@ -7,23 +7,22 @@
 
 # DONE: 暫定的にコマンドを決め打ちにした
 
-# # 実行したフォルダに "cd"
-# cd ${dirname $0}
+source ~/dotfiles/function/result_echo.sh
+
+# 実行したフォルダに "cd"
+cd $(dirname $0)
 
 # readonly DOT_DIRECTORY="${HOME}/dotfiles"
 
 # ファイル自身の絶対パス 取得
-readonly PATH=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
+# readonly PATH=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 
 # ファイルの親ディレクトリの絶対パス 取得
 # readonly HOME=../${PATH}
 # readonly HOME=$(cd $(dirname $0)/..;pwd)
 
-# ここから！！！
-echo "HOME dir:" ${HOME}
-echo "Current dir:" ${PATH}
-
-source ${PATH}/function/color_echo.sh
+# echo "HOME dir:" ${HOME}
+# echo "Current dir:" ${PATH}
 
 ym_echo ">> Make symbolic link"
 
@@ -31,7 +30,8 @@ ym_echo ">> Make symbolic link"
 # ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
 # ln -sn ${PATH}/.gitconfig ${HOME}/.gitconfig
 # ln -sn ${PATH}/.gitconfig ~/.gitconfig
-ln -snfv ${PATH}/.gitconfig ${HOME}/.gitconfig
+# ln -snfv ${PATH}/.gitconfig ${HOME}/.gitconfig
+ln -snfv ./.gitconfig ~/.gitconfig
 
 if [ $? = 0 ]
 then

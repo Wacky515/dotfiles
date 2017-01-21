@@ -104,7 +104,6 @@ setup_dotfiles(){
     ym_echo ">> Change password for root"
     sudo passwd root
 
-    # FIXME: NG
     ym_echo ">> Change password for pi"
     sudo passwd pi
 }

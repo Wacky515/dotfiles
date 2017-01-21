@@ -16,7 +16,7 @@ then
     ym_echo ">> Setting for GUI"
 
     # Wi-Fi 設定
-    sudo bash ./setting_wifi.sh
+    bash ./setting_wifi.sh
 
     # 仮想デスクトップ環境 設定
     sudo cp ${SETTING}/lxpolkit.desktop \
