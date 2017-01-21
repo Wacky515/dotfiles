@@ -1,6 +1,8 @@
 #!/bin/bash
+# @(#) Echo back result of execute.
 
-cd $(dirname $0)
+# 実行したフォルダに "cd"
+cd `dirname $0`
 
 # ファイル自身の絶対パス 取得
 path=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
