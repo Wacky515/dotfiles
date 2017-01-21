@@ -3,7 +3,7 @@ source /home/pi/dotfiles/function/color_echo.sh
 source /home/pi/dotfiles/function/result_echo.sh
 
 readonly PROCESS="setting Wi-Fi"
-cp /etc/wpa_supplicant/wpa_supplicant.conf \
+sudo cp /etc/wpa_supplicant/wpa_supplicant.conf \
     /etc/wpa_passphrase/wpa_supplicant.bak
 
 ym_echo ">> ${PROCESS^}"
