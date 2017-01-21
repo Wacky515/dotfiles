@@ -89,10 +89,10 @@ setup_dotfiles(){
     bash ./setting_jst.sh
 
     # キーボード配列 変更
-    bash ./setting_keyboard.sh
+    ./setting_keyboard.sh
 
     # SSH 有効化
-    bash ./setting_ssh.sh
+    ./setting_ssh.sh
 
     # "Jessie Lite" ではない時の処理
     bash ./gui_setting.sh
