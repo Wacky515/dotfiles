@@ -24,19 +24,12 @@ cd $(dirname $0)
 # readonly HOME=../${PATH}
 # readonly HOME=$(cd $(dirname $0)/..;pwd)
 
-# echo "HOME dir:" ${HOME}
-# echo "Current dir:" ${PATH}
-
 ym_echo ">> Make symbolic link"
 ym_echo $(pwd)
 ym_echo ">> Start .gitconfig link "
 
 # まず "git" の設定
-# ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
-# ln -sn ${PATH}/.gitconfig ${HOME}/.gitconfig
-# ln -sn ${PATH}/.gitconfig ~/.gitconfig
-# ln -snfv ${PATH}/.gitconfig ${HOME}/.gitconfig
-ln -snfv ./.gitconfig ~/.gitconfig
+ln -snfv $(pwd)/.gitconfig ~/.gitconfig
 
 if [ $? = 0 ]
 then
@@ -58,8 +51,10 @@ then
     else
         ym_echo ">> In proxy network, set proxy"
         ym_echo ">> Enter password to "su" command(2times)"
-        su -c "git config --system http.proxy http://proxy.intra.xacti-co.com:8080"
-        su -c "git config --system https.proxy https://proxy.intra.xacti-co.com:8080"
+        su -c "git config --system http.proxy \
+            http://proxy.intra.xacti-co.com:8080"
+        su -c "git config --system https.proxy \
+            https://proxy.intra.xacti-co.com:8080"
     fi
 fi
 echo ""
@@ -95,7 +90,7 @@ do
     ym_echo ${f}
     # ln -snfv ${PATH}/${f} ${HOME}/${f}
     # ln -snfv ./${f} ~/${f}
-    ln -snfv ${f} ~/${f}
+    ln -snfv $(pwd)/${f} ~/${f}
 done
 
 # TODO: "tput setaf 2" と "tput sgr0" gr0)わからない -> 文字色？？
