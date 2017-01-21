@@ -84,6 +84,7 @@ do
     [[ ${f} = "*.old" ]] && continue
 
     # シンボリックリンク 作成
+    ym_echo ${f}
     ln -snfv ${PATH}/${f} ${HOME}/${f}
 done
 
