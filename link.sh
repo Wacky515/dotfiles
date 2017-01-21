@@ -28,7 +28,7 @@ cd $(dirname $0)
 # echo "Current dir:" ${PATH}
 
 ym_echo ">> Make symbolic link"
-ym_echo `pwd`
+ym_echo $(pwd)
 ym_echo ">> Start .gitconfig link "
 
 # まず "git" の設定
@@ -43,12 +43,12 @@ then
     ym_echo ">> .gitconfig link success!"
     echo ""
 
-    readonly PC_NAME=$HOSTNAME
+    readonly PC_NAME=${HOSTNAME}
     readonly PROXY_PC=($(cat ./office_pc.txt));
-    readonly IFS_SAVE=$IFS
+    readonly IFS_SAVE=${IFS}
     readonly IFS=$'\n'
 
-    ym_echo ">> This PC name: "$PC_NAME
+    ym_echo ">> This PC name: "${PC_NAME}
     ym_echo ">> In office PCs: "
     ym_echo ${PROXY_PC[@]}
 
@@ -68,8 +68,8 @@ echo ""
 # cd $(dirname $0)
 
 ym_echo ">> Start dotfiles link "
-ym_echo "Current dir: `pwd`"
-ym_echo "HOME dir:" ${HOME}
+ym_echo "Current dir: $(pwd)"
+ym_echo "HOME dir: ${HOME}"
 
 for f in .??*
 do
@@ -94,7 +94,8 @@ do
     # シンボリックリンク 作成
     ym_echo ${f}
     # ln -snfv ${PATH}/${f} ${HOME}/${f}
-    ln -snfv ./${f} ~/${f}
+    # ln -snfv ./${f} ~/${f}
+    ln -snfv ${f} ~/${f}
 done
 
 # TODO: "tput setaf 2" と "tput sgr0" gr0)わからない -> 文字色？？
