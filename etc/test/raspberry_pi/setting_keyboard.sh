@@ -4,10 +4,8 @@
 source ~/dotfiles/function/result_echo.sh
 
 # ファイル自身の絶対パス 取得
-readonly PATH=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
-
-# 実行したフォルダに "cd"
-cd `dirname $0`
+# readonly PATH=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
+PATH=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 
 readonly PROCESS="setting keyboard layout"
 
