@@ -1,10 +1,12 @@
 #!/bin/bash
-source /home/pi/dotfiles/function/color_echo.sh
-source /home/pi/dotfiles/function/result_echo.sh
+# @(#) Setting for GUI
+
+source ~/dotfiles/function/result_echo.sh
 
 # ファイル自身の絶対パス 取得
-readonly PATH=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
-readonly SETTING=${PATH}/SETTING
+# readonly PATH=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
+# readonly SETTING=${PATH}/SETTING
+readonly SETTING=./setting
 
 # "Jessie Lite" 判別処理
 readonly VER=$(dpkg -l | grep xinit)

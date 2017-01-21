@@ -1,6 +1,7 @@
 #!/bin/bash
-source /home/pi/dotfiles/function/color_echo.sh
-source /home/pi/dotfiles/function/result_echo.sh
+# @(#) Setting SSH communication
+
+source ~/dotfiles/function/result_echo.sh
 
 readonly PROCESS="enable SSH"
 

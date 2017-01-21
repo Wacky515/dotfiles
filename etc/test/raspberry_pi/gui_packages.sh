@@ -1,10 +1,12 @@
 #!/bin/bash
+# @(#) Install packages for GUI
 
 # TODO:
+
+# DONE:
     # "TightVNCServer" 自動起動 できていない
 
-source /home/pi/dotfiles/function/color_echo.sh
-source /home/pi/dotfiles/function/result_echo.sh
+source ~/dotfiles/function/result_echo.sh
 
 # "Jessie Lite" 判別処理
 readonly VER=$(dpkg -l | grep xinit)

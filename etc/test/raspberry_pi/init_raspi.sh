@@ -1,4 +1,5 @@
 #!/bin/bash
+# @(#) Init setting Raspberry Pi
 
 # TODO:
     # Wi-Fi 自動設定
@@ -17,8 +18,7 @@
     # 時計合わせ
 #}}}
 
-source /home/pi/dotfiles/function/color_echo.sh
-source /home/pi/dotfiles/function/result_echo.sh
+source ~/dotfiles/function/result_echo.sh
 
 # ファームとパッケージ アップデート
 update_package(){
