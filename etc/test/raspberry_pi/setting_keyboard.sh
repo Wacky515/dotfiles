@@ -16,5 +16,6 @@ readonly PROCESS="setting keyboard layout"
 
 sudo mv /etc/default/keyboard /etc/default/keyboard.bak
 # sudo cp ${PATH}/setting/keyboard \
-#     /etc/default/
+sudo cp ./setting/keyboard \
+    /etc/default/
 result_echo $? "${PROCESS}"
