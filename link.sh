@@ -28,6 +28,8 @@ cd $(dirname $0)
 # echo "Current dir:" ${PATH}
 
 ym_echo ">> Make symbolic link"
+ym_echo `pwd`
+ym_echo ">> Start .gitconfig link "
 
 # まず "git" の設定
 # ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
@@ -58,12 +60,15 @@ then
         su -c "git config --system https.proxy https://proxy.intra.xacti-co.com:8080"
     fi
 fi
+echo ""
 
+ym_echo ">> Start dotfiles link "
 for f in .??*
 do
     # 無視したいファイルやディレクトリは以下に追記
     [[ ${f} = ".git" ]] && continue
     [[ ${f} = ".gitignore" ]] && continue
+    [[ ${f} = ".gitconfig" ]] && continue
 
     [[ ${f} = "README.md" ]] && continue
 
