@@ -21,12 +21,13 @@ sudo sh -c "wpa_passphrase ${SSID} ${PASPH} >> \
     /etc/wpa_supplicant/wpa_supplicant.conf"
 
 # grep "country=GB" /etc/wpa_supplicant/wpa_supplicant.conf
-if grep "country=GB" /etc/wpa_supplicant/wpa_supplicant.conf
+if sudo grep "country=GB" /etc/wpa_supplicant/wpa_supplicant.conf
 then
+    ym_echo ">> Change country >> "
         # exit
 # else
         # sudo sed -i "country=JP" /etc/wpa_supplicant/wpa_supplicant.conf
-        sudo sed -e "s/country=GB/country=JP/g" \
+        sudo sed -i.bak -e "s/country=GB/country=JP/g" \
             /etc/wpa_supplicant/wpa_supplicant.conf
 fi
 
