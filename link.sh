@@ -63,11 +63,14 @@ fi
 echo ""
 
 ym_echo ">> Start dotfiles link "
+ym_echo "Current dir" `pwd`
+ym_echo "HOME dir:" ${HOME}
+
 for f in .??*
 do
     # 無視したいファイルやディレクトリは以下に追記
     [[ ${f} = ".git" ]] && continue
-    [[ ${f} = ".gitignore" ]] && continue
+    # [[ ${f} = ".gitignore" ]] && continue
     [[ ${f} = ".gitconfig" ]] && continue
 
     [[ ${f} = "README.md" ]] && continue
