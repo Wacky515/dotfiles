@@ -14,7 +14,6 @@
 
 # ファイル自身の絶対パス 取得
 readonly PATH=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
-source ${PATH}/function/color_echo.sh
 
 # ファイルの親ディレクトリの絶対パス 取得
 # readonly HOME=../${PATH}
@@ -24,21 +23,21 @@ source ${PATH}/function/color_echo.sh
 echo "HOME dir:" ${HOME}
 echo "Current dir:" ${PATH}
 
+source ${PATH}/function/color_echo.sh
+
 ym_echo ">> Make symbolic link"
 
 # まず "git" の設定
 # ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
 # ln -sn ${PATH}/.gitconfig ${HOME}/.gitconfig
-ln -sn ${PATH}/.gitconfig ~/.gitconfig
+# ln -sn ${PATH}/.gitconfig ~/.gitconfig
+ln -snfv ${PATH}/.gitconfig ${HOME}/.gitconfig
 
 if [ $? = 0 ]
 then
     ym_echo ">> .gitconfig link success!"
 
     readonly PC_NAME=$HOSTNAME
-    # PROXY_PC=(`cat ~/dotfiles/office_pc.txt`);
-    # PROXY_PC=`cat ~/dotfiles/office_pc.txt`;
-    # PROXY_PC=(`cat ./office_pc.txt`);
     readonly PROXY_PC=($(cat ./office_pc.txt));
     readonly IFS_SAVE=$IFS
     readonly IFS=$'\n'
@@ -46,7 +45,6 @@ then
     ym_echo ">> This PC name: "$PC_NAME
     ym_echo ">> In office PCs: "${PROXY_PC[@]}
 
-    # if ! `echo ${PROXY_PC[@]} | grep -q "$PC_NAME"` ; then
     if ! $(echo ${PROXY_PC[@]} | grep -q "$PC_NAME")
     then
         ym_echo ">> In normal network"
@@ -58,7 +56,6 @@ then
     fi
 fi
 
-# 汎用化テスト（未完了）
 for f in .??*
 do
     # 無視したいファイルやディレクトリは以下に追記
@@ -79,8 +76,6 @@ do
     [[ ${f} = "*.old" ]] && continue
 
     # シンボリックリンク 作成
-    # ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
-    # ln -snfv ~/dotfiles/${f} ~/${f}
     ln -snfv ${PATH}/${f} ${HOME}/${f}
 done
 
