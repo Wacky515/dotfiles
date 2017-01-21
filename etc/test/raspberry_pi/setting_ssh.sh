@@ -10,5 +10,5 @@ ym_echo ">> ${PROCESS^}"
 # update-rc.d ssh enable && invoke-rc.d ssh start
 ## 無効化
 # update-rc.d ssh disable && invoke-rc.d ssh stop
-touch /boot/ssh
+sudo touch /boot/ssh
 result_echo $? "${PROCESS}"
