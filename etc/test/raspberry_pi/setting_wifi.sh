@@ -23,7 +23,7 @@ sudo sh -c "wpa_passphrase ${SSID} ${PASPH} >> \
 # grep "country=GB" /etc/wpa_supplicant/wpa_supplicant.conf
 if sudo grep "country=GB" /etc/wpa_supplicant/wpa_supplicant.conf
 then
-    ym_echo ">> Change country >> "
+    ym_echo ">> Change country"
         # exit
 # else
         # sudo sed -i "country=JP" /etc/wpa_supplicant/wpa_supplicant.conf
@@ -32,4 +32,6 @@ then
 fi
 
 result_echo $? "${PROCESS}"
+ym_echo "Reboot Wi-Fi device, please wait"
 sudo ifup wlan0
+result_echo $? "Success reboot Wi-Fi"

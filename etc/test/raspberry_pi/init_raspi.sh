@@ -138,7 +138,7 @@ then
 fi
 
 # ホスト名 変更（必ず最後に実施）
-sudo bash ./setting_hostname.sh
+bash ./setting_hostname.sh
 
 ym_echo ">> Please reboot(yes/no)"
 while true
