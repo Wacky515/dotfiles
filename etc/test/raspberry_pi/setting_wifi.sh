@@ -7,6 +7,7 @@ sudo cp /etc/wpa_supplicant/wpa_supplicant.conf \
     /etc/wpa_passphrase/wpa_supplicant.bak
 
 ym_echo ">> ${PROCESS^}"
+sudo ifdown wlan0
 
 ym_echo ">> Input SSID"
 read SSID
@@ -32,3 +33,4 @@ then
 fi
 
 result_echo $? "${PROCESS}"
+sudo ifup wlan0
