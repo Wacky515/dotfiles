@@ -15,21 +15,13 @@ source ~/dotfiles/function/result_echo.sh
 # 実行したファイルのディレクトリに "cd"
 cd $(dirname $0)
 
-# readonly DOT_DIRECTORY="${HOME}/dotfiles"
-
-# ファイル自身の絶対パス 取得
-# readonly PATH=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
-
-# ファイルの親ディレクトリの絶対パス 取得
-# readonly HOME=../${PATH}
-# readonly HOME=$(cd $(dirname $0)/..;pwd)
+readonly DOT_DIR="${HOME}/dotfiles"
 
 ym_echo ">> Make symbolic link"
-ym_echo $(pwd)
 ym_echo ">> Start .gitconfig link "
 
 # まず "git" の設定
-ln -snfv $(pwd)/.gitconfig ~/.gitconfig
+ln -snfv ${DOT_DIR}/.gitconfig ~/.gitconfig
 
 if [ $? = 0 ]
 then
@@ -59,12 +51,7 @@ then
 fi
 echo ""
 
-# # 実行したファイルのディレクトリに "cd"
-# cd $(dirname $0)
-
 ym_echo ">> Start dotfiles link "
-ym_echo "Current dir: $(pwd)"
-ym_echo "HOME dir: ${HOME}"
 
 for f in .??*
 do
@@ -88,15 +75,11 @@ do
 
     # シンボリックリンク 作成
     ym_echo ${f}
-    # ln -snfv ${PATH}/${f} ${HOME}/${f}
-    # ln -snfv ./${f} ~/${f}
-    ln -snfv $(pwd)/${f} ~/${f}
+    ln -snfv ${DOT_DIR}/${f} ~/${f}
 done
 
-# TODO: "tput setaf 2" と "tput sgr0" gr0)わからない -> 文字色？？
-# echo $(tput setaf 2)\>\> Deploy dotfiles complete$(tput sgr0)
-ym_echo ">> Deploy dotfiles complete"
-ym_echo ">> End link"
+ym_echo ">> dotfiles link success"
+ym_echo ">> End make symbolic link"
 ym_echo ""
 
 # # 汎用化前
