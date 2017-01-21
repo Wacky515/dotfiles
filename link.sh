@@ -41,6 +41,7 @@ ln -snfv ./.gitconfig ~/.gitconfig
 if [ $? = 0 ]
 then
     ym_echo ">> .gitconfig link success!"
+    echo ""
 
     readonly PC_NAME=$HOSTNAME
     readonly PROXY_PC=($(cat ./office_pc.txt));
@@ -62,8 +63,12 @@ then
 fi
 echo ""
 
+# # 実行したファイルのディレクトリに "cd"
+# cd $(dirname $0)
+
 ym_echo ">> Start dotfiles link "
 ym_echo "Current dir" `pwd`
+ym_echo `pwd`
 ym_echo "HOME dir:" ${HOME}
 
 for f in .??*
