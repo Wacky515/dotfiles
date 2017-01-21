@@ -1,4 +1,5 @@
 #!/bin/bash
+# @(#) This script is ~.
 # source /home/pi/dotfiles/function/color_echo.sh
 # source /home/pi/dotfiles/function/result_echo.sh
 
@@ -10,7 +11,6 @@ source /../../../function/result_echo.sh
 
 readonly PROCESS="setting keyboard layout"
 
-ym_echo ">> ${PROCESS^}"
 sudo mv /etc/default/keyboard /etc/default/keyboard.bak
 sudo cp ${PATH}/setting/keyboard \
     /etc/default/
