@@ -49,7 +49,8 @@ then
     readonly IFS=$'\n'
 
     ym_echo ">> This PC name: "$PC_NAME
-    ym_echo ">> In office PCs: "${PROXY_PC[@]}
+    ym_echo ">> In office PCs: "
+    ym_echo ${PROXY_PC[@]}
 
     if ! $(echo ${PROXY_PC[@]} | grep -q "$PC_NAME")
     then
@@ -67,8 +68,7 @@ echo ""
 # cd $(dirname $0)
 
 ym_echo ">> Start dotfiles link "
-ym_echo "Current dir" `pwd`
-ym_echo `pwd`
+ym_echo "Current dir: `pwd`"
 ym_echo "HOME dir:" ${HOME}
 
 for f in .??*
@@ -93,7 +93,8 @@ do
 
     # シンボリックリンク 作成
     ym_echo ${f}
-    ln -snfv ${PATH}/${f} ${HOME}/${f}
+    # ln -snfv ${PATH}/${f} ${HOME}/${f}
+    ln -snfv ./${f} ~/${f}
 done
 
 # TODO: "tput setaf 2" と "tput sgr0" gr0)わからない -> 文字色？？
