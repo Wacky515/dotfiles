@@ -9,7 +9,7 @@ Execute following command(last command takes about a 2 hour):
 $ cd
 $ git clone https://github.com/Wacky515/dotfiles.git
 $ cd ./dotfiles/etc/test/raspberry_pi
-$ sudo bash ./init_raspi.sh
+$ bash ./init_raspi.sh
 ```
 At the end of script, set the password for vnc.
 
@@ -21,7 +21,7 @@ $ sudo apt -y install git
 $ cd
 $ git clone https://github.com/wacky515/dotfiles.git
 $ cd ./dotfiles/etc/test/raspberry_pi
-$ sudo bash ./init_raspi.sh
+$ bash ./init_raspi.sh
 ```
 Raspberry Pi setup is done!
 

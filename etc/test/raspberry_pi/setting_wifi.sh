@@ -17,4 +17,13 @@ echo "SSID: ${SSID}"
 
 sudo sh -c "wpa_passphrase ${SSID} ${PASPH} >> \
     /etc/wpa_supplicant/wpa_supplicant.conf"
+
+grep "country=GB" /etc/wpa_supplicant/wpa_supplicant.conf
+if grep "country=GB" /etc/wpa_supplicant/wpa_supplicant.conf
+then
+        exit
+else
+        sed -i "country=JP" /etc/wpa_supplicant/wpa_supplicant.conf
+fi
+
 result_echo $? "${PROCESS}"
