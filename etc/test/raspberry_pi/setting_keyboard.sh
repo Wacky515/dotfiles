@@ -6,8 +6,11 @@
 # ファイル自身の絶対パス 取得
 readonly PATH=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 
-source /../../../function/color_echo.sh
-source /../../../function/result_echo.sh
+# source /../../../function/color_echo.sh
+# source /../../../function/result_echo.sh
+
+source ../../../function/color_echo.sh
+source ~/dotfiles/function/result_echo.sh
 
 readonly PROCESS="setting keyboard layout"
 
