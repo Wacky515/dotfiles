@@ -23,7 +23,7 @@ if grep "country=GB" /etc/wpa_supplicant/wpa_supplicant.conf
 then
         # exit
 # else
-        sed -i "country=JP" /etc/wpa_supplicant/wpa_supplicant.conf
+        sudo sed -i "country=JP" /etc/wpa_supplicant/wpa_supplicant.conf
 fi
 
 result_echo $? "${PROCESS}"
