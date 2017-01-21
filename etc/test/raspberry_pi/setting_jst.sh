@@ -4,12 +4,7 @@ source /home/pi/dotfiles/function/result_echo.sh
 
 readonly PROCESS="setting network time"
 
-ym_echo ">> ${PROCESS}^"
-
-# 以下のエラー 発生
-# mv: `/eltime.bak' の後に宛先のファイルオペランドがありません
-# Try 'mv --help' for more information.
-# 以上のエラー 発生
+ym_echo ">> ${PROCESS^}"
 
 # sudo mv /etc/localtime /etc/localtime.bak
 # sudo cp /etc/localtime /etc/localtime.bak
