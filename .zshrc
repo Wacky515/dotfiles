@@ -2,21 +2,24 @@
 export LANG=ja_JP.UTF-8
 
 ## プロンプト
-# 2行で表示、時刻を表示
-# PROMPT="%(?.%{${fg[green]}%}.%{${fg[red]}%})%n${reset_color}@${fg[blue]} \
-#         %m${reset_color}(%*%) %~ %# "
+# # 2行で表示、時刻を表示
+# PROMPT="%(?.%{${fg[green]}%}.%{${fg[red]}%})%n${reset_color}@ \
+#         ${fg[blue]}%m${reset_color}(%*%) %~ %# "
 
-# case ${UID} in
-# 0)
-#     PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %B%{${fg[red]}%}%/#%{${reset_color}%}%b "
-#     PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
-#     SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
-#     ;;
-# *)
-# (snip)
-# esac
+case ${UID} in
+0)
+    PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | \
+	tr '[a-z]' '[A-Z]') %B%{${fg[red]}%}%/#%{${reset_color}%}%b "
+    PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
+    SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]: \
+	%{${reset_color}%}%b "
+    ;;
+*)
+(snip)
+esac
 
-PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %B%{${fg[red]}%}%/#%{${reset_color}%}%b "
+# PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | \
+#   tr '[a-z]' '[A-Z]') %B%{${fg[red]}%}%/#%{${reset_color}%}%b "
 
 ## 補完系
 # コマンド補完
@@ -89,6 +92,20 @@ case ${OSTYPE} in
         alias ls='ls -F --color=auto'
         ;;
 esac
+
+## "ls" に色を付ける
+autoload -U compinit
+compinit
+
+export LSCOLORS=exfxcxdxbxegedabagacad
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43; \
+	34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+
+alias ls="ls -GF"
+alias gls="gls --color"
+
+zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' \
+    'ex=31' 'bd=46;34' 'cd=43;34'
 
 ## エイリアス
 alias la='ls -a'
