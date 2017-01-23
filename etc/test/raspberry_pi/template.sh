@@ -3,7 +3,7 @@
 
 source ~/dotfiles/function/result_echo.sh
 
-readonly PROCESS=process_name
+readonly PROCESS="process_name"
 
 ym_echo ">> ${PROCESS^}"
 # Code

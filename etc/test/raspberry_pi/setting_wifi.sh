@@ -1,5 +1,5 @@
 #!/bin/bash
-# @(#) Setting Wi-Fi
+# @(#) Setting Wi-Fi SSID, passphrase
 
 source ~/dotfiles/function/result_echo.sh
 
@@ -32,6 +32,6 @@ then
 fi
 
 result_echo $? "${PROCESS}"
-ym_echo "Reboot Wi-Fi device, please wait"
+ym_echo ">> Reboot Wi-Fi device, please wait"
 sudo ifup wlan0
 result_echo $? "Success reboot Wi-Fi"

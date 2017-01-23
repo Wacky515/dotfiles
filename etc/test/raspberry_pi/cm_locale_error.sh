@@ -3,7 +3,7 @@
 
 source ~/dotfiles/function/result_echo.sh
 
-readonly PROCESS=setting locale
+readonly PROCESS="setting locale"
 
 ym_echo ">> ${PROCESS^}"
 export LANG=en_US.UTF-8
