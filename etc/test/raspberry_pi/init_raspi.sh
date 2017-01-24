@@ -94,8 +94,9 @@ setup_dotfiles(){
     # SSH 有効化
     bash ./setting_ssh.sh
 
-    # zsh 設定
-    bash ./fix_zsh.sh
+    # "WebIOPi" がエラーになるためkill
+    # # zsh 設定
+    # bash ./fix_zsh.sh
 
     # "Jessie Lite" ではない時の処理
     bash ./gui_setting.sh
