@@ -8,3 +8,5 @@ readonly PROCESS="set loginshell zsh"
 ym_echo ">> ${PROCESS^}"
 chsh -s /usr/bin/zsh
 result_echo $? ${PROCESS}
+
+ym_echo ">> Please reboot"
