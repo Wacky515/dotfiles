@@ -1,12 +1,14 @@
 #!/bin/bash
 # @(#) Init setting Raspberry Pi
 
-# TODO:
-    # Wi-Fi 自動設定
-    # "source" の参照先 "/home/pi" を動的にする
 # FIXME:
 
+# TODO:
+    # Wi-Fi 自動設定
+
 # DONE  :#{{{
+    # "source" の参照先 "/home/pi" を動的にする
+    # -> 無駄な "sudo" を修正して解決
     # TightVNCServerVNC 自動起動
     # インストール用スクリプトの共通・GUI・Liteフォルダ分け
     # "Jessie" と "Jessie Lite" の処理 分ける
@@ -60,7 +62,7 @@ install_package(){
 
 	# "Vim" インストール
     ym_echo ">> Install \"Vim\""
-	sudo apt install -y vim
+	sudo apt install -y vim && \
 	sudo apt install -y vim-gtk
     result_echo $? "install \"Vim\""
 
@@ -76,12 +78,6 @@ setup_dotfiles(){
     ym_echo ">> Init setting"
     echo ""
 
-    # # 実行権限 付与  #{{{
-    # ym_echo ">> Change mode"
-    # sudo chmod +x ./*.sh
-    # result_echo $? "change mode"
-#}}}
-
     # "link.sh" 実施
     bash /home/pi/dotfiles/link.sh
 
@@ -94,9 +90,8 @@ setup_dotfiles(){
     # SSH 有効化
     bash ./setting_ssh.sh
 
-    # "WebIOPi" がエラーになるためkill
-    # # zsh 設定
-    # bash ./fix_zsh.sh
+    # zsh 設定
+    bash ./fix_zsh.sh
 
     # "Jessie Lite" ではない時の処理
     bash ./gui_setting.sh
@@ -136,7 +131,6 @@ ym_echo ">> Total time: ${HH}:${MM}:${SS}"
 readonly VER=$(dpkg -l | grep xinit)
 if [ "$VER" != "" ]
 then
-    # FIXME: "command not found"  になる
     ym_echo ">> Input password for VNC server"
     sudo /etc/init.d/vncboot start
 fi

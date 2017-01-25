@@ -1,5 +1,5 @@
 #!/bin/bash
-# @(#) Setting IP addr
+# @(#) Fix IP addr
 
 source ~/dotfiles/function/result_echo.sh
 

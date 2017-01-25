@@ -3,7 +3,7 @@
 
 source ~/dotfiles/function/result_echo.sh
 
-readonly PROCESS="set loginshell zsh"
+readonly PROCESS="set login shell zsh"
 
 ym_echo ">> ${PROCESS^}"
 chsh -s /usr/bin/zsh

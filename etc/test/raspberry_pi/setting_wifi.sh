@@ -5,7 +5,7 @@ source ~/dotfiles/function/result_echo.sh
 
 readonly PROCESS="setting Wi-Fi"
 sudo cp /etc/wpa_supplicant/wpa_supplicant.conf \
-    /etc/wpa_passphrase/wpa_supplicant.bak
+    /etc/wpa_passphrase/wpa_supplicant~
 
 ym_echo ">> ${PROCESS^}"
 sudo ifdown wlan0
@@ -20,15 +20,11 @@ echo ""
 sudo sh -c "wpa_passphrase ${SSID} ${PASPH} >> \
     /etc/wpa_supplicant/wpa_supplicant.conf"
 
-# grep "country=GB" /etc/wpa_supplicant/wpa_supplicant.conf
 if sudo grep "country=GB" /etc/wpa_supplicant/wpa_supplicant.conf
 then
     ym_echo ">> Change country"
-        # exit
-# else
-        # sudo sed -i "country=JP" /etc/wpa_supplicant/wpa_supplicant.conf
-        sudo sed -i.bak -e "s/country=GB/country=JP/g" \
-            /etc/wpa_supplicant/wpa_supplicant.conf
+    sudo sed -i.bak -e "s/country=GB/country=JP/g" \
+        /etc/wpa_supplicant/wpa_supplicant.conf
 fi
 
 result_echo $? "${PROCESS}"

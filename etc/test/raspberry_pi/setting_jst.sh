@@ -7,6 +7,6 @@ readonly PROCESS="setting network time"
 
 ym_echo ">> ${PROCESS^}"
 
-sudo mv /etc/localtime /etc/localtime.bak
-sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+# sudo mv /etc/localtime /etc/localtime~
+sudo ln -sfvb /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 result_echo $? "${PROCESS}"

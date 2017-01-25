@@ -17,9 +17,9 @@ then
 
     # 日本語環境 インストール
     ym_echo ">> Install Japanese environment"
-    # sudo apt install -y fonts-ipafont
-    # sudo apt install -y fonts-ipaexfont
-    sudo apt install -y fonts-vlgothic
+    # sudo apt install -y fonts-ipafont && \
+    # sudo apt install -y fonts-ipaexfont && \
+    sudo apt install -y fonts-vlgothic && \
     sudo apt install -y ibus-mozc
     result_echo $? "install Japanese environment"
 
@@ -29,9 +29,9 @@ then
     result_echo $? "install TightVNCViewer"
 
     # "man" コマンド日本語化
-    ym_echo ">> Install japanese \"man\""
+    ym_echo ">> Install Japanese \"man\""
     sudo apt install manpages-ja manpages-ja-dev
-    result_echo $? "install japanese \"man\""
+    result_echo $? "install Japanese \"man\""
 
     # # 端末 インストール  #{{{
     # sudo apt-get install -y gnome-terminal
