@@ -87,6 +87,9 @@ setup_dotfiles(){
     # キーボード配列 変更
     bash ./setting_keyboard.sh
 
+    # Wi-Fi 設定
+    bash ./setting_wifi.sh
+
     # SSH 有効化
     bash ./setting_ssh.sh
 
