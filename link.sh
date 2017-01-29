@@ -56,6 +56,12 @@ ym_echo ">> Start dotfiles link "
 for f in .??*
 do
     # 無視したいファイルやディレクトリは以下に追記
+
+    # ".bash_history" の "init処理" を追加（未テスト）
+    # ".zsh_history" の "init処理" を追加（未テスト）
+    [[ ${f} = ".bash_history" ]] ln -snv ${DOR_DIR}/${f} ~/${f}
+    [[ ${f} = ".zsh_history" ]] ln -snv ${DOR_DIR}/${f} ~/${f}
+
     [[ ${f} = ".git" ]] && continue
     # [[ ${f} = ".gitignore" ]] && continue
     [[ ${f} = ".gitconfig" ]] && continue
