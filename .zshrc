@@ -50,7 +50,7 @@ zstyle ":completion:*:sudo:*" \
 
 ## コマンド履歴系
 # 履歴をファイルに保存
-HISTFILE=$HOME/.zsh-history
+HISTFILE=$HOME/.zsh_history
 # メモリ保存数
 HISTSIZE=100000
 # ファイル保存数
