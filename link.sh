@@ -59,8 +59,8 @@ do
 
     # ".bash_history" の "init処理" を追加（未テスト）
     # ".zsh_history" の "init処理" を追加（未テスト）
-    [[ ${f} = ".bash_history" ]] && cp -bv ${DOR_DIR}/${f} ~/${f}
-    [[ ${f} = ".zsh_history" ]] && cp -bv ${DOR_DIR}/${f} ~/${f}
+    [[ ${f} = ".bash_history" ]] && cp -bv ${DOT_DIR}/${f} ~/${f}
+    [[ ${f} = ".zsh_history" ]] && cp -bv ${DOT_DIR}/${f} ~/${f}
 
     [[ ${f} = ".git" ]] && continue
     # [[ ${f} = ".gitignore" ]] && continue
@@ -87,6 +87,8 @@ done
 ym_echo ">> dotfiles link success"
 ym_echo ">> End make symbolic link"
 ym_echo ""
+
+source ${DOR_DIR}/.zshrc
 
 # # 汎用化前
 # ln -snfv ~/dotfiles/.gitignore ~/.gitignore  #{{{
