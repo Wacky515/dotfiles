@@ -88,8 +88,6 @@ ym_echo ">> dotfiles link success"
 ym_echo ">> End make symbolic link"
 ym_echo ""
 
-source ${DOR_DIR}/.zshrc
-
 # # 汎用化前
 # ln -snfv ~/dotfiles/.gitignore ~/.gitignore  #{{{
 # if [ $? = 0 ]; then
