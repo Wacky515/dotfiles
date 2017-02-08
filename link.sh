@@ -59,8 +59,8 @@ do
 
     # ".bash_history" の "init処理" を追加（未テスト）
     # ".zsh_history" の "init処理" を追加（未テスト）
-    [[ ${f} = ".bash_history" ]] ln -snv ${DOR_DIR}/${f} ~/${f}
-    [[ ${f} = ".zsh_history" ]] ln -snv ${DOR_DIR}/${f} ~/${f}
+    [[ ${f} = ".bash_history" ]] && ln -snv ${DOR_DIR}/${f} ~/${f}
+    [[ ${f} = ".zsh_history" ]] && ln -snv ${DOR_DIR}/${f} ~/${f}
 
     [[ ${f} = ".git" ]] && continue
     # [[ ${f} = ".gitignore" ]] && continue
