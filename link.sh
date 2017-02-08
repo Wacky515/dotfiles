@@ -13,7 +13,8 @@ source ~/dotfiles/function/result_echo.sh
 # 実行したフォルダに "cd"
 # ↓に "grep" 置換
 # 実行したファイルのディレクトリに "cd"
-cd $(dirname $0)
+# cd $(dirname $0)
+cd $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 
 readonly DOT_DIR="${HOME}/dotfiles"
 
@@ -53,14 +54,17 @@ echo ""
 
 ym_echo ">> Start dotfiles link "
 
+cp -bv ${DOT_DIR}/${f} ~/${f}
+cp -bv ${DOT_DIR}/${f} ~/${f}
+
 for f in .??*
 do
     # 無視したいファイルやディレクトリは以下に追記
 
     # ".bash_history" の "init処理" を追加（未テスト）
     # ".zsh_history" の "init処理" を追加（未テスト）
-    [[ ${f} = ".bash_history" ]] && cp -bv ${DOT_DIR}/${f} ~/${f}
-    [[ ${f} = ".zsh_history" ]] && cp -bv ${DOT_DIR}/${f} ~/${f}
+    [[ ${f} = ".bash_history" ]] && continue
+    [[ ${f} = ".zsh_history" ]] && continue
 
     [[ ${f} = ".git" ]] && continue
     # [[ ${f} = ".gitignore" ]] && continue
