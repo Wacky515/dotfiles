@@ -54,8 +54,8 @@ echo ""
 
 ym_echo ">> Start dotfiles link "
 
-cp -bv ${DOT_DIR}/${f} ~/${f}
-cp -bv ${DOT_DIR}/${f} ~/${f}
+cp -nv ${DOT_DIR}/.bash_history ~/.bash_history
+cp -nv ${DOT_DIR}/.zsh_history ~/.zsh_history
 
 for f in .??*
 do
