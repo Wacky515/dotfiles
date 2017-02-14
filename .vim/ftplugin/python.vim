@@ -44,17 +44,21 @@ nnoremap <F5> :w <ENTER> :!python % <ENTER>
 nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
 
 " "Anaconda" のパス
-python << EOF
-import os
+" "Linux" 環境下でエラー
+if !has("unix")
+    python << EOF
+        import os
+        import sys
 
-home = os.path.expanduser("~")
-path = home + "/Anaconda2/Lib/site-packages"
-if not path in sys.path:
-    sys.path.insert(0, path)
-EOF
+        home = os.path.expanduser("~")
+        path = home + "/Anaconda2/Lib/site-packages"
+        if not path in sys.path:
+            sys.path.insert(0, path)
+    EOF
+endif
 
 " 以下の条件分けは "endif" 無しエラーが解決できないためKill
-" if !has("unix")"{{{
+" if !has("unix")  "{{{
 "     python << EOF
 "         import os
 
@@ -74,11 +78,12 @@ EOF
 "     if not path in sys.path:
 "         sys.path.insert(0, path)
 "     EOF
-" endif"}}}
+" endif  "}}}
 
 " if !has("unix")"{{{
 "     python << EOF
 "     import os
+"     import sys
 
 "     home = os.path.expanduser("~")
 "     path = home + "/Anaconda2/Lib/site-packages"
@@ -91,6 +96,7 @@ EOF
 "     python << EOF
 "     import os
 "     import sys
+
 "     home = os.path.expanduser("~")
 "     path = home + "/Anaconda2/Lib/site-packages"
 "     if not path in sys.path:
