@@ -129,6 +129,7 @@ zstyle ":completion:*" list-colors "di=34" "ln=35" "so=32" \
 ## エイリアス
 alias la="ls -la"
 alias ll="ls -l"
+alias fn="find ./ -name"
 
 # 削除確認
 # alias rm="rm -i"
