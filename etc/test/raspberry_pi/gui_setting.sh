@@ -15,9 +15,6 @@ then
     # "Jessie Lite" ではない時の処理
     ym_echo ">> Setting for GUI"
 
-    # Wi-Fi 設定
-    bash ./setting_wifi.sh
-
     # 仮想デスクトップ環境 設定
     sudo cp -b ${SETTING}/lxpolkit.desktop \
         /etc/xdg/autostart/lxpolkit.desktop
