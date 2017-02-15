@@ -38,6 +38,10 @@ depends = ['context_filetype.vim']
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
+# "*" で検索時、単語ではなく選択範囲を対象にする
+[[plugins]]
+repo = 'https://github.com/nelstrom/vim-visual-star-search.git'
+
 # "()"、 "[]" などの操作
 [[plugins]]
 repo = 'tpope/vim-surround'
