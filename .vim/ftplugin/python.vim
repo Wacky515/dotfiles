@@ -17,7 +17,7 @@ augroup python
                 \ | highlight def link pythonSelf Special
 augroup end
 
-" !!!: .gvimの設定を記述すると "lightline" が有効にならない
+" !!!: ".gvim" の設定を記述すると "lightline" が有効にならない  "{{{
 " カラースキーマの指定
 " colorscheme molokai
 " colorscheme hybrid
@@ -28,6 +28,7 @@ augroup end
 " syntax on
 " syntax enable
 " set t_Co=256
+" }}}
 
 " 80文字目に赤いラインマークを入れる
 set colorcolumn=80
@@ -43,9 +44,9 @@ nnoremap <F5> :w <ENTER> :!python % <ENTER>
 " デバッグを実行
 nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
 
-" "Anaconda" のパス
+" "jedi-vim" で "Anaconda" のライブラリを補完できるようにpathを追加
 " "Linux" 環境下でエラー
-" if !has("unix")
+if !has("unix")
 python << EOF
 import os
 import sys
@@ -55,13 +56,13 @@ path = home + "/Anaconda2/Lib/site-packages"
 if not path in sys.path:
     sys.path.insert(0, path)
 EOF
-" endif
+endif
 
 " 以下の条件分けは "endif" 無しエラーが解決できないためKill
 " if !has("unix")  "{{{
 "     python << EOF
 "         import os
-
+"         import sys
 "         home = os.path.expanduser("~")
 "         path = home + "/Anaconda2/Lib/site-packages"
 "         if not path in sys.path:
@@ -84,7 +85,6 @@ EOF
 "     python << EOF
 "     import os
 "     import sys
-
 "     home = os.path.expanduser("~")
 "     path = home + "/Anaconda2/Lib/site-packages"
 "     if not path in sys.path:
@@ -96,7 +96,6 @@ EOF
 "     python << EOF
 "     import os
 "     import sys
-
 "     home = os.path.expanduser("~")
 "     path = home + "/Anaconda2/Lib/site-packages"
 "     if not path in sys.path:

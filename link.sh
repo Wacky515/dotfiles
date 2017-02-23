@@ -63,8 +63,13 @@ do
 
     # ".bash_history" の "init処理" を追加（未テスト）
     # ".zsh_history" の "init処理" を追加（未テスト）
+<<<<<<< HEAD
+    [[ ${f} = ".bash_history" ]] cp -snv ${DOR_DIR}/${f} ~/${f}
+    [[ ${f} = ".zsh_history" ]] cp -snv ${DOR_DIR}/${f} ~/${f}
+=======
     [[ ${f} = ".bash_history" ]] && continue
     [[ ${f} = ".zsh_history" ]] && continue
+>>>>>>> b00a2db5bece72e10b40ba51a44bb0515b7dea23
 
     [[ ${f} = ".git" ]] && continue
     # [[ ${f} = ".gitignore" ]] && continue

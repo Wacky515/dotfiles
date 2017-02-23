@@ -5,6 +5,9 @@ scriptencoding utf-8
 " 行番号の表示
 set number
 
+" 東アジアの文字のうち、A特性(ambiguous)な物についての文字幅を指定
+set ambiwidth=double
+
 " スクロール時の上・下端行数指定
 set scrolloff=3
 

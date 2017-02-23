@@ -34,9 +34,25 @@ repo = 'osyo-manga/vim-precious'
 depends = ['context_filetype.vim']
 [[plugins]] repo = 'Shougo/context_filetype.vim'
 
+# "vimshell"
+[[plugins]]
+repo = 'Shougo/vimshell'
+
 # Git用プラグイン
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
+# "undo" の操作を管理
+[[plugins]]
+repo = 'sjl/gundo.vim'
+
+# 関数、クラス、変数、構造体、列挙型、マクロ定義などの一覧を表示
+[[plugins]]
+repo = 'vim-scripts/taglist.vim'
+
+# "*" で検索時、単語ではなく選択範囲を対象にする
+[[plugins]]
+repo = 'https://github.com/nelstrom/vim-visual-star-search.git'
 
 # "()"、 "[]" などの操作
 [[plugins]]
