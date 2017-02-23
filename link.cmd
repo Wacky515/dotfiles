@@ -1,9 +1,9 @@
 @echo off
 
-echo "Start set link"
-
 rem "link.cmd" ‚ª‚ ‚é "Dir" ‚É "cd"
 cd /d %~dp0
+
+echo "Start set link"
 
 mklink %HOMEPATH%"\.gitconfig" ".\dotfiles\.gitconfig"
 rem echo %ERRORLEVEL%
