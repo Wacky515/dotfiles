@@ -6,8 +6,10 @@ else
     " try
     "     let g:previm_open_cmd = 'open -a Chrome'
     " catch
-        let g:previm_open_cmd = 'open -a Firefox'
+        " let g:previm_open_cmd = 'open -a Firefox'
     " endtry
+    let g:previm_open_cmd = 'open -a Firefox'
+    echo "test"
 endif
 
 " <Leader>md: 編集中のファイルをブラウザで表示
