@@ -3,12 +3,12 @@
 if has("mac")
     let g:previm_open_cmd = 'open -a Safari'
 else
-    " try
-    "     let g:previm_open_cmd = 'open -a Chrome'
-    " catch
-        " let g:previm_open_cmd = 'open -a Firefox'
-    " endtry
-    let g:previm_open_cmd = 'open -a Firefox'
+    try
+        let g:previm_open_cmd = 'open -a Chrome'
+    catch
+        let g:previm_open_cmd = 'open -a Firefox'
+    endtry
+    " let g:previm_open_cmd = 'open -a Firefox'
     echo "test"
 endif
 
