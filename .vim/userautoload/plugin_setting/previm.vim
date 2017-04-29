@@ -5,9 +5,10 @@ if has("mac")
 else
     try
         let g:previm_open_cmd = 'open -a Chrome'
+        echo "OK"
     catch
         let g:previm_open_cmd = 'open -a Firefox'
-        echo "test"
+        echo "No Chorme"
     endtry
     " let g:previm_open_cmd = 'open -a Firefox'
 endif
