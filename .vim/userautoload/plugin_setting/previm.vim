@@ -3,11 +3,11 @@
 if has("mac")
     let g:previm_open_cmd = 'open -a Safari'
 else
-    try
-        let g:previm_open_cmd = 'open -a Chrome'
-    catch
+    " try
+    "     let g:previm_open_cmd = 'open -a Chrome'
+    " catch
         let g:previm_open_cmd = 'open -a Firefox'
-    endtry
+    " endtry
 endif
 
 " <Leader>md: 編集中のファイルをブラウザで表示
