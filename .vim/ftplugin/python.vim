@@ -45,7 +45,7 @@ nnoremap <F5> :w <ENTER> :!python % <ENTER>
 nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
 
 " "jedi-vim" で "Anaconda" のライブラリを補完できるようにpathを追加
-" "Linux" 環境下でエラー
+" FIXED?: "Linux" 環境下でエラー
 if !has("unix")
 python << EOF
 import os

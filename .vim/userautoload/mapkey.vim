@@ -24,10 +24,10 @@ nnoremap <silent>bb :b#<CR>
 nmap ,v :edit $MYVIMRC<CR>
 " ,g: gvimrcを開く
 nmap ,g :edit $MYGVIMRC<CR>
-" <Space>rv: vimrcを反映
-nnoremap <silent> <Space>rv :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
-" <Space>rg: gvimrcを反映
-nnoremap <silent> <Space>rg :<C-u>source $MYGVIMRC<CR>
+" <Leader>rv: vimrcを反映
+nnoremap <silent> <Leader>rv :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
+" <Leader>rg: gvimrcを反映
+nnoremap <silent> <Leader>rg :<C-u>source $MYGVIMRC<CR>
 
 "Macの時ノーマルモードで:と;を入れ替える
 if has("mac")
@@ -58,12 +58,12 @@ endif
 " <Space> を "Leader" に割当て
 let mapleader = "\<Space>"
 
-" <Space>o: ファイルを開く
+" <Leader>o: ファイルを開く
 " !!!: プラグインが必要
 " nnoremap <Leader>o :CtrlP<CR>
 
-" <Space>w: ファイルを保存
+" <Leader>w: ファイルを保存
 nnoremap <Leader>w :w<CR>
 
-" <Space><Space>: ビジュアルラインモードに切替え
+" <Leader><Leader>: ビジュアルラインモードに切替え
 nmap <Leader><Leader> V
