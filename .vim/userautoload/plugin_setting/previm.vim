@@ -2,14 +2,10 @@
 """ Mac の場合
 if has("mac")
     let g:previm_open_cmd = 'open -a Safari'
+
+""" Windows の場合
 elseif has("win32") || has("win64")
     let g:previm_open_cmd = 'open -a Chrome'
-
-    " try
-    "     let g:previm_open_cmd = 'open -a Chrome'
-    " catch
-    "     let g:previm_open_cmd = 'open -a Firefox'
-    " endtry
 
 endif
 
