@@ -1,0 +1,1 @@
+regedit /E "D:\OneDrive\Biz\Settings\FoldersOptions\FoldersOptions.reg" "HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell"
