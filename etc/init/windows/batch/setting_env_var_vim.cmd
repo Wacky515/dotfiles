@@ -1,0 +1,1 @@
+setx PATH "%PATH%;%homepath%\vim80-kaoriya-win32"
