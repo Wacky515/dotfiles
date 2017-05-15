@@ -50,18 +50,18 @@ nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
 "       "hbalt071" の "jedi-vim" エラーの為
 " MEMO: 2017/05/12 復活
 " if !has("unix")
-python << EOF
-import os
-import sys
+" python << EOF
+" import os
+" import sys
 
-# home = os.path.expanduser("~")
-# path = home + "/Anaconda2/Lib/site-packages"
-# path = os.path.expanduser("C:\tools\Anaconda3\Lib\site-packages")
-# path = "C:\tools\Anaconda3\Lib\site-packages"
-path = "C:/tools/Anaconda3/Lib/site-packages"
-if not path in sys.path:
-    sys.path.insert(0, path)
-EOF
+" # home = os.path.expanduser("~")
+" # path = home + "/Anaconda2/Lib/site-packages"
+" # path = os.path.expanduser("C:\tools\Anaconda3\Lib\site-packages")
+" # path = "C:\tools\Anaconda3\Lib\site-packages"
+" path = "C:/tools/Anaconda3/Lib/site-packages"
+" if not path in sys.path:
+"     sys.path.insert(0, path)
+" EOF
 
 " if hostname() == "hbalt071"
 " python << EOF

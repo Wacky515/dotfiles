@@ -28,7 +28,7 @@ repo = 'Shougo/neosnippet-snippets'
 [[plugins]]
 repo = 'Shougo/neocomplcache.vim'
 
-# カーソル位置のコンテキストに合わせて "filetype" を切り替え
+# カーソル位置の "filetype" に切り替え
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = ['context_filetype.vim']
@@ -42,11 +42,11 @@ repo = 'Shougo/vimshell'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
-# "undo" の操作を管理
+# "undo" 管理
 [[plugins]]
 repo = 'sjl/gundo.vim'
 
-# 関数、クラス、変数、構造体、列挙型、マクロ定義などの一覧を表示
+# 関数、クラス、変数、構造体、列挙型、マクロ定義など 一覧表示
 [[plugins]]
 repo = 'vim-scripts/taglist.vim'
 
@@ -54,24 +54,24 @@ repo = 'vim-scripts/taglist.vim'
 [[plugins]]
 repo = 'https://github.com/nelstrom/vim-visual-star-search.git'
 
-# "()"、 "[]" などの操作
+# "()"、 "[]" など 対入力
 [[plugins]]
 repo = 'tpope/vim-surround'
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
 
-# コメントのON/OFFをショートカットキーでトグル
+# コメントON/OFF ショートカットキートグル
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
 
-# インデントをカラー化
+# インデント カラー化
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 
-# 行末の半角スペースを可視化
+# 行末半角スペースを 視化
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
 
-# ステータスラインのビジュアルを強化
+# ステータスライン ビジュアル強化
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 # < http://itchyny.hatenablog.com/entry/20130828/1377653592 >
@@ -96,7 +96,7 @@ repo = 'itchyny/lightline.vim'
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
 # < http://nanasi.jp/vim/align.html >
 
-# コピペの履歴を保存
+# コピペ 履歴保存
 # [[plugins]]
 # repo = 'vim-scripts/YankRing.vim'
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
@@ -114,7 +114,7 @@ repo = 'itchyny/lightline.vim'
 # repo = 'vim-jp/vimdoc-ja'
 # on_ft = 'help'
 
-# ビジュアル選択部を "*"  で検索
+# ビジュアル選択部を "*" で検索
 # 'nelstrom/vim-visual-star-search
 
 # "ctags" 自動更新
