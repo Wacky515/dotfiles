@@ -10,7 +10,7 @@ on_ft = ['snippet']
 repo = 'Shougo/neomru.vim'
 on_path = '.*'
 
-# Python開発用プラグイン
+# Python用プラグイン
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
 on_ft = 'python'
