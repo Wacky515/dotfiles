@@ -67,3 +67,6 @@ nnoremap <Leader>w :w<CR>
 
 " <Leader><Leader>: ビジュアルラインモードに切替え
 nmap <Leader><Leader> V
+
+" <Leader>t: "typora" 起動
+nnoremap <Leader>t :! start typora.exe "%:p"<CR>
