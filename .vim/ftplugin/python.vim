@@ -44,35 +44,18 @@ nnoremap <F5> :w <ENTER> :!python % <ENTER>
 " デバッグを実行
 nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
 
-" "jedi-vim" で "Anaconda" のライブラリを補完できるようにpathを追加
+" jedi-vim" で "Anaconda3 " のライブラリを補完できるようにpathを追加
 " FIXED?: "Linux" 環境下でエラー
-" MEMO: 2017/05/10 以下のヒアドキュメントをキル
-"       "hbalt071" の "jedi-vim" エラーの為
-" MEMO: 2017/05/12 復活
-" if !has("unix")
-" python << EOF
-" import os
-" import sys
+if !has("unix")
+python3 << EOF
+import os
+import sys
 
-" # home = os.path.expanduser("~")
-" # path = home + "/Anaconda2/Lib/site-packages"
-" # path = os.path.expanduser("C:\tools\Anaconda3\Lib\site-packages")
-" # path = "C:\tools\Anaconda3\Lib\site-packages"
-" path = "C:/tools/Anaconda3/Lib/site-packages"
-" if not path in sys.path:
-"     sys.path.insert(0, path)
-" EOF
-
-" if hostname() == "hbalt071"
-" python << EOF
-" import os
-" import sys
-
-" path = os.path.expanduser("C:\tools\Anaconda3\Lib\site-packages")
-" if not path in sys.path:
-"     sys.path.append(path)
-" EOF
-" endif
+path = "C:/tools/Anaconda3/Lib/site-packages"
+if not path in sys.path:
+    sys.path.insert(0, path)
+EOF
+endif
 
 " 以下の条件分けは "endif" 無しエラーが解決できないためKill
 " if !has("unix")  "{{{
