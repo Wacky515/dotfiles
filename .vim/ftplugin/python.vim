@@ -1,4 +1,4 @@
-scriptencoding utf-8
+﻿scriptencoding utf-8
 
 if exists("b:did_ftplugin_python")
     finish
@@ -47,7 +47,8 @@ nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
 " jedi-vim" で "Anaconda3 " のライブラリを補完できるようにpathを追加
 " FIXED?: "Linux" 環境下でエラー
 if !has("unix")
-python3 << EOF
+" python3 << EOF
+python << EOF
 import os
 import sys
 
