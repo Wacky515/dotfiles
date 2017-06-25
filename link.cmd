@@ -29,6 +29,7 @@ if %ERRORLEVEL% == 0 (
 
     :end_gitconfig
 
+    mklink %HOMEPATH%"\.minttyrc" ".\dotfiles\.minttyrc"
     mklink %HOMEPATH%"\.gitignore" ".\dotfiles\.gitignore"
     mklink %HOMEPATH%"\.zshrc" ".\dotfiles\.zshrc"
 
