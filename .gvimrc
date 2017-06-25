@@ -54,9 +54,11 @@ elseif has("win32") || has("win64")
         set guifont=Ricty_Diminished:h12
     elseif hostname() == "hbalt071"
         set guifont=Myrica_M:h15
+    elseif hostname() == "hbamb748"
+        set guifont=Ricty_Diminished:h12
     else
         " set guifont=Ricty_Diminished:h15
-        set guifont=Meiryo UI:h18
+        set guifont=Meiryo_UI:h18
     endif
 endif
 
