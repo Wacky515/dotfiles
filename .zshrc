@@ -149,3 +149,9 @@ alias sudo="sudo "
 # # グローバルエイリアス
 # alias -g L="| less"
 # alias -g G="| grep"
+
+# Homebrew Error対策
+alias brew="env PATH=${PATH/\/Users\/wacky515\/\.pyenv\/shims:/} brew"
+
+# zsh起動 Error対策
+compinit -u
