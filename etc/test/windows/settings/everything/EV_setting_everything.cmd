@@ -51,6 +51,13 @@ echo "PWD: %bat_path%"
 for %%i in (*.ini) do (
     mklink %eve_path%"\"%%i "%bat_path%\%%i"
 )
+
+if not exist "%USERPROFILE%\Desktop\ Everything.lnk" (
+    goto cplnk) else (
+    goto end
+
+:cplnk
 xcopy Everything.lnk "%USERPROFILE%\Desktop\"
 
+:end
 pause
