@@ -4,9 +4,6 @@ rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 cd /d %bat_path%
 
-echo "Setting CCleaner option manually first(Use .ini file for setting)"
-pause
-
 rem 日付取得
 set yyyy=%date:~0,4%
 set mm=%date:~5,2%
