@@ -52,11 +52,12 @@ for %%i in (*.ini) do (
     mklink %eve_path%"\"%%i "%bat_path%\%%i"
 )
 
-if not exist "%USERPROFILE%\Desktop\ Everything.lnk" (
+if not exist "%USERPROFILE%\Desktop\Everything.lnk" (
     goto cplnk) else (
     goto end
 
 :cplnk
+echo "Make shortcut in Desktop
 xcopy Everything.lnk "%USERPROFILE%\Desktop\"
 
 :end
