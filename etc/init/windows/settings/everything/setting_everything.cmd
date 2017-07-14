@@ -53,16 +53,23 @@ for %%i in (*.ini) do (
     mklink %eve_path%"\"%%i "%bat_path%\%%i"
 )
 
+rem デスクトップショートカット 作成
 if not exist "%USERPROFILE%\Desktop\Everything.lnk" (
     goto cplnk
 ) else (
+<<<<<<< HEAD
     echo "Already set desktop shortcut"
+=======
+>>>>>>> a2ac65916c38779e69867e4b43004785ba7fbc2e
     goto end
 )
 
 :cplnk
 echo "Make shortcut in Desktop
+<<<<<<< HEAD
 rem copy Everything.lnk "%USERPROFILE%\Desktop\"
+=======
+>>>>>>> a2ac65916c38779e69867e4b43004785ba7fbc2e
 copy Everything.lnk %USERPROFILE%\Desktop\
 
 :end
