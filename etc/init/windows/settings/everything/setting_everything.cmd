@@ -52,13 +52,16 @@ for %%i in (*.ini) do (
     mklink %eve_path%"\"%%i "%bat_path%\%%i"
 )
 
+rem デスクトップショートカット 作成
 if not exist "%USERPROFILE%\Desktop\Everything.lnk" (
-    goto cplnk) else (
+    goto cplnk
+) else (
     goto end
+)
 
 :cplnk
 echo "Make shortcut in Desktop
-xcopy Everything.lnk "%USERPROFILE%\Desktop\"
+copy Everything.lnk %USERPROFILE%\Desktop\
 
 :end
 pause
