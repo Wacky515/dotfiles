@@ -25,27 +25,21 @@ taskkill /f /im Everything.exe
 
 rem バックアップ 作成
 set eve_path="C:"%HOMEPATH%"\AppData\Roaming\Everything\"
-rem set backup=%eve_path%"\old\"
-set backup=%eve_path%"\old\%tstmp%"
-
-rem ren %eve_path% "Everything_"%tstmp%"
+set backup=%eve_path%"\old\"%tstmp%"
 
 if exist %backup% (
-    goto file_true
+    goto mkbkdir
 ) else (
-    goto file_false
+    goto mknkfl
 )
 
-:file_false
+:mkbkdir
 mkdir %backup%
 
-:file_true
-rem move %eve_path%"_"%tstmp% %backup%
+:mknkfl
 for %%i in (*.ini) do (
     move %eve_path%"\"%%i %backup%
 )
-
-rem mkdir %eve_path%
 
 rem シンボリックリンク 作成
 echo "PWD: %bat_path%"
@@ -57,40 +51,27 @@ rem デスクトップショートカット 作成
 if not exist "%USERPROFILE%\Desktop\Everything.lnk" (
     goto cplnk
 ) else (
-<<<<<<< HEAD
     echo "Already set desktop shortcut"
-=======
->>>>>>> a2ac65916c38779e69867e4b43004785ba7fbc2e
     goto end
 )
 
-
 :cplnk
-<<<<<<< HEAD
 echo "Make shortcut in Desktop"
 
 if exist "C:\Program Files (x86)\Everything\Everything.exe" goto evex64
 if exist "C:\Program Files\Everything\Everything.exe" (
     goto eve
 ) else (
-    goto EOF
+    goto end
 )
 
 :evex64
-copy x86_shortcut\Everything.lnk %USERPROFILE%\Desktop\
+copy .\x86_shortcut\Everything.lnk %USERPROFILE%\Desktop\
 goto end
 
 :eve
-copy shortcut\Everything.lnk %USERPROFILE%\Desktop\
+copy .\shortcut\Everything.lnk %USERPROFILE%\Desktop\
 goto end
-=======
-echo "Make shortcut in Desktop
-<<<<<<< HEAD
-rem copy Everything.lnk "%USERPROFILE%\Desktop\"
-=======
->>>>>>> a2ac65916c38779e69867e4b43004785ba7fbc2e
-copy Everything.lnk %USERPROFILE%\Desktop\
->>>>>>> 8a491850ee884b0e6aab098e55698d1ac9744517
 
 :end
 pause
