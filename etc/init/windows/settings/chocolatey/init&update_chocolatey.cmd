@@ -1,6 +1,6 @@
 @echo off
 
-chocolatey -v
+chocolatey -v >> nul
 rem echo %ERRORLEVEL%
 if %ERRORLEVEL% EQU 0 goto update
 
