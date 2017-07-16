@@ -1,18 +1,18 @@
 @echo off
 
-rem ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "cd"
+rem ƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "cd"
 set bat_path=%~dp0
 cd /d %bat_path%
 
 echo "Setting mermaid.js in Atom"
 echo "Kill Atom"
 
-rem æ—¥ä»˜å–å¾—
+rem “ú•tæ“¾
 set yyyy=%date:~0,4%
 set mm=%date:~5,2%
 set dd=%date:~8,2%
 
-rem æ™‚åˆ»å–å¾—
+rem æ“¾
 set hh=%time:~0,2%
 set mi=%time:~3,2%
 set ss=%time:~6,2%
@@ -20,10 +20,10 @@ set ss=%time:~6,2%
 set tstmp=%yyyy%%mm%%dd%-%hh%%mi%%ss%
 echo "Time stamp: "%tstmp%
 
-rem "Atom" åœæ­¢
+rem "Atom" ’â~
 taskkill /f /im Atom.exe
 
-rem ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ— ä½œæˆ
+rem ƒoƒbƒNƒAƒbƒv ì¬
 rem set atom_path="C:"%HOMEPATH%"\.mume\mermaid_config.js"
 set atom_path="C:"%HOMEPATH%"\.mume\"
 set backup=%atom_path%"\old\"%tstmp%
@@ -42,7 +42,7 @@ for %%i in (mermaid_config.js) do (
     move %atom_path%"\"%%i %backup%
 )
 
-rem ã‚·ãƒ³ãƒœãƒªãƒƒã‚¯ãƒªãƒ³ã‚¯ ä½œæˆ
+rem ƒVƒ“ƒ{ƒŠƒbƒNƒŠƒ“ƒN ì¬
 echo "PWD: %bat_path%"
 for %%i in (mermaid_config.js) do (
     mklink %atom_path%"\"%%i "%bat_path%\%%i"

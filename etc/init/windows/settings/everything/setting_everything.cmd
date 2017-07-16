@@ -1,18 +1,18 @@
 @echo off
 
-rem "setting_everything.cmd" ãŒã‚ã‚‹ "Dir" ã« "cd"
+rem "setting_everything.cmd" ‚ª‚ ‚é "Dir" ‚É "cd"
 set bat_path=%~dp0
 cd /d %bat_path%
 
 echo "Setting Everything"
 echo "Kill Everything"
 
-rem æ—¥ä»˜å–å¾—
+rem “ú•tæ“¾
 set yyyy=%date:~0,4%
 set mm=%date:~5,2%
 set dd=%date:~8,2%
 
-rem æ™‚åˆ»å–å¾—
+rem æ“¾
 set hh=%time:~0,2%
 set mi=%time:~3,2%
 set ss=%time:~6,2%
@@ -20,12 +20,12 @@ set ss=%time:~6,2%
 set tstmp=%yyyy%%mm%%dd%-%hh%%mi%%ss%
 echo "Time stamp: "%tstmp%
 
-rem "Everything" åœæ­¢
+rem "Everything" ’â~
 taskkill /f /im Everything.exe
 
-rem ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ— ä½œæˆ
+rem ƒoƒbƒNƒAƒbƒv ì¬
 set eve_path="C:"%HOMEPATH%"\AppData\Roaming\Everything\"
-set backup=%eve_path%"\old\"%tstmp%"
+set backup=%eve_path%"\old\"%tstmp%
 
 if exist %backup% (
     goto mkbkdir
@@ -41,14 +41,14 @@ for %%i in (*.ini) do (
     move %eve_path%"\"%%i %backup%
 )
 
-rem ã‚·ãƒ³ãƒœãƒªãƒƒã‚¯ãƒªãƒ³ã‚¯ ä½œæˆ
+rem ƒVƒ“ƒ{ƒŠƒbƒNƒŠƒ“ƒN ì¬
 echo "PWD: %bat_path%"
 for %%i in (*.ini) do (
     mklink %eve_path%"\"%%i "%bat_path%\%%i"
 )
 
-rem ãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ—ã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆ ä½œæˆ
-if not exist "%USERPROFILE%\Desktop\Everything.lnk" (
+rem ƒfƒXƒNƒgƒbƒvƒVƒ‡[ƒgƒJƒbƒg ì¬
+if not exist %USERPROFILE%"\Desktop\Everything.lnk" (
     goto cplnk
 ) else (
     echo "Already set desktop shortcut"
@@ -66,11 +66,11 @@ if exist "C:\Program Files\Everything\Everything.exe" (
 )
 
 :evex64
-copy .\x86_shortcut\Everything.lnk %USERPROFILE%\Desktop\
+copy ".\x86_shortcut\Everything.lnk" %USERPROFILE%"\Desktop\"
 goto end
 
 :eve
-copy .\shortcut\Everything.lnk %USERPROFILE%\Desktop\
+copy ".\shortcut\Everything.lnk" %USERPROFILE%"\Desktop\"
 goto end
 
 :end
