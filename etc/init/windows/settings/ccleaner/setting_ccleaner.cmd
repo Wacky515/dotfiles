@@ -22,9 +22,10 @@ rem "CCleaner" í‚é~
 taskkill /f /im CCleaner.exe
 
 if exist %inifile% (
-    goto bkup) else (
+    goto bkup
+) else (
     goto cpini
-    )
+)
 
 :bkup
 echo "Backup old .ini"
@@ -32,6 +33,6 @@ ren %inifile% "ccleaner"%tstmp%".ini"
 
 :cpini
 echo "Copy .ini"
-copy ccleaner.ini %inifile%
+copy "ccleaner.ini" %inifile%
 
 pause
