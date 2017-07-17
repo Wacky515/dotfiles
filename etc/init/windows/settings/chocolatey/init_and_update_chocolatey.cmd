@@ -1,5 +1,9 @@
 @echo off
 
+rem "setting_everything.cmd" がある "Dir" に "cd"
+set bat_path=%~dp0
+cd /d %bat_path%
+
 chocolatey -v >> nul
 rem echo %ERRORLEVEL%
 if %ERRORLEVEL% EQU 0 goto update
@@ -14,5 +18,16 @@ rem ) else (
 :update
 echo "Already installed Chocolatey, Update software"
 cup all -y
+
+rem デスクトップショートカット 作成
+if not exist %USERPROFILE%"\Desktop\"%~n0".lnk" (
+    goto cplnk
+) else (
+    echo "Already set desktop shortcut"
+    goto end
+)
+
+:cplnk
+copy %~n0".lnk" %USERPROFILE%"\Desktop\"
 
 pause
