@@ -48,7 +48,7 @@ elseif has("unix")
 elseif has("win32") || has("win64")
     if hostname() == "SaladCarbonX1"
         set guifont=Ricty_Diminished:h12
-    if hostname() == "LAPTOP-DOA35GAR"
+    elseif hostname() == "LAPTOP-DOA35GAR"
         set guifont=Ricty_Diminished:h12
     elseif hostname() == "hbalt071"
         set guifont=Myrica_M:h15
