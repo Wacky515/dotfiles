@@ -1,6 +1,6 @@
 @echo off
 
-rem "setting_everything.cmd" がある "Dir" に "cd"
+rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 cd /d %bat_path%
 
