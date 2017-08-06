@@ -46,6 +46,8 @@ elseif has("unix")
     set guifont=DejaVu\ Sans\ Mono\ 13
 
 elseif has("win32") || has("win64")
+    if hostname() == "SaladCarbonX1"
+        set guifont=Ricty_Diminished:h12
     if hostname() == "LAPTOP-DOA35GAR"
         set guifont=Ricty_Diminished:h12
     elseif hostname() == "hbalt071"
@@ -53,12 +55,14 @@ elseif has("win32") || has("win64")
     elseif hostname() == "hbamb748"
         set guifont=Ricty_Diminished:h16
 
+    " Xacti setting
     elseif hostname() == "CAD0021"
         set guifont=Ricty_Diminished:h15
     elseif hostname() == "PC-SA4110204580"
         set guifont=Ricty_Diminished:h12
     elseif hostname() == "NOT0053"
         set guifont=Ricty_Diminished:h12
+
     else
         set guifont=Meiryo_UI:h18
     endif
