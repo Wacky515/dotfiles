@@ -28,11 +28,12 @@ if exist %inifile% (
 )
 
 :bkup
-echo "Backup old .ini"
-ren %inifile% "ccleaner"%tstmp%".ini"
+echo Backup old .ini
+rem FIXME: Syntax error
+ren %inifile% ccleaner%tstmp%.ini
 
 :cpini
-echo "Copy .ini"
+echo Copy .ini
 copy "ccleaner.ini" %inifile%
 
 pause
