@@ -4,8 +4,8 @@ rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 cd /d %bat_path%
 
-echo "Setting mermaid.js in Atom"
-echo "Kill Atom"
+echo Setting mermaid.js in Atom
+echo Kill Atom
 
 rem 日付取得
 set yyyy=%date:~0,4%
@@ -18,7 +18,7 @@ set mi=%time:~3,2%
 set ss=%time:~6,2%
 
 set tstmp=%yyyy%%mm%%dd%-%hh%%mi%%ss%
-echo "Time stamp: "%tstmp%
+echo Time stamp: %tstmp%
 
 rem "Atom" 停止
 taskkill /f /im Atom.exe
