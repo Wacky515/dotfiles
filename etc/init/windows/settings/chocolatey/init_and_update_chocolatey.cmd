@@ -36,4 +36,4 @@ if not exist %USERPROFILE%"\Desktop\"%~n0".lnk" (
 copy %~n0".lnk" %USERPROFILE%"\Desktop\"
 
 :end
-pause
+rem pause
