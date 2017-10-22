@@ -1,13 +1,19 @@
 "ブラウザの設定"
 """ Mac の場合
 if has("mac")
-    let g:previm_open_cmd = 'open -a Safari'
+    let g:previm_open_cmd = "open -a Safari"
 
-""" Windows の場合
+" 以下をONにすると "vimproc" のエラーになる
+"" Windows の場合
 elseif has("win32") || has("win64")
-    let g:previm_open_cmd = 'open -a Chrome'
+    " let g:previm_open_cmd = "open -a Chrome"
+    let g:previm_open_cmd = ""
 
 endif
+
+" GitHub的な見た目
+let g:previm_disable_default_css = 1
+let g:previm_custom_css_path = "~/dotfiles/.vim/template/previm/markdown.css"
 
 " <Leader>md: 編集中のファイルをブラウザで表示
 nnoremap <silent> <Leader>md :PrevimOpen<CR>
