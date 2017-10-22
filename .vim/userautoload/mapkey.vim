@@ -5,6 +5,19 @@ scriptencoding utf-8
 " 入力モード中 jj: <Esc>
 inoremap jj <Esc>
 
+" <Ctrl>s: エクスプローラで保存場所選択して保存
+imap <script> <C-s> <SID>(gui-save)<Esc>
+nmap <script> <C-s> <SID>(gui-save)
+imap <script> <SID>(gui-save) <C-o><SID>(gui-save)
+nnoremap      <SID>(gui-save) :<C-u>call <SID>gui_save()<CR>
+function! s:gui_save()
+    if bufname('%') ==# ''
+        browse confirm saveas
+    else
+        update
+    endif
+endfunction
+
 " vv / Y: 行末まで選択
 vnoremap v $h
 nnoremap Y y$
