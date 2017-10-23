@@ -12,8 +12,8 @@ elseif has("win32") || has("win64")
 endif
 
 " GitHub的な見た目
-let g:previm_disable_default_css = 1
-let g:previm_custom_css_path = "~/dotfiles/.vim/template/previm/markdown.css"
+" let g:previm_disable_default_css = 1
+" let g:previm_custom_css_path = "~/dotfiles/.vim/template/previm/markdown.css"
 
 " <Leader>md: 編集中のファイルをブラウザで表示
 nnoremap <silent> <Leader>md :PrevimOpen<CR>
