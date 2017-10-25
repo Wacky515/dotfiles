@@ -82,4 +82,4 @@ nnoremap <Leader>w :w<CR>
 nmap <Leader><Leader> V
 
 " <Leader>t: "typora" 起動
-nnoremap <Leader>t :! start typora.exe "%:p"<CR>
+" nnoremap <Leader>t :! start typora.exe "%:p"<CR>

@@ -26,7 +26,8 @@ nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
 nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
 " FIXME: 使用できない
 " 最近使用したファイル一覧
-nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
+" nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
+nnoremap <silent> [unite]m :Unite file_mru<CR>
 nnoremap <silent> [unite]w :<C-u>Unite window<CR>
 "file_mruの表示フォーマットを指定。空にすると表示スピードが高速化される
 let g:unite_source_file_mru_filename_format = ''
