@@ -63,6 +63,10 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
 
+# ウィンドウサイズ変更 簡便化
+[[plugins]]
+repo = 'simeji/winresizer'
+
 # インデント カラー化
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'

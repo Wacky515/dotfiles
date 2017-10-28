@@ -3,22 +3,47 @@ scriptencoding utf-8
 """ 外観テーマ篇 """
 
 " カラースキーマの指定
-" colorscheme molokai
 colorscheme hybrid
+" colorscheme molokai
 " colorscheme desert
 " colorscheme jellybeans
+
 " 暗背景用の配色にする
 set background=dark
-" 明背景用の配色にする
+" " 明背景用の配色にする
 " set background=light
 
 " シンタックスハイライト
+syntax on
+    " ファイルタイプ系ハイライトプラグインを導入している場合
+    " syntax on" は現在のruntimepathに含まれている設定をもとにシンタックスを生成する
+    " runtimepathを初期化するような処理をした後にsyntax onしてもあまり意味はなく
+    " runtimepathをすべて設定し終えた後にsyntax onをするべき
+        " 悪いパターン
+            " runtimepathを初期化するような処理
+            " set runtimepath=$VIMRUNTIME
+            " syntax on
+            " ファイルタイプ系ハイライトプラグイン
+            " neoBundle 'kongo2002/fsharp-vim'
+        " 良いパターン
+            " runtimepathを初期化するような処理
+            " set runtimepath=$VIMRUNTIME
+            " ファイルタイプ系ハイライトプラグイン
+            " neoBundle 'kongo2002/fsharp-vim'
+
 syntax on
 " ターミナルwo256色表示
 set t_Co=256
 
 " コマンドラインの行数
 set cmdheight=5
+
+" メッセージ 文字化け対策
+if has("win32") || ("win64")
+    source $VIMRUNTIME/delmenu.vim
+    set langmenu=ja_jp.utf-8
+    source $VIMRUNTIME/menu.vim
+endif
 
 " ウィンドウ 半透明化（LinuxはVimから設定できない）
 if has("mac")
