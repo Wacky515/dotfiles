@@ -1,13 +1,13 @@
 @echo off
 
-rem „Çπ„ÇØ„É™„Éó„Éà„Åå„ÅÇ„Çã "Dir" „Å´ "cd"
+rem  ÉXÉNÉäÉvÉgÇ™Ç†ÇÈ "Dir" Ç… "cd"
 cd /d %~dp0
 
-echo "Start set link"
+echo Start set link
 
 mklink %HOMEPATH%"\.gitconfig" ".\dotfiles\.gitconfig"
 if %ERRORLEVEL% == 0 (
-    echo ".gitconfig link success!"
+    echo .gitconfig link success!
 
     echo This PC name: %COMPUTERNAME%
     for /f "delims=" %%i in (C:.\office_pc.txt) do (
@@ -28,18 +28,31 @@ if %ERRORLEVEL% == 0 (
     git config --system https.proxy https://proxy.intra.xacti-co.com:8080
 
     :end_gitconfig
-    rem "forï∂" Ç…Ç∑ÇÈ
-    mklink %HOMEPATH%"\.minttyrc" ".\dotfiles\.minttyrc"
-    mklink %HOMEPATH%"\.gitignore" ".\dotfiles\.gitignore"
-    mklink %HOMEPATH%"\.zshrc" ".\dotfiles\.zshrc"
-    mklink %HOMEPATH%"\.ctags" ".\dotfiles\.ctags"
+    rem DONE: "forï∂" Ç…Ç∑ÇÈ
+    rem mklink %HOMEPATH%"\.ctags" ".\dotfiles\.ctags"{{{
+    rem mklink %HOMEPATH%"\.gitignore" ".\dotfiles\.gitignore"
+    rem mklink %HOMEPATH%"\.minttyrc" ".\dotfiles\.minttyrc"
+    rem mklink %HOMEPATH%"\.zshrc" ".\dotfiles\.zshrc"
 
-    mklink %HOMEPATH%"\.vimrc" ".\dotfiles\.vimrc"
-    mklink %HOMEPATH%"\.gvimrc" ".\dotfiles\.gvimrc"
+    rem mklink %HOMEPATH%"\.vimrc" ".\dotfiles\.vimrc"
+    rem mklink %HOMEPATH%"\.gvimrc" ".\dotfiles\.gvimrc"
+    rem }}}
+
+    for %%j in (.*) do (
+        if %%j == .bash_history (
+        rem echo ignore1 %%j
+        ) else if %%j == .gitconfig (
+        rem echo ignore2 %%j
+        ) else if %%j == .zsh_history (
+        rem echo ignore3 %%j
+        ) else (
+        echo Set link %%j
+        mklink %HOMEPATH%"\"%%j ".\dotfiles\"%%j
+        )
+    )
+
     mklink /D %HOMEPATH%"\.vim" ".\dotfiles\.vim"
-
     echo End set link
 
-    pause
-
-    exit 0
+pause
+exit /b 0
