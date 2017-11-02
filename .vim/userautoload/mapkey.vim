@@ -41,6 +41,10 @@ nmap ,g :edit $MYGVIMRC<CR>
 nnoremap <silent> <Leader>rv :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
 " <Leader>rg: gvimrcを反映
 nnoremap <silent> <Leader>rg :<C-u>source $MYGVIMRC<CR>
+" " <Leader>,v: vimrcを反映
+" nnoremap <silent> <Leader>,v :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
+" " <Leader>,g: gvimrcを反映
+" nnoremap <silent> <Leader>,g :<C-u>source $MYGVIMRC<CR>
 
 "Macの時ノーマルモードで:と;を入れ替える
 if has("mac")
