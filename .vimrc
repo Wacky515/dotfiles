@@ -1,78 +1,78 @@
 scriptencoding utf-8
 
-" !!!: å¿…ãšå…ˆé ­ã«è¨˜è¿°
-" "autocmd"ï¼ˆãƒã‚¯ãƒ­ï¼‰ ã®åˆæœŸåŒ–
+" !!!: •K‚¸æ“ª‚É‹Lq
+" "autocmd"iƒ}ƒNƒj ‚Ì‰Šú‰»
 augroup MyAutoCmd
     autocmd!
 augroup END
 
 " --------------------------------------------------------------------------------
-" dein.vimã®è¨­å®š
+" dein.vim‚Ìİ’è
 " --------------------------------------------------------------------------------
 if !&compatible
     set nocompatible
 endif
 
-" Vimèµ·å‹•å®Œäº†æ™‚ã«ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
+" Vim‹N“®Š®—¹‚ÉƒCƒ“ƒXƒg[ƒ‹
 augroup PluginInstall
     autocmd!
     autocmd VimEnter * if dein#check_install() | call dein#install() | endif
 augroup END
 
-" ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
+" ƒvƒ‰ƒOƒCƒ“‚ğƒCƒ“ƒXƒg[ƒ‹‚·‚éƒfƒBƒŒƒNƒgƒŠ
 let s:plugin_dir = expand("~/.cache/dein/")
-" "dein.vim" ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ãƒ‘ã‚¹ã¸è¿½åŠ 
+" "dein.vim" ‚ğƒCƒ“ƒXƒg[ƒ‹‚·‚éƒfƒBƒŒƒNƒgƒŠ‚ğƒ‰ƒ“ƒ^ƒCƒ€ƒpƒX‚Ö’Ç‰Á
 let s:dein_dir = s:plugin_dir . "repos/github.com/Shougo/dein.vim"
 execute "set runtimepath+=" . s:dein_dir
 
-" dein.vimãŒå…¥ã£ã¦ã„ãªã‘ã‚Œã° "git clone"
+" dein.vim‚ª“ü‚Á‚Ä‚¢‚È‚¯‚ê‚Î "git clone"
 if !isdirectory(s:dein_dir)
     call mkdir(s:dein_dir, "p")
     silent execute printf("!git clone %s %s", "https://github.com/Shougo/dein.vim", s:dein_dir)
 endif
 " < http://yuheikagaya.hatenablog.jp/entry/2016/03/20/171907 >
 
-" è¨­å®šé–‹å§‹
+" İ’èŠJn
 if dein#load_state(s:plugin_dir)
     call dein#begin(s:plugin_dir)
 
-    " ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ãƒªã‚¹ãƒˆ "*.toml" ã‚’æŒ‡å®š
+    " ƒvƒ‰ƒOƒCƒ“ƒŠƒXƒg "*.toml" ‚ğw’è
     let g:rc_dir    = expand("~/.vim/rc")
     let s:toml      = g:rc_dir . "/dein.toml"
     let s:lazy_toml = g:rc_dir . "/dein_lazy.toml"
 
-    " "*.toml" ã‚’èª­è¾¼ã¿ã€ã‚­ãƒ£ãƒƒã‚·ãƒ¥
+    " "*.toml" ‚ğ“Ç‚İAƒLƒƒƒbƒVƒ…
     call dein#load_toml(s:toml,      {"lazy": 0})
     call dein#load_toml(s:lazy_toml, {"lazy": 1})
 
-    " è¨­å®šçµ‚äº†
+    " İ’èI—¹
     call dein#end()
     call dein#save_state()
 endif
 
-" æœªã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãŒã‚ã‚Œã°ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
+" –¢ƒCƒ“ƒXƒg[ƒ‹‚ª‚ ‚ê‚ÎƒCƒ“ƒXƒg[ƒ‹
 if dein#check_install()
     call dein#install()
 endif
 
 " MEMO:
-" ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®è¿½åŠ ãƒ»å‰Šé™¤ã‚„tomlãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šã‚’å¤‰æ›´ã—ãŸå¾Œã¯
-" é©å®œ "call dein#update()" ã‚„ "call dein#clear_state()" ã‚’å®Ÿè¡Œã™ã‚‹
+" ƒvƒ‰ƒOƒCƒ“‚Ì’Ç‰ÁEíœ‚âtomlƒtƒ@ƒCƒ‹‚Ìİ’è‚ğ•ÏX‚µ‚½Œã‚Í
+" “K‹X "call dein#update()" ‚â "call dein#clear_state()" ‚ğÀs‚·‚é
 " --------------------------------------------------------------------------------
 
 
-" Windowsç’°å¢ƒã®è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®å ´æ‰€ã‚’ã€Mac/Linuxç’°å¢ƒã«ã‚ã‚ã›ã‚‹
+" WindowsŠÂ‹«‚Ìİ’èƒtƒ@ƒCƒ‹‚ÌêŠ‚ğAMac/LinuxŠÂ‹«‚É‚ ‚í‚¹‚é
 set runtimepath+=$HOME/.vim
 
-" MEMO: ".vim" äºŒé‡èª­è¾¼ã®ãŸã‚ã‚­ãƒ«
-" " ".vimrc" ã¨ ".gvimrc" ã‚’åˆ†å‰²é…ç½®
+" MEMO: ".vim" “ñd“Ç‚Ì‚½‚ßƒLƒ‹
+" " ".vimrc" ‚Æ ".gvimrc" ‚ğ•ªŠ„”z’u
 " set runtimepath+=~/.vim/
 
-" "Vim" ã®è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«
+" "Vim" ‚Ìİ’èƒtƒ@ƒCƒ‹
 runtime! userautoload/*.vim
-" "Plugin" ã®è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«
+" "Plugin" ‚Ìİ’èƒtƒ@ƒCƒ‹
 runtime! userautoload/plugin_setting/*.vim
 
-" èª­ã¿è¾¼ã‚“ã ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚‚å«ã‚ã€ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—ã®æ¤œå‡º
-" ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—åˆ¥ãƒ—ãƒ©ã‚°ã‚¤ãƒ³/ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’æœ‰åŠ¹åŒ–ã™ã‚‹
+" “Ç‚İ‚ñ‚¾ƒvƒ‰ƒOƒCƒ“‚àŠÜ‚ßAƒtƒ@ƒCƒ‹ƒ^ƒCƒv‚ÌŒŸo
+" ƒtƒ@ƒCƒ‹ƒ^ƒCƒv•Êƒvƒ‰ƒOƒCƒ“/ƒCƒ“ƒfƒ“ƒg‚ğ—LŒø‰»‚·‚é
 filetype plugin indent on
