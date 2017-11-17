@@ -1,13 +1,10 @@
 @echo off
+rem TODO: ショートカットを置いた先で実行する
 
 set exe="C:\ProgramData\chocolatey\tools\7z.exe"
 
 for /r %%i in (*) do (
-rem for /r %%i in (%*) do (
-rem for /r "delims=" %%i in ("*") do (
-rem for /r "usebackq" %%i in ("*") do (
-rem for /r "usebackq" %%i in (*) do (
-    echo catch %%i
+    rem echo catch %%i
     if /i %%~xi == .zip (
             call :recomp "%%i"
         ) else if /i %%~xi == .rar (
@@ -19,6 +16,12 @@ rem for /r "usebackq" %%i in (*) do (
         ) else if %%~xi == .lnk (
             call :ignore "%%i"
         ) else if %%~xi == .7z (
+            call :ignore "%%i"
+        ) else if %%~xi == .db (
+            call :ignore "%%i"
+        ) else if %%~xi == .id (
+            call :ignore "%%i"
+        ) else if %%~xi == .tmp (
             call :ignore "%%i"
         ) else if %%~ni == tags (
             call :ignore "%%i"
