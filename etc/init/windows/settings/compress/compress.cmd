@@ -38,7 +38,7 @@ cd %~p0
 goto :eof
 
 :recomp
-set cmp_name="%~p1%~n1.test.7z"
+set cmp_name="%~p1%~n1.7z"
 set source_name="%~n1%~x1"
 
 echo Convert to 7zip %source_name%
@@ -55,7 +55,7 @@ if exist %cmp_name% if not %~x1 == .7z del /f /q %1
 goto :eof
 
 :comp
-set cmp_name="%~p1%~n1.test.7z"
+set cmp_name="%~p1%~n1.7z"
 set source_name="%~n1%~x1"
 
 echo Compress %~n1%~x1
