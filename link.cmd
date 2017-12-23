@@ -10,7 +10,7 @@ rem echo %ERRORLEVEL%
 if %ERRORLEVEL% == 0 (
         echo ".gitconfig link success!"
         echo This PC name: %COMPUTERNAME%
-        for /f "delims=" %%i in (C:.\office_pc.txt) do (
+        for /f "delims=" %%i in (C:.\xacti_pc.txt) do (
             echo In office PC: %%i
             if /i %%i == %COMPUTERNAME% (
                 goto set_proxy
