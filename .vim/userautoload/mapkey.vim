@@ -5,6 +5,19 @@ scriptencoding utf-8
 " 入力モード中 jj: <Esc>
 inoremap jj <Esc>
 
+" <Ctrl>s: エクスプローラで保存場所選択して保存
+imap <script> <C-s> <SID>(gui-save)<Esc>
+nmap <script> <C-s> <SID>(gui-save)
+imap <script> <SID>(gui-save) <C-o><SID>(gui-save)
+nnoremap      <SID>(gui-save) :<C-u>call <SID>gui_save()<CR>
+function! s:gui_save()
+    if bufname('%') ==# ''
+        browse confirm saveas
+    else
+        update
+    endif
+endfunction
+
 " vv / Y: 行末まで選択
 vnoremap v $h
 nnoremap Y y$
@@ -28,6 +41,10 @@ nmap ,g :edit $MYGVIMRC<CR>
 nnoremap <silent> <Leader>rv :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
 " <Leader>rg: gvimrcを反映
 nnoremap <silent> <Leader>rg :<C-u>source $MYGVIMRC<CR>
+" " <Leader>,v: vimrcを反映
+" nnoremap <silent> <Leader>,v :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
+" " <Leader>,g: gvimrcを反映
+" nnoremap <silent> <Leader>,g :<C-u>source $MYGVIMRC<CR>
 
 "Macの時ノーマルモードで:と;を入れ替える
 if has("mac")
@@ -67,3 +84,6 @@ nnoremap <Leader>w :w<CR>
 
 " <Leader><Leader>: ビジュアルラインモードに切替え
 nmap <Leader><Leader> V
+
+" <Leader>t: "typora" 起動
+" nnoremap <Leader>t :! start typora.exe "%:p"<CR>
