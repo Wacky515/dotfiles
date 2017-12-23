@@ -44,15 +44,14 @@ nnoremap <F5> :w <ENTER> :!python % <ENTER>
 " デバッグを実行
 nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
 
-" "jedi-vim" で "Anaconda" のライブラリを補完できるようにpathを追加
+" jedi-vim" で "Anaconda3 " のライブラリを補完できるようにpathを追加
 " FIXED?: "Linux" 環境下でエラー
 if !has("unix")
-python << EOF
+python3 << EOF
 import os
 import sys
 
-home = os.path.expanduser("~")
-path = home + "/Anaconda2/Lib/site-packages"
+path = "C:/tools/Anaconda3/Lib/site-packages"
 if not path in sys.path:
     sys.path.insert(0, path)
 EOF

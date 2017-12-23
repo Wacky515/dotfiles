@@ -120,14 +120,15 @@ endif
 " !!!: ↑は多分Kaoriyaはすでに設定されているから
 " !!!: Linuxで動作確認必要
 " コマンドラインモードで<Tab>: ファイル名補完
-set wildmenu
+" set wildmenu
 
 " コマンドラインモードの補完GUI
 " !!!: 重複チェックする
 " set wildmode=longest,longest
 " zsh様の補完
-set wildmode=longest:full,full
-
+" set wildmode=longest:full,full
+" 候補をリストで表示し "TAB" でフォーカス
+set wildmenu wildmode=list:full
 
 """ ステータス行表示篇 """
 
