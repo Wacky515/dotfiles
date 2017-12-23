@@ -1,0 +1,8 @@
+id = GETID("スタート", "Button", -1)
+SLEEP(1)
+CLKITEM(id, "スタート", CLK_ACC or CLK_BACK)
+id = GETID("スタート メニュー", "DV2ControlHost", -1)
+CLKITEM(id, "MME2M4 脇田　純", CLK_LISTVIEW or CLK_LEFTCLK)
+id = GETID("MME2M4 脇田　純", "CabinetWClass", -1)
+SLEEP(1)
+CLKITEM(id, "メニュー バー", CLK_ACC or CLK_LEFTCLK)
