@@ -12,6 +12,7 @@
 	st = status
 	co = checkout
 	br = branch
+    p = !git push origin `git rev-parse --abbrev-ref HEAD`
 [core]
 	# excludesfile = /Users/wacky515/.gitignore_global
     excludesfile = ~/.gitignore
