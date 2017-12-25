@@ -30,7 +30,7 @@ then
     echo ""
 
     readonly PC_NAME=${HOSTNAME}
-    readonly PROXY_PC=($(cat ./office_pc.txt));
+    readonly PROXY_PC=($(cat ./xacti_pc.txt));
     readonly IFS_SAVE=${IFS}
     readonly IFS=$'\n'
 
