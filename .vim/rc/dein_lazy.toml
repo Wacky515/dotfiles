@@ -36,6 +36,15 @@ on_ft = 'python'
 # repo = "platformio/platformio"
 # on_ft = "arduino"
 
+# マーク 可視化
+[[plugins]]
+# repo = 'ShowMarks'
+repo = 'LeafCage/visiblemarks.vim'
+
+# カラーコード プレビュー
+[[plugins]]
+repo = 'gorodinskiy/vim-coloresque'
+
 # カレンダー
 [[plugins]]
 repo = 'itchyny/calendar.vim'
