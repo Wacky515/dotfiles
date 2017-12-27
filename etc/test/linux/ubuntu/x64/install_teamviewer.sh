@@ -11,8 +11,9 @@ ym_echo ">> ${PROCESS^}"
 # sudo dpkg -i teamviewer_i386.deb
 wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 sudo dpkg -i teamviewer_amd64.deb
-sudo apt-get -f install
+sudo apt -y install
 result_echo $? "${PROCESS}"
+rm teamviewer_amd64.deb
 
 # apt update
 # sudo ./apt_install.sh
