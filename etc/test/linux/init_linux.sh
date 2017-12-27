@@ -8,36 +8,50 @@ ym_echo ">> Init update"
 sudo bash ./apt_update.sh
 
 ym_echo ">> Init install"
-# for f in install_*.sh
-# do
-#     [[ ${f} = "apt_update.sh" ]] && continue 
-#     sudo bash ./${f}
-# done
-# sudo bash ./install_*.sh
 for f in install_*.sh
 do
-# sudo bash ./install_*.sh
 sudo bash ./${f}
 done
 
 ym_echo ">> Init setting"
-# sudo bash ./setting_*.sh
 for g in setting_*.sh
 do
-# sudo bash ./setting_*.sh
 sudo bash ./${g}
 done
 
+# ディストリビューション、ビット数 判別
+declare -a info=($(./get_distribution.sh))
+ym_echo ">> Install & setting each bit"
+if [[ ${info[1]} == "x86_64" ]]; then
+    echo "64bit"
+    os_bit=x64
+else 
+    echo "32bit"
+    os_bit=x32
+fi
+cd ./${os_bit}
+
+ym_echo ">> Install for ${os_bit}"
+for l in install_*.sh
+do
+sudo bash ./${l}
+done
+
+ym_echo ">> Setting for ${os_bit}"
+for m in setting_*.sh
+do
+sudo bash ./${m}
+done
+cd -
+
+
 ym_echo ">> Install & setting each distribution"
 # ディストリビューション 判別
-declare -a info=($(./get_distribution.sh))
+# declare -a info=($(./get_distribution.sh))
 
 case ${info[0]} in
     ubuntu)
         ym_echo ">> Distribution is Ubuntu"
-        #         if [[ ${info[1]} == "x86_64" ]]; then
-        #             echo "64bit"
-        #         fi
         cd ./ubuntu
         ;;
     debian)
@@ -49,21 +63,31 @@ case ${info[0]} in
         ;;
 esac
 
-
 ym_echo ">> Install"
 for h in install_*.sh
 do
-# sudo bash ./install_*.sh
 sudo bash ./${h}
 done
 
 ym_echo ">> Setting"
 for i in setting_*.sh
 do
-# sudo bash ./setting_*.sh
 sudo bash ./${i}
 done
 
-cd -
+cd ./${os_bit}
+ym_echo ">> Install for ${os_bit}"
+for j in install_*.sh
+do
+sudo bash ./${j}
+done
+
+ym_echo ">> Setting for ${os_bit}"
+for k in setting_*.sh
+do
+sudo bash ./${k}
+done
+cd ../..
+
 ym_echo ">> Final update"
 sudo bash ./apt_update.sh
