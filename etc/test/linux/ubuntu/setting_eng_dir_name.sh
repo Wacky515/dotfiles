@@ -10,4 +10,4 @@ LC_ALL=C xdg-user-dirs-gtk-update
 result_echo $? "${PROCESS}"
 
 # cp -bf ./user-dirs.dirs $HOME/$USER/.config/
-cp -bf ./user-dirs.dirs $HOME/.config/
+cp -bf ./user-dirs.dirs ${HOME}/.config/
