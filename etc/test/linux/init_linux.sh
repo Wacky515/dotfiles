@@ -3,6 +3,9 @@
 
 source ~/dotfiles/function/result_echo.sh
 
+# **
+bash ~/dotfiles/link.sh
+
 # apt update
 ym_echo ">> Init update"
 sudo bash ./apt_update.sh
