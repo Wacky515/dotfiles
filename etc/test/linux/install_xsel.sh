@@ -1,5 +1,6 @@
 #!/bin/bash
 # @(#) Intall xsel
+# クリップボード共有
 
 source ~/dotfiles/function/result_echo.sh
 
