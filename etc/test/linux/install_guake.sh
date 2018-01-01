@@ -1,5 +1,6 @@
 #!/bin/bash
 # @(#) Intall guake
+# F12で画面上部から呼出すターミナル
 
 source ~/dotfiles/function/result_echo.sh
 
