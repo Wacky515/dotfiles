@@ -9,6 +9,37 @@ let b:did_ftplugin_python = 1
 " Python用のシンタックスハイライトをON
 let python_highlight_all =1
 
+" タブの設定
+setlocal smarttab
+setlocal expandtab
+setlocal tabstop=4
+setlocal shiftwidth=4
+
+" jedi-vim" で "Anaconda3 " のライブラリを補完できるようにpathを追加
+if has('vim_starting')
+    if has('macunix')
+        " brew install python3
+        set pythonthreedll=
+            \/usr/local/Cellar/python3/3.6.4_2/
+            \Frameworks/Python.framework/Versions/3.6/Python
+        set pythonthreehome=
+            \/usr/local/Cellar/python3/3.6.4_2/
+            \Frameworks/Python.framework/Versions/3.6
+
+    elseif has('win32')
+        " embed 版のpython をダウンロードして vim と同じフォルダに置く。
+        "   python35.dll
+        "   python35.zip
+
+    endif
+endif
+" https://qiita.com/CutBaum/items/a8de8e3f4e32c0a3ad1e
+
+" スクリプトを実行
+nnoremap <F5> :w <ENTER> :!python % <ENTER>
+" デバッグを実行
+nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
+
 " シンタックスハイライトに "self" 追加
 augroup python
     autocmd!
@@ -17,7 +48,10 @@ augroup python
                 \ | highlight def link pythonSelf Special
 augroup end
 
-" !!!: ".gvim" の設定を記述すると "lightline" が有効にならない  "{{{
+" 80文字目に赤いラインマーク
+set colorcolumn=80
+
+" FIXME: ".gvim" の設定を記述すると "lightline" が有効にならない  "{{{
 " カラースキーマの指定
 " colorscheme molokai
 " colorscheme hybrid
@@ -30,35 +64,22 @@ augroup end
 " set t_Co=256
 " }}}
 
-" 80文字目に赤いラインマークを入れる
-set colorcolumn=80
+" 以下、旧記述
+" FIXED?: "Linux" 環境下でエラー "{{{
+" if !has("unix")
+" python3 << EOF
+" import os
+" import sys
 
-" タブの設定
-setlocal smarttab
-setlocal expandtab
-setlocal tabstop=4
-setlocal shiftwidth=4
-
-" スクリプトを実行
-nnoremap <F5> :w <ENTER> :!python % <ENTER>
-" デバッグを実行
-nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
-
-" jedi-vim" で "Anaconda3 " のライブラリを補完できるようにpathを追加
-" FIXED?: "Linux" 環境下でエラー
-if !has("unix")
-python3 << EOF
-import os
-import sys
-
-path = "C:/tools/Anaconda3/Lib/site-packages"
-if not path in sys.path:
-    sys.path.insert(0, path)
-EOF
-endif
+" path = "C:/tools/Anaconda3/Lib/site-packages"
+" if not path in sys.path:
+"     sys.path.insert(0, path)
+" EOF
+" endif
+" }}}
 
 " 以下の条件分けは "endif" 無しエラーが解決できないためKill
-" if !has("unix")  "{{{
+" if !has("unix") "{{{
 "     python << EOF
 "         import os
 "         import sys
@@ -78,9 +99,9 @@ endif
 "     if not path in sys.path:
 "         sys.path.insert(0, path)
 "     EOF
-" endif  "}}}
+" endif "}}}
 
-" if !has("unix")"{{{
+" if !has("unix") "{{{
 "     python << EOF
 "     import os
 "     import sys
@@ -100,4 +121,5 @@ endif
 "     if not path in sys.path:
 "         sys.path.insert(0, path)
 "     EOF
-" endif"}}}
+" endif
+" }}}
