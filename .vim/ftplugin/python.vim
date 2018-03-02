@@ -4,6 +4,14 @@ if exists("b:did_ftplugin_python")
     finish
 endif
 
+" set pythonthreedll=$VIM/python3/python35.dll
+" set pythonthreedll="C:\tools\Anaconda3\envs\TestAnacondaVEnv\python35.dll"
+if has("win64")
+    " let $PYTHONHOME='C:\ProgramData\chocolatey\.chocolatey\anaconda3.5.0.1'
+    " let $PYTHONHOME='C:\tools\Anaconda3\envs\TestAnacondaVEnv\python35.dll'
+    " set pythonthreedll="C:\tools\Anaconda3\envs\TestAnacondaVEnv\python35.dll"
+endif
+
 let b:did_ftplugin_python = 1
 
 " Python用のシンタックスハイライトをON
@@ -27,6 +35,7 @@ if has('vim_starting')
             \Frameworks/Python.framework/Versions/3.6
 
     elseif has('win32')
+        " 完璧ではない
         " embed 版のpython をダウンロードして vim と同じフォルダに置く。
         "   python35.dll
         "   python35.zip
