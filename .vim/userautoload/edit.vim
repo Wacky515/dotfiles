@@ -6,7 +6,7 @@ scriptencoding utf-8
 vnoremap > >gv
 vnoremap < <gv
 
-"日本語の行連結は空白を入力しない
+" 日本語の行連結は空白を入力しない
 set formatoptions=Mm
 
 " ヤンクしたデータをクリップボードで使用＆選択範囲自動コピー
