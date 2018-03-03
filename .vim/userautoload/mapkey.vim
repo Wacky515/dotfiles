@@ -5,6 +5,10 @@ scriptencoding utf-8
 " 入力モード中 jj: <Esc>
 inoremap jj <Esc>
 
+" " x: デフォルトレジスタに削除した文字を入れない
+" nnoremap x "_x
+" vnoremap x "_x
+
 " <Ctrl>s: エクスプローラで保存場所選択して保存
 imap <script> <C-s> <SID>(gui-save)<Esc>
 nmap <script> <C-s> <SID>(gui-save)
@@ -18,7 +22,7 @@ function! s:gui_save()
     endif
 endfunction
 
-" vv / Y: 行末まで選択
+" vv|Y: 行末まで選択
 vnoremap v $h
 nnoremap Y y$
 
