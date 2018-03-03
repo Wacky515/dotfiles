@@ -10,7 +10,8 @@ if %ERRORLEVEL% == 0 (
     echo .gitconfig link success!
 
     echo This PC name: %COMPUTERNAME%
-    for /f "delims=" %%i in (C:.\xacti_pc.txt) do (
+    rem for /f "delims=" %%i in (C:.\xacti_pc.txt) do (
+    for /f "delims=" %%i in (C:.\murata_pc.txt) do (
         echo In office PC: %%i
         if /i %%i == %COMPUTERNAME% (
             goto set_proxy
@@ -24,8 +25,12 @@ if %ERRORLEVEL% == 0 (
 
     :set_proxy
     echo "In proxy, set proxy"
-    git config --system http.proxy http://proxy.intra.xacti-co.com:8080
-    git config --system https.proxy https://proxy.intra.xacti-co.com:8080
+
+    rem git config --system http.proxy http://proxy.intra.xacti-co.com:8080
+    rem git config --system https.proxy https://proxy.intra.xacti-co.com:8080
+
+    git config --system http.proxy http://m6prxy1:8080
+    git config --system https.proxy https://m6prxy1:8080
 
     :end_gitconfig
     rem DONE: "for•¶" ‚É‚·‚é

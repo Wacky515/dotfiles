@@ -1,13 +1,47 @@
+# .minttyrc
+
+## Glass
+# Transparency=high
+# ForegroundColour=0,233,31
+# BackgroundColour=0,31,0
+# OpaqueWhenFocused=no
+
+## Amber
+# Transparency=high
+# ForegroundColour=255,127,0
+# BackgroundColour=31,0,0
+
+## Grenn
+Transparency=high
 ForegroundColour=0,233,31
 BackgroundColour=0,31,0
-BellTaskbar=no
+
+## Blue
+# Transparency=high
+# ForegroundColour=0,255,255
+# BackgroundColour=0,31,0
+
 BoldAsFont=-1
-Charset=UTF-8
+# Font=Ricty Diminished
+# FontHeight=12
+Font=Cica
+FontHeight=16
+
+Columns=65
+Rows=37
 CursorType=block
-Font=Ricty Diminished
-FontHeight=12
-Language=@
+Scrollbar=none
+
 Locale=ja_JP
+Charset=UTF-8
+
+CopyOnSelect=yes
+BackspaceSendsBS=yes
+DeleteSendsDEL=yes
+RightClickAction=paste
 MiddleClickAction=enter
-Transparency=high
+IMECursorColour=255,0,0
+
+Language=@
 Term=xterm-256color
+BellTaskbar=no
