@@ -2,6 +2,9 @@ scriptencoding utf-8
 
 """ マップキー篇 """
 
+" TODO: 
+" マークにジャンプ時、画面をトップに位置にする
+
 " 入力モード中 jj: <Esc>
 inoremap jj <Esc>
 
@@ -22,8 +25,9 @@ function! s:gui_save()
     endif
 endfunction
 
-" vv|Y: 行末まで選択
+" vv: カーソルから行末まで選択
 vnoremap v $h
+" Y: カーソルから行末までヤンク
 nnoremap Y y$
 
 " FIXME: "Mac" では効かない

@@ -25,6 +25,9 @@ set tags=~/.tags
 " ※ ファイル毎の設定
 set modeline
 
+" モード変更の挙動が遅い対処
+set timeout timeoutlen=1000 ttimeoutlen=50
+
 " FIXME: ↓効かないのかもわからない
 " vimrc 即時反映"{{{
 " !!!: 先頭行にも記述があるので一旦Kill
@@ -44,7 +47,7 @@ set modeline
 
 
 """ Vimスクリプト 記述法 Memo """
-"{{{
+" {{{
 """ OS固有の設定を持つ場合
 
 """ Unix の場合
@@ -74,4 +77,4 @@ set modeline
 " else
 " 	" Python 以外の設定
 " endif
-"}}}
+" }}}
