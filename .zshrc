@@ -1,10 +1,13 @@
 # 環境変数
 export LANG=ja_JP.UTF-8
+
 # pyenv用
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PYENV_ROOT="$HOME/.pyenv"
-eval "$(pyenv init -)"
-alias brew="env PATH=${PATH/\/Users\/wacky515\/\.pyenv\/shims:/} brew"
+if [ -d ${HOME}/.pyenv ]; then
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    export PYENV_ROOT="$HOME/.pyenv"
+    eval "$(pyenv init -)"
+    alias brew="env PATH=${PATH/\/Users\/wacky515\/\.pyenv\/shims:/} brew"
+fi
 
 
 ## プロンプト
