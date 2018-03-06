@@ -2,15 +2,10 @@ scriptencoding utf-8
 
 """ マップキー篇 """
 
-" TODO: 
-" マークにジャンプ時、画面をトップに位置にする
+" TODO: マークにジャンプ時、画面をトップに位置にする
 
 " 入力モード中 jj: <Esc>
 inoremap jj <Esc>
-
-" " x: デフォルトレジスタに削除した文字を入れない
-" nnoremap x "_x
-" vnoremap x "_x
 
 " <Ctrl>s: エクスプローラで保存場所選択して保存
 imap <script> <C-s> <SID>(gui-save)<Esc>
@@ -42,17 +37,24 @@ nnoremap <silent>bn :bnext<CR>
 nnoremap <silent>bb :b#<CR>
 
 " ,v: vimrcを開く
-nmap ,v :edit $MYVIMRC<CR>
+" nmap ,v :edit $MYVIMRC<CR>
+nmap ev :edit $MYVIMRC<CR>
 " ,g: gvimrcを開く
-nmap ,g :edit $MYGVIMRC<CR>
+" nmap ,g :edit $MYGVIMRC<CR>
+nmap eg :edit $MYGVIMRC<CR>
 " <Leader>rv: vimrcを反映
-nnoremap <silent> <Leader>rv :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
+nnoremap <silent> ,v :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
 " <Leader>rg: gvimrcを反映
-nnoremap <silent> <Leader>rg :<C-u>source $MYGVIMRC<CR>
+nnoremap <silent> ,g :<C-u>source $MYGVIMRC<CR>
+" " <Leader>rv: vimrcを反映 " {{{
+" nnoremap <silent> <Leader>rv :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
+" " <Leader>rg: gvimrcを反映
+" nnoremap <silent> <Leader>rg :<C-u>source $MYGVIMRC<CR>
 " " <Leader>,v: vimrcを反映
 " nnoremap <silent> <Leader>,v :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
 " " <Leader>,g: gvimrcを反映
 " nnoremap <silent> <Leader>,g :<C-u>source $MYGVIMRC<CR>
+" }}}
 
 "Macの時ノーマルモードで:と;を入れ替える
 if has("mac")
@@ -92,6 +94,3 @@ nnoremap <Leader>w :w<CR>
 
 " <Leader><Leader>: ビジュアルラインモードに切替え
 nmap <Leader><Leader> V
-
-" <Leader>t: "typora" 起動
-" nnoremap <Leader>t :! start typora.exe "%:p"<CR>
