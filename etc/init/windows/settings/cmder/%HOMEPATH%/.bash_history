@@ -1,2 +1,0 @@
-pacman -Syuu
-exit

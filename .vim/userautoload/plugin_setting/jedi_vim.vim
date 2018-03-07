@@ -8,14 +8,16 @@ let g:jedi#popup_select_first = 0
 "
 " "." で補完を開始
 let g:jedi#popup_on_dot = 1
-" "." で補完を開始しない
+" "." で補完を開始しない " {{{
 " let g:jedi#popup_on_dot = 0
+" }}}
 
 " 関数・メソッドの定義を表示
 let g:jedi#show_call_sgnatures = 1
-" 関数・メソッドの定義を表示しない
+" 関数・メソッドの定義を表示しない " {{{
 " (カーソルの移動が遅いと思う場合）
 " let g:jedi#show_function_definition = 0
+" }}}
 
 " 補完時に "docstring" を表示しない
 " 画面上部がガタガタ動く
@@ -46,7 +48,8 @@ xmap <Leader>j [jedi]
 if has("unix")
     let g:jedi#completions_command = "<C-N>"
 endif
-" TODO: キーを潰していないか確認
+
+" TODO: キーを潰していないか確認 " {{{
 " <Ctrl> －> <Leader> で動作する（Windows）
 " <Ctrl>g: 変数宣言へジャンプ
 " let g:jedi#goto_assignments_command = "<C-g>"
@@ -59,3 +62,4 @@ endif
 " let g:jedi#rename_command = "[jedi]r"
 " [jedi]n: カーソル下の変数一覧
 " let g:jedi#usages_command = "[jedi]n"
+" }}}
