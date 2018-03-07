@@ -1,4 +1,7 @@
 scriptencoding utf-8
 
-" <du> で "dein" アップデート
+" du:  "dein" アップデート
 nmap du :call dein#update()<cr>
+
+" dc:  "dein" クリア
+nmap dc :call dein#clear_state()<cr>

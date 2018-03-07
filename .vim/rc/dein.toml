@@ -1,71 +1,47 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
+
 # "dein.vim" 本体
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# 統合ユーザインターフェース
-[[plugins]]
-repo = 'Shougo/unite.vim'
-depends = 'neomru.vim'
-# "unite.vim" 用colorschemeプレビュー
-[[plugins]]
-repo = 'ujihisa/unite-colorscheme'
-# TODO: ショートカットキーに登録
-# ":Unite -auto-preview colorscheme" でプレビュー
-# "unite.vim" 用フォントプレビュー
-[[plugins]]
-repo = 'ujihisa/unite-font'
-# ":Unite font" でプレビュー
+# # 統合ユーザインターフェース
+# [[plugins]]
+# repo = 'Shougo/unite.vim'
+# depends = 'neomru.vim'
+# # "unite.vim" 用colorschemeプレビュー
+# # TODO: ショートカットキーに登録
+# # ":Unite -auto-preview colorscheme" でプレビュー
+# [[plugins]]
+# repo = 'ujihisa/unite-colorscheme'
+# # "unite.vim" 用フォントプレビュー
+# # ":Unite font" でプレビュー
+# [[plugins]]
+# repo = 'ujihisa/unite-font'
 
-# ファイラー
-[[plugins]]
-repo = 'Shougo/vimfiler'
-# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
+# # ファイラー
+# [[plugins]]
+# repo = 'Shougo/vimfiler'
+# # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
 
-# スニペット
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-[[plugins]]
-repo = 'Shougo/neocomplcache.vim'
+# # "vimshell"
+# [[plugins]]
+# repo = 'Shougo/vimshell'
 
-# カーソル位置の "filetype" に切り替え
-[[plugins]]
-repo = 'osyo-manga/vim-precious'
-depends = ['context_filetype.vim']
-[[plugins]] repo = 'Shougo/context_filetype.vim'
+# # 関数、クラス、変数、構造体、列挙型、マクロ定義など 一覧表示
+# [[plugins]]
+# repo = 'vim-scripts/taglist.vim'
 
-# "vimshell"
-[[plugins]]
-repo = 'Shougo/vimshell'
+# # "*" で検索時、単語ではなく選択範囲を対象にする
+# [[plugins]]
+# repo = 'https://github.com/nelstrom/vim-visual-star-search.git'
 
-# Git用プラグイン
-[[plugins]]
-repo = 'tpope/vim-fugitive'
+# # ウィンドウサイズ変更 簡便化
+# [[plugins]]
+# repo = 'simeji/winresizer'
 
 # "undo" 管理
 [[plugins]]
 repo = 'sjl/gundo.vim'
-
-# 関数、クラス、変数、構造体、列挙型、マクロ定義など 一覧表示
-[[plugins]]
-repo = 'vim-scripts/taglist.vim'
-
-# "*" で検索時、単語ではなく選択範囲を対象にする
-[[plugins]]
-repo = 'https://github.com/nelstrom/vim-visual-star-search.git'
-
-# "()"、 "[]" など 対入力
-[[plugins]]
-repo = 'tpope/vim-surround'
-# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
-
-# コメントON/OFF ショートカットキートグル
-[[plugins]]
-repo = 'tomtom/tcomment_vim'
-
-# ウィンドウサイズ変更 簡便化
-[[plugins]]
-repo = 'simeji/winresizer'
 
 # インデント カラー化
 [[plugins]]
@@ -80,6 +56,22 @@ repo = 'bronson/vim-trailing-whitespace'
 repo = 'itchyny/lightline.vim'
 # < http://itchyny.hatenablog.com/entry/20130828/1377653592 >
 
+# コメントON/OFF ショートカットキートグル
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+
+# Git用プラグイン
+# 古いので代替したい
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+# # "()"、 "[]" など 対入力
+# Keymapに登録済み
+# [[plugins]]
+# repo = 'tpope/vim-surround'
+# # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
+
 # # ミニマップ
 # [[plugins]]
 # # repo = 'mipmip/vim-minimap'
@@ -87,26 +79,13 @@ repo = 'itchyny/lightline.vim'
 # # if = '''! has ('windows')'''
 # repo = "koron/minimap-vim"
 
+# # カーソル位置の "filetype" に切り替え
+# [[plugins]]
+# repo = 'osyo-manga/vim-precious'
+# depends = ['context_filetype.vim']
+# [[plugins]] repo = 'Shougo/context_filetype.vim'
+
 # 導入予定
-
-# テンプレート作成
-# [[plugins]]
-# repo = 'thinca/vim-template'
-# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
-
-# テキスト整形
-# [[plugins]]
-# repo = 'vim-scripts/Align'
-# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
-# < http://nanasi.jp/vim/align.html >
-
-# コピペ 履歴保存
-# [[plugins]]
-# repo = 'vim-scripts/YankRing.vim'
-# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
-
-# Undo管理
-# gundo.vim
 
 # Toml
 # [[plugins]]
@@ -123,3 +102,19 @@ repo = 'itchyny/lightline.vim'
 
 # "ctags" 自動更新
 # https://github.com/soramugi/auto-ctags.vim
+
+# テンプレート作成
+# [[plugins]]
+# repo = 'thinca/vim-template'
+# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
+
+# テキスト整形
+# [[plugins]]
+# repo = 'vim-scripts/Align'
+# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
+# < http://nanasi.jp/vim/align.html >
+
+# コピペ 履歴保存
+# [[plugins]]
+# repo = 'vim-scripts/YankRing.vim'
+# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
