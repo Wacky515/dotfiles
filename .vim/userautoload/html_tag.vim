@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-" </: htmlé–‰ã˜ã‚¿ã‚°ä¿ç®¡
+" </: html•Â‚¶ƒ^ƒO•ÛŠÇ
 augroup MyXML
   autocmd!
   autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
