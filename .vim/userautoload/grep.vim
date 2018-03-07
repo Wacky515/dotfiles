@@ -23,5 +23,5 @@ set grepprg=grep\ -rnIH\ --exclude-dir=.svn\ --exclude-dir=.git\ --exclude-dir=n
 "             \ --exclude="*.min.js\
 " }}}
 
-" "Grep" 時に自動的に "quick-fix"
+" "Grep" 検索時、自動的に "QuickFix List" を表示
 autocmd QuickFixCmdPost *grep* cwindow

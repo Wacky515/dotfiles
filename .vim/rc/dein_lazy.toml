@@ -1,83 +1,61 @@
-# スニペット
-[[plugins]]
-repo = 'Shougo/neosnippet'
-depends = ['neosnippet-snippets']
-on_i = 1
-on_ft = ['snippet']
-
-# unite用mru
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-on_path = '.*'
-
-# Python用プラグイン
-[[plugins]]
-repo = 'davidhalter/jedi-vim'
-on_ft = 'python'
-
-# Pythonシンタックスハイライト
-[[plugins]]
-repo = 'pfdevilliers/Pretty-Vim-Python'
-on_ft = 'python'
-
-# 構文チェッカー
-[[plugins]]
-repo = 'scrooloose/syntastic'
-on_ft = 'python'
-
-# Python自動折りたたみ
+# # スニペット
 # [[plugins]]
-# repo = 'vim-scripts/python_fold'
+# repo = 'Shougo/neosnippet'
+# depends = ['neosnippet-snippets']
+# on_i = 1
+# on_ft = ['snippet']
+# [[plugins]]
+# repo = 'Shougo/neocomplcache.vim'
+#
+# # unite用mru
+# [[plugins]]
+# repo = 'Shougo/neomru.vim'
+# on_path = '.*'
+#
+# # Python用プラグイン
+# [[plugins]]
+# repo = 'davidhalter/jedi-vim'
 # on_ft = 'python'
-
-# # TODO: 動作確認
-# # Arduino開発用プラグイン
+# # Pythonシンタックスハイライト
 # [[plugins]]
-# repo = "platformio/platformio"
-# on_ft = "arduino"
-
-# マーク 可視化
-[[plugins]]
-# repo = 'ShowMarks'
-repo = 'LeafCage/visiblemarks.vim'
-
-# カラーコード プレビュー
-[[plugins]]
-repo = 'gorodinskiy/vim-coloresque'
+# repo = 'pfdevilliers/Pretty-Vim-Python'
+# on_ft = 'python'
+# # 構文チェッカー
+# [[plugins]]
+# repo = 'scrooloose/syntastic'
+# on_ft = 'python'
+# # Python自動折りたたみ
+# # [[plugins]]
+# # repo = 'vim-scripts/python_fold'
+# # on_ft = 'python'
 
 # カレンダー
 [[plugins]]
 repo = 'itchyny/calendar.vim'
 
-# Markdown
-# プレビュー
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
-on_ft = ['markdown','mkd']
-[[plugins]]
-repo = 'kannokanno/previm'
-on_ft = ['markdown','mkd']
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-on_ft = ['markdown','mkd']
+# # Markdown
+# # プレビュー
+# [[plugins]]
+# repo = 'kannokanno/previm'
+# on_ft = ['markdown','mkd']
+# repo = 'tyru/open-browser.vim'
+# on_ft = ['markdown','mkd']
+# # hook_add = '''
+# #   let g:previm_open_cmd = 'C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe'
+# #   # "C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe"
+# # '''
+# [[plugins]]
+# repo = 'plasticboy/vim-markdown'
+# on_ft = ['markdown','mkd']
+# [[plugins]]
+# # ハイライト
+# [[plugins]]
+# repo = 'rcmdnk/vim-markdown'
+# on_ft = ['markdown','mkd']
 # hook_add = '''
-#   let g:previm_open_cmd = 'C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe'
-#   # "C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe"
+#   let g:vim_markdown_frontmatter = 1
+#   let g:vim_markdown_math = 1
 # '''
-# ハイライト
-[[plugins]]
-repo = 'rcmdnk/vim-markdown'
-on_ft = ['markdown','mkd']
-hook_add = '''
-  let g:vim_markdown_frontmatter = 1
-  let g:vim_markdown_math = 1
-'''
-
-# TODO: 動作確認
-# Arduinoシンタックスハイライト
-[[plugins]]
-repo = "sudar/vim-arduino-syntax"
-on_ft = "arduino"
 
 # カラースキーマ
 [[plugins]]
@@ -118,3 +96,22 @@ hook_add = '''
     set background=dark
     au MyAutoCmd VimEnter * nested colorscheme hybrid
     '''
+
+# # TODO: 動作確認
+# # マーク 可視化
+# [[plugins]]
+# # repo = 'ShowMarks'
+# repo = 'LeafCage/visiblemarks.vim'
+
+# # カラーコード プレビュー
+# [[plugins]]
+# repo = 'gorodinskiy/vim-coloresque'
+
+# # Arduino開発用プラグイン
+# [[plugins]]
+# repo = "platformio/platformio"
+# on_ft = "arduino"
+# # Arduinoシンタックスハイライト
+# [[plugins]]
+# repo = "sudar/vim-arduino-syntax"
+# on_ft = "arduino"

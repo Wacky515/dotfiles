@@ -12,6 +12,8 @@ let g:lightline = {
     \ 'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',}
     \ }
 
+" "fugitive（Gitラッパー）" との連携
+" TODO: "fugitive" は古いので乗換え検討
 function! LightLineFugitive()
   if exists("*fugitive#head")
     let branch = fugitive#head()
