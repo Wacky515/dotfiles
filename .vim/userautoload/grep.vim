@@ -1,7 +1,27 @@
 scriptencoding utf-8
 
-" 螟夜Κgrep縺ｮ險ｭ螳壹→髯､螟悶☆繧九ヵ繧｡繧､繝ｫ
-set grepprg=grep\ -rnIH\ --exclude-dir=.svn\ --exclude-dir=.git\ --exclude-dir=node_modules\ --exclude-dir=db\ --exclude-dir=tmp\ --exclude-dir=log\ --exclude-dir=vendor\ --exclude-dir=tags\ --exclude="*.min.js\
-
-" <Leader>g: 繧ｫ繝ｼ繧ｽ繝ｫ荳九ｒ "vimgrep" 蟇ｾ雎｡縺ｫ謖ｿ蜈･
+" <Leader>g: カーソル下を "vimgrep" 対象に挿入（<Enter押下で再帰的に検索、現在開いているのと同一の拡張子が対象）
 nnoremap <expr> <Leader>g ':vimgrep /\<' . expand('<cword>') . '\>/j **/*.' . expand('%:e')
+
+" <Leader>G: カーソル下を "外部grep" 対象に挿入（<Enter押下で再帰的に検索）
+nnoremap <expr> <Leader>G ':sil grep! ' . expand('<cword>') . ' *'
+
+" "外部grep" の設定と除外ファイル
+set grepprg=grep\ -rnIH\ --exclude-dir=.svn\ --exclude-dir=.git\ --exclude-dir=node_modules\ --exclude-dir=db\ --exclude-dir=tmp\ --exclude-dir=log\ --exclude-dir=vendor\ --exclude-dir=tags\ --exclude=tags\ --exclude="*.min.js\
+" 以下にしたい " {{{
+" set grepprg=grep\
+"             \ -rnIH\ 
+"             \ --exclude-dir=.svn\ 
+"             \ --exclude-dir=.git\ 
+"             \ --exclude-dir=node_modules\ 
+"             \ --exclude-dir=db\ 
+"             \ --exclude-dir=tmp\ 
+"             \ --exclude-dir=log\ 
+"             \ --exclude-dir=vendor\ 
+"             \ --exclude-dir=tags\ 
+"             \ --exclude=tags\ 
+"             \ --exclude="*.min.js\
+" }}}
+
+" "Grep" 時に自動的に "quick-fix"
+autocmd QuickFixCmdPost *grep* cwindow

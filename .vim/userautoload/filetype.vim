@@ -8,7 +8,7 @@ augroup filetypedetect
     au BufRead,BufNewFile *.{md,mdwn,mkd,mkdn,mark*} setfiletype markdown
 augroup END
 
-" FIXME: "autocmd" 実行時に "lightline" を有効にできない
+" FIXME: "autocmd" 実行時に "lightline" を有効にできない " {{{
 " augroup reload_gvimrc
 "     autocmd!
 "     autocmd bufwritepost $GMYVIMRC nested source $GMYVIMRC
@@ -26,3 +26,4 @@ augroup END
 "     au BufRead,BufNewFile *.{md,mdwn,mkd,mkdn,mark*} setfiletype markdown
 " augroup END
 " autocmd MyAutoGroup BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+" }}}
