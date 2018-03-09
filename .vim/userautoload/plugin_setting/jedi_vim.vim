@@ -49,7 +49,8 @@ if has("unix")
     let g:jedi#completions_command = "<C-N>"
 endif
 
-" TODO: キーを潰していないか確認 " {{{
+" DONE: キーを潰していないか確認
+" デフォルトキーを使用する " {{{
 " <Ctrl> －> <Leader> で動作する（Windows）
 " <Ctrl>g: 変数宣言へジャンプ
 " let g:jedi#goto_assignments_command = "<C-g>"

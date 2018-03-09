@@ -61,6 +61,9 @@ endif
 " --------------------------------------------------------------------------------
 
 
+" <Space> を "Leader" に割当て
+let mapleader = "\<Space>"
+
 " Windows環境の設定ファイルの場所を、Mac/Linux環境にあわせる
 set runtimepath+=$HOME/.vim
 

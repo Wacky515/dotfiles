@@ -7,6 +7,9 @@ scriptencoding utf-8
 " 入力モード中 jj: <Esc>
 inoremap jj <Esc>
 
+" スペルチェックをトグル
+nnoremap <silent> <Leader>s :set spell!<CR>
+
 " <Ctrl>s: エクスプローラで保存場所選択して保存
 imap <script> <C-s> <SID>(gui-save)<Esc>
 nmap <script> <C-s> <SID>(gui-save)
@@ -83,14 +86,36 @@ endif
 """ Leader篇 """
 
 " <Space> を "Leader" に割当て
-let mapleader = "\<Space>"
+" let mapleader = "\<Space>"
+" －> .vimrc へ
 
 " <Leader>o: ファイルを開く
 " !!!: プラグインが必要
 " nnoremap <Leader>o :CtrlP<CR>
 
+" <Leader>q: ファイルを閉じる
+nnoremap <Leader>q :<C-u>q<CR>
+
 " <Leader>w: ファイルを保存
 nnoremap <Leader>w :w<CR>
+
+" <Leader>s: ウィンドウを縦分割
+nnoremap <Leader>s :<C-u>sp<CR>
+
+" <Leader>v: ウィンドウを横分割
+nnoremap <Leader>v :<C-u>vs<CR>
+
+" <Leader>S: ウィンドウを縦分割(ファイルを選択)
+nnoremap <Leader>S :<C-u>sp <TAB>
+
+" <Leader>V: ウィンドウを横分割（ファイルを選択）
+nnoremap <Leader>V :<C-u>vs <TAB>
+
+" <Leader>t: 新規タブを作成
+nnoremap <Leader>t :<C-u>tabnew<cr>
+
+" <Leader>T: 新規タブを作成（ファイルを選択）
+nnoremap <Leader>T :<C-u>tabnew <TAB>
 
 " <Leader><Leader>: ビジュアルラインモードに切替え
 nmap <Leader><Leader> V

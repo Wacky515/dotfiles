@@ -18,9 +18,15 @@ nnoremap <Leader>zh :HzjaConvert han_eisu<Enter>
 vnoremap <Leader>zh :HzjaConvert han_eisu<Enter>
 
 " スペルチェック機能を使う
-set spell
+set nospell
 " 日本語を除外
 set spelllang=en,cjk
+" 間違ったスペルに下線
+hi clear SpellBad
+hi SpellBad cterm=underline
+" 間違ったキャメルケースに下線と太字
+hi clear SpellCap
+hi SpellCap cterm=underline,bold
 
 " ヤンクしたデータをクリップボードで使用＆選択範囲自動コピー
 " ※ 使用できるか環境による
