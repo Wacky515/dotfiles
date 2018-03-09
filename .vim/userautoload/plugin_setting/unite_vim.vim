@@ -14,6 +14,8 @@ nmap U [unite]
 " nmap <Leader>u [unite]
 
 " ショートカットキー
+" Color Scheme プレビュー
+nnoremap <silent> [unite]l :<C-u>Unite -auto-preview colorscheme<CR>
 " 現在のバッファ一覧
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 " 現在のバッファのディレクトリ一覧

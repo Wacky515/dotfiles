@@ -4,19 +4,22 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# # 統合ユーザインターフェース
-# [[plugins]]
-# repo = 'Shougo/unite.vim'
-# depends = 'neomru.vim'
-# # "unite.vim" 用colorschemeプレビュー
-# # TODO: ショートカットキーに登録
-# # ":Unite -auto-preview colorscheme" でプレビュー
-# [[plugins]]
-# repo = 'ujihisa/unite-colorscheme'
-# # "unite.vim" 用フォントプレビュー
-# # ":Unite font" でプレビュー
-# [[plugins]]
-# repo = 'ujihisa/unite-font'
+# 統合ユーザインターフェース
+[[plugins]]
+repo = 'Shougo/unite.vim'
+depends = 'neomru.vim'
+# "unite.vim" 用colorschemeプレビュー
+[[plugins]]
+repo = 'ujihisa/unite-colorscheme'
+# "unite.vim" 用フォントプレビュー
+# ":Unite font" でプレビュー
+# FIXME: ↑されない
+[[plugins]]
+repo = 'ujihisa/unite-font'
+
+# The Silver Searcher 検索
+[[plugins]]
+repo = 'rking/ag.vim'
 
 # # ファイラー
 # [[plugins]]
@@ -65,6 +68,8 @@ repo = 'tomtom/tcomment_vim'
 # 古いので代替したい
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
+# 削除予定
 
 # # "()"、 "[]" など 対入力
 # Keymapに登録済み
