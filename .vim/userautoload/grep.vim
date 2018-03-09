@@ -3,6 +3,9 @@ scriptencoding utf-8
 " <Leader>g: カーソル下を "vimgrep" 対象に挿入（<Enter押下で再帰的に検索、現在開いているのと同一の拡張子が対象）
 nnoremap <expr> <Leader>g ':vimgrep /\<' . expand('<cword>') . '\>/j **/*.' . expand('%:e')
 
+" <Leader>a: カーソル下を "The Sliver Searcher" 対象に挿入（<Enter押下で再帰的に検索）
+nnoremap <expr> <Leader>a ':Ag ' . expand('<cword>') . ''
+
 " <Leader>G: カーソル下を "外部grep" 対象に挿入（<Enter押下で再帰的に検索）
 nnoremap <expr> <Leader>G ':sil grep! ' . expand('<cword>') . ' *'
 
