@@ -4,11 +4,22 @@ scriptencoding utf-8
 
 " TODO: マークにジャンプ時、画面をトップに位置にする
 
-" 入力モード中 jj: <Esc>
+" 挿入モードで jj: <Esc>
 inoremap jj <Esc>
+
+" <Ctrl>j: 裏バッファへ切替え
+nnoremap <C-j> <C-^>
 
 " スペルチェックをトグル
 nnoremap <silent> <Leader>s :set spell!<CR>
+
+" 挿入モードで dl: 仕切り線を挿入
+inoreabbrev dl --------------------------------------------------------------------------------
+
+" ヤンクした文字列でカーソル位置の単語を置換
+nnoremap <silent> cy ce<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
+vnoremap <silent> cy c<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
+nnoremap <silent> ciy ciw<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
 
 " <Ctrl>s: エクスプローラで保存場所選択して保存
 imap <script> <C-s> <SID>(gui-save)<Esc>

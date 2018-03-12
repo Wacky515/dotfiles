@@ -11,10 +11,21 @@ set history=1000
 " 折り畳みの設定
 set foldmethod=marker
 
-" !!!: 動作未確認
-" モードラインをON
-    " モードライン: ファイル毎の設定
+" モードライン（ファイル毎の設定）をON
 set modeline
+
+" 新規作成時、動的にテンプレートを読込む
+augroup templateload
+    autocmd!
+    autocmd BufNewFile *.py 0r ~/.vim/skeleton.py
+    autocmd BufNewFile *.py %substitute#__DATE__#=strftime('%Y%m%d')#ge
+    autocmd BufNewFile *.html 0r ~/.vim/skeleton.html
+    autocmd BufNewFile *.html %substitute#__DATE__#=strftime('%Y%m%d')#ge
+    autocmd BufNewFile *.pl 0r ~/.vim/skeleton.pl
+    autocmd BufNewFile *.pl %substitute#__DATE__#=strftime('%Y%m%d')#ge
+    autocmd BufNewFile *.pm 0r ~/.vim/skeleton.pm
+    autocmd BufNewFile *.pm %substitute#__DATE__#=strftime('%Y%m%d')#ge
+augroup END
 
 " ".swp" のディレクトリ変更
 set directory=~/.vim/tmp

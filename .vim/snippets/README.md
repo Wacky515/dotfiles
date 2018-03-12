@@ -1,0 +1,1 @@
+# Snippet setting for Vim
