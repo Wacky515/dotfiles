@@ -6,12 +6,12 @@
 # on_ft = ['snippet']
 # [[plugins]]
 # repo = 'Shougo/neocomplcache.vim'
-#
-# # unite用mru
-# [[plugins]]
-# repo = 'Shougo/neomru.vim'
-# on_path = '.*'
-#
+
+# unite用mru
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_path = '.*'
+
 # # Python用プラグイン
 # [[plugins]]
 # repo = 'davidhalter/jedi-vim'

@@ -46,13 +46,10 @@ repo = 'rking/ag.vim'
 [[plugins]]
 repo = 'sjl/gundo.vim'
 
+
 # インデント カラー化
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
-
-# 行末半角スペースを 視化
-[[plugins]]
-repo = 'bronson/vim-trailing-whitespace'
 
 # ステータスライン ビジュアル強化
 [[plugins]]
@@ -62,6 +59,42 @@ repo = 'itchyny/lightline.vim'
 # コメントON/OFF ショートカットキートグル
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
+
+# コマンドラインでEmacsキーバインド
+[[plugins]]
+repo = 'houtsnip/vim-emacscommandline'
+
+# カーソル移動の拡張
+[[plugins]]
+repo = 'Lokaltog/vim-easymotion'
+
+# カーソル移動の拡張
+[[plugins]]
+repo = 'Lokaltog/vim-easymotion'
+
+# "%" で移動を強化
+[[plugins]]
+repo = 'tmhedberg/matchit'
+
+#  フォントのサイズ変更
+[[plugins]]
+repo = 'thinca/vim-fontzoom'
+
+# 日付のインクリメント・デクリメント
+[[plugins]]
+repo = 'tpope/vim-speeddating'
+
+# Vim上で計算機機能
+[[plugins]]
+repo = 'tpope/vim-speeddating'
+
+# スネークケースやキャメルケースへの変換
+[[plugins]]
+repo = 'tpope/vim-abolish'
+
+# タイムスタンプを挿入
+[[plugins]]
+repo = 'm-scripts/autodate.vim'
 
 
 # Git用プラグイン
