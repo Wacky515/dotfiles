@@ -16,32 +16,18 @@ nnoremap <silent> <Leader>s :set spell!<CR>
 " 挿入モードで dl: 仕切り線を挿入
 inoreabbrev dl --------------------------------------------------------------------------------
 
-" ヤンクした文字列でカーソル位置の単語を置換
-nnoremap <silent> cy ce<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
-vnoremap <silent> cy c<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
-nnoremap <silent> ciy ciw<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
-
-" <Ctrl>s: エクスプローラで保存場所選択して保存
-imap <script> <C-s> <SID>(gui-save)<Esc>
-nmap <script> <C-s> <SID>(gui-save)
-imap <script> <SID>(gui-save) <C-o><SID>(gui-save)
-nnoremap      <SID>(gui-save) :<C-u>call <SID>gui_save()<CR>
-function! s:gui_save()
-    if bufname('%') ==# ''
-        browse confirm saveas
-    else
-        update
-    endif
-endfunction
+" FIXME: "Mac" では効かない
+" <Esc><Esc>: ハイライト消去
+nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
 " vv: カーソルから行末まで選択
 vnoremap v $h
 " Y: カーソルから行末までヤンク
 nnoremap Y y$
 
-" FIXME: "Mac" では効かない
-" <Esc><Esc>: ハイライト消去
-nmap <silent> <Esc><Esc> :nohlsearch<CR>
+" <Tab>: 対のカッコにジャンプ
+nnoremap <Tab> %
+vnoremap <Tab> %
 
 " bp: 一つ前のバッファを開く
 nnoremap <silent>bp :bprevious<CR>
@@ -49,6 +35,17 @@ nnoremap <silent>bp :bprevious<CR>
 nnoremap <silent>bn :bnext<CR>
 " bb: 直前のバッファを開く
 nnoremap <silent>bb :b#<CR>
+
+"Macの時ノーマルモードで:と;を入れ替える
+if has("mac")
+    noremap : ;
+    noremap ; :
+endif
+
+" w!!: スーパーユーザーとして保存（sudoが使える環境限定）
+if has("unix")
+    cmap w!! w !sudo tee > /dev/null %
+endif
 
 " ,v: vimrcを開く
 " nmap ,v :edit $MYVIMRC<CR>
@@ -70,16 +67,23 @@ nnoremap <silent> ,g :<C-u>source $MYGVIMRC<CR>
 " nnoremap <silent> <Leader>,g :<C-u>source $MYGVIMRC<CR>
 " }}}
 
-"Macの時ノーマルモードで:と;を入れ替える
-if has("mac")
-    noremap : ;
-    noremap ; :
-endif
+" ヤンクした文字列でカーソル位置の単語を置換
+nnoremap <silent> cy ce<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
+vnoremap <silent> cy c<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
+nnoremap <silent> ciy ciw<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
 
-" w!!: スーパーユーザーとして保存（sudoが使える環境限定）
-if has("unix")
-    cmap w!! w !sudo tee > /dev/null %
-endif
+" <Ctrl>s: エクスプローラで保存場所選択して保存
+imap <script> <C-s> <SID>(gui-save)<Esc>
+nmap <script> <C-s> <SID>(gui-save)
+imap <script> <SID>(gui-save) <C-o><SID>(gui-save)
+nnoremap      <SID>(gui-save) :<C-u>call <SID>gui_save()<CR>
+function! s:gui_save()
+    if bufname('%') ==# ''
+        browse confirm saveas
+    else
+        update
+    endif
+endfunction
 
 " TODO: 動作確認
 " ":e" などでファイルを開く時、フォルダが存在しない場合は自動作成
