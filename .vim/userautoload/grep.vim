@@ -7,7 +7,7 @@ nnoremap <expr> <Leader>g ':vimgrep /\<' . expand('<cword>') . '\>/j **/*.' . ex
 nnoremap <expr> <Leader>a ':Ag ' . expand('<cword>') . ''
 
 " <Leader>G: カーソル下を "外部grep" 対象に挿入（<Enter押下で再帰的に検索）
-nnoremap <expr> <Leader>G ':sil grep! ' . expand('<cword>') . ' *'
+nnoremap <expr> <Leader>G ':silent grep! ' . expand('<cword>') . ' *'
 
 " "外部grep" の設定と除外ファイル
 set grepprg=grep\ -rnIH\ --exclude-dir=.svn\ --exclude-dir=.git\ --exclude-dir=node_modules\ --exclude-dir=db\ --exclude-dir=tmp\ --exclude-dir=log\ --exclude-dir=vendor\ --exclude-dir=tags\ --exclude=tags\ --exclude="*.min.js\

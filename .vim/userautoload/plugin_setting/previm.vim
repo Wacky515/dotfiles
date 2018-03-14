@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 "ブラウザの設定"
 """ Mac の場合
 if has("mac")
