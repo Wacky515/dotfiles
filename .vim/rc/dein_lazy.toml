@@ -33,6 +33,13 @@ on_path = '.*'
 [[plugins]]
 repo = 'itchyny/calendar.vim'
 
+# フォントのサイズ変更
+[[plugins]]
+repo   = 'thinca/vim-fontzoom'
+on_cmd = ['Fontzoom']
+on_map = ['<Plug>(fontzoom-']
+gui    = 1
+
 # # Markdown
 # # プレビュー
 # [[plugins]]

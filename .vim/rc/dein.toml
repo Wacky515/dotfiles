@@ -1,4 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
+# Last Cahnged: .
 
 # "dein.vim" 本体
 [[plugins]]
@@ -9,6 +10,7 @@ repo = 'Shougo/dein.vim'
 repo = 'Shougo/unite.vim'
 depends = 'neomru.vim'
 # "unite.vim" 用colorschemeプレビュー
+# ":Unite clorcheme" でプレビュー
 [[plugins]]
 repo = 'ujihisa/unite-colorscheme'
 # "unite.vim" 用フォントプレビュー
@@ -21,10 +23,20 @@ repo = 'ujihisa/unite-font'
 [[plugins]]
 repo = 'rking/ag.vim'
 
+# 選択したテキストを'""'、"()"、"[]"などで囲む
+# FIXME: 動作しなくなった
+[[plugins]]
+repo = 'tpope/vim-surround'
+
 # # ファイラー
-# [[plugins]]
-# repo = 'Shougo/vimfiler'
-# # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
+# ":VimFiler" で起動 # {{{
+    # o: 	バッファを縦分割 or ディレクトリ同期
+    # O:	別バッファに選択中のディレクトリの中を展開
+    # gs:	セーフモード on/off
+    # q:	VimFilerを終了
+# }}}
+[[plugins]]
+repo = 'Shougo/vimfiler'
 
 # # "vimshell"
 # [[plugins]]
@@ -34,18 +46,13 @@ repo = 'rking/ag.vim'
 # [[plugins]]
 # repo = 'vim-scripts/taglist.vim'
 
-# # "*" で検索時、単語ではなく選択範囲を対象にする
-# [[plugins]]
-# repo = 'https://github.com/nelstrom/vim-visual-star-search.git'
-
 # # ウィンドウサイズ変更 簡便化
 # [[plugins]]
 # repo = 'simeji/winresizer'
 
-# "undo" 管理
+# アンドゥ管理
 [[plugins]]
 repo = 'sjl/gundo.vim'
-
 
 # インデント カラー化
 [[plugins]]
@@ -66,54 +73,51 @@ repo = 'houtsnip/vim-emacscommandline'
 
 # カーソル移動の拡張
 [[plugins]]
-repo = 'Lokaltog/vim-easymotion'
+repo = 'lokaltog/vim-easymotion'
 
-# カーソル移動の拡張
-[[plugins]]
-repo = 'Lokaltog/vim-easymotion'
-
-# "%" で移動を強化
+# "%" で移動を強化（*.htmlのタグなど）
 [[plugins]]
 repo = 'tmhedberg/matchit'
 
-#  フォントのサイズ変更
-[[plugins]]
-repo = 'thinca/vim-fontzoom'
-
 # 日付のインクリメント・デクリメント
+# FIXME: yyyy/mm/dd 形式は対応していない
 [[plugins]]
 repo = 'tpope/vim-speeddating'
 
-# Vim上で計算機機能
+# vim上で計算機機能
+# コマンドモードで ":Calc" で計算開始
+# "Python" 必要
 [[plugins]]
-repo = 'tpope/vim-speeddating'
+repo = 'gregsexton/VimCalc'
 
 # スネークケースやキャメルケースへの変換
+    # ノーマルモードで # {{{
+    # crs	"SnakeCase"  → "snake_case"
+    # crm	"mixed_case" → "MixedCase"
+    # crc	"camel_case" → "camelCase"
+    # cru	"upper_case" → "UPPER_CASE"
+# }}}
 [[plugins]]
 repo = 'tpope/vim-abolish'
 
 # タイムスタンプを挿入
+#  "Last Cahnged: ." を記入する
+# FIXME: 動作せず
 [[plugins]]
 repo = 'm-scripts/autodate.vim'
 
 
-# Git用プラグイン
+# git用プラグイン
 # 古いので代替したい
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
 # 削除予定
 
-# # "()"、 "[]" など 対入力
-# Keymapに登録済み
-# [[plugins]]
-# repo = 'tpope/vim-surround'
-# # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
-
 # # ミニマップ
 # [[plugins]]
 # # repo = 'mipmip/vim-minimap'
-# # TODO: 下記の条件分岐は未動作確認
+# # todo: 下記の条件分岐は未動作確認
 # # if = '''! has ('windows')'''
 # repo = "koron/minimap-vim"
 
@@ -121,22 +125,19 @@ repo = 'tpope/vim-fugitive'
 # [[plugins]]
 # repo = 'osyo-manga/vim-precious'
 # depends = ['context_filetype.vim']
-# [[plugins]] repo = 'Shougo/context_filetype.vim'
+# [[plugins]] repo = 'shougo/context_filetype.vim'
 
 # 導入予定
 
-# Toml
+# toml
 # [[plugins]]
 # repo  = 'cespare/vim-toml'
 # on_ft = 'toml'
 
-# Japanese doc
+# japanese doc
 # [[plugins]]
 # repo = 'vim-jp/vimdoc-ja'
 # on_ft = 'help'
-
-# ビジュアル選択部を "*" で検索
-# 'nelstrom/vim-visual-star-search
 
 # "ctags" 自動更新
 # https://github.com/soramugi/auto-ctags.vim
