@@ -11,7 +11,7 @@ inoremap jj <Esc>
 nnoremap <C-j> <C-^>
 
 " スペルチェックをトグル
-nnoremap <silent> <Leader>s :set spell!<CR>
+nnoremap <silent> <Leader>l :set spell!<CR>
 
 " 挿入モードで dl: 仕切り線を挿入
 inoreabbrev dl --------------------------------------------------------------------------------
@@ -19,6 +19,10 @@ inoreabbrev dl -----------------------------------------------------------------
 " FIXME: "Mac" では効かない
 " <Esc><Esc>: ハイライト消去
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
+
+"  "*"、 "#" 検索した後に移動しない設定
+nnoremap * *N
+nnoremap # #N
 
 " vv: カーソルから行末まで選択
 vnoremap v $h

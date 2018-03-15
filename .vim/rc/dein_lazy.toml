@@ -1,16 +1,31 @@
-# # スニペット
-# [[plugins]]
-# repo = 'Shougo/neosnippet'
-# depends = ['neosnippet-snippets']
-# on_i = 1
-# on_ft = ['snippet']
-# [[plugins]]
-# repo = 'Shougo/neocomplcache.vim'
+# スニペット
+[[plugins]]
+repo = 'Shougo/neosnippet'
+depends = ['neosnippet-snippets']
+on_i = 1
+on_ft = ['snippet']
+[[plugins]]
+repo = 'Shougo/neocomplcache.vim'
 
 # unite用mru
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 on_path = '.*'
+
+# fuzzy matcher
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --bin'
+merged = '0'
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+hook_add = '''
+    command! -bang -nargs=* Rg
+      \ call fzf#vim#grep(
+      \   'rg --line-number --no-heading '.shellescape(<q-args>), 0,
+      \   fzf#vim#with_preview({'options': '--exact --reverse'}, 'right:50%:wrap'))
+'''
 
 # # Python用プラグイン
 # [[plugins]]
@@ -20,9 +35,11 @@ on_path = '.*'
 # [[plugins]]
 # repo = 'pfdevilliers/Pretty-Vim-Python'
 # on_ft = 'python'
-# # 構文チェッカー
-# [[plugins]]
-# repo = 'scrooloose/syntastic'
+# 構文チェッカー
+[[plugins]]
+repo = 'w0rp/ale'
+# # [[plugins]]
+# # repo = 'scrooloose/syntastic'
 # on_ft = 'python'
 # # Python自動折りたたみ
 # # [[plugins]]
