@@ -1,7 +1,7 @@
 scriptencoding utf-8
 
 " ".vimrc.local" Çì«çûÇﬁ
-" augroup vimrc-local
+augroup vimrc-local
     autocmd!
     autocmd BufNewFile,BufReadPost * call s:vimrc_local(expand('<afile>:p:h'))
 augroup END

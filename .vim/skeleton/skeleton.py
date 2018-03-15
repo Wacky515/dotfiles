@@ -6,8 +6,8 @@
 #
 # Author:      Kilo11
 #
-# Created:     #__DATE__#
-# Copyright:   (c) SkyDog 2018
+# Created:     __DATE__
+# Copyright:   (c) SkyDog __YEAR__
 # Licence:     SDS1****
 # -----------------------------------------------------------------------------
 """ *** """

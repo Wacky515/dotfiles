@@ -24,7 +24,6 @@ repo = 'ujihisa/unite-font'
 repo = 'rking/ag.vim'
 
 # 選択したテキストを'""'、"()"、"[]"などで囲む
-# FIXME: 動作しなくなった
 [[plugins]]
 repo = 'tpope/vim-surround'
 
@@ -38,17 +37,18 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'Shougo/vimfiler'
 
-# # "vimshell"
-# [[plugins]]
-# repo = 'Shougo/vimshell'
+# "vimshell"
+[[plugins]]
+repo = 'Shougo/vimshell'
 
 # # 関数、クラス、変数、構造体、列挙型、マクロ定義など 一覧表示
 # [[plugins]]
 # repo = 'vim-scripts/taglist.vim'
 
-# # ウィンドウサイズ変更 簡便化
-# [[plugins]]
-# repo = 'simeji/winresizer'
+# ウィンドウサイズ変更 簡便化
+# <Ctrl>e: ウィンドウリサイズ開始
+[[plugins]]
+repo = 'simeji/winresizer'
 
 # アンドゥ管理
 [[plugins]]
@@ -112,21 +112,6 @@ repo = 'm-scripts/autodate.vim'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
-# 削除予定
-
-# # ミニマップ
-# [[plugins]]
-# # repo = 'mipmip/vim-minimap'
-# # todo: 下記の条件分岐は未動作確認
-# # if = '''! has ('windows')'''
-# repo = "koron/minimap-vim"
-
-# # カーソル位置の "filetype" に切り替え
-# [[plugins]]
-# repo = 'osyo-manga/vim-precious'
-# depends = ['context_filetype.vim']
-# [[plugins]] repo = 'shougo/context_filetype.vim'
-
 # 導入予定
 
 # toml
@@ -157,3 +142,18 @@ repo = 'tpope/vim-fugitive'
 # [[plugins]]
 # repo = 'vim-scripts/YankRing.vim'
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
+
+# 削除予定
+
+# # ミニマップ
+# [[plugins]]
+# # repo = 'mipmip/vim-minimap'
+# # todo: 下記の条件分岐は未動作確認
+# # if = '''! has ('windows')'''
+# repo = "koron/minimap-vim"
+
+# # カーソル位置の "filetype" に切り替え
+# [[plugins]]
+# repo = 'osyo-manga/vim-precious'
+# depends = ['context_filetype.vim']
+# [[plugins]] repo = 'shougo/context_filetype.vim'
