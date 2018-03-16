@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Cahnged: .
+# Last Changed: .
 
 # "dein.vim" 本体
 [[plugins]]
@@ -42,8 +42,9 @@ repo = 'Shougo/vimfiler'
 repo = 'Shougo/vimshell'
 
 # # 関数、クラス、変数、構造体、列挙型、マクロ定義など 一覧表示
-# [[plugins]]
-# repo = 'vim-scripts/taglist.vim'
+# ":TlistOpen" で開始
+[[plugins]]
+repo = 'vim-scripts/taglist.vim'
 
 # ウィンドウサイズ変更 簡便化
 # <Ctrl>e: ウィンドウリサイズ開始
@@ -92,10 +93,10 @@ repo = 'gregsexton/VimCalc'
 
 # スネークケースやキャメルケースへの変換
     # ノーマルモードで # {{{
-    # crs	"SnakeCase"  → "snake_case"
-    # crm	"mixed_case" → "MixedCase"
-    # crc	"camel_case" → "camelCase"
-    # cru	"upper_case" → "UPPER_CASE"
+        # crs	"SnakeCase"  → "snake_case"
+        # crm	"mixed_case" → "MixedCase"
+        # crc	"camel_case" → "camelCase"
+        # cru	"upper_case" → "UPPER_CASE"
 # }}}
 [[plugins]]
 repo = 'tpope/vim-abolish'
@@ -105,6 +106,14 @@ repo = 'tpope/vim-abolish'
 # FIXME: 動作せず
 [[plugins]]
 repo = 'm-scripts/autodate.vim'
+
+# "=" を自動的に " = " にする
+[[plugins]]
+repo = 'kana/vim-smartchr'
+
+# # "true"/"false"、"yes"、"no"、"on"/"off" などをトグル
+# [[plugins]]
+# repo = 'toggle.vim'
 
 
 # git用プラグイン
