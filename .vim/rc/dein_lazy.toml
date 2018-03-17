@@ -1,18 +1,42 @@
-# スニペット
-[[plugins]]
-repo = 'Shougo/neosnippet'
-depends = ['neosnippet-snippets']
-on_i = 1
-on_ft = ['snippet']
+# Last Change: 2018/03/17 13:33:33.
+
+# # 統合ユーザインターフェース # {{{
+# [[plugins]]
+# repo = 'Shougo/denite.nvim'
+# on_cmd = 'Denite'
+# on_i = 1
+# hook_source = '''
+#   call denite#custom#map('insert', '<c-n>', '<denite:move_to_next_line>', 'noremap')
+#   call denite#custom#map('insert', '<c-p>', '<denite:move_to_previous_line>', 'noremap')
+# '''
+# }}}
+
+# 入力補完
 [[plugins]]
 repo = 'Shougo/neocomplcache.vim'
 
-# unite用mru
+# スニペット補完
+[[plugins]]
+repo = 'Shougo/neosnippet'
+hook_source = '''
+    imap <C-k> <Plug>(neosnippet_expand_or_jump)
+    smap <C-k> <Plug>(neosnippet_expand_or_jump)
+    xmap <C-k> <Plug>(neosnippet_expand_target)
+        if has('conceal')
+            set conceallevel=2 concealcursor=niv
+    endif
+'''
+on_i = 1
+on_ft = ['snippet']
+depends = ['neosnippet-snippets']
+
+# Unite用mru
 [[plugins]]
 repo = 'Shougo/neomru.vim'
+# on_source = 'denite.nvim'
 on_path = '.*'
 
-# fuzzy matcher
+# Fuzzy Matcher
 [[plugins]]
 repo = 'junegunn/fzf'
 build = './install --bin'
@@ -121,7 +145,8 @@ hook_add = '''
     au MyAutoCmd VimEnter * nested colorscheme hybrid
     '''
 
-# # TODO: 動作確認
+# TODO: 動作確認
+
 # # マーク 可視化
 # [[plugins]]
 # # repo = 'ShowMarks'

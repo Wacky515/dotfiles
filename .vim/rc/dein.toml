@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Changed: .
+#  Last Change: 2018/03/17 15:07:49.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -9,25 +9,26 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'Shougo/unite.vim'
 depends = 'neomru.vim'
-# "unite.vim" 用colorschemeプレビュー
-# ":Unite clorcheme" でプレビュー
+# "unite.vim" 用 "Colorscheme" プレビュー
+# ":Unite colorscheme" でプレビュー
 [[plugins]]
 repo = 'ujihisa/unite-colorscheme'
 # "unite.vim" 用フォントプレビュー
 # ":Unite font" でプレビュー
-# FIXME: ↑されない
+# FIXME: ↑ 何も表示されない
 [[plugins]]
 repo = 'ujihisa/unite-font'
 
-# The Silver Searcher 検索
+# スニペット
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+# The Silver Searcher
 [[plugins]]
 repo = 'rking/ag.vim'
 
-# 選択したテキストを'""'、"()"、"[]"などで囲む
-[[plugins]]
-repo = 'tpope/vim-surround'
-
-# # ファイラー
+# ファイラー
+# TODO: Uniteのファイラに統合
 # ":VimFiler" で起動 # {{{
     # o: 	バッファを縦分割 or ディレクトリ同期
     # O:	別バッファに選択中のディレクトリの中を展開
@@ -37,9 +38,16 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'Shougo/vimfiler'
 
-# "vimshell"
+# "VimShell"
+# ":VimShell" で起動
 [[plugins]]
 repo = 'Shougo/vimshell'
+
+# TODO: 以下から記述しているもの順序ソート
+
+# 選択したテキストを'""'、"()"、"[]"などで囲む
+[[plugins]]
+repo = 'tpope/vim-surround'
 
 # # 関数、クラス、変数、構造体、列挙型、マクロ定義など 一覧表示
 # ":TlistOpen" で開始
@@ -102,14 +110,24 @@ repo = 'gregsexton/VimCalc'
 repo = 'tpope/vim-abolish'
 
 # タイムスタンプを挿入
-#  "Last Cahnged: ." を記入する
-# FIXME: 動作せず
+#  "Last Change: ." を記入する
 [[plugins]]
-repo = 'm-scripts/autodate.vim'
+repo = 'vim-scripts/autodate.vim'
 
 # "=" を自動的に " = " にする
 [[plugins]]
 repo = 'kana/vim-smartchr'
+
+# テキスト整形
+# 対象行を選択し "ga" -> "整形対象" ->  "デリミタ" を入力
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+
+# コピペ 履歴保存
+# ヤンク後に "<Ctrl>p/<Ctrl>n" でヤンク履歴を選択
+[[plugins]]
+repo = 'vim-scripts/YankRing.vim'
+# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
 
 # # "true"/"false"、"yes"、"no"、"on"/"off" などをトグル
 # [[plugins]]
@@ -141,28 +159,4 @@ repo = 'tpope/vim-fugitive'
 # repo = 'thinca/vim-template'
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
 
-# テキスト整形
-# [[plugins]]
-# repo = 'vim-scripts/Align'
-# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
-# < http://nanasi.jp/vim/align.html >
-
-# コピペ 履歴保存
-# [[plugins]]
-# repo = 'vim-scripts/YankRing.vim'
-# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
-
 # 削除予定
-
-# # ミニマップ
-# [[plugins]]
-# # repo = 'mipmip/vim-minimap'
-# # todo: 下記の条件分岐は未動作確認
-# # if = '''! has ('windows')'''
-# repo = "koron/minimap-vim"
-
-# # カーソル位置の "filetype" に切り替え
-# [[plugins]]
-# repo = 'osyo-manga/vim-precious'
-# depends = ['context_filetype.vim']
-# [[plugins]] repo = 'shougo/context_filetype.vim'
