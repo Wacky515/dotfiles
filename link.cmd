@@ -28,20 +28,11 @@ if %ERRORLEVEL% == 0 (
 
     git config --system http.proxy http://m6prxy1:8080
     git config --system https.proxy https://m6prxy1:8080
-
-    rem git config --system http.proxy http://proxy.intra.xacti-co.com:8080
+    rem git config --system http.proxy http://proxy.intra.xacti-co.com:8080 rem {{{
     rem git config --system https.proxy https://proxy.intra.xacti-co.com:8080
-
-    :mk_sylink
-    rem mklink %HOMEPATH%"\.ctags" ".\dotfiles\.ctags"{{{
-    rem mklink %HOMEPATH%"\.gitignore" ".\dotfiles\.gitignore"
-    rem mklink %HOMEPATH%"\.minttyrc" ".\dotfiles\.minttyrc"
-    rem mklink %HOMEPATH%"\.zshrc" ".\dotfiles\.zshrc"
-
-    rem mklink %HOMEPATH%"\.vimrc" ".\dotfiles\.vimrc"
-    rem mklink %HOMEPATH%"\.gvimrc" ".\dotfiles\.gvimrc"
     rem }}}
 
+    :mk_sylink
     for %%j in (.*) do (
         if %%j == .bash_history (
         rem echo ignore1 %%j

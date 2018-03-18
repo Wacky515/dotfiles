@@ -1,8 +1,8 @@
 ﻿scriptencoding utf-8
 
 set fileformat=dos
-set encoding=sjis
-" set encoding=utf-8
+set encoding=utf-8
+" set encoding=sjis
 " set encoding=cp932
 
 " FIXME: 効かない
