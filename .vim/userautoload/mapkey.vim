@@ -1,4 +1,5 @@
 scriptencoding utf-8
+" Last Change: 2018/03/18 13:29:06.
 
 """ マップキー篇 """
 
