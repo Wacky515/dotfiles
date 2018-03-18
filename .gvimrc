@@ -74,7 +74,7 @@ elseif has("mac")
 
 elseif has("win32") || has("win64")
     " Home setting
-    if hostname() == "SaladCarbonX1"
+    if hostname() == "SALADCARBONX1"
         " set guifont=Ricty_Diminished:h12
         set guifont=Consolas:h12
 
