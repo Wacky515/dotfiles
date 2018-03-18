@@ -60,47 +60,47 @@ syntax on
 
 " !!!: 以下からは記述場所を順番を変えない！！！
 " フォントの設定
-if has("mac")
+if has("unix")
+    set guifont=DejaVu\ Sans\ Mono\ 13
+
+elseif has("mac")
     if hostname() == "ProSalad13.local"
         set guifont=Ricty_Diminished:h16
     elseif hostname() == "saladserver.com"
         set guifont=Osaka:h24
-        " set guifont=Ricty_Diminished:h24
     else
-        set guifont=Ricty_Diminished:h18
+        set guifont=Osaka:h18
     endif
-
-elseif has("unix")
-    set guifont=DejaVu\ Sans\ Mono\ 13
 
 elseif has("win32") || has("win64")
     " Home setting
     if hostname() == "SaladCarbonX1"
-        set guifont=Ricty_Diminished:h12
+        " set guifont=Ricty_Diminished:h12
+        set guifont=Consolas:h12
 
     " muRata setting
     elseif hostname() == "hbalt071"
-        set guifont=Myrica_M:h15
+        set guifont=Myrica_M:h16
     elseif hostname() == "hbamb748"
         set guifont=Ricty_Diminished:h16
     elseif hostname() == "HBAMB748A"
         " set guifont=Ricty_Diminished:h16
-        set guifont=Inconsolata:h14
         " set guifont=Consolas:h14
+        set guifont=Inconsolata:h14
     elseif hostname() == "MECSI"
-        set guifont=Ricty_Diminished:h15
+        set guifont=Ricty_Diminished:h16
 
     elseif hostname() == "LAPTOP-DOA35GAR"
         set guifont=Ricty_Diminished:h12
 
     " Xacti setting " {{{
     elseif hostname() == "CAD0021"
-        set guifont=Ricty_Diminished:h15
+        set guifont=Ricty_Diminished:h16
     elseif hostname() == "PC-SA4110204580"
         set guifont=Ricty_Diminished:h12
     elseif hostname() == "NOT0053"
         set guifont=Ricty_Diminished:h12
-" }}}
+    " }}}
     else
         set guifont=Meiryo_UI:h18
     endif
