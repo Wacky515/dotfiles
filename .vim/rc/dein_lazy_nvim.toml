@@ -12,33 +12,3 @@ hook_add = '''
     " 但し Colorscheme イベントの発生が抑制されないよう nested を付ける。
     au MyAutoCmd VimEnter * nested colorscheme hybrid
     '''
-[[plugins]]
-repo = 'chriskempson/vim-tomorrow-theme'
-hook_add = '''
-    set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
-    '''
-[[plugins]]
-repo = 'tomasr/molokai'
-hook_add = '''
-    set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
-    '''
-[[plugins]]
-repo = 'sjl/badwolf'
-hook_add = '''
-    set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
-    '''
-[[plugins]]
-repo = 'vim-scripts/twilight'
-hook_add = '''
-    set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
-    '''
-[[plugins]]
-repo = 'nanotech/jellybeans.vim'
-hook_add = '''
-    set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
-    '''
