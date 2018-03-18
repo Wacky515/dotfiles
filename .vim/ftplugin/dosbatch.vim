@@ -1,4 +1,5 @@
 ﻿scriptencoding utf-8
+" Last Chqange: .
 
 set fileformat=dos
 set encoding=sjis
