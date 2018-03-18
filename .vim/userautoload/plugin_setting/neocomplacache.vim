@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/17 16:55:10.
+" Last Change: 2018/03/17 22:14:37.
 
 highlight Pmenu ctermbg=4
 highlight PmenuSel ctermbg=1
@@ -17,6 +17,8 @@ let g:neocomplcache_enable_auto_select = 1
 " 大文字が入力されるまで大文字小文字の区別を無視する
 let g:neocomplcache_enable_smart_case = 1
 
+let g:neocomplcache_enable_camel_case_completion = 0
+
 " "_" 区切りの補完を有効化
 let g:neocomplcache_enable_underbar_completion = 1
 
@@ -29,9 +31,6 @@ let g:neocomplcache_max_list = 20
 " 補完ウィンドウの設定
 set completeopt=menuone
 
-" "rsense" での自動補完機能を有効化
-let g:rsenseUseOmniFunc = 1
-
 " "auto-ctags" を使ってファイル保存時に "tags" ファイルを更新
 let g:auto_ctags = 1
 
@@ -39,6 +38,9 @@ let g:auto_ctags = 1
 let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default' : ''
     \ }
+
+" <Ctrl>y: 現在選択している候補を確定
+inoremap <expr><C-y> neocomplcache#close_popup()
 
 " <Ctrl>g: 前回行われた補完をキャンセルし補完した文字を消す
 inoremap <expr><C-g>     neocomplcache#undo_completion()
@@ -58,6 +60,9 @@ inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
+" "Rsense" での自動補完機能を有効化
+let g:rsenseUseOmniFunc = 1
 
 " " 補完の設定 " {{{
 " autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete

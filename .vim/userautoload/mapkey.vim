@@ -7,6 +7,13 @@ scriptencoding utf-8
 " 挿入モードで jj: <Esc>
 inoremap jj <Esc>
 
+" 0: 直下に空行挿入
+nnoremap 0 :<C-u>call append(expand('.'), '')<CR>j
+
+" 9: 直上に空行挿入
+" nnoremap 9 kk :<C-u>call append(expand('.'), '')<CR>j
+nnoremap 9 O<Esc>cc<Esc>
+
 " <Ctrl>j: 裏バッファへ切替え
 nnoremap <C-j> <C-^>
 
@@ -52,24 +59,13 @@ if has("unix")
 endif
 
 " ,v: vimrcを開く
-" nmap ,v :edit $MYVIMRC<CR>
 nmap ev :edit $MYVIMRC<CR>
 " ,g: gvimrcを開く
-" nmap ,g :edit $MYGVIMRC<CR>
 nmap eg :edit $MYGVIMRC<CR>
 " <Leader>rv: vimrcを反映
 nnoremap <silent> ,v :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
 " <Leader>rg: gvimrcを反映
 nnoremap <silent> ,g :<C-u>source $MYGVIMRC<CR>
-" " <Leader>rv: vimrcを反映 " {{{
-" nnoremap <silent> <Leader>rv :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
-" " <Leader>rg: gvimrcを反映
-" nnoremap <silent> <Leader>rg :<C-u>source $MYGVIMRC<CR>
-" " <Leader>,v: vimrcを反映
-" nnoremap <silent> <Leader>,v :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
-" " <Leader>,g: gvimrcを反映
-" nnoremap <silent> <Leader>,g :<C-u>source $MYGVIMRC<CR>
-" }}}
 
 " ヤンクした文字列でカーソル位置の単語を置換
 nnoremap <silent> cy ce<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
