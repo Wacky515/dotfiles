@@ -4,11 +4,73 @@ scriptencoding utf-8
 
 " TODO: マークにジャンプ時、画面をトップに位置にする
 
-" 入力モード中 jj: <Esc>
+" 挿入モードで jj: <Esc>
 inoremap jj <Esc>
 
+" 0: 直下に空行挿入
+nnoremap 0 :<C-u>call append(expand('.'), '')<CR>j
+
+" 9: 直上に空行挿入
+" nnoremap 9 kk :<C-u>call append(expand('.'), '')<CR>j
+nnoremap 9 O<Esc>cc<Esc>
+
+" <Ctrl>j: 裏バッファへ切替え
+nnoremap <C-j> <C-^>
+
 " スペルチェックをトグル
-nnoremap <silent> <Leader>s :set spell!<CR>
+nnoremap <silent> <Leader>l :set spell!<CR>
+
+" 挿入モードで dl: 仕切り線を挿入
+inoreabbrev dl --------------------------------------------------------------------------------
+
+" FIXME: "Mac" では効かない
+" <Esc><Esc>: ハイライト消去
+nmap <silent> <Esc><Esc> :nohlsearch<CR>
+
+"  "*"、 "#" 検索した後に移動しない設定
+nnoremap * *N
+nnoremap # #N
+
+" vv: カーソルから行末まで選択
+vnoremap v $h
+" Y: カーソルから行末までヤンク
+nnoremap Y y$
+
+" <Tab>: 対のカッコにジャンプ
+nnoremap <Tab> %
+vnoremap <Tab> %
+
+" bp: 一つ前のバッファを開く
+nnoremap <silent>bp :bprevious<CR>
+" bn: 次のバッファを開く
+nnoremap <silent>bn :bnext<CR>
+" bb: 直前のバッファを開く
+nnoremap <silent>bb :b#<CR>
+
+"Macの時ノーマルモードで:と;を入れ替える
+if has("mac")
+    noremap : ;
+    noremap ; :
+endif
+
+" w!!: スーパーユーザーとして保存（sudoが使える環境限定）
+if has("unix")
+    cmap w!! w !sudo tee > /dev/null %
+endif
+
+" ,v: vimrcを開く
+nmap ev :edit $MYVIMRC<CR>
+" ,g: gvimrcを開く
+nmap eg :edit $MYGVIMRC<CR>
+" <Leader>rv: vimrcを反映
+nnoremap <silent> ,v :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
+" <Leader>rg: gvimrcを反映
+nnoremap <silent> ,g :<C-u>source $MYGVIMRC<CR>
+
+" ヤンクした文字列でカーソル位置の単語を置換
+nnoremap <silent> cy ce<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
+vnoremap <silent> cy c<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
+nnoremap <silent> ciy ciw<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
 
 " <Ctrl>s: エクスプローラで保存場所選択して保存
 imap <script> <C-s> <SID>(gui-save)<Esc>
@@ -22,53 +84,6 @@ function! s:gui_save()
         update
     endif
 endfunction
-
-" vv: カーソルから行末まで選択
-vnoremap v $h
-" Y: カーソルから行末までヤンク
-nnoremap Y y$
-
-" FIXME: "Mac" では効かない
-" <Esc><Esc>: ハイライト消去
-nmap <silent> <Esc><Esc> :nohlsearch<CR>
-
-" bp: 一つ前のバッファを開く
-nnoremap <silent>bp :bprevious<CR>
-" bn: 次のバッファを開く
-nnoremap <silent>bn :bnext<CR>
-" bb: 直前のバッファを開く
-nnoremap <silent>bb :b#<CR>
-
-" ,v: vimrcを開く
-" nmap ,v :edit $MYVIMRC<CR>
-nmap ev :edit $MYVIMRC<CR>
-" ,g: gvimrcを開く
-" nmap ,g :edit $MYGVIMRC<CR>
-nmap eg :edit $MYGVIMRC<CR>
-" <Leader>rv: vimrcを反映
-nnoremap <silent> ,v :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
-" <Leader>rg: gvimrcを反映
-nnoremap <silent> ,g :<C-u>source $MYGVIMRC<CR>
-" " <Leader>rv: vimrcを反映 " {{{
-" nnoremap <silent> <Leader>rv :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
-" " <Leader>rg: gvimrcを反映
-" nnoremap <silent> <Leader>rg :<C-u>source $MYGVIMRC<CR>
-" " <Leader>,v: vimrcを反映
-" nnoremap <silent> <Leader>,v :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
-" " <Leader>,g: gvimrcを反映
-" nnoremap <silent> <Leader>,g :<C-u>source $MYGVIMRC<CR>
-" }}}
-
-"Macの時ノーマルモードで:と;を入れ替える
-if has("mac")
-    noremap : ;
-    noremap ; :
-endif
-
-" w!!: スーパーユーザーとして保存（sudoが使える環境限定）
-if has("unix")
-    cmap w!! w !sudo tee > /dev/null %
-endif
 
 " TODO: 動作確認
 " ":e" などでファイルを開く時、フォルダが存在しない場合は自動作成

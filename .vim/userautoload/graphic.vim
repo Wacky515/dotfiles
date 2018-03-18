@@ -119,6 +119,3 @@ set wildmenu wildmode=list:full
 
 " カーソルの行列表示
 set ruler
-
-" ステータス行に現在のgitブランチを表示
-set statusline+=%{fugitive#statusline()}
