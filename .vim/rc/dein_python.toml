@@ -1,0 +1,5 @@
+#  Last Change: 2018/03/18 09:07:46.
+
+# "denite.vim"
+[[plugins]]
+repo = 'Shougo/denite.vim'

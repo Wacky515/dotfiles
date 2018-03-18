@@ -1,17 +1,56 @@
-# # スニペット
+# Last Change: 2018/03/17 13:33:33.
+
+# # 統合ユーザインターフェース # {{{
 # [[plugins]]
-# repo = 'Shougo/neosnippet'
-# depends = ['neosnippet-snippets']
+# repo = 'Shougo/denite.nvim'
+# on_cmd = 'Denite'
 # on_i = 1
-# on_ft = ['snippet']
-# [[plugins]]
-# repo = 'Shougo/neocomplcache.vim'
-#
-# # unite用mru
-# [[plugins]]
-# repo = 'Shougo/neomru.vim'
-# on_path = '.*'
-#
+# hook_source = '''
+#   call denite#custom#map('insert', '<c-n>', '<denite:move_to_next_line>', 'noremap')
+#   call denite#custom#map('insert', '<c-p>', '<denite:move_to_previous_line>', 'noremap')
+# '''
+# }}}
+
+# 入力補完
+[[plugins]]
+repo = 'Shougo/neocomplcache.vim'
+
+# スニペット補完
+[[plugins]]
+repo = 'Shougo/neosnippet'
+hook_source = '''
+    imap <C-k> <Plug>(neosnippet_expand_or_jump)
+    smap <C-k> <Plug>(neosnippet_expand_or_jump)
+    xmap <C-k> <Plug>(neosnippet_expand_target)
+        if has('conceal')
+            set conceallevel=2 concealcursor=niv
+    endif
+'''
+on_i = 1
+on_ft = ['snippet']
+depends = ['neosnippet-snippets']
+
+# Unite用mru
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+# on_source = 'denite.nvim'
+on_path = '.*'
+
+# Fuzzy Matcher
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --bin'
+merged = '0'
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+hook_add = '''
+    command! -bang -nargs=* Rg
+      \ call fzf#vim#grep(
+      \   'rg --line-number --no-heading '.shellescape(<q-args>), 0,
+      \   fzf#vim#with_preview({'options': '--exact --reverse'}, 'right:50%:wrap'))
+'''
+
 # # Python用プラグイン
 # [[plugins]]
 # repo = 'davidhalter/jedi-vim'
@@ -20,9 +59,11 @@
 # [[plugins]]
 # repo = 'pfdevilliers/Pretty-Vim-Python'
 # on_ft = 'python'
-# # 構文チェッカー
-# [[plugins]]
-# repo = 'scrooloose/syntastic'
+# 構文チェッカー
+[[plugins]]
+repo = 'w0rp/ale'
+# # [[plugins]]
+# # repo = 'scrooloose/syntastic'
 # on_ft = 'python'
 # # Python自動折りたたみ
 # # [[plugins]]
@@ -32,6 +73,13 @@
 # カレンダー
 [[plugins]]
 repo = 'itchyny/calendar.vim'
+
+# フォントのサイズ変更
+[[plugins]]
+repo   = 'thinca/vim-fontzoom'
+on_cmd = ['Fontzoom']
+on_map = ['<Plug>(fontzoom-']
+gui    = 1
 
 # # Markdown
 # # プレビュー
@@ -97,7 +145,8 @@ hook_add = '''
     au MyAutoCmd VimEnter * nested colorscheme hybrid
     '''
 
-# # TODO: 動作確認
+# TODO: 動作確認
+
 # # マーク 可視化
 # [[plugins]]
 # # repo = 'ShowMarks'

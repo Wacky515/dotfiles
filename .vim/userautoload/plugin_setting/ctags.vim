@@ -6,5 +6,5 @@ set tags=./tags;
 " <F6> で "ctags" 作成
 nnoremap <F6> :!ctags -R<CR>
 
-" " ff: " ファイルを保存時に "ctags" 作成
-" autocmd BufWritePost * call system("ctags -R")
+" ファイルを保存時に "ctags" 作成
+autocmd BufWritePost * call system("ctags -R")
