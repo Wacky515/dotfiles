@@ -14,7 +14,6 @@
 	br = branch
     p = !git push origin `git rev-parse --abbrev-ref HEAD`
 [core]
-	# excludesfile = /Users/wacky515/.gitignore_global
     excludesfile = ~/.gitignore
 	editor = vim
 [difftool "sourcetree"]
@@ -23,7 +22,8 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-# [http]
+# [http] # {{{
 # 	proxy = http://proxy.intra.xacti-co.com:8080
 # [https]
 # 	proxy = https://proxy.intra.xacti-co.com:8080
+# 	}}}

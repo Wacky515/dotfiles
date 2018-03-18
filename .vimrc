@@ -21,6 +21,7 @@ augroup END
 
 " プラグインをインストールするディレクトリ
 let s:plugin_dir = expand("~/.cache/dein/")
+
 " "dein.vim" をインストールするディレクトリをランタイムパスへ追加
 let s:dein_dir = s:plugin_dir . "repos/github.com/Shougo/dein.vim"
 execute "set runtimepath+=" . s:dein_dir
@@ -37,13 +38,17 @@ if dein#load_state(s:plugin_dir)
     call dein#begin(s:plugin_dir)
 
     " プラグインリスト "*.toml" を指定
-    let g:rc_dir    = expand("~/.vim/rc")
-    let s:toml      = g:rc_dir . "/dein.toml"
-    let s:lazy_toml = g:rc_dir . "/dein_lazy.toml"
+    let g:rc_dir      = expand("~/.vim/rc")
+    let s:toml        = g:rc_dir . "/dein.toml"
+    let s:lazy_toml   = g:rc_dir . "/dein_lazy.toml"
+    let s:python_toml = g:rc_dir . "/dein_python.toml"
 
     " "*.toml" を読込み、キャッシュ
-    call dein#load_toml(s:toml,      {"lazy": 0})
-    call dein#load_toml(s:lazy_toml, {"lazy": 1})
+    call dein#load_toml(s:toml,            {"lazy": 0})
+    call dein#load_toml(s:lazy_toml,       {"lazy": 1})
+    if has ('python3')
+        call dein#load_toml(s:python_toml, {"lazy": 0})
+    endif
 
     " 設定終了
     call dein#end()
@@ -57,24 +62,21 @@ endif
 
 " MEMO:
 " プラグインの追加・削除やtomlファイルの設定を変更した後は
-" 適宜 "call dein#update()" や "call dein#clear_state()" を実行する
+" 適宜 "du: call dein#update()" や "dc: call dein#clear_state()" を実行する
 " --------------------------------------------------------------------------------
 
 
-" <Space> を "Leader" に割当て
-let mapleader = "\<Space>"
-
+" Init処理
 " Windows環境の設定ファイルの場所を、Mac/Linux環境にあわせる
 set runtimepath+=$HOME/.vim
-
-" MEMO: ".vim" 二重読込のためキル
-" " ".vimrc" と ".gvimrc" を分割配置
-" set runtimepath+=~/.vim/
 
 " "Vim" の設定ファイル
 runtime! userautoload/*.vim
 " "Plugin" の設定ファイル
 runtime! userautoload/plugin_setting/*.vim
+
+" <Space> を "Leader" に割当て
+let mapleader = "\<Space>"
 
 " 読み込んだプラグインも含め、ファイルタイプの検出
 " ファイルタイプ別プラグイン/インデントを有効化する
