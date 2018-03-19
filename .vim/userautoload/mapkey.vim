@@ -1,8 +1,15 @@
-scriptencoding utf-8
-" Last Change: 2018/03/18 15:18:32.
+:scriptencoding utf-8
+" Last Change: 2018/03/19 14:24:28.
 
 """ マップキー篇 """
 " TODO: マークにジャンプ時、画面をトップに位置にする
+" キーマッピングに適しているキー " {{{
+    " 1. <Space>
+    " 2. ,
+    " 3. s
+    " 4. t
+    " m(prefixに)
+" }}}
 
 " 挿入モードで jj: <Esc>
 inoremap jj <Esc>
@@ -27,7 +34,7 @@ inoreabbrev dl -----------------------------------------------------------------
 " <Esc><Esc>: ハイライト消去
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
-"  "*"、 "#" 検索した後に移動しない設定
+" "*"、"#" 検索した後に移動しない設定
 nnoremap * *N
 nnoremap # #N
 
