@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/18 16:02:20.
+" Last Change: 2018/03/19 15:18:14.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -10,7 +10,7 @@ augroup END
 "Python3のパス設定
 let g:python3_host_prog = "C:\Python35\python.exe"
 
-" Vim毎のrcファイルのパスの設定
+" "Vim" 毎のrcファイルパス設定
 if has("nvim")
     " let g:rc_dir = expand("~/.vim")
     let g:rc_dir = expand("C:\Users\mm12167\dotfiles")
@@ -32,8 +32,9 @@ if has("nvim")
 
     " 基本設定
     " call s:source_rc(*".vim")
-    call s:source_rc("mapkey.vim")
+    call s:source_rc(".vimrc")
 endif
+
 
 " " --------------------------------------------------------------------------------
 " " dein.vimの設定
