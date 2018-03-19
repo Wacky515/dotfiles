@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/18 15:19:10.
+" Last Change: 2018/03/19 15:09:18.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -7,10 +7,10 @@ augroup MyAutoCmd
     autocmd!
 augroup END
 
-"Python3のパス設定
-let g:python3_host_prog = "C:\Python35\python.exe"
-
 if !has("nvim")
+    "Python3のパス設定
+    let g:python3_host_prog = "C:\Python35\python.exe"
+
     " --------------------------------------------------------------------------------
     " dein.vimの設定
     " --------------------------------------------------------------------------------
