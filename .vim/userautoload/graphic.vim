@@ -1,4 +1,5 @@
 scriptencoding utf-8
+" Last Change: 2018/03/18 15:08:38.
 
 """ メイン表示篇 """
 
@@ -88,22 +89,24 @@ set showtabline=3
 
 " 終了時にウィンドウサイズを記憶する
 """"""""""""""""""""""""""""""""""""""""""""""""""
-let g:save_window_file = expand("~/.vim/tmp/.vimwinpos")
-augroup SaveWindow
-    autocmd!
-    autocmd VimLeavePre * call s:save_window()
-    function! s:save_window()
-        let options = [
-            \ "set columns=" . &columns,
-            \ "set lines=" . &lines,
-            \ "winpos " . getwinposx() . " " . getwinposy(),
-            \ ]
-        call writefile(options, g:save_window_file)
-    endfunction
-augroup END
+if !has("nvim")
+    let g:save_window_file = expand("~/.vim/tmp/.vimwinpos")
+    augroup SaveWindow
+        autocmd!
+        autocmd VimLeavePre * call s:save_window()
+        function! s:save_window()
+            let options = [
+                \ "set columns=" . &columns,
+                \ "set lines=" . &lines,
+                \ "winpos " . getwinposx() . " " . getwinposy(),
+                \ ]
+            call writefile(options, g:save_window_file)
+        endfunction
+    augroup END
 
-if filereadable(g:save_window_file)
-    execute "source" g:save_window_file
+    if filereadable(g:save_window_file)
+        execute "source" g:save_window_file
+    endif
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""
 

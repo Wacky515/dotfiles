@@ -1,8 +1,7 @@
 scriptencoding utf-8
-" Last Change: 2018/03/18 13:29:06.
+" Last Change: 2018/03/18 15:18:32.
 
 """ マップキー篇 """
-
 " TODO: マークにジャンプ時、画面をトップに位置にする
 
 " 挿入モードで jj: <Esc>
@@ -48,17 +47,20 @@ nnoremap <silent>bn :bnext<CR>
 " bb: 直前のバッファを開く
 nnoremap <silent>bb :b#<CR>
 
+" TODO: MacのNeoVimで確認
 "Macの時ノーマルモードで:と;を入れ替える
 if has("mac")
     noremap : ;
     noremap ; :
 endif
 
+" TODO: LinuxのNeoVimで確認
 " w!!: スーパーユーザーとして保存（sudoが使える環境限定）
 if has("unix")
     cmap w!! w !sudo tee > /dev/null %
 endif
 
+" FIXME: "NeoVim" で変更必要
 " ,v: vimrcを開く
 nmap ev :edit $MYVIMRC<CR>
 " ,g: gvimrcを開く
@@ -73,18 +75,20 @@ nnoremap <silent> cy ce<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
 vnoremap <silent> cy c<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
 nnoremap <silent> ciy ciw<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
 
-" <Ctrl>s: エクスプローラで保存場所選択して保存
-imap <script> <C-s> <SID>(gui-save)<Esc>
-nmap <script> <C-s> <SID>(gui-save)
-imap <script> <SID>(gui-save) <C-o><SID>(gui-save)
-nnoremap      <SID>(gui-save) :<C-u>call <SID>gui_save()<CR>
-function! s:gui_save()
-    if bufname('%') ==# ''
-        browse confirm saveas
-    else
-        update
-    endif
-endfunction
+if !has("nvim")
+    " <Ctrl>s: エクスプローラで保存場所選択して保存
+    imap <script> <C-s> <SID>(gui-save)<Esc>
+    nmap <script> <C-s> <SID>(gui-save)
+    imap <script> <SID>(gui-save) <C-o><SID>(gui-save)
+    nnoremap      <SID>(gui-save) :<C-u>call <SID>gui_save()<CR>
+    function! s:gui_save()
+        if bufname('%') ==# ''
+            browse confirm saveas
+        else
+            update
+        endif
+    endfunction
+endif
 
 " TODO: 動作確認
 " ":e" などでファイルを開く時、フォルダが存在しない場合は自動作成
