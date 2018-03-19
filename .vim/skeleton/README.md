@@ -1,1 +1,0 @@
-# Template setting for Vim
