@@ -1,4 +1,5 @@
 scriptencoding utf-8
+" Last Change: 2018/03/18 15:09:10.
 
 """ 編集篇 """
 
@@ -14,24 +15,30 @@ vnoremap > >gv
 vnoremap < <gv
 
 " 全角英数字を半角にする
-nnoremap <Leader>zh :HzjaConvert han_eisu<Enter>
-vnoremap <Leader>zh :HzjaConvert han_eisu<Enter>
+if !has("nvim")
+    nnoremap <Leader>zh :HzjaConvert han_eisu<Enter>
+    vnoremap <Leader>zh :HzjaConvert han_eisu<Enter>
+endif
 
 " スペルチェック機能を使う
-set nospell
-" 日本語を除外
-set spelllang=en,cjk
-" 間違ったスペルに下線
-hi clear SpellBad
-hi SpellBad cterm=underline
-" 間違ったキャメルケースに下線と太字
-hi clear SpellCap
-hi SpellCap cterm=underline,bold
+if !has("nvim")
+    set nospell
+    " 日本語を除外
+    set spelllang=en,cjk
+    " 間違ったスペルに下線
+    hi clear SpellBad
+    hi SpellBad cterm=underline
+    " 間違ったキャメルケースに下線と太字
+    hi clear SpellCap
+    hi SpellCap cterm=underline,bold
+endif
 
 " ヤンクしたデータをクリップボードで使用＆選択範囲自動コピー
 " ※ 使用できるか環境による
-set clipboard=unnamed,autoselect
+if !has("nvim")
+    set clipboard=unnamed,autoselect
 " < http://nanasi.jp/articles/howto/editing/clipboard.html >
+endif
 
 " 自動的に閉じ括弧を入力
 " 1. 閉じ括弧を補完
