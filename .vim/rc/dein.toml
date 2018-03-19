@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-#  Last Change: 2018/03/17 15:07:49.
+#  Last Change: 2018/03/19 14:43:48.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -10,7 +10,7 @@ repo = 'Shougo/dein.vim'
 repo = 'Shougo/unite.vim'
 depends = 'neomru.vim'
 # "unite.vim" 用 "Colorscheme" プレビュー
-# ":Unite colorscheme" でプレビュー
+# Ul: ":Unite colorscheme" でプレビュー
 [[plugins]]
 repo = 'ujihisa/unite-colorscheme'
 # "unite.vim" 用フォントプレビュー
@@ -28,8 +28,7 @@ repo = 'Shougo/neosnippet-snippets'
 repo = 'rking/ag.vim'
 
 # ファイラー
-# TODO: Uniteのファイラに統合
-# ":VimFiler" で起動 # {{{
+# <C-o>: ":VimFiler" で起動 # {{{
     # o: 	バッファを縦分割 or ディレクトリ同期
     # O:	別バッファに選択中のディレクトリの中を展開
     # gs:	セーフモード on/off
@@ -133,9 +132,7 @@ repo = 'vim-scripts/YankRing.vim'
 # [[plugins]]
 # repo = 'toggle.vim'
 
-
 # git用プラグイン
-# 古いので代替したい
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 

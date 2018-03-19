@@ -1,23 +1,25 @@
-﻿# Last Change: 2018/03/18 22:06:15.
+﻿# Last Change: 2018/03/19 12:16:48.
 
 # 統合ユーザインターフェース # {{{
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-# repo = 'Shougo/denite.vim'
-on_cmd = 'Denite'
-on_i = 1
-hook_source = '''
-  call denite#custom#map('insert', '<c-n>', '<denite:move_to_next_line>', 'noremap')
-  call denite#custom#map('insert', '<c-p>', '<denite:move_to_previous_line>', 'noremap')
-'''
+# [[plugins]]
+# repo = 'Shougo/denite.nvim'
+# on_cmd = 'Denite'
+# on_i = 1
+# hook_source = '''
+#     call denite#custom#map('insert', '<c-n>', '<denite:move_to_next_line>', 'noremap')
+#     call denite#custom#map('insert', '<c-p>', '<denite:move_to_previous_line>', 'noremap')
+    # call denite#custom#var('file_rec', 'command', ['rg', '--files'])
+    # call denite#custom#source('file_rec', 'matchers', ['matcher_regexp'])
+# '''
 # }}}
 
 # 入力補完
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-# repo = 'Shougo/deoplete.vim'
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
 # hook_add = 'let g:deoplete#enable_at_startup = 1'
-# repo = 'Shougo/neocomplete.vim'
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+# [[plugins]]
 # repo = 'Shougo/neocomplcache.vim'
 
 # スニペット補完

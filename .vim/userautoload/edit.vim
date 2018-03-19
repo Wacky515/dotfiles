@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/18 15:09:10.
+" Last Change: 2018/03/19 12:18:30.
 
 """ 編集篇 """
 
@@ -40,20 +40,21 @@ if !has("nvim")
 " < http://nanasi.jp/articles/howto/editing/clipboard.html >
 endif
 
-" 自動的に閉じ括弧を入力
-" 1. 閉じ括弧を補完
-inoremap ( ()<Left>
-inoremap [ []<Left>
-inoremap { {}<Left>
-inoremap ' <Space>''<Space><Left><Left>
-inoremap " <Space>""<Space><Left><Left>
+" "vim-surround" で代替
+" " 自動的に閉じ括弧を入力
+" " 1. 閉じ括弧を補完
+" inoremap ( ()<Left>
+" inoremap [ []<Left>
+" inoremap { {}<Left>
+" inoremap ' <Space>''<Space><Left><Left>
+" inoremap " <Space>""<Space><Left><Left>
 
-" 2. <Enter> 押下で閉じ括弧を補完しない
-inoremap {<Enter> {
-inoremap [<Enter> [
-inoremap (<Enter> (
-inoremap '<Enter> '
-inoremap "<Enter> "
+" " 2. <Enter> 押下で閉じ括弧を補完しない
+" inoremap {<Enter> {
+" inoremap [<Enter> [
+" inoremap (<Enter> (
+" inoremap '<Enter> '
+" inoremap "<Enter> "
 
 " 3. . 押下で改行して閉じ括弧を補完（関数記記述用）
 inoremap (. ()<Left><CR><ESC><S-o>
