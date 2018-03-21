@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/21 08:19:26.
+" Last Change: 2018/03/21 14:42:18.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -91,6 +91,7 @@ elseif has("win32") || has("win64")
         " set guifont=Ricty_Diminished:h16
         " set guifont=Consolas:h14
         set guifont=Inconsolata:h14
+        colorscheme iceberg
     elseif hostname() == "MECSI"
         set guifont=Ricty_Diminished:h16
 
