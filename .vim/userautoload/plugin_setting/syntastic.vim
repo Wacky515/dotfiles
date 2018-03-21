@@ -1,5 +1,5 @@
 scriptencoding utf-8
-Last Change: 2018/03/21 10:33:27.
+" Last Change: 2018/03/21 11:18:30.
 
 " "Python" の構文チェックを "Flake8" に指定
 let g:syntastic_python_checkers = ["flake8"]
