@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-#  Last Change: 2018/03/19 14:43:48.
+# Last Change: 2018/03/21 10:24:59.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -71,7 +71,7 @@ repo = 'nathanaelkane/vim-indent-guides'
 repo = 'itchyny/lightline.vim'
 # < http://itchyny.hatenablog.com/entry/20130828/1377653592 >
 
-# コメントON/OFF ショートカットキートグル
+# コメントON/OFF トグル
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
 
@@ -128,13 +128,17 @@ repo = 'junegunn/vim-easy-align'
 repo = 'vim-scripts/YankRing.vim'
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
 
-# # "true"/"false"、"yes"、"no"、"on"/"off" などをトグル
-# [[plugins]]
-# repo = 'toggle.vim'
+# カレンダー
+[[plugins]]
+repo = 'itchyny/calendar.vim'
 
 # git用プラグイン
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
+# # "true"/"false"、"yes"、"no"、"on"/"off" などをトグル
+# [[plugins]]
+# repo = 'toggle.vim'
 
 # 導入予定
 
