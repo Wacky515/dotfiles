@@ -1,4 +1,4 @@
-﻿# Last Change: 2018/03/21 10:24:32.
+﻿# Last Change: 2018/03/21 13:55:59.
 
 # 統合ユーザインターフェース # {{{
 # [[plugins]]
@@ -14,11 +14,16 @@
 # }}}
 
 # 入力補完
-# [[plugins]]
-# repo = 'Shougo/deoplete.nvim'
-# hook_add = 'let g:deoplete#enable_at_startup = 1'
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+depends = 'context_filetype.vim'
+if = "has('nvim')"
+on_i = 1
+hook_add = 'let g:deoplete#enable_at_startup = 1'
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
+depends = 'context_filetype.vim'
+if = "has('lua')"
 on_i = 1
 # [[plugins]]
 # repo = 'Shougo/neocomplcache.vim'
@@ -44,6 +49,12 @@ repo = 'Shougo/neomru.vim'
 # on_source = 'denite.nvim'
 on_source = 'dein.nvim'
 on_path = '.*'
+
+# "VimShell"
+# ":VimShell" で起動
+[[plugins]]
+repo = 'Shougo/vimshell'
+if = "!has('nvim')"
 
 # # Python用プラグイン
 # [[plugins]]
@@ -150,13 +161,7 @@ hook_add = '''
     au MyAutoCmd VimEnter * nested colorscheme hybrid
     '''
 
-# TODO: 動作確認
-
-# # マーク 可視化
-# [[plugins]]
-# # repo = 'ShowMarks'
-# repo = 'LeafCage/visiblemarks.vim'
-
+# TODO: 動作確認 # {{{
 # # カラーコード プレビュー
 # [[plugins]]
 # repo = 'gorodinskiy/vim-coloresque'
@@ -169,3 +174,9 @@ hook_add = '''
 # [[plugins]]
 # repo = "sudar/vim-arduino-syntax"
 # on_ft = "arduino"
+
+# 導入予定
+# #[[plugins]]
+# repo = 'kassio/neoterm'
+# if = "has('nvim')"
+# }}}
