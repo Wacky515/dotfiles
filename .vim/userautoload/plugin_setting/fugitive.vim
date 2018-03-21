@@ -1,6 +1,11 @@
 scriptencoding utf-8
-" Last Change: 2018/03/19 14:37:43.
+" Last Change: 2018/03/21 09:52:26.
 " < http://myenigma.hatenablog.com/entry/2016/07/10/084048 >
+
+" Usage
+" ":Gstatus" のステータス画面のファイル名上で
+    " -: "add" と "reset" 切替え
+    " C|cc: コミット画面表示
 
 " ステータス行に現在のgitブランチを表示
 "set statusline+=%{fugitive#statusline()}
