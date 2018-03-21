@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/18 15:08:38.
+" Last Change: 2018/03/20 14:52:57.
 
 """ メイン表示篇 """
 
@@ -23,14 +23,14 @@ set ambiwidth=double
 
 " 対になる括弧を強調
 set showmatch
-" ↑の強調時間[msec]
+" ↑ の強調時間[msec]
 set matchtime=1
 " 対応括弧に "<" と ">" を追加
 set matchpairs& matchpairs+=<:>
 
 " タブ文字の幅
 set tabstop=4
-" ダブ文字を空白文字に置換え
+" タブ文字を空白文字に置換え
 set expandtab
 " 行頭は "shiftwidth" 分、それ以外は "tabstop" 分インデント
 set smarttab
@@ -51,8 +51,8 @@ if has("autocmd")
     \ endif
 endif
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"全角スペースをハイライト
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" 全角スペースをハイライト
 function! ZenkakuSpace()
     highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
 endfunction
@@ -87,8 +87,8 @@ set showtabline=3
 " nnoremap <S-Up>    <C-w>-<CR>
 " nnoremap <S-Down>  <C-w>+<CR>
 
-" 終了時にウィンドウサイズを記憶する
 """"""""""""""""""""""""""""""""""""""""""""""""""
+" 終了時にウィンドウサイズを記憶する
 if !has("nvim")
     let g:save_window_file = expand("~/.vim/tmp/.vimwinpos")
     augroup SaveWindow
