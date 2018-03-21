@@ -22,7 +22,7 @@ if %ERRORLEVEL% == 0 (
     rem     goto mk_sylink
     rem ) else (
     rem     goto mk_sylink
-    rem )
+    )
 
 rem :set_proxy
 rem echo "In proxy, set proxy"
@@ -34,8 +34,6 @@ rem git config --system https.proxy https://proxy.intra.xacti-co.com:8080
 rem }}}
 
 rem :mk_sylink
-/*}}}*/
-
 for %%j in (.*) do (
     if %%j == .bash_history (
     rem echo ignore1 %%j
@@ -56,9 +54,9 @@ mklink /D %HOMEPATH%"\.vim" ".\dotfiles\.vim" > nul 2>&1
         )
 
 rem "NeoVim" 設定
-if not exist %HOMEPATH%"\.config\nvim" (
-    mkdir %HOMEPATH%"\.config\nvim"
-    )
+rem if not exist %HOMEPATH%"\.config\nvim" (
+rem     mkdir %HOMEPATH%"\.config\nvim"
+rem     )
 rem mklink %HOMEPATH%"\.config\nvim\init.vim" ".\dotfiles\init.vim" > nul 2>&1
     rem if %ERRORLEVEL% == 0 (
     rem     echo Set link init.vim
@@ -68,8 +66,10 @@ rem mklink %HOMEPATH%"\.config\nvim\ginit.vim" ".\dotfiles\.gvimrc" > nul 2>&1
     rem     echo Set link ginit.vim
     rem     )
 rem FIXME: ↑ リンク元のパスがリンク先のパスと合体する
-mklink %HOMEPATH%"\.config\nvim\init.vim" "C:\Users\mm12167\dotfiles\init.vim"
-mklink %HOMEPATH%"\.config\nvim\ginit.vim" "C:\Users\mm12167\dotfiles\.gvimrc"
+rem >>> HERE
+rem mklink %HOMEPATH%"\.config\nvim\init.vim" "C:\Users\mm12167\dotfiles\init.vim"
+rem mklink %HOMEPATH%"\.config\nvim\ginit.vim" "C:\Users\mm12167\dotfiles\.gvimrc"
+rem <<<
 
 echo ^>^> End set link
 
