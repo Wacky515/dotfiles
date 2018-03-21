@@ -10,6 +10,7 @@ memo.txt
 *.modifying
 /.vim/tmp/*
 /.vim/dein/*
+*.templill*
 
 # 無視しない者共
 !/.vim/tmp/README.md
