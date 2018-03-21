@@ -1,5 +1,5 @@
 :scriptencoding utf-8
-" Last Change: 2018/03/21 09:54:32.
+" Last Change: 2018/03/21 12:06:10.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -16,11 +16,13 @@
 " 挿入モードで jj: <Esc>
 inoremap jj <Esc>
 
+" バックアップファイル作成
+nnoremap bk :w %.bk
+
 " 0: 直下に空行挿入
 nnoremap 0 :<C-u>call append(expand('.'), '')<CR>j
 
 " 9: 直上に空行挿入
-" nnoremap 9 kk :<C-u>call append(expand('.'), '')<CR>j
 nnoremap 9 O<Esc>cc<Esc>
 
 " <Ctrl>j: 裏バッファへ切替え
