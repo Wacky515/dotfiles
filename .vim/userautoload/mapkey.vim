@@ -1,5 +1,5 @@
 :scriptencoding utf-8
-" Last Change: 2018/03/21 12:06:10.
+" Last Change: 2018/03/21 14:14:30.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -28,7 +28,7 @@ nnoremap 9 O<Esc>cc<Esc>
 " <Ctrl>j: 裏バッファへ切替え
 nnoremap <C-j> <C-^>
 
-" スペルチェックをトグル
+" <Leader>l: スペルチェックをトグル
 nnoremap <silent> <Leader>l :set spell!<CR>
 
 " 挿入モードで dl: 仕切り線を挿入
@@ -38,7 +38,7 @@ inoreabbrev dl -----------------------------------------------------------------
 " <Esc><Esc>: ハイライト消去
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
-" "*"、"#" 検索した後に移動しない設定
+" [*|#]: 検索した後に移動しない設定
 nnoremap * *N
 nnoremap # #N
 
@@ -51,7 +51,7 @@ nnoremap Y y$
 nnoremap <Tab> %
 vnoremap <Tab> %
 
-" bp: 一つ前のバッファを開く
+" bp: 前のバッファを開く
 nnoremap <silent>bp :bprevious<CR>
 " bn: 次のバッファを開く
 nnoremap <silent>bn :bnext<CR>
@@ -86,8 +86,8 @@ nnoremap <silent> cy ce<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
 vnoremap <silent> cy c<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
 nnoremap <silent> ciy ciw<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
 
+" <Ctrl>s: エクスプローラで保存場所選択して保存
 if !has("nvim")
-    " <Ctrl>s: エクスプローラで保存場所選択して保存
     imap <script> <C-s> <SID>(gui-save)<Esc>
     nmap <script> <C-s> <SID>(gui-save)
     imap <script> <SID>(gui-save) <C-o><SID>(gui-save)
