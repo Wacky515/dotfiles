@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/19 15:09:18.
+" Last Change: 2018/03/21 10:06:51.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -7,13 +7,13 @@ augroup MyAutoCmd
     autocmd!
 augroup END
 
-if !has("nvim")
-    "Python3のパス設定
-    let g:python3_host_prog = "C:\Python35\python.exe"
+"Python3のパス設定
+let g:python3_host_prog = "C:\Python35\python.exe"
 
-    " --------------------------------------------------------------------------------
+if !has("nvim")
+    " ---------------------------------------------------------------------------
     " dein.vimの設定
-    " --------------------------------------------------------------------------------
+    " ---------------------------------------------------------------------------
     if !&compatible
         set nocompatible
     endif
@@ -46,14 +46,14 @@ if !has("nvim")
         let g:rc_dir      = expand("~/.vim/rc")
         let s:toml        = g:rc_dir . "/dein.toml"
         let s:lazy_toml   = g:rc_dir . "/dein_lazy.toml"
-        let s:python_toml = g:rc_dir . "/dein_python.toml"
+        " let s:python_toml = g:rc_dir . "/dein_python.toml"
 
         " "*.toml" を読込み、キャッシュ
         call dein#load_toml(s:toml,            {"lazy": 0})
         call dein#load_toml(s:lazy_toml,       {"lazy": 1})
-        if has ("python3")
-            call dein#load_toml(s:python_toml, {"lazy": 0})
-        endif
+        " if has ("python3")
+        "     call dein#load_toml(s:python_toml, {"lazy": 0})
+        " endif
 
         " 設定終了
         call dein#end()
@@ -71,7 +71,10 @@ if !has("nvim")
     " --------------------------------------------------------------------------------
 endif
 
+" ---------------------------------------------------------------------------
 " Init処理
+" ---------------------------------------------------------------------------
+
 " MEMO: 記述順番 変更しない！！！
 " <Space> を "Leader" に割当て
 let mapleader = "\<Space>"
