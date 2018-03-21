@@ -1,4 +1,4 @@
-﻿# Last Change: 2018/03/19 12:16:48.
+﻿# Last Change: 2018/03/21 10:24:32.
 
 # 統合ユーザインターフェース # {{{
 # [[plugins]]
@@ -8,8 +8,8 @@
 # hook_source = '''
 #     call denite#custom#map('insert', '<c-n>', '<denite:move_to_next_line>', 'noremap')
 #     call denite#custom#map('insert', '<c-p>', '<denite:move_to_previous_line>', 'noremap')
-    # call denite#custom#var('file_rec', 'command', ['rg', '--files'])
-    # call denite#custom#source('file_rec', 'matchers', ['matcher_regexp'])
+#     call denite#custom#var('file_rec', 'command', ['rg', '--files'])
+#     call denite#custom#source('file_rec', 'matchers', ['matcher_regexp'])
 # '''
 # }}}
 
@@ -19,6 +19,7 @@
 # hook_add = 'let g:deoplete#enable_at_startup = 1'
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
+on_i = 1
 # [[plugins]]
 # repo = 'Shougo/neocomplcache.vim'
 
@@ -41,22 +42,8 @@ depends = ['neosnippet-snippets']
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 # on_source = 'denite.nvim'
+on_source = 'dein.nvim'
 on_path = '.*'
-
-# Fuzzy Matcher
-[[plugins]]
-repo = 'junegunn/fzf'
-build = './install --bin'
-merged = '0'
-[[plugins]]
-repo = 'junegunn/fzf.vim'
-depends = 'fzf'
-hook_add = '''
-    command! -bang -nargs=* Rg
-      \ call fzf#vim#grep(
-      \   'rg --line-number --no-heading '.shellescape(<q-args>), 0,
-      \   fzf#vim#with_preview({'options': '--exact --reverse'}, 'right:50%:wrap'))
-'''
 
 # # Python用プラグイン
 # [[plugins]]
@@ -76,17 +63,6 @@ repo = 'w0rp/ale'
 # # [[plugins]]
 # # repo = 'vim-scripts/python_fold'
 # # on_ft = 'python'
-
-# カレンダー
-[[plugins]]
-repo = 'itchyny/calendar.vim'
-
-# フォントのサイズ変更
-[[plugins]]
-repo   = 'thinca/vim-fontzoom'
-on_cmd = ['Fontzoom']
-on_map = ['<Plug>(fontzoom-']
-gui    = 1
 
 # # Markdown
 # # プレビュー
@@ -111,6 +87,28 @@ gui    = 1
 #   let g:vim_markdown_frontmatter = 1
 #   let g:vim_markdown_math = 1
 # '''
+
+# Fuzzy Matcher
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --bin'
+merged = '0'
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+hook_add = '''
+    command! -bang -nargs=* Rg
+      \ call fzf#vim#grep(
+      \   'rg --line-number --no-heading '.shellescape(<q-args>), 0,
+      \   fzf#vim#with_preview({'options': '--exact --reverse'}, 'right:50%:wrap'))
+'''
+
+# フォントのサイズ変更
+[[plugins]]
+repo   = 'thinca/vim-fontzoom'
+on_cmd = ['Fontzoom']
+on_map = ['<Plug>(fontzoom-']
+gui    = 1
 
 # カラースキーマ
 [[plugins]]
