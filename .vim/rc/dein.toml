@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/03/21 10:24:59.
+# Last Change: 2018/03/21 13:55:31.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -36,11 +36,6 @@ repo = 'rking/ag.vim'
 # }}}
 [[plugins]]
 repo = 'Shougo/vimfiler'
-
-# "VimShell"
-# ":VimShell" で起動
-[[plugins]]
-repo = 'Shougo/vimshell'
 
 # TODO: 以下から記述しているもの順序ソート
 
@@ -132,7 +127,11 @@ repo = 'vim-scripts/YankRing.vim'
 [[plugins]]
 repo = 'itchyny/calendar.vim'
 
-# git用プラグイン
+# マーク部分をビジュアル化
+[[plugins]]
+repo = 'jacquesbh/vim-showmarks'
+
+# "Git" 用プラグイン
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
@@ -140,7 +139,7 @@ repo = 'tpope/vim-fugitive'
 # [[plugins]]
 # repo = 'toggle.vim'
 
-# 導入予定
+# 導入予定{{{
 
 # toml
 # [[plugins]]
@@ -161,3 +160,4 @@ repo = 'tpope/vim-fugitive'
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
 
 # 削除予定
+# }}}
