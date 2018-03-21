@@ -1,4 +1,4 @@
-﻿# Last Change: 2018/03/21 13:55:59.
+﻿# Last Change: 2018/03/21 14:41:28.
 
 # 統合ユーザインターフェース # {{{
 # [[plugins]]
@@ -131,34 +131,41 @@ hook_add = '''
     au MyAutoCmd VimEnter * nested colorscheme hybrid
     '''
 [[plugins]]
+repo = 'cocopon/iceberg.vim'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme iceberg
+    au MyAutoCmd VimEnter * highlight Visual ctermbg=216
+    '''
+[[plugins]]
 repo = 'chriskempson/vim-tomorrow-theme'
 hook_add = '''
     set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    au MyAutoCmd VimEnter * nested colorscheme tomorrow-theme
     '''
 [[plugins]]
 repo = 'tomasr/molokai'
 hook_add = '''
     set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    au MyAutoCmd VimEnter * nested colorscheme molokai
     '''
 [[plugins]]
 repo = 'sjl/badwolf'
 hook_add = '''
     set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    au MyAutoCmd VimEnter * nested colorscheme badwolf
     '''
 [[plugins]]
 repo = 'vim-scripts/twilight'
 hook_add = '''
     set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    au MyAutoCmd VimEnter * nested colorscheme twilight
     '''
 [[plugins]]
 repo = 'nanotech/jellybeans.vim'
 hook_add = '''
     set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    au MyAutoCmd VimEnter * nested colorscheme jellybeans
     '''
 
 # TODO: 動作確認 # {{{
