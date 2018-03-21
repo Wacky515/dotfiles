@@ -1,4 +1,5 @@
 scriptencoding utf-8
+Last Change: 2018/03/21 10:33:27.
 
 " "Python" の構文チェックを "Flake8" に指定
 let g:syntastic_python_checkers = ["flake8"]
@@ -6,8 +7,7 @@ let g:syntastic_python_checkers = ["flake8"]
 " let g:syntastic_python_checkers = ["PEP8"]
 " }}}
 
-let g:syntastic_mode_map = {"mode": "passive",
-                \ "active_filetypes": ["python"] }
+let g:syntastic_mode_map = {"mode": "passive", "active_filetypes": ["python"] }
 
 let g:syntastic_error_symbol="✗"
 let g:syntastic_warning_symbol="！"
