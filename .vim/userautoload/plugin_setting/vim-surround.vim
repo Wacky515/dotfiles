@@ -1,22 +1,25 @@
-﻿" Last Change: 2018/03/23 00:02:47.
+﻿" Last Change: 2018/03/23 00:11:11.
 
 let g:surround_{char2nr("a")} = "**\r**"
 
+" FIXME: "}" <- の時カーソル位置がおかしい為キル
 " nmap <Leader>" ysiw"
 nmap <Leader>n" ysiw"
-nmap <Leader>" ysiw"i<Space><Esc>wwwa<Space><Esc>W
-nmap <Leader>f" ysiw"i<Space><Esc>Wwwl
-nmap <Leader>b" ysiw"wwa<Space><Esc>l
+" nmap <Leader>" ysiw"i<Space><Esc>wwwa<Space><Esc>W
+" nmap <Leader>f" ysiw"i<Space><Esc>Wwwl
+" nmap <Leader>b" ysiw"wwa<Space><Esc>l
 
 " nmap <Leader>' ysiw'
-nmap <Leader>' ysiw'i<Space><Esc>wwwa<Space><Esc>W
-nmap <Leader>f' ysiw'i<Space><Esc>Wwwl
-nmap <Leader>b' ysiw'wwa<Space><Esc>l
+nmap <Leader>n' ysiw'
+" nmap <Leader>' ysiw'i<Space><Esc>wwwa<Space><Esc>W
+" nmap <Leader>f' ysiw'i<Space><Esc>Wwwl
+" nmap <Leader>b' ysiw'wwa<Space><Esc>l
 
 " nmap <Leader>` ysiw`
-nmap <Leader>` ysiw`i<Space><Esc>wwwa<Space><Esc>W
-nmap <Leader>f` ysiw`i<Space><Esc>Wwwl
-nmap <Leader>b` ysiw`wwa<Space><Esc>l
+nmap <Leader>n` ysiw`
+" nmap <Leader>` ysiw`i<Space><Esc>wwwa<Space><Esc>W
+" nmap <Leader>f` ysiw`i<Space><Esc>Wwwl
+" nmap <Leader>b` ysiw`wwa<Space><Esc>l
 
 nmap <Leader>{ ysiw{
 nmap <Leader>} ysiw}
