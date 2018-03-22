@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/03/22 22:53:35.
+# Last Change: 2018/03/22 23:04:36.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -65,6 +65,8 @@ repo = 'nathanaelkane/vim-indent-guides'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 # < http://itchyny.hatenablog.com/entry/20130828/1377653592 >
+# depends = ['vim-fugitive', 'vim-gitgutter']
+depends = 'vim-fugitive'
 
 # コメントON/OFF トグル
 [[plugins]]
@@ -143,20 +145,18 @@ repo = 'tpope/vim-fugitive'
 # [[plugins]]
 # repo = 'majutsushi/tagbar'
 # [[plugins]]
-# repo = 'tpope/vim-fugitive'
-# [[plugins]]
 # repo = 'vim-airline/vim-airline'
 # depends = ['tagbar', 'vim-fugitive']
 # hook_add = '''
 # source ~/.config/nvim/plugins/airline.rc.vim
 # '''
+# [[plugins]]
+# repo = 'vim-airline/vim-airline-themes'
+# depends = 'vim-airline'
+# hook_add = '''
+# let g:airline_theme='luna'
+# '''
 
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-depends = 'vim-airline'
-hook_add = '''
-let g:airline_theme='luna'
-'''
 # FIXME: "dain_lazy.toml" 不能のため "dein.toml" に移管
 repo = 'w0ng/vim-hybrid'
 hook_add = '''
