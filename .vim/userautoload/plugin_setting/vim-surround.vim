@@ -1,4 +1,4 @@
-﻿" Last Change: 2018/03/19 13:17:56.
+﻿" Last Change: 2018/03/23 00:02:47.
 
 let g:surround_{char2nr("a")} = "**\r**"
 
@@ -36,8 +36,8 @@ nmap 3<Leader>* ysiw*wysiw*wysiw*
 xmap " S"
 xmap ' S'
 xmap ` S`
-xmap { S{
-xmap } S}
+" xmap { S{
+" xmap } S}
 xmap [ S[
 xmap ] S]
 xmap ( S(
