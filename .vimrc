@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/21 10:06:51.
+" Last Change: 2018/03/22 23:51:16.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -7,10 +7,10 @@ augroup MyAutoCmd
     autocmd!
 augroup END
 
-"Python3のパス設定
-let g:python3_host_prog = "C:\Python35\python.exe"
-
-if !has("nvim")
+" "Python3のパス設定
+" let g:python3_host_prog = "C:\Python35\python.exe"
+"
+" if !has("nvim")
     " ---------------------------------------------------------------------------
     " dein.vimの設定
     " ---------------------------------------------------------------------------
@@ -45,12 +45,12 @@ if !has("nvim")
         " プラグインリスト "*.toml" を指定
         let g:rc_dir      = expand("~/.vim/rc")
         let s:toml        = g:rc_dir . "/dein.toml"
-        let s:lazy_toml   = g:rc_dir . "/dein_lazy.toml"
+        " let s:lazy_toml   = g:rc_dir . "/dein_lazy.toml"
         " let s:python_toml = g:rc_dir . "/dein_python.toml"
 
         " "*.toml" を読込み、キャッシュ
         call dein#load_toml(s:toml,            {"lazy": 0})
-        call dein#load_toml(s:lazy_toml,       {"lazy": 1})
+        " call dein#load_toml(s:lazy_toml,       {"lazy": 1})
         " if has ("python3")
         "     call dein#load_toml(s:python_toml, {"lazy": 0})
         " endif
@@ -69,7 +69,7 @@ if !has("nvim")
     " プラグインの追加・削除やtomlファイルの設定を変更した後は
     " 適宜 "du: call dein#update()" や "dc: call dein#clear_state()" を実行する
     " --------------------------------------------------------------------------------
-endif
+" endif
 
 " ---------------------------------------------------------------------------
 " Init処理
