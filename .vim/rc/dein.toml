@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/03/21 13:55:31.
+# Last Change: 2018/03/22 22:33:49.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -138,6 +138,22 @@ repo = 'tpope/vim-fugitive'
 # # "true"/"false"、"yes"、"no"、"on"/"off" などをトグル
 # [[plugins]]
 # repo = 'toggle.vim'
+
+# FIXME: "dain_lazy.toml" 不能のため "dein.toml" に移管
+repo = 'w0ng/vim-hybrid'
+hook_add = '''
+    set background=dark
+    " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
+    " 但し Colorscheme イベントの発生が抑制されないよう nested を付ける。
+    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    '''
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme iceberg
+    au MyAutoCmd VimEnter * highlight Visual ctermbg=216
+    '''
 
 # 導入予定{{{
 
