@@ -1,4 +1,5 @@
-﻿" Last Change: 2018/03/23 00:11:11.
+﻿scriptencoding utf-8
+" Last Change: 2018/03/24 23:06:38.
 
 let g:surround_{char2nr("a")} = "**\r**"
 
