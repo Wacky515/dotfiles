@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/24 22:15:22.
+" Last Change: 2018/03/24 23:00:42.
 " < http://myenigma.hatenablog.com/entry/2016/07/10/084048 >
 
 " Usage
@@ -17,6 +17,7 @@ set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 " マップキー
 nnoremap [fugitive]  <Nop>
 nmap mg [fugitive]
+
 nnoremap <silent> [fugitive]s :Gstatus<CR><C-w>T
 nnoremap <silent> [fugitive]a :Gwrite<CR>
 nnoremap <silent> [fugitive]c :Gcommit-v<CR>
