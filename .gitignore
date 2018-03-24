@@ -11,6 +11,7 @@ memo.txt
 /.vim/tmp/*
 /.vim/dein/*
 *.tempkill*
+yankring_history_v2.txt
 
 # 無視しない者共
 !/.vim/tmp/README.md
