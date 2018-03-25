@@ -1,4 +1,4 @@
-# "github.com" のリポジトリを指定し、"Plugin" を追加
+﻿# "github.com" のリポジトリを指定し、"Plugin" を追加
 # Last Change: 2018/03/24 23:36:02.
 
 # "dein.vim" 本体
@@ -52,9 +52,9 @@ repo = 'vim-scripts/YankRing.vim'
 repo = 'sjl/gundo.vim'
 
 # ステータスライン ビジュアル強化
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-depends = 'vim-fugitive'
+# [[plugins]]
+# repo = 'itchyny/lightline.vim'
+# depends = 'vim-fugitive'
 # < http://itchyny.hatenablog.com/entry/20130828/1377653592 >
 
 # インデント カラー化
