@@ -1,5 +1,5 @@
 ﻿# "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/03/24 23:36:02.
+# Last Change: 2018/03/27 21:14:12.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -142,38 +142,6 @@ repo = 'vim-scripts/taglist.vim'
 # # "true"/"false"、"yes"、"no"、"on"/"off" などをトグル
 # [[plugins]]
 # repo = 'toggle.vim'
-
-# # パワーライン強化
-# [[plugins]]
-# repo = 'majutsushi/tagbar'
-# [[plugins]]
-# repo = 'vim-airline/vim-airline'
-# depends = ['tagbar', 'vim-fugitive']
-# hook_add = '''
-# source ~/.config/nvim/plugins/airline.rc.vim
-# '''
-# [[plugins]]
-# repo = 'vim-airline/vim-airline-themes'
-# depends = 'vim-airline'
-# hook_add = '''
-# let g:airline_theme='luna'
-# '''
-
-# FIXME: "dain_lazy.toml" 不能のため "dein.toml" に移管
-repo = 'w0ng/vim-hybrid'
-hook_add = '''
-    set background=dark
-    " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
-    " 但し Colorscheme イベントの発生が抑制されないよう nested を付ける。
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
-    '''
-[[plugins]]
-repo = 'cocopon/iceberg.vim'
-hook_add = '''
-    set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme iceberg
-    au MyAutoCmd VimEnter * highlight Visual ctermbg=216
-    '''
 
 # 導入予定{{{
 
