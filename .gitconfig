@@ -15,6 +15,7 @@
     p = !git push origin `git rev-parse --abbrev-ref HEAD`
 [core]
     excludesfile = ~/.gitignore
+	# excludesfile = /Users/wacky515/.gitignore_global
 	editor = vim
 	autocrlf = true
 [difftool "sourcetree"]
