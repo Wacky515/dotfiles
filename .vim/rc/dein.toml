@@ -1,5 +1,5 @@
-# "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/03/21 13:55:31.
+﻿# "github.com" のリポジトリを指定し、"Plugin" を追加
+# Last Change: 2018/03/24 23:36:02.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -23,10 +23,6 @@ repo = 'ujihisa/unite-font'
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
-# The Silver Searcher
-[[plugins]]
-repo = 'rking/ag.vim'
-
 # ファイラー
 # <C-o>: ":VimFiler" で起動 # {{{
     # o: 	バッファを縦分割 or ディレクトリ同期
@@ -37,61 +33,78 @@ repo = 'rking/ag.vim'
 [[plugins]]
 repo = 'Shougo/vimfiler'
 
-# TODO: 以下から記述しているもの順序ソート
-
-# 選択したテキストを'""'、"()"、"[]"などで囲む
+# The Silver Searcher
 [[plugins]]
-repo = 'tpope/vim-surround'
+repo = 'rking/ag.vim'
 
-# # 関数、クラス、変数、構造体、列挙型、マクロ定義など 一覧表示
-# ":TlistOpen" で開始
+# "Git" 用プラグイン
 [[plugins]]
-repo = 'vim-scripts/taglist.vim'
+repo = 'tpope/vim-fugitive'
+
+# コピペ 履歴保存
+# ヤンク後に "<Ctrl>p/<Ctrl>n" でヤンク履歴を選択
+[[plugins]]
+repo = 'vim-scripts/YankRing.vim'
+# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
+
+# アンドゥ管理
+[[plugins]]
+repo = 'sjl/gundo.vim'
+
+# ステータスライン ビジュアル強化
+# [[plugins]]
+# repo = 'itchyny/lightline.vim'
+# depends = 'vim-fugitive'
+# < http://itchyny.hatenablog.com/entry/20130828/1377653592 >
+
+# インデント カラー化
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+# カーソル移動の拡張
+[[plugins]]
+repo = 'lokaltog/vim-easymotion'
 
 # ウィンドウサイズ変更 簡便化
 # <Ctrl>e: ウィンドウリサイズ開始
 [[plugins]]
 repo = 'simeji/winresizer'
 
-# アンドゥ管理
+# コマンドラインでEmacsキーバインド
 [[plugins]]
-repo = 'sjl/gundo.vim'
-
-# インデント カラー化
-[[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
-
-# ステータスライン ビジュアル強化
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-# < http://itchyny.hatenablog.com/entry/20130828/1377653592 >
+repo = 'houtsnip/vim-emacscommandline'
 
 # コメントON/OFF トグル
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
 
-# コマンドラインでEmacsキーバインド
-[[plugins]]
-repo = 'houtsnip/vim-emacscommandline'
-
-# カーソル移動の拡張
-[[plugins]]
-repo = 'lokaltog/vim-easymotion'
-
 # "%" で移動を強化（*.htmlのタグなど）
 [[plugins]]
 repo = 'tmhedberg/matchit'
 
-# 日付のインクリメント・デクリメント
-# FIXME: yyyy/mm/dd 形式は対応していない
+# マークをビジュアル化
 [[plugins]]
-repo = 'tpope/vim-speeddating'
+repo = 'jacquesbh/vim-showmarks'
 
 # vim上で計算機機能
 # コマンドモードで ":Calc" で計算開始
 # "Python" 必要
 [[plugins]]
 repo = 'gregsexton/VimCalc'
+
+# タイムスタンプを挿入
+#  "Last Change: ." を記入する
+[[plugins]]
+repo = 'vim-scripts/autodate.vim'
+
+# 日付のインクリメント・デクリメント
+# FIXME: yyyy/mm/dd 形式は対応していない
+[[plugins]]
+repo = 'tpope/vim-speeddating'
+
+# 選択したテキストを'""'、"()"、"[]"などで囲む
+[[plugins]]
+repo = 'tpope/vim-surround'
 
 # スネークケースやキャメルケースへの変換
     # ノーマルモードで # {{{
@@ -103,11 +116,6 @@ repo = 'gregsexton/VimCalc'
 [[plugins]]
 repo = 'tpope/vim-abolish'
 
-# タイムスタンプを挿入
-#  "Last Change: ." を記入する
-[[plugins]]
-repo = 'vim-scripts/autodate.vim'
-
 # "=" を自動的に " = " にする
 [[plugins]]
 repo = 'kana/vim-smartchr'
@@ -117,34 +125,57 @@ repo = 'kana/vim-smartchr'
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
 
-# コピペ 履歴保存
-# ヤンク後に "<Ctrl>p/<Ctrl>n" でヤンク履歴を選択
+# "*.toml" シンタックスハイライト
 [[plugins]]
-repo = 'vim-scripts/YankRing.vim'
-# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
+repo  = 'cespare/vim-toml'
+on_ft = 'toml'
 
 # カレンダー
 [[plugins]]
 repo = 'itchyny/calendar.vim'
 
-# マーク部分をビジュアル化
+# # 関数、クラス、変数、構造体、列挙型、マクロ定義など 一覧表示
+# ":TlistOpen" で開始
 [[plugins]]
-repo = 'jacquesbh/vim-showmarks'
-
-# "Git" 用プラグイン
-[[plugins]]
-repo = 'tpope/vim-fugitive'
+repo = 'vim-scripts/taglist.vim'
 
 # # "true"/"false"、"yes"、"no"、"on"/"off" などをトグル
 # [[plugins]]
 # repo = 'toggle.vim'
 
-# 導入予定{{{
-
-# toml
+# # パワーライン強化
 # [[plugins]]
-# repo  = 'cespare/vim-toml'
-# on_ft = 'toml'
+# repo = 'majutsushi/tagbar'
+# [[plugins]]
+# repo = 'vim-airline/vim-airline'
+# depends = ['tagbar', 'vim-fugitive']
+# hook_add = '''
+# source ~/.config/nvim/plugins/airline.rc.vim
+# '''
+# [[plugins]]
+# repo = 'vim-airline/vim-airline-themes'
+# depends = 'vim-airline'
+# hook_add = '''
+# let g:airline_theme='luna'
+# '''
+
+# FIXME: "dain_lazy.toml" 不能のため "dein.toml" に移管
+repo = 'w0ng/vim-hybrid'
+hook_add = '''
+    set background=dark
+    " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
+    " 但し Colorscheme イベントの発生が抑制されないよう nested を付ける。
+    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    '''
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme iceberg
+    au MyAutoCmd VimEnter * highlight Visual ctermbg=216
+    '''
+
+# 導入予定{{{
 
 # japanese doc
 # [[plugins]]

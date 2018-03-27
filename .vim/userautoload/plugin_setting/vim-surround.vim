@@ -1,22 +1,26 @@
-﻿" Last Change: 2018/03/19 13:17:56.
+﻿scriptencoding utf-8
+" Last Change: 2018/03/24 23:24:44.
 
 let g:surround_{char2nr("a")} = "**\r**"
 
+" FIXME: "}" <- の時カーソル位置がおかしい為キル
 " nmap <Leader>" ysiw"
 nmap <Leader>n" ysiw"
-nmap <Leader>" ysiw"i<Space><Esc>wwwa<Space><Esc>W
-nmap <Leader>f" ysiw"i<Space><Esc>Wwwl
-nmap <Leader>b" ysiw"wwa<Space><Esc>l
+nmap <Leader>" ysiw"i<Space><Esc>f";a<Space><Esc>
+nmap <Leader>f" ysiw"i<Space><Esc>
+nmap <Leader>b" ysiw"f"a<Space><Esc>
 
 " nmap <Leader>' ysiw'
-nmap <Leader>' ysiw'i<Space><Esc>wwwa<Space><Esc>W
-nmap <Leader>f' ysiw'i<Space><Esc>Wwwl
-nmap <Leader>b' ysiw'wwa<Space><Esc>l
+nmap <Leader>n' ysiw'
+nmap <Leader>' ysiw'i<Space><Esc>f';a<Space><Esc>
+nmap <Leader>f' ysiw'i<Space><Esc>
+nmap <Leader>b' ysiw'f'a<Space><Esc>
 
 " nmap <Leader>` ysiw`
-nmap <Leader>` ysiw`i<Space><Esc>wwwa<Space><Esc>W
-nmap <Leader>f` ysiw`i<Space><Esc>Wwwl
-nmap <Leader>b` ysiw`wwa<Space><Esc>l
+nmap <Leader>n` ysiw`
+nmap <Leader>` ysiw`i<Space><Esc>f`;a<Space><Esc>
+nmap <Leader>f` ysiw`i<Space><Esc>
+nmap <Leader>b` ysiw`f`a<Space><Esc>
 
 nmap <Leader>{ ysiw{
 nmap <Leader>} ysiw}
@@ -36,8 +40,8 @@ nmap 3<Leader>* ysiw*wysiw*wysiw*
 xmap " S"
 xmap ' S'
 xmap ` S`
-xmap { S{
-xmap } S}
+" xmap { S{
+" xmap } S}
 xmap [ S[
 xmap ] S]
 xmap ( S(
