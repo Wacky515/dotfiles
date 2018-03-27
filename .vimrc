@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/22 09:21:14.
+" Last Change: 2018/03/27 21:03:30.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -67,7 +67,7 @@ let g:python3_host_prog = "C:\Python35\python.exe"
 
     " MEMO:
     " プラグインの追加・削除やtomlファイルの設定を変更した後は
-    " 適宜 "du: call dein#update()" や "dc: call dein#clear_state()" を実行する
+    " 適宜 "du: call dein#check_update()" や "dc: call dein#clear_state()" を実行する
     " --------------------------------------------------------------------------------
 " endif
 
