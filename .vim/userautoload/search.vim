@@ -1,7 +1,5 @@
 scriptencoding utf-8
 
-""" 検索篇 """
-
 " インクリメンタルサーチ
 " ※ 検索文字入力で即時検索開始
 set incsearch
@@ -35,7 +33,7 @@ cnoremap <expr> ? getcmdtype() == "?" ? "\?" : "?"
 
 " <Ctrl>h: 垂直分割で "ctags" 表示
 nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
-" <Ctrl>h: 水平分割で "ctags" 表示
+" <Ctrl>k: 水平分割で "ctags" 表示
 nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
 " unite-tagsの設定

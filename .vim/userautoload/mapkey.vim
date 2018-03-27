@@ -1,5 +1,5 @@
 :scriptencoding utf-8
-" Last Change: 2018/03/21 14:28:34.
+" Last Change: 2018/03/24 22:34:21.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -19,11 +19,10 @@ inoremap jj <Esc>
 " バックアップファイル作成
 nnoremap bk :w %.bk
 
-" 0: 直下に空行挿入
-nnoremap 0 :<C-u>call append(expand('.'), '')<CR>j
-
-" 9: 直上に空行挿入
-nnoremap 9 O<Esc>cc<Esc>
+" " 0: 直下に空行挿入
+" nnoremap 0 :<C-u>call append(expand('.'), '')<CR>j
+" " 9: 直上に空行挿入
+" nnoremap 9 O<Esc>cc<Esc>
 
 " <Ctrl>j: 裏バッファへ切替え
 nnoremap <C-j> <C-^>
@@ -121,10 +120,6 @@ endif
 " <Space> を "Leader" に割当て
 " let mapleader = "\<Space>"
 " －> .vimrc へ
-
-" <Leader>o: ファイルを開く
-" !!!: プラグインが必要
-" nnoremap <Leader>o :CtrlP<CR>
 
 " <Leader>q: ファイルを閉じる
 nnoremap <Leader>q :<C-u>q<CR>

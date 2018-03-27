@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/21 09:52:26.
+" Last Change: 2018/03/24 23:00:42.
 " < http://myenigma.hatenablog.com/entry/2016/07/10/084048 >
 
 " Usage
@@ -8,16 +8,16 @@ scriptencoding utf-8
     " C|cc: コミット画面表示
 
 " ステータス行に現在のgitブランチを表示
-"set statusline+=%{fugitive#statusline()}
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ \[ENC=%{&fileencoding}]%P
+" set statusline+=%{fugitive#statusline()}
+" set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ \[ENC=%{&fileencoding}]%P
 
 " "Vim" 起動時のエラー回避
 set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 
 " マップキー
 nnoremap [fugitive]  <Nop>
-" nmap <space>g [fugitive]
 nmap mg [fugitive]
+
 nnoremap <silent> [fugitive]s :Gstatus<CR><C-w>T
 nnoremap <silent> [fugitive]a :Gwrite<CR>
 nnoremap <silent> [fugitive]c :Gcommit-v<CR>

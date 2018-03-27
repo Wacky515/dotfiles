@@ -1,8 +1,9 @@
-﻿# Last Change: 2018/03/21 16:43:19.
+﻿# Last Change: 2018/03/25 00:31:04.
 
 # 統合ユーザインターフェース # {{{
 # [[plugins]]
 # repo = 'Shougo/denite.nvim'
+# if = "has('nvim')"
 # on_cmd = 'Denite'
 # on_i = 1
 # hook_source = '''
@@ -16,10 +17,11 @@
 # 入力補完
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
 if = "has('nvim')"
+depends = 'context_filetype.vim'
 on_i = 1
 hook_add = 'let g:deoplete#enable_at_startup = 1'
+# ↑ いる？
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 depends = 'context_filetype.vim'
@@ -27,6 +29,7 @@ if = "has('lua')"
 on_i = 1
 # [[plugins]]
 # repo = 'Shougo/neocomplcache.vim'
+# on_i = 1
 
 # スニペット補完
 [[plugins]]
@@ -37,7 +40,7 @@ hook_source = '''
     xmap <C-k> <Plug>(neosnippet_expand_target)
         if has('conceal')
             set conceallevel=2 concealcursor=niv
-    endif
+        endif
 '''
 on_i = 1
 on_ft = ['snippet']
@@ -47,7 +50,7 @@ depends = ['neosnippet-snippets']
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 # on_source = 'denite.nvim'
-on_source = 'dein.nvim'
+on_source = 'dein.vim'
 on_path = '.*'
 
 # "VimShell"
@@ -121,22 +124,23 @@ on_cmd = ['Fontzoom']
 on_map = ['<Plug>(fontzoom-']
 gui    = 1
 
+# FIXME: "dain_lazy.toml" 不能のため "dein.toml" に移管
 # カラースキーマ
 [[plugins]]
-repo = 'w0ng/vim-hybrid'
-hook_add = '''
-    set background=dark
-    " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
-    " 但し Colorscheme イベントの発生が抑制されないよう nested を付ける。
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
-    '''
-[[plugins]]
-repo = 'cocopon/iceberg.vim'
-hook_add = '''
-    set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme iceberg
-    au MyAutoCmd VimEnter * highlight Visual ctermbg=216
-    '''
+# repo = 'w0ng/vim-hybrid'
+# hook_add = '''
+#     set background=dark
+#     " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
+#     " 但し Colorscheme イベントの発生が抑制されないよう nested を付ける。
+#     au MyAutoCmd VimEnter * nested colorscheme hybrid
+#     '''
+# [[plugins]]
+# repo = 'cocopon/iceberg.vim'
+# hook_add = '''
+#     set background=dark
+#     au MyAutoCmd VimEnter * nested colorscheme iceberg
+#     au MyAutoCmd VimEnter * highlight Visual ctermbg=216
+#     '''
 [[plugins]]
 repo = 'chriskempson/vim-tomorrow-theme'
 hook_add = '''

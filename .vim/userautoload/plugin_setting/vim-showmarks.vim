@@ -1,7 +1,7 @@
 scriptencoding utf-8
-" Last Change: 2018/03/21 14:22:25.
+" Last Change: 2018/03/24 23:05:16.
 
-" プラグイン開始接頭語
+" マップキー
 nnoremap [Mark] <Nop>
 nmap m [Mark]
 
