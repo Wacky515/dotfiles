@@ -1,12 +1,12 @@
 scriptencoding utf-8
-" Last Change: 2018/03/22 23:33:16.
+" Last Change: 2018/03/27 11:25:43.
 
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示
 if has("unix")
     set laststatus=2
 endif
 
-設定1 " {{{
+" 設定1 " {{{
 let g:lightline = {
     \ 'colorscheme': 'jellybeans',
     \ 'colorscheme': 'powerline',
@@ -23,7 +23,7 @@ function! LightLineFugitive()
   endif
   return ''
 endfunction
-}}}
+" }}}
 
 " " 設定2
 "             " \ 'colorscheme': 'jellybeans',
