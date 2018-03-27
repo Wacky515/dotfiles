@@ -1,0 +1,12 @@
+ForegroundColour=255,127,0
+BackgroundColour=31,0,0
+BellTaskbar=no
+BoldAsFont=-1
+Charset=UTF-8
+CursorType=block
+Font=Ricty Diminished
+FontHeight=12
+Language=@
+Locale=ja_JP
+MiddleClickAction=enter
+Transparency=high
