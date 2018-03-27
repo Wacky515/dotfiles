@@ -1,5 +1,5 @@
 @echo off
-rem Last Change: 2018/03/19 09:20:37.
+rem Last Change: 2018/03/27 11:21:49.
 rem TODO: "init.vim" のシンボリックリンクソースのパスが変数化できない
 
 rem  スクリプトがある "Dir" に "cd"
@@ -9,40 +9,6 @@ echo ^>^> Start set link
 
 mklink %HOMEPATH%"\.gitconfig" ".\dotfiles\.gitconfig" > nul 2>&1
 if %ERRORLEVEL% == 0 (
-<<<<<<< HEAD
-        echo ".gitconfig link success!"
-        echo This PC name: %COMPUTERNAME%
-        for /f "delims=" %%i in (C:.\xacti_pc.txt) do (
-            echo In office PC: %%i
-            if /i %%i == %COMPUTERNAME% (
-                goto set_proxy
-                )
-            )
-        echo "In normal network"
-        goto end_gitconfig) else (
-            goto end_gitconfig
-            )
-
-    :set_proxy
-    echo "In proxy, set proxy"
-    rem git config --list
-    git config --system http.proxy http://proxy.intra.xacti-co.com:8080
-    git config --system https.proxy https://proxy.intra.xacti-co.com:8080
-
-    :end_gitconfig
-
-    mklink %HOMEPATH%"\.gitignore" ".\dotfiles\.gitignore"
-    mklink %HOMEPATH%"\.zshrc" ".\dotfiles\.zshrc"
-
-    mklink %HOMEPATH%"\.vimrc" ".\dotfiles\.vimrc"
-    mklink %HOMEPATH%"\.gvimrc" ".\dotfiles\.gvimrc"
-    mklink /D %HOMEPATH%"\.vim" ".\dotfiles\.vim"
-
-    echo End set link
-    pause
-
-    exit 0
-=======
     echo .gitconfig link success!
     rem echo This PC name: %COMPUTERNAME%{{{
     rem for /f "delims=" %%i in (C:.\murata_pc.txt) do (
@@ -109,4 +75,3 @@ echo ^>^> End set link
 
 pause
 exit /b 0
->>>>>>> ftr_win
