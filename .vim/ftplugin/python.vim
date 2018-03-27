@@ -1,4 +1,4 @@
-scriptencoding utf-8
+﻿scriptencoding utf-8
 
 if exists("b:did_ftplugin_python")
     finish
@@ -80,12 +80,33 @@ set colorcolumn=80
 " import os
 " import sys
 
+<<<<<<< HEAD
 " path = "C:/tools/Anaconda3/Lib/site-packages"
 " if not path in sys.path:
 "     sys.path.insert(0, path)
 " EOF
 " endif
 " }}}
+=======
+" スクリプトを実行
+nnoremap <F5> :w <ENTER> :!python % <ENTER>
+" デバッグを実行
+nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
+
+" jedi-vim" で "Anaconda3 " のライブラリを補完できるようにpathを追加
+" FIXED?: "Linux" 環境下でエラー
+if !has("unix")
+" python3 << EOF
+python << EOF
+import os
+import sys
+
+path = "C:/tools/Anaconda3/Lib/site-packages"
+if not path in sys.path:
+    sys.path.insert(0, path)
+EOF
+endif
+>>>>>>> origin/feature
 
 " 以下の条件分けは "endif" 無しエラーが解決できないためKill
 " if !has("unix") "{{{
