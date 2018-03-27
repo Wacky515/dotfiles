@@ -7,6 +7,8 @@ ctags.exe
 memo.txt
 *.old
 *.new
+*.bk
+*.tempkill
 *.modifying
 /.vim/tmp/*
 /.vim/dein/*
