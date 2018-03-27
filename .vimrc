@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/27 21:03:30.
+" Last Change: 2018/03/27 21:25:54.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -46,14 +46,14 @@ let g:python3_host_prog = "C:\Python35\python.exe"
         let g:rc_dir      = expand("~/.vim/rc")
         let s:toml        = g:rc_dir . "/dein.toml"
         let s:lazy_toml   = g:rc_dir . "/dein_lazy.toml"
-        " let s:python_toml = g:rc_dir . "/dein_python.toml"
+        let s:python_toml = g:rc_dir . "/dein_python.toml"
 
         " "*.toml" を読込み、キャッシュ
         call dein#load_toml(s:toml,            {"lazy": 0})
         call dein#load_toml(s:lazy_toml,       {"lazy": 1})
-        " if has ("python3")
-        "     call dein#load_toml(s:python_toml, {"lazy": 0})
-        " endif
+        if has ("python3")
+            call dein#load_toml(s:python_toml, {"lazy": 0})
+        endif
 
         " 設定終了
         call dein#end()
