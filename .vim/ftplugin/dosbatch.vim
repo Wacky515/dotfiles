@@ -1,5 +1,5 @@
 ﻿scriptencoding utf-8
-" Last Chqange: .
+" Last Chaange: .
 
 set fileformat=dos
 set encoding=utf-8
