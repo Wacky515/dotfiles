@@ -1,5 +1,5 @@
-﻿# "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/03/27 21:14:12.
+# "github.com" のリポジトリを指定し、"Plugin" を追加
+# Last Change: 2018/03/27 21:31:23.
 
 # "dein.vim" 本体
 [[plugins]]
