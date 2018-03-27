@@ -1,80 +1,91 @@
 scriptencoding utf-8
+" Last Change: 2018/03/22 09:21:14.
 
-" !!!: å¿…ãšå…ˆé ­ã«è¨˜è¿°
-" "autocmd"ï¼ˆãƒã‚¯ãƒ­ï¼‰ ã®åˆæœŸåŒ–
+" !!!: •K‚¸æ“ª‚É‹Lq
+" "autocmd"iƒ}ƒNƒj ‚Ì‰Šú‰»
 augroup MyAutoCmd
     autocmd!
 augroup END
 
-" --------------------------------------------------------------------------------
-" dein.vimã®è¨­å®š
-" --------------------------------------------------------------------------------
-if !&compatible
-    set nocompatible
-endif
+"Python3‚ÌƒpƒXİ’è
+let g:python3_host_prog = "C:\Python35\python.exe"
 
-" Vimèµ·å‹•å®Œäº†æ™‚ã«ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
-augroup PluginInstall
-    autocmd!
-    autocmd VimEnter * if dein#check_install() | call dein#install() | endif
-augroup END
+" if !has("nvim")
+    " ---------------------------------------------------------------------------
+    " dein.vim‚Ìİ’è
+    " ---------------------------------------------------------------------------
+    if !&compatible
+        set nocompatible
+    endif
 
-" ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
-let s:plugin_dir = expand("~/.cache/dein/")
-" "dein.vim" ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ãƒ‘ã‚¹ã¸è¿½åŠ 
-let s:dein_dir = s:plugin_dir . "repos/github.com/Shougo/dein.vim"
-execute "set runtimepath+=" . s:dein_dir
+    " Vim‹N“®Š®—¹‚ÉƒCƒ“ƒXƒg[ƒ‹
+    augroup PluginInstall
+        autocmd!
+        autocmd VimEnter * if dein#check_install() | call dein#install() | endif
+    augroup END
 
-" dein.vimãŒå…¥ã£ã¦ã„ãªã‘ã‚Œã° "git clone"
-if !isdirectory(s:dein_dir)
-    call mkdir(s:dein_dir, "p")
-    silent execute printf("!git clone %s %s", "https://github.com/Shougo/dein.vim", s:dein_dir)
-endif
-" < http://yuheikagaya.hatenablog.jp/entry/2016/03/20/171907 >
+    " ƒvƒ‰ƒOƒCƒ“‚ğƒCƒ“ƒXƒg[ƒ‹‚·‚éƒfƒBƒŒƒNƒgƒŠ
+    let s:plugin_dir = expand("~/.cache/dein/")
 
-" è¨­å®šé–‹å§‹
-if dein#load_state(s:plugin_dir)
-    call dein#begin(s:plugin_dir)
+    " "dein.vim" ‚ğƒCƒ“ƒXƒg[ƒ‹‚·‚éƒfƒBƒŒƒNƒgƒŠ‚ğƒ‰ƒ“ƒ^ƒCƒ€ƒpƒX‚Ö’Ç‰Á
+    let s:dein_dir = s:plugin_dir . "repos/github.com/Shougo/dein.vim"
+    execute "set runtimepath+=" . s:dein_dir
 
-    " ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ãƒªã‚¹ãƒˆ "*.toml" ã‚’æŒ‡å®š
-    let g:rc_dir    = expand("~/.vim/rc")
-    let s:toml      = g:rc_dir . "/dein.toml"
-    let s:lazy_toml = g:rc_dir . "/dein_lazy.toml"
+    " dein.vim‚ª“ü‚Á‚Ä‚¢‚È‚¯‚ê‚Î "git clone"
+    if !isdirectory(s:dein_dir)
+        call mkdir(s:dein_dir, "p")
+        silent execute printf("!git clone %s %s", "https://github.com/Shougo/dein.vim", s:dein_dir)
+    endif
+    " < http://yuheikagaya.hatenablog.jp/entry/2016/03/20/171907 >
 
-    " "*.toml" ã‚’èª­è¾¼ã¿ã€ã‚­ãƒ£ãƒƒã‚·ãƒ¥
-    call dein#load_toml(s:toml,      {"lazy": 0})
-    call dein#load_toml(s:lazy_toml, {"lazy": 1})
+    " İ’èŠJn
+    if dein#load_state(s:plugin_dir)
+        call dein#begin(s:plugin_dir)
 
-    " è¨­å®šçµ‚äº†
-    call dein#end()
-    call dein#save_state()
-endif
+        " ƒvƒ‰ƒOƒCƒ“ƒŠƒXƒg "*.toml" ‚ğw’è
+        let g:rc_dir      = expand("~/.vim/rc")
+        let s:toml        = g:rc_dir . "/dein.toml"
+        let s:lazy_toml   = g:rc_dir . "/dein_lazy.toml"
+        " let s:python_toml = g:rc_dir . "/dein_python.toml"
 
-" æœªã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãŒã‚ã‚Œã°ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
-if dein#check_install()
-    call dein#install()
-endif
+        " "*.toml" ‚ğ“Ç‚İAƒLƒƒƒbƒVƒ…
+        call dein#load_toml(s:toml,            {"lazy": 0})
+        call dein#load_toml(s:lazy_toml,       {"lazy": 1})
+        " if has ("python3")
+        "     call dein#load_toml(s:python_toml, {"lazy": 0})
+        " endif
 
-" ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®è¿½åŠ ãƒ»å‰Šé™¤ã‚„tomlãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šã‚’å¤‰æ›´ã—ãŸå¾Œã¯
-" é©å®œ "call dein#update()" ã‚„ "call dein#clear_state()" ã‚’å®Ÿè¡Œã™ã‚‹
-" --------------------------------------------------------------------------------
+        " İ’èI—¹
+        call dein#end()
+        call dein#save_state()
+    endif
 
+    " –¢ƒCƒ“ƒXƒg[ƒ‹‚ª‚ ‚ê‚ÎƒCƒ“ƒXƒg[ƒ‹
+    if dein#check_install()
+        call dein#install()
+    endif
 
-" --------------------------------------------------------------------------------
-" Windowsç’°å¢ƒã®è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®å ´æ‰€ã‚’ã€Mac/Linuxç’°å¢ƒã«ã‚ã‚ã›ã‚‹
-" --------------------------------------------------------------------------------
+    " MEMO:
+    " ƒvƒ‰ƒOƒCƒ“‚Ì’Ç‰ÁEíœ‚âtomlƒtƒ@ƒCƒ‹‚Ìİ’è‚ğ•ÏX‚µ‚½Œã‚Í
+    " “K‹X "du: call dein#update()" ‚â "dc: call dein#clear_state()" ‚ğÀs‚·‚é
+    " --------------------------------------------------------------------------------
+" endif
+
+" ---------------------------------------------------------------------------
+" Initˆ—
+" ---------------------------------------------------------------------------
+
+" MEMO: ‹Lq‡”Ô •ÏX‚µ‚È‚¢III
+" <Space> ‚ğ "Leader" ‚ÉŠ„“–‚Ä
+let mapleader = "\<Space>"
+
+" WindowsŠÂ‹«‚Ìİ’èƒtƒ@ƒCƒ‹‚ÌêŠ‚ğAMac/LinuxŠÂ‹«‚É‚ ‚í‚¹‚é
 set runtimepath+=$HOME/.vim
-
-" --------------------------------------------------------------------------------
-" ".vimrc" ã¨ ".gvimrc" ã‚’åˆ†å‰²é…ç½®
-" --------------------------------------------------------------------------------
-set runtimepath+=~/.vim/
+" "Vim" ‚Ìİ’èƒtƒ@ƒCƒ‹
 runtime! userautoload/*.vim
-" "Plugin" ã®è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«
+" "Plugin" ‚Ìİ’èƒtƒ@ƒCƒ‹
 runtime! userautoload/plugin_setting/*.vim
 
-" --------------------------------------------------------------------------------
-" èª­ã¿è¾¼ã‚“ã ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚‚å«ã‚ã€ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—ã®æ¤œå‡º
-" ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—åˆ¥ãƒ—ãƒ©ã‚°ã‚¤ãƒ³/ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’æœ‰åŠ¹åŒ–ã™ã‚‹
-" --------------------------------------------------------------------------------
+" “Ç‚İ‚ñ‚¾ƒvƒ‰ƒOƒCƒ“‚àŠÜ‚ßAƒtƒ@ƒCƒ‹ƒ^ƒCƒv‚ÌŒŸo
+" ƒtƒ@ƒCƒ‹ƒ^ƒCƒv•Êƒvƒ‰ƒOƒCƒ“/ƒCƒ“ƒfƒ“ƒg‚ğ—LŒø‰»‚·‚é
 filetype plugin indent on
