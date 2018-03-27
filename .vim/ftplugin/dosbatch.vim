@@ -1,9 +1,10 @@
-scriptencoding utf-8
+﻿scriptencoding utf-8
+" Last Chqange: .
 
 set fileformat=dos
+set encoding=utf-8
+" set encoding=sjis
 " set encoding=cp932
-" set encoding=utf-8
-set encoding=sjis
 
 " FIXME: 効かない
 " スクリプトを実行
