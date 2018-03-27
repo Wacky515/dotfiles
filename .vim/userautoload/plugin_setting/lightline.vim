@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/27 11:25:43.
+" Last Change: 2018/03/27 11:32:50.
 
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示
 if has("unix")
@@ -9,7 +9,7 @@ endif
 " 設定1 " {{{
 let g:lightline = {
     \ 'colorscheme': 'jellybeans',
-    \ 'colorscheme': 'powerline',
+    " \ 'colorscheme': 'powerline',
     \ 'component': {
     \ 'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
     \ 'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',}
