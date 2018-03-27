@@ -1,7 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/19 12:18:30.
-
-""" 編集篇 """
+" Last Change: 2018/03/24 22:50:58.
 
 " 保存時に行末の空白を削除
 autocmd BufWritePre * :%s/\s\+$//ge
@@ -40,7 +38,7 @@ if !has("nvim")
 " < http://nanasi.jp/articles/howto/editing/clipboard.html >
 endif
 
-" "vim-surround" で代替
+" 1.，2. は "vim-surround" で代替 " {{{
 " " 自動的に閉じ括弧を入力
 " " 1. 閉じ括弧を補完
 " inoremap ( ()<Left>
@@ -55,15 +53,13 @@ endif
 " inoremap (<Enter> (
 " inoremap '<Enter> '
 " inoremap "<Enter> "
-
+"}}}
 " 3. . 押下で改行して閉じ括弧を補完（関数記記述用）
 inoremap (. ()<Left><CR><ESC><S-o>
 inoremap [. []<Left><CR><ESC><S-o>
 inoremap {. {}<Left><CR><ESC><S-o>
 inoremap '. ''''''<Left><Left><Left><CR><ESC><S-o>
 inoremap ". """"""<Left><Left><Left><CR><ESC><S-o>
-" これで動作が良くなければ下記を試す
-    " < https://github.com/Townk/vim-autoclose >
 
 " 挿入モードで日時を挿入
 " フルセット

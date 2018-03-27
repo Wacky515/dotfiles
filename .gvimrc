@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/21 14:42:18.
+" Last Change: 2018/03/25 00:33:05.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -79,8 +79,8 @@ elseif has("mac")
 elseif has("win32") || has("win64")
     " Home setting
     if hostname() == "SALADCARBONX1"
-        " set guifont=Ricty_Diminished:h12
-        set guifont=Consolas:h12
+        set guifont=Cica:h12
+        " colorscheme iceberg
 
     " muRata setting
     elseif hostname() == "hbalt071"
