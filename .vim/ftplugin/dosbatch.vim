@@ -1,5 +1,5 @@
 ﻿scriptencoding utf-8
-" Last Chaange: .
+" Last Change: 2018/03/27 20:54:43.
 
 set fileformat=dos
 set encoding=utf-8
