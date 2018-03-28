@@ -1,4 +1,4 @@
-# Last Change: 2018/03/27 21:32:36.
+# Last Change: 2018/03/28 15:23:44.
 
 # 統合ユーザインターフェース # {{{
 # [[plugins]]
@@ -52,6 +52,11 @@ repo = 'Shougo/neomru.vim'
 # on_source = 'denite.nvim'
 on_source = 'dein.vim'
 on_path = '.*'
+
+# "gitk" 機能追加
+[[plugins]]
+repo = 'gregsexton/gitv'
+depends = 'fugitive'
 
 # "VimShell"
 # ":VimShell" で起動
