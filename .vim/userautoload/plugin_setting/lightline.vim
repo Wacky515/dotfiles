@@ -1,4 +1,4 @@
-scriptencoding utf-8
+﻿scriptencoding utf-8
 " Last Change: 2018/03/27 21:05:08.
 
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示
@@ -105,9 +105,9 @@ function! MyMode()
     return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
-function! MyCurrentTag()
-    return tagbar#currenttag('%s', '')
-endfunction
+" function! MyCurrentTag()
+"     return tagbar#currenttag('%s', '')
+" endfunction
 
 function! MyCakephp()
     return exists('*cake#buffer') ? cake#buffer('type') : ''
