@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/03/28 09:39:33.
+# Last Change: 2018/03/29 08:47:45.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -24,7 +24,7 @@ repo = 'ujihisa/unite-font'
 repo = 'Shougo/neosnippet-snippets'
 
 # ファイラー
-# <C-o>: ":VimFiler" で起動 # {{{
+# <Leader>o: ":VimFiler" で起動 # {{{
     # o: 	バッファを縦分割 or ディレクトリ同期
     # O:	別バッファに選択中のディレクトリの中を展開
     # gs:	セーフモード on/off
