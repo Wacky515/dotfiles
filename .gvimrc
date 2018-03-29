@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/30 07:18:09.
+" Last Change: 2018/03/30 07:39:49.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -72,7 +72,8 @@ elseif has("mac")
         set guifont=Ricty_Diminished:h16
     elseif hostname() == "ProSalad133.local"
         set guifont=Ricty_Diminished:h16
-        colorscheme iceberg
+        " colorscheme iceberg
+        colorscheme hybrid
     elseif hostname() == "saladserver.com"
         set guifont=Osaka:h24
     else
