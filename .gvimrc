@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/27 21:26:59.
+" Last Change: 2018/03/30 07:18:09.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -64,12 +64,15 @@ syntax on
 
 " !!!: 以下からは記述場所を順番を変えない！！！
 " フォントの設定
-if has("unix")
+if has("linux")
     set guifont=DejaVu\ Sans\ Mono\ 13
 
 elseif has("mac")
     if hostname() == "ProSalad13.local"
         set guifont=Ricty_Diminished:h16
+    elseif hostname() == "ProSalad133.local"
+        set guifont=Ricty_Diminished:h16
+        colorscheme iceberg
     elseif hostname() == "saladserver.com"
         set guifont=Osaka:h24
     else
