@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/03/29 08:47:45.
+# Last Change: 2018/03/29 10:50:15.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -141,6 +141,10 @@ repo = 'itchyny/calendar.vim'
 # ":TlistOpen" で開始
 [[plugins]]
 repo = 'vim-scripts/taglist.vim'
+
+# コンテキストによって "filetype" を自動的に切り換え
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
 
 # # "true"/"false"、"yes"、"no"、"on"/"off" などをトグル
 # [[plugins]]
