@@ -1,5 +1,5 @@
 :scriptencoding utf-8
-" Last Change: 2018/03/24 22:34:21.
+" Last Change: 2018/03/30 07:12:30.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -33,9 +33,12 @@ nnoremap <silent> <Leader>l :set spell!<CR>
 " 挿入モードで dl: 仕切り線を挿入
 inoreabbrev dl ---------------------------------------------------------------------------<Esc>:TComment<CR>^
 
-" FIXME: "Mac" では効かない
+" DONE: "Mac" では効かない
 " <Esc><Esc>: ハイライト消去
-nmap <silent> <Esc><Esc> :nohlsearch<CR>
+if has("mac")
+    nmap <silent> <C-[><C-[> :nohlsearch<CR>
+else
+    nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
 " [*|#]: 検索した後に移動しない設定
 nnoremap * *N
