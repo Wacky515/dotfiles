@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 # @(#) Setting keyboard layout.
 # Last Change: 2018/03/27 11:29:21.
 # TODO:
