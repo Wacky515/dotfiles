@@ -1,9 +1,9 @@
 ﻿scriptencoding utf-8
-" Last Change: 2018/03/24 23:24:44.
+" Last Change: 2018/03/30 07:31:25.
 
 let g:surround_{char2nr("a")} = "**\r**"
 
-" FIXME: "}" <- の時カーソル位置がおかしい為キル
+" DONE: "}" <- の時カーソル位置がおかしい為キル
 " nmap <Leader>" ysiw"
 nmap <Leader>n" ysiw"
 nmap <Leader>" ysiw"i<Space><Esc>f";a<Space><Esc>
@@ -28,8 +28,9 @@ nmap <Leader>[ ysiw[
 nmap <Leader>] ysiw]
 nmap <Leader>( ysiw(
 nmap <Leader>) ysiw)
-nmap <Leader>< ysiw<
-nmap <Leader>> ysiw>
+" 複数行のインデント調整できないため KILL
+" nmap <Leader>< ysiw<
+" nmap <Leader>> ysiw>
 nmap <Leader>* ysiw*
 " nmap <Leader><Leader>* ysiw*wysiw*
 " nmap <Leader>a ysiwa
