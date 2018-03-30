@@ -1,5 +1,8 @@
 scriptencoding utf-8
-" Last Change: 2018/03/30 11:54:09.
+" Last Change: 2018/03/30 13:51:12.
+
+" <Leader>o: 現在開いているバッファをIDE風に開く
+nnoremap <silent> <Leader>o :<C-u>NERDTree<CR>
 
 let g:NERDTreeDirArrows = 1
 let NERDTreeWinSize=22
