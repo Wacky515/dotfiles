@@ -1,5 +1,5 @@
 :scriptencoding utf-8
-" Last Change: 2018/03/30 07:12:30.
+" Last Change: 2018/03/30 10:41:32.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -39,6 +39,7 @@ if has("mac")
     nmap <silent> <C-[><C-[> :nohlsearch<CR>
 else
     nmap <silent> <Esc><Esc> :nohlsearch<CR>
+endif
 
 " [*|#]: 検索した後に移動しない設定
 nnoremap * *N
