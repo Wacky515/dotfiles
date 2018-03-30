@@ -1,32 +1,36 @@
 ﻿scriptencoding utf-8
-" Last Change: 2018/03/30 11:34:07.
+" Last Change: 2018/03/30 14:46:38.
 
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示
 if has("unix")
     set laststatus=2
 endif
 
-" " 設定1 " {{{
-"     " \ 'colorscheme': 'powerline',
-" let g:lightline = {
-"     \ 'colorscheme': 'jellybeans',
+" "Cica" を使用しているマシンのみセパレータ有効化
+" FIXME: 抽象化する
+if hostname() != "SALADCARBONX1" || "ProSalad133.local"
+
 "     \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
 "     \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
-"     \ 'component': {
-"     \ 'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
-"     \ 'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',}
-"     \ }
-"
-" " "Fugitive" と連携
-" function! LightLineFugitive()
-"   if exists("*fugitive#head")
-"     let branch = fugitive#head()
-"     return branch !=# '' ? '⭠ '.branch : ''
-"   endif
-"   return ''
-" endfunction
-" " }}}
+" 設定1 " {{{
+    " \ 'colorscheme': 'powerline',
+let g:lightline = {
+    \ 'colorscheme': 'jellybeans',
+    \ 'component': {
+    \ 'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
+    \ 'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',}
+    \ }
 
+" "Fugitive" と連携
+function! LightLineFugitive()
+  if exists("*fugitive#head")
+    let branch = fugitive#head()
+    return branch !=# '' ? '⭠ '.branch : ''
+  endif
+  return ''
+endfunction
+" }}}
+else
 " 設定2 " {{{
             " \ 'colorscheme': 'jellybeans',
             " \ 'colorscheme': 'powerline',
@@ -177,3 +181,4 @@ endfunction
 "   return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 " endfunction
 " " }}}
+endif
