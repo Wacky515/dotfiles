@@ -1,8 +1,8 @@
 scriptencoding utf-8
-" Last Change: 2018/03/27 21:02:23.
+" Last Change: 2018/03/30 14:16:18.
 
 " du:  "dein" アップデート
-nmap du :call dein#check_update()<CR>
+nmap du :<C-u>call dein#check_update()<CR>
 
 " dc:  "dein" クリア
-nmap dc :call dein#clear_state()<CR>
+nmap dc :<C-u>call dein#clear_state()<CR>
