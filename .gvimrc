@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/30 07:39:49.
+" Last Change: 2018/03/30 11:20:36.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -26,6 +26,11 @@ set cmdheight=5
 
 " ターミナルwo256色表示
 set t_Co=256
+
+" ツールバー消去
+set guioptions-=T
+" メニューバー非表示
+set guioptions-=m
 
 " ウィンドウ 半透明化（LinuxはVimから設定できない）
 if has("mac")
