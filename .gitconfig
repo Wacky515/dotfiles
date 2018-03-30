@@ -1,3 +1,4 @@
+# Last Change: 2018/03/30 11:12:15.
 [user]
 	name = wacky515
 	email = wacky515@gmail.com
@@ -13,6 +14,9 @@
 	co = checkout
 	br = branch
     p = !git push origin `git rev-parse --abbrev-ref HEAD`
+
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 [core]
     excludesfile = ~/.gitignore
 	# excludesfile = /Users/wacky515/.gitignore_global
@@ -20,7 +24,7 @@
 	autocrlf = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
