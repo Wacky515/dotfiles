@@ -1,12 +1,12 @@
 scriptencoding utf-8
-" Last Change: 2018/03/30 11:51:51.
+" Last Change: 2018/03/30 13:43:01.
 
-" s: マップキー
+" s: ショートカットキー
 nnoremap s <Nop>
+nnoremap sp :<C-u>CtrlP<CR>
 nnoremap sa :<C-u>CtrlP<Space>
 nnoremap sb :<C-u>CtrlPBuffer<CR>
 nnoremap sd :<C-u>CtrlPDir<CR>
-nnoremap sf :<C-u>CtrlP<CR>
 nnoremap sl :<C-u>CtrlPLine<CR>
 nnoremap sm :<C-u>CtrlPMRUFiles<CR>
 nnoremap sq :<C-u>CtrlPQuickfix<CR>
