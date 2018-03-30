@@ -1,5 +1,5 @@
 :scriptencoding utf-8
-" Last Change: 2018/03/30 10:41:32.
+" Last Change: 2018/03/30 14:10:51.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -17,7 +17,7 @@
 inoremap jj <Esc>
 
 " バックアップファイル作成
-nnoremap bk :w %.bk
+nnoremap bk :<C-u>w %.bk
 
 " " 0: 直下に空行挿入
 " nnoremap 0 :<C-u>call append(expand('.'), '')<CR>j
@@ -55,11 +55,11 @@ nnoremap <Tab> %
 vnoremap <Tab> %
 
 " bp: 前のバッファを開く
-nnoremap <silent>bp :bprevious<CR>
+nnoremap <silent>bp :<C-u>bprevious<CR>
 " bn: 次のバッファを開く
-nnoremap <silent>bn :bnext<CR>
+nnoremap <silent>bn :<C-u>bnext<CR>
 " bb: 直前のバッファを開く
-nnoremap <silent>bb :b#<CR>
+nnoremap <silent>bb :<C-u>b#<CR>
 
 " TODO: MacのNeoVimで確認
 "Macの時ノーマルモードで:と;を入れ替える
@@ -75,14 +75,16 @@ if has("unix")
 endif
 
 " FIXME: "NeoVim" で変更必要
-" ,v: vimrcを開く
-nmap ev :edit $MYVIMRC<CR>
-" ,g: gvimrcを開く
-nmap eg :edit $MYGVIMRC<CR>
-" <Leader>rv: vimrcを反映
-nnoremap <silent> ,v :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
-" <Leader>rg: gvimrcを反映
-nnoremap <silent> ,g :<C-u>source $MYGVIMRC<CR>
+if !has("nvim")
+    " ,v: vimrcを開く
+    nmap ev :edit $MYVIMRC<CR>
+    " ,g: gvimrcを開く
+    nmap eg :edit $MYGVIMRC<CR>
+    " <Leader>rv: vimrcを反映
+    nnoremap <silent> ,v :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
+    " <Leader>rg: gvimrcを反映
+    nnoremap <silent> ,g :<C-u>source $MYGVIMRC<CR>
+endif
 
 " ヤンクした文字列でカーソル位置の単語を置換
 nnoremap <silent> cy ce<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
@@ -129,7 +131,7 @@ endif
 nnoremap <Leader>q :<C-u>q<CR>
 
 " <Leader>w: ファイルを保存
-nnoremap <Leader>w :w<CR>
+nnoremap <Leader>w :<C-u>w<CR>
 
 " <Leader>s: ウィンドウを縦分割
 nnoremap <Leader>s :<C-u>sp<CR>
