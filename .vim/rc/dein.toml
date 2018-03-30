@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/03/29 10:50:15.
+# Last Change: 2018/03/30 12:13:57.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -32,6 +32,17 @@ repo = 'Shougo/neosnippet-snippets'
 # }}}
 [[plugins]]
 repo = 'Shougo/vimfiler'
+# o: 起動
+# FIXME: ↑ 変更する
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+[[plugins]]
+repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+# sa: 起動
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
 
 # The Silver Searcher
 [[plugins]]
