@@ -14,7 +14,7 @@ elseif has("win32") || has("win64")
 endif
 
 " <Leader>md: 編集中のファイルをブラウザで表示
-nnoremap <silent> <Leader>md :PrevimOpen<CR>
+nnoremap <silent> <Leader>md :<C-u>PrevimOpen<CR>
 
 " <Leader>j: Vimのカーソル移動とブラウザの下スクロールを連動
 nmap <silent> <Leader>j <Plug>(ChromeAutoScrollDown)
@@ -27,7 +27,7 @@ nmap <silent> <Leader>k <Plug>(ChromeAutoScrollUp)
 nmap <Leader>ks <Plug>(ChromeAutoScrollUpStop)
 
 " <F5>: 編集中のファイルをブラウザで表示
-" nmap <F5> :PrevimOpen<CR>
+" nmap <F5> :<C-u>PrevimOpen<CR>
 
 " GitHub的な見た目
 " let g:previm_disable_default_css = 1
