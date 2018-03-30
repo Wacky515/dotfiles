@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/03/30 13:58:22.
+# Last Change: 2018/03/30 14:18:37.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -58,6 +58,7 @@ repo = 'vim-scripts/YankRing.vim'
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
 
 # アンドゥ管理
+# F4: 起動
 [[plugins]]
 repo = 'sjl/gundo.vim'
 
