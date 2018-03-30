@@ -1,5 +1,5 @@
-:scriptencoding utf-8
-" Last Change: 2018/03/30 14:10:51.
+scriptencoding utf-8
+" Last Change: 2018/03/30 14:25:38.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -36,9 +36,9 @@ inoreabbrev dl -----------------------------------------------------------------
 " DONE: "Mac" では効かない
 " <Esc><Esc>: ハイライト消去
 if has("mac")
-    nmap <silent> <C-[><C-[> :nohlsearch<CR>
+    nmap <silent> <C-[><C-[> :<C-u>nohlsearch<CR>
 else
-    nmap <silent> <Esc><Esc> :nohlsearch<CR>
+    nmap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 endif
 
 " [*|#]: 検索した後に移動しない設定
@@ -77,9 +77,9 @@ endif
 " FIXME: "NeoVim" で変更必要
 if !has("nvim")
     " ,v: vimrcを開く
-    nmap ev :edit $MYVIMRC<CR>
+    nmap ev :<C-u>edit $MYVIMRC<CR>
     " ,g: gvimrcを開く
-    nmap eg :edit $MYGVIMRC<CR>
+    nmap eg :<C-u>edit $MYGVIMRC<CR>
     " <Leader>rv: vimrcを反映
     nnoremap <silent> ,v :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
     " <Leader>rg: gvimrcを反映
