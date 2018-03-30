@@ -36,6 +36,7 @@ endif
             " \ 'colorscheme': 'seoul256',
             " \ 'colorscheme': 'Dracula',
             " \ 'colorscheme': 'one',
+            " \   'lineinfo': ' %3l:%-2v',
 let g:lightline = {
             \ 'colorscheme': 'wombat',
             \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
@@ -45,7 +46,7 @@ let g:lightline = {
             \   'left': [ ['mode', 'paste'], ['fugitive', 'filename', 'cakephp', 'currenttag', 'anzu'] ]
             \ },
             \ 'component': {
-            \   'lineinfo': ' %3l:%-2v',
+            \   'lineinfo': '%3l:%-2v',
             \ },
             \ 'component_function': {
             \   'modified': 'MyModified',
