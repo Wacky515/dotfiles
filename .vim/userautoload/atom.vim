@@ -1,3 +1,3 @@
 scriptencoding utf-8
 
-nnoremap <Leader>,m :! Atom "%:p"<CR>
+nnoremap <Leader>,m :<C-u>! Atom "%:p"<CR>
