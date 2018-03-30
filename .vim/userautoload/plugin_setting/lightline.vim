@@ -1,5 +1,5 @@
 ﻿scriptencoding utf-8
-" Last Change: 2018/03/27 21:05:08.
+" Last Change: 2018/03/30 11:34:07.
 
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示
 if has("unix")
@@ -36,7 +36,6 @@ endif
             " \ 'colorscheme': 'seoul256',
             " \ 'colorscheme': 'Dracula',
             " \ 'colorscheme': 'one',
-            " \   'lineinfo': ' %3l:%-2v',
 let g:lightline = {
             \ 'colorscheme': 'wombat',
             \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
@@ -46,7 +45,7 @@ let g:lightline = {
             \   'left': [ ['mode', 'paste'], ['fugitive', 'filename', 'cakephp', 'currenttag', 'anzu'] ]
             \ },
             \ 'component': {
-            \   'lineinfo': '%3l:%-2v',
+            \   'lineinfo': ' %3l:%-2v',
             \ },
             \ 'component_function': {
             \   'modified': 'MyModified',
@@ -114,3 +113,67 @@ function! MyCakephp()
     return exists('*cake#buffer') ? cake#buffer('type') : ''
 endfunction
 " }}}
+
+" " 設定3 " {{{
+" let g:lightline = {
+"             \ 'colorscheme': 'jellybeans',
+"             \ 'active': {
+"             \   'left': [ [ 'mode', 'paste' ],
+"             \             [ 'fugitive', 'filename' ] ]
+"             \ },
+"             \ 'component_function': {
+"             \   'fugitive': 'LightLineFugitive',
+"             \   'readonly': 'LightLineReadonly',
+"             \   'modified': 'LightLineModified',
+"             \   'filename': 'LightLineFilename',
+"             \   'filetype': 'LightLineFiletype',
+"             \   'fileformat': 'LightLineFileformat',
+"             \ },
+"             \ 'separator': { 'left': '', 'right': '' },
+"             \ 'subseparator': { 'left': '', 'right': '' }
+"             \ }
+"
+" function! LightLineModified()
+"     if &filetype == "help"
+"         return ""
+"     elseif &modified
+"         return "+"
+"     elseif &modifiable
+"         return ""
+"     else
+"         return ""
+"     endif
+" endfunction
+"
+" function! LightLineReadonly()
+"     if &filetype == "help"
+"         return ""
+"     elseif &readonly
+"         return ""
+"     else
+"         return ""
+"     endif
+" endfunction
+"
+" function! LightLineFugitive()
+"     if exists("*fugitive#head")
+"         let _ = fugitive#head()
+"         return strlen(_) ? ''._ : ''
+"     endif
+"     return ''
+" endfunction
+"
+" function! LightLineFilename()
+"     return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+"                 \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+"                 \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+" endfunction
+"
+" function! LightLineFiletype()
+"   return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+" endfunction
+"
+" function! LightLineFileformat()
+"   return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+" endfunction
+" " }}}
