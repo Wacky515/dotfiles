@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/03/30 13:06:36.
+# Last Change: 2018/03/30 13:42:39.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -40,7 +40,7 @@ repo = 'scrooloose/nerdtree'
 repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
-# sa: 起動
+# sp: 起動
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
 
