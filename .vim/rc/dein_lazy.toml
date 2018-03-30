@@ -1,4 +1,4 @@
-# Last Change: 2018/03/30 07:21:52.
+# Last Change: 2018/03/30 11:03:07.
 
 # 統合ユーザインターフェース # {{{
 # [[plugins]]
@@ -59,7 +59,7 @@ repo = 'gregsexton/gitv'
 depends = 'fugitive'
 
 # "VimShell"
-# ":VimShell" で起動
+# ",s: :VimShell" で起動
 [[plugins]]
 repo = 'Shougo/vimshell'
 if = "!has('nvim')"
