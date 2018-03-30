@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/03/30 13:42:39.
+# Last Change: 2018/03/30 13:54:40.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -24,7 +24,7 @@ repo = 'ujihisa/unite-font'
 repo = 'Shougo/neosnippet-snippets'
 
 # ファイラー
-# <Leader>o: ":VimFiler" で起動 # {{{
+# ":VimFiler" で起動 # {{{
     # o: 	バッファを縦分割 or ディレクトリ同期
     # O:	別バッファに選択中のディレクトリの中を展開
     # gs:	セーフモード on/off
@@ -32,8 +32,7 @@ repo = 'Shougo/neosnippet-snippets'
 # }}}
 [[plugins]]
 repo = 'Shougo/vimfiler'
-# o: 起動
-# FIXME: ↑ 変更する
+# <Leader>o: 起動
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 [[plugins]]
