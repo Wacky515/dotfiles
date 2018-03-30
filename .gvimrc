@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/30 11:20:36.
+" Last Change: 2018/03/30 12:13:01.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -76,7 +76,8 @@ elseif has("mac")
     if hostname() == "ProSalad13.local"
         set guifont=Ricty_Diminished:h16
     elseif hostname() == "ProSalad133.local"
-        set guifont=Ricty_Diminished:h16
+        " set guifont=Ricty_Diminished:h16
+        set guifont=Cica:h18
         " colorscheme iceberg
         colorscheme hybrid
     elseif hostname() == "saladserver.com"
@@ -89,6 +90,8 @@ elseif has("win32") || has("win64")
     " Home setting
     if hostname() == "SALADCARBONX1"
         set guifont=Cica:h12
+        " Windows Cica 専用設定
+        set rop=type:directx,renmode:5
         colorscheme iceberg
 
     " muRata setting
@@ -97,8 +100,6 @@ elseif has("win32") || has("win64")
     elseif hostname() == "hbamb748"
         set guifont=Ricty_Diminished:h16
     elseif hostname() == "HBAMB748A"
-        " set guifont=Ricty_Diminished:h16
-        " set guifont=Consolas:h14
         set guifont=Inconsolata:h14
         colorscheme iceberg
     elseif hostname() == "MECSI"
