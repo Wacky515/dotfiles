@@ -1,19 +1,19 @@
 scriptencoding utf-8
-" Last Change: 2018/03/31 20:50:12.
+" Last Change: 2018/03/31 23:44:18.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
 " ----------------------------------------------------------------------
 
 " カラースキーマの指定
-colorscheme hybrid
+" colorscheme hybrid
 " colorscheme molokai " {{{
 " colorscheme desert
 " colorscheme jellybeans
 " }}}
 
 " 暗背景用の配色にする
-set background=dark
+" set background=dark
 " " 明背景用の配色にする " {{{
 " set background=light
 " }}}
@@ -75,6 +75,8 @@ if has("linux")
     else
         Guifont DejaVu\ Sans\ Mono\ 13
     endif
+    colorscheme hybrid
+    set background=dark
 
 elseif has("mac")
     if hostname() == "ProSalad13.local"
@@ -90,18 +92,23 @@ elseif has("mac")
             Guifont Consolas:h18
         endif
         colorscheme iceberg
+        set background=dark
     elseif hostname() == "saladserver.com"
         if !has("nvim")
             set guifont=Osaka:h24
         else
             Guifont Osaka:h24
         endif
+        colorscheme iceberg
+        set background=dark
     else
         if !has("nvim")
             set guifont=Osaka:h18
         else
             Guifont Osaka:h18
         endif
+    colorscheme hybrid
+    set background=dark
     endif
 
 elseif has("win32") || has("win64")
@@ -115,6 +122,7 @@ elseif has("win32") || has("win64")
             Guifont Cica:h12
         endif
         colorscheme iceberg
+        set background=dark
 
     " muRata setting
     elseif hostname() == "hbalt071"
@@ -124,6 +132,8 @@ elseif has("win32") || has("win64")
         else
             Guifont Cica:h16
         endif
+        colorscheme iceberg
+        set background=dark
     elseif hostname() == "hbamb748"
         if !has("nvim")
             set guifont=Cica:h16
@@ -131,6 +141,8 @@ elseif has("win32") || has("win64")
         else
             Guifont Cica:h16
         endif
+        colorscheme iceberg
+        set background=dark
     elseif hostname() == "HBAMB748A"
         if !has("nvim")
             set guifont=Cica:h14
@@ -139,6 +151,7 @@ elseif has("win32") || has("win64")
             Guifont Cica:h14
         endif
         colorscheme iceberg
+        set background=dark
     elseif hostname() == "MECSI"
         if !has("nvim")
             set guifont=Cica:h16
@@ -146,6 +159,8 @@ elseif has("win32") || has("win64")
         else
             Guifont Cica:h16
         endif
+        colorscheme iceberg
+        set background=dark
     elseif hostname() == "LAPTOP-DOA35GAR"
         if !has("nvim")
             set guifont=Cica:h12
@@ -153,6 +168,8 @@ elseif has("win32") || has("win64")
         else
             Guifont Cica:h12
         endif
+        colorscheme iceberg
+        set background=dark
 
     " Xacti setting " {{{
     elseif hostname() == "CAD0021"
@@ -170,4 +187,6 @@ elseif has("win32") || has("win64")
             Guifont Meiryo_UI:h18
         endif
     endif
+    colorscheme hybrid
+    set background=dark
 endif
