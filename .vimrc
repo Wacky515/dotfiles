@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/31 21:08:13.
+" Last Change: 2018/03/31 21:15:53.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -89,10 +89,7 @@ let mapleader = "\<Space>"
 " "Windows" 環境の設定ファイルの場所を、"Linux/Mac" 環境にあわせる
 set runtimepath+=$HOME/.vim
 " "Vim" の設定ファイル
-" FIXME: "NeoVim" では以下がエラーになる
-" if !has("nvim")
-	runtime! userautoload/*.vim
-" endif
+runtime! userautoload/*.vim
 " プラグインの設定ファイル
 runtime! userautoload/plugin_setting/*.vim
 
