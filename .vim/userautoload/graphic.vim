@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/27 20:59:40.
+" Last Change: 2018/04/01 08:38:09.
 
 " ---------------------------------------------------------------------------
 " メイン表示篇
@@ -21,6 +21,7 @@ set cursorline
 set scrolloff=3
 
 " 東アジアの文字のうちA特性(Ambiguous)の文字幅を指定
+" 2バイト文字でカーソル位置がずれる問題の対策
 set ambiwidth=double
 
 " 対になる括弧を強調
@@ -32,13 +33,13 @@ set matchpairs& matchpairs+=<:>
 
 " タブ文字の幅
 set tabstop=4
-" タブ文字を空白文字に置換え
+" タブ文字を設定個数のスペースに置換え
 set expandtab
 " 行頭は "shiftwidth" 分、それ以外は "tabstop" 分インデント
 set smarttab
 " 自動インデント時の空白文字数
 set shiftwidth=4
-" 現在行と同じインデントを挿入
+" コマンドや自動インデント時、現在行と同じインデントを挿入
 set autoindent
 " 前行末尾に合わせ、次行インデントを増減
 set smartindent
