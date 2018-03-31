@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/31 20:48:25.
+" Last Change: 2018/03/31 20:50:12.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -112,7 +112,7 @@ elseif has("win32") || has("win64")
         " Windows Cica 専用設定
             set rop=type:directx,renmode:5
         else
-            Guifont=Cica:h12
+            Guifont Cica:h12
         endif
         colorscheme iceberg
 
@@ -122,21 +122,21 @@ elseif has("win32") || has("win64")
             set guifont=Cica:h16
             set rop=type:directx,renmode:5
         else
-            Guifont=Cica:h16
+            Guifont Cica:h16
         endif
     elseif hostname() == "hbamb748"
         if !has("nvim")
             set guifont=Cica:h16
             set rop=type:directx,renmode:5
         else
-            Guifont=Cica:h16
+            Guifont Cica:h16
         endif
     elseif hostname() == "HBAMB748A"
         if !has("nvim")
             set guifont=Cica:h14
             set rop=type:directx,renmode:5
         else
-            Guifont=Cica:h14
+            Guifont Cica:h14
         endif
         colorscheme iceberg
     elseif hostname() == "MECSI"
@@ -144,14 +144,14 @@ elseif has("win32") || has("win64")
             set guifont=Cica:h16
             set rop=type:directx,renmode:5
         else
-            Guifont=Cica:h16
+            Guifont Cica:h16
         endif
     elseif hostname() == "LAPTOP-DOA35GAR"
         if !has("nvim")
             set guifont=Cica:h12
             set rop=type:directx,renmode:5
         else
-            Guifont=Cica:h12
+            Guifont Cica:h12
         endif
 
     " Xacti setting " {{{
@@ -167,7 +167,7 @@ elseif has("win32") || has("win64")
             set guifont=Meiryo_UI:h18
             set rop=type:directx,renmode:5
         else
-            Guifont=Meiryo_UI:h18
+            Guifont Meiryo_UI:h18
         endif
     endif
 endif
