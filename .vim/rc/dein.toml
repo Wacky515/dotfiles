@@ -1,4 +1,6 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
+# Last Change: 2018/03/30 13:06:36.
+
 # "dein.vim" 本体
 [[plugins]]
 repo = 'Shougo/dein.vim'
@@ -7,115 +9,219 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'Shougo/unite.vim'
 depends = 'neomru.vim'
-# "unite.vim" 用colorschemeプレビュー
+# "unite.vim" 用 "Colorscheme" プレビュー
+# Ul: ":Unite colorscheme" でプレビュー
 [[plugins]]
 repo = 'ujihisa/unite-colorscheme'
-# TODO: ショートカットキーに登録
-# ":Unite -auto-preview colorscheme" でプレビュー
 # "unite.vim" 用フォントプレビュー
+# ":Unite font" でプレビュー
+# FIXME: ↑ 何も表示されない
 [[plugins]]
 repo = 'ujihisa/unite-font'
-# ":Unite font" でプレビュー
-
-# ファイラー
-[[plugins]]
-repo = 'Shougo/vimfiler'
-# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
 
 # スニペット
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
-[[plugins]]
-repo = 'Shougo/neocomplcache.vim'
 
-# カーソル位置のコンテキストに合わせて "filetype" を切り替え
+# ファイラー
+# <Leader>o: ":VimFiler" で起動 # {{{
+    # o: 	バッファを縦分割 or ディレクトリ同期
+    # O:	別バッファに選択中のディレクトリの中を展開
+    # gs:	セーフモード on/off
+    # q:	VimFilerを終了
+# }}}
 [[plugins]]
-repo = 'osyo-manga/vim-precious'
-depends = ['context_filetype.vim']
-[[plugins]] repo = 'Shougo/context_filetype.vim'
-
-# "vimshell"
+repo = 'Shougo/vimfiler'
+# o: 起動
+# FIXME: ↑ 変更する
 [[plugins]]
-repo = 'Shougo/vimshell'
+repo = 'scrooloose/nerdtree'
+[[plugins]]
+repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+# sa: 起動
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
 
-# Git用プラグイン
+# The Silver Searcher
+[[plugins]]
+repo = 'rking/ag.vim'
+
+# "Git" 用プラグイン
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
-# "undo" の操作を管理
+# コピペ 履歴保存
+# ヤンク後に "<Ctrl>p/<Ctrl>n" でヤンク履歴を選択
+[[plugins]]
+repo = 'vim-scripts/YankRing.vim'
+# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
+
+# アンドゥ管理
 [[plugins]]
 repo = 'sjl/gundo.vim'
 
-# 関数、クラス、変数、構造体、列挙型、マクロ定義などの一覧を表示
+# ステータスライン ビジュアル強化
 [[plugins]]
-repo = 'vim-scripts/taglist.vim'
-
-# "*" で検索時、単語ではなく選択範囲を対象にする
+repo = 'itchyny/lightline.vim'
+depends = ['vim-fugitive', 'majutsushi/tagbar']
+# < http://itchyny.hatenablog.com/entry/20130828/1377653592 >
+# どの関数の中にいるか表示
 [[plugins]]
-repo = 'https://github.com/nelstrom/vim-visual-star-search.git'
+repo = 'majutsushi/tagbar'
 
-# "()"、 "[]" などの操作
-[[plugins]]
-repo = 'tpope/vim-surround'
-# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344>
-
-# コメントのON/OFFをショートカットキーでトグル
-[[plugins]]
-repo = 'tomtom/tcomment_vim'
-
-# インデントをカラー化
+# インデント カラー化
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 
-# 行末の半角スペースを可視化
+# カーソル移動の拡張
 [[plugins]]
-repo = 'bronson/vim-trailing-whitespace'
+repo = 'lokaltog/vim-easymotion'
 
-# ステータスラインのビジュアルを強化
+# ウィンドウサイズ変更 簡便化
+# <Ctrl>e: ウィンドウリサイズ開始
 [[plugins]]
-repo = 'itchyny/lightline.vim'
-# < http://itchyny.hatenablog.com/entry/20130828/1377653592 >
+repo = 'simeji/winresizer'
 
-# # ミニマップ
+# コマンドラインでEmacsキーバインド
+[[plugins]]
+repo = 'houtsnip/vim-emacscommandline'
+
+# コメントON/OFF トグル
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+# "%" で移動を強化（*.htmlのタグなど）
+[[plugins]]
+repo = 'tmhedberg/matchit'
+
+# マークをビジュアル化
+[[plugins]]
+repo = 'jacquesbh/vim-showmarks'
+
+# vim上で計算機機能
+# コマンドモードで ":Calc" で計算開始
+# "Python" 必要
+[[plugins]]
+repo = 'gregsexton/VimCalc'
+
+# タイムスタンプを挿入
+#  "Last Change: ." を記入する
+[[plugins]]
+repo = 'vim-scripts/autodate.vim'
+
+# 日付のインクリメント・デクリメント
+# FIXME: yyyy/mm/dd 形式は対応していない
+[[plugins]]
+repo = 'tpope/vim-speeddating'
+
+# 選択したテキストを'""'、"()"、"[]"などで囲む
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+# スネークケースやキャメルケースへの変換
+    # ノーマルモードで # {{{
+        # crs	"SnakeCase"  → "snake_case"
+        # crm	"mixed_case" → "MixedCase"
+        # crc	"camel_case" → "camelCase"
+        # cru	"upper_case" → "UPPER_CASE"
+# }}}
+[[plugins]]
+repo = 'tpope/vim-abolish'
+
+# "=" を自動的に " = " にする
+[[plugins]]
+repo = 'kana/vim-smartchr'
+
+# テキスト整形
+# 対象行を選択し "ga" -> "整形対象" ->  "デリミタ" を入力
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+
+# "*.toml" シンタックスハイライト
+[[plugins]]
+repo  = 'cespare/vim-toml'
+on_ft = 'toml'
+
+# カレンダー
+[[plugins]]
+repo = 'itchyny/calendar.vim'
+
+# # 関数、クラス、変数、構造体、列挙型、マクロ定義など 一覧表示
+# ":TlistOpen" で開始
+[[plugins]]
+repo = 'vim-scripts/taglist.vim'
+
+# コンテキストによって "filetype" を自動的に切り換え
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+# # "true"/"false"、"yes"、"no"、"on"/"off" などをトグル
 # [[plugins]]
-# # repo = 'mipmip/vim-minimap'
-# # TODO: 下記の条件分岐は未動作確認
-# # if = '''! has ('windows')'''
-# repo = "koron/minimap-vim"
+# repo = 'toggle.vim'
 
-# 導入予定
+# カラースキーマ
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
+hook_add = '''
+    set background=dark
+    " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
+    " 但し Colorscheme イベントの発生が抑制されないよう nested を付ける。
+    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    '''
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme iceberg
+    au MyAutoCmd VimEnter * highlight Visual ctermbg=216
+    '''
+[[plugins]]
+repo = 'chriskempson/vim-tomorrow-theme'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme tomorrow-theme
+    '''
+[[plugins]]
+repo = 'tomasr/molokai'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme molokai
+    '''
+[[plugins]]
+repo = 'sjl/badwolf'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme badwolf
+    '''
+[[plugins]]
+repo = 'vim-scripts/twilight'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme twilight
+    '''
+[[plugins]]
+repo = 'nanotech/jellybeans.vim'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme jellybeans
+    '''
+
+# 導入予定{{{
+
+# japanese doc
+# [[plugins]]
+# repo = 'vim-jp/vimdoc-ja'
+# on_ft = 'help'
+
+# "ctags" 自動更新
+# https://github.com/soramugi/auto-ctags.vim
 
 # テンプレート作成
 # [[plugins]]
 # repo = 'thinca/vim-template'
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
 
-# テキスト整形
-# [[plugins]]
-# repo = 'vim-scripts/Align'
-# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
-# < http://nanasi.jp/vim/align.html >
-
-# コピペの履歴を保存
-# [[plugins]]
-# repo = 'vim-scripts/YankRing.vim'
-# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
-
-# Undo管理
-# gundo.vim
-
-# Toml
-# [[plugins]]
-# repo  = 'cespare/vim-toml'
-# on_ft = 'toml'
-
-# Japanese doc
-# [[plugins]]
-# repo = 'vim-jp/vimdoc-ja'
-# on_ft = 'help'
-
-# ビジュアル選択部を "*"  で検索
-# 'nelstrom/vim-visual-star-search
-
-# "ctags" 自動更新
-# https://github.com/soramugi/auto-ctags.vim
+# 削除予定
+# }}}

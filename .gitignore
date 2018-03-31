@@ -1,15 +1,20 @@
-﻿# ------------------------------
+﻿# Last Change: 2018/03/28 10:12:41.
+# ------------------------------
 # 独自追記
 # ------------------------------
 # 無視する者共
 tags
 ctags.exe
 memo.txt
-*.old
+*.ok
+*.ng
 *.new
-*.modifying
+/old/
 /.vim/tmp/*
 /.vim/dein/*
+*.modifying
+*.tempkill*
+yankring_history_v2.txt
 
 # 無視しない者共
 !/.vim/tmp/README.md
@@ -30,6 +35,8 @@ Session.vim
 # ------------------------------
 *~
 *.orig
+*.old
+*.bk
 *.bak
 # yyyyMMdd
 *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
@@ -58,4 +65,4 @@ Thumbs.db
 # ------------------------------
 # Vagrant specific
 # ------------------------------
-.vagrant/
+vagrant/

@@ -1,0 +1,24 @@
+# !/usr/bin/python
+# -*- coding: utf-8 -*-
+# --------------------------------------------------  # {{{
+# Name:        <+FILENAME+>.py
+# Purpose:     In README.md
+#
+# Author:      Kilo11
+#
+# Created:     <+DATE+>
+# Copyright:   (c) SkyDog 2016
+# Licence:     SDS10***
+# --------------------------------------------------
+# }}}
+""" *** """
+
+# モジュール インポート
+
+
+def main():
+    pass
+
+
+if __name__ == "__main__":
+    main()
