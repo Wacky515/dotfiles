@@ -1,6 +1,6 @@
 #!/bin/bash
 # @(#) Setting keyboard layout.
-# Last Change: 2018/03/31 21:31:04.
+# Last Change: 2018/03/31 23:30:24.
 # TODO:
     # "NeoVim" 設定を動作確認
     # リンクの "path" を全体的に変えたので確認
@@ -70,12 +70,12 @@ do
     # 無視したいファイルやディレクトリは以下に追記
 
     # ".bash_history" の "Init処理" を追加（未テスト）
-    [[ ${f} = ".bash_history" ]] cp -snv ${DOR_DIR}/${f} ~/${f}
-    # [[ ${f} = ".bash_history" ]] && continue
+    # [[ ${f} = ".bash_history" ]] && cp -snv ${DOR_DIR}/${f} ~/${f}
+    [[ ${f} = ".bash_history" ]] && continue
 
     # ".zsh_history" の "Init処理" を追加（未テスト）
-    [[ ${f} = ".zsh_history" ]] cp -snv ${DOR_DIR}/${f} ~/${f}
-    # [[ ${f} = ".zsh_history" ]] && continue
+    # [[ ${f} = ".zsh_history" ]] && cp -snv ${DOR_DIR}/${f} ~/${f}
+    [[ ${f} = ".zsh_history" ]] && continue
 
     [[ ${f} = ".git" ]] && continue
     [[ ${f} = ".git" ]] && continue
@@ -98,6 +98,9 @@ do
 done
 
 # "init.vim"、"ginit.vim" の "Init処理" を追加（未テスト）
+if [ ! -e ~/.config/nvim/ ]; then
+    mkdir ~/.config/nvim/
+fi
 ln -snfv ${DOT_DIR}/init.vim ~/.config/nvim/init.vim
 ln -snfv ${DOT_DIR}/ginit.vim ~/.config/nvim/ginit.vim
 # ln -snfv ${DOT_DIR}/init.vim ~/nvim/init.vim
