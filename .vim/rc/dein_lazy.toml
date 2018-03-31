@@ -1,4 +1,4 @@
-# Last Change: 2018/04/01 08:46:34.
+# Last Change: 2018/04/01 08:49:30.
 
 # 統合ユーザインターフェース # {{{
 # [[plugins]]
@@ -64,6 +64,11 @@ depends = 'fugitive'
 repo = 'Shougo/vimshell'
 if = "!has('nvim')"
 
+# "NeoVim" の "Terminal" ラッパープラグイン
+#[[plugins]]
+repo = 'kassio/neoterm'
+if = "has('nvim')"
+
 # # Python用プラグイン
 # [[plugins]]
 # repo = 'davidhalter/jedi-vim'
@@ -128,11 +133,6 @@ repo   = 'thinca/vim-fontzoom'
 on_cmd = ['Fontzoom']
 on_map = ['<Plug>(fontzoom-']
 gui    = 1
-
-# "NeoVim" の "Terminal" ラッパープラグイン
-#[[plugins]]
-repo = 'kassio/neoterm'
-if = "has('nvim')"
 
 # TODO: 動作確認 # {{{
 # # カラーコード プレビュー
