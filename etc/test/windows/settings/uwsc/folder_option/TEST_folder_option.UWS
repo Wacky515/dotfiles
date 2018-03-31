@@ -1,0 +1,66 @@
+id = GETID("スタート", "Button", -1)
+SLEEP(1)
+CLKITEM(id, "スタート", CLK_ACC or CLK_BACK)
+id = GETID("スタート メニュー", "DV2ControlHost", -1)
+CLKITEM(id, "コンピューター", CLK_LISTVIEW or CLK_LEFTCLK)
+id = GETID("コンピューター", "CabinetWClass", -1)
+SLEEP(1)
+
+// CLKITEM(id, "Windows (C:)", CLK_ACC)
+CLKITEM(id, "ローカル ディスク (C:)", CLK_ACC)
+
+// CLKITEM(id, "BluetoothExchangeFolder", CLK_LIST)
+CLKITEM(id, "表示", CLK_TOOLBAR)
+id = GETID("", "#32768", 1)
+// FIXME: 最初から "詳細" 選択していると動作しない
+CLKITEM(id, "詳細", CLK_ACC or CLK_BACK or CLK_MUSMOVE)
+
+// FIXME: ここから動作せず
+// 戻値 = GETID(タイトル,　[クラス名,　待ち時間秒,　MDI子タイトル] )
+// 上記 "待ち時間秒" -1 で無限待ちとなるのがフリーズ原因
+
+// id = GETID("Windows (C:)", "CabinetWClass", -1)
+id = GETID(GET_ACTIVE_WIN)
+
+CLKITEM(id, "表示", CLK_TOOLBAR)
+id = GETID("", "#32768", 1)
+CLKITEM(id, "グループで表示", CLK_ACC or CLK_BACK or CLK_MUSMOVE)
+id = GETID("", "#32768", 1)
+CLKITEM(id, "種類", CLK_ACC or CLK_BACK or CLK_MUSMOVE)
+
+// id = GETID("Windows (C:)", "CabinetWClass", -1)
+id = GETID(GET_ACTIVE_WIN)
+
+CLKITEM(id, "表示", CLK_TOOLBAR)
+id = GETID("", "#32768", -1)
+CLKITEM(id, "並べ替え", CLK_ACC or CLK_BACK or CLK_MUSMOVE)
+id = GETID("", "#32768", -1)
+CLKITEM(id, "名前", CLK_ACC or CLK_BACK or CLK_MUSMOVE)
+
+// id = GETID("Windows (C:)", "CabinetWClass", -1)
+id = GETID(GET_ACTIVE_WIN)
+
+CLKITEM(id, "表示", CLK_TOOLBAR)
+id = GETID("", "#32768", -1)
+CLKITEM(id, "並べ替え", CLK_ACC or CLK_BACK or CLK_MUSMOVE)
+
+// id = GETID("Windows (C:)", "CabinetWClass", -1)
+id = GETID(GET_ACTIVE_WIN)
+
+CLKITEM(id, "ツール", CLK_TOOLBAR)
+id = GETID("", "#32768", -1)
+CLKITEM(id, "フォルダー オプション", CLK_ACC or CLK_BACK or CLK_MUSMOVE)
+id = GETID("フォルダー オプション", "#32770", -1)
+SLEEP(1)
+CLKITEM(id, "表示", CLK_TAB)
+CLKITEM(id, "フォルダーに適用", CLK_ACC)
+id = GETID("フォルダーの表示", "#32770", 1)
+SLEEP(1)
+CLKITEM(id, "はい", CLK_ACC)
+id = GETID("フォルダー オプション", "#32770", -1)
+CLKITEM(id, "既定値に戻す", CLK_ACC)
+CLKITEM(id, "隠しファイル、隠しフォルダー、および隠しドライブを表示する", CLK_TREEVIEW or CLK_LEFTCLK)
+CLKITEM(id, "常にメニューを表示する", CLK_TREEVIEW or CLK_LEFTCLK)
+CLKITEM(id, "登録されている拡張子は表示しない", CLK_TREEVIEW or CLK_LEFTCLK)
+CLKITEM(id, "別のプロセスでフォルダー ウィンドウを開く", CLK_TREEVIEW or CLK_LEFTCLK)
+CLKITEM(id, "OK", CLK_BTN)
