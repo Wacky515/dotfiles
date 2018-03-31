@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/03/31 10:26:37.
+# Last Change: 2018/03/31 10:46:12.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -208,8 +208,7 @@ hook_add = '''
 "     au MyAutoCmd VimEnter * nested colorscheme tomorrow-theme
 "     '''
 
-# 導入予定{{{
-
+# 導入予定 # {{{
 # japanese doc
 # [[plugins]]
 # repo = 'vim-jp/vimdoc-ja'
@@ -222,6 +221,6 @@ hook_add = '''
 # [[plugins]]
 # repo = 'thinca/vim-template'
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
+# }}}
 
 # 削除予定
-# }}}
