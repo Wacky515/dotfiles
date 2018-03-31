@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/24 22:52:49.
+" Last Change: 2018/03/31 21:14:06.
 
 " モード変更の挙動が遅い対処
 set timeout timeoutlen=1000 ttimeoutlen=50
@@ -20,7 +20,9 @@ set backupdir=~/.vim/tmp
 " ".un~" のディレクトリ変更
 set undodir=~/.vim/tmp
 " ".viminfo" のディレクトリ変更
-set viminfo+=n~/.vim/tmp/viminfo.txt
+if !has("nvim")
+    set viminfo+=n~/.vim/tmp/viminfo.txt
+endif
 
 " 新規作成時、動的にテンプレートを読込む
 augroup templateload
