@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/30 14:25:38.
+" Last Change: 2018/03/31 23:33:38.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -61,12 +61,11 @@ nnoremap <silent>bn :<C-u>bnext<CR>
 " bb: 直前のバッファを開く
 nnoremap <silent>bb :<C-u>b#<CR>
 
-" TODO: MacのNeoVimで確認
-"Macの時ノーマルモードで:と;を入れ替える
-if has("mac")
-    noremap : ;
-    noremap ; :
-endif
+" "Macの時ノーマルモードで:と;を入れ替える
+" if has("mac")
+"     noremap : ;
+"     noremap ; :
+" endif
 
 " TODO: LinuxのNeoVimで確認
 " w!!: スーパーユーザーとして保存（sudoが使える環境限定）
