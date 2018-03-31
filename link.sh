@@ -1,18 +1,20 @@
 #!/bin/bash
 # @(#) Setting keyboard layout.
-# Last Change: 2018/03/31 23:30:24.
+# Last Change: 2018/04/01 00:29:23.
 # TODO:
-    # "NeoVim" 設定を動作確認
-    # リンクの "path" を全体的に変えたので確認
+   # 実行結果メッセージ "result_echo.sh" にする
 # FIXME:
     # ${HOME} を単体起動と外部呼出しで通常動作させる
 
 # DONE:
+    # リンクの "path" を全体的に変えたので確認
+    # "NeoVim" 設定を動作確認
     # ".vim" ディレクトリのシンボリックリンクを "NeoVim" 用にする
     # "Git" の "proxy" の設定は切替え用のシェルスクリプトに移管
     # 暫定的にコマンドを決め打ちにした
 
 source ~/dotfiles/function/result_echo.sh
+source ~/dotfiles/function/color_echo.sh
 
 # 実行したフォルダに "cd"
 # ↓ に "grep" 置換
@@ -23,7 +25,7 @@ cd $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 readonly DOT_DIR="${HOME}/dotfiles"
 
 ym_echo ">> Make symbolic link"
-ym_echo ">> Start .gitconfig link "
+ym_echo ">> Start .gitconfig link"
 
 # まず "git" の設定
 ln -snfv ${DOT_DIR}/.gitconfig ~/.gitconfig
@@ -60,7 +62,7 @@ then
 fi
 echo ""
 
-ym_echo ">> Start dotfiles link "
+ym_echo ">> Start dotfiles link"
 
 cp -nv ${DOT_DIR}/.bash_history ~/.bash_history
 cp -nv ${DOT_DIR}/.zsh_history ~/.zsh_history
@@ -69,12 +71,7 @@ for f in .??*
 do
     # 無視したいファイルやディレクトリは以下に追記
 
-    # ".bash_history" の "Init処理" を追加（未テスト）
-    # [[ ${f} = ".bash_history" ]] && cp -snv ${DOR_DIR}/${f} ~/${f}
     [[ ${f} = ".bash_history" ]] && continue
-
-    # ".zsh_history" の "Init処理" を追加（未テスト）
-    # [[ ${f} = ".zsh_history" ]] && cp -snv ${DOR_DIR}/${f} ~/${f}
     [[ ${f} = ".zsh_history" ]] && continue
 
     [[ ${f} = ".git" ]] && continue
@@ -93,21 +90,16 @@ do
     [[ ${f} = ".modfying" ]] && continue
 
     # シンボリックリンク 作成
-    ym_echo ${f}
+    ym_echo set ${f}
     ln -snfv ${DOT_DIR}/${f} ~/${f}
 done
 
-# "init.vim"、"ginit.vim" の "Init処理" を追加（未テスト）
+# "init.vim"、"ginit.vim" の "Init処理"
 if [ ! -e ~/.config/nvim/ ]; then
     mkdir ~/.config/nvim/
 fi
 ln -snfv ${DOT_DIR}/init.vim ~/.config/nvim/init.vim
 ln -snfv ${DOT_DIR}/ginit.vim ~/.config/nvim/ginit.vim
-# ln -snfv ${DOT_DIR}/init.vim ~/nvim/init.vim
-# ln -snfv ${DOT_DIR}/.gvinrc ~/nvim/ginit.vim
-
-# TODO: ↓ 不要か確認
-# ln -snfv ~/.vim ~/.config/nvim/
 
 ym_echo ">> dotfiles link success"
 ym_echo ">> End make symbolic link"
