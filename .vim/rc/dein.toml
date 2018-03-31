@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/03/30 14:18:37.
+# Last Change: 2018/03/30 14:34:23.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -177,12 +177,12 @@ hook_add = '''
     au MyAutoCmd VimEnter * nested colorscheme iceberg
     au MyAutoCmd VimEnter * highlight Visual ctermbg=216
     '''
-[[plugins]]
-repo = 'chriskempson/vim-tomorrow-theme'
-hook_add = '''
-    set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme tomorrow-theme
-    '''
+" [[plugins]]
+" repo = 'chriskempson/vim-tomorrow-theme'
+" hook_add = '''
+"     set background=dark
+"     au MyAutoCmd VimEnter * nested colorscheme tomorrow-theme
+"     '''
 [[plugins]]
 repo = 'tomasr/molokai'
 hook_add = '''
