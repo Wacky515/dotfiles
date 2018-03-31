@@ -1,5 +1,5 @@
 ﻿scriptencoding utf-8
-" Last Change: 2018/03/27 20:54:43.
+" Last Change: 2018/04/01 07:53:21.
 
 set fileformat=dos
 set encoding=utf-8
@@ -8,4 +8,4 @@ set encoding=utf-8
 
 " FIXME: 効かない
 " スクリプトを実行
-nnoremap <F5> :w <ENTER> :!./% <ENTER>
+nnoremap <F5> :w <ENTER> :!% <ENTER>
