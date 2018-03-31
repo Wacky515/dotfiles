@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/31 18:44:12.
+" Last Change: 2018/03/31 20:27:59.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -28,11 +28,11 @@ augroup END
 " プラグインをインストールするディレクトリを指定
 if !has("nvim")
     let s:plugin_dir = expand("~/.cache/dein/")
-else
+elseif has("unix")
+    " TODO: Unix系のパス設定追加
+    let s:plugin_dir = expand("~/.config/nvim/init.vim")
+elseif has("win32") || has("win64")
     let s:plugin_dir = expand("~/AppData/Local/nvim/.cache/dein/")
-    " let s:plugin_dir = expand("~/.config/nvim/.cache/dein/")
-    " let s:plugin_dir = expand("~/.cache/dein/")
-    " let s:plugin_dir = expand("C:/Users/MM12167/AppData/Local/nvim/.cache/dein/")
 endif
 
 " "dein.vim" をインストールするディレクトリをランタイムパスへ追加
@@ -51,18 +51,10 @@ if dein#load_state(s:plugin_dir)
     call dein#begin(s:plugin_dir)
 
     " プラグインリスト "*.toml" を指定
-    " if !has("nvim")
-        let g:rc_dir      = expand("~/.vim/rc")
-        let s:toml        = g:rc_dir . "/dein.toml"
-        let s:lazy_toml   = g:rc_dir . "/dein_lazy.toml"
-        let s:python_toml = g:rc_dir . "/dein_python.toml"
-    " else
-    "     let g:rc_dir = expand("C:\\Users\\SkyDog\\dotfiles\\.vim\\rc")
-    "     " let g:rc_dir = expand("C:\\Users\\mm12167\\dotfiles\\.vim\\rc")
-    "     let s:toml      = g:rc_dir . "\\dein.toml"
-    "     let s:lazy_toml = g:rc_dir . "\\dein_lazy.toml"
-    "     let s:python_toml = g:rc_dir . "/dein_python.toml"
-    " endif
+    let g:rc_dir      = expand("~/.vim/rc")
+    let s:toml        = g:rc_dir . "/dein.toml"
+    let s:lazy_toml   = g:rc_dir . "/dein_lazy.toml"
+    let s:python_toml = g:rc_dir . "/dein_python.toml"
 
     " "*.toml" を読込み、キャッシュ
     call dein#load_toml(s:toml,            {"lazy": 0})
@@ -97,7 +89,10 @@ let mapleader = "\<Space>"
 " "Windows" 環境の設定ファイルの場所を、"Linux/Mac" 環境にあわせる
 set runtimepath+=$HOME/.vim
 " "Vim" の設定ファイル
-runtime! userautoload/*.vim
+" FIXME: "NeoVim" では以下がエラーになる
+if !has("nvim")
+	runtime! userautoload/*.vim
+endif
 " プラグインの設定ファイル
 runtime! userautoload/plugin_setting/*.vim
 
