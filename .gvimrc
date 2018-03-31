@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/30 13:09:45.
+" Last Change: 2018/03/31 20:44:43.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -70,43 +70,89 @@ syntax on
 " !!!: 以下からは記述場所を順番を変えない！！！
 " フォントの設定
 if has("linux")
-    set guifont=DejaVu\ Sans\ Mono\ 13
+    if !has("nvim")
+        set guifont=DejaVu\ Sans\ Mono\ 13
+    else
+        Guifont DejaVu\ Sans\ Mono\ 13
+    endif
 
 elseif has("mac")
     if hostname() == "ProSalad13.local"
-        set guifont=Ricty_Diminished:h16
+        if !has("nvim")
+            set guifont=Ricty_Diminished:h16
+        else
+            Guifont Ricty_Diminished:h16
+        endif
     elseif hostname() == "ProSalad133.local"
-        " set guifont=Ricty_Diminished:h16
-        set guifont=Cica:h18
+        if !has("nvim")
+            set guifont=Cica:h18
+        else
+            Guifont Consolas:h18
+        endif
         colorscheme iceberg
-        " colorscheme hybrid
     elseif hostname() == "saladserver.com"
-        set guifont=Osaka:h24
+        if !has("nvim")
+            set guifont=Osaka:h24
+        else
+            Guifont Osaka:h24
+        endif
     else
-        set guifont=Osaka:h18
+        if !has("nvim")
+            set guifont=Osaka:h18
+        else
+            Guifont Osaka:h18
+        endif
     endif
 
 elseif has("win32") || has("win64")
     " Home setting
     if hostname() == "SALADCARBONX1"
-        set guifont=Cica:h12
+        if !has("nvim")
+            set guifont=Cica:h12
         " Windows Cica 専用設定
-        set rop=type:directx,renmode:5
+            set rop=type:directx,renmode:5
+        else
+            set guifont=Cica:h12
+        endif
         colorscheme iceberg
 
     " muRata setting
     elseif hostname() == "hbalt071"
-        set guifont=Myrica_M:h16
+        if !has("nvim")
+            set guifont=Cica:h16
+            set rop=type:directx,renmode:5
+        else
+            set guifont=Cica:h16
+        endif
     elseif hostname() == "hbamb748"
-        set guifont=Ricty_Diminished:h16
+        if !has("nvim")
+            set guifont=Cica:h16
+            set rop=type:directx,renmode:5
+        else
+            set guifont=Cica:h16
+        endif
     elseif hostname() == "HBAMB748A"
-        set guifont=Inconsolata:h14
+        if !has("nvim")
+            set guifont=Cica:h14
+            set rop=type:directx,renmode:5
+        else
+            set guifont=Cica:h14
+        endif
         colorscheme iceberg
     elseif hostname() == "MECSI"
-        set guifont=Ricty_Diminished:h16
-
+        if !has("nvim")
+            set guifont=Cica:h16
+            set rop=type:directx,renmode:5
+        else
+            set guifont=Cica:h16
+        endif
     elseif hostname() == "LAPTOP-DOA35GAR"
-        set guifont=Ricty_Diminished:h12
+        if !has("nvim")
+            set guifont=Cica:h12
+            set rop=type:directx,renmode:5
+        else
+            set guifont=Cica:h12
+        endif
 
     " Xacti setting " {{{
     elseif hostname() == "CAD0021"
@@ -117,6 +163,11 @@ elseif has("win32") || has("win64")
         set guifont=Ricty_Diminished:h12
     " }}}
     else
-        set guifont=Meiryo_UI:h18
+        if !has("nvim")
+            set guifont=Meiryo_UI:h18
+            set rop=type:directx,renmode:5
+        else
+            set guifont=Meiryo_UI:h18
+        endif
     endif
 endif
