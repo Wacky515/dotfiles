@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/03/30 14:34:23.
+# Last Change: 2018/03/31 10:26:37.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -58,7 +58,7 @@ repo = 'vim-scripts/YankRing.vim'
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
 
 # アンドゥ管理
-# F4: 起動
+# F4: :GundoToggle
 [[plugins]]
 repo = 'sjl/gundo.vim'
 
@@ -84,7 +84,7 @@ repo = 'lokaltog/vim-easymotion'
 [[plugins]]
 repo = 'simeji/winresizer'
 
-# コマンドラインでEmacsキーバインド
+# コマンドラインで "Emacs" キーバインド
 [[plugins]]
 repo = 'houtsnip/vim-emacscommandline'
 
@@ -177,12 +177,6 @@ hook_add = '''
     au MyAutoCmd VimEnter * nested colorscheme iceberg
     au MyAutoCmd VimEnter * highlight Visual ctermbg=216
     '''
-" [[plugins]]
-" repo = 'chriskempson/vim-tomorrow-theme'
-" hook_add = '''
-"     set background=dark
-"     au MyAutoCmd VimEnter * nested colorscheme tomorrow-theme
-"     '''
 [[plugins]]
 repo = 'tomasr/molokai'
 hook_add = '''
@@ -207,6 +201,12 @@ hook_add = '''
     set background=dark
     au MyAutoCmd VimEnter * nested colorscheme jellybeans
     '''
+" [[plugins]]
+" repo = 'chriskempson/vim-tomorrow-theme'
+" hook_add = '''
+"     set background=dark
+"     au MyAutoCmd VimEnter * nested colorscheme tomorrow-theme
+"     '''
 
 # 導入予定{{{
 
