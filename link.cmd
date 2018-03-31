@@ -1,5 +1,5 @@
 @echo off
-rem Last Change: 2018/03/31 22:42:57.
+rem Last Change: 2018/03/31 22:45:19.
 
 rem TODO: 常時管理者として実行する
 
@@ -20,24 +20,6 @@ copy ginit.vim %NVIM_PATH%
 if %ERRORLEVEL% == 0 (
     echo ginit.vim link success!
     )
-
-rem if not exist %HOMEPATH%"\.config\nvim" ( rem {{{
-    rem     mkdir %HOMEPATH%"\.config\nvim"
-    rem     )
-rem mklink %HOMEPATH%"\.config\nvim\init.vim" ".\dotfiles\init.vim" > nul 2>&1
-rem if %ERRORLEVEL% == 0 (
-    rem     echo Set link init.vim
-    rem     )
-rem mklink %HOMEPATH%"\.config\nvim\ginit.vim" ".\dotfiles\.gvimrc" > nul 2>&1
-rem if %ERRORLEVEL% == 0 (
-    rem     echo Set link ginit.vim
-    rem     )
-rem FIXME: ↑ リンク元のパスがリンク先のパスと合体する
-rem >>> HERE
-rem mklink %HOMEPATH%"\.config\nvim\init.vim" "C:\Users\mm12167\dotfiles\init.vim"
-rem mklink %HOMEPATH%"\.config\nvim\ginit.vim" "C:\Users\mm12167\dotfiles\.gvimrc"
-rem <<<
-rem }}}
 
 mklink %HOMEPATH%"\.gitconfig" ".\dotfiles\.gitconfig" > nul 2>&1
 if %ERRORLEVEL% == 0 (
