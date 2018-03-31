@@ -1,13 +1,14 @@
 #!/bin/bash
 # @(#) Setting keyboard layout.
-# Last Change: 2018/03/31 10:40:25.
+# Last Change: 2018/03/31 21:31:04.
 # TODO:
-    # ".vim" ディレクトリのシンボリックリンクを "NeoVim" 用にする
+    # "NeoVim" 設定を動作確認
     # リンクの "path" を全体的に変えたので確認
 # FIXME:
-    # ${HOME} を単体起動と外部起動で通常動作させる
+    # ${HOME} を単体起動と外部呼出しで通常動作させる
 
 # DONE:
+    # ".vim" ディレクトリのシンボリックリンクを "NeoVim" 用にする
     # "Git" の "proxy" の設定は切替え用のシェルスクリプトに移管
     # 暫定的にコマンドを決め打ちにした
 
@@ -30,6 +31,8 @@ ln -snfv ${DOT_DIR}/.gitconfig ~/.gitconfig
 if [ $? = 0 ]
 then
     ym_echo ">> .gitconfig link success!"
+    # "proxy" 設定はバッチ化したので削除
+    # TODO: シェルスクリプト化する
     # echo "" # {{{
     # readonly PC_NAME=${HOSTNAME}
     # readonly PROXY_PC=($(cat ./office_pc.txt));
@@ -58,9 +61,6 @@ fi
 echo ""
 
 ym_echo ">> Start dotfiles link "
-
-ln -snfv ${DOT_DIR}/init.vim ~/nvim/init.vim
-ln -snfv ${DOT_DIR}/.gvinrc ~/nvim/ginit.vim
 
 cp -nv ${DOT_DIR}/.bash_history ~/.bash_history
 cp -nv ${DOT_DIR}/.zsh_history ~/.zsh_history
@@ -96,7 +96,15 @@ do
     ym_echo ${f}
     ln -snfv ${DOT_DIR}/${f} ~/${f}
 done
-ln -snfv ~/.vim ~/.config/nvim/
+
+# "init.vim"、"ginit.vim" の "Init処理" を追加（未テスト）
+ln -snfv ${DOT_DIR}/init.vim ~/.config/nvim/init.vim
+ln -snfv ${DOT_DIR}/ginit.vim ~/.config/nvim/ginit.vim
+# ln -snfv ${DOT_DIR}/init.vim ~/nvim/init.vim
+# ln -snfv ${DOT_DIR}/.gvinrc ~/nvim/ginit.vim
+
+# TODO: ↓ 不要か確認
+# ln -snfv ~/.vim ~/.config/nvim/
 
 ym_echo ">> dotfiles link success"
 ym_echo ">> End make symbolic link"
