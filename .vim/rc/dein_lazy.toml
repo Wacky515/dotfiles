@@ -1,111 +1,150 @@
-# スニペット
+# Last Change: 2018/03/30 13:11:01.
+
+# 統合ユーザインターフェース # {{{
+# [[plugins]]
+# repo = 'Shougo/denite.nvim'
+# if = "has('nvim')"
+# on_cmd = 'Denite'
+# on_i = 1
+# hook_source = '''
+#     call denite#custom#map('insert', '<c-n>', '<denite:move_to_next_line>', 'noremap')
+#     call denite#custom#map('insert', '<c-p>', '<denite:move_to_previous_line>', 'noremap')
+#     call denite#custom#var('file_rec', 'command', ['rg', '--files'])
+#     call denite#custom#source('file_rec', 'matchers', ['matcher_regexp'])
+# '''
+# }}}
+
+# 入力補完
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if = "has('nvim')"
+depends = 'context_filetype.vim'
+on_i = 1
+hook_add = 'let g:deoplete#enable_at_startup = 1'
+# ↑ いる？
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+depends = 'context_filetype.vim'
+if = "has('lua')"
+on_i = 1
+# [[plugins]]
+# repo = 'Shougo/neocomplcache.vim'
+# on_i = 1
+
+# スニペット補完
 [[plugins]]
 repo = 'Shougo/neosnippet'
-depends = ['neosnippet-snippets']
+hook_source = '''
+    imap <C-k> <Plug>(neosnippet_expand_or_jump)
+    smap <C-k> <Plug>(neosnippet_expand_or_jump)
+    xmap <C-k> <Plug>(neosnippet_expand_target)
+        if has('conceal')
+            set conceallevel=2 concealcursor=niv
+        endif
+'''
 on_i = 1
 on_ft = ['snippet']
+depends = ['neosnippet-snippets']
 
-# unite用mru
+# Unite用mru
 [[plugins]]
 repo = 'Shougo/neomru.vim'
+# on_source = 'denite.nvim'
+on_source = 'dein.vim'
 on_path = '.*'
 
-# Python開発用プラグイン
+# "gitk" 機能追加
 [[plugins]]
-repo = 'davidhalter/jedi-vim'
-on_ft = 'python'
+repo = 'gregsexton/gitv'
+depends = 'fugitive'
 
-# Pythonシンタックスハイライト
+# "VimShell"
+# ",s: :VimShell" で起動
 [[plugins]]
-repo = 'pfdevilliers/Pretty-Vim-Python'
-on_ft = 'python'
+repo = 'Shougo/vimshell'
+if = "!has('nvim')"
 
+# # Python用プラグイン
+# [[plugins]]
+# repo = 'davidhalter/jedi-vim'
+# on_ft = 'python'
+# # Pythonシンタックスハイライト
+# [[plugins]]
+# repo = 'pfdevilliers/Pretty-Vim-Python'
+# on_ft = 'python'
 # 構文チェッカー
 [[plugins]]
-repo = 'scrooloose/syntastic'
-on_ft = 'python'
-
-# Python自動折りたたみ
-# [[plugins]]
-# repo = 'vim-scripts/python_fold'
+repo = 'w0rp/ale'
+# # [[plugins]]
+# # repo = 'scrooloose/syntastic'
 # on_ft = 'python'
+# # Python自動折りたたみ
+# # [[plugins]]
+# # repo = 'vim-scripts/python_fold'
+# # on_ft = 'python'
 
-# # TODO: 動作確認
+# # Markdown
+# # プレビュー
+# [[plugins]]
+# repo = 'kannokanno/previm'
+# on_ft = ['markdown','mkd']
+# repo = 'tyru/open-browser.vim'
+# on_ft = ['markdown','mkd']
+# # hook_add = '''
+# #   let g:previm_open_cmd = 'C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe'
+# #   # "C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe"
+# # '''
+# [[plugins]]
+# repo = 'plasticboy/vim-markdown'
+# on_ft = ['markdown','mkd']
+# [[plugins]]
+# # ハイライト
+# [[plugins]]
+# repo = 'rcmdnk/vim-markdown'
+# on_ft = ['markdown','mkd']
+# hook_add = '''
+#   let g:vim_markdown_frontmatter = 1
+#   let g:vim_markdown_math = 1
+# '''
+
+# Fuzzy Matcher
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --bin'
+merged = '0'
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+hook_add = '''
+    command! -bang -nargs=* Rg
+      \ call fzf#vim#grep(
+      \   'rg --line-number --no-heading '.shellescape(<q-args>), 0,
+      \   fzf#vim#with_preview({'options': '--exact --reverse'}, 'right:50%:wrap'))
+'''
+
+# フォントのサイズ変更
+[[plugins]]
+repo   = 'thinca/vim-fontzoom'
+on_cmd = ['Fontzoom']
+on_map = ['<Plug>(fontzoom-']
+gui    = 1
+
+# TODO: 動作確認 # {{{
+# # カラーコード プレビュー
+# [[plugins]]
+# repo = 'gorodinskiy/vim-coloresque'
+
 # # Arduino開発用プラグイン
 # [[plugins]]
 # repo = "platformio/platformio"
 # on_ft = "arduino"
+# # Arduinoシンタックスハイライト
+# [[plugins]]
+# repo = "sudar/vim-arduino-syntax"
+# on_ft = "arduino"
 
-# カレンダー
-[[plugins]]
-repo = 'itchyny/calendar.vim'
-
-# Markdown
-# プレビュー
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
-on_ft = ['markdown','mkd']
-[[plugins]]
-repo = 'kannokanno/previm'
-on_ft = ['markdown','mkd']
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-on_ft = ['markdown','mkd']
-# hook_add = '''
-#   let g:previm_open_cmd = 'C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe'
-#   # "C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe"
-# '''
-# ハイライト
-[[plugins]]
-repo = 'rcmdnk/vim-markdown'
-on_ft = ['markdown','mkd']
-hook_add = '''
-  let g:vim_markdown_frontmatter = 1
-  let g:vim_markdown_math = 1
-'''
-
-# TODO: 動作確認
-# Arduinoシンタックスハイライト
-[[plugins]]
-repo = "sudar/vim-arduino-syntax"
-on_ft = "arduino"
-
-# カラースキーマ
-[[plugins]]
-repo = 'w0ng/vim-hybrid'
-hook_add = '''
-    set background=dark
-    " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
-    " 但し Colorscheme イベントの発生が抑制されないよう nested を付ける。
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
-    '''
-[[plugins]]
-repo = 'chriskempson/vim-tomorrow-theme'
-hook_add = '''
-    set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
-    '''
-[[plugins]]
-repo = 'tomasr/molokai'
-hook_add = '''
-    set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
-    '''
-[[plugins]]
-repo = 'sjl/badwolf'
-hook_add = '''
-    set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
-    '''
-[[plugins]]
-repo = 'vim-scripts/twilight'
-hook_add = '''
-    set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
-    '''
-[[plugins]]
-repo = 'nanotech/jellybeans.vim'
-hook_add = '''
-    set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
-    '''
+# 導入予定
+# #[[plugins]]
+# repo = 'kassio/neoterm'
+# if = "has('nvim')"
+# }}}

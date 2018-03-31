@@ -1,0 +1,3 @@
+id = GETID("sound", "CabinetWClass", -1)
+SLEEP(1)
+id = GETID("ƒTƒEƒ“ƒh", "#32770", -1)
