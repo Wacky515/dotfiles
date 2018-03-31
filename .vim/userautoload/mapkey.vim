@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/31 23:37:28.
+" Last Change: 2018/04/01 08:44:09.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -82,6 +82,11 @@ if !has("nvim")
     nnoremap <silent> ,v :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
     " ,g: gvimrcを反映
     nnoremap <silent> ,g :<C-u>source $MYGVIMRC<CR>
+endif
+
+" "NeoVim" の "Terminal mode" をノーマルモードを使用する
+if has("nvim")
+  tnoremap <silent> <ESC> <C-\><C-n>
 endif
 
 " ヤンクした文字列でカーソル位置の単語を置換
