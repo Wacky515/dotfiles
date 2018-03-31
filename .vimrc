@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/27 21:25:54.
+" Last Change: 2018/03/31 10:34:27.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -7,8 +7,10 @@ augroup MyAutoCmd
     autocmd!
 augroup END
 
-"Python3のパス設定
-let g:python3_host_prog = "C:\Python35\python.exe"
+" "Python3" のパス設定
+if has("win32") || has("win64")
+    let g:python3_host_prog = "C:\Python35\python.exe"
+endif
 
 if !has("nvim")
     " ---------------------------------------------------------------------------
@@ -18,20 +20,20 @@ if !has("nvim")
         set nocompatible
     endif
 
-    " Vim起動完了時にインストール
+    " "Vim" 起動完了時にインストール
     augroup PluginInstall
         autocmd!
         autocmd VimEnter * if dein#check_install() | call dein#install() | endif
     augroup END
 
-    " プラグインをインストールするディレクトリ
+    " プラグインをインストールするディレクトリを指定
     let s:plugin_dir = expand("~/.cache/dein/")
 
     " "dein.vim" をインストールするディレクトリをランタイムパスへ追加
     let s:dein_dir = s:plugin_dir . "repos/github.com/Shougo/dein.vim"
     execute "set runtimepath+=" . s:dein_dir
 
-    " dein.vimが入っていなければ "git clone"
+    " "dein.vimが" なければ "git clone"
     if !isdirectory(s:dein_dir)
         call mkdir(s:dein_dir, "p")
         silent execute printf("!git clone %s %s", "https://github.com/Shougo/dein.vim", s:dein_dir)
@@ -60,7 +62,7 @@ if !has("nvim")
         call dein#save_state()
     endif
 
-    " 未インストールがあればインストール
+    " 未インストールのプラグインがあればインストール
     if dein#check_install()
         call dein#install()
     endif
@@ -79,11 +81,11 @@ endif
 " <Space> を "Leader" に割当て
 let mapleader = "\<Space>"
 
-" Windows環境の設定ファイルの場所を、Mac/Linux環境にあわせる
+" "Windows" 環境の設定ファイルの場所を、"Linux/Mac" 環境にあわせる
 set runtimepath+=$HOME/.vim
 " "Vim" の設定ファイル
 runtime! userautoload/*.vim
-" "Plugin" の設定ファイル
+" プラグインの設定ファイル
 runtime! userautoload/plugin_setting/*.vim
 
 " 読み込んだプラグインも含め、ファイルタイプの検出
