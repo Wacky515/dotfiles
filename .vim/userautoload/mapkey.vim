@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/31 23:33:38.
+" Last Change: 2018/03/31 23:37:28.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -19,11 +19,6 @@ inoremap jj <Esc>
 " バックアップファイル作成
 nnoremap bk :<C-u>w %.bk
 
-" " 0: 直下に空行挿入
-" nnoremap 0 :<C-u>call append(expand('.'), '')<CR>j
-" " 9: 直上に空行挿入
-" nnoremap 9 O<Esc>cc<Esc>
-
 " <Ctrl>j: 裏バッファへ切替え
 nnoremap <C-j> <C-^>
 
@@ -33,7 +28,11 @@ nnoremap <silent> <Leader>l :set spell!<CR>
 " 挿入モードで dl: 仕切り線を挿入
 inoreabbrev dl ---------------------------------------------------------------------------<Esc>:TComment<CR>^
 
-" DONE: "Mac" では効かない
+" " 0: 直下に空行挿入
+" nnoremap 0 :<C-u>call append(expand('.'), '')<CR>j
+" " 9: 直上に空行挿入
+" nnoremap 9 O<Esc>cc<Esc>
+
 " <Esc><Esc>: ハイライト消去
 if has("mac")
     nmap <silent> <C-[><C-[> :<C-u>nohlsearch<CR>
@@ -61,27 +60,27 @@ nnoremap <silent>bn :<C-u>bnext<CR>
 " bb: 直前のバッファを開く
 nnoremap <silent>bb :<C-u>b#<CR>
 
-" "Macの時ノーマルモードで:と;を入れ替える
-" if has("mac")
-"     noremap : ;
-"     noremap ; :
-" endif
-
 " TODO: LinuxのNeoVimで確認
 " w!!: スーパーユーザーとして保存（sudoが使える環境限定）
 if has("unix")
     cmap w!! w !sudo tee > /dev/null %
 endif
 
+" "Macの時ノーマルモードで:と;を入れ替える
+" if has("mac")
+"     noremap : ;
+"     noremap ; :
+" endif
+
 " FIXME: "NeoVim" で変更必要
 if !has("nvim")
-    " ,v: vimrcを開く
+    " ev: vimrcを開く
     nmap ev :<C-u>edit $MYVIMRC<CR>
-    " ,g: gvimrcを開く
+    " eg: gvimrcを開く
     nmap eg :<C-u>edit $MYGVIMRC<CR>
-    " <Leader>rv: vimrcを反映
+    " ,v: vimrcを反映
     nnoremap <silent> ,v :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
-    " <Leader>rg: gvimrcを反映
+    " ,g: gvimrcを反映
     nnoremap <silent> ,g :<C-u>source $MYGVIMRC<CR>
 endif
 
