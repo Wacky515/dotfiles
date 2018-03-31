@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/31 10:34:27.
+" Last Change: 2018/03/31 11:19:33.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -12,7 +12,6 @@ if has("win32") || has("win64")
     let g:python3_host_prog = "C:\Python35\python.exe"
 endif
 
-if !has("nvim")
     " ---------------------------------------------------------------------------
     " dein.vimの設定
     " ---------------------------------------------------------------------------
@@ -27,7 +26,13 @@ if !has("nvim")
     augroup END
 
     " プラグインをインストールするディレクトリを指定
-    let s:plugin_dir = expand("~/.cache/dein/")
+    if !has("nvim")
+        let s:plugin_dir = expand("~/.cache/dein/")
+    else
+         let s:plugin_dir = expand("~/.config/nvim/.cache/dein/")
+        " let s:plugin_dir = expand("~/.cache/dein/")
+        " let s:plugin_dir = expand("C:/Users/MM12167/AppData/Local/nvim/.cache/dein/")
+    endif
 
     " "dein.vim" をインストールするディレクトリをランタイムパスへ追加
     let s:dein_dir = s:plugin_dir . "repos/github.com/Shougo/dein.vim"
@@ -45,10 +50,18 @@ if !has("nvim")
         call dein#begin(s:plugin_dir)
 
         " プラグインリスト "*.toml" を指定
-        let g:rc_dir      = expand("~/.vim/rc")
-        let s:toml        = g:rc_dir . "/dein.toml"
-        let s:lazy_toml   = g:rc_dir . "/dein_lazy.toml"
-        let s:python_toml = g:rc_dir . "/dein_python.toml"
+        if !has("nvim")
+            let g:rc_dir      = expand("~/.vim/rc")
+            let s:toml        = g:rc_dir . "/dein.toml"
+            let s:lazy_toml   = g:rc_dir . "/dein_lazy.toml"
+            let s:python_toml = g:rc_dir . "/dein_python.toml"
+        else
+            let g:rc_dir = expand("C:\\Users\\SkyDog\\dotfiles\\.vim\\rc")
+            " let g:rc_dir = expand("C:\\Users\\mm12167\\dotfiles\\.vim\\rc")
+            let s:toml      = g:rc_dir . "\\dein.toml"
+            let s:lazy_toml = g:rc_dir . "\\dein_lazy.toml"
+            let s:python_toml = g:rc_dir . "/dein_python.toml"
+        endif
 
         " "*.toml" を読込み、キャッシュ
         call dein#load_toml(s:toml,            {"lazy": 0})
