@@ -1,5 +1,5 @@
 ﻿scriptencoding utf-8
-" Last Change: 2018/04/02 07:28:37.
+" Last Change: 2018/04/02 07:30:35.
 
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示
 if has("unix")
