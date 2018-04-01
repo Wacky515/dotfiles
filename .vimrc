@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/31 21:15:53.
+" Last Change: 2018/04/01 20:08:08.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -33,6 +33,8 @@ elseif has("unix")
     let s:plugin_dir = expand("~/.config/nvim/init.vim")
 elseif has("win32") || has("win64")
     let s:plugin_dir = expand("~/AppData/Local/nvim/.cache/dein/")
+elseif exists("g:nyaovim_version")
+  let s:dein_cache_path = expand("~/.config/nyaovim/dein")
 endif
 
 " "dein.vim" をインストールするディレクトリをランタイムパスへ追加
@@ -61,6 +63,12 @@ if dein#load_state(s:plugin_dir)
     call dein#load_toml(s:lazy_toml,       {"lazy": 1})
     if has ("python3")
         call dein#load_toml(s:python_toml, {"lazy": 0})
+    endif
+
+    if exists('g:nyaovim_version')
+        call dein#add('rhysd/nyaovim-markdown-preview')
+        call dein#add('rhysd/nyaovim-mini-browser')
+        " call dein#add('rhysd/nyaovim-popup-tooltip')
     endif
 
     " 設定終了
