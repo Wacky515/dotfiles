@@ -1,0 +1,16 @@
+<!-- Last Change: 2018/04/01 19:56:58. -->
+<!-- <!&#45;&#45; "Nyaovim" プラグインも "dein.vim" で読込む -->
+<!-- "if exists('g:nyaovim_version')" で "Nyaovim" 固有の設定を記述 -->
+<dom-module id="nyaovim-app">
+  <template>
+    <style>
+      /* CSS configurations here */
+    </style>
+
+    <!-- Component tags here -->
+    <!--  neovim-editor id="nyaovim-editor" argv="[[argv]]" font="monospace"></neovim-editor -->
+    <neovim-editor id="nyaovim-editor" argv="[[argv]]" font="Cica"></neovim-editor>
+    <markdown-preview editor="[[editor]]"></markdown-preview>
+    <mini-browser url="https://google.com" editor="[[editor]]"></mini-browser>
+  </template>
+</dom-module>
