@@ -21,10 +21,13 @@
     excludesfile = ~/.gitignore
 	# excludesfile = /Users/wacky515/.gitignore_global
 	editor = vim
-	autocrlf = true
+    # コミット時に改行コードを CRLF -> LF
+    autocrlf = input
+    safecrlf = true
+    # autocrlf = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
