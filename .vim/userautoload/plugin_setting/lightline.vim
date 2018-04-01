@@ -1,5 +1,5 @@
 ﻿scriptencoding utf-8
-" Last Change: 2018/04/02 07:30:35.
+" Last Change: 2018/04/02 07:50:46.
 
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示
 if has("unix")
@@ -182,4 +182,4 @@ endfunction
 "   return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 " endfunction
 " " }}}
-endif
+" endif
