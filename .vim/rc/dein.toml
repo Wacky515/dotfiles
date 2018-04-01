@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/04/01 19:58:10.
+# Last Change: 2018/04/02 07:41:54.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -10,7 +10,7 @@ repo = 'Shougo/dein.vim'
 repo = 'Shougo/unite.vim'
 depends = 'neomru.vim'
 # "unite.vim" 用 "Colorscheme" プレビュー
-# Ul: ":Unite colorscheme" でプレビュー
+# Ul: :Unite colorscheme でプレビュー
 [[plugins]]
 repo = 'ujihisa/unite-colorscheme'
 # "unite.vim" 用フォントプレビュー
@@ -24,22 +24,22 @@ repo = 'ujihisa/unite-font'
 repo = 'Shougo/neosnippet-snippets'
 
 # ファイラー
-# ":VimFiler" で起動 # {{{
-    # o: 	バッファを縦分割 or ディレクトリ同期
-    # O:	別バッファに選択中のディレクトリの中を展開
-    # gs:	セーフモード on/off
-    # q:	VimFilerを終了
+# :VimFiler で起動 # {{{
+    # o: バッファを縦分割 or ディレクトリ同期
+    # O: 別バッファに選択中のディレクトリの中を展開
+    # gs: セーフモード ON/OFF
+    # q: 終了
 # }}}
 [[plugins]]
 repo = 'Shougo/vimfiler'
-# <Leader>o: 起動
+# <Leader>o: ファイラ起動
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 [[plugins]]
 repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
-# ,sp: 起動
+# ,sp: ファイラ起動
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
 
@@ -50,6 +50,13 @@ repo = 'rking/ag.vim'
 # "Git" 用プラグイン
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+# "git log" を強化
+# :Agit 強化版"git log" 起動
+[[plugins]]
+repo = 'cohama/agit.vim'
+# コミットログ入力をサポート
+[[plugins]]
+repo = 'rhysd/committia.vim'
 
 # コピペ 履歴保存
 # ヤンク後に "<Ctrl>p/<Ctrl>n" でヤンク履歴を選択
@@ -57,8 +64,8 @@ repo = 'tpope/vim-fugitive'
 repo = 'vim-scripts/YankRing.vim'
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
 
-# アンドゥ管理
-# F4: :GundoToggle
+# Undo履歴
+# F4: :GundoToggle Undo履歴起動
 [[plugins]]
 repo = 'sjl/gundo.vim'
 
@@ -122,10 +129,10 @@ repo = 'tpope/vim-surround'
 
 # スネークケースやキャメルケースへの変換
     # ノーマルモードで # {{{
-        # crs	"SnakeCase"  → "snake_case"
-        # crm	"mixed_case" → "MixedCase"
-        # crc	"camel_case" → "camelCase"
-        # cru	"upper_case" → "UPPER_CASE"
+        # crs: "SnakeCase"  → "snake_case"
+        # crm: "mixed_case" → "MixedCase"
+        # crc: "camel_case" → "camelCase"
+        # cru: "upper_case" → "UPPER_CASE"
 # }}}
 [[plugins]]
 repo = 'tpope/vim-abolish'
