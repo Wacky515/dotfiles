@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/31 23:44:18.
+" Last Change: 2018/04/01 20:12:58.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -116,7 +116,7 @@ elseif has("win32") || has("win64")
     if hostname() == "SALADCARBONX1"
         if !has("nvim")
             set guifont=Cica:h12
-        " Windows Cica 専用設定
+            " Windows Cica 専用設定
             set rop=type:directx,renmode:5
         else
             Guifont Cica:h12
