@@ -1,4 +1,4 @@
-# Last Change: 2018/04/02 11:47:29.
+# Last Change: 2018/04/03 10:26:00.
 
 # 統合ユーザインターフェース # {{{
 # [[plugins]]
@@ -90,6 +90,7 @@ repo = 'w0rp/ale'
 
 # Markdown
 # プレビュー
+# <Leader>md: 編集中のファイルをブラウザで表示
 [[plugins]]
 repo = 'kannokanno/previm'
 on_ft = ['markdown','mkd']
@@ -99,18 +100,18 @@ on_ft = ['markdown','mkd']
 #   let g:previm_open_cmd = 'C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe'
 #   # "C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe"
 # '''
+# シンタックスハイライト 1
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
 on_ft = ['markdown','mkd']
-[[plugins]]
-# ハイライト
-[[plugins]]
-repo = 'rcmdnk/vim-markdown'
-on_ft = ['markdown','mkd']
-hook_add = '''
-  let g:vim_markdown_frontmatter = 1
-  let g:vim_markdown_math = 1
-'''
+# # シンタックスハイライト 2
+# [[plugins]]
+# repo = 'rcmdnk/vim-markdown'
+# on_ft = ['markdown','mkd']
+# hook_add = '''
+#   let g:vim_markdown_frontmatter = 1
+#   let g:vim_markdown_math = 1
+# '''
 
 # Fuzzy Matcher
 [[plugins]]

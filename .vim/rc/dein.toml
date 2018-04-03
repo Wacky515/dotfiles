@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/04/02 07:41:54.
+# Last Change: 2018/04/03 10:29:53.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -54,9 +54,10 @@ repo = 'tpope/vim-fugitive'
 # :Agit 強化版"git log" 起動
 [[plugins]]
 repo = 'cohama/agit.vim'
-# コミットログ入力をサポート
-[[plugins]]
-repo = 'rhysd/committia.vim'
+# # コミットログ入力をサポート
+# KILL: fugitiveと相性悪い？
+# [[plugins]]
+# repo = 'rhysd/committia.vim'
 
 # コピペ 履歴保存
 # ヤンク後に "<Ctrl>p/<Ctrl>n" でヤンク履歴を選択
