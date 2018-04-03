@@ -1,11 +1,12 @@
 scriptencoding utf-8
-" Last Change: 2018/04/01 20:12:58.
+" Last Change: 2018/04/03 09:34:14.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
 " ----------------------------------------------------------------------
 
 " カラースキーマの指定
+colorscheme iceberg
 " colorscheme hybrid
 " colorscheme molokai " {{{
 " colorscheme desert
@@ -13,7 +14,7 @@ scriptencoding utf-8
 " }}}
 
 " 暗背景用の配色にする
-" set background=dark
+set background=dark
 " " 明背景用の配色にする " {{{
 " set background=light
 " }}}
