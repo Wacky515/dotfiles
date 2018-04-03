@@ -1,36 +1,37 @@
 ﻿scriptencoding utf-8
-" Last Change: 2018/03/30 14:46:38.
+" Last Change: 2018/04/02 07:30:35.
 
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示
 if has("unix")
     set laststatus=2
 endif
 
-" "Cica" を使用しているマシンのみセパレータ有効化
+" STOP: "Cica" を使用しているマシンのみセパレータ有効化
 " FIXME: 抽象化する
-if hostname() != "SALADCARBONX1" || "ProSalad133.local"
+" if hostname() != "SALADCARBONX1" || "ProSalad133.local"
 
-"     \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-"     \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
-" 設定1 " {{{
-    " \ 'colorscheme': 'powerline',
-let g:lightline = {
-    \ 'colorscheme': 'jellybeans',
-    \ 'component': {
-    \ 'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
-    \ 'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',}
-    \ }
+" "     \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+" "     \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
+" " 設定1 " {{{
+"     " \ 'colorscheme': 'powerline',
+" let g:lightline = {
+"     \ 'colorscheme': 'jellybeans',
+"     \ 'component': {
+"     \ 'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
+"     \ 'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',}
+"     \ }
 
-" "Fugitive" と連携
-function! LightLineFugitive()
-  if exists("*fugitive#head")
-    let branch = fugitive#head()
-    return branch !=# '' ? '⭠ '.branch : ''
-  endif
-  return ''
-endfunction
-" }}}
-else
+" " "Fugitive" と連携
+" function! LightLineFugitive()
+"   if exists("*fugitive#head")
+"     let branch = fugitive#head()
+"     return branch !=# '' ? '⭠ '.branch : ''
+"   endif
+"   return ''
+" endfunction
+" " }}}
+" else
+
 " 設定2 " {{{
             " \ 'colorscheme': 'jellybeans',
             " \ 'colorscheme': 'powerline',
