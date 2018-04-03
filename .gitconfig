@@ -40,3 +40,7 @@
 # [https]
 # 	proxy = https://m6prxy1:8080
 # 	}}}
+[http]
+[https]
+[http]
+[https]
