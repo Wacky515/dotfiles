@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/04/01 20:08:08.
+" Last Change: 2018/04/01 21:11:13.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -32,6 +32,8 @@ elseif has("unix")
     " TODO: Unix系のパス設定追加
     let s:plugin_dir = expand("~/.config/nvim/init.vim")
 elseif has("win32") || has("win64")
+    " FTR:
+    " let s:plugin_dir = expand("~/.cache/nvim/dein/")
     let s:plugin_dir = expand("~/AppData/Local/nvim/.cache/dein/")
 elseif exists("g:nyaovim_version")
   let s:dein_cache_path = expand("~/.config/nyaovim/dein")
