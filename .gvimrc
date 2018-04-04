@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/04/04 16:57:53.
+" Last Change: 2018/04/04 23:33:31.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -81,7 +81,7 @@ if has("linux")
     if !has("nvim")
         set guifont=DejaVu\ Sans\ Mono\ 13
     else
-        Guifont DejaVu\ Sans\ Mono\ 13
+        Guifont! DejaVu\ Sans\ Mono\ 13
     endif
     " colorscheme hybrid
     " set background=dark
@@ -91,13 +91,14 @@ elseif has("mac")
         if !has("nvim")
             set guifont=Ricty_Diminished:h16
         else
-            Guifont Ricty_Diminished:h16
+            Guifont! Ricty_Diminished:h16
         endif
     elseif hostname() == "ProSalad133.local"
         if !has("nvim")
-            set guifont=Cica:h18
+            set guifont=Cica:h16
+            set printfont=Cica:h12
         else
-            Guifont Consolas:h18
+            Guifont! Consolas:h18
         endif
         " colorscheme iceberg
         " set background=dark
@@ -105,7 +106,7 @@ elseif has("mac")
         if !has("nvim")
             set guifont=Osaka:h24
         else
-            Guifont Osaka:h24
+            Guifont! Osaka:h24
         endif
         " colorscheme iceberg
         " set background=dark
@@ -113,7 +114,7 @@ elseif has("mac")
         if !has("nvim")
             set guifont=Osaka:h18
         else
-            Guifont Osaka:h18
+            Guifont! Osaka:h18
         endif
     " colorscheme hybrid
     " set background=dark
@@ -123,11 +124,12 @@ elseif has("win32") || has("win64")
     " Home setting
     if hostname() == "SALADCARBONX1"
         if !has("nvim")
-            set guifont=Cica:h12
+            set guifont=Cica:h11
+            set printfont=Cica:h8
             " Windows Cica 専用設定 ("NeoVim" 版設定探す）
             set rop=type:directx,renmode:5
         else
-            Guifont Cica:h12
+            Guifont! Cica:h12
         endif
         " colorscheme iceberg
         " set background=dark
@@ -135,46 +137,51 @@ elseif has("win32") || has("win64")
     " muRata setting
     elseif hostname() == "hbalt071"
         if !has("nvim")
-            set guifont=Cica:h16
+            set guifont=Cica:h11
+            set printfont=Cica:h8
             set rop=type:directx,renmode:5
         else
-            Guifont Cica:h16
+            Guifont! Cica:h16
         endif
         " colorscheme iceberg
         " set background=dark
     elseif hostname() == "hbamb748"
         if !has("nvim")
-            set guifont=Cica:h16
+            set guifont=Cica:h17
+            set printfont=Cica:h15
             set rop=type:directx,renmode:5
         else
-            Guifont Cica:h16
+            Guifont! Cica:h16
         endif
         " colorscheme iceberg
         " set background=dark
     elseif hostname() == "HBAMB748A"
         if !has("nvim")
-            set guifont=Cica:h14
+            set guifont=Cica:h17
+            set printfont=Cica:h15
             set rop=type:directx,renmode:5
         else
-            Guifont Cica:h16
+            Guifont! Cica:h16
         endif
         " colorscheme hybrid
         " set background=dark
     elseif hostname() == "MECSI"
         if !has("nvim")
-            set guifont=Cica:h16
+            set guifont=Cica:h11
+            set printfont=Cica:h8
             set rop=type:directx,renmode:5
         else
-            Guifont Cica:h16
+            Guifont! Cica:h16
         endif
         " colorscheme iceberg
         " set background=dark
     elseif hostname() == "LAPTOP-DOA35GAR"
         if !has("nvim")
-            set guifont=Cica:h12
+            set guifont=Cica:h11
+            set printfont=Cica:h8
             set rop=type:directx,renmode:5
         else
-            Guifont Cica:h12
+            Guifont! Cica:h12
         endif
         " colorscheme iceberg
         " set background=dark
@@ -192,7 +199,7 @@ elseif has("win32") || has("win64")
             set guifont=Meiryo_UI:h18
             set rop=type:directx,renmode:5
         else
-            Guifont Meiryo_UI:h18
+            Guifont! Meiryo_UI:h18
         endif
         " colorscheme hybrid
         " set background=dark
