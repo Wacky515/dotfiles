@@ -1,4 +1,4 @@
-# Last Change: 04-Apr-2018.
+# Last Change: 2018/04/04 15:43:46.
 
 # 統合ユーザインターフェース # {{{
 # [[plugins]]
@@ -130,6 +130,13 @@ hook_add = '''
       \   fzf#vim#with_preview({'options': '--exact --reverse'}, 'right:50%:wrap'))
 '''
 
+# コピペ 履歴保存
+# ヤンク後に "<Ctrl>p/<Ctrl>n" でヤンク履歴を選択
+[[plugins]]
+repo = 'vim-scripts/YankRing.vim'
+if = "!has('nvim')"
+# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
+
 # フォントのサイズ変更
 [[plugins]]
 repo   = 'thinca/vim-fontzoom'
@@ -139,37 +146,43 @@ gui    = 1
 
 # カラースキーマ
 [[plugins]]
-# [[plugins]]
-# repo = 'chriskempson/vim-tomorrow-theme'
-# hook_add = '''
-#     set background=dark
-#     au MyAutoCmd VimEnter * nested colorscheme tomorrow-theme
-#     '''
+repo = 'chriskempson/vim-tomorrow-theme'
+if = "has('linux')"
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme tomorrow-theme
+    '''
 [[plugins]]
 repo = 'sjl/badwolf'
+if = "!has("nvim") && hostname() == 'ProSalad133.local'"
 hook_add = '''
     set background=dark
     au MyAutoCmd VimEnter * nested colorscheme badwolf
     '''
 [[plugins]]
 repo = 'vim-scripts/twilight'
+if = "has("nvim") && hostname() == 'ProSalad133.local'"
 hook_add = '''
     set background=dark
     au MyAutoCmd VimEnter * nested colorscheme twilight
     '''
 [[plugins]]
 repo = 'nanotech/jellybeans.vim'
+if = "has("nvim") && hostname() == 'SALADCARBONX1'"
 hook_add = '''
     set background=dark
     au MyAutoCmd VimEnter * nested colorscheme jellybeans
     '''
 [[plugins]]
 repo = 'tomasr/molokai'
+if = "has("nvim") && hostname() == 'HBAMB748A'"
 hook_add = '''
     set background=dark
     au MyAutoCmd VimEnter * nested colorscheme molokai
     '''
+[[plugins]]
 repo = 'w0ng/vim-hybrid'
+if = "!has("nvim") && hostname() == 'HBAMB748A'"
 hook_add = '''
     set background=dark
     " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
@@ -178,6 +191,7 @@ hook_add = '''
     '''
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
+if = "!has("nvim") && hostname() == 'SALADCARBONX1'"
 hook_add = '''
     set background=dark
     au MyAutoCmd VimEnter * nested colorscheme iceberg
