@@ -1,5 +1,6 @@
 scriptencoding utf-8
-" Last Change: 2018/04/04 12:50:25.
+" Last Change: 2018/04/04 22:43:40.
+" MEMO: "VeoVim" が起動しない時は "dein" のディレクトリを消す
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
