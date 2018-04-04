@@ -1,12 +1,14 @@
 scriptencoding utf-8
-" Last Change: 2018/04/04 11:47:00.
+" Last Change: 2018/04/04 15:36:31.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
 " ----------------------------------------------------------------------
 
 " カラースキーマの指定
-colorscheme iceberg
+" ~~最下部の条件分岐に統合~~
+" dein_lazy.toml に統合
+" colorscheme iceberg
 " colorscheme hybrid
 " colorscheme molokai " {{{
 " colorscheme desert
@@ -14,7 +16,8 @@ colorscheme iceberg
 " }}}
 
 " 暗背景用の配色にする
-set background=dark
+" 最下部の条件分岐に統合
+" set background=dark
 " " 明背景用の配色にする " {{{
 " set background=light
 " }}}
@@ -49,7 +52,9 @@ if has("win32") || ("win64")
 endif
 
 " シンタックスハイライト
+" "dein.vim" に関する設定の後にON
 syntax on
+
     " ファイルタイプ系ハイライトプラグインを導入している場合 "{{{
     " syntax on" は現在のruntimepathに含まれている設定をもとにシンタックスを生成する
     " runtimepathを初期化するような処理をした後にsyntax onしてもあまり意味はなく
@@ -69,6 +74,7 @@ syntax on
 "}}}
 
 " !!!: 以下からは記述場所を順番を変えない！！！
+" FIXME: "colorscheme" の設定が反映されない
 " フォントの設定
 if has("linux")
     if !has("nvim")
@@ -76,8 +82,8 @@ if has("linux")
     else
         Guifont DejaVu\ Sans\ Mono\ 13
     endif
-    colorscheme hybrid
-    set background=dark
+    " colorscheme hybrid
+    " set background=dark
 
 elseif has("mac")
     if hostname() == "ProSalad13.local"
@@ -92,24 +98,24 @@ elseif has("mac")
         else
             Guifont Consolas:h18
         endif
-        colorscheme iceberg
-        set background=dark
+        " colorscheme iceberg
+        " set background=dark
     elseif hostname() == "saladserver.com"
         if !has("nvim")
             set guifont=Osaka:h24
         else
             Guifont Osaka:h24
         endif
-        colorscheme iceberg
-        set background=dark
+        " colorscheme iceberg
+        " set background=dark
     else
         if !has("nvim")
             set guifont=Osaka:h18
         else
             Guifont Osaka:h18
         endif
-    colorscheme hybrid
-    set background=dark
+    " colorscheme hybrid
+    " set background=dark
     endif
 
 elseif has("win32") || has("win64")
@@ -117,13 +123,13 @@ elseif has("win32") || has("win64")
     if hostname() == "SALADCARBONX1"
         if !has("nvim")
             set guifont=Cica:h12
-            " Windows Cica 専用設定
+            " Windows Cica 専用設定 ("NeoVim" 版設定探す）
             set rop=type:directx,renmode:5
         else
             Guifont Cica:h12
         endif
-        colorscheme iceberg
-        set background=dark
+        " colorscheme iceberg
+        " set background=dark
 
     " muRata setting
     elseif hostname() == "hbalt071"
@@ -133,8 +139,8 @@ elseif has("win32") || has("win64")
         else
             Guifont Cica:h16
         endif
-        colorscheme iceberg
-        set background=dark
+        " colorscheme iceberg
+        " set background=dark
     elseif hostname() == "hbamb748"
         if !has("nvim")
             set guifont=Cica:h16
@@ -142,8 +148,8 @@ elseif has("win32") || has("win64")
         else
             Guifont Cica:h16
         endif
-        colorscheme iceberg
-        set background=dark
+        " colorscheme iceberg
+        " set background=dark
     elseif hostname() == "HBAMB748A"
         if !has("nvim")
             set guifont=Cica:h14
@@ -151,8 +157,8 @@ elseif has("win32") || has("win64")
         else
             Guifont Cica:h16
         endif
-        colorscheme iceberg
-        set background=dark
+        " colorscheme hybrid
+        " set background=dark
     elseif hostname() == "MECSI"
         if !has("nvim")
             set guifont=Cica:h16
@@ -160,8 +166,8 @@ elseif has("win32") || has("win64")
         else
             Guifont Cica:h16
         endif
-        colorscheme iceberg
-        set background=dark
+        " colorscheme iceberg
+        " set background=dark
     elseif hostname() == "LAPTOP-DOA35GAR"
         if !has("nvim")
             set guifont=Cica:h12
@@ -169,8 +175,8 @@ elseif has("win32") || has("win64")
         else
             Guifont Cica:h12
         endif
-        colorscheme iceberg
-        set background=dark
+        " colorscheme iceberg
+        " set background=dark
 
     " Xacti setting " {{{
     elseif hostname() == "CAD0021"
@@ -187,7 +193,7 @@ elseif has("win32") || has("win64")
         else
             Guifont Meiryo_UI:h18
         endif
+        " colorscheme hybrid
+        " set background=dark
     endif
-    colorscheme hybrid
-    set background=dark
 endif

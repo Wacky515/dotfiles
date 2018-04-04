@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/04/04 12:50:10.
+# Last Change: 2018/04/04 14:39:32.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -42,6 +42,7 @@ repo = 'ryanoasis/vim-devicons'
 # ,sp: ファイラ起動
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
+if = "!has('nvim')"
 
 # The Silver Searcher
 [[plugins]]
@@ -58,12 +59,6 @@ repo = 'cohama/agit.vim'
 # KILL: fugitiveと相性悪い？
 # [[plugins]]
 # repo = 'rhysd/committia.vim'
-
-# コピペ 履歴保存
-# ヤンク後に "<Ctrl>p/<Ctrl>n" でヤンク履歴を選択
-[[plugins]]
-repo = 'vim-scripts/YankRing.vim'
-# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
 
 # Undo履歴
 # F4: :GundoToggle Undo履歴起動
