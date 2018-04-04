@@ -1,13 +1,13 @@
 scriptencoding utf-8
-" Last Change: 2018/04/04 15:36:31.
+" Last Change: 2018/04/04 16:57:53.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
 " ----------------------------------------------------------------------
 
 " カラースキーマの指定
-" ~~最下部の条件分岐に統合~~
-" dein_lazy.toml に統合
+" NG: 最下部の条件分岐に統合
+" NG: dein_lazy.toml に統合
 " colorscheme iceberg
 " colorscheme hybrid
 " colorscheme molokai " {{{
@@ -16,7 +16,8 @@ scriptencoding utf-8
 " }}}
 
 " 暗背景用の配色にする
-" 最下部の条件分岐に統合
+" NG: 最下部の条件分岐に統合
+" NG: dein_lazy.toml に統合
 " set background=dark
 " " 明背景用の配色にする " {{{
 " set background=light
