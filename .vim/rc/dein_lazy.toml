@@ -1,4 +1,4 @@
-# Last Change: 2018/04/03 10:26:00.
+# Last Change: 2018/04/04 09:02:16.
 
 # 統合ユーザインターフェース # {{{
 # [[plugins]]
@@ -49,6 +49,8 @@ depends = ['neosnippet-snippets']
 # Unite用mru
 [[plugins]]
 repo = 'Shougo/neomru.vim'
+# "NeoVim" では無駄なディレクトリが生成される
+if = "!has('nvim')"
 # on_source = 'denite.nvim'
 on_source = 'dein.vim'
 on_path = '.*'
