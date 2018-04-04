@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/04/04 14:52:01.
+" Last Change: 2018/04/04 21:04:54.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -18,13 +18,13 @@ endif
 " dein.vimの設定
 " ---------------------------------------------------------------------------
 if !&compatible
-set nocompatible
+    set nocompatible
 endif
 
 " "Vim" 起動完了時にインストール
 augroup PluginInstall
-autocmd!
-autocmd VimEnter * if dein#check_install() | call dein#install() | endif
+    autocmd!
+    autocmd VimEnter * if dein#check_install() | call dein#install() | endif
 augroup END
 
 " プラグインをインストールするディレクトリを指定
