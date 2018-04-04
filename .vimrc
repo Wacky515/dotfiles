@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/04/01 21:11:13.
+" Last Change: 2018/04/04 10:57:01.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -8,7 +8,9 @@ augroup MyAutoCmd
 augroup END
 
 " "Python3" のパス設定
-if has("win32") || has("win64")
+if has("nvim") || hostname() == "HBAMB748A"
+    let g:python3_host_prog = "C:\\Python35\\python.exe"
+elseif has("win32") || has("win64")
     let g:python3_host_prog = "C:\Python35\python.exe"
 endif
 
@@ -30,17 +32,25 @@ if !has("nvim")
     let s:plugin_dir = expand("~/.cache/dein/")
 elseif has("unix")
     " TODO: Unix系のパス設定追加
-    let s:plugin_dir = expand("~/.config/nvim/init.vim")
+    let s:plugin_dir = expand("~/.config/nvim/.cache/dein/")
 elseif has("win32") || has("win64")
-    " FTR:
-    " let s:plugin_dir = expand("~/.cache/nvim/dein/")
-    let s:plugin_dir = expand("~/AppData/Local/nvim/.cache/dein/")
+    if hostname() == "HBAMB748A"
+        let s:plugin_dir = expand("~\\AppData\\Local\\nvim\\.cache\\dein\\")
+    else
+        " FTR:
+        " let s:plugin_dir = expand("~/.cache/nvim/dein/")
+        let s:plugin_dir = expand("~/AppData/Local/nvim/.cache/dein/")
+    endif
 elseif exists("g:nyaovim_version")
   let s:dein_cache_path = expand("~/.config/nyaovim/dein")
 endif
 
 " "dein.vim" をインストールするディレクトリをランタイムパスへ追加
-let s:dein_dir = s:plugin_dir . "repos/github.com/Shougo/dein.vim"
+if hostname() == "HBAMB748A"
+    let s:dein_dir = s:plugin_dir . "repos\\github.com\\Shougo\\dein.vim"
+else
+    let s:dein_dir = s:plugin_dir . "repos/github.com/Shougo/dein.vim"
+endif
 execute "set runtimepath+=" . s:dein_dir
 
 " "dein.vimが" なければ "git clone"
@@ -55,10 +65,17 @@ if dein#load_state(s:plugin_dir)
     call dein#begin(s:plugin_dir)
 
     " プラグインリスト "*.toml" を指定
-    let g:rc_dir      = expand("~/.vim/rc")
-    let s:toml        = g:rc_dir . "/dein.toml"
-    let s:lazy_toml   = g:rc_dir . "/dein_lazy.toml"
-    let s:python_toml = g:rc_dir . "/dein_python.toml"
+    if has("nvim") || hostname() == "HBAMB748A"
+        let g:rc_dir      = expand("C:\\Users\\MM12167\\.vim\\rc")
+        let s:toml        = g:rc_dir . "\\dein.toml"
+        let s:lazy_toml   = g:rc_dir . "\\dein_lazy.toml"
+        let s:python_toml = g:rc_dir . "\\dein_python.toml"
+    else
+        let g:rc_dir      = expand("~/.vim/rc")
+        let s:toml        = g:rc_dir . "/dein.toml"
+        let s:lazy_toml   = g:rc_dir . "/dein_lazy.toml"
+        let s:python_toml = g:rc_dir . "/dein_python.toml"
+    endif
 
     " "*.toml" を読込み、キャッシュ
     call dein#load_toml(s:toml,            {"lazy": 0})
