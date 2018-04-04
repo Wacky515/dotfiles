@@ -1,4 +1,4 @@
-# Last Change: 2018/04/04 12:47:09.
+# Last Change: 04-Apr-2018.
 
 # 統合ユーザインターフェース # {{{
 # [[plugins]]
@@ -139,26 +139,12 @@ gui    = 1
 
 # カラースキーマ
 [[plugins]]
-repo = 'w0ng/vim-hybrid'
-hook_add = '''
-    set background=dark
-    " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
-    " 但し Colorscheme イベントの発生が抑制されないよう nested を付ける。
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
-    '''
-[[plugins]]
-repo = 'cocopon/iceberg.vim'
-hook_add = '''
-    set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme iceberg
-    au MyAutoCmd VimEnter * highlight Visual ctermbg=216
-    '''
-[[plugins]]
-repo = 'tomasr/molokai'
-hook_add = '''
-    set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme molokai
-    '''
+# [[plugins]]
+# repo = 'chriskempson/vim-tomorrow-theme'
+# hook_add = '''
+#     set background=dark
+#     au MyAutoCmd VimEnter * nested colorscheme tomorrow-theme
+#     '''
 [[plugins]]
 repo = 'sjl/badwolf'
 hook_add = '''
@@ -177,12 +163,26 @@ hook_add = '''
     set background=dark
     au MyAutoCmd VimEnter * nested colorscheme jellybeans
     '''
-# [[plugins]]
-# repo = 'chriskempson/vim-tomorrow-theme'
-# hook_add = '''
-#     set background=dark
-#     au MyAutoCmd VimEnter * nested colorscheme tomorrow-theme
-#     '''
+[[plugins]]
+repo = 'tomasr/molokai'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme molokai
+    '''
+repo = 'w0ng/vim-hybrid'
+hook_add = '''
+    set background=dark
+    " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
+    " 但し Colorscheme イベントの発生が抑制されないよう nested を付ける。
+    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    '''
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme iceberg
+    au MyAutoCmd VimEnter * highlight Visual ctermbg=216
+    '''
 
 # TODO: 動作確認 # {{{
 # # カラーコード プレビュー
