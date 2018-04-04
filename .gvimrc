@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/04/03 11:04:52.
+" Last Change: 2018/04/04 11:47:00.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -149,7 +149,7 @@ elseif has("win32") || has("win64")
             set guifont=Cica:h14
             set rop=type:directx,renmode:5
         else
-            Guifont Cica:h14
+            Guifont Cica:h16
         endif
         colorscheme iceberg
         set background=dark

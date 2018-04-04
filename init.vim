@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/04/04 10:46:07.
+" Last Change: 2018/04/04 11:33:53.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -9,8 +9,10 @@ augroup END
 
 if hostname() == "HBAMB748A"
     " "Windows7" の "NeoVim" はデリミタが "\\" ?
+    " "dein" ができないだけのよう
     execute "source" "C:\\Users\\MM12167\\.vimrc"
-elseif hostname() == "SALADCARBONX1"
+
+else
     " "Vim" 毎のrcファイルパス設定
     let g:rc_dir = expand("~/dotfiles")
 
