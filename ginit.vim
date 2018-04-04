@@ -1,5 +1,6 @@
 scriptencoding utf-8
-" Last Change: 2018/03/31 20:37:33.
+" Last Change: 2018/04/04 09:05:29.
+" TODO: ウインドウサイズ記憶する
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
