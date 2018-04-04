@@ -1,9 +1,10 @@
 @echo off
-rem Last Change: 2018/04/02 08:56:50.
+rem Last Change: 2018/04/04 23:39:03.
 
 rem TODO: 常時管理者として実行する
 rem TODO: "init.vim"、"ginit.vim" シンボリックリンクの
 rem ソースのパスが変数化できない為、"copy"で暫定対応
+rem ↑ "NyaoVim" も・・・
 
 rem DONE: ginit.vim コピー後、)の使い方が誤っています エラーになる
 
@@ -35,7 +36,8 @@ rem }}}
 
 rem "NyaoVim" 設定
 if exist %HOMEPATH%"\AppData\Roaming\NyaoVim" (
-    mklink %HOMEPATH%"\AppData\Roaming\NyaoVim\nyaovimrc.html" ".\dotfiles\nyaovimrc.html" > nul 2>&1
+rem     mklink %HOMEPATH%"\AppData\Roaming\NyaoVim\nyaovimrc.html" ".\dotfiles\nyaovimrc.html" > nul 2>&1
+    copy nyaovimrc.html %HOMEPATH%"\AppData\Roaming\NyaoVim\"
     if %ERRORLEVEL% == 0 (
         echo nyaovimrc.html link success!
         )
