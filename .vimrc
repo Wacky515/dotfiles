@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/04/04 10:57:01.
+" Last Change: 2018/04/04 11:07:37.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -8,7 +8,7 @@ augroup MyAutoCmd
 augroup END
 
 " "Python3" のパス設定
-if has("nvim") || hostname() == "HBAMB748A"
+if has("nvim") && hostname() == "HBAMB748A"
     let g:python3_host_prog = "C:\\Python35\\python.exe"
 elseif has("win32") || has("win64")
     let g:python3_host_prog = "C:\Python35\python.exe"
@@ -65,7 +65,7 @@ if dein#load_state(s:plugin_dir)
     call dein#begin(s:plugin_dir)
 
     " プラグインリスト "*.toml" を指定
-    if has("nvim") || hostname() == "HBAMB748A"
+    if has("nvim") && hostname() == "HBAMB748A"
         let g:rc_dir      = expand("C:\\Users\\MM12167\\.vim\\rc")
         let s:toml        = g:rc_dir . "\\dein.toml"
         let s:lazy_toml   = g:rc_dir . "\\dein_lazy.toml"
