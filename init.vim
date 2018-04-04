@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/04/04 11:33:53.
+" Last Change: 2018/04/04 12:50:25.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -8,8 +8,7 @@ augroup MyAutoCmd
 augroup END
 
 if hostname() == "HBAMB748A"
-    " "Windows7" の "NeoVim" はデリミタが "\\" ?
-    " "dein" ができないだけのよう
+    " "Windows7" の "NeoVim" はデリミタが "\\"
     execute "source" "C:\\Users\\MM12167\\.vimrc"
 
 else
