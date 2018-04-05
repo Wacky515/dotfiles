@@ -1,4 +1,4 @@
-# Last Change: 2018/04/04 20:39:59.
+# Last Change: 2018/04/05 09:14:33.
 
 # 統合ユーザインターフェース # {{{
 # [[plugins]]
@@ -34,6 +34,7 @@ on_i = 1
 # スニペット補完
 [[plugins]]
 repo = 'Shougo/neosnippet'
+if = "!has('nvim') && hostname() != 'HBAMB748A'"
 hook_source = '''
     imap <C-k> <Plug>(neosnippet_expand_or_jump)
     smap <C-k> <Plug>(neosnippet_expand_or_jump)
