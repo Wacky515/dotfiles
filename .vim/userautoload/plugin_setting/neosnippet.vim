@@ -1,5 +1,5 @@
 ﻿scriptencoding utf-8
-" Last Change:2018/03/18 15:25:36.
+" Last Change:2018/04/05 10:55:10.
 
 " ショートカットキー
 " imap <C-k>     <Plug>(neosnippet_expand_or_jump)
