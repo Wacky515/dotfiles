@@ -1,5 +1,6 @@
 scriptencoding utf-8
-" Last Change: 2018/04/04 10:28:56.
+" Last Change: 2018/04/05 11:00:27.
+" TODO: 開いたパスに%HOMEPATH%ディレクトリが生成されてしまう
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
