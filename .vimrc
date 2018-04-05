@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/04/04 22:44:10.
+" Last Change: 2018/04/06 08:13:56.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -10,6 +10,8 @@ augroup END
 " "Python3" のパス設定
 if has("nvim") && hostname() == "HBAMB748A"
     let g:python3_host_prog = "C:\\Python35\\python.exe"
+elseif has("nvim") && hostname() == "SALADCARBONX1"
+    let g:python3_host_prog = "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
 elseif has("win32") || has("win64")
     let g:python3_host_prog = "C:\Python35\python.exe"
 endif
