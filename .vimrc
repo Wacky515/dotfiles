@@ -8,7 +8,11 @@ augroup MyAutoCmd
 augroup END
 
 " "Python3" ÇÃÉpÉXê›íË
-if has("nvim") && hostname() == "HBAMB748A"
+if has("nvim") && hostname() == "ProSalad133.local"
+    " let g:python3_host_prog = "/.pyenv/shims/python"
+    let g:python3_host_prog = "/usr/local/bin/Python3"
+/usr/local/bin/Python3
+elseif has("nvim") && hostname() == "HBAMB748A"
     let g:python3_host_prog = "C:\\Python35\\python.exe"
 elseif has("nvim") && hostname() == "SALADCARBONX1"
     let g:python3_host_prog = "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
