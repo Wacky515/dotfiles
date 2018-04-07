@@ -98,7 +98,8 @@ elseif has("mac")
             set guifont=Cica:h16
             set printfont=Cica:h12
         else
-            Guifont! Consolas:h18
+            " Guifont! Consolas:h18
+            Guifont! Cica:h18
         endif
         " colorscheme iceberg
         " set background=dark
