@@ -11,7 +11,6 @@ augroup END
 if has("nvim") && hostname() == "ProSalad133.local"
     " let g:python3_host_prog = "/.pyenv/shims/python"
     let g:python3_host_prog = "/usr/local/bin/Python3"
-/usr/local/bin/Python3
 elseif has("nvim") && hostname() == "HBAMB748A"
     let g:python3_host_prog = "C:\\Python35\\python.exe"
 elseif has("nvim") && hostname() == "SALADCARBONX1"
