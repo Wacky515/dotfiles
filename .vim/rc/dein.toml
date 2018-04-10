@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/04/04 20:39:56.
+# Last Change: 2018/04/10 12:39:40.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -211,6 +211,9 @@ repo = 'Shougo/context_filetype.vim'
 #     '''
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
+
+if = "has('gui_running')"
+# if = "!has('nvim')"
 # if = "!has('nvim') && hostname() == 'HBAMB748A'"
 hook_add = '''
     set background=dark
