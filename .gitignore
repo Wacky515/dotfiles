@@ -1,4 +1,4 @@
-﻿# Last Change: 2018/03/31 22:48:08.
+﻿# Last Change: 2018/04/10 10:08:38.
 # ------------------------------
 # 独自追記
 # ------------------------------
@@ -6,18 +6,29 @@
 tags
 ctags.exe
 memo.txt
+yankring_history_v2.txt
+
+# 特定の拡張子を無視する場合はどこにも/を付けない
 *.ok
 *.ng
 *.new
+*.modifying
+
+*.tempkill*
+
+# 特定名称のディレクトリを無視する場合は先頭と末尾に/を付ける
 /old/
+
+# 特定のファイルを無視する場合は先頭に/を付ける
+    # ルートディレクトリのファイルだけを無視し、サブディレクトリは無視しない
+# /foo
+
 /.vim/tmp/*
 /.vim/dein/*
+/.vim/userautoload/Users/*
+
 Users/
 */Users/
-/.vim/userautoload/Users/*
-*.modifying
-*.tempkill*
-yankring_history_v2.txt
 
 # 無視しない者共
 !/.vim/tmp/README.md
