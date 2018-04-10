@@ -24,7 +24,8 @@ OpaqueWhenFocused=no
 BoldAsFont=-1
 # Font=Ricty Diminished
 # FontHeight=12
-Font=Inconsolata
+# Font=Inconsolata
+Font=Cica
 FontHeight=14
 
 Columns=65

@@ -1,18 +1,19 @@
 ﻿scriptencoding utf-8
-" Last Change: 2018/04/02 07:50:46.
+" Last Change: 2018/04/10 09:25:30.
 
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示
 if has("unix")
     set laststatus=2
 endif
 
-" STOP: "Cica" を使用しているマシンのみセパレータ有効化
+" TODO: "Cica" を使用しているマシンのみセパレータ有効化
 " FIXME: 抽象化する
 " if hostname() != "SALADCARBONX1" || "ProSalad133.local"
+" if set guifont? != "Cica*"
 
+" " 設定1 " {{{
 " "     \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
 " "     \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
-" " 設定1 " {{{
 "     " \ 'colorscheme': 'powerline',
 " let g:lightline = {
 "     \ 'colorscheme': 'jellybeans',
