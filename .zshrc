@@ -9,16 +9,20 @@ alias fn="find ./ -name"
 ## OS 別設定
 case ${OSTYPE} in
     darwin*)
-        # Mac用設定
+        # "Mac" 用設定
         export CLICOLOR=1
         alias ls="ls -G -F"
         ;;
 
     linux*)
-        #Linux用設定
+        # "Linux" 用設定
         alias ls="ls -F --color=auto"
         ;;
-    # "Windows" の "Vim" の設定
+
+    msys)
+        # "Windows" 用設定
+        alias vim="C:\\Users\\mm12167\\vim80-kaoriya-win64\\vim.exe"
+        alias gvim="C:\\Users\\mm12167\\vim80-kaoriya-win64\\gvim.exe"
 esac
 
 ## プロンプト系
