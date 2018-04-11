@@ -23,4 +23,6 @@ case ${OSTYPE} in
         # "Windows" 用設定
         alias vim="~/vim80-kaoriya-win64/vim.exe"
         alias gvim="~/vim80-kaoriya-win64/gvim.exe"
+        alias nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
+        alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"
 esac
