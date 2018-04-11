@@ -1,5 +1,5 @@
 @echo off
-rem Last Change: 2018/04/04 23:39:03.
+rem Last Change: 2018/04/11 09:49:22.
 
 rem TODO: 常時管理者として実行する
 rem TODO: "init.vim"、"ginit.vim" シンボリックリンクの
@@ -43,7 +43,7 @@ rem     mklink %HOMEPATH%"\AppData\Roaming\NyaoVim\nyaovimrc.html" ".\dotfiles\n
         )
     )
 
-rem  "dotfiles" 設定
+rem  ".gitconfig" 設定
 mklink %HOMEPATH%"\.gitconfig" ".\dotfiles\.gitconfig" > nul 2>&1
 if %ERRORLEVEL% == 0 (
     echo .gitconfig link success!
@@ -63,10 +63,12 @@ for %%j in (.*) do (
     ) else if %%j == .zsh_history (
     rem echo ignore3 %%j :消すな！
     ) else (
-    mklink %HOMEPATH%"\"%%j ".\dotfiles\"%%j > nul 2>&1
-    if %ERRORLEVEL% == 0 (
-        echo Set link %%j
-        )
+    mklink %HOMEPATH%"\"%%j ".\dotfiles\"%%j
+    rem "echo" が表示されない
+    rem mklink %HOMEPATH%"\"%%j ".\dotfiles\"%%j > nul 2>&1
+    rem if %ERRORLEVEL% == 0 (
+    rem     echo Set link %%j
+    rem     )
     )
 )
 
