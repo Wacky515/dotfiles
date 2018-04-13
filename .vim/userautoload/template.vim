@@ -1,11 +1,14 @@
 scriptencoding utf-8
-" Last Change: 2018/04/13 09:36:45.
+" Last Change: 2018/04/13 09:57:35.
 
 " 新規作成時、動的にテンプレートを読込む
 augroup templateload
     autocmd!
     autocmd BufNewFile *.vim 0r ~/.vim/template/template.vim
     autocmd BufNewFile *.vim %substitute#__DATE__#\=strftime("%Y/%m/%d %H:%M:%S")#ge
+
+    autocmd BufNewFile *.sh 0r ~/.vim/template/template.sh
+    autocmd BufNewFile *.sh %substitute#__DATE__#\=strftime("%Y/%m/%d %H:%M:%S")#ge
 
     autocmd BufNewFile *.cmd 0r ~/.vim/template/template.cmd
     autocmd BufNewFile *.cmd %substitute#__DATE__#\=strftime("%Y/%m/%d %H:%M:%S")#ge
