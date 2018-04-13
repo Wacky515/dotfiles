@@ -24,8 +24,8 @@ OpaqueWhenFocused=no
 BoldAsFont=-1
 # Font=Ricty Diminished
 # FontHeight=12
-# Font=Inconsolata
-Font=Cica
+Font=Inconsolata
+# Font=Cica # 汚い
 FontHeight=14
 
 Columns=65
