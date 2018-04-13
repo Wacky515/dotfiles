@@ -21,8 +21,12 @@ case ${OSTYPE} in
 
     msys)
         # "Windows" 用設定
-        alias vim="C:\\Users\\mm12167\\vim80-kaoriya-win64\\vim.exe"
-        alias gvim="C:\\Users\\mm12167\\vim80-kaoriya-win64\\gvim.exe"
+        # alias vim="C:\\Users\\mm12167\\vim80-kaoriya-win64\\vim.exe"
+        # alias gvim="C:\\Users\\mm12167\\vim80-kaoriya-win64\\gvim.exe"
+        alias vim="~/vim80-kaoriya-win64/vim.exe"
+        alias gvim="~/vim80-kaoriya-win64/gvim.exe"
+        alias nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
+        alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"
 esac
 
 ## プロンプト系
