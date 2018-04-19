@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/04/13 10:37:37.
+# Last Change: 2018/04/19 08:25:04.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -219,6 +219,7 @@ if = "has('gui_running')"
 # if = "!has('nvim')"
 # if = "!has('nvim') && hostname() == 'HBAMB748A'"
 hook_add = '''
+    set termguicolors
     set background=dark
     au MyAutoCmd VimEnter * nested colorscheme iceberg
     au MyAutoCmd VimEnter * highlight Visual ctermbg=216
