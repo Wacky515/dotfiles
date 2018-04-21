@@ -50,3 +50,7 @@
 [https]
 [http]
 [https]
+[http]
+	proxy = http://m6prxy1:8080
+[https]
+	proxy = https://m6prxy1:8080
