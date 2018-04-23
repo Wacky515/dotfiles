@@ -1,4 +1,4 @@
-# Last Change: 2018/03/30 11:12:15.
+# Last Change: 2018/04/23 11:58:28.
 [user]
 	name = wacky515
 	email = wacky515@gmail.com
@@ -31,6 +31,9 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[includeIf "gitdir:C:\Users\mm12167\dotfiles"]
+  path = C:\\Users\\mm12167\\gitconfig_hbanb748.local
+
 # [http] # {{{
 # 	proxy = http://proxy.intra.xacti-co.com:8080
 # [https]
@@ -40,17 +43,3 @@
 # [https]
 # 	proxy = https://m6prxy1:8080
 # 	}}}
-[http]
-[https]
-[http]
-[https]
-[http]
-[https]
-[http]
-[https]
-[http]
-[https]
-[http]
-	proxy = http://m6prxy1:8080
-[https]
-	proxy = https://m6prxy1:8080
