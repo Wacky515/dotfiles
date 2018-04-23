@@ -1,0 +1,42 @@
+# Last Change: 2018/04/23 11:59:22.
+[user]
+	name = wacky515
+	email = wacky515@gmail.com
+[color]
+	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+[alias]
+	ci = commit
+	cm = commit -m
+	st = status
+	co = checkout
+	br = branch
+    p = !git push origin `git rev-parse --abbrev-ref HEAD`
+
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+[core]
+    excludesfile = ~/.gitignore
+	# excludesfile = /Users/wacky515/.gitignore_global
+	editor = vim
+    # コミット時に改行コードを CRLF -> LF
+    autocrlf = input
+    safecrlf = true
+    # autocrlf = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+# [http] # {{{
+# 	proxy = http://proxy.intra.xacti-co.com:8080
+# [https]
+# 	proxy = https://proxy.intra.xacti-co.com:8080
+# [http]
+# 	proxy = http://m6prxy1:8080
+# [https]
+# 	proxy = https://m6prxy1:8080
+# 	}}}
