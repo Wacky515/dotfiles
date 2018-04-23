@@ -1,4 +1,4 @@
-﻿# Last Change: 2018/04/23 10:25:42.
+﻿# Last Change: 2018/04/23 12:12:59.
 # ------------------------------
 # 独自追記
 # ------------------------------
@@ -8,6 +8,7 @@ ctags.exe
 memo.txt
 yankring_history_v2.txt
 gitconfig_hbamb748.local
+/etc/init/windows/settings/cygwin/apt-cyg/
 
 # 特定の拡張子を無視する場合はどこにも/を付けない
 *.ok
