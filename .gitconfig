@@ -1,4 +1,4 @@
-# Last Change: 2018/04/23 12:19:38.
+# Last Change: 2018/04/23 12:27:31.
 [user]
 	name = wacky515
 	email = wacky515@gmail.com
@@ -37,7 +37,7 @@
 	trustExitCode = true
 
 [includeIf "gitdir:C:\Users\mm12167\dotfiles"]
-  path = C:\\Users\\mm12167\\gitconfig_hbanb748.local
+    path = C:\\Users\\mm12167\\gitconfig_hbanb748.local
 
 # [http]  # {{{
 # 	proxy = http://proxy.intra.xacti-co.com:8080
