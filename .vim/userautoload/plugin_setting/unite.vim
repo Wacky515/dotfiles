@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/19 20:47:14.
+" Last Change: 2018/04/23 12:09:26.
 
 " 基本設定
 " unite general settings
@@ -29,10 +29,9 @@ nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
 nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
 " Colorscheme プレビュー
 nnoremap <silent> [unite]l :<C-u>Unite -auto-preview colorscheme<CR>
-" FIXME: 使用できない
 " 最近使用したファイル一覧
-" nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
 nnoremap <silent> [unite]m :Unite file_mru<CR>
+" 最近使用したウィンドウ一覧
 nnoremap <silent> [unite]w :<C-u>Unite window<CR>
 "file_mruの表示フォーマットを指定。空にすると表示スピードが高速化される
 let g:unite_source_file_mru_filename_format = ""

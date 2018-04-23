@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/04/19 08:25:04.
+# Last Change: 2018/04/23 09:01:05.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -57,8 +57,9 @@ repo = 'tpope/vim-fugitive'
 repo = 'cohama/agit.vim'
 # # コミットログ入力をサポート
 # KILL: fugitiveと相性悪い？
-# [[plugins]]
-# repo = 'rhysd/committia.vim'
+# MEMO: そんなことない?改行コードの問題？
+[[plugins]]
+repo = 'rhysd/committia.vim'
 # 追加、削除マーカ表示
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
