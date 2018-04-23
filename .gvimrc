@@ -1,23 +1,20 @@
 scriptencoding utf-8
-" Last Change: 2018/04/05 08:09:07.
+" Last Change: 2018/04/19 11:10:29.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
 " ----------------------------------------------------------------------
 
 " カラースキーマの指定
-" NG: 最下部の条件分岐に統合
-" NG: dein_lazy.toml に統合
-" colorscheme iceberg
+" MEMO: 設定の反映が不安定なため"dein" に設定移譲
+" colorscheme iceberg " {{{
 " colorscheme hybrid
-" colorscheme molokai " {{{
+" colorscheme molokai
 " colorscheme desert
 " colorscheme jellybeans
 " }}}
 
 " 暗背景用の配色にする
-" NG: 最下部の条件分岐に統合
-" NG: dein_lazy.toml に統合
 " set background=dark
 " " 明背景用の配色にする " {{{
 " set background=light
