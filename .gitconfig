@@ -1,4 +1,4 @@
-# Last Change: 2018/04/23 11:59:22.
+# Last Change: 2018/04/28 08:10:07.
 [user]
 	name = wacky515
 	email = wacky515@gmail.com
@@ -36,8 +36,8 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 
-[includeIf "gitdir:C:\Users\mm12167\dotfiles"]
-    path = C:\\Users\\mm12167\\gitconfig_hbanb748.local
+[includeIf "gitdir:C:/Users/mm12167/"]
+    path = ~/gitconfig_hbamb748.local
 
 # [http]  # {{{
 # 	proxy = http://proxy.intra.xacti-co.com:8080
