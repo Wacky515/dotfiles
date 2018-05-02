@@ -1,10 +1,16 @@
-# 環境変数
+# Last Change: 2018/05/02 23:16:21.
+# 日本語を使用
 export LANG=ja_JP.UTF-8
 
 ## エイリアス
 alias la="ls -la"
 alias ll="ls -l"
 alias fn="find ./ -name"
+
+# ディレクトリ移動
+alias ..='cd ../'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 ## OS 別設定
 case ${OSTYPE} in
@@ -21,8 +27,6 @@ case ${OSTYPE} in
 
     msys)
         # "Windows" 用設定
-        # alias vim="C:\\Users\\mm12167\\vim80-kaoriya-win64\\vim.exe"
-        # alias gvim="C:\\Users\\mm12167\\vim80-kaoriya-win64\\gvim.exe"
         alias vim="~/vim80-kaoriya-win64/vim.exe"
         alias gvim="~/vim80-kaoriya-win64/gvim.exe"
         alias nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
@@ -30,6 +34,7 @@ case ${OSTYPE} in
 esac
 
 ## プロンプト系
+# 色を使用
 autoload colors
 colors
 
