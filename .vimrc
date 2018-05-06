@@ -1,7 +1,7 @@
 scriptencoding utf-8
-" Last Change: 2018/04/06 08:13:56.
+" Last Change: 2018/05/03 14:02:37.
 
-" !!!: 必ず先頭に記述
+" MEMO: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
 augroup MyAutoCmd
     autocmd!
@@ -22,93 +22,138 @@ endif
 " ---------------------------------------------------------------------------
 " dein.vimの設定
 " ---------------------------------------------------------------------------
-if !&compatible
-    set nocompatible
-endif
+if ((has("win32") || has("win64")) && !has("kaoriya"))
 
-" "Vim" 起動完了時にインストール
-augroup PluginInstall
-    autocmd!
-    autocmd VimEnter * if dein#check_install() | call dein#install() | endif
-augroup END
+    " TODO:  " {{{
+    " Windows の Vim で dein がインストールできたら
+    " 通常の dein と統合する
+    " プラグインをインストールするディレクトリを指定
+    " let s:plugin_dir = expand("~\.cache\dein")
+    "
+    " " "dein.vim" をインストールするディレクトリをランタイムパスへ追加
+    " let s:dein_dir = s:plugin_dir . "\\repos\\github.com\\Shougo\\dein.vim"
+    "
+    " " "dein.vimが" なければ "git clone"
+    " if &runtimepath !~# "/dein.vim"
+    "     if !isdirectory(s:dein_dir)
+    "         execute "!git clone https://github.com/Shougo/dein.vim" s:dein_dir
+    "     endif
+    "     execute "set runtimepath^=" . s:dein_dir
+    " endif
+    "
+    " " 設定開始
+    " if dein#load_state(s:plugin_dir)
+    "     call dein#begin(s:plugin_dir)
+    "
+    "     " プラグインリスト "*.toml" を指定
+    "     let g:rc_dir    = expand("~/vimfiles/rc")
+    "     let s:toml      = g:rc_dir . "/dein.toml"
+    "     let s:lazy_toml = g:rc_dir . "/dein_lazy.toml"
+    "
+    "     " "*.toml" を読込み、キャッシュ
+    "     call dein#load_toml(s:toml,      {"lazy": 0})
+    "     call dein#load_toml(s:lazy_toml, {"lazy": 1})
+    "
+    "     " 設定終了
+    "     call dein#end()
+    "     call dein#save_state()
+    " endif
+    "
+    " " 未インストールのプラグインがあればインストール
+    " if dein#check_install()
+    "     call dein#install()
+    " endif
+" }}}
 
-" プラグインをインストールするディレクトリを指定
-if !has("nvim")
-    let s:plugin_dir = expand("~/.cache/dein/")
-elseif has("unix")
-    " TODO: Unix系のパス設定追加
-    let s:plugin_dir = expand("~/.config/nvim/.cache/dein/")
-elseif has("win32") || has("win64")
-    if hostname() == "HBAMB748A"
-        let s:plugin_dir = expand("C:\\Users\\MM12167\\AppData\\Local\\nvim\\.cache\\dein\\")
-    else
-        " FTR:
-        " let s:plugin_dir = expand("~/.cache/nvim/dein/")
-        let s:plugin_dir = expand("~/AppData/Local/nvim/.cache/dein/")
-    endif
-elseif exists("g:nyaovim_version")
-    let s:dein_cache_path = expand("~/.config/nyaovim/dein")
-endif
-
-" "dein.vim" をインストールするディレクトリをランタイムパスへ追加
-if hostname() == "HBAMB748A"
-    let s:dein_dir = s:plugin_dir . "repos\\github.com\\Shougo\\dein.vim"
 else
-    let s:dein_dir = s:plugin_dir . "repos/github.com/Shougo/dein.vim"
-endif
-execute "set runtimepath+=" . s:dein_dir
+    if !&compatible
+        set nocompatible
+    endif
 
-" "dein.vimが" なければ "git clone"
-if !isdirectory(s:dein_dir)
-    call mkdir(s:dein_dir, "p")
-    silent execute printf("!git clone %s %s", "https://github.com/Shougo/dein.vim", s:dein_dir)
-endif
-" < http://yuheikagaya.hatenablog.jp/entry/2016/03/20/171907 >
+    " "Vim" 起動完了時にインストール
+    augroup PluginInstall
+        autocmd!
+        autocmd VimEnter * if dein#check_install() | call dein#install() | endif
+    augroup END
 
-" 設定開始
-if dein#load_state(s:plugin_dir)
-    call dein#begin(s:plugin_dir)
+    " プラグインをインストールするディレクトリを指定
+    if !has("nvim")
+        let s:plugin_dir = expand("~/.cache/dein/")
+    elseif has("unix")
+        " TODO: Unix系のパス設定追加
+        let s:plugin_dir = expand("~/.config/nvim/.cache/dein/")
+    elseif has("win32") || has("win64")
+        if hostname() == "HBAMB748A"
+            let s:plugin_dir = expand("C:\\Users\\MM12167\\AppData\\Local\\nvim\\.cache\\dein\\")
+        else
+            " FTR:
+            " let s:plugin_dir = expand("~/.cache/nvim/dein/")
+            let s:plugin_dir = expand("~/AppData/Local/nvim/.cache/dein/")
+        endif
+    elseif exists("g:nyaovim_version")
+        let s:dein_cache_path = expand("~/.config/nyaovim/dein")
+    endif
 
-    " プラグインリスト "*.toml" を指定
-    if has("nvim") && hostname() == "HBAMB748A"
-        let g:rc_dir      = expand("C:\\Users\\MM12167\\.vim\\rc")
-        let s:toml        = g:rc_dir . "\\dein.toml"
-        let s:lazy_toml   = g:rc_dir . "\\dein_lazy.toml"
-        let s:python_toml = g:rc_dir . "\\dein_python.toml"
+    " "dein.vim" をインストールするディレクトリをランタイムパスへ追加
+    if hostname() == "HBAMB748A"
+        let s:dein_dir = s:plugin_dir . "repos\\github.com\\Shougo\\dein.vim"
     else
-        let g:rc_dir      = expand("~/.vim/rc")
-        let s:toml        = g:rc_dir . "/dein.toml"
-        let s:lazy_toml   = g:rc_dir . "/dein_lazy.toml"
-        let s:python_toml = g:rc_dir . "/dein_python.toml"
+        let s:dein_dir = s:plugin_dir . "repos/github.com/Shougo/dein.vim"
+    endif
+    execute "set runtimepath+=" . s:dein_dir
+
+    " "dein.vimが" なければ "git clone"
+    if !isdirectory(s:dein_dir)
+        call mkdir(s:dein_dir, "p")
+        silent execute printf("!git clone %s %s", "https://github.com/Shougo/dein.vim", s:dein_dir)
+    endif
+    " < http://yuheikagaya.hatenablog.jp/entry/2016/03/20/171907 >
+
+    " 設定開始
+    if dein#load_state(s:plugin_dir)
+        call dein#begin(s:plugin_dir)
+
+        " プラグインリスト "*.toml" を指定
+        if has("nvim") && hostname() == "HBAMB748A"
+            let g:rc_dir      = expand("C:\\Users\\MM12167\\.vim\\rc")
+            let s:toml        = g:rc_dir . "\\dein.toml"
+            let s:lazy_toml   = g:rc_dir . "\\dein_lazy.toml"
+            let s:python_toml = g:rc_dir . "\\dein_python.toml"
+        else
+            let g:rc_dir      = expand("~/.vim/rc")
+            let s:toml        = g:rc_dir . "/dein.toml"
+            let s:lazy_toml   = g:rc_dir . "/dein_lazy.toml"
+            let s:python_toml = g:rc_dir . "/dein_python.toml"
+        endif
+
+        " "*.toml" を読込み、キャッシュ
+        call dein#load_toml(s:toml,            {"lazy": 0})
+        call dein#load_toml(s:lazy_toml,       {"lazy": 1})
+        if has ("python3")
+            call dein#load_toml(s:python_toml, {"lazy": 0})
+        endif
+
+        if exists("g:nyaovim_version")
+            call dein#add("rhysd/nyaovim-markdown-preview")
+            call dein#add("rhysd/nyaovim-mini-browser")
+            " call dein#add("rhysd/nyaovim-popup-tooltip")
+        endif
+
+        " 設定終了
+        call dein#end()
+        call dein#save_state()
     endif
 
-    " "*.toml" を読込み、キャッシュ
-    call dein#load_toml(s:toml,            {"lazy": 0})
-    call dein#load_toml(s:lazy_toml,       {"lazy": 1})
-    if has ("python3")
-        call dein#load_toml(s:python_toml, {"lazy": 0})
+    " 未インストールのプラグインがあればインストール
+    if dein#check_install()
+        call dein#install()
     endif
-
-    if exists('g:nyaovim_version')
-        call dein#add('rhysd/nyaovim-markdown-preview')
-        call dein#add('rhysd/nyaovim-mini-browser')
-        " call dein#add('rhysd/nyaovim-popup-tooltip')
-    endif
-
-    " 設定終了
-    call dein#end()
-    call dein#save_state()
 endif
-
-" 未インストールのプラグインがあればインストール
-if dein#check_install()
-    call dein#install()
-endif
-
-" MEMO:
-" プラグインの追加・削除やtomlファイルの設定を変更した後は
-" 適宜 "du: call dein#check_update()" や "dc: call dein#clear_state()" を実行する
-" --------------------------------------------------------------------------------
+"
+" " MEMO:
+" " プラグインの追加・削除やtomlファイルの設定を変更した後は
+" " 適宜 "du: call dein#check_update()" や "dc: call dein#clear_state()" を実行する
+" " --------------------------------------------------------------------------------
 
 " ---------------------------------------------------------------------------
 " Init処理
