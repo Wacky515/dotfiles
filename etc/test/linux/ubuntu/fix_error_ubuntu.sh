@@ -1,10 +1,10 @@
 #!/bin/bash
-# @(#) Intall GPIO Python
+# @(#) Fix Plymouth error
 
 source ~/dotfiles/function/result_echo.sh
 
-readonly PROCESS="install GPIO Python"
+readonly PROCESS="fix Plymouth error"
 
 ym_echo ">> ${PROCESS^}"
-sudo apt -y install python-rpi.gpio
+sudo dpkg-reconfigure Plymouth
 result_echo $? "${PROCESS}"
