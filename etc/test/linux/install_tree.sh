@@ -1,10 +1,10 @@
 #!/bin/bash
-# @(#) Intall GPIO Python
+# @(#) Intall tree
 
 source ~/dotfiles/function/result_echo.sh
 
-readonly PROCESS="install GPIO Python"
+readonly PROCESS="install tree"
 
 ym_echo ">> ${PROCESS^}"
-sudo apt -y install python-rpi.gpio
+sudo apt -y install tree
 result_echo $? "${PROCESS}"
