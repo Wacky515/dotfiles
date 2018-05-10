@@ -1,6 +1,6 @@
 #!/bin/bash
 # @(#) Intall guake
-# F12$B$G2hLL>eIt$+$i8F=P$9%?!<%_%J%k(B
+# "F12" で画面上部から呼出すターミナル
 
 source ~/dotfiles/function/result_echo.sh
 
