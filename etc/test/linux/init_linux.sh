@@ -1,5 +1,9 @@
 #!bin/bash
 # @(#) Init Linux
+# Created:     2017/12/25 00:00:00
+# Last Change: 2018/05/10 09:59:29.
+
+# TODO: "apt" と "yum" を条件分岐する install_dotfiles.sh 参照
 
 source ~/dotfiles/function/result_echo.sh
 
@@ -22,13 +26,13 @@ do
 sudo bash ./${g}
 done
 
-# $B%G%#%9%H%j%S%e!<%7%g%s!"%S%C%H?t(B $BH=JL(B
+# ディストリビューション、ビット数 判別
 declare -a info=($(./get_distribution.sh))
 ym_echo ">> Install & setting each bit"
 if [[ ${info[1]} == "x86_64" ]]; then
     echo "64bit"
     os_bit=x64
-else 
+else
     echo "32bit"
     os_bit=x32
 fi
@@ -49,7 +53,7 @@ cd -
 
 
 ym_echo ">> Install & setting each distribution"
-# $B%G%#%9%H%j%S%e!<%7%g%s(B $BH=JL(B
+# ディストリビューション 判別
 # declare -a info=($(./get_distribution.sh))
 
 case ${info[0]} in

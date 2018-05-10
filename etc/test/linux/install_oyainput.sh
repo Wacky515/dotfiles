@@ -12,4 +12,4 @@ cd ~/oyainput
 make
 sudo make install
 result_echo $? "${PROCESS}"
-# $B<+F05/F0$5$;$k(B
+# 自動起動させる
