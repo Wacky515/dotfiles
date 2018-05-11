@@ -1,18 +1,24 @@
 #!bin/bash
 # @(#) Init Linux
 # Created:     2017/12/25 00:00:00
-# Last Change: 2018/05/10 09:59:29.
-
-# TODO: "apt" と "yum" を条件分岐する install_dotfiles.sh 参照
+# Last Change: 2018/05/10 18:37:11.
 
 source ~/dotfiles/function/result_echo.sh
+source ~/dotfiles/function/color_echo.sh
 
-# **
+readonly PROCESS="init Linux"
+ym_echo ">> ${PROCESS^}"
+
+# Make symbolic link
 bash ~/dotfiles/link.sh
 
-# apt update
 ym_echo ">> Init update"
-sudo bash ./apt_update.sh
+
+if type "apt" > /dev/null 2>&1; then
+    sudo bash ./apt_update.sh
+elif type "yum" > /dev/null 2>&1; then
+    sudo bash ./yum_update.sh
+fi
 
 ym_echo ">> Init install"
 for f in install_*.sh
@@ -98,3 +104,5 @@ cd ../..
 
 ym_echo ">> Final update"
 sudo bash ./apt_update.sh
+
+result_echo $? "${PROCESS}"
