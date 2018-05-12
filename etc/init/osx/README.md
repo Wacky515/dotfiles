@@ -1,9 +1,9 @@
 #Initial setting scripts for OS X
 
-## TODO
-- Make shell check_brew_install_list.sh
+## Usage
+- Run command below
 
-## None
-
-## OS X install list
-`brew list >> manually_install_list.txt`
+|Tool|Command|
+|---|---|
+|cURL|bash -c "$(curl -fsSL https://raw.githubusercontent.com/Wacky515/dotfiles/etc/test/make_dotfiles.sh | bash)"|
+|Wget|bash -c "$(wget -qO - https://raw.githubusercontent.com/Wacky515/dotfiles/etc/test/make_dotfiles.sh | bash)"|
