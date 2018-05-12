@@ -1,9 +1,14 @@
 #!/bin/bash
 # @(#) ***
 # Created:     __DATE__
-# Last Change: 2018/04/13 09:57:23.
+# Last Change: 2018/05/12 12:30:50.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
 
-ym_echo ">> Start "
+readonly PROCESS="install ***"
+
+ym_echo ">> ${PROCESS^}"
+# ym_echo ">> Start "
+
+result_echo $? "${PROCESS}"
