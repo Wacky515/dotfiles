@@ -1,13 +1,7 @@
 #!/bin/bash
 # @(#) Install Cica font for Ubuntu
 # Created:     2018/05/06 18:08:09
-# Last Change: 2018/05/12 14:00:21.
-
-# TRY:
-# curlかwgetでhttps://github.com/miiton/Cica/releases/download/v3.0.0-rc1/Cica_v3.0.0-rc1.zipをダウンロードする
-
-# FIXME:
-# fontforge: can't open file 'cica.py': [Errno 2] そのようなファイルやディレクトリはありません
+# Last Change: 2018/05/13 15:25:07.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
@@ -42,12 +36,19 @@ ym_echo ">> ${PROCESS^}"
 # rm -r ~/ubuntu-font-family-0.83.zip
 # }}}
 
+# 存在しない場合のみ
+mkdir ~/.fonts
+cd $_
 wget https://github.com/miiton/Cica/releases/download/v2.1.0/Cica_v2.1.0.zip
 unzip Cica_v2.1.0.zip
+<<<<<<< HEAD:etc/test/linux/NY_install_cica.sh
 #存在しない場合のみ
 mkdir ~/.fonts
+=======
+>>>>>>> 0b5d1c34c48139b21696273a4487a0999969e761:etc/test/linux/install_cica.sh
 mv Cica-*.ttf ~/.fonts/.
 sudo fc-cache -fv
 rm -f Cica_v2.1.0.zip
+rm -lf COPYRIGHT.txt LICENSE.txt
 
 result_echo $? "${PROCESS}"
