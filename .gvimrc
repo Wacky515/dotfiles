@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/04/19 11:10:29.
+" Last Change: 2018/05/12 14:06:36.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -76,12 +76,12 @@ syntax on
 " フォントの設定
 if has("linux")
     if !has("nvim")
-        set guifont=DejaVu\ Sans\ Mono\ 13
+    set guifont=Cica:h16
+    set printfont=Cica:h12
     else
         Guifont! DejaVu\ Sans\ Mono\ 13
     endif
-    " colorscheme hybrid
-    " set background=dark
+        Guifont! Cica:h18
 
 elseif has("mac")
     if hostname() == "ProSalad13.local"
@@ -95,7 +95,6 @@ elseif has("mac")
             set guifont=Cica:h16
             set printfont=Cica:h12
         else
-            " Guifont! Consolas:h18
             Guifont! Cica:h18
         endif
         " colorscheme iceberg
