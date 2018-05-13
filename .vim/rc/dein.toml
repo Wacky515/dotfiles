@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/04/23 09:01:05.
+# Last Change: 2018/05/13 15:38:45.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -56,8 +56,6 @@ repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'cohama/agit.vim'
 # # コミットログ入力をサポート
-# KILL: fugitiveと相性悪い？
-# MEMO: そんなことない?改行コードの問題？
 [[plugins]]
 repo = 'rhysd/committia.vim'
 # 追加、削除マーカ表示
@@ -68,6 +66,11 @@ repo = 'airblade/vim-gitgutter'
 # F4: :GundoToggle Undo履歴起動
 [[plugins]]
 repo = 'sjl/gundo.vim'
+
+# Diff
+# :DirDiff A B AとBを比較
+[[plugins]]
+repo = 'vim-scripts/DirDiff.vim'
 
 # ステータスライン ビジュアル強化
 [[plugins]]
