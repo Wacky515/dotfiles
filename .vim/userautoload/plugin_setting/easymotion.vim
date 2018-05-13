@@ -1,8 +1,8 @@
 scriptencoding utf-8
-" Last Change: 2018/03/24 23:13:02.
+" Last Change: 2018/05/13 16:59:11.
 
-" mm: "EasyMotion" 開始
-map mm <Plug>(easymotion-prefix)
+" ee: "EasyMotion" 開始
+nnoremap ee <Plug>(easymotion-prefix)
 
 " デフォルトのキーマッピングを無効に
 let g:EasyMotion_do_mapping = 0
