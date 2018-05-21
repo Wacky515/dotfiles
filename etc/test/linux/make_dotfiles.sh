@@ -3,8 +3,8 @@
 # Created:     2018/05/09 10:15:36
 # Last Change: 2018/05/21 16:58:04.
 
-# source ~/dotfiles/function/result_echo.sh 2>&1
-# source ~/dotfiles/function/color_echo.sh 2>&1
+source ~/dotfiles/function/result_echo.sh 2>&1
+source ~/dotfiles/function/color_echo.sh 2>&1
 
 readonly PROCESS="make dotfiles"
 
