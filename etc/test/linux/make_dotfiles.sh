@@ -3,15 +3,15 @@
 # Created:     2018/05/09 10:15:36
 # Last Change: 2018/05/21 16:58:04.
 
-source ~/dotfiles/function/result_echo.sh
-source ~/dotfiles/function/color_echo.sh
+source ~/dotfiles/function/result_echo.sh 2>&1
+source ~/dotfiles/function/color_echo.sh 2>&1
 
 readonly PROCESS="make dotfiles"
 
 DOT_DIRECTORY="${HOME}/dotfiles"
 GIT_URL="https://github.com/Wacky515/dotfiles.git"
 
-ym_echo ">> ${PROCESS^}"
+ym_echo ">> ${PROCESS^}" 2>&1 || echo ">> ${PROCESS^}"
 
 # "dotfiles/.git" がなければ "git clone" かダウンロード
 if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
@@ -57,4 +57,4 @@ else
     echo ">> Aleady exist dotfiles directory"
 fi
 
-result_echo $? "${PROCESS}"
+result_echo $? "${PROCESS}" 2>&1 || echo $? "${PROCESS}"
