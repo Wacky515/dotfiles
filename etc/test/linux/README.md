@@ -1,4 +1,4 @@
-# Test scripts for Linux
+# Test setting scripts for Linux
 
 ## Usage
 - Run command below
