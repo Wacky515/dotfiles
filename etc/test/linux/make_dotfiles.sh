@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/10 19:56:39.
+# Last Change: 2018/05/21 16:58:04.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
@@ -40,11 +40,18 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
 
     echo ">> Download dotfiles complete"
     sh ~/dotfile/link.sh
-    # TODO: OSXの時
-    # ↓ 未作成
-    # sh ~/dotfile/etc/test/osx/init_osx.sh
-    # それ以外で条件分岐
-    sh ~/dotfile/etc/test/linux/init_linux.sh
+
+    # OS毎の設定
+    case ${OSTYPE} in
+        darwin*)
+            # "Mac" 用設定
+            sh ~/dotfile/etc/test/osx/init_osx.sh
+            ;;
+
+        linux*)
+            # "Linux" 用設定
+            sh ~/dotfile/etc/test/linux/init_linux.sh
+            ;;
 
 else
     echo ">> Aleady exist dotfiles directory"
