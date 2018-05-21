@@ -1,19 +1,22 @@
 @echo off
+rem Created:     2017/01/18 00:00:00
+rem Last Change: 2018/05/21 09:50:12.
 
 rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 cd /d %bat_path%
 
-echo "Setting Yamabuki R"
+echo ^>^> Setting Yamabuki R
 
 rem 設定ファイル コピー
-rem copy /y "Cust_NICOLA.yab" %HOMEPATH%"\yamabuki_r1.11.1"
-rem copy /y "yamabuki_r.ypr" %HOMEPATH%"\yamabuki_r1.11.1"
-
-copy /y "Cust_NICOLA.yab" %HOMEPATH%"\yamabuki_r1.11.1.w"
 copy /y "yamabuki_r.ypr" %HOMEPATH%"\yamabuki_r1.11.1.w"
 
-rem スタートアップにショートカット 作成(Windows7/10で当該Dir異なるはずやけど同じやがな・・・)
+rem "InitApp" に内包
+rem copy /y "Cust_NICOLA.yab" %HOMEPATH%"\yamabuki_r1.11.1.w"
+rem copy /y "orz0022.yab" %HOMEPATH%"\yamabuki_r1.11.1.w"
+
+rem スタートアップにショートカット 作成
+    rem Windows7/10で当該Dir異なるはずやけど同じやがな・・・
 ver | find "Version 6.1." > nul
 if not errorlevel 1 goto win7
 
