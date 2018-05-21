@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Install HomeBrew
 # Created:     2018/05/03 10:58:45
-# Last Change: 2018/05/03 12:43:27.
+# Last Change: 2018/05/21 17:54:49.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
@@ -28,4 +28,12 @@ else
     brew tap cskroom/versions
 
     brew doctor
+
+    brew install argon/mas/mas
+    brew install rcmdnk/file/brew-file
+    brew file install Brewfile
+    cp ./brewfile ~/.config
+    brew file install Brewfile
+
+    bash ./brew_update.sh
 fi
