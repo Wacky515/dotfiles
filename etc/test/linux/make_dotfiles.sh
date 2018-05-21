@@ -11,8 +11,65 @@ readonly PROCESS="make dotfiles"
 DOT_DIRECTORY="${HOME}/dotfiles"
 GIT_URL="https://github.com/Wacky515/dotfiles.git"
 
-ym_echo ">> ${PROCESS^}" 2>&1 || echo ">> ${PROCESS^}"
+# ym_echo ">> ${PROCESS^}" 2>&1 || echo ">> ${PROCESS^}"
 
+# use colors on terminal
+tput=$(which tput)
+if [ -n "$tput" ]; then
+  ncolors=$($tput colors)
+fi
+if [ -t 1 ] && [ -n "$ncolors" ] && [ "$ncolors" -ge 8 ]; then
+  RED="$(tput setaf 1)"
+  GREEN="$(tput setaf 2)"
+  YELLOW="$(tput setaf 3)"
+  BLUE="$(tput setaf 4)"
+  BOLD="$(tput bold)"
+  NORMAL="$(tput sgr0)"
+else
+  RED=""
+  GREEN=""
+  YELLOW=""
+  BLUE=""
+  BOLD=""
+  NORMAL=""
+fi
+
+dotfiles_logo='
+██████╗  ██████╗ ████████╗███████╗██╗██╗     ███████╗███████╗
+██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝██║██║     ██╔════╝██╔════╝
+██║  ██║██║   ██║   ██║   █████╗  ██║██║     █████╗  ███████╗
+██║  ██║██║   ██║   ██║   ██╔══╝  ██║██║     ██╔══╝  ╚════██║
+██████╔╝╚██████╔╝   ██║   ██║     ██║███████╗███████╗███████║
+╚═════╝  ╚═════╝    ╚═╝   ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝
+
+*** WHAT IS INSIDE? ***
+1. Download my dotfiles from https://github.com/Wacky515/dotfiles
+2. Symlinking dotfiles to home directory
+3. Install packages
+
+*** HOW TO INSTALL? ***
+See the README for documentation.
+Licensed under the MIT license.  
+'
+
+printf "${BOLD}"
+echo   "$dotfiles_logo"
+printf "${NORMAL}"
+
+log "*** ATTENTION ***"
+log "This script can change your entire setup."
+log "I recommend to read first. You can even copy commands one by one."
+echo ""
+read -p "$(warn 'Start install? [y/N] ')" -n 1 -r
+
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+  echo ""
+  error 'Installation failed. Nothing changed.'
+  exit 1
+fi
+
+echo ""
+info "Start install the dotfiles."
 # "dotfiles/.git" がなければ "git clone" かダウンロード
 if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
     if [ ! -d ${DOT_DIRECTORY}]; then
