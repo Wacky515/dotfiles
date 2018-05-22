@@ -34,6 +34,36 @@ else
   NORMAL=""
 fi
 
+### functions
+# info: output terminal green
+info() { 
+  printf "${GREEN}"
+  echo -n "  info  "
+  printf "${NORMAL}"
+  echo "$1"
+}
+
+# error: output terminal red
+error() {
+  printf "${RED}"
+  echo -n "  error "
+  printf "${NORMAL}"
+  echo "$1"
+}
+
+# warn: output terminal yellow
+warn() {
+  printf "${YELLOW}"
+  echo -n "  warn  "
+  printf "${NORMAL}"
+  echo "$1"
+}
+
+# log: out put termial normal
+log() { 
+  echo "  $1" 
+}
+
 dotfiles_logo='
 ██████╗  ██████╗ ████████╗███████╗██╗██╗     ███████╗███████╗
 ██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝██║██║     ██╔════╝██╔════╝
