@@ -66,17 +66,18 @@ log() {
 
 # fix sed command diff between GNU & BSD
 if sed --version 2>/dev/null | grep -q GNU; then
-alias sedi='sed -i '
+  alias sedi='sed -i '
 else
-alias sedi='sed -i "" '
+  alias sedi='sed -i "" '
 fi
+
 # check package
 has() {
-type "$1" > /dev/null 2>&1
+  type "$1" > /dev/null 2>&1
 }
 # create symlink
 symlink() {
-[ -e "$2" ] || ln -sf "$1" "$2"
+  [ -e "$2" ] || ln -sf "$1" "$2"
 }
 
 ### Start install script
@@ -99,7 +100,7 @@ Licensed under the MIT license.
 '
 
 printf "${BOLD}"
-# echo   "$dotfiles_logo"
+echo   "$dotfiles_logo"
 printf "${NORMAL}"
 
 log "*** ATTENTION ***"
