@@ -5,10 +5,10 @@
 
 set -euo pipefail
 
-source ~/dotfiles/function/result_echo.sh 2>&1
-source ~/dotfiles/function/color_echo.sh 2>&1
+# source ~/dotfiles/function/result_echo.sh 2>&1
+# source ~/dotfiles/function/color_echo.sh 2>&1
 
-readonly PROCESS="make dotfiles"
+#! readonly PROCESS="make dotfiles"
 
 DOT_DIRECTORY="${HOME}/dotfiles"
 GIT_URL="https://github.com/Wacky515/dotfiles.git"
