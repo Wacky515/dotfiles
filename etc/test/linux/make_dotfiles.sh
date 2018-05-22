@@ -123,7 +123,7 @@ echo ""
 info "Start install the dotfiles."
 # "dotfiles/.git" がなければ "git clone" かダウンロード
 if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
-    if [ ! -d ${DOT_DIRECTORY} ]; then
+    if [ -d ${DOT_DIRECTORY} ]; then
         rm -r ${DOT_DIRECTORY}
     fi
 
