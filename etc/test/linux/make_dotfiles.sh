@@ -160,6 +160,7 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
             # "Linux" 用設定
             sh ~/dotfile/etc/test/linux/init_linux.sh
             ;;
+     esac
 
 else
     echo ">> Aleady exist dotfiles directory"
