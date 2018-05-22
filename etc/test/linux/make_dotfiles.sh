@@ -8,7 +8,7 @@ set -euo pipefail
 # source ~/dotfiles/function/result_echo.sh 2>&1
 # source ~/dotfiles/function/color_echo.sh 2>&1
 
-#! readonly PROCESS="make dotfiles"
+# readonly PROCESS="make dotfiles"
 
 DOT_DIRECTORY="${HOME}/dotfiles"
 GIT_URL="https://github.com/Wacky515/dotfiles.git"
@@ -20,6 +20,8 @@ tput=$(which tput)
 if [ -n "$tput" ]; then
   ncolors=$($tput colors)
 fi
+
+
 if [ -t 1 ] && [ -n "$ncolors" ] && [ "$ncolors" -ge 8 ]; then
   RED="$(tput setaf 1)"
   GREEN="$(tput setaf 2)"
@@ -101,14 +103,14 @@ See the README for documentation.
 Licensed under the MIT license.  
 '
 
-printf "${BOLD}"
-echo   "$dotfiles_logo"
-printf "${NORMAL}"
+# printf "${BOLD}"
+# echo   "$dotfiles_logo"
+# printf "${NORMAL}"
 
-log "*** ATTENTION ***"
-log "This script can change your entire setup."
-log "I recommend to read first. You can even copy commands one by one."
-echo ""
+# log "*** ATTENTION ***"
+# log "This script can change your entire setup."
+# log "I recommend to read first. You can even copy commands one by one."
+# echo ""
 read -p "$(warn 'Start install? [y/N] ')" -n 1 -r
 
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
