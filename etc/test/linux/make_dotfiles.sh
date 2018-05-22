@@ -111,7 +111,7 @@ Licensed under the MIT license.
 # log "This script can change your entire setup."
 # log "I recommend to read first. You can even copy commands one by one."
 # echo ""
-read -p "$(warn 'Start install? [y/N] ')" -n 1 -r
+# read -p "$(warn 'Start install? [y/N] ')" -n 1 -r
 
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
   echo ""
