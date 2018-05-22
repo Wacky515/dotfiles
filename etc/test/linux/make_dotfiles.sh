@@ -83,7 +83,7 @@ Licensed under the MIT license.
 '
 
 printf "${BOLD}"
-echo   "$dotfiles_logo"
+# echo   "$dotfiles_logo"
 printf "${NORMAL}"
 
 log "*** ATTENTION ***"
