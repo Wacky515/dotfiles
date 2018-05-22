@@ -3,7 +3,7 @@
 # Created:     2018/05/09 10:15:36
 # Last Change: 2018/05/21 16:58:04.
 
-set -euo pipefail
+# set -euo pipefail
 
 # source ~/dotfiles/function/result_echo.sh 2>&1
 # source ~/dotfiles/function/color_echo.sh 2>&1
@@ -20,7 +20,6 @@ tput=$(which tput)
 if [ -n "$tput" ]; then
   ncolors=$($tput colors)
 fi
-
 
 if [ -t 1 ] && [ -n "$ncolors" ] && [ "$ncolors" -ge 8 ]; then
   RED="$(tput setaf 1)"
@@ -79,6 +78,7 @@ fi
 has() {
   type "$1" > /dev/null 2>&1
 }
+
 # create symlink
 symlink() {
   [ -e "$2" ] || ln -sf "$1" "$2"
@@ -119,34 +119,33 @@ Licensed under the MIT license.
 #   exit 1
 # fi
 
-echo ""
-info "Start install the dotfiles."
+echo >> Start install the dotfiles.
 # "dotfiles/.git" がなければ "git clone" かダウンロード
 if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
     if [ -d ${DOT_DIRECTORY} ]; then
         rm -r ${DOT_DIRECTORY}
     fi
 
-    echo ">> Downloading dotfiles..."
+    echo >> Downloading dotfiles...
     if type "git" > /dev/null 2>&1; then
         echo ">> Git clone"
         cd ~/
         git clone "${GIT_URL}"
 
     else
-        echo ">> Install Git first"
+        echo >> Install Git first
         if type "apt" > /dev/null 2>&1; then
             sudo apt -y install git
         elif type "yum" > /dev/null 2>&1; then
             sudo yum -y install git
         fi
 
-        echo ">> Git clone..."
+        echo >> Git clone...
         cd ~/
         git clone "${GIT_URL}"
     fi
 
-    echo ">> Download dotfiles complete"
+    echo >> Download dotfiles complete
     sh ~/dotfile/link.sh
 
     # OS毎の設定
@@ -163,7 +162,7 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
      esac
 
 else
-    echo ">> Aleady exist dotfiles directory"
+    echo >> Aleady exist dotfiles directory
 fi
 
 result_echo $? "${PROCESS}" 2>&1 || echo $? "${PROCESS}"
