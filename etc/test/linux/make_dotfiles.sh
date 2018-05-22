@@ -127,6 +127,16 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
     fi
 
     echo >> Downloading dotfiles...
+    if [ "$(uname)" == 'Darwin' ]; then
+        if type "brew" > /dev/null 2>&1; then
+            brew update
+            brew install git
+        else
+            /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+            brew update
+            brew install git
+        fi
+        
     if type "git" > /dev/null 2>&1; then
         echo ">> Git clone"
         cd ~/
