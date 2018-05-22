@@ -136,6 +136,7 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
             brew update
             brew install git
         fi
+    fi
         
     if type "git" > /dev/null 2>&1; then
         echo ">> Git clone"
