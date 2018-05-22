@@ -113,11 +113,11 @@ Licensed under the MIT license.
 # echo ""
 # read -p "$(warn 'Start install? [y/N] ')" -n 1 -r
 
-if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-  echo ""
-  error 'Installation failed. Nothing changed.'
-  exit 1
-fi
+# if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+#   echo ""
+#   error 'Installation failed. Nothing changed.'
+#   exit 1
+# fi
 
 echo ""
 info "Start install the dotfiles."
