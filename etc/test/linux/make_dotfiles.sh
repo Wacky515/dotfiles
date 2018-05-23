@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/23 18:32:04.
+# Last Change: 2018/05/23 19:45:50.
 
 # TODO: "type" を "has" に置き換える
 # FIXME: OS X: echoの文頭名のファイルが生成されてしまう
@@ -145,9 +145,7 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
     fi
 
     if type "git" > /dev/null 2>&1; then
-        echo ">> Git clone"
-        cd ~/
-        git clone "${GIT_URL}"
+        echo ">> Already install git"
 
     else
         echo ">> Install Git first"
@@ -157,10 +155,10 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
             sudo yum -y install git
         fi
 
-        echo ">> Git clone..."
-        cd ~/
-        git clone "${GIT_URL}"
     fi
+    echo ">> Git clone..."
+    cd ~/
+    git clone "${GIT_URL}"
 
     echo ">> Download dotfiles complete"
     sh ~/dotfile/link.sh
