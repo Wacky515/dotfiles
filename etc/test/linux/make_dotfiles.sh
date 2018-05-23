@@ -1,9 +1,10 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/22 22:25:13.
+# Last Change: 2018/05/23 18:32:04.
 
 # TODO: "type" を "has" に置き換える
+# FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
 set -euo pipefail
 
@@ -131,7 +132,7 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
         rm -r ${DOT_DIRECTORY}
     fi
 
-    echo >> Downloading dotfiles...
+    echo ">> Downloading dotfiles..."
     if [ "$(uname)" == 'Darwin' ]; then
         if has "brew"
             brew update
