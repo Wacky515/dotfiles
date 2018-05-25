@@ -8,15 +8,15 @@
 
 set -euo pipefail
 
-source ~/dotfiles/function/result_echo.sh 2>&1
-source ~/dotfiles/function/color_echo.sh 2>&1
+# source ~/dotfiles/function/result_echo.sh /dev/null 2>&1
+# source ~/dotfiles/function/color_echo.sh /dev/null 2>&1
 
 readonly PROCESS="make dotfiles"
 
 DOT_DIRECTORY="${HOME}/dotfiles"
 GIT_URL="https://github.com/Wacky515/dotfiles.git"
 
-# ym_echo ">> ${PROCESS^}" 2>&1 || echo ">> ${PROCESS^}"
+# ym_echo ">> ${PROCESS^}" /dev/null 2>&1 || echo ">> ${PROCESS^}"
 
 ### 関数群
 # info: 情報を緑色で出力
@@ -125,7 +125,7 @@ if [ "$(uname)" != 'Darwin' ]; then
     fi
 fi
 
-echo ">> Start install the dotfiles."
+echo ">> Start install the dotfiles"
 # "dotfiles/.git" がなければ "git clone" かダウンロード
 if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
     if [ -d ${DOT_DIRECTORY} ]; then
@@ -134,7 +134,7 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
 
     echo ">> Downloading dotfiles..."
     if [ "$(uname)" == 'Darwin' ]; then
-        if has "brew"
+        if has brew; then
             brew update
             brew install git
         else
@@ -164,23 +164,26 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
     git clone "${GIT_URL}"
 
     echo ">> Download dotfiles complete"
-    sh ~/dotfile/link.sh
-
-    # OS毎の設定
-    case ${OSTYPE} in
-        darwin*)
-            # "Mac" 用設定
-            sh ~/dotfile/etc/test/osx/init_osx.sh
-            ;;
-
-        linux*)
-            # "Linux" 用設定
-            sh ~/dotfile/etc/test/linux/init_linux.sh
-            ;;
-     esac
-
 else
     echo ">> Aleady exist dotfiles directory"
 fi
 
-result_echo $? "${PROCESS}" 2>&1 || echo $? "${PROCESS}"
+echo ">> Link setting files"
+sh ~/dotfiles/link.sh
+
+    # OS毎の設定
+    case ${OSTYPE} in
+        darwin*)
+            # "OS X" 用設定
+            echo ">> Setting OS X"
+            sh ~/dotfiles/etc/test/osx/init_osx.sh
+            ;;
+
+        linux*)
+            # "Linux" 用設定
+            echo ">> Setting Linux"
+            sh ~/dotfiles/etc/test/linux/init_linux.sh
+            ;;
+     esac
+
+# result_echo $? "${PROCESS}" 2>&1 || echo $? "${PROCESS}"
