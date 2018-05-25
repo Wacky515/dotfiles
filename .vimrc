@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/05/03 14:02:37.
+" Last Change: 2018/05/25 06:04:54.
 
 " MEMO: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -46,9 +46,9 @@ if ((has("win32") || has("win64")) && !has("kaoriya"))
     "     call dein#begin(s:plugin_dir)
     "
     "     " プラグインリスト "*.toml" を指定
-    "     let g:rc_dir    = expand("~/vimfiles/rc")
-    "     let s:toml      = g:rc_dir . "/dein.toml"
-    "     let s:lazy_toml = g:rc_dir . "/dein_lazy.toml"
+    "     let g:plugin_dir  = expand("~/vimfiles/plugin")
+    "     let s:toml        = g:plugin_dir . "/dein.toml"
+    "     let s:lazy_toml   = g:plugin_dir . "/dein_lazy.toml"
     "
     "     " "*.toml" を読込み、キャッシュ
     "     call dein#load_toml(s:toml,      {"lazy": 0})
@@ -115,15 +115,15 @@ else
 
         " プラグインリスト "*.toml" を指定
         if has("nvim") && hostname() == "HBAMB748A"
-            let g:rc_dir      = expand("C:\\Users\\MM12167\\.vim\\rc")
-            let s:toml        = g:rc_dir . "\\dein.toml"
-            let s:lazy_toml   = g:rc_dir . "\\dein_lazy.toml"
-            let s:python_toml = g:rc_dir . "\\dein_python.toml"
+            let g:plugin_dir  = expand("C:\\Users\\MM12167\\.vim\\plugin")
+            let s:toml        = g:plugin_dir . "\\dein.toml"
+            let s:lazy_toml   = g:plugin_dir . "\\dein_lazy.toml"
+            let s:python_toml = g:plugin_dir . "\\dein_python.toml"
         else
-            let g:rc_dir      = expand("~/.vim/rc")
-            let s:toml        = g:rc_dir . "/dein.toml"
-            let s:lazy_toml   = g:rc_dir . "/dein_lazy.toml"
-            let s:python_toml = g:rc_dir . "/dein_python.toml"
+            let g:plugin_dir  = expand("~/.vim/plugin")
+            let s:toml        = g:plugin_dir . "/dein.toml"
+            let s:lazy_toml   = g:plugin_dir . "/dein_lazy.toml"
+            let s:python_toml = g:plugin_dir . "/dein_python.toml"
         endif
 
         " "*.toml" を読込み、キャッシュ
