@@ -161,7 +161,11 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
     git clone "${GIT_URL}"
 
     echo ">> Download dotfiles complete"
-    sh ~/dotfiles/link.sh
+else
+    echo ">> Aleady exist dotfiles directory"
+fi
+
+sh ~/dotfiles/link.sh
 
     # OS毎の設定
     case ${OSTYPE} in
@@ -175,9 +179,5 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
             sh ~/dotfiles/etc/test/linux/init_linux.sh
             ;;
      esac
-
-else
-    echo ">> Aleady exist dotfiles directory"
-fi
 
 # result_echo $? "${PROCESS}" 2>&1 || echo $? "${PROCESS}"
