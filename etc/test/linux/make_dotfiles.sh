@@ -8,8 +8,8 @@
 
 set -euo pipefail
 
-source ~/dotfiles/function/result_echo.sh /dev/null 2>&1
-source ~/dotfiles/function/color_echo.sh /dev/null 2>&1
+# source ~/dotfiles/function/result_echo.sh /dev/null 2>&1
+# source ~/dotfiles/function/color_echo.sh /dev/null 2>&1
 
 readonly PROCESS="make dotfiles"
 
@@ -180,4 +180,4 @@ else
     echo ">> Aleady exist dotfiles directory"
 fi
 
-result_echo $? "${PROCESS}" 2>&1 || echo $? "${PROCESS}"
+# result_echo $? "${PROCESS}" 2>&1 || echo $? "${PROCESS}"
