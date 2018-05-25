@@ -134,7 +134,7 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
 
     echo ">> Downloading dotfiles..."
     if [ "$(uname)" == 'Darwin' ]; then
-        if has "brew"
+        if has brew; then
             brew update
             brew install git
         else
