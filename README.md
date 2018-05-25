@@ -1,38 +1,19 @@
-# Install command
-```Bash
-$ cd
-$ ./link.sh
-$ ./link.cmd
-```
+# Wacky515's dotfiles
 
-# Layout
-~/  
-├── dotfiles  
-│    ├── README.md  
-│    ├── .git  
-│    ├── .gitignore  
-│    ├── link.sh  
-│    ├── link.bat  
-│    │  
-│    ├── .vim  
-│    │     ├──userautoloa		" *.vim files  
-│    │     ├──colors			" Color schemer  
-│    │     ├──rc				" Plugin(*.toml)  
-│    │     ├──templat			" Template files  
-│    │     └──tm				" Temporary directory  
-│    │  
-│    ├── .vimr					" dein.vim setting  
-│    └── .gvimrc				" Graphic setting  
-│  
-│     # Symbolic link  
-├── .gitconfig -&gt; /root/dotfiles/.gitconfig  
-├── .vim -&gt; /root/dotfiles/.vim  
-├── .vimrc -&gt; /root/dotfiles/.vimrc  
-└── .gvimrc -&gt; /root/dotfiles/.gvimrc  
+██████╗  ██████╗ ████████╗███████╗██╗██╗     ███████╗███████╗
+██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝██║██║     ██╔════╝██╔════╝
+██║  ██║██║   ██║   ██║   █████╗  ██║██║     █████╗  ███████╗
+██║  ██║██║   ██║   ██║   ██╔══╝  ██║██║     ██╔══╝  ╚════██║
+██████╔╝╚██████╔╝   ██║   ██║     ██║███████╗███████╗███████║
+╚═════╝  ╚═════╝    ╚═╝   ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝
 
-# !!!: Must install "Flake8
+# *** WHAT IS INSIDE? ***
+1. Download my dotfiles from https://github.com/Wacky515/dotfiles
+2. Symlinking dotfiles to home directory
+3. Install packages
 
-# TODO: Aautomatically install
-
-# FIXME: Not modfy yet
-`$ curl -L raw.github.com/wacky515/dotfiles/master/install.sh | bash`
+# *** HOW TO INSTALL? ***
+- See the README for documentation.
+    - OS X & Linux
+        - ~/dotfiles/etc/test/linux/README.md
+- Licensed under the MIT license.
