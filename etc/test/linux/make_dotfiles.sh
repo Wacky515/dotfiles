@@ -161,18 +161,18 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
     git clone "${GIT_URL}"
 
     echo ">> Download dotfiles complete"
-    sh ~/dotfile/link.sh
+    sh ~/dotfiles/link.sh
 
     # OS毎の設定
     case ${OSTYPE} in
         darwin*)
             # "Mac" 用設定
-            sh ~/dotfile/etc/test/osx/init_osx.sh
+            sh ~/dotfiles/etc/test/osx/init_osx.sh
             ;;
 
         linux*)
             # "Linux" 用設定
-            sh ~/dotfile/etc/test/linux/init_linux.sh
+            sh ~/dotfiles/etc/test/linux/init_linux.sh
             ;;
      esac
 
