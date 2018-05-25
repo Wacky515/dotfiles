@@ -125,7 +125,7 @@ if [ "$(uname)" != 'Darwin' ]; then
     fi
 fi
 
-echo ">> Start install the dotfiles."
+echo ">> Start install the dotfiles"
 # "dotfiles/.git" がなければ "git clone" かダウンロード
 if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
     if [ -d ${DOT_DIRECTORY} ]; then
