@@ -1,9 +1,9 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/23 21:01:37.
+# Last Change: 2018/05/25 22:54:51.
 
-# TODO: "type" を "has" に置き換える
+# DONE: "type" を "has" に置き換える
 # FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
 set -euo pipefail
@@ -144,14 +144,17 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
         fi
     fi
 
-    if type "git" > /dev/null 2>&1; then
+    if has "git"
+    # if type "git" > /dev/null 2>&1; then
         echo ">> Already install git"
 
     else
         echo ">> Install Git first"
-        if type "apt" > /dev/null 2>&1; then
+        if has "apt"
+        # if type "apt" > /dev/null 2>&1; then
             sudo apt -y install git
-        elif type "yum" > /dev/null 2>&1; then
+        elif has "yum"
+        # elif type "yum" > /dev/null 2>&1; then
             sudo yum -y install git
         fi
     fi
