@@ -165,17 +165,20 @@ else
     echo ">> Aleady exist dotfiles directory"
 fi
 
+echo ">> Link setting files"
 sh ~/dotfiles/link.sh
 
     # OS毎の設定
     case ${OSTYPE} in
         darwin*)
-            # "Mac" 用設定
+            # "OS X" 用設定
+            echo ">> Setting OS X"
             sh ~/dotfiles/etc/test/osx/init_osx.sh
             ;;
 
         linux*)
             # "Linux" 用設定
+            echo ">> Setting Linux"
             sh ~/dotfiles/etc/test/linux/init_linux.sh
             ;;
      esac
