@@ -1,4 +1,4 @@
-# Last Change: 2018/04/28 08:10:07.
+# Last Change: 2018/05/27 00:12:46.
 [user]
 	name = wacky515
 	email = wacky515@gmail.com
@@ -10,11 +10,12 @@
 	branch = auto
 
 [alias]
+	st = status
+	sts = status --short
 	ci = commit
 	cm = commit -m
-	st = status
-	co = checkout
 	br = branch
+	co = checkout
     p = !git push origin `git rev-parse --abbrev-ref HEAD`
 
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
@@ -23,21 +24,9 @@
 [core]
     excludesfile = ~/.gitignore
 	editor = vim
-    # コミット時に改行コードを CRLF -> LF
-    autocrlf = input
-    safecrlf = true
-    # autocrlf = true
 
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-
-[includeIf "gitdir:C:/Users/mm12167/"]
-    path = ~/gitconfig_hbamb748.local
+[include]
+    path = gitconfig.os
 
 # [http]  # {{{
 # 	proxy = http://proxy.intra.xacti-co.com:8080

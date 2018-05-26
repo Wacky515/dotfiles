@@ -1,6 +1,6 @@
 #!/bin/bash
 # @(#) Setting keyboard layout.
-# Last Change: 2018/04/01 00:29:23.
+# Last Change: 2018/05/27 01:05:50.
 # TODO:
    # 実行結果メッセージ "result_echo.sh" にする
 # FIXME:
@@ -29,36 +29,15 @@ ym_echo ">> Start .gitconfig link"
 
 # まず "git" の設定
 ln -snfv ${DOT_DIR}/.gitconfig ~/.gitconfig
-
 if [ $? = 0 ]
 then
     ym_echo ">> .gitconfig link success!"
-    # "proxy" 設定はバッチ化したので削除
-    # TODO: シェルスクリプト化する
-    # echo "" # {{{
-    # readonly PC_NAME=${HOSTNAME}
-    # readonly PROXY_PC=($(cat ./office_pc.txt));
-    # readonly IFS_SAVE=${IFS}
-    # readonly IFS=$'\n'
-    #
-    # ym_echo ">> This PC name: "${PC_NAME}
-    # ym_echo ">> In office PCs: "
-    # ym_echo ${PROXY_PC[@]}
-    #
-    # if ! $(echo ${PROXY_PC[@]} | grep -q "$PC_NAME")
-    # then
-    #     ym_echo ">> In normal network"
-    # else
-    #     ym_echo ">> In proxy network, set proxy"
-    #     ym_echo ">> Enter password to "su" command(2times)"
-    #     su -c "git config --system http.proxy \
-    #         http.proxy http://m6prxy1:8080"
-    #         # http://proxy.intra.xacti-co.com:8080"
-    #     su -c "git config --system https.proxy \
-    #         https.proxy http://m6prxy1:8080"
-    #         # https://proxy.intra.xacti-co.com:8080"
-    # fi
-# }}}
+fi
+
+ln -snfv ${DOT_DIR}/.gitconfig.linux ~/.gitconfig.os
+if [ $? = 0 ]
+then
+    ym_echo ">> .gitconfig.os link success!"
 fi
 echo ""
 
@@ -77,7 +56,8 @@ do
     [[ ${f} = ".git" ]] && continue
     [[ ${f} = ".git" ]] && continue
     [[ ${f} = ".gitconfig" ]] && continue
-    # [[ ${f} = ".gitignore" ]] && continue
+    [[ ${f} = ".gitconfig.linux" ]] && continue
+    [[ ${f} = ".gitconfig.windows" ]] && continue
 
     [[ ${f} == ".DS_Store" ]] && continue
     [[ ${f} = "*. ~" ]] && continue
