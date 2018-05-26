@@ -1,5 +1,6 @@
 @echo off
-rem Last Change: 2018/04/11 09:49:22.
+rem Created:     2016/08/17 00:00:00
+rem Last Change: 2018/05/27 01:00:38.
 
 rem TODO: 常時管理者として実行する
 rem TODO: "init.vim"、"ginit.vim" シンボリックリンクの
@@ -20,11 +21,11 @@ rem NG: %HOMEPATH%\AppData\Local の nvim をシンボリックリンクにしてはどうか？
 if exist %NVIM_PATH% (
     copy init.vim %NVIM_PATH%
     if %ERRORLEVEL% == 0 (
-        echo init.vim copy success!
+        echo ^>^> init.vim copy success!
         )
     copy ginit.vim %NVIM_PATH%
     if %ERRORLEVEL% == 0 (
-        echo ginit.vim copy success!
+        echo ^>^> ginit.vim copy success!
         )
     )
 rem NG: rem {{{
@@ -39,40 +40,48 @@ if exist %HOMEPATH%"\AppData\Roaming\NyaoVim" (
 rem     mklink %HOMEPATH%"\AppData\Roaming\NyaoVim\nyaovimrc.html" ".\dotfiles\nyaovimrc.html" > nul 2>&1
     copy nyaovimrc.html %HOMEPATH%"\AppData\Roaming\NyaoVim\"
     if %ERRORLEVEL% == 0 (
-        echo nyaovimrc.html link success!
+        echo ^>^> nyaovimrc.html link success!
         )
     )
 
 rem  ".gitconfig" 設定
 mklink %HOMEPATH%"\.gitconfig" ".\dotfiles\.gitconfig" > nul 2>&1
 if %ERRORLEVEL% == 0 (
-    echo .gitconfig link success!
+    echo ^>^> .gitconfig link success!
+    )
+mklink %HOMEPATH%"\.gitconfig.os" ".\dotfiles\.gitconfig.windows" > nul 2>&1
+if %ERRORLEVEL% == 0 (
+    echo ^>^> .gitconfig.os link success!
     )
 
 rem :mk_sylink
 mklink /D %HOMEPATH%"\.vim" ".\dotfiles\.vim" > nul 2>&1
 if %ERRORLEVEL% == 0 (
-    echo .vim link success!
+    echo ^>^> .vim link success!
     )
 
 for %%j in (.*) do (
     if %%j == .bash_history (
-    rem echo ignore1 %%j :消すな！
+        rem echo ignore1 %%j :消すな！
     ) else if %%j == .gitconfig (
-    rem echo ignore2 %%j :消すな！
+        rem echo ignore2 %%j :消すな！
     ) else if %%j == .zsh_history (
-    rem echo ignore3 %%j :消すな！
+        rem echo ignore3 %%j :消すな！
+    ) else if %%j == .gitconfig.windows (
+        rem echo ignore4 %%j :消すな！
+    ) else if %%j == .gitconfig.linux (
+        rem echo ignore5 %%j :消すな！
     ) else (
-    mklink %HOMEPATH%"\"%%j ".\dotfiles\"%%j
-    rem "echo" が表示されない
-    rem mklink %HOMEPATH%"\"%%j ".\dotfiles\"%%j > nul 2>&1
-    rem if %ERRORLEVEL% == 0 (
-    rem     echo Set link %%j
-    rem     )
+        mklink %HOMEPATH%"\"%%j ".\dotfiles\"%%j
+        rem "echo" が表示されない
+        rem mklink %HOMEPATH%"\"%%j ".\dotfiles\"%%j > nul 2>&1
+        rem if %ERRORLEVEL% == 0 (
+        rem     echo Set link %%j
+        rem     )
     )
 )
 
 echo ^>^> End set link
 
-pause
+rem pause
 exit /b 0
