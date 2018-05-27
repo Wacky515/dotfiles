@@ -3,7 +3,7 @@
 
 source ~/dotfiles/function/result_echo.sh
 
-readonly PROCESS="Get installed software list"
+readonly PROCESS="get installed software list"
 
 ym_echo ">> ${PROCESS^}"
 

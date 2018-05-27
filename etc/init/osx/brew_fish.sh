@@ -1,12 +1,13 @@
 #!/bin/bash
 # @(#) Install fish
 # Created:     2018/05/03 10:54:13
-# Last Change: 2018/05/03 11:47:45.
+# Last Change: 2018/05/27 15:39:08.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
 
-ym_echo ">> Start install fish"
+ym_echo ">> ${PROCESS^}"
+# ym_echo ">> Start install fish"
 sh ~/dotfiles/etc/init/osx/install_homebrew.sh
 
 brew install fish
@@ -23,3 +24,4 @@ fisher oh-my-fish/plugin-peco
 curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
 
 fish_update_completions
+result_echo $? "${PROCESS}"

@@ -1,7 +1,7 @@
 #!bin/bash
-# @(#) Init OSX
+# @(#) Initialize OS X
 # Created:     2018/05/21 16:55:15
-# Last Change: 2018/05/21 17:27:45.
+# Last Change: 2018/05/27 15:46:21.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
