@@ -1,7 +1,7 @@
 #!/bin/bash
-# @(#) Symboloic linkig dotfiles.
+# @(#) Symbolic linkig dotfiles.
 # Created:     2017/02/08 00:00:00
-# Last Change: 2018/05/27 14:52:10.
+# Last Change: 2018/05/27 16:19:23.
 # TODO:
 # FIXME:
     # ${HOME} を単体起動と外部呼出しで通常動作させる
@@ -24,7 +24,7 @@ source ~/dotfiles/function/color_echo.sh
 cd $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 
 readonly DOT_DIR="${HOME}/dotfiles"
-readonly PROCESS="Symboloic linkig dotfiles"
+readonly PROCESS="symbolic linkig dotfiles"
 
 ym_echo ">> ${PROCESS^}"
 # ym_echo ">> Make symbolic link"
@@ -79,7 +79,9 @@ done
 
 # "init.vim"、"ginit.vim" の "Init処理"
 if [ ! -e ~/.config/nvim/ ]; then
-    sudo mkdir ~/.config/nvim/
+    # mkdir ~/.config/nvim/
+    # sudo mkdir ~/.config/nvim/
+    sudo -- sh -c "mkdir ~/.config/nvim/"
 fi
 ln -snfv ${DOT_DIR}/init.vim ~/.config/nvim/init.vim
 ln -snfv ${DOT_DIR}/ginit.vim ~/.config/nvim/ginit.vim
