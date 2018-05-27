@@ -1,12 +1,13 @@
 #!/bin/bash
-# @(#) Setting keyboard layout.
-# Last Change: 2018/05/27 01:05:50.
+# @(#) Symboloic linkig dotfiles.
+# Created:     2017/02/08 00:00:00
+# Last Change: 2018/05/27 14:52:10.
 # TODO:
-   # 実行結果メッセージ "result_echo.sh" にする
 # FIXME:
     # ${HOME} を単体起動と外部呼出しで通常動作させる
 
 # DONE:
+    # 実行結果メッセージ "result_echo.sh" にする
     # リンクの "path" を全体的に変えたので確認
     # "NeoVim" 設定を動作確認
     # ".vim" ディレクトリのシンボリックリンクを "NeoVim" 用にする
@@ -23,8 +24,10 @@ source ~/dotfiles/function/color_echo.sh
 cd $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 
 readonly DOT_DIR="${HOME}/dotfiles"
+readonly PROCESS="Symboloic linkig dotfiles"
 
-ym_echo ">> Make symbolic link"
+ym_echo ">> ${PROCESS^}"
+# ym_echo ">> Make symbolic link"
 ym_echo ">> Start .gitconfig link"
 
 # まず "git" の設定
@@ -76,11 +79,12 @@ done
 
 # "init.vim"、"ginit.vim" の "Init処理"
 if [ ! -e ~/.config/nvim/ ]; then
-    mkdir ~/.config/nvim/
+    sudo mkdir ~/.config/nvim/
 fi
 ln -snfv ${DOT_DIR}/init.vim ~/.config/nvim/init.vim
 ln -snfv ${DOT_DIR}/ginit.vim ~/.config/nvim/ginit.vim
 
 ym_echo ">> dotfiles link success"
 ym_echo ">> End make symbolic link"
+result_echo $? "${PROCESS}"
 echo ""
