@@ -144,16 +144,16 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
         fi
     fi
 
-    if has "git"
+    if has "git"; then
     # if type "git" > /dev/null 2>&1; then
         echo ">> Already install git"
 
     else
         echo ">> Install Git first"
-        if has "apt"
+        if has "apt"; then
         # if type "apt" > /dev/null 2>&1; then
             sudo apt -y install git
-        elif has "yum"
+        elif has "yum"; then
         # elif type "yum" > /dev/null 2>&1; then
             sudo yum -y install git
         fi
