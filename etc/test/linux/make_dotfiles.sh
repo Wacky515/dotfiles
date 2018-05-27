@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/27 16:21:31.
+# Last Change: 2018/05/27 17:15:28.
 
 # FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
@@ -18,6 +18,29 @@ readonly DOT_DIRECTORY="${HOME}/dotfiles"
 readonly GIT_URL="https://github.com/Wacky515/dotfiles.git"
 
 # ym_echo ">> ${PROCESS^}" /dev/null 2>&1 || echo ">> ${PROCESS^}"
+
+### 設定
+# 色付きのテキストを端末で使用する設定
+tput=$(which tput)
+if [ -n "$tput" ]; then
+    ncolors=$($tput colors)
+fi
+
+if [ -t 1 ] && [ -n "$ncolors" ] && [ "$ncolors" -ge 8 ]; then
+    RED="$(tput setaf 1)"
+    GREEN="$(tput setaf 2)"
+    YELLOW="$(tput setaf 3)"
+    BLUE="$(tput setaf 4)"
+    BOLD="$(tput bold)"
+    NORMAL="$(tput sgr0)"
+else
+    RED=""
+    GREEN=""
+    YELLOW=""
+    BLUE=""
+    BOLD=""
+    NORMAL=""
+fi
 
 ### 関数群
 # info: 情報を緑色で出力
@@ -66,29 +89,6 @@ symlink() {
     [ -e "$2" ] || ln -sf "$1" "$2"
 }
 
-### 設定
-# 色付きのテキストを端末で使用する設定
-tput=$(which tput)
-if [ -n "$tput" ]; then
-    ncolors=$($tput colors)
-fi
-
-if [ -t 1 ] && [ -n "$ncolors" ] && [ "$ncolors" -ge 8 ]; then
-    RED="$(tput setaf 1)"
-    GREEN="$(tput setaf 2)"
-    YELLOW="$(tput setaf 3)"
-    BLUE="$(tput setaf 4)"
-    BOLD="$(tput bold)"
-    NORMAL="$(tput sgr0)"
-else
-    RED=""
-    GREEN=""
-    YELLOW=""
-    BLUE=""
-    BOLD=""
-    NORMAL=""
-fi
-
 ### MAIN
 dotfiles_logo='
 ██████╗  ██████╗ ████████╗███████╗██╗██╗     ███████╗███████╗
@@ -108,7 +108,7 @@ See the README for documentation.
 Licensed under the MIT license.
 '
 
-if [ "$(uname)" != 'Darwin' ]; then
+# if [ "$(uname)" != 'Darwin' ]; then
     printf "${BOLD}"
     echo   "$dotfiles_logo"
     printf "${NORMAL}"
@@ -124,21 +124,20 @@ if [ "$(uname)" != 'Darwin' ]; then
     error 'Installation failed. Nothing changed.'
     exit 1
     fi
-fi
+# fi
 
-printf "${BOLD}"
-echo   "$dotfiles_logo"
-printf "${NORMAL}"
+# printf "${BOLD}"
+# echo   "$dotfiles_logo"
+# printf "${NORMAL}"
 
-echo ">> Start install the dotfiles"
-info ">> Start install the dotfiles"
+info "Start install the dotfiles"
 # "dotfiles/.git" がなければ "git clone" かダウンロード
 if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
     if [ -d ${DOT_DIRECTORY} ]; then
         rm -r ${DOT_DIRECTORY}
     fi
 
-    echo ">> Downloading dotfiles..."
+    info "Downloading dotfiles..."
     if [ "$(uname)" == 'Darwin' ]; then
         if has brew; then
             brew update
@@ -152,10 +151,10 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
 
     if has "git"; then
     # if type "git" > /dev/null 2>&1; then
-        echo ">> Already install git"
+        warn "Already install git"
 
     else
-        echo ">> Install Git first"
+        warn "Install Git first"
         if has "apt"; then
         # if type "apt" > /dev/null 2>&1; then
             sudo apt -y install git
@@ -165,34 +164,34 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
         fi
     fi
 
-    echo ">> Git clone..."
+    info "Git clone..."
     cd ~/
     git clone "${GIT_URL}"
 
-    echo ">> Download dotfiles complete"
+    info "Download dotfiles complete"
 else
-    echo ">> Aleady exist dotfiles directory"
-    info ">> Aleady exist dotfiles"
+    info "Aleady exist dotfiles"
 fi
 
 # echo ">> Link setting files"
 # info ">> Call symbolic linking script"
 # sh ~/dotfiles/link.sh
 
-    # OS毎の設定
-    case ${OSTYPE} in
-        darwin*)
-            # "OS X" 用設定
-            echo ">> Setting OS X"
-            info ">> Setting OS X"
-            sh ~/dotfiles/etc/test/osx/init_osx.sh
-            ;;
+# OS毎の設定
+case ${OSTYPE} in
+darwin*)
+    # "OS X" 用設定
+    # echo ">> Setting OS X"
+    info ">> Setting OS X"
+    sh ~/dotfiles/etc/test/osx/init_osx.sh
+    ;;
 
-        linux*)
-            # "Linux" 用設定
-            echo ">> Setting Linux"
-            sh ~/dotfiles/etc/test/linux/init_linux.sh
-            ;;
-     esac
+linux*)
+    # "Linux" 用設定
+    # echo ">> Setting Linux"
+    info "Setting Linux"
+    sh ~/dotfiles/etc/test/linux/init_linux.sh
+    ;;
+esac
 
-# result_echo $? "${PROCESS}" 2>&1 || echo $? "${PROCESS}"
+result_echo $? "${PROCESS}" 2>&1 || info $? "${PROCESS}"
