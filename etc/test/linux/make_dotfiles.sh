@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/27 17:15:28.
+# Last Change: 2018/05/27 18:59:33.
 
 # FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
@@ -121,9 +121,10 @@ Licensed under the MIT license.
 
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
     echo ""
-    error 'Installation failed. Nothing changed.'
+    error "Installation failed. Nothing changed."
     exit 1
     fi
+    echo ""
 # fi
 
 # printf "${BOLD}"
@@ -182,7 +183,7 @@ case ${OSTYPE} in
 darwin*)
     # "OS X" 用設定
     # echo ">> Setting OS X"
-    info ">> Setting OS X"
+    info "Setting OS X"
     sh ~/dotfiles/etc/test/osx/init_osx.sh
     ;;
 
