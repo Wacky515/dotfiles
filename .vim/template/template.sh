@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) ***
 # Created:     __DATE__
-# Last Change: 2018/05/25 03:54:58.
+# Last Change: 2018/05/27 15:49:07.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
