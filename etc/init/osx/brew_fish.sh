@@ -1,14 +1,19 @@
 #!/bin/bash
 # @(#) Install fish
 # Created:     2018/05/03 10:54:13
-# Last Change: 2018/05/27 15:39:08.
+# Last Change: 2018/05/27 16:43:25.
 
-source ~/dotfiles/function/result_echo.sh
-source ~/dotfiles/function/color_echo.sh
+# source ~/dotfiles/function/result_echo.sh
+# source ~/dotfiles/function/color_echo.sh
+source ~/dotfiles/function/*.sh
+
+readonly PROCESS="install fish"
 
 ym_echo ">> ${PROCESS^}"
 # ym_echo ">> Start install fish"
-sh ~/dotfiles/etc/init/osx/install_homebrew.sh
+if [ !has brew ]
+    sh ~/dotfiles/etc/init/osx/install_homebrew.sh
+fi
 
 brew install fish
 ym_echo ">> Add /usr/local/bin/fish in /etc/shells"

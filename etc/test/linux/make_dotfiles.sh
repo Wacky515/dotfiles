@@ -1,10 +1,11 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/25 22:54:51.
+# Last Change: 2018/05/27 16:21:31.
+
+# FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
 # DONE: "type" を "has" に置き換える
-# FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
 set -euo pipefail
 
@@ -13,8 +14,8 @@ set -euo pipefail
 
 readonly PROCESS="make dotfiles"
 
-DOT_DIRECTORY="${HOME}/dotfiles"
-GIT_URL="https://github.com/Wacky515/dotfiles.git"
+readonly DOT_DIRECTORY="${HOME}/dotfiles"
+readonly GIT_URL="https://github.com/Wacky515/dotfiles.git"
 
 # ym_echo ">> ${PROCESS^}" /dev/null 2>&1 || echo ">> ${PROCESS^}"
 
@@ -125,7 +126,12 @@ if [ "$(uname)" != 'Darwin' ]; then
     fi
 fi
 
+printf "${BOLD}"
+echo   "$dotfiles_logo"
+printf "${NORMAL}"
+
 echo ">> Start install the dotfiles"
+info ">> Start install the dotfiles"
 # "dotfiles/.git" がなければ "git clone" かダウンロード
 if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
     if [ -d ${DOT_DIRECTORY} ]; then
@@ -166,16 +172,19 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
     echo ">> Download dotfiles complete"
 else
     echo ">> Aleady exist dotfiles directory"
+    info ">> Aleady exist dotfiles"
 fi
 
-echo ">> Link setting files"
-sh ~/dotfiles/link.sh
+# echo ">> Link setting files"
+# info ">> Call symbolic linking script"
+# sh ~/dotfiles/link.sh
 
     # OS毎の設定
     case ${OSTYPE} in
         darwin*)
             # "OS X" 用設定
             echo ">> Setting OS X"
+            info ">> Setting OS X"
             sh ~/dotfiles/etc/test/osx/init_osx.sh
             ;;
 
