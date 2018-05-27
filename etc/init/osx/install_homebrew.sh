@@ -1,11 +1,14 @@
 #!/bin/bash
-# @(#) Install HomeBrew
+# @(#) Initialize OS X
 # Created:     2018/05/03 10:58:45
-# Last Change: 2018/05/21 17:54:49.
+# Last Change: 2018/05/27 15:44:18.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
 
+readonly PROCESS="init OSX"
+
+ym_echo ">> ${PROCESS^}"
 ym_echo ">> Start check HomeBrew install or not"
 
 brew --version >/dev/null 2>&1
@@ -37,3 +40,4 @@ else
 
     bash ./brew_update.sh
 fi
+result_echo $? "${PROCESS}"
