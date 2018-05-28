@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/28 17:05:46.
+# Last Change: 2018/05/28 20:01:43.
 
 # FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
@@ -187,13 +187,13 @@ darwin*)
 
         if ! has "brew"; then
             /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-            sudo chown -R $(whoami) \
-                /usr/local \
-                /usr/local/var/homebrew \
-                /usr/local/var/homebrew/locks \
-                /usr/local/lib/pkgonfig \
-                /usr/local/lib/share/local \
-                /usr/local/lib/share/man
+            # sudo chown -R $(whoami) \
+            #     /usr/local \
+            #     /usr/local/var/homebrew \
+            #     /usr/local/var/homebrew/locks \
+            #     /usr/local/lib/pkgonfig \
+            #     /usr/local/lib/share/local \
+            #     /usr/local/lib/share/man
         fi
         brew update
         brew install bash > /dev/null 2>&1
