@@ -1,11 +1,8 @@
 #!/bin/bash
 # @(#) Install HomeBrew
 # Created:     2018/05/03 10:58:45
-# Last Change: 2018/05/28 12:11:41.
+# Last Change: 2018/05/28 12:53:02.
 
-# source ~/dotfiles/function/result_echo.sh
-# source ~/dotfiles/function/color_echo.sh
-# source ~/dotfiles/function/check_exist_package.sh
 for f in ~/dotfiles/function/*.sh
 do
     source ${f}
@@ -14,14 +11,12 @@ done
 readonly PROCESS="install HomeBrew"
 
 gm_echo ">> ${PROCESS^}"
-# gm_echo ">> Start check HomeBrew install or not"
 gm_echo ">> Check HomeBrew install or not"
 
-# brew --version >/dev/null 2>&1
+# brew --version > /dev/null 2>&1
 
-if [ has brew ]
 # if [ $? = 0 ]
-then
+if has brew; then
     brew update
     gm_echo ">> Already installed brew"
 
