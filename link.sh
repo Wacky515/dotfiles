@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Symbolic linkig dotfiles.
 # Created:     2017/02/08 00:00:00
-# Last Change: 2018/05/27 16:19:23.
+# Last Change: 2018/05/28 09:56:43.
 # TODO:
 # FIXME:
     # ${HOME} を単体起動と外部呼出しで通常動作させる
@@ -26,25 +26,26 @@ cd $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 readonly DOT_DIR="${HOME}/dotfiles"
 readonly PROCESS="symbolic linkig dotfiles"
 
-ym_echo ">> ${PROCESS^}"
-# ym_echo ">> Make symbolic link"
-ym_echo ">> Start .gitconfig link"
+echo ${PROCESS^}
+gm_echo ">> ${PROCESS^}"
+# gm_echo ">> Make symbolic link"
+gm_echo ">> Start .gitconfig link"
 
 # まず "git" の設定
 ln -snfv ${DOT_DIR}/.gitconfig ~/.gitconfig
 if [ $? = 0 ]
 then
-    ym_echo ">> .gitconfig link success!"
+    gm_echo ">> .gitconfig link success!"
 fi
 
 ln -snfv ${DOT_DIR}/.gitconfig.linux ~/.gitconfig.os
 if [ $? = 0 ]
 then
-    ym_echo ">> .gitconfig.os link success!"
+    gm_echo ">> .gitconfig.os link success!"
 fi
 echo ""
 
-ym_echo ">> Start dotfiles link"
+gm_echo ">> Start dotfiles link"
 
 cp -nv ${DOT_DIR}/.bash_history ~/.bash_history
 cp -nv ${DOT_DIR}/.zsh_history ~/.zsh_history
@@ -73,7 +74,7 @@ do
     [[ ${f} = ".modfying" ]] && continue
 
     # シンボリックリンク 作成
-    ym_echo set ${f}
+    gm_echo set ${f}
     ln -snfv ${DOT_DIR}/${f} ~/${f}
 done
 
@@ -86,7 +87,7 @@ fi
 ln -snfv ${DOT_DIR}/init.vim ~/.config/nvim/init.vim
 ln -snfv ${DOT_DIR}/ginit.vim ~/.config/nvim/ginit.vim
 
-ym_echo ">> dotfiles link success"
-ym_echo ">> End make symbolic link"
+gm_echo ">> dotfiles link success"
+gm_echo ">> End make symbolic link"
 result_echo $? "${PROCESS}"
 echo ""

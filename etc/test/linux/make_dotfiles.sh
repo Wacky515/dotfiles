@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/28 09:47:49.
+# Last Change: 2018/05/28 09:52:07.
 
 # FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
@@ -99,7 +99,7 @@ dotfiles_logo='
 ╚═════╝  ╚═════╝    ╚═╝   ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝
 
 *** WHAT IS INSIDE? ***
-1. Download dotfiles from https://github.com/Wacky515/dotfiles
+1. Download dotfiles from "https://github.com/Wacky515/dotfiles"
 2. Symbolic linking dotfiles to home directory
 3. Install packages
 
@@ -116,7 +116,7 @@ info "*** ATTENTION ***"
 info "This script can change your entire setup."
 info "I recommend to read first. You can even copy commands one by one."
 echo ""
-read -p "$(  warn 'Start install? [y/N] ')" -n 1 -r
+read -p "$(warn 'Start install? [y/N] ')" -n 1 -r
 
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 echo ""
