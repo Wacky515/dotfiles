@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Symbolic linkig dotfiles.
 # Created:     2017/02/08 00:00:00
-# Last Change: 2018/05/28 12:07:43.
+# Last Change: 2018/05/28 12:47:58.
 # TODO:
 # FIXME:
     # ${HOME} を単体起動と外部呼出しで通常動作させる
@@ -14,8 +14,12 @@
     # "Git" の "proxy" の設定は切替え用のシェルスクリプトに移管
     # 暫定的にコマンドを決め打ちにした
 
-source ~/dotfiles/function/result_echo.sh
-source ~/dotfiles/function/color_echo.sh
+for f in ~/dotfiles/function/*.sh
+do
+    source ${f}
+done
+
+gm_echo "test >> ${PROCESS^}"
 
 # 実行したフォルダに "cd"
 # ↓ に "grep" 置換
@@ -26,11 +30,15 @@ cd $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 readonly DOT_DIR="${HOME}/dotfiles"
 readonly PROCESS="symbolic linkig dotfiles"
 
-echo ${PROCESS}
-echo ${PROCESS^}
-echo ${PROCESS^} || echo ${PROCESS}
-gm_echo ">> ${PROCESS^}"
-# gm_echo ">> Make symbolic link"
+case ${OSTYPE} in
+darwin*)
+    gm_echo ">> ${PROCESS}"
+    ;;
+linux*)
+    gm_echo ">> ${PROCESS^}"
+    ;;
+esac
+
 gm_echo ">> Start .gitconfig link"
 
 # まず "git" の設定
@@ -79,6 +87,7 @@ do
     gm_echo set ${f}
     ln -snfv ${DOT_DIR}/${f} ~/${f}
 done
+echo ""
 
 # "init.vim"、"ginit.vim" の "Init処理"
 if [ ! -e ~/.config/nvim/ ]; then
@@ -86,8 +95,8 @@ if [ ! -e ~/.config/nvim/ ]; then
     # sudo mkdir ~/.config/nvim/
     sudo -- sh -c "mkdir ~/.config/nvim/"
 fi
-ln -snfv ${DOT_DIR}/init.vim ~/.config/nvim/init.vim
-ln -snfv ${DOT_DIR}/ginit.vim ~/.config/nvim/ginit.vim
+sudo ln -snfv ${DOT_DIR}/init.vim ~/.config/nvim/init.vim
+sudo ln -snfv ${DOT_DIR}/ginit.vim ~/.config/nvim/ginit.vim
 
 gm_echo ">> dotfiles link success"
 gm_echo ">> End make symbolic link"
