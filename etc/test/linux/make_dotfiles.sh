@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/28 09:43:43.
+# Last Change: 2018/05/28 09:47:49.
 
 # FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
@@ -112,14 +112,11 @@ printf "${BOLD}"
 echo   "$dotfiles_logo"
 printf "${NORMAL}"
 
-ym_echo "*** ATTENTION ***"
-ym_echo "This script can change your entire setup."
-ym_echo "I recommend to read first. You can even copy commands one by one."
-# warn "*** ATTENTION ***"
-# warn "This script can change your entire setup."
-# warn "I recommend to read first. You can even copy commands one by one."
+info "*** ATTENTION ***"
+info "This script can change your entire setup."
+info "I recommend to read first. You can even copy commands one by one."
 echo ""
-read -p "$(warn 'Start install? [y/N] ')" -n 1 -r
+read -p "$(  warn 'Start install? [y/N] ')" -n 1 -r
 
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 echo ""
