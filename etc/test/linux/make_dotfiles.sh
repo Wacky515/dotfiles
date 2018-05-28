@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/28 11:31:37.
+# Last Change: 2018/05/28 11:36:29.
 
 # FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
@@ -177,7 +177,7 @@ darwin*)
     # brew install bash
     # chsh -s /usr/local/bin/bash
     brew upgrade bash
-    sudo ln -s /usr/local/bin/bash /bin/bash
+    sudo ln -s /usr/local/bin/bash /bin/bash /dev/null 2>&1
     info "Call setting OS X"
     sh ~/dotfiles/etc/test/osx/init_osx.sh
     ;;
