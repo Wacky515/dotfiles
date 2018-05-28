@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Symbolic linkig dotfiles.
 # Created:     2017/02/08 00:00:00
-# Last Change: 2018/05/28 09:56:43.
+# Last Change: 2018/05/28 12:07:43.
 # TODO:
 # FIXME:
     # ${HOME} を単体起動と外部呼出しで通常動作させる
@@ -26,7 +26,9 @@ cd $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 readonly DOT_DIR="${HOME}/dotfiles"
 readonly PROCESS="symbolic linkig dotfiles"
 
+echo ${PROCESS}
 echo ${PROCESS^}
+echo ${PROCESS^} || echo ${PROCESS}
 gm_echo ">> ${PROCESS^}"
 # gm_echo ">> Make symbolic link"
 gm_echo ">> Start .gitconfig link"
@@ -90,4 +92,3 @@ ln -snfv ${DOT_DIR}/ginit.vim ~/.config/nvim/ginit.vim
 gm_echo ">> dotfiles link success"
 gm_echo ">> End make symbolic link"
 result_echo $? "${PROCESS}"
-echo ""
