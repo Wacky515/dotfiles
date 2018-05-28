@@ -1,7 +1,7 @@
 #!bin/bash
 # @(#) Update HomeBrew
 # Created:     2018/05/21 00:00:00
-# Last Change: 2018/05/28 13:46:23.
+# Last Change: 2018/05/28 13:53:07.
 
 for f in ~/dotfiles/function/*.sh
 do
@@ -11,7 +11,7 @@ done
 readonly PROCESS="update HomeBrew"
 gm_echo ">> ${PROCESS}"
 
-sudo chown -R $(whoami) /usr/local
+sudo chown -R $(whoami) /usr/local/var/homebrew
 
 bash brew update && \
 brew upgrade && \

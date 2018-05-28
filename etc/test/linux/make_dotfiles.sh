@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/28 12:05:26.
+# Last Change: 2018/05/28 13:53:05.
 
 # FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
@@ -140,6 +140,7 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
             brew install git
         else
             /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+            sudo chown -R $(whoami) /usr/local/var/homebrew
             brew update
             brew install git
         fi
