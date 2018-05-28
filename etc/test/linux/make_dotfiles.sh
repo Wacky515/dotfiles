@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/28 10:00:51.
+# Last Change: 2018/05/28 10:12:36.
 
 # FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
@@ -174,6 +174,8 @@ case ${OSTYPE} in
 darwin*)
     # "OS X" 用設定
     info "Call setting OS X"
+    info "Install Bash4.x"
+    brew install bash
     sh ~/dotfiles/etc/test/osx/init_osx.sh
     ;;
 
