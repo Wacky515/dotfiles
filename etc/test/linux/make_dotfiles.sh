@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/28 15:27:53.
+# Last Change: 2018/05/28 15:59:38.
 
 # FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
@@ -135,7 +135,7 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
 
     info "Downloading dotfiles..."
     if [ "$(uname)" == "Darwin" ]; then
-        if has brew; then
+        if has "brew"; then
             brew update
             brew install git
         else

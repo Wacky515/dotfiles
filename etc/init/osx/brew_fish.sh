@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Install fish
 # Created:     2018/05/03 10:54:13
-# Last Change: 2018/05/28 13:12:31.
+# Last Change: 2018/05/28 16:08:15.
 
 for f in ~/dotfiles/function/*.sh
 do
@@ -10,15 +10,15 @@ done
 
 readonly PROCESS="install fish"
 
-ym_echo ">> ${PROCESS^}"
-# ym_echo ">> Start install fish"
-if [ !has brew ]
+gm_echo ">> ${PROCESS^}"
+if ! has "brew"; then
     sh ~/dotfiles/etc/init/osx/install_homebrew.sh
 fi
 
 brew install fish
-ym_echo ">> Add /usr/local/bin/fish in /etc/shells"
-sudo vi /etc/shells
+# ym_echo ">> Add /usr/local/bin/fish in /etc/shells"
+# sudo vi /etc/shells
+sudo bash -c "echo /usr/local/bin/fish >> /etc/shells"
 chsh -s /usr/local/bin/fish
 
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
