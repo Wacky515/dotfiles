@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/27 18:59:33.
+# Last Change: 2018/05/28 09:36:00.
 
 # FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
@@ -46,15 +46,7 @@ fi
 # info: 情報を緑色で出力
 info() {
     printf "${GREEN}"
-    echo -n "  info  "
-    printf "${NORMAL}"
-    echo "$1"
-}
-
-# error: エラーを赤色で出力
-error() {
-    printf "${RED}"
-    echo -n "  error "
+    echo -n "  INFO:  "
     printf "${NORMAL}"
     echo "$1"
 }
@@ -62,7 +54,15 @@ error() {
 # warn: 警報を黄色で出力
 warn() {
     printf "${YELLOW}"
-    echo -n "  warn  "
+    echo -n "  WARNING!:  "
+    printf "${NORMAL}"
+    echo "$1"
+}
+
+# error: エラーを赤色で出力
+error() {
+    printf "${RED}"
+    echo -n "  ERROR!!: "
     printf "${NORMAL}"
     echo "$1"
 }
@@ -99,8 +99,8 @@ dotfiles_logo='
 ╚═════╝  ╚═════╝    ╚═╝   ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝
 
 *** WHAT IS INSIDE? ***
-1. Download my dotfiles from https://github.com/Wacky515/dotfiles
-2. Symlinking dotfiles to home directory
+1. Download dotfiles from https://github.com/Wacky515/dotfiles
+2. Symbolic linking dotfiles to home directory
 3. Install packages
 
 *** HOW TO INSTALL? ***
@@ -108,28 +108,23 @@ See the README for documentation.
 Licensed under the MIT license.
 '
 
-# if [ "$(uname)" != 'Darwin' ]; then
-    printf "${BOLD}"
-    echo   "$dotfiles_logo"
-    printf "${NORMAL}"
+printf "${BOLD}"
+echo   "$dotfiles_logo"
+printf "${NORMAL}"
 
-    log "*** ATTENTION ***"
-    log "This script can change your entire setup."
-    log "I recommend to read first. You can even copy commands one by one."
-    echo ""
-    read -p "$(warn 'Start install? [y/N] ')" -n 1 -r
+warn "*** ATTENTION ***"
+warn "This script can change your entire setup."
+warn "I recommend to read first. You can even copy commands one by one."
+echo ""
+read -p "$(warn 'Start install? [y/N] ')" -n 1 -r
 
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-    echo ""
-    error "Installation failed. Nothing changed."
-    exit 1
-    fi
-    echo ""
-# fi
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+echo ""
 
-# printf "${BOLD}"
-# echo   "$dotfiles_logo"
-# printf "${NORMAL}"
+error "Installation failed. Nothing changed."
+exit 1
+fi
+echo ""
 
 info "Start install the dotfiles"
 # "dotfiles/.git" がなければ "git clone" かダウンロード
@@ -139,7 +134,7 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
     fi
 
     info "Downloading dotfiles..."
-    if [ "$(uname)" == 'Darwin' ]; then
+    if [ "$(uname)" == "Darwin" ]; then
         if has brew; then
             brew update
             brew install git
@@ -174,22 +169,16 @@ else
     info "Aleady exist dotfiles"
 fi
 
-# echo ">> Link setting files"
-# info ">> Call symbolic linking script"
-# sh ~/dotfiles/link.sh
-
 # OS毎の設定
 case ${OSTYPE} in
 darwin*)
     # "OS X" 用設定
-    # echo ">> Setting OS X"
     info "Setting OS X"
     sh ~/dotfiles/etc/test/osx/init_osx.sh
     ;;
 
 linux*)
     # "Linux" 用設定
-    # echo ">> Setting Linux"
     info "Setting Linux"
     sh ~/dotfiles/etc/test/linux/init_linux.sh
     ;;
