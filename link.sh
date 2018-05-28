@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Symbolic linkig dotfiles.
 # Created:     2017/02/08 00:00:00
-# Last Change: 2018/05/28 12:47:58.
+# Last Change: 2018/05/28 13:00:01.
 # TODO:
 # FIXME:
     # ${HOME} を単体起動と外部呼出しで通常動作させる
@@ -19,6 +19,7 @@ do
     source ${f}
 done
 
+readonly PROCESS="dotfiles"
 gm_echo "test >> ${PROCESS^}"
 
 # 実行したフォルダに "cd"
@@ -98,6 +99,6 @@ fi
 sudo ln -snfv ${DOT_DIR}/init.vim ~/.config/nvim/init.vim
 sudo ln -snfv ${DOT_DIR}/ginit.vim ~/.config/nvim/ginit.vim
 
-gm_echo ">> dotfiles link success"
+gm_echo ">> Dotfiles link success"
 gm_echo ">> End make symbolic link"
 result_echo $? "${PROCESS}"

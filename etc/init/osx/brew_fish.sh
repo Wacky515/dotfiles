@@ -1,11 +1,12 @@
 #!/bin/bash
 # @(#) Install fish
 # Created:     2018/05/03 10:54:13
-# Last Change: 2018/05/27 16:43:25.
+# Last Change: 2018/05/28 13:12:31.
 
-# source ~/dotfiles/function/result_echo.sh
-# source ~/dotfiles/function/color_echo.sh
-source ~/dotfiles/function/*.sh
+for f in ~/dotfiles/function/*.sh
+do
+    source ${f}
+done
 
 readonly PROCESS="install fish"
 
