@@ -1,7 +1,8 @@
 #!/bin/bash
 # @(#) Symbolic linkig dotfiles.
 # Created:     2017/02/08 00:00:00
-# Last Change: 2018/05/28 13:35:34.
+# Last Change: 2018/05/28 15:30:22.
+gm_echo ">> ${PROCESS}"
 # TODO:
 # FIXME:
     # ${HOME} を単体起動と外部呼出しで通常動作させる
@@ -31,6 +32,7 @@ readonly PROCESS="symbolic linkig dotfiles"
 case ${OSTYPE} in
 darwin*)
     gm_echo ">> ${PROCESS}"
+    gm_echo ">> ${PROCESS^}"
     ;;
 linux*)
     gm_echo ">> ${PROCESS^}"
