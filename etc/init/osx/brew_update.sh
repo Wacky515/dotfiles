@@ -1,13 +1,15 @@
 #!bin/bash
 # @(#) Update HomeBrew
 # Created:     2018/05/21 00:00:00
-# Last Change: 2018/05/27 16:55:58.
+# Last Change: 2018/05/28 13:03:04.
 
-source ~/dotfiles/function/result_echo.sh
-source ~/dotfiles/function/color_echo.sh
+for f in ~/dotfiles/function/*.sh
+do
+    source ${f}
+done
 
 readonly PROCESS="update HomeBrew"
-ym_echo ">> ${PROCESS^}"
+gm_echo ">> ${PROCESS^}"
 
 bash brew update && \
 brew upgrade && \
