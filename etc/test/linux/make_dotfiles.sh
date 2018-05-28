@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/28 11:54:04.
+# Last Change: 2018/05/28 11:57:26.
 
 # FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
@@ -168,6 +168,7 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
 else
     info "Aleady exist dotfiles"
 fi
+echo ""
 
 # OS毎の設定
 case ${OSTYPE} in
@@ -180,7 +181,7 @@ darwin*)
         brew upgrade bash > /dev/null 2>&1
     fi
     # sudo ln -s /usr/local/bin/bash /bin/bash
-    sudo bash -c "echo /usr/local/bin/bash >> /etd/shells"
+    sudo bash -c "echo /usr/local/bin/bash >> /etc/shells"
     chsh -s /usr/local/bin/bash
     exec $SHELL -l
     info "Call setting OS X"
