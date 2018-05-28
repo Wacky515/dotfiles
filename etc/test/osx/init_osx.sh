@@ -1,7 +1,7 @@
 #!bin/bash
 # @(#) Initialize OS X
 # Created:     2018/05/21 16:55:15
-# Last Change: 2018/05/28 15:36:15.
+# Last Change: 2018/05/28 15:41:05.
 
 for f in ~/dotfiles/function/*.sh
 do
@@ -10,7 +10,6 @@ done
 
 readonly PROCESS="init OS X"
 
-gm_echo ">> ${PROCESS}"
 gm_echo ">> ${PROCESS^}"
 
 # Make symbolic link

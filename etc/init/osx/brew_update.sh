@@ -1,15 +1,15 @@
 #!bin/bash
 # @(#) Update HomeBrew
 # Created:     2018/05/21 00:00:00
-# Last Change: 2018/05/28 14:08:43.
+# Last Change: 2018/05/28 15:45:52.
 
 for f in ~/dotfiles/function/*.sh
 do
     source ${f}
 done
 
-readonly PROCESS="Update HomeBrew"
-gm_echo ">> ${PROCESS}"
+readonly PROCESS="update HomeBrew"
+gm_echo ">> ${PROCESS^}"
 
 sudo chown -R $(whoami) \
     /usr/local \
