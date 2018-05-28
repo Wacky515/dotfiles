@@ -1,13 +1,13 @@
 #!bin/bash
 # @(#) Initialize OS X
 # Created:     2018/05/21 16:55:15
-# Last Change: 2018/05/27 17:19:33.
+# Last Change: 2018/05/28 09:36:28.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
 
 readonly PROCESS="init OSX"
-ym_echo ">> ${PROCESS}^"
+gm_echo ">> ${PROCESS}^"
 
 # Make symbolic link
 ym_echo ">> Link setting files"
