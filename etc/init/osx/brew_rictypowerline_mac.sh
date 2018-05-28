@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Install Ricty for powerline
 # Created:     2018/04/12 06:23:00
-# Last Change: 2018/05/28 16:10:42.
+# Last Change: 2018/05/28 16:15:50.
 
 for f in ~/dotfiles/function/*.sh
 do
@@ -12,7 +12,8 @@ readonly PROCESS="install Ricty for powerline"
 
 gm_echo ">> ${PROCESS^}"
 if ! has "brew"; then
-    sh ~/dotfiles/etc/init/osx/install_homebrew.sh
+    echo info "Install brew frst"
+    bash ~/dotfiles/etc/init/osx/install_homebrew.sh
 fi
 
 # インストールされている "Ricty" をアンインストール

@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/28 15:59:38.
+# Last Change: 2018/05/28 16:21:32.
 
 # FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
@@ -205,5 +205,3 @@ linux*)
     sh ~/dotfiles/etc/test/linux/init_linux.sh
     ;;
 esac
-
-result_echo $? "${PROCESS}" 2>&1 || info $? "${PROCESS}"
