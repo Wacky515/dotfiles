@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/28 12:00:47.
+# Last Change: 2018/05/28 12:05:26.
 
 # FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
@@ -174,16 +174,21 @@ echo ""
 case ${OSTYPE} in
 darwin*)
     # "OS X" 用設定
-    info "Install Bash4.x"
+    info "Check install Bash4.x"
     if [ ! -e /usr/local/bin/bash ]; then
         info "Brew install Bash4.x"
-        # brew install bash
+
         brew upgrade bash > /dev/null 2>&1
-        # sudo ln -s /usr/local/bin/bash /bin/bash
         sudo bash -c "echo /usr/local/bin/bash >> /etc/shells"
         chsh -s /usr/local/bin/bash
+
+        # ↓端末再起動要否は未確認
         # exec $SHELL -l
+    else
+        info "Installed Bash4.x"
     fi
+    echo ""
+
     info "Call setting OS X"
     sh ~/dotfiles/etc/test/osx/init_osx.sh
     ;;
