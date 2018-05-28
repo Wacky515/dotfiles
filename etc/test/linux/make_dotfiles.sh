@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/28 16:40:20.
+# Last Change: 2018/05/28 16:45:03.
 
 # FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
@@ -139,7 +139,7 @@ if [ ! -d ${DOT_DIRECTORY}"/.git" ]; then
             brew update
             brew install git
         else
-            ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+            /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
             sudo chown -R $(whoami) \
                 /usr/local \
                 /usr/local/var/homebrew \
@@ -185,7 +185,7 @@ darwin*)
     if [ ! -e /usr/local/bin/bash ]; then
         info "Brew install Bash4.x"
 
-            ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+            usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
             sudo chown -R $(whoami) \
                 /usr/local \
                 /usr/local/var/homebrew \
