@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/28 09:52:07.
+# Last Change: 2018/05/28 10:00:51.
 
 # FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
@@ -173,13 +173,13 @@ fi
 case ${OSTYPE} in
 darwin*)
     # "OS X" 用設定
-    info "Setting OS X"
+    info "Call setting OS X"
     sh ~/dotfiles/etc/test/osx/init_osx.sh
     ;;
 
 linux*)
     # "Linux" 用設定
-    info "Setting Linux"
+    info "Call setting Linux"
     sh ~/dotfiles/etc/test/linux/init_linux.sh
     ;;
 esac
