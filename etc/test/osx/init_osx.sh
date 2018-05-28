@@ -1,14 +1,14 @@
 #!bin/bash
 # @(#) Initialize OS X
 # Created:     2018/05/21 16:55:15
-# Last Change: 2018/05/28 15:30:50.
+# Last Change: 2018/05/28 15:36:15.
 
 for f in ~/dotfiles/function/*.sh
 do
     source ${f}
 done
 
-readonly PROCESS="init OSX"
+readonly PROCESS="init OS X"
 
 gm_echo ">> ${PROCESS}"
 gm_echo ">> ${PROCESS^}"
