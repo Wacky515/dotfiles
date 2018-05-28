@@ -1,21 +1,22 @@
 #!bin/bash
 # @(#) Initialize OS X
 # Created:     2018/05/21 16:55:15
-# Last Change: 2018/05/28 13:38:25.
+# Last Change: 2018/05/28 15:30:50.
 
 for f in ~/dotfiles/function/*.sh
 do
     source ${f}
 done
 
-readonly PROCESS="Init OSX"
+readonly PROCESS="init OSX"
 
 gm_echo ">> ${PROCESS}"
+gm_echo ">> ${PROCESS^}"
 
 # Make symbolic link
 gm_echo ">> Link setting files"
 gm_echo "    >> Call symbolic linking script"
-sh ~/dotfiles/link.sh
+bash ~/dotfiles/link.sh
 
 cd ~/dotfiles/etc/init/osx
 

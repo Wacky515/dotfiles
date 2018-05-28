@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/28 14:00:18.
+# Last Change: 2018/05/28 15:27:53.
 
 # FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
@@ -196,7 +196,7 @@ darwin*)
     echo ""
 
     info "Call setting OS X"
-    sh ~/dotfiles/etc/test/osx/init_osx.sh
+    bash ~/dotfiles/etc/test/osx/init_osx.sh
     ;;
 
 linux*)
