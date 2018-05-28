@@ -1,23 +1,23 @@
 #!bin/bash
 # @(#) Initialize OS X
 # Created:     2018/05/21 16:55:15
-# Last Change: 2018/05/28 12:06:03.
+# Last Change: 2018/05/28 12:41:52.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
-readonly PROCESS="init OSX"
+readonly PROCESS="Init OSX"
 
-gm_echo ">> ${PROCESS^}" || gm_echo ">> ${PROCESS}"
+gm_echo ">> ${PROCESS}"
 
 # Make symbolic link
 gm_echo ">> Link setting files"
-gm_echo ">> Call symbolic linking script"
+gm_echo "    >> Call symbolic linking script"
 sh ~/dotfiles/link.sh
-# bash ~/dotfiles/link.sh
 
 cd ~/dotfiles/etc/init/osx
 
-gm_echo ">> Istall Homebrew"
+gm_echo ">> Install Homebrew"
+gm_echo "    >> Call install Homebrew"
 sudo bash ./install_homebrew.sh
 
 gm_echo ">> Init brwe install"

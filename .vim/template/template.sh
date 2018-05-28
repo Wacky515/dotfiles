@@ -1,10 +1,12 @@
 #!/bin/bash
 # @(#) ***
 # Created:     __DATE__
-# Last Change: 2018/05/28 08:58:37.
+# Last Change: 2018/05/28 12:44:37.
 
-source ~/dotfiles/function/result_echo.sh
-source ~/dotfiles/function/color_echo.sh
+for f in ~/dotfiles/function/*.sh
+do
+    source ${f}
+done
 
 readonly PROCESS="install ***"
 
