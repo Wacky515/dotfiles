@@ -1,17 +1,23 @@
 #!bin/bash
 # @(#) Update HomeBrew
 # Created:     2018/05/21 00:00:00
-# Last Change: 2018/05/28 13:53:07.
+# Last Change: 2018/05/28 14:08:43.
 
 for f in ~/dotfiles/function/*.sh
 do
     source ${f}
 done
 
-readonly PROCESS="update HomeBrew"
+readonly PROCESS="Update HomeBrew"
 gm_echo ">> ${PROCESS}"
 
-sudo chown -R $(whoami) /usr/local/var/homebrew
+sudo chown -R $(whoami) \
+    /usr/local \
+    /usr/local/var/homebrew \
+    /usr/local/var/homebrew/locks \
+    /usr/local/lib/pkgonfig \
+    /usr/local/lib/share/local \
+    /usr/local/lib/share/man
 
 bash brew update && \
 brew upgrade && \
