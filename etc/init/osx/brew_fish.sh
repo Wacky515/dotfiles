@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Install fish
 # Created:     2018/05/03 10:54:13
-# Last Change: 2018/05/28 16:08:15.
+# Last Change: 2018/05/28 16:16:07.
 
 for f in ~/dotfiles/function/*.sh
 do
@@ -12,7 +12,8 @@ readonly PROCESS="install fish"
 
 gm_echo ">> ${PROCESS^}"
 if ! has "brew"; then
-    sh ~/dotfiles/etc/init/osx/install_homebrew.sh
+    echo info "Install brew frst"
+    bash ~/dotfiles/etc/init/osx/install_homebrew.sh
 fi
 
 brew install fish
