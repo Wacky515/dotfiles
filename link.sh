@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Symbolic linkig dotfiles.
 # Created:     2017/02/08 00:00:00
-# Last Change: 2018/05/28 13:00:01.
+# Last Change: 2018/05/28 13:35:34.
 # TODO:
 # FIXME:
     # ${HOME} を単体起動と外部呼出しで通常動作させる
@@ -18,9 +18,6 @@ for f in ~/dotfiles/function/*.sh
 do
     source ${f}
 done
-
-readonly PROCESS="dotfiles"
-gm_echo "test >> ${PROCESS^}"
 
 # 実行したフォルダに "cd"
 # ↓ に "grep" 置換
