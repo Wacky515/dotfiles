@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/05/28 09:36:00.
+# Last Change: 2018/05/28 09:43:43.
 
 # FIXME: OS X: echoの文頭名のファイルが生成されてしまう
 
@@ -46,7 +46,7 @@ fi
 # info: 情報を緑色で出力
 info() {
     printf "${GREEN}"
-    echo -n "  INFO:  "
+    echo -n "  INFO:     "
     printf "${NORMAL}"
     echo "$1"
 }
@@ -54,7 +54,7 @@ info() {
 # warn: 警報を黄色で出力
 warn() {
     printf "${YELLOW}"
-    echo -n "  WARNING!:  "
+    echo -n "  WARNING!: "
     printf "${NORMAL}"
     echo "$1"
 }
@@ -62,7 +62,7 @@ warn() {
 # error: エラーを赤色で出力
 error() {
     printf "${RED}"
-    echo -n "  ERROR!!: "
+    echo -n "  ERROR!!:  "
     printf "${NORMAL}"
     echo "$1"
 }
@@ -112,9 +112,12 @@ printf "${BOLD}"
 echo   "$dotfiles_logo"
 printf "${NORMAL}"
 
-warn "*** ATTENTION ***"
-warn "This script can change your entire setup."
-warn "I recommend to read first. You can even copy commands one by one."
+ym_echo "*** ATTENTION ***"
+ym_echo "This script can change your entire setup."
+ym_echo "I recommend to read first. You can even copy commands one by one."
+# warn "*** ATTENTION ***"
+# warn "This script can change your entire setup."
+# warn "I recommend to read first. You can even copy commands one by one."
 echo ""
 read -p "$(warn 'Start install? [y/N] ')" -n 1 -r
 
