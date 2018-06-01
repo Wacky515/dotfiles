@@ -1,0 +1,1 @@
+defaults write -g com.apple.swipescrolldirection -bool false
