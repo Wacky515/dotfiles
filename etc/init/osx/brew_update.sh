@@ -11,15 +11,16 @@ done
 readonly PROCESS="update HomeBrew"
 gm_echo ">> ${PROCESS^}"
 
-sudo chown -R $(whoami) \
-    /usr/local \
-    /usr/local/var/homebrew \
-    /usr/local/var/homebrew/locks \
-    /usr/local/lib/pkgonfig \
-    /usr/local/lib/share/local \
-    /usr/local/lib/share/man
+# sudo chown -R $(whoami) \
+#     /usr/local/ \
+#     /usr/local/var/homebrew/ \
+#     /usr/local/var/homebrew/locks/ \
+#     /usr/local/lib/pkgonfig/ \
+#     /usr/local/lib/share/local/ \
+#     /usr/local/lib/share/man/
 
-bash brew update && \
+# bash brew update && \
+brew update && \
 brew upgrade && \
 brew cleanup && \
 brew cask cleanup && \
