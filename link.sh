@@ -87,6 +87,13 @@ do
     gm_echo set ${f}
     ln -snfv ${DOT_DIR}/${f} ~/${f}
 done
+
+for g in *.fish
+do
+    gm_echo set ${g}
+    ln -snfv ${DOT_DIR}/${g} ~/${g}
+done
+
 echo ""
 
 # "init.vim"、"ginit.vim" の "Init処理"
