@@ -3,9 +3,11 @@
 # Created:     2018/05/09 10:15:36
 # Last Change: 2018/05/28 20:01:43.
 
-# FIXME: OS X: echoの文頭名のファイルが生成されてしまう
+# FIXME:
 
 # DONE: "type" を "has" に置き換える
+# DONE: OS X: echoの文頭名のファイルが生成されてしまう
+    # ワンライナーの末尾 "~ | bash)" が原因
 
 set -euo pipefail
 
@@ -200,7 +202,7 @@ darwin*)
         # brew upgrade bash > /dev/null 2>&1
         # sudo bash -c "echo /usr/local/bin/bash >> /etc/shells"
         # chsh -s /usr/local/bin/bash
-        sudo bash -c "echo /usr/local/Cellar/bash >> /etc/shells"
+        sudo bash -c "echo /usr/local/Celler/bash >> /etc/shells"
         chsh -s /usr/local/Celler/bash
 
         # ↓端末再起動要否は未確認
