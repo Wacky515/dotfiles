@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Initialize OS X
 # Created:     2018/05/21 16:55:15
-# Last Change: 2018/06/03 18:43:11.
+# Last Change: 2018/06/03 19:02:34.
 
 set -euo pipefail
 export LC_ALL=C
@@ -13,6 +13,7 @@ done
 
 readonly PROCESS="init OS X"
 
+set +e
 gm_echo ">> ${PROCESS^}"
 
 # Make symbolic link
