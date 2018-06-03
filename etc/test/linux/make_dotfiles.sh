@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/06/03 19:47:48.
+# Last Change: 2018/06/03 20:00:07.
 
 # FIXME:
     # sudo権限を終了しないとbrewが使えない
@@ -129,11 +129,12 @@ echo ""
 info "Check install HomeBrew or not "
 if [ "$(uname)" == "Darwin" ]; then
     if ! has "brew"; then
-        info "Install HomeBrew"
-        xcode-select --install
-        xcode-select: note: install requested for command line developer tools
-
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        # info "Install HomeBrew"
+        # xcode-select --install
+        # xcode-select: note: install requested for command line developer tools
+        #
+        # /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        cd
     else
         info "Already install HomeBrew"
     fi
