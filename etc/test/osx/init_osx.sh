@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Initialize OS X
 # Created:     2018/05/21 16:55:15
-# Last Change: 2018/06/03 19:57:19.
+# Last Change: 2018/06/03 21:08:11.
 
 set -euo pipefail
 export LC_ALL=C
@@ -27,7 +27,6 @@ cd ~/dotfiles/etc/init/osx
 
 gm_echo ">> Install Homebrew"
 gm_echo "    >> Call install Homebrew"
-# sudo bash ./install_homebrew.sh
 bash ./install_homebrew.sh
 
 gm_echo ">> Init brew install"
