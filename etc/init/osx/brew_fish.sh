@@ -1,7 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # @(#) Install fish
 # Created:     2018/05/03 10:54:13
-# Last Change: 2018/05/28 16:16:07.
+# Last Change: 2018/06/03 22:42:40.
+
+set -euo pipefail
+export LC_ALL=C
 
 for f in ~/dotfiles/function/*.sh
 do
@@ -17,12 +20,13 @@ if ! has "brew"; then
 fi
 
 brew install fish
-# ym_echo ">> Add /usr/local/bin/fish in /etc/shells"
-# sudo vi /etc/shells
 sudo bash -c "echo /usr/local/bin/fish >> /etc/shells"
 chsh -s /usr/local/bin/fish
 
-curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+error "ここからエラー！！！"
+# curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+sudo curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+
 fisher install z
 fisher install 0rax/fish-bd
 brew install peco
