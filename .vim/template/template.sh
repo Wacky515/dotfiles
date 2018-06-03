@@ -1,7 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # @(#) ***
 # Created:     __DATE__
-# Last Change: 2018/05/28 12:44:37.
+# Last Change: 2018/06/03 17:32:24.
+
+set -ueo pipefail
+export LC_ALL=C
 
 for f in ~/dotfiles/function/*.sh
 do
