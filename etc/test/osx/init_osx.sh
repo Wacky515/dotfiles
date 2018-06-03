@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # @(#) Initialize OS X
 # Created:     2018/05/21 16:55:15
-# Last Change: 2018/06/03 19:02:34.
+# Last Change: 2018/06/03 19:42:15.
 
 set -euo pipefail
 export LC_ALL=C
@@ -13,7 +13,9 @@ done
 
 readonly PROCESS="init OS X"
 
+# ↓テスト用 echo のエラー解消したら消す
 set +e
+
 gm_echo ">> ${PROCESS^}"
 
 # Make symbolic link
@@ -28,11 +30,11 @@ gm_echo "    >> Call install Homebrew"
 # sudo bash ./install_homebrew.sh
 bash ./install_homebrew.sh
 
-gm_echo ">> Init brwe install"
+gm_echo ">> Init brew install"
 for f in brew_*.sh
 do
+    # sudo bash ./${f}
     # bash ./${f}
-    sudo bash ./${f}
 done
 
 cd ~/dotfiles/etc/test/osx

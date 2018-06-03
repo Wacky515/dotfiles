@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Install HomeBrew
 # Created:     2018/05/03 10:58:45
-# Last Change: 2018/05/28 15:46:05.
+# Last Change: 2018/06/03 19:54:01.
 
 for f in ~/dotfiles/function/*.sh
 do
@@ -16,10 +16,6 @@ gm_echo ">> Check HomeBrew installed or not"
 if has brew; then
     gm_echo ">> Already installed brew"
     bash ./brew_update.sh
-
-    brew file install Brewfile
-    cp ~/dotfiles/etc/init/osx/brewfile/Brewfile ~/.config
-    brew file install Brewfile
 
 else
     gm_echo ">> Start install brew"
@@ -43,6 +39,12 @@ else
     cp ~/dotfiles/etc/init/osx/brewfile/Brewfile ~/.config
     brew file install Brewfile
 
-    sh ./brew_update.sh
+    bash ./brew_update.sh
 fi
+
+warn "ここからエラー！！！"
+brew file install Brewfile
+cp ~/dotfiles/etc/init/osx/brewfile/Brewfile ~/.config
+brew file install Brewfile
+
 result_echo $? "${PROCESS}"
