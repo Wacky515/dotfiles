@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/06/03 18:40:10.
+# Last Change: 2018/06/03 18:58:06.
 
 # FIXME:
     # sudo権限を終了しないとbrewが使えない
@@ -198,12 +198,14 @@ darwin*)
     #  }}}
 
     info "Call setting OS X"
-    bash ~/dotfiles/etc/test/osx/init_osx.sh
+    cd ~/dotfiles/etc/test/osx
+    bash ./init_osx.sh
     ;;
 
 linux*)
     # "Linux" 用設定
     info "Call setting Linux"
-    sh ~/dotfiles/etc/test/linux/init_linux.sh
+    cd ~/dotfiles/etc/test/linux
+    bash ./init_linux.sh
     ;;
 esac
