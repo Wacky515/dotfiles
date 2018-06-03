@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install HomeBrew
 # Created:     2018/05/03 10:58:45
-# Last Change: 2018/06/03 22:11:46.
+# Last Change: 2018/06/03 22:17:59.
 
 for f in ~/dotfiles/function/*.sh
 do
@@ -44,14 +44,8 @@ if [ ! -f ~/.config/brewfile/Brewfile ]; then
     sudo ln -s ~/dotfiles/etc/init/osx/brewfile/Brewfile \
         ~/.config/brewfile
 fi
-brew file install Brewfile
-
+# brew file install Brewfile
+brew file install
 bash ./brew_update.sh
-
-warn "ここからエラー！！！"
-
-brew file install Brewfile
-cp ~/dotfiles/etc/init/osx/brewfile/Brewfile ~/.config
-brew file install Brewfile
 
 result_echo $? "${PROCESS}"
