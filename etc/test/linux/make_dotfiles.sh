@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/06/03 18:58:06.
+# Last Change: 2018/06/03 19:47:48.
 
 # FIXME:
     # sudo権限を終了しないとbrewが使えない
@@ -126,10 +126,13 @@ exit 1
 fi
 echo ""
 
-info "Check install HomeBrew"
+info "Check install HomeBrew or not "
 if [ "$(uname)" == "Darwin" ]; then
     if ! has "brew"; then
         info "Install HomeBrew"
+        xcode-select --install
+        xcode-select: note: install requested for command line developer tools
+
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     else
         info "Already install HomeBrew"
@@ -137,14 +140,14 @@ if [ "$(uname)" == "Darwin" ]; then
 brew update
 fi
 
-info "Start install the dotfiles"
+info "Start setting dotfiles"
 # "dotfiles/.git" がなければ "git clone" かダウンロード
 if [ ! -d ${DOT_DIR}"/.git" ]; then
     if [ -d ${DOT_DIR} ]; then
         rm -r ${DOT_DIR}
     fi
 
-    info "Setting dotfiles..."
+    info "Check install git or not"
     if has "git"; then
         warn "Already install git"
 
