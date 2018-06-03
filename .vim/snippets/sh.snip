@@ -1,0 +1,20 @@
+snippet temp
+    #!/bin/bash
+    # @(#) ${1:NAME}
+    # Created:     ${2:DATE}
+    # Last Change: 2018/06/03 11:16:15.
+
+    for f in ~/dotfiles/function/*.sh
+    do
+        source ${f}
+    done
+
+    readonly PROCESS="${3:ECHO}"
+"
+
+    gm_echo ">> ${PROCESS^}"
+    # ym_echo ">> Start "
+
+    ${4:START}
+
+    result_echo $? "${PROCESS}"
