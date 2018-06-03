@@ -1,7 +1,10 @@
-#!bin/bash
+#!/usr/bin/env bash
 # @(#) Initialize OS X
 # Created:     2018/05/21 16:55:15
-# Last Change: 2018/05/28 15:41:05.
+# Last Change: 2018/06/03 18:43:11.
+
+set -euo pipefail
+export LC_ALL=C
 
 for f in ~/dotfiles/function/*.sh
 do
@@ -21,18 +24,14 @@ cd ~/dotfiles/etc/init/osx
 
 gm_echo ">> Install Homebrew"
 gm_echo "    >> Call install Homebrew"
-sudo bash ./install_homebrew.sh
+# sudo bash ./install_homebrew.sh
+bash ./install_homebrew.sh
 
 gm_echo ">> Init brwe install"
 for f in brew_*.sh
 do
+    # bash ./${f}
     sudo bash ./${f}
-done
-
-gm_echo ">> Init setting"
-for g in setting_*.sh
-do
-    sudo bash ./${g}
 done
 
 cd ~/dotfiles/etc/test/osx
@@ -40,13 +39,26 @@ cd ~/dotfiles/etc/test/osx
 gm_echo ">> Init brew install(Test)"
 for f in brew_*.sh
 do
-    sudo bash ./${f}
+    # sudo bash ./${f}
+    bash ./${f}
 done
+
+cd ~/dotfiles/etc/init/osx
+
+gm_echo ">> Init setting"
+for g in setting_*.sh
+do
+    # sudo bash ./${g}
+    bash ./${g}
+done
+
+cd ~/dotfiles/etc/test/osx
 
 gm_echo ">> Init setting(Test)"
 for g in setting_*.sh
 do
-    sudo bash ./${g}
+    # sudo bash ./${g}
+    bash ./${g}
 done
 
 result_echo $? "${PROCESS}"
