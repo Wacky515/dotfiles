@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install HomeBrew
 # Created:     2018/05/03 10:58:45
-# Last Change: 2018/06/03 21:36:42.
+# Last Change: 2018/06/03 21:45:07.
 
 for f in ~/dotfiles/function/*.sh
 do
@@ -33,26 +33,32 @@ if [ ! $? -eq 0 ]; then
     brew tap caskroom/cask
     brew tap cskroom/versions
     brew doctor
+else
+    gm_echo ">> Installed tap"
 fi
 
-gm_echo ">> Check mas installed or not"
-brew install > /dev/null 2>&1
-if [ ! $? -eq 0 ]; then
-    gm_echo ">> Install mas"
+# gm_echo ">> Check mas installed or not"
+# brew install > /dev/null 2>&1
+# if [ ! $? -eq 0 ]; then
+#     gm_echo ">> Install mas"
     brew install argon/mas/mas
-    brew install rcmdnk/file/brew-file
-    brew doctor
-fi
+    # brew doctor
+# else
+#     gm_echo ">> Installed mas"
+# fi
 
-gm_echo ">> Check brew-file installed or not"
-brew-file help > /dev/null 2>&1
-if [ ! $? -eq 0 ]; then
-    gm_echo ">> Install brew-file"
+# gm_echo ">> Check brew-file installed or not"
+# brew-file help > /dev/null 2>&1
+# if [ ! $? -eq 0 ]; then
+#     gm_echo ">> Install brew-file"
+    brew install rcmdnk/file/brew-file
     brew file install Brewfile
     # cp ./brewfile ~/.config
     cp ~/dotfiles/etc/init/osx/brewfile/Brewfile ~/.config
     brew file install Brewfile
-fi
+# else
+#     gm_echo ">> Installed brew-file"
+# fi
 
 bash ./brew_update.sh
 
