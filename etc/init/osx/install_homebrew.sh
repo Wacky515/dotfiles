@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # @(#) Install HomeBrew
 # Created:     2018/05/03 10:58:45
-# Last Change: 2018/06/03 19:54:01.
+# Last Change: 2018/06/03 19:56:26.
 
 for f in ~/dotfiles/function/*.sh
 do
