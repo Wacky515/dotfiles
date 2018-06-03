@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install HomeBrew
 # Created:     2018/05/03 10:58:45
-# Last Change: 2018/06/03 21:45:07.
+# Last Change: 2018/06/03 21:53:42.
 
 for f in ~/dotfiles/function/*.sh
 do
@@ -53,8 +53,7 @@ fi
 #     gm_echo ">> Install brew-file"
     brew install rcmdnk/file/brew-file
     brew file install Brewfile
-    # cp ./brewfile ~/.config
-    cp ~/dotfiles/etc/init/osx/brewfile/Brewfile ~/.config
+    ln ~/dotfiles/etc/init/osx/brewfile/Brewfile ~/.config
     brew file install Brewfile
 # else
 #     gm_echo ">> Installed brew-file"
