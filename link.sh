@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # @(#) Symbolic linkig dotfiles.
 # Created:     2017/02/08 00:00:00
-# Last Change: 2018/06/03 19:45:09.
+# Last Change: 2018/06/03 19:56:58.
 # TODO:
 # FIXME:
     # ${HOME} を単体起動と外部呼出しで通常動作させる

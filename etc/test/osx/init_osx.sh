@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # @(#) Initialize OS X
 # Created:     2018/05/21 16:55:15
-# Last Change: 2018/06/03 19:42:15.
+# Last Change: 2018/06/03 19:57:19.
 
 set -euo pipefail
 export LC_ALL=C
