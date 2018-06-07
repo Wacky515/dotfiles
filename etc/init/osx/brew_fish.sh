@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install fish
 # Created:     2018/05/03 10:54:13
-# Last Change: 2018/06/03 22:42:40.
+# Last Change: 2018/06/06 20:32:38.
 
 set -euo pipefail
 export LC_ALL=C
@@ -21,6 +21,7 @@ fi
 
 brew install fish
 sudo bash -c "echo /usr/local/bin/fish >> /etc/shells"
+uniq /etc/shells
 chsh -s /usr/local/bin/fish
 
 error "ここからエラー！！！"

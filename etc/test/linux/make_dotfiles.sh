@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/06/03 22:44:21.
+# Last Change: 2018/06/03 22:55:28.
 
 # FIXME:
     # sudo権限を終了しないとbrewが使えない
@@ -214,4 +214,5 @@ linux*)
     ;;
 esac
 
+# ↓エラー？
 exec $SHELL -l
