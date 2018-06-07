@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install HomeBrew
 # Created:     2018/05/03 10:58:45
-# Last Change: 2018/06/03 22:17:59.
+# Last Change: 2018/06/03 22:53:57.
 
 for f in ~/dotfiles/function/*.sh
 do
@@ -23,7 +23,7 @@ else
     xcode-select --install
     xcode-select: note: install requested for command line developer tools
 
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"k
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 gm_echo ">> Check tap installed or not"
