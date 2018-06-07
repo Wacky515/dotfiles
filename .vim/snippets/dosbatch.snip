@@ -15,3 +15,31 @@ snippet ifnot
     ) else (
     ${4:FALSE}
     )
+
+snippet exist
+    if exist ${1:FILENAME} (
+    ${2:TRUE}
+    ) else if (
+    ${3:ELIF}
+    ) else (
+    ${4:FALSE}
+    )
+
+snippet notexist
+    if not exist ${1:FILENAME} (
+    ${2:TRUE}
+    ) else if (
+    ${3:ELIF}
+    ) else (
+    ${4:FALSE}
+    )
+
+snippet Backup
+    set FIL_${1:FILE}="${2:S_FILE}"
+    set LNK_${3:LINK}="${4:PATH}"%FIL_${1:FILE}%
+    set TGT_${5:TRGT}=%~dp0%FIL_${1:FILE}%%
+
+    if exist %LNK_${3:LINK}% (
+        echo ^>^> Backup %LNK_${3:LINK}%
+        rename %LNK_${3:LINK}% %FIL_${1:FILE}%".bak"
+        )
