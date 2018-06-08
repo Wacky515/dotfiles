@@ -1,4 +1,5 @@
-# historyの表示に日付を追加する
+# Last Change: 2018/06/08 19:31:25.
+# history の表示に日付を追加する
 function history
     builtin history --show-time='%Y/%m/%d %H:%M:%S ' | sort
 end
@@ -13,3 +14,23 @@ end
 function fish_user_key_bindings
   bind \cr 'peco_sync_select_history (commandline -b)'
 end
+
+## OS 別設定
+case ${OSTYPE} in
+    darwin*)
+        # "Mac" 用設定
+        echo "Pass"
+        ;;
+
+    linux*)
+        # "Linux" 用設定
+        echo "Pass"
+        ;;
+
+    msys)
+        # "Windows" 用設定
+        alias vim="~/vim81-kaoriya-win64/vim.exe"
+        alias gvim="~/vim81-kaoriya-win64/gvim.exe"
+        alias nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
+        alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"
+esac
