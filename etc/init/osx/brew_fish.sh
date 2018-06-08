@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install fish
 # Created:     2018/05/03 10:54:13
-# Last Change: 2018/06/06 20:32:38.
+# Last Change: 2018/06/08 19:19:42.
 
 set -euo pipefail
 export LC_ALL=C
@@ -26,7 +26,8 @@ chsh -s /usr/local/bin/fish
 
 error "ここからエラー！！！"
 # curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
-sudo curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+# sudo curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 
 fisher install z
 fisher install 0rax/fish-bd
