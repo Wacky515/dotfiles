@@ -13,6 +13,10 @@ done
 
 readonly PROCESS="install fish"
 
+if ! has "fish"; then
+    exit
+fi
+
 gm_echo ">> ${PROCESS^}"
 if ! has "brew"; then
     echo info "Install brew frst"
