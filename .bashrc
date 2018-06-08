@@ -1,3 +1,4 @@
+# Last Change: 2018/06/08 16:32:06.
 # 環境変数
 export LANG=ja_JP.UTF-8
 
@@ -25,4 +26,7 @@ case ${OSTYPE} in
         alias gvim="~/vim81-kaoriya-win64/gvim.exe"
         alias nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
         alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"
+
+        # exec zsh
+        exec fish
 esac
