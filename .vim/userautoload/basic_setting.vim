@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/04/13 08:49:44.
+" Last Change: 2018/06/18 18:33:49.
 
 " モード変更の挙動が遅い対処
 set timeout timeoutlen=1000 ttimeoutlen=50
@@ -22,4 +22,11 @@ set undodir=~/.vim/tmp
 " ".viminfo" のディレクトリ変更
 if !has("nvim")
     set viminfo+=n~/.vim/tmp/viminfo.txt
+endif
+
+if has("win32") || ("win64")
+    " 編集中のファイルのあるディレクトリをファイル保存ダイアログの初期ディレクトリにする
+    :set browsedir=buffer
+    " カレントディレクトリをファイル保存ダイアログの初期ディレクトリにする
+    :set browsedir=current
 endif
