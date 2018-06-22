@@ -1,4 +1,4 @@
-# Last Change: 2018/05/27 00:12:46.
+# Last Change: 2018/06/20 03:08:11.
 [user]
 	name = wacky515
 	email = wacky515@gmail.com
@@ -27,13 +27,3 @@
 
 [include]
     path = gitconfig.os
-
-# [http]  # {{{
-# 	proxy = http://proxy.intra.xacti-co.com:8080
-# [https]
-# 	proxy = https://proxy.intra.xacti-co.com:8080
-# [http]
-# 	proxy = http://m6prxy1:8080
-# [https]
-# 	proxy = https://m6prxy1:8080
-# 	}}}

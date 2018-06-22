@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/04/01 09:00:10.
+" Last Change: 2018/06/22 22:00:09.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -52,6 +52,9 @@ nnoremap Y y$
 " <Tab>: 対のカッコにジャンプ
 nnoremap <Tab> %
 vnoremap <Tab> %
+
+" ,o: エクスプローラで開く
+nnoremap <silent>,o :<C-u>bro open<CR>
 
 " bp: 前のバッファを開く
 nnoremap <silent>bp :<C-u>bprevious<CR>
@@ -146,7 +149,8 @@ nnoremap <Leader>v :<C-u>vs<CR>
 nnoremap <Leader>S :<C-u>sp <TAB>
 
 " <Leader>V: ウィンドウを横分割（ファイルを選択）
-nnoremap <Leader>V :<C-u>vs <TAB>
+" nnoremap <Leader>V :<C-u>vs <TAB>
+nnoremap <Leader>V :<C-u>vs
 
 " <Leader>t: 新規タブを作成
 nnoremap <Leader>t :<C-u>tabnew<cr>
