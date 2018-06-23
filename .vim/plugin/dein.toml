@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/05/13 15:38:45.
+# Last Change: 2018/06/24 02:31:42.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -94,9 +94,10 @@ repo = 'lokaltog/vim-easymotion'
 [[plugins]]
 repo = 'simeji/winresizer'
 
-# コマンドラインで "Emacs" キーバインド
-[[plugins]]
-repo = 'houtsnip/vim-emacscommandline'
+# # コマンドラインで "Emacs" キーバインド
+# コピペができないのでKILL
+# [[plugins]]
+# repo = 'houtsnip/vim-emacscommandline'
 
 # コメントON/OFF トグル
 [[plugins]]
