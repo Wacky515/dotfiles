@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/06/22 22:00:09.
+" Last Change: 2018/06/24 03:26:35.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -53,8 +53,10 @@ nnoremap Y y$
 nnoremap <Tab> %
 vnoremap <Tab> %
 
-" ,o: エクスプローラで開く
-nnoremap <silent>,o :<C-u>bro open<CR>
+" bo: エクスプローラで開く
+nnoremap <silent>bo :<C-u>browse open<CR>
+" bs: エクスプローラで保存
+nnoremap <silent>bo :<C-u>browse sav<CR>
 
 " bp: 前のバッファを開く
 nnoremap <silent>bp :<C-u>bprevious<CR>
@@ -124,11 +126,31 @@ if has("unix") || has("mac")
     autocmd MyAutoCmd BufWritePre * call s:mkdir(expand("<afile>:p:h"), v:cmdbang)
 endif
 
+" ---------------------------------------------------------------------------
+" Command Line篇
+" ---------------------------------------------------------------------------
+" 行頭へ移動
+cnoremap <C-a> <Home>
+" 行末へ移動
+cnoremap <C-e> <End>
+" 一文字戻る
+cnoremap <C-b> <Left>
+" 一文字進む
+cnoremap <C-f> <Right>
+" 前の単語へ移動
+cnoremap <M-b> <S-Left>
+" 次の単語へ移動
+cnoremap <M-f> <S-Right>
+" カーソルの下の文字を削除
+cnoremap <C-d> <Del>
+" 履歴を一つ進む
+cnoremap <C-n> <Down>
+" 履歴を一つ戻る
+cnoremap <C-p> <Up>
 
 " ---------------------------------------------------------------------------
 " Leader篇
 " ---------------------------------------------------------------------------
-
 " <Space> を "Leader" に割当て
 " let mapleader = "\<Space>"
 " －> .vimrc へ
@@ -143,14 +165,16 @@ nnoremap <Leader>w :<C-u>w<CR>
 nnoremap <Leader>s :<C-u>sp<CR>
 
 " <Leader>v: ウィンドウを横分割
-nnoremap <Leader>v :<C-u>vs<CR>
+" nnoremap <Leader>v :<C-u>vs<CR>
+nnoremap <Leader>v :<C-u>vs<CR><C-w>l
 
 " <Leader>S: ウィンドウを縦分割(ファイルを選択)
-nnoremap <Leader>S :<C-u>sp <TAB>
+nnoremap <Leader>S :<C-u>sp<TAB>
 
 " <Leader>V: ウィンドウを横分割（ファイルを選択）
-" nnoremap <Leader>V :<C-u>vs <TAB>
-nnoremap <Leader>V :<C-u>vs
+nnoremap <Leader>V :<C-u>vs<TAB>
+" nnoremap <Leader>V :<C-u>vs
+" nnoremap <Leader>V :<C-u>vs<TAB><C-w>l
 
 " <Leader>t: 新規タブを作成
 nnoremap <Leader>t :<C-u>tabnew<cr>
