@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/05/12 14:06:36.
+" Last Change: 2018/06/03 12:40:26.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -101,9 +101,11 @@ elseif has("mac")
         " set background=dark
     elseif hostname() == "saladserver.com"
         if !has("nvim")
-            set guifont=Osaka:h24
+            " set guifont=Osaka:h24
+            set guifont=Cica:h24
         else
-            Guifont! Osaka:h24
+            " Guifont! Osaka:h24
+            Guifont! Cica:h24
         endif
         " colorscheme iceberg
         " set background=dark
