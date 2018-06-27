@@ -31,7 +31,7 @@ chsh -s /usr/local/bin/fish
 error "ここからエラー！！！"
 # curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 # sudo curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
-curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+sudo curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 
 fisher install z
 fisher install 0rax/fish-bd
