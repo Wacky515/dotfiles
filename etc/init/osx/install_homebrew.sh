@@ -13,6 +13,8 @@ readonly PROCESS="install HomeBrew"
 gm_echo ">> ${PROCESS^}"
 gm_echo ">> Check HomeBrew installed or not"
 
+bash ./setting_install_any_apps.sh
+
 if has brew; then
     gm_echo ">> Already installed brew"
     bash ./brew_update.sh
