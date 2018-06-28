@@ -1,8 +1,0 @@
-id = GETID("sound", "CabinetWClass", -1)
-SLEEP(1)
-id = GETID("サウンド", "#32770", -1)
-SLEEP(1)
-CLKITEM(id, "サウンド", CLK_TAB)
-CLKITEM(id, "サウンドなし", CLK_LIST)
-CLKITEM(id, "Windows スタートアップのサウンドを再生する", CLK_ACC, False)
-CLKITEM(id, "OK", CLK_BTN)
