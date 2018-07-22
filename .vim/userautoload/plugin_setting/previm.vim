@@ -26,9 +26,6 @@ nmap <silent> <Leader>k <Plug>(ChromeAutoScrollUp)
 " <Leader>ks: 上スクロール連動を停止
 nmap <Leader>ks <Plug>(ChromeAutoScrollUpStop)
 
-" <F5>: 編集中のファイルをブラウザで表示
-" nmap <F5> :<C-u>PrevimOpen<CR>
-
 " GitHub的な見た目
 " let g:previm_disable_default_css = 1
 " let g:previm_custom_css_path = "~/dotfiles/.vim/template/previm/markdown.css"
