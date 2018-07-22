@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/06/24 03:26:35.
+" Last Change: 2018/07/21 09:26:16.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -16,14 +16,8 @@ scriptencoding utf-8
 " 挿入モードで jj: <Esc>
 inoremap jj <Esc>
 
-" バックアップファイル作成
+" bk: バックアップファイル作成
 nnoremap bk :<C-u>w %.bk
-
-" <Ctrl>j: 裏バッファへ切替え
-nnoremap <C-j> <C-^>
-
-" <Leader>l: スペルチェックをトグル
-nnoremap <silent> <Leader>l :set spell!<CR>
 
 " 挿入モードで dl: 仕切り線を挿入
 inoreabbrev dl ---------------------------------------------------------------------------<Esc>:TComment<CR>^
@@ -64,6 +58,8 @@ nnoremap <silent>bp :<C-u>bprevious<CR>
 nnoremap <silent>bn :<C-u>bnext<CR>
 " bb: 直前のバッファを開く
 nnoremap <silent>bb :<C-u>b#<CR>
+" <Ctrl>j: 裏バッファへ切替え
+nnoremap <C-j> <C-^>
 
 " TODO: LinuxのNeoVimで確認
 " w!!: スーパーユーザーとして保存（sudoが使える環境限定）
@@ -100,21 +96,35 @@ vnoremap <silent> cy c<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
 nnoremap <silent> ciy ciw<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
 
 " <Ctrl>s: エクスプローラで保存場所選択して保存
-if !has("nvim")
-    imap <script> <C-s> <SID>(gui-save)<Esc>
-    nmap <script> <C-s> <SID>(gui-save)
-    imap <script> <SID>(gui-save) <C-o><SID>(gui-save)
-    nnoremap      <SID>(gui-save) :<C-u>call <SID>gui_save()<CR>
-    function! s:gui_save()
-        if bufname('%') ==# ''
-            browse confirm saveas
-        else
-            update
-        endif
-    endfunction
-endif
+nnoremap <C-s> :<C-u>browse sav<CR>
+" if !has("nvim") " {{{
+"     imap <script> <C-s> <SID>(gui-save)<Esc>
+"     nmap <script> <C-s> <SID>(gui-save)
+"     imap <script> <SID>(gui-save) <C-o><SID>(gui-save)
+"     nnoremap      <SID>(gui-save) :<C-u>call <SID>gui_save()<CR>
+"     function! s:gui_save()
+"         if bufname('%') ==# ''
+"             browse confirm saveas
+"         else
+"             update
+"         endif
+"     endfunction
+" endif
+" }}}
 
 " TODO: 動作確認
+" 起動時のみカレントディレクトリを開いたファイルの親ディレクトリに指定
+function! s:ChangeCurrentDir(directory, bang)
+    if a:directory == ''
+        lcd %:p:h
+    else
+        execute 'lcd' . a:directory
+    endif
+    if a:bang == ''
+        pwd
+    endif
+endfunction
+
 " ":e" などでファイルを開く時、フォルダが存在しない場合は自動作成
 function! s:mkdir(dir, force)
     if !isdirectory(a:dir) && (a:force ||
@@ -122,6 +132,7 @@ function! s:mkdir(dir, force)
         call mkdir(iconv(a:dir, &encoding, &termencoding), "p")
     endif
 endfunction
+
 if has("unix") || has("mac")
     autocmd MyAutoCmd BufWritePre * call s:mkdir(expand("<afile>:p:h"), v:cmdbang)
 endif
@@ -153,13 +164,13 @@ cnoremap <C-p> <Up>
 " ---------------------------------------------------------------------------
 " <Space> を "Leader" に割当て
 " let mapleader = "\<Space>"
-" －> .vimrc へ
+" －> ".vimrc" へ
 
 " <Leader>q: ファイルを閉じる
 nnoremap <Leader>q :<C-u>q<CR>
 
 " <Leader>w: ファイルを保存
-nnoremap <Leader>w :<C-u>w<CR>
+" －> 重複していて効かないので ".vimrc" へ
 
 " <Leader>s: ウィンドウを縦分割
 nnoremap <Leader>s :<C-u>sp<CR>
@@ -184,3 +195,6 @@ nnoremap <Leader>T :<C-u>tabnew <TAB>
 
 " <Leader><Leader>: ビジュアルラインモードに切替え
 nmap <Leader><Leader> V
+
+" <Leader>l: スペルチェックON/OFFをトグル
+nnoremap <silent> <Leader>l :set spell!<CR>

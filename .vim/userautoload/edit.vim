@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/24 22:50:58.
+" Last Change: 2018/07/16 16:57:38.
 
 " 保存時に行末の空白を削除
 autocmd BufWritePre * :%s/\s\+$//ge
@@ -12,7 +12,7 @@ set formatoptions=Mm
 vnoremap > >gv
 vnoremap < <gv
 
-" 全角英数字を半角にする
+" <Leader>zh: 全角英数字を半角にする
 if !has("nvim")
     nnoremap <Leader>zh :HzjaConvert han_eisu<Enter>
     vnoremap <Leader>zh :HzjaConvert han_eisu<Enter>
