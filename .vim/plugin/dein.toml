@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/06/24 02:31:42.
+# Last Change: 2018/07/17 10:05:40.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -18,6 +18,15 @@ repo = 'ujihisa/unite-colorscheme'
 # FIXME: ↑ 何も表示されない
 [[plugins]]
 repo = 'ujihisa/unite-font'
+# 英和・和英辞書
+[[plugins]]
+repo = 'rhysd/unite-codic.vim'
+[[plugins]]
+repo = 'koron/codic-vim'
+
+# 辞書
+[[plugins]]
+repo = 'thinca/vim-ref'
 
 # スニペット
 [[plugins]]

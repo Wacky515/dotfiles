@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/05/25 22:58:13.
+" Last Change: 2018/07/19 18:04:33.
 
 highlight Pmenu ctermbg=4
 highlight PmenuSel ctermbg=1
@@ -34,10 +34,22 @@ set completeopt=menuone
 " "auto-ctags" を使ってファイル保存時に "tags" ファイルを更新
 let g:auto_ctags = 1
 
+" DEP:
 " 辞書の定義
-let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : ''
-    \ }
+" let g:neocomplcache_dictionary_filetype_lists = {
+"     \ 'default' : ''
+"     \ }
+
+" 辞書設定
+let g:neocomplete#sources#dictionary#dictionaries  = {
+\    'css':        $HOME . '/.vim/dict/css.dict',
+\    'html':       $HOME . '/.vim/dict/html.dict',
+\    'javascript': $HOME . '/.vim/dict/javascript.dict',
+\    'php':        $HOME . '/.vim/dict/php.dict',
+\    'java':       $HOME . '/.vim/dict/java.dict',
+\    'perl':       $HOME . '/.vim/dict/perl.dict',
+\    'ruby':       $HOME . '/.vim/dict/ruby.dict',
+\}
 
 " <Ctrl>y: 現在選択している候補を確定
 inoremap <expr><C-y> neocomplcache#close_popup()

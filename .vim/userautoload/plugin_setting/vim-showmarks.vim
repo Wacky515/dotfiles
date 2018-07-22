@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/05/13 16:59:31.
+" Last Change: 2018/07/16 12:29:13.
 
 " マップキー
 nnoremap [Mark] <Nop>
@@ -7,9 +7,36 @@ nmap m [Mark]
 
 " 起動時にマーク表示
 aug show-marks-sync
-        au!
-        au BufReadPost * sil! DoShowMarks
+    au!
+    au BufReadPost * sil! DoShowMarks
 aug END
+
+" m,: + 1文字で指定のマークへ移動
+nnoremap [Mark], '
+" mj: 次のマークへ移動
+nnoremap [Mark]j ]`
+" mk: 前のマークへ移動
+nnoremap [Mark]k [`
+" md: マークの全削除
+com! -bar MarksDelete sil :delm! | :delm 0-9A-Z | :wv! | :DoShowMarks
+nn <silent>[Mark]d :MarksDelete<CR>
+
+" ml: マーク一覧を表示/非表示
+let b:mark_exist = 0
+set updatetime=1
+function! s:MarkList()
+    if b:mark_exist == 0
+        let b:mark_exist = 1
+        nnoremap <silent>[Mark]l :<C-u>1PreviewMarks<CR>
+            \:<C-u>NoShowMarks<CR> :<C-u>call <SID>MarkList()<CR>
+    else
+        let b:mark_exist = 0
+        nnoremap <silent>[Mark]l :<C-u>PreviewMarks<CR>
+            \:<C-u>DoShowMarks<CR> :<C-u>call <SID>MarkList()<CR>
+    endif
+endfunction
+nnoremap <silent>[Mark]l :<C-u>PreviewMarks<CR>
+            \:<C-u>DoShowMarks<CR> :<C-u>call <SID>MarkList()<CR>
 
 " mn: 現在位置をマーク
 if !exists('g:markrement_char')
@@ -29,7 +56,7 @@ function! s:AutoMarkrement()
     echo 'marked' g:markrement_char[b:markrement_pos]
 endfunction
 
-" 任意の位置にマーク
+" 任意の位置に "*" マーク
 command! -nargs=? SetNextMarkChar call s:set_next_mark_char(<f-args>)
 function! s:set_next_mark_char(...)
   if a:0 >= 1
@@ -39,7 +66,7 @@ function! s:set_next_mark_char(...)
   end
 endfunction
 
-" 次にマークする文字を設定
+" ms"*": 次にマークする "*" を設定
 nnoremap [Mark]sa :SetNextMarkChar a<CR>
 nnoremap [Mark]sb :SetNextMarkChar b<CR>
 nnoremap [Mark]sc :SetNextMarkChar c<CR>
@@ -67,7 +94,7 @@ nnoremap [Mark]sx :SetNextMarkChar x<CR>
 nnoremap [Mark]sy :SetNextMarkChar y<CR>
 nnoremap [Mark]sz :SetNextMarkChar z<CR>
 
-" マークする文字を設定し、同時にマーク
+" m"*": マークする "*" を設定し、同時にマーク
 nnoremap [Mark]ma :SetNextMarkChar a<CR>:<C-u>call <SID>AutoMarkrement()<CR>:DoShowMarks<CR>
 nnoremap [Mark]mb :SetNextMarkChar b<CR>:<C-u>call <SID>AutoMarkrement()<CR>:DoShowMarks<CR>
 nnoremap [Mark]mc :SetNextMarkChar c<CR>:<C-u>call <SID>AutoMarkrement()<CR>:DoShowMarks<CR>
@@ -94,33 +121,6 @@ nnoremap [Mark]mw :SetNextMarkChar w<CR>:<C-u>call <SID>AutoMarkrement()<CR>:DoS
 nnoremap [Mark]mx :SetNextMarkChar x<CR>:<C-u>call <SID>AutoMarkrement()<CR>:DoShowMarks<CR>
 nnoremap [Mark]my :SetNextMarkChar y<CR>:<C-u>call <SID>AutoMarkrement()<CR>:DoShowMarks<CR>
 nnoremap [Mark]mz :SetNextMarkChar z<CR>:<C-u>call <SID>AutoMarkrement()<CR>:DoShowMarks<CR>
-
-" ml: マーク一覧を表示/非表示
-let b:mark_exist = 0
-set updatetime=1
-function! s:MarkList()
-    if b:mark_exist == 0
-        let b:mark_exist = 1
-        nnoremap <silent>[Mark]l :<C-u>1PreviewMarks<CR>
-            \:<C-u>NoShowMarks<CR> :<C-u>call <SID>MarkList()<CR>
-    else
-        let b:mark_exist = 0
-        nnoremap <silent>[Mark]l :<C-u>PreviewMarks<CR>
-            \:<C-u>DoShowMarks<CR> :<C-u>call <SID>MarkList()<CR>
-    endif
-endfunction
-nnoremap <silent>[Mark]l :<C-u>PreviewMarks<CR>
-            \:<C-u>DoShowMarks<CR> :<C-u>call <SID>MarkList()<CR>
-
-" m,: + 1文字で指定のマークへ移動
-nnoremap [Mark], '
-" mj: 次のマークへ移動
-nnoremap [Mark]j ]`
-" mk: 前のマークへ移動
-nnoremap [Mark]k [`
-" md: マークの全削除
-com! -bar MarksDelete sil :delm! | :delm 0-9A-Z | :wv! | :DoShowMarks
-nn <silent>[Mark]d :MarksDelete<CR>
 
 " Help、quickfix、編集不可バッファはマークを表示しない
 let showmarks_ignore_type = "hqm"

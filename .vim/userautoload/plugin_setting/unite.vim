@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/04/23 12:09:26.
+" Last Change: 2018/07/16 12:33:21.
 
 " 基本設定
 " unite general settings
@@ -15,23 +15,23 @@ nnoremap [unite] <Nop>
 nmap U [unite]
 " nmap <Leader>u [unite]
 
-" 現在のバッファ一覧
+" Ub: 現在のバッファ一覧
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-" 現在のバッファのディレクトリ一覧
+" Uf: 現在のバッファのディレクトリ一覧
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-" レジスタ一覧
+" Ur: レジスタ一覧
 nnoremap <silent> [unite]r :<C-u>Unite register<CR>
-" ブックマーク一覧
+" Uc: ブックマーク一覧
 nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
-" ブックマークに追加
+" Ua: ブックマークに追加
 nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
-" バッファを新しいタブで開く
+" Ut: バッファを新しいタブで開く
 nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
-" Colorscheme プレビュー
+" Ul: Colorscheme プレビュー
 nnoremap <silent> [unite]l :<C-u>Unite -auto-preview colorscheme<CR>
-" 最近使用したファイル一覧
+" Um: 最近使用したファイル一覧
 nnoremap <silent> [unite]m :Unite file_mru<CR>
-" 最近使用したウィンドウ一覧
+" Uw: 最近使用したウィンドウ一覧
 nnoremap <silent> [unite]w :<C-u>Unite window<CR>
 "file_mruの表示フォーマットを指定。空にすると表示スピードが高速化される
 let g:unite_source_file_mru_filename_format = ""

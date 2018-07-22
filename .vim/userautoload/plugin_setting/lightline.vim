@@ -1,5 +1,5 @@
 ﻿scriptencoding utf-8
-" Last Change: 2018/04/10 09:25:30.
+" La daaaast Change: 2018/04/10 09:25:30.
 
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示
 if has("unix")
@@ -30,8 +30,8 @@ endif
 "   endif
 "   return ''
 " endfunction
-" " }}}
 " else
+" " }}}
 
 " 設定2 " {{{
             " \ 'colorscheme': 'jellybeans',
@@ -182,5 +182,5 @@ endfunction
 " function! LightLineFileformat()
 "   return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 " endfunction
-" " }}}
 " endif
+" " }}}

@@ -1,4 +1,5 @@
 scriptencoding utf-8
+" Last Change: 2018/07/16 17:05:09.
 
 " インクリメンタルサーチ
 " ※ 検索文字入力で即時検索開始
@@ -30,11 +31,6 @@ nnoremap /  /\v
 " TODO: 動作確認
 cnoremap <expr> / getcmdtype() == "/" ? "\/" : "/"
 cnoremap <expr> ? getcmdtype() == "?" ? "\?" : "?"
-
-" <Ctrl>h: 垂直分割で "ctags" 表示
-nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
-" <Ctrl>k: 水平分割で "ctags" 表示
-nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
 " unite-tagsの設定
 autocmd BufEnter *
