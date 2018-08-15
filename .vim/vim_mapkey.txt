@@ -13,6 +13,8 @@
 
 " 挿入モードで dl: 仕切り線を挿入
 
+" <Leader>o: 現在開いているバッファをIDE風に開く
+
 " ee: "EasyMotion" 開始
 
 " Ub: 現在のバッファ一覧
@@ -40,8 +42,6 @@
 " <Shift>k: カーソル下をヘルプ検索
 
 " <F4>: "Gundo.vim" ウィンドウを開閉をトグル
-
-
 
 " <F6>: "ctags" 作成
 " <Ctrl>h: 垂直分割で "ctags" 表示
@@ -75,3 +75,16 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 " <Leader><Ctrl>k: 英和辞典起動
 
 :NeoSnippetEdit: スニペット編集
+
+コマンドラインモード
+
+" <Home>: 行頭へ移動
+" <End>: 行末へ移動
+" <Left>: 一文字戻る
+" <Right>: 一文字進む
+" <Shift><Left>: 前の単語へ移動
+" <Shift><Right>: 次の単語へ移動
+" <Del>: カーソルの下の文字を削除
+" <Down>: 履歴を一つ進む
+" <Up>: 履歴を一つ戻る
+<Shift><Ins>: ペースト
