@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/07/16 12:33:21.
+" Last Change: 2018/08/16 15:41:14.
 
 " 基本設定
 " unite general settings
@@ -59,3 +59,31 @@ function! s:unite_my_settings()
 	nnoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
 	inoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
 endfunction
+
+" ---------------------------------------------------------------------------
+" diff設定
+" ---------------------------------------------------------------------------
+"  使い方不明・・・
+
+let diff_action = {
+      \   'description' : 'diff',
+      \   'is_selectable' : 1,
+      \ }
+
+function! diff_action.func(candidates)
+  if len(a:candidates) == 1
+    " カレントバッファとdiff
+    execute 'vert diffsplit ' . a:candidates[0].action__path
+  elseif len(a:candidates) == 2
+    " 選択されたファイルとdiff
+    execute 'tabnew ' . a:candidates[0].action__path
+    execute 'vert diffsplit ' . a:candidates[1].action__path
+  else
+    " 3-way以上は非対応
+    echo 'too many candidates!'
+  endif
+endfunction
+
+call unite#custom_action('file', 'diff', diff_action)
+
+unlet diff_action
