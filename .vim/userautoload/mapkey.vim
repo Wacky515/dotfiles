@@ -1,4 +1,4 @@
-scriptencoding utf-8
+﻿scriptencoding utf-8
 " Last Change: 2018/08/15 11:33:49.
 
 " ---------------------------------------------------------------------------
@@ -20,7 +20,7 @@ inoremap jj <Esc>
 nnoremap bk :<C-u>w %.bk
 
 " 挿入モードで dl: 仕切り線を挿入
-inoreabbrev dl ---------------------------------------------------------------------------<Esc>:TComment<CR>^
+inoremap dl ---------------------------------------------------------------------------<Esc>:TComment<CR>^
 
 " " 0: 直下に空行挿入
 " nnoremap 0 :<C-u>call append(expand('.'), '')<CR>j
