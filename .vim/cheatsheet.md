@@ -15,8 +15,6 @@
 
 - 挿入モードで dl: 仕切り線を挿入
 
-- <Leader>o: 現在開いているバッファをIDE風に開く
-
 - ee: "EasyMotion" 開始
 
 - Ub: 現在のバッファ一覧
@@ -54,6 +52,8 @@
     - smap <C-k>     <Plug>(neosnippet_expand_or_jump)
     - xmap <C-k>     <Plug>(neosnippet_expand_target)
 
+- <Leader>o: 現在開いているバッファをIDE風に開く
+
 - <Leader>p: 編集中のファイルをブラウザで表示
 - <Leader>md: 編集中のファイルをブラウザで表示
 - <Leader>j: Vimのカーソル移動とブラウザの下スクロールを連動
@@ -72,11 +72,19 @@
 
 - <Leader>md: 編集中のファイルをブラウザで表示
 
-- <Leader>r: カーソル下を "RipGrep" 対象に挿入（<Enter>押下で再帰的に検索）
-- <Leader>a: カーソル下を "The Sliver Searcher" 対象に挿入（<Enter>押下で再帰的に検索）
-- <Leader>g: カーソル下を "VimGrep" 対象に挿入（<Enter>押下で再帰的に検索、現在開いているのと同一の拡張子が対象）
+## エラーだらけの原因？ 削除済み
+- <Leader>r: カーソル下を "RipGrep" 対象に挿入
+
+- <Leader>a: カーソル下を "The Sliver Searcher" 対象に挿入
+- <Leader>g: カーソル下を "VimGrep" 対象に挿入
 - <Leader>G: カーソル下を "外部grep" 対象に挿入
 - <Leader><Ctrl>k: 英和辞典起動
+
+## 未動作
+- <Leader>dij: カーソル下を英和辞典検索
+- <Leader>die: カーソル下を和英辞典検索
+- <Leader>dia: カーソル下の単語をスペースアルクで検索
+- <Leader>diw: カーソル下をwikiで検索
 
 # コマンドラインモード
 

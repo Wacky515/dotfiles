@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/07/21 09:27:57.
+" Last Change: 2018/08/24 19:32:03.
 
 " MEMO: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -164,7 +164,8 @@ endif
 let mapleader = "\<Space>"
 
 " <Leader>w: ファイルを保存
-nnoremap <Leader>w :<C-u>w<CR>
+" nnoremap <Leader>w :<C-u>w<CR>
+nnoremap <Leader><Leader>w :<C-u>w<CR>
 
 " "Windows" 環境の設定ファイルの場所を、"Linux/Mac" 環境にあわせる
 set runtimepath+=$HOME/.vim
