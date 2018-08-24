@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change:2018/07/21 19:38:18.
+" Last Change:2018/08/24 14:46:05.
 
 " q: バッファを閉じる
 autocmd FileType ref-* nnoremap <buffer> <silent> q :<C-u>close<CR>
@@ -8,7 +8,6 @@ autocmd FileType ref-* nnoremap <buffer> <silent> q :<C-u>close<CR>
 let s:lynx = 'C:/Program Files (x86)/Lynx for Win32/lynx.exe'
 let s:cfg  = 'C:/Program Files (x86)/Lynx for Win32/lynx.cfg'
 
-" let g:ref_lynx_cmd = s:lynx.' -cfg='.s:cfg.' -dump -nonumbers %s'
 let g:ref_source_webdict_cmd = s:lynx.' -cfg='.s:cfg.' -dump -nonumbers %s'
 
 " 辞書サイトの設定
@@ -30,25 +29,6 @@ let g:ref_source_webdict_sites = {
 \   },
 \ }
 
-" FIXME: body empty になる
-" 出力に対するフィルタ
-    " 最初の数行を削除
-" function! g:ref_source_webdict_sites.je.filter(output)
-"     return join(split(a:output, "\n")[15 :], "\n")
-" endfunction
-"
-" function! g:ref_source_webdict_sites.ej.filter(output)
-"     return join(split(a:output, "\n")[15 :], "\n")
-" endfunction
-"
-" function! g:ref_source_webdict_sites.alc.filter(output)
-"       return join(split(a:output, "\n")[42 :], "\n")
-" endfunction
-"
-" function! g:ref_source_webdict_sites.wiki.filter(output)
-"     return join(split(a:output, "\n")[17 :], "\n")
-" endfunction
-
 " デフォルトサイトの設定
 let g:ref_source_webdict_sites.default = 'ej'
 
@@ -61,10 +41,6 @@ nnoremap <expr> <Leader>dj ':Ref webdict je ' . expand('<cword>') . ''
 nnoremap <expr> <Leader>de ':Ref webdict ej ' . expand('<cword>') . ''
 nnoremap <expr> <Leader>da ':Ref webdict alc ' . expand('<cword>') . ''
 nnoremap <expr> <Leader>dw ':Ref webdict wiki ' . expand('<cword>') . ''
-
-" DEP:
-" ,ra: アルクの辞書起動
-" nmap ,ra :<C-u>Ref alc<Space>
 
 " 表示する行数
 let g:ref_alc_start_linenumber = 39
