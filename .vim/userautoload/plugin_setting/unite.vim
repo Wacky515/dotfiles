@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/08/16 15:41:14.
+" Last Change: 2018/08/26 11:54:48.
 
 " 基本設定
 " unite general settings
@@ -61,9 +61,9 @@ function! s:unite_my_settings()
 endfunction
 
 " ---------------------------------------------------------------------------
-" diff設定
+" diff 設定
 " ---------------------------------------------------------------------------
-"  使い方不明・・・
+" MEMO: 使い方不明・・・
 
 let diff_action = {
       \   'description' : 'diff',
@@ -87,3 +87,16 @@ endfunction
 call unite#custom_action('file', 'diff', diff_action)
 
 unlet diff_action
+
+" ---------------------------------------------------------------------------
+"  RipGrep 設定
+" ---------------------------------------------------------------------------
+if executable('rg')
+    let g:unite_source_grep_command = 'rg'
+    let g:unite_source_grep_default_opts = '-n --no-heading --color never'
+    let g:unite_source_grep_recursive_opt = ''
+    " Hit件数制御
+    let g:unite_source_grep_max_candidates = 200
+    " "Windows" 設定
+    let g:unite_source_grep_encoding='utf-8'
+endif

@@ -1,12 +1,7 @@
 scriptencoding utf-8
-" Last Change:2018/07/21 19:38:12.
-
-if has("win32")
-    " "Ref-vim" 設定 "set encoding" より上に書くこと
-    let &termencoding = &encoding
-endif
+" Last Change:2018/08/26 16:25:29.
 
 set encoding=utf-8
 " set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
-set fileencodings=utf-8,sjis,iso-2022-jp,euc-jp
+set fileencodings=utf-8,sjis,cp932,iso-2022-jp,euc-jp
 set fileformats=unix,dos,mac
