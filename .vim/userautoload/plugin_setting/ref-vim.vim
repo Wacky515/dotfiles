@@ -1,17 +1,38 @@
 scriptencoding utf-8
-" Last Change:2018/08/24 14:46:05.
+" Last Change:2018/08/26 17:46:53.
 
 " q: バッファを閉じる
 autocmd FileType ref-* nnoremap <buffer> <silent> q :<C-u>close<CR>
 
-" TODO: 動作しない
-let s:lynx = 'C:/Program Files (x86)/Lynx for Win32/lynx.exe'
-let s:cfg  = 'C:/Program Files (x86)/Lynx for Win32/lynx.cfg'
+" DEP: TODO: 動作しない  {{{
+" let s:lynx = 'C:\Program Files (x86)\Lynx for Win32\lynx.exe'
+" let s:cfg  = 'C:\Program Files (x86)\Lynx for Win32\lynx.cfg'
+" let s:lynx = 'C:\Users\mm12167\vim81-kaoriya-win64\lynx.exe'
+" let s:cfg  = 'C:\Users\mm12167\vim81-kaoriya-win64\lynx.cfg'
+" let g:ref_source_webdict_cmd = 'lynx -dump -nonumbers %s'
 
+" "lynx" 文字化け対策の設定 <- 無意味
+" let g:ref_refe_encoding = 'euc-jp'
+" let g:ref_refe_encoding = 'utf-8'
+"
+" let s:lynx = 'C:/Users/mm12167/Lynx_for_Win32/lynx.exe'
+" let s:cfg  = 'C:/Users/mm12167/Lynx_for_Win32/lynx.cfg'
+"}}}
+
+if has("win32")
+    " let s:lynx = '~/Lynx_for_Win32/lynx.exe'
+    " let s:cfg  = '~/Lynx_for_Win32/lynx.cfg'
+    let s:lynx = '%homepath%\Lynx_for_Win32\lynx.exe'
+    let s:cfg  = '%homepath%\Lynx_for_Win32\lynx.cfg'
+endif
 let g:ref_source_webdict_cmd = s:lynx.' -cfg='.s:cfg.' -dump -nonumbers %s'
 
+" エンコード
+    " "lynx" 文字化け対策の設定
+" let g:ref_source_webdict_encoding = 'utf-8'
+let g:ref_source_webdict_encoding = 'shift-jis'
+
 " 辞書サイトの設定
-let g:ref_source_webdict_cmd = 'lynx -dump -nonumbers %s'
 let g:ref_source_webdict_use_cache = 1
 
 let g:ref_source_webdict_sites = {
@@ -26,6 +47,7 @@ let g:ref_source_webdict_sites = {
 \   },
 \   'wiki': {
 \     'url': 'http://ja.wikipedia.org/wiki/%s',
+\     'keyword_encoding': 'Shift-JIS',
 \   },
 \ }
 
