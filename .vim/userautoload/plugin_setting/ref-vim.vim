@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change:2018/08/26 17:46:53.
+" Last Change:2018/08/27 01:07:22.
 
 " q: バッファを閉じる
 autocmd FileType ref-* nnoremap <buffer> <silent> q :<C-u>close<CR>
@@ -9,7 +9,13 @@ autocmd FileType ref-* nnoremap <buffer> <silent> q :<C-u>close<CR>
 " let s:cfg  = 'C:\Program Files (x86)\Lynx for Win32\lynx.cfg'
 " let s:lynx = 'C:\Users\mm12167\vim81-kaoriya-win64\lynx.exe'
 " let s:cfg  = 'C:\Users\mm12167\vim81-kaoriya-win64\lynx.cfg'
-" let g:ref_source_webdict_cmd = 'lynx -dump -nonumbers %s'
+" if has("win32")
+"     " let s:lynx = '~/Lynx_for_Win32/lynx.exe'
+"     " let s:cfg  = '~/Lynx_for_Win32/lynx.cfg'
+"     let s:lynx = '%homepath%\Lynx_for_Win32\lynx.exe'
+"     let s:cfg  = '%homepath%\Lynx_for_Win32\lynx.cfg'
+" endif
+" let g:ref_source_webdict_cmd = s:lynx.' -cfg='.s:cfg.' -dump -nonumbers %s'
 
 " "lynx" 文字化け対策の設定 <- 無意味
 " let g:ref_refe_encoding = 'euc-jp'
@@ -17,15 +23,9 @@ autocmd FileType ref-* nnoremap <buffer> <silent> q :<C-u>close<CR>
 "
 " let s:lynx = 'C:/Users/mm12167/Lynx_for_Win32/lynx.exe'
 " let s:cfg  = 'C:/Users/mm12167/Lynx_for_Win32/lynx.cfg'
-"}}}
+"  }}}
 
-if has("win32")
-    " let s:lynx = '~/Lynx_for_Win32/lynx.exe'
-    " let s:cfg  = '~/Lynx_for_Win32/lynx.cfg'
-    let s:lynx = '%homepath%\Lynx_for_Win32\lynx.exe'
-    let s:cfg  = '%homepath%\Lynx_for_Win32\lynx.cfg'
-endif
-let g:ref_source_webdict_cmd = s:lynx.' -cfg='.s:cfg.' -dump -nonumbers %s'
+let g:ref_source_webdict_cmd = 'lynx -dump -nonumbers %s'
 
 " エンコード
     " "lynx" 文字化け対策の設定
@@ -43,13 +43,16 @@ let g:ref_source_webdict_sites = {
 \     'url': 'http://dictionary.infoseek.ne.jp/ejword/%s',
 \   },
 \   'alc': {
-\     'url': 'http://eow.alc.co.jp/%s/UTF-8/',
+\     'url': 'https://eow.alc.co.jp/search?q=%s',
 \   },
 \   'wiki': {
-\     'url': 'http://ja.wikipedia.org/wiki/%s',
+\     'url': 'https://ja.wikipedia.org/wiki/%s',
 \     'keyword_encoding': 'Shift-JIS',
 \   },
 \ }
+" \     'url': 'http://eow.alc.co.jp/%s/UTF-8/',
+" \     'url': 'https://eow.alc.co.jp/%s/UTF-8/',
+" \     'url': 'http://ja.wikipedia.org/wiki/%s',
 
 " デフォルトサイトの設定
 let g:ref_source_webdict_sites.default = 'ej'
@@ -65,4 +68,5 @@ nnoremap <expr> <Leader>da ':Ref webdict alc ' . expand('<cword>') . ''
 nnoremap <expr> <Leader>dw ':Ref webdict wiki ' . expand('<cword>') . ''
 
 " 表示する行数
-let g:ref_alc_start_linenumber = 39
+" MEMO: ヘルプにヒットしない、DEP: と思われる
+" let g:ref_alc_start_linenumber = 39
