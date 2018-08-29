@@ -1,5 +1,5 @@
 ﻿scriptencoding utf-8
-" Last Change: 2018/08/15 11:33:49.
+" Last Change: 2018/08/29 11:58:44.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -198,3 +198,12 @@ nmap <Leader><Leader> V
 
 " <Leader>l: スペルチェックON/OFFをトグル
 nnoremap <silent> <Leader>l :set spell!<CR>
+
+" EXコマンドの出力をクリップボードへコピー
+func! s:func_copy_cmd_output(cmd)
+	redir @*>
+	silent execute a:cmd
+	redir END
+endfunc
+
+command! -nargs=1 -complete=command CopyCmdOutput call <SID>func_copy_cmd_output(<q-args>)
