@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/06/03 12:40:26.
+" Last Change: 2018/08/29 12:01:19.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -184,6 +184,16 @@ elseif has("win32") || has("win64")
         endif
         " colorscheme iceberg
         " set background=dark
+    elseif hostname() == "HBAMB819"
+        if !has("nvim")
+            set guifont=Cica:h15
+            set printfont=Cica:h13
+            set rop=type:directx,renmode:5
+        else
+            Guifont! Cica:h16
+        endif
+        " colorscheme hybrid
+        " set background=dark
 
     " Xacti setting " {{{
     elseif hostname() == "CAD0021"
@@ -193,6 +203,7 @@ elseif has("win32") || has("win64")
     elseif hostname() == "NOT0053"
         set guifont=Ricty_Diminished:h12
     " }}}
+
     else
         if !has("nvim")
             set guifont=Meiryo_UI:h18
