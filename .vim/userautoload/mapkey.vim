@@ -1,5 +1,9 @@
 ﻿scriptencoding utf-8
+<<<<<<< HEAD
 " Last Change: 2018/08/29 11:58:44.
+=======
+" Last Change: 2018/08/28 10:12:59.
+>>>>>>> 76d78fc3b7a2754659ab99eb59f4fde5846e1b5d
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -43,9 +47,9 @@ vnoremap v $h
 " Y: カーソルから行末までヤンク
 nnoremap Y y$
 
-" <Tab>: 対のカッコにジャンプ
-nnoremap <Tab> %
-vnoremap <Tab> %
+" <TAB>: 対のカッコにジャンプ
+nnoremap <TAB> %
+vnoremap <TAB> %
 
 " bo: エクスプローラで開く
 nnoremap <silent>bo :<C-u>browse open<CR>
@@ -87,13 +91,13 @@ endif
 
 " "NeoVim" の "Terminal mode" をノーマルモードを使用する
 if has("nvim")
-  tnoremap <silent> <ESC> <C-\><C-n>
+  tnoremap <silent> <Esc> <C-\><C-n>
 endif
 
 " ヤンクした文字列でカーソル位置の単語を置換
-nnoremap <silent> cy ce<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
-vnoremap <silent> cy c<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
-nnoremap <silent> ciy ciw<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
+nnoremap <silent> cy ce<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
+vnoremap <silent> cy c<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
+nnoremap <silent> ciy ciw<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
 
 " <Ctrl>s: エクスプローラで保存場所選択して保存
 nnoremap <C-s> :<C-u>browse sav<CR>
@@ -188,7 +192,7 @@ nnoremap <Leader>V :<C-u>vs<TAB>
 " nnoremap <Leader>V :<C-u>vs<TAB><C-w>l
 
 " <Leader>t: 新規タブを作成
-nnoremap <Leader>t :<C-u>tabnew<cr>
+nnoremap <Leader>t :<C-u>tabnew<CR>
 
 " <Leader>T: 新規タブを作成（ファイルを選択）
 nnoremap <Leader>T :<C-u>tabnew <TAB>
