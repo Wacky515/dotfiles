@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2017/10/27 00:00:00.
-" Last Change: 2018/08/26 16:37:23.
+" Last Change: 2018/08/28 11:03:00.
 " MEMO: 検索速度順に記述
 
 " FIXME: 日本語がマッチしない
@@ -8,6 +8,10 @@ scriptencoding utf-8
     " <Enter>押下でカレントディレクトリ以下を再帰的に検索
 " "fzf" 準拠のCUI
 nnoremap <expr> <Leader>r ':Rg ' . expand('<cword>') . ''
+
+" <Leader>p: カーソル下を "The Platinum Searcher" 対象に挿入
+    " <Enter>押下でカレントディレクトリ以下を再帰的に検索
+nnoremap <expr> <Leader>p ':Pg ' . expand('<cword>') . ''
 
 " FIXME: 日本語がマッチしない
 " <Leader>a: カーソル下を "The Sliver Searcher" 対象に挿入
