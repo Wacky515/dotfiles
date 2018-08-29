@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/08/26 18:01:57.
+" Last Change: 2018/08/28 09:55:04.
 
 " 保存時に行末の空白を削除
 autocmd BufWritePre * :%s/\s\+$//ge
@@ -55,11 +55,11 @@ endif
 " inoremap "<Enter> "
 "}}}
 " 3. . 押下で改行して閉じ括弧を補完（関数記述用）
-inoremap (. ()<Left><CR><ESC><S-o>
-inoremap [. []<Left><CR><ESC><S-o>
-inoremap {. {}<Left><CR><ESC><S-o>
-inoremap '. ''''''<Left><Left><Left><CR><ESC><S-o>
-inoremap ". """"""<Left><Left><Left><CR><ESC><S-o>
+inoremap (. ()<Left><CR><Esc><S-o>
+inoremap [. []<Left><CR><Esc><S-o>
+inoremap {. {}<Left><CR><Esc><S-o>
+inoremap '. ''''''<Left><Left><Left><CR><Esc><S-o>
+inoremap ". """"""<Left><Left><Left><CR><Esc><S-o>
 
 " 挿入モードで日時を挿入
 " フルセット
