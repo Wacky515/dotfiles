@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/08/26 11:54:48.
+" Last Change: 2018/08/28 10:21:04.
 
 " 基本設定
 " unite general settings
@@ -44,7 +44,7 @@ endif
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
 	" <Esc>: 終了
-	nmap <buffer> <ESC> <Plug>(unite_exit)
+	nmap <buffer> <Esc> <Plug>(unite_exit)
 	" jj: ノーマルモードに移動
 	imap <buffer> jj <Plug>(unite_insert_leave)
 	" <Ctrl>w: バックスラッシュ削除
