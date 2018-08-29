@@ -60,12 +60,12 @@
 - <Shift>k: カーソル下をヘルプ検索
 
 - <Leader>o:  現在開いているバッファをIDE風に開く
-- <Leader>p:  編集中のファイルをブラウザで表示
-- <Leader>md: 編集中のファイルをブラウザで表示
-- <Leader>j:  Vimのカーソル移動とブラウザの下スクロールを連動
-- <Leader>js: 下スクロール連動を停止
-- <Leader>k:  Vimのカーソル移動とブラウザの上スクロールを連動
-- <Leader>ks: 上スクロール連動を停止
+- <Leader>p:  ~~編集中のファイルをブラウザで表示~~
+- <Leader>md: ~~編集中のファイルをブラウザで表示~~
+- <Leader>j:  ~~Vimのカーソル移動とブラウザの下スクロールを連動~~
+- <Leader>js: ~~下スクロール連動を停止~~
+- <Leader>k:  ~~Vimのカーソル移動とブラウザの上スクロールを連動~~
+- <Leader>ks: ~~上スクロール連動を停止~~
 
 - <Leader>l: スペルチェックON/OFFをトグル
     - ]s: 次のスペルミスの箇所へ移動
@@ -77,10 +77,12 @@
 - <Leader>zh: 全角英数字を半角にする
 
 - <Leader>md: 編集中のファイルをブラウザで表示
+" <Leader>,c: "VS Code" 起動
 
 ## Grep
-- <Leader>a:       カーソル下を "The Sliver Searcher" 対象に挿入
 - <Leader>r:       カーソル下を "RipGrep" 対象に挿入
+- <Leader>p:       カーソル下を "The Platinum Searcher" 対象に挿入
+- <Leader>a:       カーソル下を "The Sliver Searcher" 対象に挿入
 - <Leader>G:       カーソル下を "外部grep" 対象に挿入
 - <Leader>g:       カーソル下を "VimGrep" 対象に挿入
 - <Leader><Ctrl>k: 英和辞典起動

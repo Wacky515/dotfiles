@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/08/26 17:51:18.
+" Last Change: 2018/08/28 15:27:40.
 
 " MEMO: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
