@@ -1,17 +1,21 @@
 scriptencoding utf-8
-" Last Change: 2018/07/19 18:14:01.
+" Created:     2018/03/22 00:00:00
+" Last Change: 2018/08/30 22:29:22.
 
 " <Leader>o: 現在開いているバッファをIDE風に開く
 nnoremap <silent> <Leader>o :<C-u>NERDTree<CR>
 
 let g:NERDTreeDirArrows = 1
-let NERDTreeWinSize=22
-" let NERDTreeShowHidden = 1
+" let NERDTreeWinSize=22
+let NERDTreeWinSize=32
+"
+" 隠しファイルをデフォルトで表示させる
+let NERDTreeShowHidden = 1
 
 " 拡張子のHighlight設定
- function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
- exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
- exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+    exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+    exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 call NERDTreeHighlightFile('py', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
