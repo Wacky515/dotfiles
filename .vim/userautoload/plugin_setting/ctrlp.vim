@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/03/30 13:57:47.
+" Last Change: 2018/08/26 11:55:52.
 
 " ,s: ショートカットキー
 nnoremap ,s <Nop>
@@ -20,3 +20,12 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_extensions = ['tag', 'quickfix', 'dir', 'line', 'mixed']
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
+
+" ---------------------------------------------------------------------------
+"  RipGrep 設定
+" ---------------------------------------------------------------------------
+if executable('rg')
+  let g:ctrlp_use_caching = 0
+  "let g:ctrlp_user_command = 'cd %s && rg "" -i -r --no-color -l ./**/*'
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+endif

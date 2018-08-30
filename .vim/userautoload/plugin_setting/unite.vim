@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/07/16 12:33:21.
+" Last Change: 2018/08/28 10:21:04.
 
 " 基本設定
 " unite general settings
@@ -44,7 +44,7 @@ endif
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
 	" <Esc>: 終了
-	nmap <buffer> <ESC> <Plug>(unite_exit)
+	nmap <buffer> <Esc> <Plug>(unite_exit)
 	" jj: ノーマルモードに移動
 	imap <buffer> jj <Plug>(unite_insert_leave)
 	" <Ctrl>w: バックスラッシュ削除
@@ -59,3 +59,44 @@ function! s:unite_my_settings()
 	nnoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
 	inoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
 endfunction
+
+" ---------------------------------------------------------------------------
+" diff 設定
+" ---------------------------------------------------------------------------
+" MEMO: 使い方不明・・・
+
+let diff_action = {
+      \   'description' : 'diff',
+      \   'is_selectable' : 1,
+      \ }
+
+function! diff_action.func(candidates)
+  if len(a:candidates) == 1
+    " カレントバッファとdiff
+    execute 'vert diffsplit ' . a:candidates[0].action__path
+  elseif len(a:candidates) == 2
+    " 選択されたファイルとdiff
+    execute 'tabnew ' . a:candidates[0].action__path
+    execute 'vert diffsplit ' . a:candidates[1].action__path
+  else
+    " 3-way以上は非対応
+    echo 'too many candidates!'
+  endif
+endfunction
+
+call unite#custom_action('file', 'diff', diff_action)
+
+unlet diff_action
+
+" ---------------------------------------------------------------------------
+"  RipGrep 設定
+" ---------------------------------------------------------------------------
+if executable('rg')
+    let g:unite_source_grep_command = 'rg'
+    let g:unite_source_grep_default_opts = '-n --no-heading --color never'
+    let g:unite_source_grep_recursive_opt = ''
+    " Hit件数制御
+    let g:unite_source_grep_max_candidates = 200
+    " "Windows" 設定
+    let g:unite_source_grep_encoding='utf-8'
+endif
