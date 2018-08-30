@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/07/17 10:05:40.
+# Last Change: 2018/08/28 10:41:27.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -56,6 +56,10 @@ if = "!has('nvim')"
 # The Silver Searcher
 [[plugins]]
 repo = 'rking/ag.vim'
+
+# The Platinum Searcher
+[[plugins]]
+repo = 'nazo/pt.vim'
 
 # "Git" 用プラグイン
 [[plugins]]
@@ -238,6 +242,24 @@ hook_add = '''
     au MyAutoCmd VimEnter * nested colorscheme iceberg
     au MyAutoCmd VimEnter * highlight Visual ctermbg=216
     '''
+
+# ---------------------------------------------------------------------------
+# 動作確認中 新規導入プラグイン
+# ---------------------------------------------------------------------------
+# テーブル作成
+# ":TableModeToggle" で開始
+[[plugins]]
+repo = 'dhruvasagar/vim-table-mode'
+
+# チートシート表示
+# ":Cheat" でプレビュー
+[[plugins]]
+repo = 'reireias/vim-cheatsheet'
+
+# アイコン表示
+# "lightline" 拡張用
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
 
 # 導入予定 # {{{
 # japanese doc

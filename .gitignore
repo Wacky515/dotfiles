@@ -1,4 +1,4 @@
-﻿# Last Change: 2018/04/23 12:12:59.
+﻿# Last Change: 2018/08/25 05:45:36.
 # ------------------------------
 # 独自追記
 # ------------------------------
@@ -11,9 +11,12 @@ gitconfig_hbamb748.local
 /etc/init/windows/settings/cygwin/apt-cyg/
 
 # 特定の拡張子を無視する場合はどこにも/を付けない
+*.bk
 *.ok
 *.ng
 *.new
+*.pyc
+*.bak
 *.modifying
 
 *.tempkill*

@@ -1,5 +1,5 @@
-scriptencoding utf-8
-" Last Change: 2018/07/21 09:26:16.
+﻿scriptencoding utf-8
+" Last Change: 2018/08/29 12:17:15.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -20,7 +20,7 @@ inoremap jj <Esc>
 nnoremap bk :<C-u>w %.bk
 
 " 挿入モードで dl: 仕切り線を挿入
-inoreabbrev dl ---------------------------------------------------------------------------<Esc>:TComment<CR>^
+inoremap dl ---------------------------------------------------------------------------<Esc>:TComment<CR>^
 
 " " 0: 直下に空行挿入
 " nnoremap 0 :<C-u>call append(expand('.'), '')<CR>j
@@ -43,9 +43,9 @@ vnoremap v $h
 " Y: カーソルから行末までヤンク
 nnoremap Y y$
 
-" <Tab>: 対のカッコにジャンプ
-nnoremap <Tab> %
-vnoremap <Tab> %
+" <TAB>: 対のカッコにジャンプ
+nnoremap <TAB> %
+vnoremap <TAB> %
 
 " bo: エクスプローラで開く
 nnoremap <silent>bo :<C-u>browse open<CR>
@@ -87,13 +87,13 @@ endif
 
 " "NeoVim" の "Terminal mode" をノーマルモードを使用する
 if has("nvim")
-  tnoremap <silent> <ESC> <C-\><C-n>
+  tnoremap <silent> <Esc> <C-\><C-n>
 endif
 
 " ヤンクした文字列でカーソル位置の単語を置換
-nnoremap <silent> cy ce<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
-vnoremap <silent> cy c<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
-nnoremap <silent> ciy ciw<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
+nnoremap <silent> cy ce<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
+vnoremap <silent> cy c<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
+nnoremap <silent> ciy ciw<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
 
 " <Ctrl>s: エクスプローラで保存場所選択して保存
 nnoremap <C-s> :<C-u>browse sav<CR>
@@ -140,23 +140,23 @@ endif
 " ---------------------------------------------------------------------------
 " Command Line篇
 " ---------------------------------------------------------------------------
-" 行頭へ移動
+" <Home>: 行頭へ移動
 cnoremap <C-a> <Home>
-" 行末へ移動
+" <End>: 行末へ移動
 cnoremap <C-e> <End>
-" 一文字戻る
+" <Left>: 一文字戻る
 cnoremap <C-b> <Left>
-" 一文字進む
+" <Right>: 一文字進む
 cnoremap <C-f> <Right>
-" 前の単語へ移動
+" <Shift><Left>: 前の単語へ移動
 cnoremap <M-b> <S-Left>
-" 次の単語へ移動
+" <Shift><Right>: 次の単語へ移動
 cnoremap <M-f> <S-Right>
-" カーソルの下の文字を削除
+" <Del>: カーソルの下の文字を削除
 cnoremap <C-d> <Del>
-" 履歴を一つ進む
+" <Down>: 履歴を一つ進む
 cnoremap <C-n> <Down>
-" 履歴を一つ戻る
+" <Up>: 履歴を一つ戻る
 cnoremap <C-p> <Up>
 
 " ---------------------------------------------------------------------------
@@ -188,7 +188,7 @@ nnoremap <Leader>V :<C-u>vs<TAB>
 " nnoremap <Leader>V :<C-u>vs<TAB><C-w>l
 
 " <Leader>t: 新規タブを作成
-nnoremap <Leader>t :<C-u>tabnew<cr>
+nnoremap <Leader>t :<C-u>tabnew<CR>
 
 " <Leader>T: 新規タブを作成（ファイルを選択）
 nnoremap <Leader>T :<C-u>tabnew <TAB>
@@ -198,3 +198,12 @@ nmap <Leader><Leader> V
 
 " <Leader>l: スペルチェックON/OFFをトグル
 nnoremap <silent> <Leader>l :set spell!<CR>
+
+" EXコマンドの出力をクリップボードへコピー
+func! s:func_copy_cmd_output(cmd)
+	redir @*>
+	silent execute a:cmd
+	redir END
+endfunc
+
+command! -nargs=1 -complete=command CopyCmdOutput call <SID>func_copy_cmd_output(<q-args>)

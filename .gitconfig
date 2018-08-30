@@ -27,3 +27,9 @@
 
 [include]
     path = gitconfig.os
+[http]
+	sslBackend = openssl
+	sslCAInfo = C:\\Program Files\\Git\\mingw64\\ssl\\cert.pem
+	sslVerify = false
+[remote "origin"]
+	proxy = 
