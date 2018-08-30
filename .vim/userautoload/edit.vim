@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/07/16 16:57:38.
+" Last Change: 2018/08/28 09:55:04.
 
 " 保存時に行末の空白を削除
 autocmd BufWritePre * :%s/\s\+$//ge
@@ -54,19 +54,19 @@ endif
 " inoremap '<Enter> '
 " inoremap "<Enter> "
 "}}}
-" 3. . 押下で改行して閉じ括弧を補完（関数記記述用）
-inoremap (. ()<Left><CR><ESC><S-o>
-inoremap [. []<Left><CR><ESC><S-o>
-inoremap {. {}<Left><CR><ESC><S-o>
-inoremap '. ''''''<Left><Left><Left><CR><ESC><S-o>
-inoremap ". """"""<Left><Left><Left><CR><ESC><S-o>
+" 3. . 押下で改行して閉じ括弧を補完（関数記述用）
+inoremap (. ()<Left><CR><Esc><S-o>
+inoremap [. []<Left><CR><Esc><S-o>
+inoremap {. {}<Left><CR><Esc><S-o>
+inoremap '. ''''''<Left><Left><Left><CR><Esc><S-o>
+inoremap ". """"""<Left><Left><Left><CR><Esc><S-o>
 
 " 挿入モードで日時を挿入
 " フルセット
 inoremap <expr> ,df strftime('%Y-%m-%d %H:%M')
 " 年月日
 inoremap <expr> ,dd strftime('%Y-%m-%d')
-" 時間
+" 時分
 inoremap <expr> ,dt strftime('%H:%M')
 
 " 挿入モードで曜日を挿入
