@@ -35,6 +35,14 @@
 - Um: 最近使用したファイル一覧
 - Uw: 最近使用したウィンドウ一覧
 
+- mgs :Gstatus<CR><C-w>T
+    - 選択ファイル上で -: "git add/reset" をトグル
+- mga :Gwrite<CR>
+- mgc :Gcommit-v<CR>
+- mgb :Gblame<CR>
+- mgd :Gdiff<CR>
+- mgm :Gmerge<CR>
+
 - mn:    現在位置をマーク
 - m,:    + 1文字で指定のマークへ移動
 - mj:    次のマークへ移動
