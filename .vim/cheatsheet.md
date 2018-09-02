@@ -54,6 +54,9 @@
 - <Ctrl>s: エクスプローラで保存場所選択して保存
 - <Ctrl>e: ウィンドウサイズ変更開始
 
+- <Ctrl>ww or <Ctrl>w<Ctrl>w: 次のウィンドウへ移動
+- <Ctrl>wW: 前のウィンドウへ(逆方向)
+
 - <Ctrl>h: 垂直分割で "ctags" 表示
 - <Ctrl>l: 水平分割で "ctags" 表示
 
