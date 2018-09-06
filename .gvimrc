@@ -111,9 +111,9 @@ elseif has("mac")
         " set background=dark
     else
         if !has("nvim")
-            set guifont=Osaka:h18
+            set guifont=Cica:h18
         else
-            Guifont! Osaka:h18
+            Guifont! Cica:h18
         endif
     " colorscheme hybrid
     " set background=dark

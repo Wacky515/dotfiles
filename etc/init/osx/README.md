@@ -1,4 +1,4 @@
-#Initial setting scripts for OS X
+# Initial setting scripts for OS X
 
 ## Usage
 - Run command below
