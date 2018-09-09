@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/07/19 18:04:33.
+" Last Change: 2018/09/06 09:05:34.
 
 highlight Pmenu ctermbg=4
 highlight PmenuSel ctermbg=1
@@ -70,8 +70,8 @@ endfunction
 " <Ctrl>h, <BS>: ポップアップを閉じて後ろの文字を削除
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
+inoremap <expr><C-y> neocomplcache#close_popup()
+inoremap <expr><C-e> neocomplcache#cancel_popup()
 
 " "Rsense" での自動補完機能を有効化
 let g:rsenseUseOmniFunc = 1
