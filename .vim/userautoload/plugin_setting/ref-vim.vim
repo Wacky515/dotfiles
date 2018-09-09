@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change:2018/08/27 01:07:22.
+" Last Change:2018/09/06 22:21:22.
 
 " q: バッファを閉じる
 autocmd FileType ref-* nnoremap <buffer> <silent> q :<C-u>close<CR>
@@ -30,7 +30,11 @@ let g:ref_source_webdict_cmd = 'lynx -dump -nonumbers %s'
 " エンコード
     " "lynx" 文字化け対策の設定
 " let g:ref_source_webdict_encoding = 'utf-8'
-let g:ref_source_webdict_encoding = 'shift-jis'
+if has('win32') || has ('win64')
+    let g:ref_source_webdict_encoding = 'shift-jis'
+else
+    let g:ref_source_webdict_encoding = 'utf-8'
+endif
 
 " 辞書サイトの設定
 let g:ref_source_webdict_use_cache = 1
