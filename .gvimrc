@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/08/29 12:01:19.
+" Last Change: 2018/09/11 08:33:50.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -186,8 +186,8 @@ elseif has("win32") || has("win64")
         " set background=dark
     elseif hostname() == "HBAMB819"
         if !has("nvim")
-            set guifont=Cica:h15
-            set printfont=Cica:h13
+            set guifont=Cica:h12
+            set printfont=Cica:h10
             set rop=type:directx,renmode:5
         else
             Guifont! Cica:h16
