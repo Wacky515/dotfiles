@@ -1,9 +1,9 @@
 scriptencoding utf-8
 " Created:     2016/08/11 00:00:00
-" Last Change: 2018/08/30 22:40:39.
+" Last Change: 2018/09/11 08:36:50.
 " < http://myenigma.hatenablog.com/entry/2016/07/10/084048 >
 
-" Usage
+" USAGE:
 " ":Gstatus" のステータス画面のファイル名上で
     " -: "add" と "reset" 切替え
     " C|cc: コミット画面表示
