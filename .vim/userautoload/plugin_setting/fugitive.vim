@@ -1,5 +1,6 @@
 scriptencoding utf-8
-" Last Change: 2018/03/24 23:00:42.
+" Created:     2016/08/11 00:00:00
+" Last Change: 2018/08/30 22:40:39.
 " < http://myenigma.hatenablog.com/entry/2016/07/10/084048 >
 
 " Usage
