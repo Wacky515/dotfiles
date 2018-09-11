@@ -1,6 +1,6 @@
 @echo off
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2018/09/11 11:59:43.
+rem Last Change: 2018/09/11 12:16:03.
 
 rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
@@ -47,14 +47,14 @@ if exist %eve_path% (
     move %eve_path%\* %backup%
     )
 
+rem シンボリックリンク 作成
 for %%i in (*.ini) do (
     rem MEMO: 下記修正した、確認
     mklink %eve_path%"\"%%i %bat_path%\%%i
 )
 rem FIXME: ここまででSyntax Error
-
-rem シンボリックリンク 作成
 rem FIXME: *.ini コピー失敗している
+
 rem MEMO: x64環境下
 for %%i in (*.ini) do (
     rem MEMO: 下記2つ 記述方法が 32bit と 64bit で異なるか確認
