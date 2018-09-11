@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/22 00:00:00
-" Last Change: 2018/08/30 22:29:22.
+" Last Change: 2018/09/12 08:57:22.
 
 " <Leader>o: 現在開いているバッファをIDE風に開く
 nnoremap <silent> <Leader>o :<C-u>NERDTree<CR>
@@ -11,6 +11,9 @@ let NERDTreeWinSize=32
 "
 " 隠しファイルをデフォルトで表示させる
 let NERDTreeShowHidden = 1
+
+"他のバッファをすべて閉じた時にNERDTreeが開いていたらNERDTreeも一緒に閉じる
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " 拡張子のHighlight設定
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
