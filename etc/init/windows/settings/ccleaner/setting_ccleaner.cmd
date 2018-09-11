@@ -1,10 +1,21 @@
 @echo off
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2018/09/10 15:04:37.
+rem Last Change: 2018/09/11 12:22:26.
 
 rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 cd /d %bat_path%
+
+rem ---------------------------------------------------------------------------
+rem ここから追記して動作未確認
+rem ---------------------------------------------------------------------------
+
+rem 設定ファイルがある "Dir" に "cd"
+cd %OneDrive%
+
+rem ---------------------------------------------------------------------------
+rem ここまで追記して動作未確認
+rem ---------------------------------------------------------------------------
 
 echo ^>^> Setting CCleaner
 
@@ -29,10 +40,11 @@ rem "CCleaner" 停止
 echo ^>^> Kill CCleaner
 taskkill /f /im CCleaner.exe
 
+rem バックアップ 作成
 if exist %inifile% (
     goto bkup
 ) else (
-    goto cpini
+    goto mklink
 )
 
 :bkup
@@ -41,9 +53,21 @@ rem FIXME: Syntax error
 rem ren %inifile% ccleaner%tstmp%.ini
 move %inifile% %backup%
 
-:cpini
-echo ^>^> Copy *.ini
-copy "ccleaner.ini" %inifile%
+rem シンボリックリンク 作成
+:mklink
+
+rem ---------------------------------------------------------------------------
+rem ここから追記して動作未確認
+rem ---------------------------------------------------------------------------
+
+rem echo ^>^> Copy *.ini
+rem copy "ccleaner.ini" %inifile%
+echo ^>^> Make symbolic link *.ini
+mklink %inifile% "ccleaner.ini"
+
+rem ---------------------------------------------------------------------------
+rem ここまで追記して動作未確認
+rem ---------------------------------------------------------------------------
 
 pause
 exit /b 0
