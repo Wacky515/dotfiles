@@ -1,16 +1,16 @@
 scriptencoding utf-8
 " Created:     2016/08/11 00:00:00
-" Last Change: 2018/09/11 08:36:50.
+" Last Change: 2018/09/11 09:18:08.
 " < http://myenigma.hatenablog.com/entry/2016/07/10/084048 >
 
 " USAGE:
-" ":Gstatus" のステータス画面のファイル名上で
-    " -: "add" と "reset" 切替え
-    " C|cc: コミット画面表示
+    " ":Gstatus" のステータス画面のファイル名上で
+        " -: "add" と "reset" 切替え
+        " C|cc: コミット画面表示
 
-" ステータス行に現在のgitブランチを表示
-" set statusline+=%{fugitive#statusline()}
-" set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ \[ENC=%{&fileencoding}]%P
+    " ステータス行に現在のgitブランチを表示
+    " set statusline+=%{fugitive#statusline()}
+    " set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ \[ENC=%{&fileencoding}]%P
 
 " "Vim" 起動時のエラー回避
 set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
