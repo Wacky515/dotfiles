@@ -1,5 +1,5 @@
 ﻿scriptencoding utf-8
-" Last Change: 2018/08/29 12:17:15.
+" Last Change: 2018/09/12 15:40:05.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -48,16 +48,16 @@ nnoremap <TAB> %
 vnoremap <TAB> %
 
 " bo: エクスプローラで開く
-nnoremap <silent>bo :<C-u>browse open<CR>
+nnoremap <silent> bo :<C-u>browse open<CR>
 " bs: エクスプローラで保存
-nnoremap <silent>bo :<C-u>browse sav<CR>
+nnoremap <silent> bo :<C-u>browse sav<CR>
 
 " bp: 前のバッファを開く
-nnoremap <silent>bp :<C-u>bprevious<CR>
+nnoremap <silent> bp :<C-u>bprevious<CR>
 " bn: 次のバッファを開く
-nnoremap <silent>bn :<C-u>bnext<CR>
+nnoremap <silent> bn :<C-u>bnext<CR>
 " bb: 直前のバッファを開く
-nnoremap <silent>bb :<C-u>b#<CR>
+nnoremap <silent> bb :<C-u>b#<CR>
 " <Ctrl>j: 裏バッファへ切替え
 nnoremap <C-j> <C-^>
 
