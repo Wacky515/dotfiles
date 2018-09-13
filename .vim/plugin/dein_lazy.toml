@@ -1,4 +1,4 @@
-# Last Change: 2018/06/18 18:56:48.
+# Last Change: 2018/09/13 13:42:23.
 
 # 統合ユーザインターフェース # {{{
 # [[plugins]]
@@ -15,6 +15,7 @@
 # }}}
 
 # 入力補完
+# 最新
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 if = "has('nvim')"
@@ -22,11 +23,13 @@ depends = 'context_filetype.vim'
 on_i = 1
 hook_add = 'let g:deoplete#enable_at_startup = 1'
 # ↑ いる？
+# 2番目に新しい
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 depends = 'context_filetype.vim'
 if = "has('lua')"
 on_i = 1
+# 最古
 # [[plugins]]
 # repo = 'Shougo/neocomplcache.vim'
 # on_i = 1
@@ -132,8 +135,10 @@ hook_add = '''
 
 # コピペ 履歴保存
 # ヤンク後に "<Ctrl>p/<Ctrl>n" でヤンク履歴を選択
+# MEMO: 弊害が多いので "YankRnkg" -> "yankround" に変更
 [[plugins]]
-repo = 'vim-scripts/YankRing.vim'
+# repo = 'vim-scripts/YankRing.vim'
+repo = 'LeafCage/yankround.vim'
 if = "!has('nvim')"
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
 
