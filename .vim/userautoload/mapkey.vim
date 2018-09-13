@@ -1,5 +1,6 @@
 ﻿scriptencoding utf-8
-" Last Change: 2018/09/12 15:40:05.
+" Created:     2018/08/29 12:03:08
+" Last Change: 2018/09/13 23:13:32.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -165,6 +166,11 @@ cnoremap <C-p> <Up>
 " <Space> を "Leader" に割当て
 " let mapleader = "\<Space>"
 " －> ".vimrc" へ
+
+" <Leader>w: ファイルを保存
+" nnoremap <Leader>w :<Nop>
+" nnoremap <Leader>w :<C-u>w<CR>
+autocmd VimEnter * nnoremap <Leader>w :<C-u>w<CR>
 
 " <Leader>q: ファイルを閉じる
 nnoremap <Leader>q :<C-u>q<CR>
