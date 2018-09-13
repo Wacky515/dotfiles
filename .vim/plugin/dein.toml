@@ -1,5 +1,5 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/08/28 10:41:27.
+# Last Change: 2018/09/13 12:17:24.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -60,6 +60,10 @@ repo = 'rking/ag.vim'
 # The Platinum Searcher
 [[plugins]]
 repo = 'nazo/pt.vim'
+
+# 置換強化
+[[plugins]]
+repo = 'osyo-manga/vim-over'
 
 # "Git" 用プラグイン
 [[plugins]]
