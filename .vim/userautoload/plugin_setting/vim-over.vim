@@ -1,11 +1,11 @@
 scriptencoding utf-8
 " Created:     2018/09/13 12:19:02
-" Last Change: 2018/09/13 12:22:38.
+" Last Change: 2018/09/13 12:31:47.
 
-" <Leader>m: over.vimの起動
+" <Leader>m: "vim-over" 起動
 nnoremap <silent> <Leader>m :OverCommandLine<CR>
 
-" sub: カーソル下の単語をハイライト付きで置換
+" sub: カーソル下をハイライト付きで置換
 nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 
 " sup: コピーした文字列をハイライト付きで置換
