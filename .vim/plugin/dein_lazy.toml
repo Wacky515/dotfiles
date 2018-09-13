@@ -1,5 +1,5 @@
 # Created:     2018/05/25 00:00:00
-# Last Change: 2018/09/13 14:03:28.
+# Last Change: 2018/09/13 17:01:37.
 
 # 統合ユーザインターフェース # {{{
 # [[plugins]]
@@ -139,9 +139,9 @@ hook_add = '''
 # MEMO: 弊害が多いので "YankRnkg" -> "yankround" に変更
 [[plugins]]
 # repo = 'vim-scripts/YankRing.vim'
-repo = 'LeafCage/yankround.vim'
-if = "!has('nvim')"
+# if = "!has('nvim')"
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
+repo = 'LeafCage/yankround.vim'
 
 # フォントのサイズ変更
 [[plugins]]
