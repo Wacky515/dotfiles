@@ -1,7 +1,10 @@
 scriptencoding utf-8
-" Last Change: 2018/08/28 10:21:04.
+" Created:     2018/03/19 00:00:00
+" Last Change: 2018/09/13 23:01:33.
 
+" ---------------------------------------------------------------------------
 " 基本設定
+" ---------------------------------------------------------------------------
 " unite general settings
 " 挿入モードで開始
 let g:unite_enable_start_insert = 1
@@ -9,11 +12,14 @@ let g:unite_enable_start_insert = 1
 let g:unite_enable_split_vertically = 1
 " 最近開いたファイル履歴の保存数
 let g:unite_source_file_mru_limit = 1000
+"file_mruの表示フォーマットを指定。空にすると表示スピードが高速化される
+let g:unite_source_file_mru_filename_format = ""
 
+" ---------------------------------------------------------------------------
 " ショートカットキー
+" ---------------------------------------------------------------------------
 nnoremap [unite] <Nop>
 nmap U [unite]
-" nmap <Leader>u [unite]
 
 " Ub: 現在のバッファ一覧
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
@@ -33,8 +39,6 @@ nnoremap <silent> [unite]l :<C-u>Unite -auto-preview colorscheme<CR>
 nnoremap <silent> [unite]m :Unite file_mru<CR>
 " Uw: 最近使用したウィンドウ一覧
 nnoremap <silent> [unite]w :<C-u>Unite window<CR>
-"file_mruの表示フォーマットを指定。空にすると表示スピードが高速化される
-let g:unite_source_file_mru_filename_format = ""
 
 " Uniteを開いている間のキーマッピング
 if globpath(&rtp, 'plugin/unite.vim') != ''

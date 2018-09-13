@@ -1,5 +1,5 @@
 # Created:     2018/05/25 00:00:00
-# Last Change: 2018/09/13 22:32:05.
+# Last Change: 2018/09/13 22:56:49.
 
 # 統合ユーザインターフェース # {{{
 [[plugins]]
@@ -42,6 +42,8 @@ repo = 'Shougo/deoplete.nvim'
 # if = "has('nvim')"
 if = "has('python3')"
 depends = 'context_filetype.vim'
+depends = 'roxma/nvim-yarp'
+depends = 'roxma/vim-hug-neovim-rpc'
 on_i = 1
 hook_add = 'let g:deoplete#enable_at_startup = 1'
 # ↑ いる？
