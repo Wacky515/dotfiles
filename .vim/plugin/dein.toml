@@ -1,28 +1,9 @@
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/09/13 12:17:24.
+# Last Change: 2018/09/13 22:32:00.
 
 # "dein.vim" 本体
 [[plugins]]
 repo = 'Shougo/dein.vim'
-
-# 統合ユーザインターフェース
-[[plugins]]
-repo = 'Shougo/unite.vim'
-depends = 'neomru.vim'
-# "unite.vim" 用 "Colorscheme" プレビュー
-# Ul: :Unite colorscheme でプレビュー
-[[plugins]]
-repo = 'ujihisa/unite-colorscheme'
-# "unite.vim" 用フォントプレビュー
-# ":Unite font" でプレビュー
-# FIXME: ↑ 何も表示されない
-[[plugins]]
-repo = 'ujihisa/unite-font'
-# 英和・和英辞書
-[[plugins]]
-repo = 'rhysd/unite-codic.vim'
-[[plugins]]
-repo = 'koron/codic-vim'
 
 # 辞書
 [[plugins]]
