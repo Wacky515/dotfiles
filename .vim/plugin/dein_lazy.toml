@@ -1,10 +1,9 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/14 19:19:37.
+# Last Change: 2018/09/14 22:49:27.
 
 # 統合ユーザインターフェース
 [[plugins]]
 repo = 'Shougo/denite.nvim'
-# if = "has('nvim')"
 if = "has('python3')"
 hook_source = '''
     call denite#custom#map('insert', '<c-n>', '<denite:move_to_next_line>', 'noremap')
@@ -21,13 +20,15 @@ repo = 'Shougo/unite.vim'
 # MEMO: "Denite" 動作テスト完了後に以下を復帰して "Unite" 使用完了
 # if = "!has('python3')"
 depends = 'neomru.vim'
-# "unite.vim" 用 "Colorscheme" プレビュー
+# "Denite"|"Unite" 用 "Colorscheme" プレビュー
 # Ul: :Unite colorscheme でプレビュー
+# Dl: :Denite colorscheme でプレビュー
 [[plugins]]
 repo = 'ujihisa/unite-colorscheme'
-# "unite.vim" 用フォントプレビュー
+# "Denite"|"Unite" 用フォントプレビュー
 # ":Unite font" でプレビュー
 # FIXME: ↑ 何も表示されない
+# ":Denite font" でプレビュー
 [[plugins]]
 repo = 'ujihisa/unite-font'
 # 英和・和英辞書
@@ -35,7 +36,7 @@ repo = 'ujihisa/unite-font'
 repo = 'rhysd/unite-codic.vim'
 [[plugins]]
 repo = 'koron/codic-vim'
-# Denite | Unite用mru
+# "Denite"|"Unite" 用 "mru"
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 # MEMO: "NeoVim" では無駄なディレクトリが生成される
@@ -48,7 +49,6 @@ on_path = '.*'
 # 最新
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-# if = "has('nvim')"
 if = "has('python3')"
 depends = 'context_filetype.vim'
 depends = 'roxma/nvim-yarp'
@@ -102,6 +102,11 @@ hook_post_update = '''
     let cmd = 'make -f make_cygwin.mak'
   elseif executable('gmake')
     let cmd = 'gmake'
+  else
+    let cmd = 'make'
+  endif
+  let g:dein#plugin.build = cmd
+'''
 
 # "NeoVim" の "Terminal" ラッパープラグイン
 #[[plugins]]
@@ -169,13 +174,13 @@ hook_add = '''
 '''
 
 # コピペ 履歴保存
-# MEMO: 弊害が多いので "YankRnkg" -> "yankround" に変更
-# "yankround" が使えないので一旦中止
 # ヤンク後に "<Ctrl>p/<Ctrl>n" でヤンク履歴を選択
 [[plugins]]
 repo = 'vim-scripts/YankRing.vim'
 if = "!has('nvim')"
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
+# MEMO: 弊害が多いので "YankRnkg" -> "yankround" に変更
+# MEMO: "yankround" が使えないので一旦中止
 # repo = 'LeafCage/yankround.vim'
 
 # フォントのサイズ変更
