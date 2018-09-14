@@ -1,11 +1,10 @@
 scriptencoding utf-8
 " Created:     2018/03/19 20:47:58
-" Last Change: 2018/09/14 11:35:28.
+" Last Change: 2018/09/14 14:50:25.
 
 " ---------------------------------------------------------------------------
 " 基本設定
 " ---------------------------------------------------------------------------
-" unite general settings
 " 挿入モードで開始
 let g:unite_enable_start_insert = 1
 " Uniteを縦分割で開始
@@ -21,24 +20,27 @@ let g:unite_source_file_mru_filename_format = ""
 nnoremap [unite] <Nop>
 nmap U [unite]
 
+" Um: 最近使用したファイル一覧
+nnoremap <silent> [unite]m :Unite file_mru<CR>
 " Ub: 現在のバッファ一覧
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 " Uf: 現在のバッファのディレクトリ一覧
-nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-" Ur: レジスタ一覧
-nnoremap <silent> [unite]r :<C-u>Unite register<CR>
+nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir
+            \-buffer-name=files file<CR>
+" Ut: バッファを新しいタブで開く
+nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
+" Uw: 最近使用したウィンドウ一覧
+nnoremap <silent> [unite]w :<C-u>Unite window<CR>
 " Uc: ブックマーク一覧
 nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
 " Ua: ブックマークに追加
 nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
-" Ut: バッファを新しいタブで開く
-nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
+" Ur: レジスタ一覧
+nnoremap <silent> [unite]r :<C-u>Unite register<CR>
 " Ul: Colorscheme プレビュー
-nnoremap <silent> [unite]l :<C-u>Unite -auto-preview colorscheme<CR>
-" Um: 最近使用したファイル一覧
-nnoremap <silent> [unite]m :Unite file_mru<CR>
-" Uw: 最近使用したウィンドウ一覧
-nnoremap <silent> [unite]w :<C-u>Unite window<CR>
+nnoremap <silent> [unite]l :<C-u>Unite
+            \ -auto-preview
+            \colorscheme<CR>
 
 " Uniteを開いている間のキーマッピング
 if globpath(&rtp, 'plugin/unite.vim') != ''

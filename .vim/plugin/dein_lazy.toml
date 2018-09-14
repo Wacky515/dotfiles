@@ -1,25 +1,26 @@
-# Created:     2018/05/25 00:00:00
-# Last Change: 2018/09/14 09:14:19.
+# Created:     2018/03/07 21:59:29
+# Last Change: 2018/09/14 14:01:20.
 
-# 統合ユーザインターフェース # {{{
+# 統合ユーザインターフェース
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 # if = "has('nvim')"
 if = "has('python3')"
-on_cmd = 'Denite'
-on_i = 1
 hook_source = '''
     call denite#custom#map('insert', '<c-n>', '<denite:move_to_next_line>', 'noremap')
     call denite#custom#map('insert', '<c-p>', '<denite:move_to_previous_line>', 'noremap')
     call denite#custom#var('file_rec', 'command', ['rg', '--files'])
     call denite#custom#source('file_rec', 'matchers', ['matcher_regexp'])
 '''
-# }}}
+depends = 'neomru.vim'
+on_i = 1
+on_cmd = 'Denite'
+
 [[plugins]]
 repo = 'Shougo/unite.vim'
-if = "!has('python3')"
+# MEMO: "Denite" 動作テスト完了後に以下を復帰して "Unite" 使用完了
+# if = "!has('python3')"
 depends = 'neomru.vim'
-
 # "unite.vim" 用 "Colorscheme" プレビュー
 # Ul: :Unite colorscheme でプレビュー
 [[plugins]]
@@ -34,6 +35,14 @@ repo = 'ujihisa/unite-font'
 repo = 'rhysd/unite-codic.vim'
 [[plugins]]
 repo = 'koron/codic-vim'
+# Denite | Unite用mru
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+# MEMO: "NeoVim" では無駄なディレクトリが生成される
+if = "!has('nvim')"
+on_source = 'denite.nvim'
+on_source = 'dein.vim'
+on_path = '.*'
 
 # 入力補完
 # 最新
@@ -45,8 +54,13 @@ depends = 'context_filetype.vim'
 depends = 'roxma/nvim-yarp'
 depends = 'roxma/vim-hug-neovim-rpc'
 on_i = 1
-hook_add = 'let g:deoplete#enable_at_startup = 1'
-# ↑ いる？
+# MEMO: キルしてテスト
+# ↓ いる？
+# hook_add = 'let g:deoplete#enable_at_startup = 1'
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
 # 2番目に新しい
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
@@ -55,11 +69,13 @@ if = "!has('python3')"
 if = "has('lua')"
 on_i = 1
 # 最古
-# [[plugins]]
+# [[plugins]] #  {{{
 # repo = 'Shougo/neocomplcache.vim'
+# if = "!has('python3')"
 # on_i = 1
+# }}}
 
-# スニペット補完
+# スニペット
 [[plugins]]
 repo = 'Shougo/neosnippet'
 hook_source = '''
@@ -70,29 +86,22 @@ hook_source = '''
             set conceallevel=2 concealcursor=niv
         endif
 '''
+depends = ['neosnippet-snippets']
 on_i = 1
 on_ft = ['snippet']
-depends = ['neosnippet-snippets']
-
-# Unite用mru
 [[plugins]]
-repo = 'Shougo/neomru.vim'
-# "NeoVim" では無駄なディレクトリが生成される
-if = "!has('nvim')"
-# on_source = 'denite.nvim'
-on_source = 'dein.vim'
-on_path = '.*'
+repo = 'Shougo/neosnippet-snippets'
 
-# "gitk" 機能追加
+# 非同期処理
 [[plugins]]
-repo = 'gregsexton/gitv'
-depends = 'fugitive'
-
-# "VimShell"
-# ",s: :VimShell" で起動
-[[plugins]]
-repo = 'Shougo/vimshell'
-if = "!has('nvim')"
+repo = 'Shougo/vimproc.vim'
+hook_post_update = '''
+  if dein#util#_is_windows()
+    let cmd = 'tools\\update-dll-mingw'
+  elseif dein#util#_is_cygwin()
+    let cmd = 'make -f make_cygwin.mak'
+  elseif executable('gmake')
+    let cmd = 'gmake'
 
 # "NeoVim" の "Terminal" ラッパープラグイン
 #[[plugins]]
@@ -124,11 +133,12 @@ repo = 'w0rp/ale'
 [[plugins]]
 repo = 'kannokanno/previm'
 on_ft = ['markdown','mkd']
+[[plugins]]
 repo = 'tyru/open-browser.vim'
 on_ft = ['markdown','mkd']
+# MEMO: ↓エラーになる
 # hook_add = '''
 #   let g:previm_open_cmd = 'C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe'
-#   # "C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe"
 # '''
 # シンタックスハイライト 1
 [[plugins]]
@@ -159,8 +169,8 @@ hook_add = '''
 '''
 
 # コピペ 履歴保存
-# ヤンク後に "<Ctrl>p/<Ctrl>n" でヤンク履歴を選択
 # MEMO: 弊害が多いので "YankRnkg" -> "yankround" に変更
+# ヤンク後に "<Ctrl>p/<Ctrl>n" でヤンク履歴を選択
 [[plugins]]
 # repo = 'vim-scripts/YankRing.vim'
 # if = "!has('nvim')"
@@ -169,10 +179,10 @@ repo = 'LeafCage/yankround.vim'
 
 # フォントのサイズ変更
 [[plugins]]
-repo   = 'thinca/vim-fontzoom'
+repo = 'thinca/vim-fontzoom'
 on_cmd = ['Fontzoom']
 on_map = ['<Plug>(fontzoom-']
-gui    = 1
+gui = 1
 
 # TODO: 動作確認 # {{{
 # # カラーコード プレビュー
@@ -188,5 +198,5 @@ gui    = 1
 # repo = "sudar/vim-arduino-syntax"
 # on_ft = "arduino"
 
-# 導入予定
+# TODO: 導入予定
 # }}}
