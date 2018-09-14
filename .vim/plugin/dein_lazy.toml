@@ -1,26 +1,49 @@
 # Created:     2018/05/25 00:00:00
-# Last Change: 2018/09/13 17:01:37.
+# Last Change: 2018/09/14 09:14:19.
 
 # 統合ユーザインターフェース # {{{
-# [[plugins]]
-# repo = 'Shougo/denite.nvim'
+[[plugins]]
+repo = 'Shougo/denite.nvim'
 # if = "has('nvim')"
-# on_cmd = 'Denite'
-# on_i = 1
-# hook_source = '''
-#     call denite#custom#map('insert', '<c-n>', '<denite:move_to_next_line>', 'noremap')
-#     call denite#custom#map('insert', '<c-p>', '<denite:move_to_previous_line>', 'noremap')
-#     call denite#custom#var('file_rec', 'command', ['rg', '--files'])
-#     call denite#custom#source('file_rec', 'matchers', ['matcher_regexp'])
-# '''
+if = "has('python3')"
+on_cmd = 'Denite'
+on_i = 1
+hook_source = '''
+    call denite#custom#map('insert', '<c-n>', '<denite:move_to_next_line>', 'noremap')
+    call denite#custom#map('insert', '<c-p>', '<denite:move_to_previous_line>', 'noremap')
+    call denite#custom#var('file_rec', 'command', ['rg', '--files'])
+    call denite#custom#source('file_rec', 'matchers', ['matcher_regexp'])
+'''
 # }}}
+[[plugins]]
+repo = 'Shougo/unite.vim'
+if = "!has('python3')"
+depends = 'neomru.vim'
+
+# "unite.vim" 用 "Colorscheme" プレビュー
+# Ul: :Unite colorscheme でプレビュー
+[[plugins]]
+repo = 'ujihisa/unite-colorscheme'
+# "unite.vim" 用フォントプレビュー
+# ":Unite font" でプレビュー
+# FIXME: ↑ 何も表示されない
+[[plugins]]
+repo = 'ujihisa/unite-font'
+# 英和・和英辞書
+[[plugins]]
+repo = 'rhysd/unite-codic.vim'
+[[plugins]]
+repo = 'koron/codic-vim'
 
 # 入力補完
 # 最新
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-if = "has('nvim')"
+# if = "has('nvim')"
+if = "has('python3')"
 depends = 'context_filetype.vim'
+depends = 'roxma/nvim-yarp'
+depends = 'roxma/vim-hug-neovim-rpc'
 on_i = 1
 hook_add = 'let g:deoplete#enable_at_startup = 1'
 # ↑ いる？
@@ -28,6 +51,7 @@ hook_add = 'let g:deoplete#enable_at_startup = 1'
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 depends = 'context_filetype.vim'
+if = "!has('python3')"
 if = "has('lua')"
 on_i = 1
 # 最古
