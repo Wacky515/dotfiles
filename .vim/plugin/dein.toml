@@ -1,5 +1,6 @@
+# Created:     2018/03/07 21:59:29
+# Last Change: 2018/09/14 13:34:28.
 # "github.com" のリポジトリを指定し、"Plugin" を追加
-# Last Change: 2018/09/13 22:32:00.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -8,10 +9,6 @@ repo = 'Shougo/dein.vim'
 # 辞書
 [[plugins]]
 repo = 'thinca/vim-ref'
-
-# スニペット
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
 
 # ファイラー
 # :VimFiler で起動 # {{{
@@ -34,6 +31,12 @@ repo = 'ryanoasis/vim-devicons'
 repo = 'ctrlpvim/ctrlp.vim'
 if = "!has('nvim')"
 
+# "VimShell"
+# ",s: :VimShell" で起動
+[[plugins]]
+repo = 'Shougo/vimshell'
+if = "!has('nvim')"
+
 # The Silver Searcher
 [[plugins]]
 repo = 'rking/ag.vim'
@@ -49,16 +52,21 @@ repo = 'osyo-manga/vim-over'
 # "Git" 用プラグイン
 [[plugins]]
 repo = 'tpope/vim-fugitive'
-# "git log" を強化
-# :Agit 強化版"git log" 起動
-[[plugins]]
-repo = 'cohama/agit.vim'
-# # コミットログ入力をサポート
-[[plugins]]
-repo = 'rhysd/committia.vim'
 # 追加、削除マーカ表示
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+# "git log" を強化
+# :Agit 強化版"git log" 実行
+[[plugins]]
+repo = 'cohama/agit.vim'
+# "gitk" 機能追加
+# :Gitv: "gitk" 実行
+[[plugins]]
+repo = 'gregsexton/gitv'
+depends = 'fugitive'
+# # コミットログ入力をサポート
+[[plugins]]
+repo = 'rhysd/committia.vim'
 
 # Undo履歴
 # F4: :GundoToggle Undo履歴起動
@@ -162,7 +170,11 @@ repo = 'itchyny/calendar.vim'
 [[plugins]]
 repo = 'vim-scripts/taglist.vim'
 
-# コンテキストによって "filetype" を自動的に切り換え
+# カーソル位置のコンテキストの "filetype" を自動切替
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
+# カーソル位置のコンテキストの "filetype" を自動判定
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
