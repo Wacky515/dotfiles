@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/19 09:19:36
-" Last Change: 2018/09/14 17:16:22.
+" Last Change: 2018/09/14 18:11:09.
 
 " ---------------------------------------------------------------------------
 " 基本設定
@@ -24,38 +24,44 @@ nmap [denite] <Nop>
 map D [denite]
 
 " Dm: 最近使用したファイル一覧
+" nnoremap <silent> [denite]m :Denite file_mru<CR>
 nnoremap <silent> [denite]m :Denite
             \ -direction=topleft
-            \ -cursor-warp=true
+            \ -cursor-wrap=true
             \ file_mru<CR>
 " Db: 現在のバッファ一覧
+" nnoremap <silent> [denite]b :<C-u>Denite buffer<CR>
 nnoremap <silent> [denite]b :<C-u>Denite
             \ -direction=topleft
-            \ -cursor-warp=true
+            \ -cursor-wrap=true
             \ buffer<CR>
 " Df: 現在のバッファのディレクトリ一覧
+" nnoremap <silent> [denite]f :<C-u>DeniteBufferDir -buffer-name=files file<CR>
 nnoremap <silent> [denite]f :<C-u>DeniteBufferDir
             \ -direction=topleft
-            \ -cursor-warp=true
+            \ -cursor-wrap=true
             \ file file:new<CR>
-            " \ -buffer-name=files file<CR>
+            \ -buffer-name=files file<CR>
 "ブックマーク一覧
+" nnoremap <silent> [denite]c :<C-u>Denite bookmark<CR>
 nnoremap <silent> [denite]c :<C-u>Denite
             \ -direction=topleft
             \ -cursor-wrap=true
-            \bookmark<CR>
+            \ bookmark<CR>
 "ブックマークに追加
 nnoremap <silent> [denite]a :<C-u>DeniteBookmarkAdd<CR>
 " Dr: レジスタ一覧
+" nnoremap <silent> [denite]r :<C-u>Denite register<CR>
 nnoremap <silent> [denite]r :<C-u>Denite
             \ -direction=topleft
-            \ -cursor-warp=true
+            \ -cursor-wrap=true
             \ -buffer-name=register
             \ register<CR>
 " Dl: Colorscheme プレビュー
+" nnoremap <silent> [denite]l :<C-u>Denite colorscheme<CR>
 nnoremap <silent> [denite]l :<C-u>Denite
             \ -auto-preview
-            \colorscheme<CR>
+            \ colorscheme<CR>
 
 " <C-N>/<C-P>: 上下移動
 call denite#custom#map('normal', '<C-N>', '<denite:move_to_next_line>')
@@ -67,17 +73,13 @@ call denite#custom#map('insert', '<C-P>', '<denite:move_to_previous_line>')
 call denite#custom#map('insert', '<C-J>', '<denite:assign_next_text>')
 call denite#custom#map('insert', '<C-K>', '<denite:assign_previous_text>')
 
-" unite っぽいキーバインドに近づける
-" denite/insert モードのときは，C- で移動できるようにする
-call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')
-call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>')
-
-" tabopen や vsplit のキーバインドを割り当て
+" <C-t>: "tabopen"
 call denite#custom#map('insert', "<C-t>", '<denite:do_action:tabopen>')
+" <C-v>: "vsplit"
 call denite#custom#map('insert', "<C-v>", '<denite:do_action:vsplit>')
 call denite#custom#map('normal', "v", '<denite:do_action:vsplit>')
 
-" jj で denite/insert を抜けるようにする
+" jj :ノーマルモード
 call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
 " <C-S>: 水平画面分割して開く
 call denite#custom#map('insert', '<C-S>', '<denite:do_action:split>')
