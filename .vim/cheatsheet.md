@@ -42,6 +42,8 @@
 - mgb :Gblame<CR>
 - mgd :Gdiff<CR>
 - mgm :Gmerge<CR>
+- :Agit: 強化版"git log" 起動
+- :Gitv: "gitk" 実行
 
 - mn:    現在位置をマーク
 - m,:    + 1文字で指定のマークへ移動
