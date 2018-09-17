@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/19 09:19:36
-" Last Change: 2018/09/16 10:44:51.
+" Last Change: 2018/09/17 11:25:59.
 
 " ---------------------------------------------------------------------------
 " 基本設定
@@ -38,13 +38,12 @@ nnoremap <silent> [denite]b :<C-u>Denite
             \ -direction=topleft
             \ -cursor-wrap=true
             \ buffer<CR>
-" Df: 現在のバッファのディレクトリ一覧
+" Df: 現在のバッファのディレクトリ下のファイル一覧
 " nnoremap <silent> [denite]f :<C-u>DeniteBufferDir -buffer-name=files file<CR>
 nnoremap <silent> [denite]f :<C-u>DeniteBufferDir
             \ -direction=topleft
             \ -cursor-wrap=true
             \ file file:new<CR>
-            \ -buffer-name=files file<CR>
 "ブックマーク一覧
 " nnoremap <silent> [denite]c :<C-u>Denite bookmark<CR>
 nnoremap <silent> [denite]c :<C-u>Denite
