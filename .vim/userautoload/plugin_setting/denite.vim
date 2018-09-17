@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/19 09:19:36
-" Last Change: 2018/09/14 18:11:09.
+" Last Change: 2018/09/16 10:44:51.
 
 " ---------------------------------------------------------------------------
 " 基本設定
@@ -13,8 +13,10 @@ scriptencoding utf-8
 " TDKA: let g:denite_source_file_mru_limit = 1000
 "file_mruの表示フォーマットを指定。空にすると表示スピードが高速化される
 " TDKA: let g:denite_source_file_mru_filename_format = ""
+
 " プロンプトを ">" にする
 call denite#custom#option('default', 'prompt', '>')
+
 
 " ---------------------------------------------------------------------------
 " ショートカットキー
@@ -24,11 +26,12 @@ nmap [denite] <Nop>
 map D [denite]
 
 " Dm: 最近使用したファイル一覧
-" nnoremap <silent> [denite]m :Denite file_mru<CR>
-nnoremap <silent> [denite]m :Denite
-            \ -direction=topleft
-            \ -cursor-wrap=true
-            \ file_mru<CR>
+nnoremap <silent> [denite]m :<C-u>Denite file_mru<CR>
+" nnoremap <silent> [denite]m :<C-u>Denite -direction=topleft -cursor-wrap=true file_mru<CR>
+" nnoremap <silent> [denite]m :<C-u>Denite
+"             \ -direction=topleft
+"             \ -cursor-wrap=true
+"             \ file_mru<CR>
 " Db: 現在のバッファ一覧
 " nnoremap <silent> [denite]b :<C-u>Denite buffer<CR>
 nnoremap <silent> [denite]b :<C-u>Denite
