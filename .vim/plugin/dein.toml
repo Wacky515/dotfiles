@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/14 13:34:28.
+# Last Change: 2018/09/17 11:12:46.
 # "github.com" のリポジトリを指定し、"Plugin" を追加
 
 # "dein.vim" 本体
@@ -24,8 +24,6 @@ repo = 'Shougo/vimfiler'
 repo = 'scrooloose/nerdtree'
 [[plugins]]
 repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
 # ,sp: ファイラ起動
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
@@ -86,6 +84,10 @@ depends = ['vim-fugitive', 'majutsushi/tagbar']
 # どの関数の中にいるか表示
 [[plugins]]
 repo = 'majutsushi/tagbar'
+# アイコン表示
+# "lightline" 拡張用
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
 
 # インデント カラー化
 [[plugins]]
@@ -99,11 +101,6 @@ repo = 'lokaltog/vim-easymotion'
 # <Ctrl>e: ウィンドウリサイズ開始
 [[plugins]]
 repo = 'simeji/winresizer'
-
-# # コマンドラインで "Emacs" キーバインド
-# コピペができないのでKILL
-# [[plugins]]
-# repo = 'houtsnip/vim-emacscommandline'
 
 # コメントON/OFF トグル
 [[plugins]]
@@ -173,66 +170,24 @@ repo = 'vim-scripts/taglist.vim'
 # カーソル位置のコンテキストの "filetype" を自動切替
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
-depends = ['context_filetype.vim']
+depends = 'context_filetype.vim'
 # カーソル位置のコンテキストの "filetype" を自動判定
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
+
+# MEMO: ↓コピペができないのでKILL
+# # コマンドラインで "Emacs" キーバインド
+# [[plugins]]
+# repo = 'houtsnip/vim-emacscommandline'
 
 # # "true"/"false"、"yes"、"no"、"on"/"off" などをトグル
 # [[plugins]]
 # repo = 'toggle.vim'
 
-# カラースキーマ
-# [[plugins]]
-# repo = 'chriskempson/vim-tomorrow-theme'
-# # if = "has('linux')"
-# hook_add = '''
-#     set background=dark
-#     au MyAutoCmd VimEnter * nested colorscheme tomorrow-theme
-#     '''
-# [[plugins]]
-# repo = 'sjl/badwolf'
-# # if = "!has('nvim') && hostname() == 'ProSalad133.local'"
-# hook_add = '''
-#     set background=dark
-#     au MyAutoCmd VimEnter * nested colorscheme badwolf
-#     '''
-# [[plugins]]
-# repo = 'vim-scripts/twilight'
-# # if = "has('nvim') && hostname() == 'ProSalad133.local'"
-# hook_add = '''
-#     set background=dark
-#     au MyAutoCmd VimEnter * nested colorscheme twilight
-#     '''
-# [[plugins]]
-# repo = 'nanotech/jellybeans.vim'
-# # if = "has('nvim') && hostname() == 'SALADCARBONX1'"
-# hook_add = '''
-#     set background=dark
-#     au MyAutoCmd VimEnter * nested colorscheme jellybeans
-#     '''
-# [[plugins]]
-# repo = 'tomasr/molokai'
-# # if = "has('nvim') && hostname() == 'HBAMB748A'"
-# hook_add = '''
-#     set background=dark
-#     au MyAutoCmd VimEnter * nested colorscheme molokai
-#     '''
-# [[plugins]]
-# repo = 'w0ng/vim-hybrid'
-# # if = "!has('nvim') && hostname() == 'SALADCARBONX1'"
-# hook_add = '''
-#     set background=dark
-#     " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
-#     " 但し Colorscheme イベントの発生が抑制されないよう nested を付ける。
-#     au MyAutoCmd VimEnter * nested colorscheme hybrid
-#     '''
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
 
 if = "has('gui_running')"
-# if = "!has('nvim')"
-# if = "!has('nvim') && hostname() == 'HBAMB748A'"
 hook_add = '''
     set termguicolors
     set background=dark
@@ -253,10 +208,21 @@ repo = 'dhruvasagar/vim-table-mode'
 [[plugins]]
 repo = 'reireias/vim-cheatsheet'
 
-# アイコン表示
-# "lightline" 拡張用
+# GAME
 [[plugins]]
-repo = 'ryanoasis/vim-devicons'
+reo = 'rbtnn/game_engine.vim'
+[[plugins]]
+repor = 'rbtnn/pipe.vim'
+depends = 'game_engine'
+[[plugins]]
+reo = 'rbtnn/mario.vim'
+depends = 'game_engine'
+[[plugins]]
+reo = 'rbtnn/puyo.vim'
+depends = 'game_engine'
+[[plugins]]
+reo = 'rbtnn/reversi.vim'
+depends = 'game_engine'
 
 # 導入予定 # {{{
 # japanese doc
