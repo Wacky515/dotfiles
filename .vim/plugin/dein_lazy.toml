@@ -1,9 +1,5 @@
 # Created:     2018/03/07 21:59:29
-<<<<<<< HEAD
-# Last Change: 2018/09/14 23:30:15.
-=======
-# Last Change: 2018/09/17 12:02:20.
->>>>>>> 487d1ebe7816573b866874163862cc8cc96b94f7
+# Last Change: 2018/09/19 08:40:29.
 
 # 統合ユーザインターフェース
 [[plugins]]
@@ -90,7 +86,22 @@ depends = ['context_filetype', 'roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
 on_i = 1
 # MEMO: キルしてテスト
 # ↓ いる？
-# hook_add = 'let g:deoplete#enable_at_startup = 1'
+hook_add = '''
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_delay = 0
+'''
+on_event = 'InsertCharPre'
+hook_source = '''
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_delay = 0
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#enable_camel_case = 0
+let g:deoplete#enable_ignore_case = 0
+let g:deoplete#enable_refresh_always = 0
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#file#enable_buffer_path = 1
+let g:deoplete#max_list = 10000
+'''
 [[plugins]]
 repo = 'roxma/nvim-yarp'
 [[plugins]]
@@ -121,7 +132,7 @@ repo = 'Shougo/neosnippet'
 #             set conceallevel=2 concealcursor=niv
 #         endif
 # '''
-depends = ['neosnippet-snippets']
+depends = ['neosnippet-snippets', 'context_filetype.vim']
 on_i = 1
 on_ft = ['snippet']
 [[plugins]]
@@ -212,10 +223,10 @@ hook_add = '''
 # MEMO: 弊害が多いので "YankRnkg" -> "yankround" に変更
 # ヤンク後に "<Ctrl>p/<Ctrl>n" でヤンク履歴を選択
 [[plugins]]
-# repo = 'vim-scripts/YankRing.vim'
-# if = "!has('nvim')"
+repo = 'vim-scripts/YankRing.vim'
+if = "!has('nvim')"
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
-repo = 'LeafCage/yankround.vim'
+# repo = 'LeafCage/yankround.vim'
 
 # フォントのサイズ変更
 [[plugins]]
