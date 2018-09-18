@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/14 19:19:37.
+# Last Change: 2018/09/14 23:30:15.
 
 # 統合ユーザインターフェース
 [[plugins]]
@@ -173,10 +173,10 @@ hook_add = '''
 # "yankround" が使えないので一旦中止
 # ヤンク後に "<Ctrl>p/<Ctrl>n" でヤンク履歴を選択
 [[plugins]]
-repo = 'vim-scripts/YankRing.vim'
-if = "!has('nvim')"
+# repo = 'vim-scripts/YankRing.vim'
+# if = "!has('nvim')"
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
-# repo = 'LeafCage/yankround.vim'
+repo = 'LeafCage/yankround.vim'
 
 # フォントのサイズ変更
 [[plugins]]
