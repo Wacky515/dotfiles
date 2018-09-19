@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/20 08:37:50.
+# Last Change: 2018/09/20 08:54:54.
 
 # 統合ユーザインターフェース
 [[plugins]]
@@ -109,7 +109,8 @@ if = "has('python3')"
 # depends = ['context_filetype',
 #             \ 'roxma/nvim-yarp',
 #             \ 'roxma/vim-hug-neovim-rpc']
-depends = ['context_filetype','roxma/nvim-yarp','roxma/vim-hug-neovim-rpc']
+# depends = ['context_filetype','roxma/nvim-yarp','roxma/vim-hug-neovim-rpc']
+depends = ['context_filetype', 'roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
 on_i = 1
 # MEMO: キルしてテスト
 # ↓ いる？
@@ -217,7 +218,7 @@ on_ft = ['markdown','mkd']
 # MEMO: ↓エラーになる
 # hook_add = '''
 #   let g:previm_open_cmd =
-            \'C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe'
+#            \'C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe'
 # '''
 # シンタックスハイライト 1
 [[plugins]]
