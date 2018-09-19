@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/19 10:37:01.
+# Last Change: 2018/09/19 10:55:48.
 
 # 統合ユーザインターフェース
 [[plugins]]
@@ -66,10 +66,10 @@ hook_source = '''
 depends = 'neomru.vim'
 on_i = 1
 on_cmd = 'Denite'
-# MEMO: "Denite" 動作テスト完了後に
-# 以下を復帰して "Unite" 使用完了
 [[plugins]]
 repo = 'Shougo/unite.vim'
+# MEMO: "Denite" 動作テスト完了後に
+# 以下を復帰して "Unite" 使用完了
 # if = "!has('python3')"
 depends = 'neomru.vim'
 # "Denite"|"Unite" 用 "Colorscheme" プレビュー
