@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/19 20:47:58
-" Last Change: 2018/09/19 11:33:02.
+" Last Change: 2018/09/19 11:43:13.
 
 " ---------------------------------------------------------------------------
 " 基本設定
@@ -70,30 +70,32 @@ endfunction
 " diff 設定
 " ---------------------------------------------------------------------------
 " MEMO: 使い方不明・・・
+" FIXME: E117発生のためキル
 
-let diff_action = {
-    \ 'description' : 'diff',
-    \ 'is_selectable' : 1,
-    \ }
-
-function! diff_action.func(candidates)
-  if len(a:candidates) == 1
-    " カレントバッファとdiff
-    execute 'vert diffsplit ' . a:candidates[0].action__path
-  elseif len(a:candidates) == 2
-    " 選択されたファイルとdiff
-    execute 'tabnew ' . a:candidates[0].action__path
-    execute 'vert diffsplit ' . a:candidates[1].action__path
-  else
-    " 3-way以上は非対応
-    echo 'too many candidates!'
-  endif
-endfunction
-
-" call unite#custom_action('file', 'diff', diff_action)
-call unite#custom#action('file', 'diff', diff_action)
-
-unlet diff_action
+" let diff_action = {
+"     \ 'description' : 'diff',
+"     \ 'is_selectable' : 1,
+"     \ }
+"
+" function! diff_action.func(candidates)
+"   if len(a:candidates) == 1
+"     " カレントバッファとdiff
+"     execute 'vert diffsplit ' . a:candidates[0].action__path
+"   elseif len(a:candidates) == 2
+"     " 選択されたファイルとdiff
+"     execute 'tabnew ' . a:candidates[0].action__path
+"     execute 'vert diffsplit ' . a:candidates[1].action__path
+"   else
+"     " 3-way以上は非対応
+"     echo 'too many candidates!'
+"   endif
+" endfunction
+"
+" FIXME: ↓でE117発生
+" " call unite#custom_action('file', 'diff', diff_action)
+" call unite#custom#action('file', 'diff', diff_action)
+"
+" unlet diff_action
 
 " ---------------------------------------------------------------------------
 "  RipGrep 設定
