@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/19 20:47:58
-" Last Change: 2018/09/19 10:43:09.
+" Last Change: 2018/09/19 11:33:02.
 
 " ---------------------------------------------------------------------------
 " 基本設定
@@ -72,9 +72,9 @@ endfunction
 " MEMO: 使い方不明・・・
 
 let diff_action = {
-      \   'description' : 'diff',
-      \   'is_selectable' : 1,
-      \ }
+    \ 'description' : 'diff',
+    \ 'is_selectable' : 1,
+    \ }
 
 function! diff_action.func(candidates)
   if len(a:candidates) == 1
@@ -90,7 +90,8 @@ function! diff_action.func(candidates)
   endif
 endfunction
 
-call unite#custom_action('file', 'diff', diff_action)
+" call unite#custom_action('file', 'diff', diff_action)
+call unite#custom#action('file', 'diff', diff_action)
 
 unlet diff_action
 
