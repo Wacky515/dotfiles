@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/19 20:47:58
-" Last Change: 2018/09/19 11:43:13.
+" Last Change: 2018/09/19 11:48:16.
 
 " ---------------------------------------------------------------------------
 " 基本設定
@@ -21,7 +21,8 @@ nnoremap [unite] <Nop>
 nmap U [unite]
 
 " Um: 最近使用したファイル一覧
-nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
+nnoremap <silent> [unite]m :Unite file_mru<CR>
+" nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
 " Ub: 現在のバッファ一覧
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 " Uf: 現在のバッファのディレクトリ一覧
