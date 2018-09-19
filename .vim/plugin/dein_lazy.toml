@@ -1,23 +1,59 @@
 # Created:     2018/03/07 21:59:29
+<<<<<<< HEAD
 # Last Change: 2018/09/14 22:50:40.
+=======
+# Last Change: 2018/09/19 08:40:29.
+>>>>>>> cd5864737127d40b09147c17083cbc6fda94ab4d
 
 # 統合ユーザインターフェース
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 if = "has('python3')"
 hook_source = '''
-    call denite#custom#map('insert', '<c-n>', '<denite:move_to_next_line>', 'noremap')
-    call denite#custom#map('insert', '<c-p>', '<denite:move_to_previous_line>', 'noremap')
-    call denite#custom#var('file_rec', 'command', ['rg', '--files'])
-    call denite#custom#source('file_rec', 'matchers', ['matcher_regexp'])
+    " プロンプトを ">" にする
+    call denite#custom#option('default', 'prompt', '>')
+    " <C-N>/<C-P>: 上下移動
+    call denite#custom#map('normal', '<C-N>', '<denite:move_to_next_line>')
+    call denite#custom#map('normal', '<C-P>', '<denite:move_to_previous_line>')
+    call denite#custom#map('insert', '<C-N>', '<denite:move_to_next_line>')
+    call denite#custom#map('insert', '<C-P>', '<denite:move_to_previous_line>')
+
+    " <C-J>/<C-K>: 入力履歴移動
+    call denite#custom#map('insert', '<C-J>', '<denite:assign_next_text>')
+    call denite#custom#map('insert', '<C-K>', '<denite:assign_previous_text>')
+
+    " <C-t>: "tabopen"
+    call denite#custom#map('insert', "<C-t>", '<denite:do_action:tabopen>')
+    " <C-v>: "vsplit"
+    call denite#custom#map('insert', "<C-v>", '<denite:do_action:vsplit>')
+    call denite#custom#map('normal', "v", '<denite:do_action:vsplit>')
+
+    " jj :ノーマルモード
+    call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
+    " <C-S>: 水平画面分割して開く
+    call denite#custom#map('insert', '<C-S>', '<denite:do_action:split>')
+    " <C-I>: 垂直画面分割して開く
+    call denite#custom#map('insert', '<C-I>', '<denite:do_action:vsplit>')
+    " <C-O>: 新規タブで開く
+    call denite#custom#map('insert', '<C-O>', '<denite:do_action:tabopen>')
+
+    " "file_rec" 検索時に "FuzzyMatch" を有効にし、検索対象から指定のファイルを除外
+    call denite#custom#source(
+                \ 'file_rec', 'matchers',
+                \ ['matcher_fuzzy', 'matcher_project_files', 'matcher_ignore_globs'])
+
+    " 検索対象外のファイル指定
+    call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+                \ [ '.git/', 'build/', '.ropeproject/', '__pycache__/',
+                \ 'venv/', 'images/', 'img/', 'fonts/', 'img/', 'fonts/',
+                \ 'images/', '*.o', '*.make', '*.min.*'])
 '''
 depends = 'neomru.vim'
 on_i = 1
 on_cmd = 'Denite'
-
+# MEMO: "Denite" 動作テスト完了後に以下を復帰して "Unite" 使用完了
 [[plugins]]
 repo = 'Shougo/unite.vim'
-# MEMO: "Denite" 動作テスト完了後に以下を復帰して "Unite" 使用完了
 # if = "!has('python3')"
 depends = 'neomru.vim'
 # "Denite"|"Unite" 用 "Colorscheme" プレビュー
@@ -50,13 +86,26 @@ on_path = '.*'
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 if = "has('python3')"
-depends = 'context_filetype.vim'
-depends = 'roxma/nvim-yarp'
-depends = 'roxma/vim-hug-neovim-rpc'
+depends = ['context_filetype', 'roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
 on_i = 1
 # MEMO: キルしてテスト
 # ↓ いる？
-# hook_add = 'let g:deoplete#enable_at_startup = 1'
+hook_add = '''
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_delay = 0
+'''
+on_event = 'InsertCharPre'
+hook_source = '''
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_delay = 0
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#enable_camel_case = 0
+let g:deoplete#enable_ignore_case = 0
+let g:deoplete#enable_refresh_always = 0
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#file#enable_buffer_path = 1
+let g:deoplete#max_list = 10000
+'''
 [[plugins]]
 repo = 'roxma/nvim-yarp'
 [[plugins]]
@@ -64,7 +113,7 @@ repo = 'roxma/vim-hug-neovim-rpc'
 # 2番目に新しい
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
-depends = 'context_filetype.vim'
+depends = 'context_filetype'
 if = "!has('python3')"
 if = "has('lua')"
 on_i = 1
@@ -72,21 +121,22 @@ on_i = 1
 # [[plugins]] #  {{{
 # repo = 'Shougo/neocomplcache.vim'
 # if = "!has('python3')"
+# if = "!has('lua')"
 # on_i = 1
 # }}}
 
 # スニペット
 [[plugins]]
 repo = 'Shougo/neosnippet'
-hook_source = '''
-    imap <C-k> <Plug>(neosnippet_expand_or_jump)
-    smap <C-k> <Plug>(neosnippet_expand_or_jump)
-    xmap <C-k> <Plug>(neosnippet_expand_target)
-        if has('conceal')
-            set conceallevel=2 concealcursor=niv
-        endif
-'''
-depends = ['neosnippet-snippets']
+# hook_source = '''
+#     imap <C-k> <Plug>(neosnippet_expand_or_jump)
+#     smap <C-k> <Plug>(neosnippet_expand_or_jump)
+#     xmap <C-k> <Plug>(neosnippet_expand_target)
+#         if has('conceal')
+#             set conceallevel=2 concealcursor=niv
+#         endif
+# '''
+depends = ['neosnippet-snippets', 'context_filetype.vim']
 on_i = 1
 on_ft = ['snippet']
 [[plugins]]
@@ -96,6 +146,7 @@ repo = 'Shougo/neosnippet-snippets'
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 hook_post_update = '''
+<<<<<<< HEAD
   if dein#util#_is_windows()
     let cmd = 'tools\\update-dll-mingw'
   elseif dein#util#_is_cygwin()
@@ -108,6 +159,19 @@ hook_post_update = '''
   let g:dein#plugin.build = cmd
 '''
 
+=======
+    if dein#util#_is_windows()
+        let cmd = 'tools\\update-dll-mingw'
+    elseif dein#util#_is_cygwin()
+        let cmd = 'make -f make_cygwin.mak'
+    elseif executable('gmake')
+        let cmd = 'gmake'
+    else
+        let cmd = 'make'
+    endif
+        let g:dein#plugin.build = cmd
+'''
+>>>>>>> cd5864737127d40b09147c17083cbc6fda94ab4d
 # "NeoVim" の "Terminal" ラッパープラグイン
 #[[plugins]]
 repo = 'kassio/neoterm'
@@ -174,6 +238,11 @@ hook_add = '''
 '''
 
 # コピペ 履歴保存
+<<<<<<< HEAD
+=======
+# MEMO: "yankround" が使えないので一旦中止
+# MEMO: 弊害が多いので "YankRnkg" -> "yankround" に変更
+>>>>>>> cd5864737127d40b09147c17083cbc6fda94ab4d
 # ヤンク後に "<Ctrl>p/<Ctrl>n" でヤンク履歴を選択
 [[plugins]]
 # repo = 'vim-scripts/YankRing.vim'
