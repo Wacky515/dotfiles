@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/19 09:19:36
-" Last Change: 2018/09/19 10:55:45.
+" Last Change: 2018/09/19 11:34:59.
 
 " ---------------------------------------------------------------------------
 " 基本設定
@@ -109,11 +109,12 @@ nnoremap <silent> [denite]l :<C-u>Denite
 "  RipGrep 設定
 " ---------------------------------------------------------------------------
 " TODO: 設定する
-if executable('rg')
-  call denite#custom#var('file_rec', 'command',
-        \ ['rg', '--files', '--glob', '!.git'])
-  call denite#custom#var('grep', 'command', ['rg'])
-endif
+" FIXME: E117発生のためキル
+" if executable('rg')
+"   call denite#custom#var('file_rec', 'command',
+"         \ ['rg', '--files', '--glob', '!.git'])
+"   call denite#custom#var('grep', 'command', ['rg'])
+" endif
 
 " if executable('rg') "  {{{
 "     let g:denite_source_grep_command = 'rg'
