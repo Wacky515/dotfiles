@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/19 10:55:48.
+# Last Change: 2018/09/19 11:26:35.
 
 # 統合ユーザインターフェース
 [[plugins]]
@@ -63,15 +63,16 @@ hook_source = '''
                 \ 'fonts/', 'img/', 'fonts/',
                 \ 'images/', '*.o', '*.make', '*.min.*'])
 '''
-depends = 'neomru.vim'
+depends = ['neomru.vim']
 on_i = 1
-on_cmd = 'Denite'
+# MEMO: ↓いる
+# on_cmd = ['Denite']
 [[plugins]]
 repo = 'Shougo/unite.vim'
 # MEMO: "Denite" 動作テスト完了後に
 # 以下を復帰して "Unite" 使用完了
 # if = "!has('python3')"
-depends = 'neomru.vim'
+depends = ['neomru.vim']
 # "Denite"|"Unite" 用 "Colorscheme" プレビュー
     # Ul: :Unite colorscheme でプレビュー
     # Dl: :Denite colorscheme でプレビュー
@@ -93,8 +94,10 @@ repo = 'koron/codic-vim'
 repo = 'Shougo/neomru.vim'
 # MEMO: "NeoVim" では無駄なディレクトリが生成される
 if = "!has('nvim')"
-on_source = 'denite.nvim'
-on_source = 'dein.vim'
+on_source = ['denite.nvim']
+on_source = ['unite.nvim']
+# MEMO: ↓いる
+# on_source = ['dein.vim']
 on_path = '.*'
 
 # 入力補完
@@ -112,7 +115,7 @@ hook_add = '''
     let g:deoplete#enable_at_startup = 1
     let g:deoplete#auto_complete_delay = 0
 '''
-on_event = 'InsertCharPre'
+on_event = ['InsertCharPre']
 hook_source = '''
     let g:deoplete#enable_at_startup = 1
     let g:deoplete#auto_complete_delay = 0
@@ -129,11 +132,12 @@ repo = 'roxma/nvim-yarp'
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
 # 2番目に新しい
-[[plugins]]
-repo = 'Shougo/neocomplete.vim'
-depends = 'context_filetype'
-if = "!has('python3')"
-if = "has('lua')"
+# MEMO: "deoplete" とのコンフリクト確認のため一旦キル
+# [[plugins]]
+# repo = 'Shougo/neocomplete.vim'
+# depends = ['context_filetype']
+# if = "!has('python3')"
+# if = "has('lua')"
 on_i = 1
 # 最古
 # [[plugins]] #  {{{
@@ -173,7 +177,7 @@ hook_post_update = '''
     else
         let cmd = 'make'
     endif
-        let g:dein#plugin.build = cmd
+    let g:dein#plugin.build = cmd
 '''
 # "NeoVim" の "Terminal" ラッパープラグイン
 #[[plugins]]
@@ -183,21 +187,21 @@ if = "has('nvim')"
 # # Python用プラグイン
 # [[plugins]]
 # repo = 'davidhalter/jedi-vim'
-# on_ft = 'python'
+# on_ft = ['python']
 # # Pythonシンタックスハイライト
 # [[plugins]]
 # repo = 'pfdevilliers/Pretty-Vim-Python'
-# on_ft = 'python'
+# on_ft = ['python']
 # 構文チェッカー
 [[plugins]]
 repo = 'w0rp/ale'
 # # [[plugins]]
 # # repo = 'scrooloose/syntastic'
-# on_ft = 'python'
+# on_ft = ['python']
 # # Python自動折りたたみ
 # # [[plugins]]
 # # repo = 'vim-scripts/python_fold'
-# # on_ft = 'python'
+# # on_ft = ['python']
 
 # Markdown
 # プレビュー
@@ -233,7 +237,7 @@ build = './install --bin'
 merged = '0'
 [[plugins]]
 repo = 'junegunn/fzf.vim'
-depends = 'fzf'
+depends = ['fzf']
 hook_add = '''
     command! -bang -nargs=* Rg
       \ call fzf#vim#grep(
@@ -270,11 +274,11 @@ gui = 1
 # # Arduino開発用プラグイン
 # [[plugins]]
 # repo = "platformio/platformio"
-# on_ft = "arduino"
+# on_ft = ["arduino"]
 # # Arduinoシンタックスハイライト
 # [[plugins]]
 # repo = "sudar/vim-arduino-syntax"
-# on_ft = "arduino"
+# on_ft = ["arduino"]
 # }}}
 
 # ---------------------------------------------------------------------------

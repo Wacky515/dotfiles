@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/19 10:37:06.
+# Last Change: 2018/09/19 11:26:41.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -60,7 +60,7 @@ repo = 'cohama/agit.vim'
 # :Gitv: "gitk" 実行
 [[plugins]]
 repo = 'gregsexton/gitv'
-depends = 'fugitive'
+depends = ['fugitive']
 # # コミットログ入力をサポート
 [[plugins]]
 repo = 'rhysd/committia.vim'
@@ -157,7 +157,7 @@ repo = 'junegunn/vim-easy-align'
 # "*.toml" シンタックスハイライト
 [[plugins]]
 repo  = 'cespare/vim-toml'
-on_ft = 'toml'
+on_ft = ['toml']
 
 # カレンダー
 [[plugins]]
@@ -171,7 +171,7 @@ repo = 'vim-scripts/taglist.vim'
 # カーソル位置のコンテキストの "filetype" を自動切替
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
-depends = 'context_filetype.vim'
+depends = ['context_filetype.vim']
 # カーソル位置のコンテキストの "filetype" を自動判定
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
@@ -214,16 +214,16 @@ repo = 'reireias/vim-cheatsheet'
 reo = 'rbtnn/game_engine.vim'
 [[plugins]]
 repor = 'rbtnn/pipe.vim'
-depends = 'game_engine'
+depends = ['game_engine']
 [[plugins]]
-reo = 'rbtnn/mario.vim'
-depends = 'game_engine'
+reo = ['rbtnn/mario.vim']
+depends = ['game_engine']
 [[plugins]]
 reo = 'rbtnn/puyo.vim'
-depends = 'game_engine'
+depends = ['game_engine']
 [[plugins]]
 reo = 'rbtnn/reversi.vim'
-depends = 'game_engine'
+depends = ['game_engine']
 
 # ---------------------------------------------------------------------------
 # 導入予定
@@ -232,7 +232,7 @@ depends = 'game_engine'
 # japanese doc
 # [[plugins]]
 # repo = 'vim-jp/vimdoc-ja'
-# on_ft = 'help'
+# on_ft = ['help']
 
 # "ctags" 自動更新
 # https://github.com/soramugi/auto-ctags.vim
