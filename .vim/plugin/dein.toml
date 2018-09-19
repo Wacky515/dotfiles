@@ -1,6 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/17 11:12:46.
-# "github.com" のリポジトリを指定し、"Plugin" を追加
+# Last Change: 2018/09/19 10:37:06.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -93,7 +92,7 @@ repo = 'ryanoasis/vim-devicons'
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 
-# カーソル移動の拡張
+# カーソル移動の機能拡張
 [[plugins]]
 repo = 'lokaltog/vim-easymotion'
 
@@ -106,7 +105,8 @@ repo = 'simeji/winresizer'
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
 
-# "%" で移動を強化（*.htmlのタグなど）
+# "%" で移動を強化
+    # *.htmlのタグなど
 [[plugins]]
 repo = 'tmhedberg/matchit'
 
@@ -114,14 +114,15 @@ repo = 'tmhedberg/matchit'
 [[plugins]]
 repo = 'jacquesbh/vim-showmarks'
 
-# vim上で計算機機能
-# コマンドモードで ":Calc" で計算開始
-# "Python" 必要
+# Vim上で計算機機能
+    # :Calc: で計算開始
+    # "Python" 必要
 [[plugins]]
 repo = 'gregsexton/VimCalc'
+if = "!has('python')"
 
 # タイムスタンプを挿入
-#  "Last Change: ." を記入する
+    #  "Last Change: ." を記入
 [[plugins]]
 repo = 'vim-scripts/autodate.vim'
 
@@ -224,7 +225,10 @@ depends = 'game_engine'
 reo = 'rbtnn/reversi.vim'
 depends = 'game_engine'
 
-# 導入予定 # {{{
+# ---------------------------------------------------------------------------
+# 導入予定
+# ---------------------------------------------------------------------------
+# {{{
 # japanese doc
 # [[plugins]]
 # repo = 'vim-jp/vimdoc-ja'
@@ -239,4 +243,6 @@ depends = 'game_engine'
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
 # }}}
 
+# ---------------------------------------------------------------------------
 # 削除予定
+# ---------------------------------------------------------------------------
