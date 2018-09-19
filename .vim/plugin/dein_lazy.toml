@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/19 11:26:35.
+# Last Change: 2018/09/20 08:37:50.
 
 # 統合ユーザインターフェース
 [[plugins]]
@@ -94,8 +94,9 @@ repo = 'koron/codic-vim'
 repo = 'Shougo/neomru.vim'
 # MEMO: "NeoVim" では無駄なディレクトリが生成される
 if = "!has('nvim')"
-on_source = ['denite.nvim']
-on_source = ['unite.nvim']
+# on_source = ['denite.nvim']
+# on_source = ['unite.nvim']
+on_source = ['denite.nvim', 'unite.nvim']
 # MEMO: ↓いる
 # on_source = ['dein.vim']
 on_path = '.*'
@@ -105,9 +106,10 @@ on_path = '.*'
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 if = "has('python3')"
-depends = ['context_filetype',
-            \ 'roxma/nvim-yarp',
-            \ 'roxma/vim-hug-neovim-rpc']
+# depends = ['context_filetype',
+#             \ 'roxma/nvim-yarp',
+#             \ 'roxma/vim-hug-neovim-rpc']
+depends = ['context_filetype','roxma/nvim-yarp','roxma/vim-hug-neovim-rpc']
 on_i = 1
 # MEMO: キルしてテスト
 # ↓ いる？
