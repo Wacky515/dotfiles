@@ -1,11 +1,12 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/20 14:46:02.
+# Last Change: 2018/09/20 15:29:47.
 
 # 統合ユーザインターフェース
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 if = "has('python3')"
-hook_source = '''  # {{{
+# {{{ hook_source = '''
+hook_source = '''
     " プロンプトを ">" にする
     call denite#custom#option('default', 'prompt', '>')
     " 起動位置をTopに変更
@@ -64,6 +65,8 @@ hook_source = '''  # {{{
                 \ 'venv/', 'images/', 'img/',
                 \ 'fonts/', 'img/', 'fonts/',
                 \ 'images/', '*.o', '*.make', '*.min.*'])
+
+    " "Grep" の設定
     if executable('rg')
         call denite#custom#var('file_rec', 'command',
                 \ ['rg', '--files', '--glob', '!.git'])
@@ -102,8 +105,6 @@ repo = 'koron/codic-vim'
 repo = 'Shougo/neomru.vim'
 # MEMO: "NeoVim" では無駄なディレクトリが生成される
 if = "!has('nvim')"
-# on_source = ['denite.nvim']
-# on_source = ['unite.nvim']
 on_source = ['denite.nvim', 'unite.vim']
 # CHECK: ↓いる？
 on_source = ['dein.vim']
@@ -114,18 +115,12 @@ on_path = '.*'
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 if = "has('python3')"
-# depends = ['context_filetype',
-#             \ 'roxma/nvim-yarp',
-#             \ 'roxma/vim-hug-neovim-rpc']
-# depends = ['context_filetype','roxma/nvim-yarp','roxma/vim-hug-neovim-rpc']
 depends = ['context_filetype', 'roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
 on_i = 1
-# MEMO: キルしてテスト
-# ↓ いる？
-hook_add = '''
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#auto_complete_delay = 0
-'''
+# hook_add = '''
+#     let g:deoplete#enable_at_startup = 1
+#     let g:deoplete#auto_complete_delay = 0
+# '''
 on_event = ['InsertCharPre']
 hook_source = '''
     let g:deoplete#enable_at_startup = 1
