@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/20 16:11:33.
+# Last Change: 2018/09/20 17:18:31.
 
 # 統合ユーザインターフェース
 [[plugins]]
@@ -134,7 +134,7 @@ hook_source = '''
     let g:deoplete#max_list = 10000
 '''
 [[plugins]]
-repo = 'context_filetype'
+repo = 'Shougo/context_filetype.vim'
 [[plugins]]
 repo = 'roxma/nvim-yarp'
 [[plugins]]
