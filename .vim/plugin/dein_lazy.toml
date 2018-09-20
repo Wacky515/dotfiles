@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/20 17:18:31.
+# Last Change: 2018/09/20 17:30:22.
 
 # 統合ユーザインターフェース
 [[plugins]]
@@ -137,8 +137,10 @@ hook_source = '''
 repo = 'Shougo/context_filetype.vim'
 [[plugins]]
 repo = 'roxma/nvim-yarp'
+if = "!has('nvim')"
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
+if = "!has('nvim')"
 # 2番目に新しい
 # MEMO: "deoplete" とのコンフリクト確認のため一旦キル
 # [[plugins]]
