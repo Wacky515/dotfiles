@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/20 15:29:47.
+# Last Change: 2018/09/20 16:11:33.
 
 # 統合ユーザインターフェース
 [[plugins]]
@@ -134,6 +134,8 @@ hook_source = '''
     let g:deoplete#max_list = 10000
 '''
 [[plugins]]
+repo = 'context_filetype'
+[[plugins]]
 repo = 'roxma/nvim-yarp'
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
@@ -164,7 +166,7 @@ repo = 'Shougo/neosnippet'
 #             set conceallevel=2 concealcursor=niv
 #         endif
 # '''
-depends = ['neosnippet-snippets', 'context_filetype.vim']
+depends = ['neosnippet-snippets', 'context_filetype']
 on_i = 1
 on_ft = ['snippet']
 [[plugins]]
