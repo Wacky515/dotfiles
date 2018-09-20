@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/19 09:19:36
-" Last Change: 2018/09/20 14:46:24.
+" Last Change: 2018/09/20 15:27:42.
 
 " ---------------------------------------------------------------------------
 " 基本設定
@@ -16,8 +16,14 @@ scriptencoding utf-8
 
 " MEMO: "dein.toml" に移管
 " " プロンプトを ">" にする  " {{{
-" call denite#custom#option('default', 'prompt', '>')  " }}}
+" call denite#custom#option('default', 'prompt', '>')
 
+" " 起動位置をTopに変更
+" call denite#custom#option('default', 'direction', 'top')
+" }}}
+
+" カーソルラインの設定
+hi CursorLine guifg=#E19972
 
 " ---------------------------------------------------------------------------
 " ショートカットキー

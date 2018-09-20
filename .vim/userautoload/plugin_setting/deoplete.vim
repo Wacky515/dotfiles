@@ -1,7 +1,8 @@
 scriptencoding utf-8
 " Created:     2018/09/13 22:57:48
-" Last Change: 2018/09/19 10:55:35.
+" Last Change: 2018/09/20 15:01:06.
 
+" MEMO: "dein.toml" に移管
 " let g:deoplete#enable_at_startup = 1
 " let g:deoplete#auto_complete_delay = 0
 
