@@ -1,11 +1,11 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/20 08:54:54.
+# Last Change: 2018/09/20 13:40:17.
 
 # 統合ユーザインターフェース
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 if = "has('python3')"
-hook_source = '''
+hook_source = '''  # {{{
     " プロンプトを ">" にする
     call denite#custom#option('default', 'prompt', '>')
     " <C-N>/<C-P>: 上下移動
@@ -63,13 +63,14 @@ hook_source = '''
                 \ 'fonts/', 'img/', 'fonts/',
                 \ 'images/', '*.o', '*.make', '*.min.*'])
 '''
+# }}}
 depends = ['neomru.vim']
 on_i = 1
-# MEMO: ↓いる
-# on_cmd = ['Denite']
+# CHECK: ↓いる？
+on_cmd = ['Denite']
 [[plugins]]
 repo = 'Shougo/unite.vim'
-# MEMO: "Denite" 動作テスト完了後に
+# TODO: "Denite" 動作テスト完了後に
 # 以下を復帰して "Unite" 使用完了
 # if = "!has('python3')"
 depends = ['neomru.vim']
@@ -96,9 +97,9 @@ repo = 'Shougo/neomru.vim'
 if = "!has('nvim')"
 # on_source = ['denite.nvim']
 # on_source = ['unite.nvim']
-on_source = ['denite.nvim', 'unite.nvim']
-# MEMO: ↓いる
-# on_source = ['dein.vim']
+on_source = ['denite.nvim', 'unite.vim']
+# CHECK: ↓いる？
+on_source = ['dein.vim']
 on_path = '.*'
 
 # 入力補完
@@ -141,7 +142,7 @@ repo = 'roxma/vim-hug-neovim-rpc'
 # depends = ['context_filetype']
 # if = "!has('python3')"
 # if = "has('lua')"
-on_i = 1
+# on_i = 1
 # 最古
 # [[plugins]] #  {{{
 # repo = 'Shougo/neocomplcache.vim'
