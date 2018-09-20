@@ -1,5 +1,6 @@
 scriptencoding utf-8
-" Last Change: 2018/08/26 11:55:52.
+" Created:     2018/03/30 12:15:44
+" Last Change: 2018/09/20 12:35:52.
 
 " ,s: ショートカットキー
 nnoremap ,s <Nop>
@@ -19,7 +20,8 @@ let g:ctrlp_working_path_mode = 'ra'
 " Open new file in current window
 let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_extensions = ['tag', 'quickfix', 'dir', 'line', 'mixed']
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
+" let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
+let g:ctrlp_match_window = 'top,order:ttb,min:1,max:18'
 
 " ---------------------------------------------------------------------------
 "  RipGrep 設定
