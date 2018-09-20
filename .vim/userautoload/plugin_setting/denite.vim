@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/19 09:19:36
-" Last Change: 2018/09/19 11:34:59.
+" Last Change: 2018/09/20 14:46:24.
 
 " ---------------------------------------------------------------------------
 " 基本設定
@@ -14,8 +14,9 @@ scriptencoding utf-8
 "file_mruの表示フォーマットを指定。空にすると表示スピードが高速化される
 " TDKA: let g:denite_source_file_mru_filename_format = ""
 
-" " プロンプトを ">" にする
-" call denite#custom#option('default', 'prompt', '>')
+" MEMO: "dein.toml" に移管
+" " プロンプトを ">" にする  " {{{
+" call denite#custom#option('default', 'prompt', '>')  " }}}
 
 
 " ---------------------------------------------------------------------------
@@ -25,26 +26,21 @@ nmap [denite] <Nop>
 map D [denite]
 
 " Dm: 最近使用したファイル一覧
-" nnoremap <silent> [denite]m :<C-u>Denite file_mru<CR>
-" nnoremap <silent> [denite]m :<C-u>Denite -direction=topleft -cursor-wrap=true file_mru<CR>
 nnoremap <silent> [denite]m :<C-u>Denite
             \ -direction=topleft
             \ -cursor-wrap=true
             \ file_mru<CR>
 " Db: 現在のバッファ一覧
-" nnoremap <silent> [denite]b :<C-u>Denite buffer<CR>
 nnoremap <silent> [denite]b :<C-u>Denite
             \ -direction=topleft
             \ -cursor-wrap=true
             \ buffer<CR>
 " Df: 現在のバッファのディレクトリ下のファイル一覧
-" nnoremap <silent> [denite]f :<C-u>DeniteBufferDir -buffer-name=files file<CR>
 nnoremap <silent> [denite]f :<C-u>DeniteBufferDir
             \ -direction=topleft
             \ -cursor-wrap=true
             \ file file:new<CR>
 "ブックマーク一覧
-" nnoremap <silent> [denite]c :<C-u>Denite bookmark<CR>
 nnoremap <silent> [denite]c :<C-u>Denite
             \ -direction=topleft
             \ -cursor-wrap=true
@@ -52,19 +48,18 @@ nnoremap <silent> [denite]c :<C-u>Denite
 "ブックマークに追加
 nnoremap <silent> [denite]a :<C-u>DeniteBookmarkAdd<CR>
 " Dr: レジスタ一覧
-" nnoremap <silent> [denite]r :<C-u>Denite register<CR>
 nnoremap <silent> [denite]r :<C-u>Denite
             \ -direction=topleft
             \ -cursor-wrap=true
             \ -buffer-name=register
             \ register<CR>
 " Dl: Colorscheme プレビュー
-" nnoremap <silent> [denite]l :<C-u>Denite colorscheme<CR>
 nnoremap <silent> [denite]l :<C-u>Denite
             \ -auto-preview
             \ colorscheme<CR>
 
-" " <C-N>/<C-P>: 上下移動
+" MEMO: "dein.toml" に移管
+" " <C-N>/<C-P>: 上下移動  " {{{
 " call denite#custom#map('normal', '<C-N>', '<denite:move_to_next_line>')
 " call denite#custom#map('normal', '<C-P>', '<denite:move_to_previous_line>')
 " call denite#custom#map('insert', '<C-N>', '<denite:move_to_next_line>')
@@ -99,6 +94,7 @@ nnoremap <silent> [denite]l :<C-u>Denite
 "             \ [ '.git/', 'build/', '.ropeproject/', '__pycache__/',
 "             \ 'venv/', 'images/', 'img/', 'fonts/', 'img/', 'fonts/',
 "             \ 'images/', '*.o', '*.make', '*.min.*'])
+" }}}
 
 " ---------------------------------------------------------------------------
 " diff 設定
@@ -109,6 +105,7 @@ nnoremap <silent> [denite]l :<C-u>Denite
 "  RipGrep 設定
 " ---------------------------------------------------------------------------
 " TODO: 設定する
+" MEMO: "dein.toml" に移管
 " FIXME: E117発生のためキル
 " if executable('rg')
 "   call denite#custom#var('file_rec', 'command',

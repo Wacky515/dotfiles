@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/20 13:40:17.
+# Last Change: 2018/09/20 14:46:02.
 
 # 統合ユーザインターフェース
 [[plugins]]
@@ -8,6 +8,8 @@ if = "has('python3')"
 hook_source = '''  # {{{
     " プロンプトを ">" にする
     call denite#custom#option('default', 'prompt', '>')
+    " 起動位置をTopに変更
+    call denite#custom#option('default', 'direction', 'top')
     " <C-N>/<C-P>: 上下移動
     call denite#custom#map('normal',
                 \ '<C-N>', '<denite:move_to_next_line>')
@@ -62,6 +64,11 @@ hook_source = '''  # {{{
                 \ 'venv/', 'images/', 'img/',
                 \ 'fonts/', 'img/', 'fonts/',
                 \ 'images/', '*.o', '*.make', '*.min.*'])
+    if executable('rg')
+        call denite#custom#var('file_rec', 'command',
+                \ ['rg', '--files', '--glob', '!.git'])
+        call denite#custom#var('grep', 'command', ['rg'])
+    endif
 '''
 # }}}
 depends = ['neomru.vim']
