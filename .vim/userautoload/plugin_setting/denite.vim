@@ -1,32 +1,10 @@
 scriptencoding utf-8
 " Created:     2018/03/19 09:19:36
-" Last Change: 2018/09/20 15:27:42.
+" Last Change: 2018/09/21 11:35:05.
 
+" MEMO: "dein.toml" に移管した設定を戻したい
 " ---------------------------------------------------------------------------
-" 基本設定
-" ---------------------------------------------------------------------------
-" 挿入モードで開始
-" TDKA: let g:denite_enable_start_insert = 1
-" Deniteを縦分割で開始
-" TDKA: let g:denite_enable_split_vertically = 1
-" 最近開いたファイル履歴の保存数
-" TDKA: let g:denite_source_file_mru_limit = 1000
-"file_mruの表示フォーマットを指定。空にすると表示スピードが高速化される
-" TDKA: let g:denite_source_file_mru_filename_format = ""
-
-" MEMO: "dein.toml" に移管
-" " プロンプトを ">" にする  " {{{
-" call denite#custom#option('default', 'prompt', '>')
-
-" " 起動位置をTopに変更
-" call denite#custom#option('default', 'direction', 'top')
-" }}}
-
-" カーソルラインの設定
-hi CursorLine guifg=#E19972
-
-" ---------------------------------------------------------------------------
-" ショートカットキー
+" マップキー
 " ---------------------------------------------------------------------------
 nmap [denite] <Nop>
 map D [denite]
@@ -103,6 +81,20 @@ nnoremap <silent> [denite]l :<C-u>Denite
 " }}}
 
 " ---------------------------------------------------------------------------
+" 基本設定
+" ---------------------------------------------------------------------------
+" カーソルラインの設定
+hi CursorLine guifg=#E19972
+
+" MEMO: "dein.toml" に移管
+" " プロンプトを ">" にする  " {{{
+" call denite#custom#option('default', 'prompt', '>')
+
+" " 起動位置をTopに変更
+" call denite#custom#option('default', 'direction', 'top')
+" }}}
+
+" ---------------------------------------------------------------------------
 " diff 設定
 " ---------------------------------------------------------------------------
 " TODO: 設定する
@@ -112,20 +104,8 @@ nnoremap <silent> [denite]l :<C-u>Denite
 " ---------------------------------------------------------------------------
 " TODO: 設定する
 " MEMO: "dein.toml" に移管
-" FIXME: E117発生のためキル
 " if executable('rg')
 "   call denite#custom#var('file_rec', 'command',
 "         \ ['rg', '--files', '--glob', '!.git'])
 "   call denite#custom#var('grep', 'command', ['rg'])
 " endif
-
-" if executable('rg') "  {{{
-"     let g:denite_source_grep_command = 'rg'
-"     let g:denite_source_grep_default_opts = '-n --no-heading --color never'
-"     let g:unite_source_grep_recursive_opt = ''
-"     " Hit件数制御
-"     let g:unite_source_grep_max_candidates = 200
-"     " "Windows" 設定
-"     let g:unite_source_grep_encoding='utf-8'
-" endif
-" }}}
