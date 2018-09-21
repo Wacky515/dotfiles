@@ -1,21 +1,9 @@
 scriptencoding utf-8
 " Created:     2018/03/19 20:47:58
-" Last Change: 2018/09/19 11:48:16.
+" Last Change: 2018/09/21 11:22:18.
 
 " ---------------------------------------------------------------------------
-" 基本設定
-" ---------------------------------------------------------------------------
-" 挿入モードで開始
-let g:unite_enable_start_insert = 1
-" Uniteを縦分割で開始
-let g:unite_enable_split_vertically = 1
-" 最近開いたファイル履歴の保存数
-let g:unite_source_file_mru_limit = 1000
-"file_mruの表示フォーマットを指定。空にすると表示スピードが高速化される
-let g:unite_source_file_mru_filename_format = ""
-
-" ---------------------------------------------------------------------------
-" ショートカットキー
+" マップキー
 " ---------------------------------------------------------------------------
 nnoremap [unite] <Nop>
 nmap U [unite]
@@ -66,6 +54,18 @@ function! s:unite_my_settings()
 	nnoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
 	inoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
 endfunction
+
+" ---------------------------------------------------------------------------
+" 基本設定
+" ---------------------------------------------------------------------------
+" 挿入モードで開始
+let g:unite_enable_start_insert = 1
+" Uniteを縦分割で開始
+let g:unite_enable_split_vertically = 1
+" 最近開いたファイル履歴の保存数
+let g:unite_source_file_mru_limit = 1000
+"file_mruの表示フォーマットを指定。空にすると表示スピードが高速化される
+let g:unite_source_file_mru_filename_format = ""
 
 " ---------------------------------------------------------------------------
 " diff 設定

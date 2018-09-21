@@ -1,10 +1,11 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/21 09:39:24.
+# Last Change: 2018/09/21 16:29:58.
 
 # 統合ユーザインターフェース
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 if = "has('python3')"
+depends = ['neomru.vim']
 # {{{ hook_source = '''
 hook_source = '''
     call denite#custom#option('default', 'prompt', '>')
@@ -60,24 +61,23 @@ hook_source = '''
     endif
 '''
 # }}}
-depends = ['neomru.vim']
 on_i = 1
-# CHECK: ↓いる？
 on_cmd = ['Denite']
 [[plugins]]
 repo = 'Shougo/unite.vim'
 # TODO: "Denite" 動作テスト完了後に
 # 以下を復帰して "Unite" 使用完了
 # if = "!has('python3')"
-# "Denite"|"Unite" 用 "mru"
 depends = ['neomru.vim']
+# "Denite"|"Unite" 用 "mru"
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 # MEMO: "NeoVim" では無駄なディレクトリが生成される
 if = "!has('nvim')"
-on_source = ['denite.nvim', 'unite.vim']
+# CHECK:        ↓いる？
+on_source = ['dein.vim', 'denite.nvim', 'unite.vim']
 # CHECK: ↓いる？
-on_source = ['dein.vim']
+# on_source = ['dein.vim']
 on_path = '.*'
 # "Denite"|"Unite" 用 "Source" 郡
 # "Colorscheme" プレビュー
@@ -113,8 +113,6 @@ hook_add = '''
 '''
 on_event = ['InsertCharPre']
 hook_source = '''
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#auto_complete_delay = 0
     let g:deoplete#auto_complete_start_length = 1
     let g:deoplete#enable_camel_case = 0
     let g:deoplete#enable_ignore_case = 0
@@ -122,13 +120,23 @@ hook_source = '''
     let g:deoplete#enable_smart_case = 1
     let g:deoplete#file#enable_buffer_path = 1
     let g:deoplete#max_list = 10000
+    inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+                \ neosnippet#expandable_or_jumpable() ?
+                \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 '''
-[[plugins]]
-repo = 'roxma/nvim-yarp'
-# if = "!has('nvim')"
-[[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
-# if = "!has('nvim')"
+    # "hook_add" と重複してるのでコメントアウト
+    # let g:deoplete#enable_at_startup = 1
+    # let g:deoplete#auto_complete_delay = 0
+
+# MEMO: "deoplete.vim" にて代替
+# ---------------------------------------------------------------------------
+# [[plugins]]
+# repo = 'roxma/nvim-yarp'
+# # if = "!has('nvim')"
+# [[plugins]]
+# repo = 'roxma/vim-hug-neovim-rpc'
+# # if = "!has('nvim')"
+# ---------------------------------------------------------------------------
 # 2番目に新しい
 # MEMO: "deoplete" とのコンフリクト確認のため一旦キル
 # [[plugins]]
@@ -138,6 +146,11 @@ repo = 'roxma/vim-hug-neovim-rpc'
 # # if = "has('lua')"
 # CHECK: ↓この記述可能か？
 # if = "!has('python3') | has('lua')"
+# hook_source = '''
+# inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+# inoremap <expr><C-l> neocomplete#complete_common_string()
+# inoremap <expr><C-i> neocomplete#complete_common_string()
+# '''
 # on_i = 1
 # 最古
 # [[plugins]] #  {{{
@@ -165,8 +178,6 @@ on_i = 1
 on_ft = ['snippet']
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
-[[plugins]]
-repo = 'Shougo/context_filetype.vim'
 
 # 非同期処理
 [[plugins]]
