@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/21 10:07:44.
+# Last Change: 2018/09/21 10:10:34.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -213,7 +213,7 @@ repo = 'reireias/vim-cheatsheet'
 [[plugins]]
 repo = 'rbtnn/game_engine.vim'
 [[plugins]]
-reppo = 'rbtnn/pipe.vim'
+repo = 'rbtnn/pipe.vim'
 depends = ['game_engine']
 [[plugins]]
 repo = ['rbtnn/mario.vim']
