@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/20 17:30:22.
+# Last Change: 2018/09/21 09:39:24.
 
 # 統合ユーザインターフェース
 [[plugins]]
@@ -7,11 +7,8 @@ repo = 'Shougo/denite.nvim'
 if = "has('python3')"
 # {{{ hook_source = '''
 hook_source = '''
-    " プロンプトを ">" にする
     call denite#custom#option('default', 'prompt', '>')
-    " 起動位置をTopに変更
     call denite#custom#option('default', 'direction', 'top')
-    " <C-N>/<C-P>: 上下移動
     call denite#custom#map('normal',
                 \ '<C-N>', '<denite:move_to_next_line>')
     call denite#custom#map('normal',
@@ -21,43 +18,33 @@ hook_source = '''
     call denite#custom#map('insert',
                 \ '<C-P>', '<denite:move_to_previous_line>')
 
-    " <C-J>/<C-K>: 入力履歴移動
     call denite#custom#map('insert',
                 \ '<C-J>', '<denite:assign_next_text>')
     call denite#custom#map('insert',
                 \ '<C-K>', '<denite:assign_previous_text>')
 
-    " <C-t>: "tabopen"
     call denite#custom#map('insert',
                 \ "<C-t>", '<denite:do_action:tabopen>')
-    " <C-v>: "vsplit"
     call denite#custom#map('insert',
                 \ "<C-v>", '<denite:do_action:vsplit>')
     call denite#custom#map('normal',
                 \ "v", '<denite:do_action:vsplit>')
 
-    " jj :ノーマルモード
     call denite#custom#map('insert',
                 \ 'jj', '<denite:enter_mode:normal>')
-    " <C-S>: 水平画面分割して開く
     call denite#custom#map('insert',
                 \ '<C-S>', '<denite:do_action:split>')
-    " <C-I>: 垂直画面分割して開く
     call denite#custom#map('insert',
                 \ '<C-I>', '<denite:do_action:vsplit>')
-    " <C-O>: 新規タブで開く
     call denite#custom#map('insert',
                 \ '<C-O>', '<denite:do_action:tabopen>')
 
-    " "file_rec" 検索時に "FuzzyMatch" を有効にし
-    " 検索対象から指定のファイルを除外
     call denite#custom#source(
                 \ 'file_rec', 'matchers',
                 \ ['matcher_fuzzy',
                 \ 'matcher_project_files',
                 \ 'matcher_ignore_globs'])
 
-    " 検索対象外のファイル指定
     call denite#custom#filter('matcher_ignore_globs',
                 \ 'ignore_globs',
                 \ [ '.git/', 'build/',
@@ -66,7 +53,6 @@ hook_source = '''
                 \ 'fonts/', 'img/', 'fonts/',
                 \ 'images/', '*.o', '*.make', '*.min.*'])
 
-    " "Grep" の設定
     if executable('rg')
         call denite#custom#var('file_rec', 'command',
                 \ ['rg', '--files', '--glob', '!.git'])
@@ -83,14 +69,24 @@ repo = 'Shougo/unite.vim'
 # TODO: "Denite" 動作テスト完了後に
 # 以下を復帰して "Unite" 使用完了
 # if = "!has('python3')"
+# "Denite"|"Unite" 用 "mru"
 depends = ['neomru.vim']
-# "Denite"|"Unite" 用 "Colorscheme" プレビュー
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+# MEMO: "NeoVim" では無駄なディレクトリが生成される
+if = "!has('nvim')"
+on_source = ['denite.nvim', 'unite.vim']
+# CHECK: ↓いる？
+on_source = ['dein.vim']
+on_path = '.*'
+# "Denite"|"Unite" 用 "Source" 郡
+# "Colorscheme" プレビュー
     # Ul: :Unite colorscheme でプレビュー
     # Dl: :Denite colorscheme でプレビュー
 [[plugins]]
 repo = 'ujihisa/unite-colorscheme'
-# FIXME: ↓ 何も表示されない
-# "Denite"|"Unite" 用フォントプレビュー
+# FIXME: ↓何も表示されない
+# フォントプレビュー
     # ":Unite font" でプレビュー
     # ":Denite font" でプレビュー
 [[plugins]]
@@ -100,27 +96,21 @@ repo = 'ujihisa/unite-font'
 repo = 'rhysd/unite-codic.vim'
 [[plugins]]
 repo = 'koron/codic-vim'
-# "Denite"|"Unite" 用 "mru"
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-# MEMO: "NeoVim" では無駄なディレクトリが生成される
-if = "!has('nvim')"
-on_source = ['denite.nvim', 'unite.vim']
-# CHECK: ↓いる？
-on_source = ['dein.vim']
-on_path = '.*'
 
 # 入力補完
 # 最新
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 if = "has('python3')"
-depends = ['context_filetype', 'roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
+# CHECK: ↓この記述可能か？
+# if = "!has('python3') | has('***')"
+# depends = ['context_filetype', 'roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
+depends = ['roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
 on_i = 1
-# hook_add = '''
-#     let g:deoplete#enable_at_startup = 1
-#     let g:deoplete#auto_complete_delay = 0
-# '''
+hook_add = '''
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#auto_complete_delay = 0
+'''
 on_event = ['InsertCharPre']
 hook_source = '''
     let g:deoplete#enable_at_startup = 1
@@ -134,26 +124,28 @@ hook_source = '''
     let g:deoplete#max_list = 10000
 '''
 [[plugins]]
-repo = 'Shougo/context_filetype.vim'
-[[plugins]]
 repo = 'roxma/nvim-yarp'
-if = "!has('nvim')"
+# if = "!has('nvim')"
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
-if = "!has('nvim')"
+# if = "!has('nvim')"
 # 2番目に新しい
 # MEMO: "deoplete" とのコンフリクト確認のため一旦キル
 # [[plugins]]
 # repo = 'Shougo/neocomplete.vim'
 # depends = ['context_filetype']
-# if = "!has('python3')"
-# if = "has('lua')"
+# # if = "!has('python3')"
+# # if = "has('lua')"
+# CHECK: ↓この記述可能か？
+# if = "!has('python3') | has('lua')"
 # on_i = 1
 # 最古
 # [[plugins]] #  {{{
 # repo = 'Shougo/neocomplcache.vim'
 # if = "!has('python3')"
 # if = "!has('lua')"
+# CHECK: ↓この記述可能か？
+# if = "!has('python3') | !has('lua')"
 # on_i = 1
 # }}}
 
@@ -173,6 +165,8 @@ on_i = 1
 on_ft = ['snippet']
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
 
 # 非同期処理
 [[plugins]]
