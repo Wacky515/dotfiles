@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/20 13:28:00.
+# Last Change: 2018/09/21 10:07:44.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -23,7 +23,7 @@ repo = 'Shougo/vimfiler'
 repo = 'scrooloose/nerdtree'
 [[plugins]]
 repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
-# ,sp: ファイラ起動
+# ,sp: カレントディレクトリ以下を検索
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
 if = "!has('nvim')"
@@ -53,25 +53,25 @@ repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 # "git log" を強化
-# :Agit 強化版"git log" 実行
+    # :Agit 強化版 "git log" 実行
 [[plugins]]
 repo = 'cohama/agit.vim'
 # "gitk" 機能追加
-# :Gitv: "gitk" 実行
+    # :Gitv: 機能追加版 "gitk" 実行
 [[plugins]]
 repo = 'gregsexton/gitv'
 depends = ['fugitive']
-# # コミットログ入力をサポート
+# コミットログ入力をサポート
 [[plugins]]
 repo = 'rhysd/committia.vim'
 
 # Undo履歴
-# F4: :GundoToggle Undo履歴起動
+    # F4: :GundoToggle Undo履歴起動
 [[plugins]]
 repo = 'sjl/gundo.vim'
 
 # Diff
-# :DirDiff A B AとBを比較
+    # :DirDiff A B AとBを比較
 [[plugins]]
 repo = 'vim-scripts/DirDiff.vim'
 
@@ -84,7 +84,7 @@ depends = ['vim-fugitive', 'majutsushi/tagbar']
 [[plugins]]
 repo = 'majutsushi/tagbar'
 # アイコン表示
-# "lightline" 拡張用
+    # "lightline" 拡張用
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
 
@@ -92,12 +92,12 @@ repo = 'ryanoasis/vim-devicons'
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 
-# カーソル移動の機能拡張
+# カーソル移動の機能強化
 [[plugins]]
 repo = 'lokaltog/vim-easymotion'
 
 # ウィンドウサイズ変更 簡便化
-# <Ctrl>e: ウィンドウリサイズ開始
+    # <Ctrl>e: ウィンドウリサイズ開始
 [[plugins]]
 repo = 'simeji/winresizer'
 
@@ -194,7 +194,7 @@ hook_add = '''
     set background=dark
     au MyAutoCmd VimEnter * nested colorscheme iceberg
     au MyAutoCmd VimEnter * highlight Visual ctermbg=216
-    '''
+'''
 
 # ---------------------------------------------------------------------------
 # 動作確認中 新規導入プラグイン
