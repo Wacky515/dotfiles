@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/23 13:06:03.
+# Last Change: 2018/09/23 13:35:35.
 # TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -7,61 +7,59 @@
 repo = 'Shougo/denite.nvim'
 if = "has('python3')"
 depends = ['neomru.vim']
-# {{{ hook_source = '''
-hook_source = '''
-    call denite#custom#option('default', 'prompt', '>')
-    call denite#custom#option('default', 'direction', 'top')
-    call denite#custom#map('normal',
-                \ '<C-N>', '<denite:move_to_next_line>')
-    call denite#custom#map('normal',
-                \ '<C-P>', '<denite:move_to_previous_line>')
-    call denite#custom#map('insert',
-                \ '<C-N>', '<denite:move_to_next_line>')
-    call denite#custom#map('insert',
-                \ '<C-P>', '<denite:move_to_previous_line>')
-
-    call denite#custom#map('insert',
-                \ '<C-J>', '<denite:assign_next_text>')
-    call denite#custom#map('insert',
-                \ '<C-K>', '<denite:assign_previous_text>')
-
-    call denite#custom#map('insert',
-                \ "<C-t>", '<denite:do_action:tabopen>')
-    call denite#custom#map('insert',
-                \ "<C-v>", '<denite:do_action:vsplit>')
-    call denite#custom#map('normal',
-                \ "v", '<denite:do_action:vsplit>')
-
-    call denite#custom#map('insert',
-                \ 'jj', '<denite:enter_mode:normal>')
-    call denite#custom#map('insert',
-                \ '<C-S>', '<denite:do_action:split>')
-    call denite#custom#map('insert',
-                \ '<C-I>', '<denite:do_action:vsplit>')
-    call denite#custom#map('insert',
-                \ '<C-O>', '<denite:do_action:tabopen>')
-
-    call denite#custom#source(
-                \ 'file_rec', 'matchers',
-                \ ['matcher_fuzzy',
-                \ 'matcher_project_files',
-                \ 'matcher_ignore_globs'])
-
-    call denite#custom#filter('matcher_ignore_globs',
-                \ 'ignore_globs',
-                \ [ '.git/', 'build/',
-                \ '.ropeproject/', '__pycache__/',
-                \ 'venv/', 'images/', 'img/',
-                \ 'fonts/', 'img/', 'fonts/',
-                \ 'images/', '*.o', '*.make', '*.min.*'])
-
-    if executable('rg')
-        call denite#custom#var('file_rec', 'command',
-                \ ['rg', '--files', '--glob', '!.git'])
-        call denite#custom#var('grep', 'command', ['rg'])
-    endif
-'''
-# }}}
+# hook_source = '''  # {{{
+#     call denite#custom#option('default', 'prompt', '>')
+#     call denite#custom#option('default', 'direction', 'top')
+#     call denite#custom#map('normal',
+#                 \ '<C-n>', '<denite:move_to_next_line>')
+#     call denite#custom#map('normal',
+#                 \ '<C-p>', '<denite:move_to_previous_line>')
+#     call denite#custom#map('insert',
+#                 \ '<C-n>', '<denite:move_to_next_line>')
+#     call denite#custom#map('insert',
+#                 \ '<C-p>', '<denite:move_to_previous_line>')
+#
+#     call denite#custom#map('insert',
+#                 \ '<C-j>', '<denite:assign_next_text>')
+#     call denite#custom#map('insert',
+#                 \ '<C-k>', '<denite:assign_previous_text>')
+#
+#     call denite#custom#map('insert',
+#                 \ "<C-t>", '<denite:do_action:tabopen>')
+#     call denite#custom#map('insert',
+#                 \ "<C-v>", '<denite:do_action:vsplit>')
+#     call denite#custom#map('normal',
+#                 \ "v", '<denite:do_action:vsplit>')
+#
+#     call denite#custom#map('insert',
+#                 \ 'jj', '<denite:enter_mode:normal>')
+#     call denite#custom#map('insert',
+#                 \ '<C-s>', '<denite:do_action:split>')
+#     call denite#custom#map('insert',
+#                 \ '<C-i>', '<denite:do_action:vsplit>')
+#     call denite#custom#map('insert',
+#                 \ '<C-o>', '<denite:do_action:tabopen>')
+#
+#     call denite#custom#source(
+#                 \ 'file_rec', 'matchers',
+#                 \ ['matcher_fuzzy',
+#                 \ 'matcher_project_files',
+#                 \ 'matcher_ignore_globs'])
+#
+#     call denite#custom#filter('matcher_ignore_globs',
+#                 \ 'ignore_globs',
+#                 \ [ '.git/', 'build/',
+#                 \ '.ropeproject/', '__pycache__/',
+#                 \ 'venv/', 'images/', 'img/',
+#                 \ 'fonts/', 'img/', 'fonts/',
+#                 \ 'images/', '*.o', '*.make', '*.min.*'])
+#
+#     if executable('rg')
+#         call denite#custom#var('file_rec', 'command',
+#                 \ ['rg', '--files', '--glob', '!.git'])
+#         call denite#custom#var('grep', 'command', ['rg'])
+#     endif
+# '''  # }}}
 on_i = 1
 on_cmd = ['Denite']
 [[plugins]]
@@ -100,32 +98,30 @@ repo = 'koron/codic-vim'
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 if = "has('python3')"
-# CHECK: ↓この記述可能か？
-# if = "!has('python3') | has('***')"
 # depends = ['context_filetype.vim', 'roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
 depends = ['roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
 on_i = 1
-hook_add = '''
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#auto_complete_delay = 0
-'''
+# hook_add = '''  # {{{
+#     let g:deoplete#enable_at_startup = 1
+#     let g:deoplete#auto_complete_delay = 0
+# '''  # }}}
 on_event = ['InsertCharPre']
-hook_source = '''
-    let g:deoplete#auto_complete_start_length = 1
-    let g:deoplete#enable_camel_case = 0
-    let g:deoplete#enable_ignore_case = 0
-    let g:deoplete#enable_refresh_always = 0
-    let g:deoplete#enable_smart_case = 1
-    let g:deoplete#file#enable_buffer_path = 1
-    let g:deoplete#max_list = 10000
-    inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-                \ neosnippet#expandable_or_jumpable() ?
-                \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-'''
+# hook_source = '''  # {{{
+#     let g:deoplete#auto_complete_start_length = 1
+#     let g:deoplete#enable_camel_case = 0
+#     let g:deoplete#enable_ignore_case = 0
+#     let g:deoplete#enable_refresh_always = 0
+#     let g:deoplete#enable_smart_case = 1
+#     let g:deoplete#file#enable_buffer_path = 1
+#     let g:deoplete#max_list = 10000
+#     inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+#                 \ neosnippet#expandable_or_jumpable() ?
+#                 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+# '''
     # "hook_add" と重複してるのでコメントアウト
     # let g:deoplete#enable_at_startup = 1
     # let g:deoplete#auto_complete_delay = 0
-
+# }}}
 # TEMP: "deoplete.vim" にて代替
 # ---------------------------------------------------------------------------
 # [[plugins]]
@@ -136,7 +132,6 @@ hook_source = '''
 # # if = "!has('nvim')"
 # ---------------------------------------------------------------------------
 # 2番目に新しい
-# MEMO: "deoplete" とのコンフリクト確認のため一旦キル
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 depends = ['context_filetype.vim']
@@ -164,14 +159,14 @@ on_i = 1
 # スニペット
 [[plugins]]
 repo = 'Shougo/neosnippet'
-# hook_source = '''
+# hook_source = '''  # {{{
 #     imap <C-k> <Plug>(neosnippet_expand_or_jump)
 #     smap <C-k> <Plug>(neosnippet_expand_or_jump)
 #     xmap <C-k> <Plug>(neosnippet_expand_target)
 #         if has('conceal')
 #             set conceallevel=2 concealcursor=niv
 #         endif
-# '''
+# '''  # }}}
 depends = ['neosnippet-snippets', 'context_filetype.vim']
 on_i = 1
 on_ft = ['snippet']
