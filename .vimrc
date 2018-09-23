@@ -1,5 +1,6 @@
 scriptencoding utf-8
-" Last Change: 2018/09/13 23:09:58.
+" Created:     2016/07/31 00:00:00
+" Last Change: 2018/09/23 12:56:48.
 
 " MEMO: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -16,7 +17,8 @@ elseif has("nvim") && hostname() == "HBAMB748A"
 elseif has("nvim") && hostname() == "SALADCARBONX1"
     let g:python3_host_prog = "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
 elseif has("win32") || has("win64")
-    let g:python3_host_prog = "C:\Python35\python.exe"
+    " let g:python3_host_prog = "C:\Python35\python.exe"
+    let g:python3_host_prog = "C:\\Python35\\python.exe"
 endif
 
 " ---------------------------------------------------------------------------
