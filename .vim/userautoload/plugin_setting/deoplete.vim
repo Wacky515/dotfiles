@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/09/13 22:57:48
-" Last Change: 2018/09/23 13:09:05.
+" Last Change: 2018/09/23 13:36:54.
 
 " MEMO: "dein.toml" に移管した設定を戻したい
 " ---------------------------------------------------------------------------
@@ -9,9 +9,9 @@ scriptencoding utf-8
 inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-l> deoplete#complete_common_string()
 inoremap <expr><C-i> deoplete#complete_common_string()
-" inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-"         \ neosnippet#expandable_or_jumpable() ?
-"         \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+        \ neosnippet#expandable_or_jumpable() ?
+        \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 
 " ---------------------------------------------------------------------------
 " 基本設定
