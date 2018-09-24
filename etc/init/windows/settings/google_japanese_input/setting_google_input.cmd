@@ -1,6 +1,6 @@
 @echo off
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2018/09/11 11:58:42.
+rem Last Change: 2018/09/24 13:33:45.
 
 rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
@@ -11,7 +11,7 @@ rem ここから追記して動作未確認
 rem ---------------------------------------------------------------------------
 
 rem 設定ファイルがある "Dir" に "cd"
-cd %OneDrive%
+cd %OneDrive%"/仕事/settings/GoogleJapaneseInput"
 
 rem ---------------------------------------------------------------------------
 rem ここまで追記して動作未確認
@@ -58,7 +58,8 @@ mkdir %gglin_path%"\Google Japanese Input"
 
 rem シンボリックリンク 作成
 for %%i in (*.db) do (
-    mklink %gglin_path%"\Google Japanese Input\"%%i "%bat_path%\%%i"
+    rem mklink %gglin_path%"\Google Japanese Input\"%%i "%bat_path%\%%i"
+    mklink %gglin_path%"\Google Japanese Input\"%%i "%%i"
 )
 
 pause
