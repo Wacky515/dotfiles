@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/23 17:46:44.
+# Last Change: 2018/09/24 10:12:59.
 # TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -124,10 +124,10 @@ hook_source = '''  # {{{
     let g:deoplete#file#enable_buffer_path = 1
     let g:deoplete#max_list = 10000
 '''
-    "hook_add" と重複してるのでコメントアウト
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#auto_complete_delay = 0
-}}}
+    # "hook_add" と重複してるのでコメントアウト
+    # let g:deoplete#enable_at_startup = 1
+    # let g:deoplete#auto_complete_delay = 0
+# }}}
 # TEMP: "deoplete.vim" にて代替
 # ---------------------------------------------------------------------------
 # [[plugins]]
