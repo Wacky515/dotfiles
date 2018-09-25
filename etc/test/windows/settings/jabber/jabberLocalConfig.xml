@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Jabber>
+ <userConfig name="activeimconversationsonlogoff" value=""/>
  <userConfig name="archive_im_on_exchange" value="true"/>
+ <userConfig name="automaticsignin" value="true"/>
  <userConfig name="calendarintegrationgooglesynctimejun.wakita@murata.com" value="15"/>
- <userConfig name="calendarintegrationtype" value="1"/>
+ <userConfig name="calendarintegrationtype" value="3"/>
+ <userConfig name="chatalertusersetting" value="Classic"/>
+ <userConfig name="chats_area_style" value="0"/>
+ <userConfig name="convwin_left_splitter_pos" value="200"/>
+ <userConfig name="deskphonemodewindowbehavior" value="OnCalls"/>
  <userConfig name="device_service-lastloggedinusername" value="MM12167"/>
  <userConfig name="device_service-phone.mode" value="Softphone"/>
  <userConfig name="device_service-phone.softphone.device" value="CSFMM12167"/>
@@ -10,24 +16,38 @@
  <userConfig name="dndhidealerts" value="true"/>
  <userConfig name="dndmuteringtones" value="true"/>
  <userConfig name="dockedwindow" value="FALSE"/>
- <userConfig name="dockedwindowposition" value="PositionUserDefined"/>
- <userConfig name="enable_reformatting_incoming_message" value="false"/>
+ <userConfig name="enable_reformatting_incoming_message" value="true"/>
  <userConfig name="enableautosaveuserpref" value="true"/>
  <userConfig name="enablesoftphonewithvxmeserverhealth" value="false"/>
  <userConfig name="enablevideowithoutcamera" value="false"/>
  <userConfig name="exchangeauthenticationstatus" value="0"/>
- <userConfig name="group_header-e2m3" value="EXPANDED"/>
+ <userConfig name="feccxpos" value="70"/>
+ <userConfig name="feccypos" value="30"/>
+ <userConfig name="group_header-e2m0" value="COLLAPSED"/>
+ <userConfig name="group_header-e2m3" value="COLLAPSED"/>
  <userConfig name="group_header-e2m4" value="EXPANDED"/>
- <userConfig name="group_header-e2m5" value="EXPANDED"/>
- <userConfig name="group_header-e2m6" value="EXPANDED"/>
+ <userConfig name="group_header-e2m5" value="COLLAPSED"/>
+ <userConfig name="group_header-e2m6" value="COLLAPSED"/>
+ <userConfig name="group_header-km0014" value="COLLAPSED"/>
  <userConfig name="group_header-km5025" value="COLLAPSED"/>
  <userConfig name="group_header-om5325" value="COLLAPSED"/>
- <userConfig name="groupchatusersetautoacceptinvite" value="false"/>
+ <userConfig name="group_header-p614" value="COLLAPSED"/>
+ <userConfig name="group_header-p621" value="COLLAPSED"/>
+ <userConfig name="group_header-p661" value="COLLAPSED"/>
+ <userConfig name="group_header-sm0014" value="EXPANDED"/>
+ <userConfig name="group_header-sm2014" value="COLLAPSED"/>
+ <userConfig name="group_header-sm5200" value="COLLAPSED"/>
+ <userConfig name="group_header-sm5215" value="COLLAPSED"/>
+ <userConfig name="group_header-sm5221" value="COLLAPSED"/>
+ <userConfig name="group_header-sm5222" value="COLLAPSED"/>
+ <userConfig name="group_header-sm5225" value="COLLAPSED"/>
+ <userConfig name="groupchatusersetautoacceptinvite" value="true"/>
  <userConfig name="imservice_alert_notification_on_chat_messages" value="true"/>
  <userConfig name="imservice_alert_notification_on_group_chat_invites" value="true"/>
  <userConfig name="imservice_last_selected_play_notification_config_key" value="IMSERVICE_PLAY_NOTIFICATION_ON_CHAT_MESSAGES"/>
  <userConfig name="imservice_mute_when_on_a_call" value="true"/>
  <userConfig name="imservice_play_notification_on_chat_messages" value="true"/>
+ <userConfig name="imservice_play_notification_on_first_im_config_key" value="false"/>
  <userConfig name="incoming_chat_font_bold" value="false"/>
  <userConfig name="incoming_chat_font_color" value="1710618"/>
  <userConfig name="incoming_chat_font_italic" value="false"/>
@@ -35,17 +55,19 @@
  <userConfig name="incoming_chat_font_size" value="2"/>
  <userConfig name="incoming_chat_font_underline" value="false"/>
  <userConfig name="incoming_chat_font_unit" value="pt"/>
- <userConfig name="informuseroferror" value="10.6.2.59142"/>
- <userConfig name="last_cas_lookup_url" value="http://loginp.webexconnect.com/cas/FederatedSSO?org=murata.com"/>
- <userConfig name="last_known_version" value="10.6.2.59142"/>
+ <userConfig name="informuseroferror" value="11.8.4.52954"/>
+ <userConfig name="jabber_client_user_display_name" value="Jun Wakita(E2M4)"/>
+ <userConfig name="last_cas_lookup_url" value="https://loginp.webexconnect.com/cas/FederatedSSO?org=murata.com"/>
+ <userConfig name="last_known_version" value="11.8.4.52954"/>
  <userConfig name="last_primary_auth" value="WebEx"/>
  <userConfig name="lastloadeduserprofile" value="jun.wakita@murata.com"/>
  <userConfig name="lastloadeduserprofileorigin" value="0"/>
  <userConfig name="localvideopositionx" value="100"/>
  <userConfig name="localvideopositiony" value="100"/>
- <userConfig name="localvideosize" value="25"/>
+ <userConfig name="localvideosize" value="38.7"/>
  <userConfig name="location_mode" value="Enabled"/>
  <userConfig name="manualconnectionsettingsupgradecheckperformed" value="done"/>
+ <userConfig name="myjabberfileslocation" value="C:\Users\mm12167\Documents"/>
  <userConfig name="outgoing_chat_font_bold" value="false"/>
  <userConfig name="outgoing_chat_font_color" value="1710618"/>
  <userConfig name="outgoing_chat_font_italic" value="false"/>
@@ -53,17 +75,20 @@
  <userConfig name="outgoing_chat_font_size" value="2"/>
  <userConfig name="outgoing_chat_font_underline" value="false"/>
  <userConfig name="outgoing_chat_font_unit" value="pt"/>
+ <userConfig name="persistimnotifications" value="false"/>
  <userConfig name="playringeronalldevices" value="FALSE"/>
  <userConfig name="primaryconfigstores" value="PresenceConfigStore:230;PresenceProductModeStore:235;TFTPConfigStore:240;UcmHybridConfigStore:39;"/>
+ <userConfig name="restorechatonlogin" value="true"/>
  <userConfig name="ringervolumeforalldevices" value="75"/>
- <userConfig name="showcallalerts" value="false"/>
- <userConfig name="sortpreference" value="sortByPresence"/>
- <userConfig name="spell_check_enabled" value="false"/>
+ <userConfig name="showcallalerts" value="true"/>
+ <userConfig name="softphonemodewindowbehavior" value="OnCalls"/>
+ <userConfig name="spell_check_enabled" value="true"/>
+ <userConfig name="spell_check_enabled_user_setting" value="true"/>
  <userConfig name="spell_check_language" value="1033"/>
+ <userConfig name="spell_check_language_user_setting" value="1033"/>
  <userConfig name="suggestedusername" value="jun.wakita@murata.com"/>
- <userConfig name="telemetryenableduserpreference" value="FALSE"/>
  <userConfig name="telemetrysignedincriteria" value="OK"/>
- <userConfig name="videocallalwaysontop" value="TRUE"/>
- <userConfig name="vvm_mailstore_cookiecachedir" value="C:\Users\mm12167\AppData\Local\Cisco\Unified Communications\Jabber\Voicemail\MM12167"/>
- <userConfig name="windowsconfiguration" value="ConversationWindow,10,10,170,37,1;DockWindow,232,0,550,53,1;HubWindow,140,0,940,860,2;"/>
+ <userConfig name="telephony_disablephoneservices" value="false"/>
+ <userConfig name="vvm_mailstore_cookiecachedir" value="C:\Users\mm12167\AppData\Local\Cisco\Unified Communications\Jabber\Voicemail\"/>
+ <userConfig name="windowsconfiguration" value="ConversationWindow,0,0,800,860,1;DockWindow,641,0,959,53,1;HubWindow,0,0,800,860,2;PopOut_PopOutVideoCall,720,417,880,444,3;"/>
 </Jabber>
