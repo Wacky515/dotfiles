@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/24 10:12:59.
+# Last Change: 2018/09/26 10:52:00.
 # TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -61,8 +61,7 @@ hook_source = '''
                 \ ['rg', '--files', '--glob', '!.git'])
         call denite#custom#var('grep', 'command', ['rg'])
     endif
-'''
-# }}}
+'''  # }}}
 on_i = 1
 on_cmd = ['Denite']
 [[plugins]]
@@ -76,7 +75,7 @@ depends = ['neomru.vim']
 repo = 'Shougo/neomru.vim'
 # MEMO: "NeoVim" では無駄なディレクトリが生成される
 if = "!has('nvim')"
-on_source = ['dein.vim', 'denite.nvim', 'unite.vim']
+on_source = ['dein.vim', 'unite.vim', 'denite.nvim']
 on_path = '.*'
 # "Denite"|"Unite" 用 "Source" 郡
 # "Colorscheme" プレビュー
@@ -101,15 +100,16 @@ repo = 'koron/codic-vim'
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 if = "has('python3')"
-# depends = ['context_filetype.vim', 'roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
 depends = ['roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
 on_i = 1
-hook_add = '''  # {{{
+# hook_add = '''  # {{{
+hook_add = '''
     let g:deoplete#enable_at_startup = 1
     let g:deoplete#auto_complete_delay = 0
 '''  # }}}
 on_event = ['InsertCharPre']
-hook_source = '''  # {{{
+# hook_source = '''  # {{{
+hook_source = '''
     inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
     inoremap <expr><C-l> deoplete#complete_common_string()
     inoremap <expr><C-i> deoplete#complete_common_string()
@@ -128,15 +128,15 @@ hook_source = '''  # {{{
     # let g:deoplete#enable_at_startup = 1
     # let g:deoplete#auto_complete_delay = 0
 # }}}
-# TEMP: "deoplete.vim" にて代替
-# ---------------------------------------------------------------------------
+# TEMP: 以下の依存設定は "deoplete.vim" にて代替
+# ---------------------------------------------------------------------------  # {{{
 # [[plugins]]
 # repo = 'roxma/nvim-yarp'
 # # if = "!has('nvim')"
 # [[plugins]]
 # repo = 'roxma/vim-hug-neovim-rpc'
 # # if = "!has('nvim')"
-# ---------------------------------------------------------------------------
+# --------------------------------------------------------------------------  # }}}
 # 2番目に新しい
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
@@ -144,8 +144,8 @@ depends = ['context_filetype.vim']
 # # if = "!has('python3')"
 # # if = "has('lua')"
 # CHECK: ↓この記述可能か？
-if = "!has('python3') | has('lua')"
-# MEMO: この "hook_source" は "*.vim" に移管しない
+if = "!has('python3') && has('lua')"
+# MEMO: この "hook_source" は使用 "Plugin" の条件分岐の為 "*.vim" に移管しない
 hook_source = '''
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-l> neocomplete#complete_common_string()
@@ -153,26 +153,18 @@ inoremap <expr><C-i> neocomplete#complete_common_string()
 '''
 # on_i = 1
 # 最古
-[[plugins]] #  {{{
+[[plugins]]  # {{{
 repo = 'Shougo/neocomplcache.vim'
-if = "!has('python3')"
-if = "!has('lua')"
+# if = "!has('python3')"
+# if = "!has('lua')"
 # CHECK: ↓この記述可能か？
-if = "!has('python3') | !has('lua')"
+if = "!has('python3') && !has('lua')"
 on_i = 1
 # }}}
 
 # スニペット
 [[plugins]]
 repo = 'Shougo/neosnippet'
-# hook_source = '''  # {{{
-#     imap <C-k> <Plug>(neosnippet_expand_or_jump)
-#     smap <C-k> <Plug>(neosnippet_expand_or_jump)
-#     xmap <C-k> <Plug>(neosnippet_expand_target)
-#         if has('conceal')
-#             set conceallevel=2 concealcursor=niv
-#         endif
-# '''  # }}}
 depends = ['neosnippet-snippets', 'context_filetype.vim']
 on_i = 1
 on_ft = ['snippet']
@@ -195,7 +187,7 @@ hook_post_update = '''
     let g:dein#plugin.build = cmd
 '''
 # "NeoVim" の "Terminal" ラッパープラグイン
-#[[plugins]]
+[[plugins]]
 repo = 'kassio/neoterm'
 if = "has('nvim')"
 
