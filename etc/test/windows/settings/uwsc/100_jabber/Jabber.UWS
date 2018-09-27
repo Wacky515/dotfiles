@@ -1,21 +1,43 @@
 EXEC("C:\Program Files\Cisco Systems\Cisco Jabber\CiscoJabber.exe")
 DEF_DLL PostMessageA(Hwnd,Long,Long,Dword):Bool:user32
-// WM_COMMAND = $111
-// id = GETID("", "Shell_TrayWnd", -1)
-// PostMessageA(IDTOHND(id), WM_COMMAND, 306, 0)
-id = GETID("Cisco Jabber", "wcl_manager1", -1)
-SLEEP(1)
-id = GETID("", "#32768", -1)
-CLKITEM(id, "ドックウィンドウの表示", CLK_ACC or CLK_BACK or CLK_MUSMOVE)
-id = GETID("Cisco Jabber", "wcl_manager1", -1)
-CLKITEM(id, "使用状況データをシスコに送信", CLK_MENU, True)
-id = GETID("Cisco Jabber", "wcl_manager1", -1)
-CLKITEM(id, "オプション", CLK_MENU, True)
-id = GETID("オプション", "wcl_manager1", -1)
-SLEEP(1)
-id = GETID("", "#32768", -1)
-CLKITEM(id, "オプション", CLK_ACC or CLK_BACK or CLK_MUSMOVE)
-SLEEP(1)
-id = GETID("", "wcl_manager1", -1)
-SLEEP(1)
-id = GETID("オプション", "wcl_manager1", -1)
+
+IFB CHKIMG("OpenOption.bmp")
+  BTN(LEFT,CLICK, G_IMG_X+10, G_IMG_Y+10)
+  KBD(VK_v, CLICK, 100)
+  id = GETID("", "#32768", -1)
+  IFB CHKIMG("ShowDockWindow.bmp")
+    BTN(LEFT,CLICK, G_IMG_X+10, G_IMG_Y+10)
+  ELSE
+    KBD(VK_LEFT, CLICK, 100)
+    KBD(VK_ESC, CLICK, 100)
+  ENDIF
+ELSE
+  MSGBOX("ボタンが見つかりませんでした")
+ENDIF
+
+IFB CHKIMG("OpenOption.bmp")
+  BTN(LEFT,CLICK, G_IMG_X+10, G_IMG_Y+10)
+  KBD(VK_h, CLICK, 100)
+  IFB CHKIMG("SendUserData.bmp")
+    BTN(LEFT,CLICK, G_IMG_X+10, G_IMG_Y+10)
+  ELSE
+    KBD(VK_LEFT, CLICK, 100)
+    KBD(VK_ESC, CLICK, 100)
+  ENDIF
+ELSE
+//  MSGBOX("ボタンが見つかりませんでした2")
+ENDIF
+
+IFB CHKIMG("OpenOption.bmp")
+  BTN(LEFT,CLICK, G_IMG_X+10, G_IMG_Y+10)
+  KBD(VK_f, CLICK, 100)
+  KBD(VK_DOWN, CLICK, 100)
+  KBD(VK_DOWN, CLICK, 100)
+  KBD(VK_RETURN, CLICK, 100)
+  CLKITEM(id, "オプション", CLK_MENU, True)
+  id = GETID("オプション", "wcl_manager1", -1)
+  SLEEP(1)
+// ここまでで力尽きた
+ELSE
+//  MSGBOX("ボタンが見つかりませんでした3")
+ENDIF
