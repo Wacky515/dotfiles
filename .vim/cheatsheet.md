@@ -95,6 +95,7 @@
 - <Leader>zh: 全角英数字を半角にする
 
 - <Leader>md: 編集中のファイルをブラウザで表示
+" <Leader>,m: "atom" 起動
 " <Leader>,c: "VS Code" 起動
 
 ## Grep
@@ -103,7 +104,6 @@
 - <Leader>a:       カーソル下を "The Sliver Searcher" 対象に挿入
 - <Leader>G:       カーソル下を "外部grep" 対象に挿入
 - <Leader>g:       カーソル下を "VimGrep" 対象に挿入
-- <Leader><Ctrl>k: 英和辞典起動
 
 ## 辞典検索（未動作）
 - <Leader>k:  カーソル下を英和辞典検索（GENE）
