@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/26 10:52:00.
+# Last Change: 2018/09/26 14:48:10.
 # TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -228,14 +228,14 @@ on_ft = ['markdown','mkd']
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
 on_ft = ['markdown','mkd']
-# # シンタックスハイライト 2
+# # シンタックスハイライト 2  # {{{
 # [[plugins]]
 # repo = 'rcmdnk/vim-markdown'
 # on_ft = ['markdown','mkd']
 # hook_add = '''
 #   let g:vim_markdown_frontmatter = 1
 #   let g:vim_markdown_math = 1
-# '''
+# '''  # }}}
 
 # Fuzzy Matcher
 [[plugins]]
