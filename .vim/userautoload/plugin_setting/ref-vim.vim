@@ -1,5 +1,6 @@
 scriptencoding utf-8
-" Last Change:2018/09/06 22:21:22.
+" Created:     2018/07/22 09:59:30
+" Last Change: 2018/09/22 19:25:59.
 
 " q: バッファを閉じる
 autocmd FileType ref-* nnoremap <buffer> <silent> q :<C-u>close<CR>
