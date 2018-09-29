@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/21 16:29:58.
+# Last Change: 2018/09/22 00:47:42.
 
 # 統合ユーザインターフェース
 [[plugins]]
@@ -104,7 +104,7 @@ repo = 'Shougo/deoplete.nvim'
 if = "has('python3')"
 # CHECK: ↓この記述可能か？
 # if = "!has('python3') | has('***')"
-# depends = ['context_filetype', 'roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
+# depends = ['context_filetype.vim', 'roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
 depends = ['roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
 on_i = 1
 hook_add = '''
@@ -141,7 +141,7 @@ hook_source = '''
 # MEMO: "deoplete" とのコンフリクト確認のため一旦キル
 # [[plugins]]
 # repo = 'Shougo/neocomplete.vim'
-# depends = ['context_filetype']
+# depends = ['context_filetype.vim']
 # # if = "!has('python3')"
 # # if = "has('lua')"
 # CHECK: ↓この記述可能か？
@@ -173,7 +173,7 @@ repo = 'Shougo/neosnippet'
 #             set conceallevel=2 concealcursor=niv
 #         endif
 # '''
-depends = ['neosnippet-snippets', 'context_filetype']
+depends = ['neosnippet-snippets', 'context_filetype.vim']
 on_i = 1
 on_ft = ['snippet']
 [[plugins]]
