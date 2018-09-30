@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/30 16:22:51.
+# Last Change: 2018/09/30 16:51:28.
 # TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -101,11 +101,6 @@ repo = 'koron/codic-vim'
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 if = "has('python3')"
-<<<<<<< HEAD
-# CHECK: ↓この記述可能か？
-# if = "!has('python3') | has('***')"
-=======
->>>>>>> bcd77225a462a599e95ca9e42ec670ef9e7b6654
 # depends = ['context_filetype.vim', 'roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
 depends = ['roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
 on_i = 1
