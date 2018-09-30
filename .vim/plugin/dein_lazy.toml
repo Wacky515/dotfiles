@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/30 16:51:28.
+# Last Change: 2018/09/30 17:12:56.
 # TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -138,16 +138,10 @@ hook_source = '''  # {{{
 # # if = "!has('nvim')"
 # ---------------------------------------------------------------------------
 # 2番目に新しい
-<<<<<<< HEAD
 # MEMO: "deoplete" とのコンフリクト確認のため一旦キル
 # [[plugins]]
 # repo = 'Shougo/neocomplete.vim'
 # depends = ['context_filetype.vim']
-=======
-[[plugins]]
-repo = 'Shougo/neocomplete.vim'
-depends = ['context_filetype.vim']
->>>>>>> bcd77225a462a599e95ca9e42ec670ef9e7b6654
 # # if = "!has('python3')"
 # # if = "has('lua')"
 # CHECK: ↓この記述可能か？
@@ -172,18 +166,14 @@ on_i = 1
 # スニペット
 [[plugins]]
 repo = 'Shougo/neosnippet'
-# hook_source = '''  # {{{
+# hook_source = '''  " {{{
 #     imap <C-k> <Plug>(neosnippet_expand_or_jump)
 #     smap <C-k> <Plug>(neosnippet_expand_or_jump)
 #     xmap <C-k> <Plug>(neosnippet_expand_target)
 #         if has('conceal')
 #             set conceallevel=2 concealcursor=niv
 #         endif
-<<<<<<< HEAD
-# '''
-=======
 # '''  # }}}
->>>>>>> bcd77225a462a599e95ca9e42ec670ef9e7b6654
 depends = ['neosnippet-snippets', 'context_filetype.vim']
 on_i = 1
 on_ft = ['snippet']
