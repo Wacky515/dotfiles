@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/09/13 22:57:48
-" Last Change: 2018/09/21 16:23:11.
+" Last Change: 2018/09/23 15:51:40.
 
 " MEMO: "dein.toml" に移管した設定を戻したい
 " ---------------------------------------------------------------------------
@@ -9,6 +9,9 @@ scriptencoding utf-8
 inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-l> deoplete#complete_common_string()
 inoremap <expr><C-i> deoplete#complete_common_string()
+inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+        \ neosnippet#expandable_or_jumpable() ?
+        \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 
 " ---------------------------------------------------------------------------
 " 基本設定
@@ -28,12 +31,13 @@ endif
 set completeopt+=noinsert
 
 " MEMO: "dein.toml" に移管
+" MEMO: こちらに記述を戻す
 let g:deoplete#enable_at_startup = 1
-" let g:deoplete#auto_complete_delay = 0
-" let g:deoplete#auto_complete_start_length = 1
-" let g:deoplete#enable_camel_case = 0
-" let g:deoplete#enable_ignore_case = 0
-" let g:deoplete#enable_refresh_always = 0
-" let g:deoplete#enable_smart_case = 1
-" let g:deoplete#file#enable_buffer_path = 1
-" let g:deoplete#max_list = 10000
+let g:deoplete#auto_complete_delay = 0
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#enable_camel_case = 0
+let g:deoplete#enable_ignore_case = 0
+let g:deoplete#enable_refresh_always = 0
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#file#enable_buffer_path = 1
+let g:deoplete#max_list = 10000

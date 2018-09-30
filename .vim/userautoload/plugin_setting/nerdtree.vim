@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/22 00:00:00
-" Last Change: 2018/09/12 15:33:01.
+" Last Change: 2018/09/24 10:04:48.
 
 " <Leader>o: 現在開いているバッファをIDE風に開く
 nnoremap <silent> <Leader>o :<C-u>NERDTree<CR>
@@ -8,10 +8,11 @@ nnoremap <silent> <Leader>o :<C-u>NERDTree<CR>
 let g:NERDTreeDirArrows = 1
 " let NERDTreeWinSize=22
 let NERDTreeWinSize=32
-"
-" 隠しファイルをデフォルトで表示させる
-let NERDTreeShowHidden = 1
 
+" 隠しファイルをデフォルトで表示
+let NERDTreeShowHidden = 1
+" ブックマークをデフォルトで表示
+let NERDTreeShowBookmarks = 1
 " ファイルを開いたら "NERDTree" を閉じる
 let NERDTreeQuitOnOpen = 1
 

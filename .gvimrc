@@ -1,21 +1,14 @@
 scriptencoding utf-8
-" Last Change: 2018/09/11 08:33:50.
+" Created:     2016/08/03 00:00:00
+" Last Change: 2018/09/23 13:23:05.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
 " ----------------------------------------------------------------------
 
+" MEMO: "Dein" に設定移譲
 " カラースキーマの指定
-" MEMO: 設定の反映が不安定なため"dein" に設定移譲
-" colorscheme iceberg " {{{
-" colorscheme hybrid
-" colorscheme molokai
-" colorscheme desert
-" colorscheme jellybeans
-" }}}
-
 " 暗背景用の配色にする
-" set background=dark
 " " 明背景用の配色にする " {{{
 " set background=light
 " }}}
