@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/23 17:46:44.
+# Last Change: 2018/09/30 17:12:56.
 # TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -124,10 +124,10 @@ hook_source = '''  # {{{
     let g:deoplete#file#enable_buffer_path = 1
     let g:deoplete#max_list = 10000
 '''
-    "hook_add" と重複してるのでコメントアウト
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#auto_complete_delay = 0
-}}}
+    # "hook_add" と重複してるのでコメントアウト
+    # let g:deoplete#enable_at_startup = 1
+    # let g:deoplete#auto_complete_delay = 0
+# }}}
 # TEMP: "deoplete.vim" にて代替
 # ---------------------------------------------------------------------------
 # [[plugins]]
@@ -138,9 +138,10 @@ hook_source = '''  # {{{
 # # if = "!has('nvim')"
 # ---------------------------------------------------------------------------
 # 2番目に新しい
-[[plugins]]
-repo = 'Shougo/neocomplete.vim'
-depends = ['context_filetype.vim']
+# MEMO: "deoplete" とのコンフリクト確認のため一旦キル
+# [[plugins]]
+# repo = 'Shougo/neocomplete.vim'
+# depends = ['context_filetype.vim']
 # # if = "!has('python3')"
 # # if = "has('lua')"
 # CHECK: ↓この記述可能か？
@@ -165,7 +166,7 @@ on_i = 1
 # スニペット
 [[plugins]]
 repo = 'Shougo/neosnippet'
-# hook_source = '''  # {{{
+# hook_source = '''  " {{{
 #     imap <C-k> <Plug>(neosnippet_expand_or_jump)
 #     smap <C-k> <Plug>(neosnippet_expand_or_jump)
 #     xmap <C-k> <Plug>(neosnippet_expand_target)
