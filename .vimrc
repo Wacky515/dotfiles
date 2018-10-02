@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 00:00:00
-" Last Change: 2018/09/30 17:09:46.
+" Last Change: 2018/10/02 13:32:56.
 
 " MEMO: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -9,20 +9,27 @@ augroup MyAutoCmd
 augroup END
 
 " "Python3" のパス設定
-if has("nvim") && hostname() == "ProSalad133.local"
-    " let g:python3_host_prog = "/.pyenv/shims/python"
+if hostname() == "ProSalad133.local"
     let g:python3_host_prog = "/usr/local/bin/Python3"
-elseif has("nvim") && hostname() == "HBAMB748A"
+elseif hostname() == "HBAMB748A"
     let g:python3_host_prog = "C:\\Python35\\python.exe"
-elseif has("nvim") && hostname() == "SALADCARBONX1"
+elseif hostname() == "SALADCARBONX1"
     let g:python3_host_prog = "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
-elseif has("win32") || has("win64")
-    if hostname() == "SALADCARBONX1"
-        let g:python3_host_prog = "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
-    elseif
-        let g:python3_host_prog = "C:\\Python35\\python.exe"
-    endif
 endif
+" if has("nvim") && hostname() == "ProSalad133.local"  " {{{
+"     let g:python3_host_prog = "/usr/local/bin/Python3"
+" elseif has("nvim") && hostname() == "HBAMB748A"
+"     let g:python3_host_prog = "C:\\Python35\\python.exe"
+" elseif has("nvim") && hostname() == "SALADCARBONX1"
+"     let g:python3_host_prog = "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
+" elseif has("win32") || has("win64")
+"     if hostname() == "SALADCARBONX1"
+"         let g:python3_host_prog = "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
+"     elseif
+"         let g:python3_host_prog = "C:\\Python35\\python.exe"
+"     endif
+" endif
+" }}}
 
 " ---------------------------------------------------------------------------
 " dein.vimの設定
@@ -91,8 +98,7 @@ else
         if hostname() == "HBAMB748A"
             let s:plugin_dir = expand("C:\\Users\\MM12167\\AppData\\Local\\nvim\\.cache\\dein\\")
         else
-            " FTR:
-            " let s:plugin_dir = expand("~/.cache/nvim/dein/")
+            " FTR: let s:plugin_dir = expand("~/.cache/nvim/dein/")
             let s:plugin_dir = expand("~/AppData/Local/nvim/.cache/dein/")
         endif
     elseif exists("g:nyaovim_version")
@@ -112,7 +118,7 @@ else
         call mkdir(s:dein_dir, "p")
         silent execute printf("!git clone %s %s", "https://github.com/Shougo/dein.vim", s:dein_dir)
     endif
-    " < http://yuheikagaya.hatenablog.jp/entry/2016/03/20/171907 >
+    " REF: < http://yuheikagaya.hatenablog.jp/entry/2016/03/20/171907 >
 
     " 設定開始
     if dein#load_state(s:plugin_dir)
