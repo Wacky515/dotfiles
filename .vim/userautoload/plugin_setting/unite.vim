@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/19 20:47:58
-" Last Change: 2018/10/04 13:41:16.
+" Last Change: 2018/10/04 14:42:49.
 
 " ---------------------------------------------------------------------------
 " マップキー
@@ -15,7 +15,7 @@ nnoremap <silent> [unite]m :Unite file_mru<CR>
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 " Uf: 現在のバッファのディレクトリ一覧
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir
-            \-buffer-name=files file<CR>
+            \ -buffer-name=files file<CR>
 " Ut: バッファを新しいタブで開く
 nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
 " Uw: 最近使用したウィンドウ一覧
@@ -29,7 +29,7 @@ nnoremap <silent> [unite]r :<C-u>Unite register<CR>
 " Ul: Colorscheme プレビュー
 nnoremap <silent> [unite]l :<C-u>Unite
             \ -auto-preview
-            \colorscheme<CR>
+            \ colorscheme<CR>
 
 " Uniteを開いている間のキーマッピング
 if globpath(&rtp, 'plugin/unite.vim') != ''
