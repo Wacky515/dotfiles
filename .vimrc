@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 00:00:00
-" Last Change: 2018/10/02 13:32:56.
+" Last Change: 2018/10/04 14:48:10.
 
 " MEMO: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -13,8 +13,12 @@ if hostname() == "ProSalad133.local"
     let g:python3_host_prog = "/usr/local/bin/Python3"
 elseif hostname() == "HBAMB748A"
     let g:python3_host_prog = "C:\\Python35\\python.exe"
+elseif hostname() == "HBAMB819"
+    let g:python3_host_prog = "C:\\Python35\\python.exe"
 elseif hostname() == "SALADCARBONX1"
     let g:python3_host_prog = "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
+else
+    let g:python3_host_prog = "C:\\Python35\\python.exe"
 endif
 " if has("nvim") && hostname() == "ProSalad133.local"  " {{{
 "     let g:python3_host_prog = "/usr/local/bin/Python3"
