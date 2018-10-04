@@ -1,5 +1,5 @@
 ﻿scriptencoding utf-8
-" La daaaast Change: 2018/04/10 09:25:30.
+" Last Change: 2018/10/04 14:25:26.
 
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示
 if has("unix")
@@ -48,28 +48,35 @@ let g:lightline = {
             \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
             \ 'mode_map': {'c': 'NORMAL'},
             \ 'active': {
-            \   'left': [ ['mode', 'paste'], ['fugitive', 'filename', 'cakephp', 'currenttag', 'anzu'] ]
+            \     'left': [
+            \         ['mode', 'paste'],
+            \         ['fugitive', 'filename', 'cakephp',
+            \             'currenttag', 'anzu'],
+            \         ['readonly', 'filename', 'modified', 'ale']
+            \     ]
             \ },
             \ 'component': {
             \   'lineinfo': ' %3l:%-2v',
             \ },
             \ 'component_function': {
-            \   'modified': 'MyModified',
-            \   'readonly': 'MyReadonly',
-            \   'fugitive': 'MyFugitive',
-            \   'filename': 'MyFilename',
-            \   'fileformat': 'MyFileformat',
-            \   'filetype': 'MyFiletype',
-            \   'fileencoding': 'MyFileencoding',
-            \   'mode': 'MyMode',
-            \   'anzu': 'anzu#search_status',
-            \   'currenttag': 'MyCurrentTag',
-            \   'cakephp': 'MyCakephp',
-            \ }
+            \     'ale': 'ALEGetStatusLine',
+            \     'modified': 'MyModified',
+            \     'readonly': 'MyReadonly',
+            \     'fugitive': 'MyFugitive',
+            \     'filename': 'MyFilename',
+            \     'fileformat': 'MyFileformat',
+            \     'filetype': 'MyFiletype',
+            \     'fileencoding': 'MyFileencoding',
+            \     'mode': 'MyMode',
+            \     'anzu': 'anzu#search_status',
+            \     'currenttag': 'MyCurrentTag',
+            \     'cakephp': 'MyCakephp',
+            \     }
             \ }
 
 function! MyModified()
-    return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+    return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ?
+                \ '+' : &modifiable ? '' : '-'
 endfunction
 
 function! MyReadonly()
@@ -87,7 +94,9 @@ endfunction
 
 function! MyFugitive()
     try
-        if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && strlen(fugitive#head())
+        if &ft !~? 'vimfiler\|gundo'
+                    \ && exists('*fugitive#head')
+                    \ && strlen(fugitive#head())
             return ' ' . fugitive#head()
         endif
     catch
@@ -96,7 +105,6 @@ function! MyFugitive()
 endfunction
 
 function! MyFileformat()
-    " return winwidth(0) > 70 ? &fileformat : ''
      return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
 
@@ -107,7 +115,6 @@ function! LightLineFilename()
 endfunction
 
 function! MyFiletype()
-    " return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
     return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
 endfunction
 
