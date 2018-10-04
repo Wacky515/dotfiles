@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/10/02 11:09:38.
+# Last Change: 2018/10/04 14:06:08.
 # TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -180,6 +180,10 @@ on_ft = ['snippet']
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
+# ALE
+[[plugins]]
+repo = 'w0rp/ale'
+
 # 非同期処理
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
@@ -208,9 +212,6 @@ if = "has('nvim')"
 # [[plugins]]
 # repo = 'pfdevilliers/Pretty-Vim-Python'
 # on_ft = ['python']
-# 構文チェッカー
-[[plugins]]
-repo = 'w0rp/ale'
 # # [[plugins]]
 # # repo = 'scrooloose/syntastic'
 # on_ft = ['python']
