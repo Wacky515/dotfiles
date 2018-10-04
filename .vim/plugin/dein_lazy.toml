@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/10/04 14:06:08.
+# Last Change: 2018/10/04 14:31:49.
 # TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -267,11 +267,11 @@ hook_add = '''
 # MEMO: "yankround" が使えないので一旦中止
 # MEMO: 弊害が多いので "YankRnkg" -> "yankround" に変更
 # ヤンク後に "<Ctrl>p/<Ctrl>n" でヤンク履歴を選択
-[[plugins]]
-repo = 'vim-scripts/YankRing.vim'
-if = "!has('nvim')"
+# [[plugins]]
+# repo = 'vim-scripts/YankRing.vim'
+# if = "!has('nvim')"
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
-# repo = 'LeafCage/yankround.vim'
+repo = 'LeafCage/yankround.vim'
 
 # フォントのサイズ変更
 [[plugins]]
