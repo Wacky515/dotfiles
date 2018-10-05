@@ -1,19 +1,18 @@
 scriptencoding utf-8
 " Created:     2018/03/15 13:25:06
-" Last Change: 2018/10/05 08:51:05.
+" Last Change: 2018/10/05 12:39:54.
 
 " ---------------------------------------------------------------------------
 "  マップキー
 " ---------------------------------------------------------------------------
-" ALE修正
-" nnoremap <C-a><C-f> :ALEFix<CR>
-nnoremap <F11> :ALEFix<CR>
-
 " <Ctrl>k: 次の指摘へ移動
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 " <Ctrl>j: 前の指摘へ移動
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
+" F11: ALE修正
+" nnoremap <C-a><C-f> :ALEFix<CR>
+nnoremap <F11> :ALEFix<CR>
 " ---------------------------------------------------------------------------
 "  基本設定
 " ---------------------------------------------------------------------------
@@ -38,7 +37,7 @@ highlight link ALEWarningSign StorageClass
 "   \ }
 " \ "  }}}}
 " let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-let g:ale_statusline_format = [' %d', ' %d', '⬥ ok']
+let g:ale_statusline_format = [' %d', ' %d', ' ok']
 
 " 保存時のみ実行
 let g:ale_lint_on_text_changed = 0
