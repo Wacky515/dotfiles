@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/10/04 15:54:29.
+# Last Change: 2018/10/04 16:36:09.
 # TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -267,22 +267,22 @@ hook_add = '''
 # MEMO: "yankround" が使えないので一旦中止
 # MEMO: 弊害が多いので "YankRnkg" -> "yankround" に変更
 # ヤンク後に "<Ctrl>p/<Ctrl>n" でヤンク履歴を選択
-[[plugins]]
-repo = 'vim-scripts/YankRing.vim'
+# [[plugins]]
+# repo = 'vim-scripts/YankRing.vim'
 # if = "!has('nvim')"
 # < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
-# [[plugins]]
-# repo = 'LeafCage/yankround.vim'
-# hook_source = '''  " {{{
-#     nmap p <Plug>(yankround-p)
-#     xmap p <Plug>(yankround-p)
-#     nmap P <Plug>(yankround-P)
-#     nmap gp <Plug>(yankround-gp)
-#     xmap gp <Plug>(yankround-gp)
-#     nmap gP <Plug>(yankround-gP)
-#     nmap <C-p> <Plug>(yankround-prev)
-#     nmap <C-n> <Plug>(yankround-next)
-# '''  # }}}
+[[plugins]]
+repo = 'LeafCage/yankround.vim'
+hook_source = '''  " {{{
+    nmap p <Plug>(yankround-p)
+    xmap p <Plug>(yankround-p)
+    nmap P <Plug>(yankround-P)
+    nmap gp <Plug>(yankround-gp)
+    xmap gp <Plug>(yankround-gp)
+    nmap gP <Plug>(yankround-gP)
+    nmap <C-p> <Plug>(yankround-prev)
+    nmap <C-n> <Plug>(yankround-next)
+'''  # }}}
 
 # フォントのサイズ変更
 [[plugins]]
