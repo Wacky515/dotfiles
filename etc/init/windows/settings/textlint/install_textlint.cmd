@@ -24,6 +24,8 @@ cinst -y nodejs.install
 
 :install_textlint
 npm i textlint -D
+npm i -D textlint-rule-preset-ja-technical-writing
+npm i -D textlint-rule-preset-ja-spacing
 
 rem pause
 exit /b 0
