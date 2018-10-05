@@ -1,5 +1,5 @@
 ﻿scriptencoding utf-8
-" Last Change: 2018/10/05 09:04:44.
+" Last Change: 2018/10/05 12:21:25.
 
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示
 if has("unix")
@@ -42,24 +42,26 @@ endif
             " \ 'colorscheme': 'seoul256',
             " \ 'colorscheme': 'Dracula',
             " \ 'colorscheme': 'one',
+            " \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+            " \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
+            " \         ['readonly', 'filename', 'modified', 'ale']
 let g:lightline = {
             \ 'colorscheme': 'wombat',
-            \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-            \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
+            \ 'separator': { 'left': "\ue0cc", 'right': "\ue0b2" },
+            \ 'subseparator': { 'left': "\ue0cd", 'right': "\ue0b3" },
             \ 'mode_map': {'c': 'NORMAL'},
             \ 'active': {
             \     'left': [
             \         ['mode', 'paste'],
             \         ['fugitive', 'filename',
             \             'cakephp','currenttag', 'anzu'],
-            \         ['readonly', 'filename', 'modified', 'ale']
+            \         ['modified', 'ale']
             \     ]
             \ },
             \ 'component': {
             \   'lineinfo': ' %3l:%-2v',
             \ },
             \ 'component_function': {
-            \     'ale': 'ALEGetStatusLine',
             \     'modified': 'MyModified',
             \     'readonly': 'MyReadonly',
             \     'fugitive': 'MyFugitive',
@@ -71,6 +73,7 @@ let g:lightline = {
             \     'anzu': 'anzu#search_status',
             \     'currenttag': 'MyCurrentTag',
             \     'cakephp': 'MyCakephp',
+            \     'ale': 'ALEGetStatusLine',
             \     }
             \ }
 
@@ -81,15 +84,6 @@ endfunction
 
 function! MyReadonly()
     return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? ' ' : ''
-endfunction
-
-function! MyFilename()
-    return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-                \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-                \  &ft == 'unite' ? unite#get_status_string() :
-                \  &ft == 'vimshell' ? vimshell#get_status_string() :
-                \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-                \ ('' != MyModified() ? ' ' . MyModified() : '')
 endfunction
 
 function! MyFugitive()
@@ -104,14 +98,17 @@ function! MyFugitive()
     return ''
 endfunction
 
-function! MyFileformat()
-     return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+function! MyFilename()
+    return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+                \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+                \  &ft == 'unite' ? unite#get_status_string() :
+                \  &ft == 'vimshell' ? vimshell#get_status_string() :
+                \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+                \ ('' != MyModified() ? ' ' . MyModified() : '')
 endfunction
 
-function! LightLineFilename()
-    return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-                \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-                \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+function! MyFileformat()
+     return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
 
 function! MyFiletype()
@@ -126,9 +123,9 @@ function! MyMode()
     return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
-" function! MyCurrentTag()
-"     return tagbar#currenttag('%s', '')
-" endfunction
+function! MyCurrentTag()
+    return tagbar#currenttag('%s', '')
+endfunction
 
 function! MyCakephp()
     return exists('*cake#buffer') ? cake#buffer('type') : ''
@@ -156,6 +153,12 @@ augroup LightLineOnALE
     autocmd!
     autocmd User ALELint call lightline#update()
 augroup END
+
+function! LightLineFilename()
+    return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+                \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+                \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
 
 " " 設定3 " {{{
 " let g:lightline = {
