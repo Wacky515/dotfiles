@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/15 13:25:06
-" Last Change: 2018/10/04 14:31:31.
+" Last Change: 2018/10/05 08:51:05.
 
 " ---------------------------------------------------------------------------
 "  マップキー
@@ -25,7 +25,8 @@ let g:airline#extensions#ale#close_lnum_symbol = ')'
 let g:ale_echo_msg_format = '[%linter%]%code: %%s'
 highlight link ALEErrorSign Tag
 highlight link ALEWarningSign StorageClass
-" let g:lightline = {
+" "lightline" に記述
+" let g:lightline = "  {{{{
 "   \ 'active': {
 "   \   'left': [
 "       \ ['mode', 'paste'],
@@ -35,8 +36,9 @@ highlight link ALEWarningSign StorageClass
 "   \ 'component_function': {
 "   \ 'ale': 'ALEGetStatusLine'
 "   \ }
-" \ }
-let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+" \ "  }}}}
+" let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+let g:ale_statusline_format = [' %d', ' %d', '⬥ ok']
 
 " 保存時のみ実行
 let g:ale_lint_on_text_changed = 0
