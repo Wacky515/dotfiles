@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/09/30 17:12:56.
+# Last Change: 2018/09/30 17:51:51.
 # TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -8,8 +8,7 @@ repo = 'Shougo/denite.nvim'
 if = "has('python3')"
 depends = ['neomru.vim']
 # MEMO: ここは "*.vim" に移管できない
-# hook_source = '''  # {{{
-hook_source = '''
+hook_source = '''  " {{{
     call denite#custom#option('default', 'prompt', '>')
     call denite#custom#option('default', 'direction', 'top')
     call denite#custom#map('normal',
@@ -61,8 +60,7 @@ hook_source = '''
                 \ ['rg', '--files', '--glob', '!.git'])
         call denite#custom#var('grep', 'command', ['rg'])
     endif
-'''
-# }}}
+'''  # }}}
 on_i = 1
 on_cmd = ['Denite']
 [[plugins]]
@@ -104,12 +102,12 @@ if = "has('python3')"
 # depends = ['context_filetype.vim', 'roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
 depends = ['roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
 on_i = 1
-hook_add = '''  # {{{
+hook_add = '''  " {{{
     let g:deoplete#enable_at_startup = 1
     let g:deoplete#auto_complete_delay = 0
 '''  # }}}
 on_event = ['InsertCharPre']
-hook_source = '''  # {{{
+hook_source = '''  " {{{
     inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
     inoremap <expr><C-l> deoplete#complete_common_string()
     inoremap <expr><C-i> deoplete#complete_common_string()
@@ -123,11 +121,10 @@ hook_source = '''  # {{{
     let g:deoplete#enable_smart_case = 1
     let g:deoplete#file#enable_buffer_path = 1
     let g:deoplete#max_list = 10000
-'''
-    # "hook_add" と重複してるのでコメントアウト
-    # let g:deoplete#enable_at_startup = 1
-    # let g:deoplete#auto_complete_delay = 0
-# }}}
+    " "hook_add" と重複してるのでコメントアウト
+    " let g:deoplete#enable_at_startup = 1
+    " let g:deoplete#auto_complete_delay = 0
+'''  # }}}
 # TEMP: "deoplete.vim" にて代替
 # ---------------------------------------------------------------------------
 # [[plugins]]
@@ -145,7 +142,7 @@ hook_source = '''  # {{{
 # # if = "!has('python3')"
 # # if = "has('lua')"
 # CHECK: ↓この記述可能か？
-if = "!has('python3') | has('lua')"
+if = "!has('python3') || has('lua')"
 # MEMO: この "hook_source" は "*.vim" に移管しない
 hook_source = '''
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
@@ -156,24 +153,13 @@ inoremap <expr><C-i> neocomplete#complete_common_string()
 # 最古
 [[plugins]] #  {{{
 repo = 'Shougo/neocomplcache.vim'
-if = "!has('python3')"
-if = "!has('lua')"
-# CHECK: ↓この記述可能か？
-if = "!has('python3') | !has('lua')"
+if = "!has('python3') && !has('lua')"
 on_i = 1
 # }}}
 
 # スニペット
 [[plugins]]
 repo = 'Shougo/neosnippet'
-# hook_source = '''  " {{{
-#     imap <C-k> <Plug>(neosnippet_expand_or_jump)
-#     smap <C-k> <Plug>(neosnippet_expand_or_jump)
-#     xmap <C-k> <Plug>(neosnippet_expand_target)
-#         if has('conceal')
-#             set conceallevel=2 concealcursor=niv
-#         endif
-# '''  # }}}
 depends = ['neosnippet-snippets', 'context_filetype.vim']
 on_i = 1
 on_ft = ['snippet']
