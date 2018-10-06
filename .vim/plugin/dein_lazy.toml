@@ -1,28 +1,34 @@
 # Created:     2018/03/07 21:59:29
+<<<<<<< HEAD
 # Last Change: 2018/09/22 20:46:32.
+=======
+# Last Change: 2018/09/24 10:12:59.
+# TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
+>>>>>>> bcd77225a462a599e95ca9e42ec670ef9e7b6654
 
 # 統合ユーザインターフェース
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 if = "has('python3')"
 depends = ['neomru.vim']
-# {{{ hook_source = '''
+# MEMO: ここは "*.vim" に移管できない
+# hook_source = '''  # {{{
 hook_source = '''
     call denite#custom#option('default', 'prompt', '>')
     call denite#custom#option('default', 'direction', 'top')
     call denite#custom#map('normal',
-                \ '<C-N>', '<denite:move_to_next_line>')
+                \ '<C-n>', '<denite:move_to_next_line>')
     call denite#custom#map('normal',
-                \ '<C-P>', '<denite:move_to_previous_line>')
+                \ '<C-p>', '<denite:move_to_previous_line>')
     call denite#custom#map('insert',
-                \ '<C-N>', '<denite:move_to_next_line>')
+                \ '<C-n>', '<denite:move_to_next_line>')
     call denite#custom#map('insert',
-                \ '<C-P>', '<denite:move_to_previous_line>')
+                \ '<C-p>', '<denite:move_to_previous_line>')
 
     call denite#custom#map('insert',
-                \ '<C-J>', '<denite:assign_next_text>')
+                \ '<C-j>', '<denite:assign_next_text>')
     call denite#custom#map('insert',
-                \ '<C-K>', '<denite:assign_previous_text>')
+                \ '<C-k>', '<denite:assign_previous_text>')
 
     call denite#custom#map('insert',
                 \ "<C-t>", '<denite:do_action:tabopen>')
@@ -34,11 +40,11 @@ hook_source = '''
     call denite#custom#map('insert',
                 \ 'jj', '<denite:enter_mode:normal>')
     call denite#custom#map('insert',
-                \ '<C-S>', '<denite:do_action:split>')
+                \ '<C-s>', '<denite:do_action:split>')
     call denite#custom#map('insert',
-                \ '<C-I>', '<denite:do_action:vsplit>')
+                \ '<C-i>', '<denite:do_action:vsplit>')
     call denite#custom#map('insert',
-                \ '<C-O>', '<denite:do_action:tabopen>')
+                \ '<C-o>', '<denite:do_action:tabopen>')
 
     call denite#custom#source(
                 \ 'file_rec', 'matchers',
@@ -96,6 +102,41 @@ repo = 'koron/codic-vim'
 
 # 入力補完
 # 最新
+<<<<<<< HEAD
+=======
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if = "has('python3')"
+# depends = ['context_filetype.vim', 'roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
+depends = ['roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
+on_i = 1
+hook_add = '''  # {{{
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#auto_complete_delay = 0
+'''  # }}}
+on_event = ['InsertCharPre']
+hook_source = '''  # {{{
+    inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+    inoremap <expr><C-l> deoplete#complete_common_string()
+    inoremap <expr><C-i> deoplete#complete_common_string()
+    inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+                \ neosnippet#expandable_or_jumpable() ?
+                \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+    let g:deoplete#auto_complete_start_length = 1
+    let g:deoplete#enable_camel_case = 0
+    let g:deoplete#enable_ignore_case = 0
+    let g:deoplete#enable_refresh_always = 0
+    let g:deoplete#enable_smart_case = 1
+    let g:deoplete#file#enable_buffer_path = 1
+    let g:deoplete#max_list = 10000
+'''
+    # "hook_add" と重複してるのでコメントアウト
+    # let g:deoplete#enable_at_startup = 1
+    # let g:deoplete#auto_complete_delay = 0
+# }}}
+# TEMP: "deoplete.vim" にて代替
+# ---------------------------------------------------------------------------
+>>>>>>> bcd77225a462a599e95ca9e42ec670ef9e7b6654
 # [[plugins]]
 # repo = 'Shougo/deoplete.nvim'
 # if = "has('python3')"
@@ -135,6 +176,7 @@ repo = 'koron/codic-vim'
 # # # if = "!has('nvim')"
 # # ---------------------------------------------------------------------------
 # 2番目に新しい
+<<<<<<< HEAD
 # MEMO: "deoplete" 使用できないので復活
 # MEMO: "deoplete" とのコンフリクト確認のため一旦キル
 [[plugins]]
@@ -144,23 +186,36 @@ depends = ['context_filetype']
 # if = "has('lua')"
 # CHECK: ↓この記述可能か？
 # if = "!has('python3') | has('lua')"
+=======
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+depends = ['context_filetype.vim']
+# # if = "!has('python3')"
+# # if = "has('lua')"
+# CHECK: ↓この記述可能か？
+if = "!has('python3') | has('lua')"
+# MEMO: この "hook_source" は "*.vim" に移管しない
+>>>>>>> bcd77225a462a599e95ca9e42ec670ef9e7b6654
 hook_source = '''
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-l> neocomplete#complete_common_string()
 inoremap <expr><C-i> neocomplete#complete_common_string()
+<<<<<<< HEAD
 inoremap <expr><tab> pumvisible() ? "\<C-n>" :
             \ neosnippet#expandable_or_jumpable() ?
             \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+=======
+>>>>>>> bcd77225a462a599e95ca9e42ec670ef9e7b6654
 '''
 # on_i = 1
 # 最古
-# [[plugins]] #  {{{
-# repo = 'Shougo/neocomplcache.vim'
-# if = "!has('python3')"
-# if = "!has('lua')"
+[[plugins]] #  {{{
+repo = 'Shougo/neocomplcache.vim'
+if = "!has('python3')"
+if = "!has('lua')"
 # CHECK: ↓この記述可能か？
-# if = "!has('python3') | !has('lua')"
-# on_i = 1
+if = "!has('python3') | !has('lua')"
+on_i = 1
 # }}}
 [[plugins]]
 repo = 'Shougo/neco-vim'
@@ -172,15 +227,15 @@ repo = 'ujihisa/neco-look'
 # スニペット
 [[plugins]]
 repo = 'Shougo/neosnippet'
-# hook_source = '''
+# hook_source = '''  # {{{
 #     imap <C-k> <Plug>(neosnippet_expand_or_jump)
 #     smap <C-k> <Plug>(neosnippet_expand_or_jump)
 #     xmap <C-k> <Plug>(neosnippet_expand_target)
 #         if has('conceal')
 #             set conceallevel=2 concealcursor=niv
 #         endif
-# '''
-depends = ['neosnippet-snippets', 'context_filetype']
+# '''  # }}}
+depends = ['neosnippet-snippets', 'context_filetype.vim']
 on_i = 1
 on_ft = ['snippet']
 [[plugins]]
