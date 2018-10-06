@@ -1,5 +1,5 @@
 ﻿scriptencoding utf-8
-" La daaaast Change: 2018/04/10 09:25:30.
+" Last Change: 2018/10/05 12:21:25.
 
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示
 if has("unix")
@@ -33,7 +33,7 @@ endif
 " else
 " " }}}
 
-" 設定2 " {{{
+" 設定2
             " \ 'colorscheme': 'jellybeans',
             " \ 'colorscheme': 'powerline',
             " \ 'colorscheme': 'solarized',
@@ -42,38 +42,60 @@ endif
             " \ 'colorscheme': 'seoul256',
             " \ 'colorscheme': 'Dracula',
             " \ 'colorscheme': 'one',
+            " \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+            " \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
+            " \         ['readonly', 'filename', 'modified', 'ale']
 let g:lightline = {
             \ 'colorscheme': 'wombat',
-            \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-            \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
+            \ 'separator': { 'left': "\ue0cc", 'right': "\ue0b2" },
+            \ 'subseparator': { 'left': "\ue0cd", 'right': "\ue0b3" },
             \ 'mode_map': {'c': 'NORMAL'},
             \ 'active': {
-            \   'left': [ ['mode', 'paste'], ['fugitive', 'filename', 'cakephp', 'currenttag', 'anzu'] ]
+            \     'left': [
+            \         ['mode', 'paste'],
+            \         ['fugitive', 'filename',
+            \             'cakephp','currenttag', 'anzu'],
+            \         ['modified', 'ale']
+            \     ]
             \ },
             \ 'component': {
             \   'lineinfo': ' %3l:%-2v',
             \ },
             \ 'component_function': {
-            \   'modified': 'MyModified',
-            \   'readonly': 'MyReadonly',
-            \   'fugitive': 'MyFugitive',
-            \   'filename': 'MyFilename',
-            \   'fileformat': 'MyFileformat',
-            \   'filetype': 'MyFiletype',
-            \   'fileencoding': 'MyFileencoding',
-            \   'mode': 'MyMode',
-            \   'anzu': 'anzu#search_status',
-            \   'currenttag': 'MyCurrentTag',
-            \   'cakephp': 'MyCakephp',
-            \ }
+            \     'modified': 'MyModified',
+            \     'readonly': 'MyReadonly',
+            \     'fugitive': 'MyFugitive',
+            \     'filename': 'MyFilename',
+            \     'fileformat': 'MyFileformat',
+            \     'filetype': 'MyFiletype',
+            \     'fileencoding': 'MyFileencoding',
+            \     'mode': 'MyMode',
+            \     'anzu': 'anzu#search_status',
+            \     'currenttag': 'MyCurrentTag',
+            \     'cakephp': 'MyCakephp',
+            \     'ale': 'ALEGetStatusLine',
+            \     }
             \ }
 
 function! MyModified()
-    return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+    return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ?
+                \ '+' : &modifiable ? '' : '-'
 endfunction
 
 function! MyReadonly()
     return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? ' ' : ''
+endfunction
+
+function! MyFugitive()
+    try
+        if &ft !~? 'vimfiler\|gundo'
+                    \ && exists('*fugitive#head')
+                    \ && strlen(fugitive#head())
+            return ' ' . fugitive#head()
+        endif
+    catch
+    endtry
+    return ''
 endfunction
 
 function! MyFilename()
@@ -85,29 +107,11 @@ function! MyFilename()
                 \ ('' != MyModified() ? ' ' . MyModified() : '')
 endfunction
 
-function! MyFugitive()
-    try
-        if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && strlen(fugitive#head())
-            return ' ' . fugitive#head()
-        endif
-    catch
-    endtry
-    return ''
-endfunction
-
 function! MyFileformat()
-    " return winwidth(0) > 70 ? &fileformat : ''
      return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
 
-function! LightLineFilename()
-    return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-                \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-                \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
-endfunction
-
 function! MyFiletype()
-    " return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
     return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
 endfunction
 
@@ -119,14 +123,42 @@ function! MyMode()
     return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
-" function! MyCurrentTag()
-"     return tagbar#currenttag('%s', '')
-" endfunction
+function! MyCurrentTag()
+    return tagbar#currenttag('%s', '')
+endfunction
 
 function! MyCakephp()
     return exists('*cake#buffer') ? cake#buffer('type') : ''
 endfunction
-" }}}
+
+function! s:ale_string(mode)
+    if !exists('g:ale_buffer_info')
+        return ''
+    endif
+
+    let l:buffer = bufnr('%')
+    let [l:error_count, l:warning_count] = ale#statusline#Count(l:buffer)
+    let [l:error_format, l:warning_format, l:no_errors] = g:ale_statusline_format
+
+    if a:mode == 0 " Error
+        return l:error_count ? printf(l:error_format, l:error_count) : ''
+    elseif a:mode == 1 " Warning
+        return l:warning_count ? printf(l:warning_format, l:warning_count) : ''
+    endif
+
+    return l:error_count == 0 && l:warning_count == 0 ? l:no_errors : ''
+endfunction
+
+augroup LightLineOnALE
+    autocmd!
+    autocmd User ALELint call lightline#update()
+augroup END
+
+function! LightLineFilename()
+    return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+                \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+                \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
 
 " " 設定3 " {{{
 " let g:lightline = {
