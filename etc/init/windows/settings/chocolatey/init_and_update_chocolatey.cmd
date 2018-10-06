@@ -13,7 +13,7 @@ cd /d %bat_path%
 
 rem "Chocolatey" インストール済みかチェック
 chocolatey -v >> nul
-if %ERRORLEVEL% EQU 0 goto update
+if %errorlevel% equ 0 goto update
 
 echo ^>^> Install Chocolatey
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "(iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))) >$null 2>&1" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
