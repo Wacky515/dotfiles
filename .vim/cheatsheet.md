@@ -21,27 +21,39 @@
 - 挿入モードで ,dy: 曜日を挿入
 - 挿入モードで dl:  仕切り線を挿入
 
+- :TableModeToggle:      テーブル作成
 - ビジュアルモードで ga: テーブル整形
+    - USAGE  {{{
+        - "*," と入力すればテキスト整形
+            - 2文字目の "," はデリミタ
+            - 例) |で句切られていれば、"*|" と入力
+        - デリミタのデフォルト定義
+            - <Space>, =, :, ., |, &, #, ,
+        - 1文字目の "*" は何番目のデリミタに整形を適用するか
+        - "*" は全てを対象にする
+        - "1," と入力すれば1番目の "," に対して整形
+            - デフォルトでは1なので "," だけでもよい
+}}}
 
 - ee: "EasyMotion" 開始
 
 - (D|U)b: 現在のバッファ一覧
 - (D|U)f: 現在のバッファのディレクトリ一覧
 - (D|U)r: レジスタ一覧
-- Uc: ブックマーク一覧
-- Ua: ブックマークに追加
-- Ut: バッファを新しいタブで開く
+- Uc:     ブックマーク一覧
+- Ua:     ブックマークに追加
+- Ut:     バッファを新しいタブで開く
 - (D|U)l: Colorscheme プレビュー
 - (D|U)m: 最近使用したファイル一覧
-- Uw: 最近使用したウィンドウ一覧
+- Uw:     最近使用したウィンドウ一覧
 
 - mgs :Gstatus<CR><C-w>T
     - 選択ファイル上で -: "git add/reset" をトグル
-- mga :Gwrite<CR>
-- mgc :Gcommit-v<CR>
-- mgb :Gblame<CR>
-- mgd :Gdiff<CR>
-- mgm :Gmerge<CR>
+- mga :  Gwrite<CR>
+- mgc :  Gcommit-v<CR>
+- mgb :  Gblame<CR>
+- mgd :  Gdiff<CR>
+- mgm :  Gmerge<CR>
 - :Agit: 強化版"git log" 起動
 - :Gitv: "gitk" 実行
 
@@ -53,13 +65,16 @@
 - ml:    マーク一覧を表示/非表示
 - ms"*": 次にマークする "*" を設定
 - m"*":  マークする "*" を設定し、同時にマーク
+- ddp:   マーク削除
+    - 基本カット&ペースト機能で代替
 
 - :NeoSnippetEdit: スニペット編集
-- :CdCurrent: 現在開いているファイル・ディレクトリをカレントディレトリに変更
+- :CdCurrent:      現在開いているファイル・ディレクトリをカレントディレトリに変更
 
-- <F4>: "Gundo.vim" ウィンドウを開閉をトグル
-- <F6>: "ctags" 作成
-- <F7>: チートシート 表示
+- <F4>:  "Gundo.vim" ウィンドウを開閉をトグル
+- <F6>:  "ctags" 作成
+- <F7>:  チートシート 表示
+- <F11>: ALE修正
 
 - <Ctrl>s: エクスプローラで保存場所選択して保存
 - <Ctrl>e: ウィンドウサイズ変更開始
@@ -95,17 +110,18 @@
 - <Leader>zh: 全角英数字を半角にする
 
 - <Leader>md: 編集中のファイルをブラウザで表示
+" <Leader>,m: "atom" 起動
 " <Leader>,c: "VS Code" 起動
 
 ## Grep
-- <Leader>r:       カーソル下を "RipGrep" 対象に挿入
-- <Leader>p:       カーソル下を "The Platinum Searcher" 対象に挿入
-- <Leader>a:       カーソル下を "The Sliver Searcher" 対象に挿入
-- <Leader>G:       カーソル下を "外部grep" 対象に挿入
-- <Leader>g:       カーソル下を "VimGrep" 対象に挿入
-- <Leader><Ctrl>k: 英和辞典起動
+- <Leader>r: カーソル下を "RipGrep" 対象に挿入
+- <Leader>p: カーソル下を "The Platinum Searcher" 対象に挿入
+- <Leader>a: カーソル下を "The Sliver Searcher" 対象に挿入
+- <Leader>G: カーソル下を "外部grep" 対象に挿入
+- <Leader>g: カーソル下を "VimGrep" 対象に挿入
 
-## 英語検索（未動作）
+## 辞典検索（未動作）
+- <Leader>k:  カーソル下を英和辞典検索（GENE）
 - <Leader>dj: カーソル下を英和辞典検索
 - <Leader>de: カーソル下を和英辞典検索
 - <Leader>da: カーソル下の単語をスペースアルクで検索
@@ -125,6 +141,17 @@
 - <C-x><C-o>:   オムニ補完
 - <C-x><C-s>:   スペリング補完
 - <C-n>, <C-p>: "complete" 補完
+
+## Diff
+### Kaoriya
+- :VDsplit (ファイル名|バッファ番号)
+
+- [c:            前方の変更の先頭へ移動
+- ]c:            次方の変更の先頭へ移動
+- :diffg[et]|do: 差分をもう片方のへコピー
+- :diffpu[t]|dp: 差分をもう片方のへコピー
+- diffoff:       Diffモードを終了
+- diffupdate:    Diff状態をアップデート
 
 ## コマンドラインモード
 - <Home>:         行頭へ移動
