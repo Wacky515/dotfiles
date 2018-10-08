@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/19 20:47:58
-" Last Change: 2018/10/04 14:42:49.
+" Last Change: 2018/10/09 08:13:17.
 
 " ---------------------------------------------------------------------------
 " マップキー
@@ -8,26 +8,26 @@ scriptencoding utf-8
 nnoremap [unite] <Nop>
 nmap U [unite]
 
-" Um: 最近使用したファイル一覧
-nnoremap <silent> [unite]m :Unite file_mru<CR>
+" UM: 最近使用したファイル一覧
+nnoremap <silent> [unite]M :Unite file_mru<CR>
 " nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
-" Ub: 現在のバッファ一覧
-nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-" Uf: 現在のバッファのディレクトリ一覧
-nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir
+" UB: 現在のバッファ一覧
+nnoremap <silent> [unite]B :<C-u>Unite buffer<CR>
+" UF: 現在のバッファのディレクトリ一覧
+nnoremap <silent> [unite]F :<C-u>UniteWithBufferDir
             \ -buffer-name=files file<CR>
-" Ut: バッファを新しいタブで開く
-nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
-" Uw: 最近使用したウィンドウ一覧
-nnoremap <silent> [unite]w :<C-u>Unite window<CR>
-" Uc: ブックマーク一覧
-nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
-" Ua: ブックマークに追加
-nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
-" Ur: レジスタ一覧
-nnoremap <silent> [unite]r :<C-u>Unite register<CR>
-" Ul: Colorscheme プレビュー
-nnoremap <silent> [unite]l :<C-u>Unite
+" UT: バッファを新しいタブで開く
+nnoremap <silent> [unite]T :<C-u>Unite tab<CR>
+" UW: 最近使用したウィンドウ一覧
+nnoremap <silent> [unite]W :<C-u>Unite window<CR>
+" UC: ブックマーク一覧
+nnoremap <silent> [unite]C :<C-u>Unite bookmark<CR>
+" UA: ブックマークに追加
+nnoremap <silent> [unite]A :<C-u>UniteBookmarkAdd<CR>
+" UR: レジスタ一覧
+nnoremap <silent> [unite]R :<C-u>Unite register<CR>
+" UL: Colorscheme プレビュー
+nnoremap <silent> [unite]L :<C-u>Unite
             \ -auto-preview
             \ colorscheme<CR>
 

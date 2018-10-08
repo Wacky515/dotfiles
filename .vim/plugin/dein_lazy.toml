@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/10/06 20:42:19.
+# Last Change: 2018/10/09 08:23:06.
 # TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -90,7 +90,7 @@ repo = 'Shougo/neomru.vim'
 if = "!has('nvim')"
 on_source = ['dein.vim', 'unite.vim', 'denite.nvim']
 on_path = '.*'
-# "Denite"|"Unite" 用 "Source" 郡
+# "Denite|Unite" 用 "Source" 郡
 # "Colorscheme" プレビュー
     # Ul: :Unite colorscheme でプレビュー
     # Dl: :Denite colorscheme でプレビュー

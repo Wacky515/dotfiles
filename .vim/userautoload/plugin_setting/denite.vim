@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/19 09:19:36
-" Last Change: 2018/10/04 13:43:32.
+" Last Change: 2018/10/09 08:12:06.
 
 " ---------------------------------------------------------------------------
 " マップキー
@@ -8,36 +8,36 @@ scriptencoding utf-8
 nmap [denite] <Nop>
 map D [denite]
 
-" Dm: 最近使用したファイル一覧
-nnoremap <silent> [denite]m :<C-u>Denite
+" DM: 最近使用したファイル一覧
+nnoremap <silent> [denite]M :<C-u>Denite
             \ -direction=topleft
             \ -cursor-wrap=true
             \ file_mru<CR>
-" Db: 現在のバッファ一覧
-nnoremap <silent> [denite]b :<C-u>Denite
+" DB: 現在のバッファ一覧
+nnoremap <silent> [denite]B :<C-u>Denite
             \ -direction=topleft
             \ -cursor-wrap=true
             \ buffer<CR>
-" Df: 現在のバッファのディレクトリ下のファイル一覧
-nnoremap <silent> [denite]f :<C-u>DeniteBufferDir
+" DF: 現在のバッファのディレクトリ下のファイル一覧
+nnoremap <silent> [denite]F :<C-u>DeniteBufferDir
             \ -direction=topleft
             \ -cursor-wrap=true
             \ file file:new<CR>
 "ブックマーク一覧
-nnoremap <silent> [denite]c :<C-u>Denite
+nnoremap <silent> [denite]C :<C-u>Denite
             \ -direction=topleft
             \ -cursor-wrap=true
             \ bookmark<CR>
 "ブックマークに追加
-nnoremap <silent> [denite]a :<C-u>DeniteBookmarkAdd<CR>
-" Dr: レジスタ一覧
-nnoremap <silent> [denite]r :<C-u>Denite
+nnoremap <silent> [denite]A :<C-u>DeniteBookmarkAdd<CR>
+" DR: レジスタ一覧
+nnoremap <silent> [denite]R :<C-u>Denite
             \ -direction=topleft
             \ -cursor-wrap=true
             \ -buffer-name=register
             \ register<CR>
-" Dl: Colorscheme プレビュー
-nnoremap <silent> [denite]l :<C-u>Denite
+" DL: Colorscheme プレビュー
+nnoremap <silent> [denite]L :<C-u>Denite
             \ -auto-preview
             \ colorscheme<CR>
 
