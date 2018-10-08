@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/10/06 10:12:42.
+# Last Change: 2018/10/09 08:25:24.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -9,15 +9,6 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'thinca/vim-ref'
 
-# ファイラー
-# :VimFiler で起動 # {{{
-    # o: バッファを縦分割 or ディレクトリ同期
-    # O: 別バッファに選択中のディレクトリの中を展開
-    # gs: セーフモード ON/OFF
-    # q: 終了
-# }}}
-[[plugins]]
-repo = 'Shougo/vimfiler'
 # <Leader>o: ファイラ起動
 [[plugins]]
 repo = 'scrooloose/nerdtree'
@@ -27,6 +18,15 @@ repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
 if = "!has('nvim')"
+# ファイラー
+# :VimFiler で起動 # {{{
+    # o: バッファを縦分割 or ディレクトリ同期
+    # O: 別バッファに選択中のディレクトリの中を展開
+    # gs: セーフモード ON/OFF
+    # q: 終了
+# }}}
+[[plugins]]
+repo = 'Shougo/vimfiler'
 
 # "VimShell"
 # ",s: :VimShell" で起動
@@ -66,7 +66,7 @@ depends = ['fugitive']
 repo = 'rhysd/committia.vim'
 
 # Undo履歴
-    # F4: || :GundoToggle: Undo履歴起動
+    # F4|:GundoToggle: Undo履歴起動
 [[plugins]]
 repo = 'sjl/gundo.vim'
 
