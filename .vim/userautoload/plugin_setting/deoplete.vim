@@ -1,40 +1,18 @@
 scriptencoding utf-8
 " Created:     2018/09/13 22:57:48
-<<<<<<< HEAD:.vim/userautoload/plugin_setting/deoplete.vim.dep
-<<<<<<< HEAD:.vim/userautoload/plugin_setting/deoplete.vim.dep
-" Last Change: 2018/09/22 20:15:40.
-=======
-" Last Change: 2018/09/23 15:51:40.
->>>>>>> bcd77225a462a599e95ca9e42ec670ef9e7b6654:.vim/userautoload/plugin_setting/deoplete.vim
-=======
-" Last Change: 2018/09/27 16:23:56.
->>>>>>> 5eabfd921f723a248a998b8e88ccb8425633d531:.vim/userautoload/plugin_setting/deoplete.vim
+" Last Change: 2018/10/20 22:12:57.
 
 " MEMO: "dein.toml" に移管した設定を戻したい
 " ---------------------------------------------------------------------------
 " マップキー
 " ---------------------------------------------------------------------------
-<<<<<<< HEAD:.vim/userautoload/plugin_setting/deoplete.vim.dep
-inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-l> deoplete#complete_common_string()
-inoremap <expr><C-i> deoplete#complete_common_string()
-inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-<<<<<<< HEAD:.vim/userautoload/plugin_setting/deoplete.vim.dep
-            \ neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-=======
-        \ neosnippet#expandable_or_jumpable() ?
-        \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-=======
 " inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
 " inoremap <expr><C-l> deoplete#complete_common_string()
 " inoremap <expr><C-i> deoplete#complete_common_string()
 " inoremap <expr><tab> pumvisible() ? "\<C-n>" :
 "         \ neosnippet#expandable_or_jumpable() ?
 "         \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
->>>>>>> 5eabfd921f723a248a998b8e88ccb8425633d531:.vim/userautoload/plugin_setting/deoplete.vim
 
->>>>>>> bcd77225a462a599e95ca9e42ec670ef9e7b6654:.vim/userautoload/plugin_setting/deoplete.vim
 " ---------------------------------------------------------------------------
 " 基本設定
 " ---------------------------------------------------------------------------
@@ -55,8 +33,8 @@ call dein#add('roxma/vim-hug-neovim-rpc')
 " 一つ目の候補を選択状態にする
 set completeopt+=noinsert
 
-" MEMO: "dein.toml" に移管
 " MEMO: こちらに記述を戻す
+" MEMO: "dein.toml" に移管
 " let g:deoplete#enable_at_startup = 1
 " let g:deoplete#auto_complete_delay = 0
 " let g:deoplete#auto_complete_start_length = 1
