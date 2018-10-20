@@ -1,9 +1,76 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/10/09 08:25:24.
+# Last Change: 2018/10/20 21:35:36.
 
 # "dein.vim" 本体
 [[plugins]]
 repo = 'Shougo/dein.vim'
+
+# コピペ 履歴保存
+# MEMO: "yankround" が使えないので一旦中止
+# MEMO: 弊害が多いので "YankRnkg" -> "yankround" に変更
+# ヤンク後に "<Ctrl>p/<Ctrl>n" でヤンク履歴を選択
+# [[plugins]]
+# repo = 'vim-scripts/YankRing.vim'
+# if = "!has('nvim')"
+# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
+[[plugins]]
+repo = 'LeafCage/yankround.vim'
+hook_source = '''  " {{{
+    nmap p <Plug>(yankround-p)
+    xmap p <Plug>(yankround-p)
+    nmap P <Plug>(yankround-P)
+    nmap gp <Plug>(yankround-gp)
+    xmap gp <Plug>(yankround-gp)
+    nmap gP <Plug>(yankround-gP)
+    nmap <C-p> <Plug>(yankround-prev)
+    nmap <C-n> <Plug>(yankround-next)
+'''  # }}}
+
+# "Git" 用プラグイン
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+# 追加、削除マーカ表示
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+# "git log" を強化
+    # :Agit 強化版 "git log" 実行
+[[plugins]]
+repo = 'cohama/agit.vim'
+# "gitk" 機能追加
+    # :Gitv: 機能追加版 "gitk" 実行
+[[plugins]]
+repo = 'gregsexton/gitv'
+depends = ['fugitive']
+# コミットログ入力強化
+[[plugins]]
+repo = 'rhysd/committia.vim'
+
+# Grep
+# The Silver Searcher
+[[plugins]]
+repo = 'rking/ag.vim'
+# The Platinum Searcher
+[[plugins]]
+repo = 'nazo/pt.vim'
+
+# Diff
+    # :DirDiff A B: AとBを比較
+[[plugins]]
+repo = 'vim-scripts/DirDiff.vim'
+
+# Undo履歴
+    # F4|:GundoToggle: Undo履歴起動
+[[plugins]]
+repo = 'sjl/gundo.vim'
+
+# 置換強化
+[[plugins]]
+repo = 'osyo-manga/vim-over'
+
+# チートシート表示
+# ":Cheat" でプレビュー
+[[plugins]]
+repo = 'reireias/vim-cheatsheet'
 
 # 辞書
 [[plugins]]
@@ -28,53 +95,6 @@ if = "!has('nvim')"
 [[plugins]]
 repo = 'Shougo/vimfiler'
 
-# "VimShell"
-# ",s: :VimShell" で起動
-[[plugins]]
-repo = 'Shougo/vimshell'
-if = "!has('nvim')"
-
-# The Silver Searcher
-[[plugins]]
-repo = 'rking/ag.vim'
-
-# The Platinum Searcher
-[[plugins]]
-repo = 'nazo/pt.vim'
-
-# 置換強化
-[[plugins]]
-repo = 'osyo-manga/vim-over'
-
-# "Git" 用プラグイン
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-# 追加、削除マーカ表示
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
-# "git log" を強化
-    # :Agit 強化版 "git log" 実行
-[[plugins]]
-repo = 'cohama/agit.vim'
-# "gitk" 機能追加
-    # :Gitv: 機能追加版 "gitk" 実行
-[[plugins]]
-repo = 'gregsexton/gitv'
-depends = ['fugitive']
-# コミットログ入力強化
-[[plugins]]
-repo = 'rhysd/committia.vim'
-
-# Undo履歴
-    # F4|:GundoToggle: Undo履歴起動
-[[plugins]]
-repo = 'sjl/gundo.vim'
-
-# Diff
-    # :DirDiff A B: AとBを比較
-[[plugins]]
-repo = 'vim-scripts/DirDiff.vim'
-
 # ステータスライン ビジュアル強化
 [[plugins]]
 repo = 'itchyny/lightline.vim'
@@ -88,18 +108,19 @@ repo = 'majutsushi/tagbar'
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
 
-# インデント カラー化
+# ウィンドウサイズ変更 簡便化
+    # <Ctrl>e: ウィンドウリサイズ開始
 [[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
+repo = 'simeji/winresizer'
 
 # カーソル移動の機能強化
 [[plugins]]
 repo = 'lokaltog/vim-easymotion'
 
-# ウィンドウサイズ変更 簡便化
-    # <Ctrl>e: ウィンドウリサイズ開始
+# テキスト整形
+# 対象行を選択し "ga" -> "整形対象" ->  "デリミタ" を入力
 [[plugins]]
-repo = 'simeji/winresizer'
+repo = 'junegunn/vim-easy-align'
 
 # コメントON/OFF トグル
 [[plugins]]
@@ -109,27 +130,6 @@ repo = 'tomtom/tcomment_vim'
     # *.htmlのタグなど
 [[plugins]]
 repo = 'tmhedberg/matchit'
-
-# マークをビジュアル化
-[[plugins]]
-repo = 'jacquesbh/vim-showmarks'
-
-# Vim上で計算機機能
-    # :Calc: で計算開始
-    # "Python" 必要
-[[plugins]]
-repo = 'gregsexton/VimCalc'
-if = "!has('python')"
-
-# タイムスタンプを挿入
-    #  "Last Change: ." を記入
-[[plugins]]
-repo = 'vim-scripts/autodate.vim'
-
-# 日付のインクリメント・デクリメント
-# FIXME: yyyy/mm/dd 形式は対応していない
-[[plugins]]
-repo = 'tpope/vim-speeddating'
 
 # 選択したテキストを'""'、"()"、"[]"などで囲む
 [[plugins]]
@@ -149,24 +149,15 @@ repo = 'tpope/vim-abolish'
 [[plugins]]
 repo = 'kana/vim-smartchr'
 
-# テキスト整形
-# 対象行を選択し "ga" -> "整形対象" ->  "デリミタ" を入力
+# タイムスタンプを挿入
+    #  "Last Change: ." を記入
 [[plugins]]
-repo = 'junegunn/vim-easy-align'
+repo = 'vim-scripts/autodate.vim'
 
-# "*.toml" シンタックスハイライト
+# 日付のインクリメント・デクリメント
+# FIXME: yyyy/mm/dd 形式は対応していない
 [[plugins]]
-repo  = 'cespare/vim-toml'
-on_ft = ['toml']
-
-# カレンダー
-[[plugins]]
-repo = 'itchyny/calendar.vim'
-
-# # 関数、クラス、変数、構造体、列挙型、マクロ定義など 一覧表示
-# ":TlistOpen" で開始
-[[plugins]]
-repo = 'vim-scripts/taglist.vim'
+repo = 'tpope/vim-speeddating'
 
 # カーソル位置のコンテキストの "filetype" を自動切替
 [[plugins]]
@@ -176,10 +167,34 @@ depends = ['context_filetype.vim']
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
-# チートシート表示
-# ":Cheat" でプレビュー
+# # 関数、クラス、変数、構造体、列挙型、マクロ定義など 一覧表示
+# ":TlistOpen" で開始
 [[plugins]]
-repo = 'reireias/vim-cheatsheet'
+repo = 'vim-scripts/taglist.vim'
+
+# "*.toml" シンタックスハイライト
+[[plugins]]
+repo  = 'cespare/vim-toml'
+on_ft = ['toml']
+
+# インデント カラー化
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+# マークをビジュアル化
+[[plugins]]
+repo = 'jacquesbh/vim-showmarks'
+
+# Vim上で計算機機能
+    # :Calc: で計算開始
+    # "Python" 必要
+[[plugins]]
+repo = 'gregsexton/VimCalc'
+if = "!has('python')"
+
+# カレンダー
+[[plugins]]
+repo = 'itchyny/calendar.vim'
 
 # MEMO: ↓コピペができないのでKILL
 # # コマンドラインで "Emacs" キーバインド
@@ -190,6 +205,7 @@ repo = 'reireias/vim-cheatsheet'
 # [[plugins]]
 # repo = 'toggle.vim'
 
+# カラースキーム
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
 if = "has('gui_running')"
@@ -245,3 +261,9 @@ depends = ['game_engine']
 # ---------------------------------------------------------------------------
 # 削除予定
 # ---------------------------------------------------------------------------
+# "VimShell"
+# ",s: :VimShell" で起動
+[[plugins]]
+repo = 'Shougo/vimshell'
+if = "!has('nvim')"
+
