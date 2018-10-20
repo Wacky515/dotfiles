@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/09/13 12:32:57
-" Last Change: 2018/10/21 00:23:10.
+" Last Change: 2018/10/21 00:28:11.
 
 " MEMO: "dein*.tmol" に記述移管
 " nmap p <Plug>(yankround-p)
@@ -12,13 +12,16 @@ scriptencoding utf-8
 " nmap <C-p> <Plug>(yankround-prev)
 " nmap <C-n> <Plug>(yankround-next)
 
-" 履歴取得数
-let g:yankround_max_history = 50
-
 " <Leader>y: 履歴一覧(Unite)
 nnoremap <Leader>y :<C-u>Unite yankround<CR>
 " g<C-p>: 履歴一覧(CtrlP)
 nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
 
+" 履歴取得数
+let g:yankround_max_history = 50
+
 " 履歴の保存パス
 let g:yankround_dir = "~/"
+
+" 貼り付けをハイライト
+let g:yankround_use_region_hl = 1
