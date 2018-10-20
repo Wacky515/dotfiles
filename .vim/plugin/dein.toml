@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/10/20 21:35:36.
+# Last Change: 2018/10/21 00:11:54.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -117,14 +117,18 @@ repo = 'simeji/winresizer'
 [[plugins]]
 repo = 'lokaltog/vim-easymotion'
 
+# コメントON/OFF トグル
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
 # テキスト整形
 # 対象行を選択し "ga" -> "整形対象" ->  "デリミタ" を入力
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
 
-# コメントON/OFF トグル
+# 閉じ括弧保管
 [[plugins]]
-repo = 'tomtom/tcomment_vim'
+repo = 'cohama/lexima.vim'
 
 # "%" で移動を強化
     # *.htmlのタグなど
