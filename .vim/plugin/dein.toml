@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/10/24 10:00:21.
+# Last Change: 2018/10/25 11:55:09.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -78,6 +78,13 @@ repo = 'thinca/vim-ref'
 # 翻訳
 [[plugins]]
 repo = 'daisuzu/translategoogle.vim'
+
+# 文章校正
+[[plugins]]
+repo = 'rinx/yj-proofreading.vim'
+depends = ['mattn/webapi-vim']
+[[plugins]]
+repo = 'mattn/webapi-vim'
 
 # <Leader>o: ファイラ起動
 [[plugins]]
