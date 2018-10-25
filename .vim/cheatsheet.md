@@ -139,6 +139,9 @@
 - <Leader>da: カーソル下の単語をスペースアルクで検索
 - <Leader>dw: カーソル下をwikiで検索
 
+- <Leader>gj: カーソル下をGoogle翻訳（英和）
+- <Leader>ge: カーソル下をGoogle翻訳（和英）
+
 ## 補完
 - <C-x><C-l>:   行補完
 - <C-x><C-n>:   現在のファイル補完
