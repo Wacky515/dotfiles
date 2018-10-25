@@ -1,5 +1,6 @@
 scriptencoding utf-8
-" Last Change: 2018/04/01 08:59:40.
+" Created:     2016/08/14 14:59:36
+" Last Change: 2018/10/24 09:55:58.
 
 " ---------------------------------------------------------------------------
 " メイン表示篇
@@ -21,7 +22,7 @@ set cursorline
 set scrolloff=3
 
 " 東アジアの文字のうちA特性(Ambiguous)の文字幅を指定
-" 2バイト文字でカーソル位置がずれる問題の対策
+" 2バイト文字（"□" や "○"）でカーソル位置がずれる問題の対策
 set ambiwidth=double
 
 " 対になる括弧を強調
@@ -31,17 +32,18 @@ set matchtime=1
 " 対応括弧に "<" と ">" を追加
 set matchpairs& matchpairs+=<:>
 
-" タブ文字の幅
+" 画面上で表示する1つのタブ文字の幅
 set tabstop=4
-" タブ文字を設定個数のスペースに置換え
+" Tab" 押下で入力されるスペースの数
 set expandtab
 " 行頭は "shiftwidth" 分、それ以外は "tabstop" 分インデント
 set smarttab
-" 自動インデント時の空白文字数
+" smartindent" で増減する幅
 set shiftwidth=4
-" コマンドや自動インデント時、現在行と同じインデントを挿入
+" コマンド・改行・自動インデント時、現在行と同じインデントを挿入
 set autoindent
-" 前行末尾に合わせ、次行インデントを増減
+" 改行時に前行の構文をチェックし次行のインデントを増減
+    " "{" があると次行は自動で1段深く自動インデント
 set smartindent
 " "<" 、 ">" でインデントする時、"shiftwidth" の倍数に丸める
 set shiftround
@@ -133,3 +135,4 @@ set wildmenu wildmode=list:full
 
 " カーソルの行列表示
 set ruler
+

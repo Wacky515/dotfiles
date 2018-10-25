@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/09/13 12:32:57
-" Last Change: 2018/10/21 00:28:11.
+" Last Change: 2018/10/24 08:48:52.
 
 " MEMO: "dein*.tmol" に記述移管
 " nmap p <Plug>(yankround-p)
@@ -25,3 +25,4 @@ let g:yankround_dir = "~/"
 
 " 貼り付けをハイライト
 let g:yankround_use_region_hl = 1
+
