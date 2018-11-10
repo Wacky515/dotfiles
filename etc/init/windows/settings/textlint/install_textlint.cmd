@@ -1,6 +1,6 @@
 @echo off
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2018/11/08 09:48:07.
+rem Last Change: 2018/11/09 09:34:38.
 
 set cmd=npm bin -g
 
@@ -25,15 +25,15 @@ cinst -y nodejs.install
 
 :install_textlint
 echo ^>^> Start install textlint
-if not exist %homepath%\textlint (
-    mkdir %homepath%\textlint
+if not exist %homepath%\textlintrc (
+    mkdir %homepath%\textlintrc
     cmd npm init -y
     )
-cd %homepath%\textlint
+cd %homepath%\textlintrc
 
 npm install textlint --save-dev
 npm install textlint-rule-preset-ja-technical-writing --save-dev
 npm install textlint-rule-preset-ja-spacing --save-dev
 
-rem pause
+pause
 exit /b 0
