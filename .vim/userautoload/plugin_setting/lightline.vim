@@ -1,5 +1,5 @@
 ﻿scriptencoding utf-8
-" Last Change: 2018/10/05 12:21:25.
+" Last Change: 2018/11/08 11:11:51.
 
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示
 if has("unix")
@@ -54,7 +54,7 @@ let g:lightline = {
             \     'left': [
             \         ['mode', 'paste'],
             \         ['fugitive', 'filename',
-            \             'cakephp','currenttag', 'anzu'],
+            \             'cakephp', 'currenttag', 'anzu'],
             \         ['modified', 'ale']
             \     ]
             \ },
@@ -140,9 +140,11 @@ function! s:ale_string(mode)
     let [l:error_count, l:warning_count] = ale#statusline#Count(l:buffer)
     let [l:error_format, l:warning_format, l:no_errors] = g:ale_statusline_format
 
-    if a:mode == 0 " Error
+    " Error
+    if a:mode == 0
         return l:error_count ? printf(l:error_format, l:error_count) : ''
-    elseif a:mode == 1 " Warning
+    " Warning
+    elseif a:mode == 1
         return l:warning_count ? printf(l:warning_format, l:warning_count) : ''
     endif
 
