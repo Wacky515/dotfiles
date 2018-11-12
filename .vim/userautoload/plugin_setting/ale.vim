@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/15 13:25:06
-" Last Change: 2018/11/09 10:22:10.
+" Last Change: 2018/11/12 16:12:17.
 
 " ---------------------------------------------------------------------------
 "  マップキー
@@ -40,8 +40,8 @@ highlight link ALEWarningSign StorageClass
 
 let g:ale_statusline_format = [' %d', ' %d', ' ok']
 
-" 保存時のみ実行
-let g:ale_lint_on_text_changed = 0
+" ALE実行タイミング
+let g:ale_lint_on_text_changed = 1
 
 let g:ale_linters = {
             \ 'markdown': ['markdownlint'],

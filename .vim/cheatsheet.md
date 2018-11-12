@@ -26,6 +26,7 @@
 
 - :TableModeToggle:      テーブル作成
 - ビジュアルモードで ga: テーブル整形
+
     - USAGE  {{{
         - "*," と入力すればテキスト整形
             - 2文字目の "," はデリミタ
@@ -50,7 +51,7 @@
 - (D|U)m: 最近使用したファイル一覧
 - Uw:     最近使用したウィンドウ一覧
 
-- mgs :Gstatus<CR><C-w>T
+- mgs :  Gstatus<CR><C-w>T
     - 選択ファイル上で -: "git add/reset" をトグル
 - mga :  Gwrite<CR>
 - mgc :  Gcommit-v<CR>
@@ -102,8 +103,8 @@
 - <Leader>ks: ~~上スクロール連動を停止~~
 
 - <Leader>m: over.vim（ビジュアル強化置換）の起動
-- sub: カーソル下の単語をハイライト付きで置換
-- sup: コピーした文字列をハイライト付きで置換
+    - sub: カーソル下の単語をハイライト付きで置換
+    - sup: コピーした文字列をハイライト付きで置換
 
 - <Leader>l: スペルチェックON/OFFをトグル
     - ]s: 次のスペルミスの箇所へ移動
@@ -115,8 +116,8 @@
 - <Leader>zh: 全角英数字を半角にする
 
 - <Leader>md: 編集中のファイルをブラウザで表示
-" <Leader>,m: "atom" 起動
-" <Leader>,c: "VS Code" 起動
+- <Leader>,m: "atom" 起動
+- <Leader>,c: "VS Code" 起動
 
 ## Ctrl移動
 - <C-b>: 1ページ上
@@ -144,6 +145,9 @@
 - <Leader>gj: カーソル下をGoogle翻訳（英和）
 - <Leader>ge: カーソル下をGoogle翻訳（和英）
 
+- <Leader>sc: "Syntastic" 実行
+- <Leader>sc: "Syntastic" トグル
+
 ## 補完
 - <C-x><C-l>:   行補完
 - <C-x><C-n>:   現在のファイル補完
@@ -162,13 +166,12 @@
 ## Diff
 ### Kaoriya
 - :VDsplit (ファイル名|バッファ番号)
-
-- [c:            前方の変更の先頭へ移動
-- ]c:            次方の変更の先頭へ移動
-- :diffg[et]|do: 差分をもう片方のへコピー
-- :diffpu[t]|dp: 差分をもう片方のへコピー
-- diffoff:       Diffモードを終了
-- diffupdate:    Diff状態をアップデート
+    - [c:            前方の変更の先頭へ移動
+    - ]c:            次方の変更の先頭へ移動
+    - :diffg[et]|do: 差分をもう片方のへコピー
+    - :diffpu[t]|dp: 差分をもう片方のへコピー
+    - diffoff:       Diffモードを終了
+    - diffupdate:    Diff状態をアップデート
 
 ## コマンドラインモード
 - <Home>:         行頭へ移動
