@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/10/20 22:10:48.
+# Last Change: 2018/11/12 14:21:29.
 # TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -116,7 +116,7 @@ if = "has('python3')"
 depends = ['roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
 on_i = 1
 hook_add = '''  " {{{
-    let g:deoplete#enable_at_startup = 1
+    " let g:deoplete#enable_at_startup = 1
     let g:deoplete#auto_complete_delay = 0
 '''  # }}}
 on_event = ['InsertCharPre']
@@ -177,10 +177,6 @@ on_ft = ['snippet']
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
-# ALE
-[[plugins]]
-repo = 'w0rp/ale'
-
 # 非同期処理
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
@@ -208,9 +204,6 @@ if = "has('nvim')"
 # # Pythonシンタックスハイライト
 # [[plugins]]
 # repo = 'pfdevilliers/Pretty-Vim-Python'
-# on_ft = ['python']
-# # [[plugins]]
-# # repo = 'scrooloose/syntastic'
 # on_ft = ['python']
 # # Python自動折りたたみ
 # # [[plugins]]

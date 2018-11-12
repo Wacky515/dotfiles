@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/10/26 18:30:03.
+# Last Change: 2018/11/12 16:08:57.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -57,6 +57,14 @@ repo = 'nazo/pt.vim'
     # :DirDiff A B: AとBを比較
 [[plugins]]
 repo = 'vim-scripts/DirDiff.vim'
+
+# ALE
+[[plugins]]
+repo = 'w0rp/ale'
+
+# 構文解析
+# [[plugins]]
+# repo = 'scrooloose/syntastic'
 
 # Undo履歴
     # F4|:GundoToggle: Undo履歴起動
