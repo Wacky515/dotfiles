@@ -1,6 +1,6 @@
 @echo off
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2018/11/09 09:34:38.
+rem Last Change: 2018/11/12 10:41:49.
 
 set cmd=npm bin -g
 
@@ -9,7 +9,6 @@ cd /d %~dp0
 
 echo ^>^> Check dependencies
 for /f %%i in ('%cmd%') do set npm_path=%%i
-rem echo %npm_path%
 if exist %npm_path% goto install_textlint
 
 rem "Chocolatey" インストール済みかチェック
@@ -31,9 +30,11 @@ if not exist %homepath%\textlintrc (
     )
 cd %homepath%\textlintrc
 
-npm install textlint --save-dev
-npm install textlint-rule-preset-ja-technical-writing --save-dev
-npm install textlint-rule-preset-ja-spacing --save-dev
+cmd /c npm install textlint -global --save-dev
+cmd /c npm install textlint-rule-preset-ja-technical-writing --save-dev
+cmd /c npm install textlint-rule-preset-ja-spacing -global --save-dev
+cmd /c npm install textlint-filter-rule-comments -global --save-dev
+cmd /c npm install textlint-filter-rule-whitelist -global --save-dev
 
 pause
 exit /b 0
