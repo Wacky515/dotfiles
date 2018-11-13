@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/11/12 14:21:29.
+# Last Change: 2018/11/13 10:13:46.
 # TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -167,6 +167,14 @@ repo = 'Shougo/neco-vim'
 repo = 'Shougo/neco-syntax'
 [[plugins]]
 repo = 'ujihisa/neco-look'
+
+# 構文解析
+[[plugins]]
+repo = 'w0rp/ale'
+if = "has('job') && has('channel') && has('timers')"
+[[plugins]]
+repo = 'scrooloose/syntastic'
+if = "!has('job') || !has('channel') || !has('timers')"
 
 # スニペット
 [[plugins]]

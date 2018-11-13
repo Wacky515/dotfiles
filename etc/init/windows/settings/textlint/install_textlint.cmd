@@ -1,6 +1,6 @@
 @echo off
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2018/11/12 10:41:49.
+rem Last Change: 2018/11/13 08:59:59.
 
 set cmd=npm bin -g
 
@@ -36,5 +36,7 @@ cmd /c npm install textlint-rule-preset-ja-spacing -global --save-dev
 cmd /c npm install textlint-filter-rule-comments -global --save-dev
 cmd /c npm install textlint-filter-rule-whitelist -global --save-dev
 
-pause
+cmd /c npm install markdownlint-cli -global --save-dev
+
+rem pause
 exit /b 0
