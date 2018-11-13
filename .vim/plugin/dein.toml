@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/11/12 16:08:57.
+# Last Change: 2018/11/13 09:45:29.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -7,12 +7,7 @@ repo = 'Shougo/dein.vim'
 
 # コピペ 履歴保存
 # MEMO: 弊害が多いので "YankRnkg" -> "yankround" に変更
-# ~~MEMO: "yankround" が使えないので一旦中止~~
-# ヤンク後に "<Ctrl>p/<Ctrl>n" でヤンク履歴を選択
-# [[plugins]]
-# repo = 'vim-scripts/YankRing.vim'
-# if = "!has('nvim')"
-# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
+    # ヤンク後に "<Ctrl>p|n" で履歴選択
 [[plugins]]
 repo = 'LeafCage/yankround.vim'
 hook_source = '''  " {{{
@@ -25,6 +20,11 @@ hook_source = '''  " {{{
     nmap <C-p> <Plug>(yankround-prev)
     nmap <C-n> <Plug>(yankround-next)
 '''  # }}}
+# [[plugins]]  # {{{
+# repo = 'vim-scripts/YankRing.vim'
+# if = "!has('nvim')"
+# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
+# }}}
 
 # "Git" 用プラグイン
 [[plugins]]
@@ -57,14 +57,6 @@ repo = 'nazo/pt.vim'
     # :DirDiff A B: AとBを比較
 [[plugins]]
 repo = 'vim-scripts/DirDiff.vim'
-
-# ALE
-[[plugins]]
-repo = 'w0rp/ale'
-
-# 構文解析
-# [[plugins]]
-# repo = 'scrooloose/syntastic'
 
 # Undo履歴
     # F4|:GundoToggle: Undo履歴起動
