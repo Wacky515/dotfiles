@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/15 13:25:06
-" Last Change: 2018/11/13 11:36:06.
+" Last Change: 2018/11/14 15:47:18.
 
 " ---------------------------------------------------------------------------
 "  マップキー
@@ -13,6 +13,7 @@ nnoremap <F11> :ALEFix<CR>
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 " <Ctrl>j: 前の修正
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
 " ---------------------------------------------------------------------------
 "  基本設定
 " ---------------------------------------------------------------------------
@@ -47,17 +48,18 @@ highlight link ALEWarningSign StorageClass
 let g:ale_statusline_format = [' %d', ' %d', ' OK']
 
 " MEMO: Lintを別途インストール必要
-" let g:ale_linters = {
-"             \ 'markdown': ['markdownlint'],
-"             \ 'python': ['pylint'],
-"             \ 'go': ['golint'],
-"             \ 'java': ['javac'],
-"             \ 'c': ['clang'],
-"             \ 'php': ['phpcs', 'phpmd'],
-"             \ 'cpp': ['clang'],
-"             \ 'objc': ['clang'],
-"             \ 'objcpp': ['clang'],
-"             \ }
+let g:ale_linters = {
+            \ 'text': ['textlint'],
+            \ 'markdown': ['markdownlint', 'markdownlint'],
+            \ 'python': ['pylint'],
+            \ 'go': ['golint'],
+            \ 'java': ['javac'],
+            \ 'c': ['clang'],
+            \ 'php': ['phpcs', 'phpmd'],
+            \ 'cpp': ['clang'],
+            \ 'objc': ['clang'],
+            \ 'objcpp': ['clang'],
+            \ }
 
 " 自動整形
 let g:ale_fixers = {
@@ -87,7 +89,9 @@ let g:ale_open_list = 1
 
 " エラーと警告がなくなっても開いたままにする
 let g:ale_keep_list_window_open = 1
+
 " エラーメッセージのフォーマット
 let g:ale_echo_msg_error_str = ''
 let g:ale_echo_msg_warning_str = ''
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+

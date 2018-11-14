@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/06/18 18:33:49.
+" Last Change: 2018/11/14 11:16:38.
 
 " モード変更の挙動が遅い対処
 set timeout timeoutlen=1000 ttimeoutlen=50
@@ -30,3 +30,4 @@ if has("win32") || ("win64")
     " カレントディレクトリをファイル保存ダイアログの初期ディレクトリにする
     :set browsedir=current
 endif
+

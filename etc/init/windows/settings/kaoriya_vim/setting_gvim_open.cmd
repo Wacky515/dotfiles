@@ -1,7 +1,16 @@
 @echo off
-rem Last Change: 2018/09/11 09:05:53.
-rem TODO: ŠÇ—Ò‚Æ‚µ‚ÄÀs‚·‚é
+rem Last Change: 2018/11/14 16:07:48.
 
+whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
+
+rem ŠÇ—ÒŒ ŒÀ‚È‚çƒƒCƒ“ˆ—
+if not errorlevel 1 goto main_routine
+
+rem ŠÇ—ÒŒ ŒÀ‚Å‚È‚¯‚ê‚ÎŠÇ—ÒŒ ŒÀ‚ÅÄ‹N“®
+@powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
+exit
+
+:main_routine
 set homedir="C:"%HOMEPATH%
 
 rem OS 64bit”Å‚Æ32bit”Å‚Å•ªŠò
