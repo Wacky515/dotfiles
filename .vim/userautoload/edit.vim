@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" Last Change: 2018/08/28 09:55:04.
+" Last Change: 2018/11/14 11:32:39.
 
 " 保存時に行末の空白を削除
 autocmd BufWritePre * :%s/\s\+$//ge
@@ -76,3 +76,4 @@ let wday = strftime("%w")
 inoremap <expr> ,ds strftime('%Y-%m-%d ').weeks[wday]
 " 曜日のみ
 inoremap <expr> ,dy strftime('').weeks[wday]
+

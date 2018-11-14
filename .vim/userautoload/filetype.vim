@@ -1,8 +1,8 @@
 scriptencoding utf-8
 " Created:     2016/08/08 22:24:35
-" Last Change: 2018/10/24 09:54:56.
+" Last Change: 2018/11/14 11:19:03.
 
-" MEMO: 詳細設定は "~/dotfiles/.vim/ftplugin" に記述
+" MEMO: 詳細設定は "~/dotfiles/.vim/filetype_settings" に記述
 augroup filetypedetect
     au BufRead,BufNewFile *.{md,mdwn,mkd,mkdn,mark*} setfiletype markdown
     au BufRead,BufNewFile *.{sh,bash} setfiletype sh

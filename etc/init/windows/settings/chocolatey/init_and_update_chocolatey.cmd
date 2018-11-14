@@ -1,6 +1,6 @@
 @echo off
 rem Created:     2017/02/17 00:54:41
-rem Last Change: 2018/11/09 15:14:33.
+rem Last Change: 2018/11/14 12:18:36.
 
 rem http://pachicoma.hateblo.jp/entry/2017/02/28/Chocolatey%E3%81%A8%E3%81%84%E3%81%86Windows10%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B
 rem DONE: 上記URL参照してリファクタリング
@@ -57,3 +57,4 @@ copy %~n0".lnk" %USERPROFILE%"\Desktop\"
 :end
 rem pause
 exit /b 0
+
