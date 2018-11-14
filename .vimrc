@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 00:00:00
-" Last Change: 2018/10/25 09:59:26.
+" Last Change: 14-Nov-2018.
 
 " MEMO: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -130,12 +130,12 @@ else
 
         " プラグインリスト "*.toml" を指定
         if has("nvim") && hostname() == "HBAMB748A"
-            let g:plugin_dir  = expand("C:\\Users\\MM12167\\.vim\\plugin")
+            let g:plugin_dir  = expand("C:\\Users\\MM12167\\.vim\\vim_plugins")
             let s:toml        = g:plugin_dir . "\\dein.toml"
             let s:lazy_toml   = g:plugin_dir . "\\dein_lazy.toml"
             let s:python_toml = g:plugin_dir . "\\dein_python.toml"
         else
-            let g:plugin_dir  = expand("~/.vim/plugin")
+            let g:plugin_dir  = expand("~/.vim/vim_plugins")
             let s:toml        = g:plugin_dir . "/dein.toml"
             let s:lazy_toml   = g:plugin_dir . "/dein_lazy.toml"
             let s:python_toml = g:plugin_dir . "/dein_python.toml"
@@ -183,7 +183,7 @@ set runtimepath+=$HOME/.vim
 " "Vim" の設定ファイル
 runtime! userautoload/*.vim
 " プラグインの設定ファイル
-runtime! userautoload/plugin_setting/*.vim
+runtime! userautoload/plugin_settings/*.vim
 " Yahoo Web API key（プライベートキー)
 let g:vimrc_yahoo_web_api_key = {}
 if filereadable(expand('~/\OneDrive\仕事\Settings\YahooWebApi\.vimrc_yahoo_web_api_key'))

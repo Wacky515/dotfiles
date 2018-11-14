@@ -34,7 +34,7 @@ snippet notexist
     ${4:FALSE}
     )
 
-snippet Backup
+snippet backup
     set FIL_${1:FILE}="${2:S_FILE}"
     set LNK_${3:LINK}="${4:PATH}"%FIL_${1:FILE}%
     set TGT_${5:TRGT}=%~dp0%FIL_${1:FILE}%%
@@ -43,3 +43,21 @@ snippet Backup
         echo ^>^> Backup %LNK_${3:LINK}%
         rename %LNK_${3:LINK}% %FIL_${1:FILE}%".bak"
         )
+
+snippet admin
+    whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
+
+    rem 管理者権限ならメイン処理
+    if not errorlevel 1 goto main_routine
+
+    rem 管理者権限でなければ管理者権限で再起動
+    @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
+    exit
+
+    :main_routine
+
+snippet inst
+    rem "${1:SOFTNAME}" インストール済みかチェック
+    ${2:SOFTNAME} -v > nul 2>&1
+    if %errorlevel% equ 0 goto update
+
