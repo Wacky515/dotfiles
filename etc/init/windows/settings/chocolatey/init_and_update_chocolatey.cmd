@@ -1,6 +1,9 @@
 @echo off
+setlocal
 rem Created:     2017/02/17 00:54:41
-rem Last Change: 2018/11/14 12:18:36.
+rem Last Change: 2018/11/15 12:26:23.
+
+title Update Chocolatey
 
 rem http://pachicoma.hateblo.jp/entry/2017/02/28/Chocolatey%E3%81%A8%E3%81%84%E3%81%86Windows10%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B
 rem DONE: 上記URL参照してリファクタリング
@@ -20,7 +23,7 @@ set bat_path=%~dp0
 set config_files=packages_%computername%.config
 
 rem スクリプトがある "Dir" に "cd"
-cd /d %bat_path%
+pushd /d %bat_path%
 
 rem "Chocolatey" インストール済みかチェック
 chocolatey -v > nul 2>&1
@@ -55,6 +58,10 @@ if not exist %USERPROFILE%"\Desktop\"%~n0".lnk" (
 copy %~n0".lnk" %USERPROFILE%"\Desktop\"
 
 :end
+
+endlocal
+popd
+
 rem pause
 exit /b 0
 

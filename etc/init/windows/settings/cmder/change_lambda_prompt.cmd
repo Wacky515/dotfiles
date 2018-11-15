@@ -1,4 +1,9 @@
 @echo off
+setlocal
+rem Created:     201*/**/** **:**:**
+rem Last Change: 2018/11/15 12:27:19.
+
+title Change prompt
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
@@ -12,8 +17,13 @@ exit
 :main_routine
 rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
-cd /d %bat_path%
+pushd /d %bat_path%
 
 copy "clink.lua" "C:\tools\cmder\vendor\clink.lua"
 
+endlocal
+popd
+
 pause
+exit /b 0
+

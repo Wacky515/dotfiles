@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) ***
 # Created:     __DATE__
-# Last Change: 2018/06/03 17:32:24.
+# Last Change: 2018/11/15 09:43:32.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -19,3 +19,4 @@ gm_echo ">> ${PROCESS^}"
 __START__
 
 result_echo $? "${PROCESS}"
+

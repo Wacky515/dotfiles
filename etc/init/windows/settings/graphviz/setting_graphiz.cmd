@@ -1,8 +1,13 @@
 @echo off
+setlocal
+rem Created:     20**/**/** **:**:**
+rem Last Change: 2018/11/15 12:46:32.
 
-set bat_path=%~dp0
+title Setting Graphiz
+
 rem スクリプトがある "Dir" に "cd"
-cd /d %bat_path%
+set bat_path=%~dp0
+pushd /d %bat_path%
 
 set dir_7zip="C:\ProgramData\chocolatey\tools\7z.exe"
 
@@ -23,5 +28,10 @@ if not exist C:\%~n1 (
 cscript setting_env_var_graphviz.vbs
 
 :eof
+
+endlocal
+popd
+
 pause
 exit
+

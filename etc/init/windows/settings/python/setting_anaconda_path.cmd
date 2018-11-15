@@ -1,6 +1,9 @@
 @echo off
-Created:     20**/**/** **:**:**
-Last Change: 2018/11/14 16:18:29.
+setlocal
+rem Created:     20**/**/** **:**:**
+rem Last Change: 2018/11/15 13:46:30.
+
+title Setting Anaconda path
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
@@ -13,12 +16,16 @@ exit
 
 :main_routine
 rem  スクリプトがある "Dir" に "cd"
-cd /d %~dp0
+pushd /d %~dp0
 
 echo Start set link
 
 rem mklink %HOMEPATH%"\.gvimrc" ".\dotfiles\.gvimrc"
 mklink "C:\Python35\Lib\site-packages\.anaconda.pth" "\.anaconda.pth"
 
+endlocal
+popd
+
 pause
 exit /b 0
+

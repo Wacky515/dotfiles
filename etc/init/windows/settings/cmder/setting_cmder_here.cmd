@@ -1,5 +1,9 @@
 @echo off
+setlocal
+rem Created:     20**/**/** **:**:**
+rem Last Change: 2018/11/15 12:28:51.
 
+tltle Setting Cmder here
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
 rem 管理者権限ならメイン処理
@@ -10,7 +14,12 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
-cd "C:\tools\cmder"
+pushd "C:\tools\cmder"
 .\cmder.exe /REGISTER ALL
 
+endlocal
+popd
+
 rem pause
+exit /b 0
+
