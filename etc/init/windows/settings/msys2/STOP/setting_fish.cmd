@@ -1,9 +1,9 @@
 @echo off
 rem Created:     2018/06/06 20:34:41
-rem Last Change: 2018/06/07 09:01:49.
+rem Last Change: 2018/11/15 10:19:25.
 
 rem  スクリプトがある "Dir" に "cd"
-cd /d %~dp0
+pushd /d %~dp0
 
 set FIL_MIN32="mingw32.ini"
 set FIL_MIN64="mingw64.ini"
@@ -36,5 +36,7 @@ mklink %LNK_MIN32% %TGT_MIN32%
 mklink %LNK_MIN64% %TGT_MIN64%
 mklink %LNK_MSYS2% %TGT_MSYS2%
 
+popd
 rem pause
 exit /b 0
+

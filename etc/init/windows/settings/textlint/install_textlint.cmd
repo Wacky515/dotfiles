@@ -1,6 +1,10 @@
 @echo off
+setlocal
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2018/11/14 16:19:31.
+rem Last Change: 2018/11/15 13:48:32.
+
+set batch_title="Install textlint"
+title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
@@ -15,7 +19,7 @@ exit
 set cmd=npm bin -g
 
 rem  スクリプトがある "Dir" に "cd"
-cd /d %~dp0
+pushd /d %~dp0
 
 echo ^>^> Check dependencies
 for /f %%i in ('%cmd%') do set npm_path=%%i
@@ -33,12 +37,12 @@ echo ^>^> Install Node Package Manager
 cinst -y nodejs.install
 
 :install_textlint
-echo ^>^> Start install textlint
+echo ^>^> %batch_title%
 if not exist %homepath%\textlintrc (
     mkdir %homepath%\textlintrc
     cmd npm init -y
     )
-cd %homepath%\textlintrc
+pushd %homepath%\textlintrc
 
 cmd /c npm install textlint -global --save-dev
 cmd /c npm install textlint-rule-preset-ja-technical-writing --save-dev
@@ -48,5 +52,9 @@ cmd /c npm install textlint-filter-rule-whitelist -global --save-dev
 
 cmd /c npm install markdownlint-cli -global --save-dev
 
+endlocal
+popd
+
 rem pause
 exit /b 0
+

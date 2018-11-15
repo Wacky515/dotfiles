@@ -1,6 +1,9 @@
 @echo off
+setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2018/11/14 16:17:42.
+rem Last Change: 2018/11/15 13:44:31.
+
+title Setting NeoVim's dein
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
@@ -14,9 +17,13 @@ exit
 :main_routine
 rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
-cd /d %bat_path%
+pushd /d %bat_path%
 
 pip3 install neovim
 
+endlocal
+popd
+
 pause
 exit /b0
+

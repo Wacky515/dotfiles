@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 00:00:00
-" Last Change: 14-Nov-2018.
+" Last Change: 2018/11/15 09:25:22.
 
 " MEMO: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -193,3 +193,4 @@ endif
 " 読み込んだプラグインも含め、ファイルタイプの検出
 " ファイルタイプ別プラグイン/インデントを有効化する
 filetype plugin indent on
+

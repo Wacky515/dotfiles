@@ -1,5 +1,9 @@
 @echo off
-rem Last Change: 2018/11/14 16:07:48.
+setlocal
+rem Created:     20**/**/** **:**:**
+rem Last Change: 2018/11/15 12:54:09.
+
+title Setting GVim Open
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
@@ -35,5 +39,8 @@ reg add "HKEY_CLASSES_ROOT\*\shell\GVim open\command" /t REG_SZ /d "\"%homedir%\
 goto EOF
 
 :EOF
+
+endlocal
 pause
 exit /b 0
+

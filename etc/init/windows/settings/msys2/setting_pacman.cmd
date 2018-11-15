@@ -1,5 +1,9 @@
 @echo off
-rem Last Change: 2018/11/14 16:09:29.
+setlocal
+rem Created:     20**/**/** **:**:**
+rem Last Change: 2018/11/15 13:38:23.
+
+title Setting Pacman
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
@@ -12,11 +16,15 @@ exit
 
 :main_routine
 rem  スクリプトがある "Dir" に "cd"
-cd /d %~dp0
+pushd /d %~dp0
 
 echo Start set link
 
 mklink "C:\tools\msys64\etc" "\.pacman.conf"
 
+endlocal
+popd
+
 pause
 exit /b 0
+
