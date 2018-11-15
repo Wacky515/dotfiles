@@ -1,6 +1,10 @@
 @echo off
+setlocal
 rem Created:     2017/01/18 00:00:00
-rem Last Change: 2018/11/14 16:20:43.
+rem Last Change: 2018/11/15 13:54:40.
+
+set batch_title="Setting Yamabuki R"
+title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
@@ -14,9 +18,9 @@ exit
 :main_routine
 rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
-cd /d %bat_path%
+pushd /d %bat_path%
 
-echo ^>^> Setting Yamabuki R
+echo ^>^> %batch_title%
 
 rem 設定ファイル コピー
 copy /y "yamabuki_r.ypr" %HOMEPATH%"\yamabuki_r1.11.1.w"
@@ -44,4 +48,10 @@ copy "yamabuki_r.lnk" %HOMEPATH%"\AppData\Roaming\Microsoft\Windows\Start Menu\P
 goto end
 
 :end
+
+endlocal
+popd
+
 pause
+exit /b 0
+

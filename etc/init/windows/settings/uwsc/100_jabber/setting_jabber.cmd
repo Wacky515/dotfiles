@@ -1,16 +1,29 @@
 @echo off
+setlocal
 rem Created:     2018/09/24 13:05:56
-rem Last Change: 2018/09/24 13:32:57.
+rem Last Change: 2018/11/15 13:50:49.
 
+set batch_title="Setting Jabber"
+title %batch_title%
+
+whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
+
+rem 管理者権限ならメイン処理
+if not errorlevel 1 goto main_routine
+
+rem 管理者権限でなければ管理者権限で再起動
+@powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
+exit
+
+:main_routine
 rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
-cd /d %bat_path%
-
+pushd /d %bat_path%
 
 rem 設定ファイルがある "Dir" に "cd"
-cd %OneDrive%"\仕事\settings\Jabber"
+pushd %OneDrive%"\仕事\settings\Jabber"
 
-echo ^>^> Setting Jabber
+echo ^>^> %batch_title%
 
 rem 日付取得
 set yyyy=%date:~0,4%
@@ -53,5 +66,9 @@ rem mkdir %jbr_path%"\Jabber"
 rem シンボリックリンク 作成
 mklink %jbr_path%"\jabberLocalConfig.xml" "jabberLocalConfig.xml"
 
+endlocal
+popd
+
 pause
 exit /b 0
+

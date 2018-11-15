@@ -1,6 +1,6 @@
 ﻿scriptencoding utf-8
 " Created:     2018/03/19 09:07:48
-" Last Change: 2018/11/14 12:10:14.
+" Last Change: 2018/11/15 09:31:26.
 
 " ---------------------------------------------------------------------------
 " マップキー
@@ -17,6 +17,9 @@ smap <expr><TAB> neosnippet#jumpable() ?
             \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 " <Shift><Tab>: 前の補完部分へ移動
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+" <F8>: スニペット登録
+nnoremap <F8> :NeoSnippetEdit<CR>
 
 " ---------------------------------------------------------------------------
 " 基本設定

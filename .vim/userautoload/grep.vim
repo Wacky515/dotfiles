@@ -1,9 +1,9 @@
 scriptencoding utf-8
 " Created:     2017/10/27 00:00:00.
-" Last Change: 2018/09/06 08:48:22.
+" Last Change: 2018/11/15 11:38:54.
 " MEMO: 検索速度順に記述
 
-" FIXME: 日本語がマッチしない
+" MEMO: 日本語はマッチしない
 " <Leader>r: カーソル下を "RipGrep" 対象に挿入
     " <Enter>押下でカレントディレクトリ以下を再帰的に検索
 " "fzf" 準拠のCUI
@@ -16,7 +16,7 @@ nnoremap <expr> <Leader>P ':Pt ' . expand('<cword>') . ''
 " FIXME: 日本語がマッチしない
 " <Leader>a: カーソル下を "The Sliver Searcher" 対象に挿入
     " <Enter>押下でカレントディレクトリ以下を再帰的に検索
-nnoremap <expr> <Leader>a ':Ag ' . expand('<cword>') . ''
+nnoremap <expr> <Leader>a ':Ag ' . expand('<cword>') . ' -G \.*$$'
 
 " <Leader>G: カーソル下を "外部grep" 対象に挿入
     " <Enter>押下でカレントディレクトリ以下を再帰的に検索

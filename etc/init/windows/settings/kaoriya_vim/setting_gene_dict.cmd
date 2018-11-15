@@ -1,6 +1,10 @@
 @echo off
+setlocal
 rem Created:     2018/07/17 10:19:01
-rem Last Change: 2018/11/14 16:08:17.
+rem Last Change: 2018/11/15 12:52:25.
+
+set batch_title="Setting GENE dictionary"
+title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
@@ -13,14 +17,17 @@ exit
 
 :main_routine
 rem  スクリプトがある "Dir" に "cd"
-cd /d %~dp0
+pushd /d %~dp0
 
-echo ^>^> Start setting GENE dictionary
+echo ^>^> %batch_title%
 
 if not exist %homepath%/vimfiles/dict (
     mkdir %homepath/vimfiles/dict
     )
 copy GENE.TXT %homepath%/vimfiles/dict/
+
+endlocal
+popd
 
 rem pause
 exit /b 0

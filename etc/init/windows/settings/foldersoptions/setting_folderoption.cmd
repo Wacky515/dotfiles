@@ -1,6 +1,10 @@
 @echo off
+setlocal
 rem Created:     2018/03/31 09:53:57
-rem Last Change: 2018/11/14 16:05:21.
+rem Last Change: 2018/11/15 12:44:17.
+
+set batch_title="Setting for Folder options"
+title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
@@ -13,9 +17,9 @@ exit
 
 :main_routine
 rem  スクリプトがある "Dir" に "cd"
-cd /d %~dp0
+pushd /d %~dp0
 
-echo ^>^> Start setting for Folder options
+echo ^>^> %batch_title%
 
 echo ^>^> Show hide file extention
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t REG_DWORD /d "0" /f
@@ -38,5 +42,9 @@ reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Ad
 echo ^>^> Always show menus
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "AlwaysShowMenus" /t REG_DWORD /d "1" /f
 
+endlocal
+popd
+
 rem pause
 exit /b 0
+

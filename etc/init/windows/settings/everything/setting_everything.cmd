@@ -1,6 +1,9 @@
 @echo off
+setlocal
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2018/11/14 12:49:33.
+rem Last Change: 2018/11/15 12:37:01.
+
+title Setting Everything
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
@@ -14,14 +17,14 @@ exit
 :main_routine
 rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
-cd /d %bat_path%
+pushd /d %bat_path%
 
 rem ---------------------------------------------------------------------------
 rem ここから追記して動作未確認
 rem ---------------------------------------------------------------------------
 
 rem 設定ファイルがある "Dir" に "cd"
-cd %OneDrive%
+pushd %OneDrive%
 
 rem ---------------------------------------------------------------------------
 rem ここまで追記して動作未確認
@@ -101,5 +104,10 @@ copy ".\shortcut\Everything.lnk" %USERPROFILE%"\Desktop\"
 goto end
 
 :end
+
+endlocal
+popd
+
 pause
 exit /b 0
+
