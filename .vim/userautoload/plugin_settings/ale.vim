@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/15 13:25:06
-" Last Change: 2018/11/14 15:47:18.
+" Last Change: 2018/11/16 10:35:30.
 
 " ---------------------------------------------------------------------------
 "  マップキー
@@ -50,7 +50,7 @@ let g:ale_statusline_format = [' %d', ' %d', ' OK']
 " MEMO: Lintを別途インストール必要
 let g:ale_linters = {
             \ 'text': ['textlint'],
-            \ 'markdown': ['markdownlint', 'markdownlint'],
+            \ 'markdown': ['markdownlint', 'textlint'],
             \ 'python': ['pylint'],
             \ 'go': ['golint'],
             \ 'java': ['javac'],
