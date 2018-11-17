@@ -1,6 +1,6 @@
 @echo off
 rem Created:     2016/08/17 00:00:00
-rem Last Change: 2018/11/15 10:12:11.
+rem Last Change: 2018/11/17 09:49:26.
 
 rem TODO: 常時管理者として実行する
 rem TODO: "init.vim"、"ginit.vim" シンボリックリンクの
@@ -10,7 +10,7 @@ rem ↑ "NyaoVim" も・・・
 rem DONE: ginit.vim コピー後、)の使い方が誤っています エラーになる
 
 rem  スクリプトがある "Dir" に "cd"
-pushd /d %~dp0
+pushd %~dp0
 
 set NVIM_PATH=%HOMEPATH%"\AppData\Local\nvim"
 echo ^>^> Start set link
