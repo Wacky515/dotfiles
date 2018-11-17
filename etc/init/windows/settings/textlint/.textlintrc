@@ -1,4 +1,4 @@
-{
+﻿{
 "rules": {
     // 技術文書向けの textlint ルールプリセット
     "preset-ja-technical-writing": {
@@ -66,9 +66,9 @@
     "ja-no-space-around-parentheses": true,
     // 全角文字どうしの間にスペースを入れない
     "ja-no-space-between-full-width": true,
-    // 半角文字と全角文字の間にスペースを入れない
+    // 半角文字と全角文字の間にスペースを入れる
     "ja-space-between-half-and-full-width": {
-        "space": "never"
+        "space": "always"
     },
     // 文末に感嘆符を使用し、後に別の文が続く場合は、直後に全角スペースを挿入
     "ja-space-after-exclamation": true,
