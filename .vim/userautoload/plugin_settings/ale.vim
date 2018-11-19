@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/15 13:25:06
-" Last Change: 2018/11/16 10:35:30.
+" Last Change: 2018/11/19 10:03:45.
 
 " ---------------------------------------------------------------------------
 "  マップキー
@@ -87,8 +87,8 @@ let g:ale_set_quickfix = 1
 " エラーと警告の一覧ウィンドウ
 let g:ale_open_list = 1
 
-" エラーと警告がなくなっても開いたままにする
-let g:ale_keep_list_window_open = 1
+" エラーと警告がなくなっても開いたままにしない
+let g:ale_keep_list_window_open = 0
 
 " エラーメッセージのフォーマット
 let g:ale_echo_msg_error_str = ''
