@@ -1,4 +1,4 @@
-{
+﻿{
 "rules": {
     // 技術文書向けの textlint ルールプリセット
     "preset-ja-technical-writing": {
@@ -16,7 +16,7 @@
     },
     // 連続できる最大の漢字長: 固有名詞は allow オプションに記述して回避できる
     "max-kanji-continuous-len": {
-        max: 5
+        max: 6
     },
     // 「ですます調」、「である調」を統一する
     "no-mix-dearu-desumasu": {
@@ -65,11 +65,12 @@
     // かっこの外内側にスペースを入れない
     "ja-no-space-around-parentheses": true,
     // 全角文字どうしの間にスペースを入れない
-    "ja-no-space-between-full-width": true,
+    "ja-no-space-between-full-width": false,
     // 半角文字と全角文字の間にスペースを入れない
-    "ja-space-between-half-and-full-width": {
-        "space": "never"
-    },
+    "ja-space-between-half-and-full-width": false,
+    // "ja-space-between-half-and-full-width": {
+    //   "space": "always"
+    // },
     // 文末に感嘆符を使用し、後に別の文が続く場合は、直後に全角スペースを挿入
     "ja-space-after-exclamation": true,
     // 文末に疑問符を使用し、後に別の文が続く場合は、直後に全角スペースを挿入
