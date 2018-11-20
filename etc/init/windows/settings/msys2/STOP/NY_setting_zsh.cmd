@@ -1,29 +1,29 @@
 @echo off
 setlocal
 rem Created:     2018/06/07 10:30:32
-rem Last Change: 2018/11/15 13:43:10.
+rem Last Change: 2018/11/17 09:47:10.
 
 rem TODO:
-rem æ—¢å­˜ã®ã‚·ãƒ³ãƒœãƒªãƒƒã‚¯ãƒªãƒ³ã‚¯å‰Šé™¤
-rem zshç”¨ã®.iniä½œæˆ
-rem ä¸Šè¨˜ã®ã‚·ãƒ³ãƒœãƒªãƒƒã‚¯ãƒªãƒ³ã‚¯
+rem Šù‘¶‚ÌƒVƒ“ƒ{ƒŠƒbƒNƒŠƒ“ƒNíœ
+rem zsh—p‚Ì.iniì¬
+rem ã‹L‚ÌƒVƒ“ƒ{ƒŠƒbƒNƒŠƒ“ƒN
 
 set batch_title="Setting zsh"
 title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
-rem ç®¡ç†è€…æ¨©é™ãªã‚‰ãƒ¡ã‚¤ãƒ³å‡¦ç†
+rem ŠÇ—ÒŒ ŒÀ‚È‚çƒƒCƒ“ˆ—
 if not errorlevel 1 goto main_routine
 
-rem ç®¡ç†è€…æ¨©é™ã§ãªã‘ã‚Œã°ç®¡ç†è€…æ¨©é™ã§å†èµ·å‹•
+rem ŠÇ—ÒŒ ŒÀ‚Å‚È‚¯‚ê‚ÎŠÇ—ÒŒ ŒÀ‚ÅÄ‹N“®
 @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
 exit
 
 :main_routine
-rem ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "cd"
+rem ƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "cd"
 set bat_path=%~dp0
-pushd /d %bat_path%
+pushd %bat_path%
 
 set FIL_MIN32="mingw32.ini"
 set FIL_MIN64="mingw64.ini"
