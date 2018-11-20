@@ -1,13 +1,13 @@
 @echo off
 setlocal
 rem Created:     2018/09/13 11:23:41
-rem Last Change: 2018/11/15 12:34:18.
+rem Last Change: 2018/11/17 09:44:55.
 
 set batch_title="Decompress file(Recursion)"
 title %batch_title%
 
-rem  ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "cd"
-pushd /d %~dp0
+rem  ƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "cd"
+pushd %~dp0
 
 echo ^>^> Start %batch_title%
 

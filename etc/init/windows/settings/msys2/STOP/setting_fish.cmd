@@ -1,9 +1,9 @@
 @echo off
 rem Created:     2018/06/06 20:34:41
-rem Last Change: 2018/11/15 10:19:25.
+rem Last Change: 2018/11/17 09:47:22.
 
-rem  ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "cd"
-pushd /d %~dp0
+rem  ƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "cd"
+pushd %~dp0
 
 set FIL_MIN32="mingw32.ini"
 set FIL_MIN64="mingw64.ini"
