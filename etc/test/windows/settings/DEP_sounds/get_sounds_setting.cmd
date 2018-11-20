@@ -1,14 +1,14 @@
 @echo off
 setlocal
 rem Created:     2017/07/09 21:50:53
-rem Last Change: 2018/11/15 13:56:49.
+rem Last Change: 2018/11/17 09:48:48.
 
 set batch_title="Get system sound setting"
 title %batch_title""
 
-rem ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "cd"
+rem ƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "cd"
 set bat_path=%~dp0
-pushd /d %bat_path%
+pushd %bat_path%
 
 echo ^>^> %batch_title%
 

@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2018/11/15 12:27:19.
+rem Last Change: 2018/11/17 09:44:15.
 
 title Change prompt
 
@@ -17,7 +17,7 @@ exit
 :main_routine
 rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
-pushd /d %bat_path%
+pushd %bat_path%
 
 copy "clink.lua" "C:\tools\cmder\vendor\clink.lua"
 

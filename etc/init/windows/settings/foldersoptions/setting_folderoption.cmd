@@ -1,23 +1,23 @@
 @echo off
 setlocal
 rem Created:     2018/03/31 09:53:57
-rem Last Change: 2018/11/15 12:44:17.
+rem Last Change: 2018/11/17 09:45:44.
 
 set batch_title="Setting for Folder options"
 title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
-rem ç®¡ç†è€…æ¨©é™ãªã‚‰ãƒ¡ã‚¤ãƒ³å‡¦ç†
+rem ŠÇ—ŽÒŒ ŒÀ‚È‚çƒƒCƒ“ˆ—
 if not errorlevel 1 goto main_routine
 
-rem ç®¡ç†è€…æ¨©é™ã§ãªã‘ã‚Œã°ç®¡ç†è€…æ¨©é™ã§å†èµ·å‹•
+rem ŠÇ—ŽÒŒ ŒÀ‚Å‚È‚¯‚ê‚ÎŠÇ—ŽÒŒ ŒÀ‚ÅÄ‹N“®
 @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
 exit
 
 :main_routine
-rem  ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "cd"
-pushd /d %~dp0
+rem  ƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "cd"
+pushd %~dp0
 
 echo ^>^> %batch_title%
 
