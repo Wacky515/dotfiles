@@ -17,14 +17,14 @@ exit
 :main_routine
 rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
-pushd /d %bat_path%
+pushd %bat_path%
 
 rem ---------------------------------------------------------------------------
 rem ここから追記して動作未確認
 rem ---------------------------------------------------------------------------
 
 rem 設定ファイルがある "Dir" に "cd"
-pushd %OneDrive%
+pushd %OneDrive%"\仕事\Settings\CCleaner"
 
 rem ---------------------------------------------------------------------------
 rem ここまで追記して動作未確認
@@ -51,7 +51,7 @@ set backup=%inidir%"\old\"%tstmp%
 
 rem "CCleaner" 停止
 echo ^>^> Kill CCleaner
-taskkill /f /im CCleaner.exe
+taskkill /f /im CCleaner.exe > nul 2>&1
 
 rem バックアップ 作成
 if exist %inifile% (
@@ -75,8 +75,10 @@ rem ---------------------------------------------------------------------------
 
 rem echo ^>^> Copy *.ini
 rem copy "ccleaner.ini" %inifile%
-echo ^>^> Make symbolic link *.ini
-mklink %inifile% "ccleaner.ini"
+if not exist %inifile% (
+	echo ^>^> Make symbolic link *.ini
+	mklink %inifile% "ccleaner.ini"
+	)
 
 rem ---------------------------------------------------------------------------
 rem ここまで追記して動作未確認
@@ -85,6 +87,5 @@ rem ---------------------------------------------------------------------------
 endlocal
 popd
 
-pause
+rem pause
 exit /b 0
-

@@ -17,13 +17,12 @@ exit
 :main_routine
 rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
-pushd /d %bat_path%
+pushd %bat_path%
 
-copy "clink.lua" "C:\tools\cmder\vendor\clink.lua"
+copy ".\clink.lua" "C:\tools\cmder\vendor\clink.lua"
 
 endlocal
 popd
 
-pause
+rem pause
 exit /b 0
-

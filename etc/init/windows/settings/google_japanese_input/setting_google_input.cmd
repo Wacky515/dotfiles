@@ -47,7 +47,8 @@ echo ^>^> Time stamp: %tstmp%
 
 rem "Google日本語入力の関連サービス" 停止
 echo ^>^> Kill Google Japanese input
-taskkill /f /im GoogleIMEJa*
+
+kill /f /im GoogleIMEJa* > nul 2>&1
 
 rem バックアップ 作成
 set gglin_path="C:"%HOMEPATH%"\AppData\LocalLow\Google"
@@ -79,6 +80,5 @@ for %%i in (*.db) do (
 endlocal
 popd
 
-pause
+rem pause
 exit /b 0
-

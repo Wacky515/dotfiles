@@ -1,4 +1,4 @@
-@echo off
+﻿@echo off
 setlocal
 rem Created:     2018/03/31 09:53:57
 rem Last Change: 2018/11/15 12:44:17.
@@ -17,7 +17,7 @@ exit
 
 :main_routine
 rem  スクリプトがある "Dir" に "cd"
-pushd /d %~dp0
+pushd "%~dp0"
 
 echo ^>^> %batch_title%
 
@@ -47,4 +47,3 @@ popd
 
 rem pause
 exit /b 0
-

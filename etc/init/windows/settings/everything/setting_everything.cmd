@@ -17,14 +17,14 @@ exit
 :main_routine
 rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
-pushd /d %bat_path%
+pushd %bat_path%
 
 rem ---------------------------------------------------------------------------
 rem ここから追記して動作未確認
 rem ---------------------------------------------------------------------------
 
 rem 設定ファイルがある "Dir" に "cd"
-pushd %OneDrive%
+pushd %OneDrive%"\仕事\Settings\Everything"
 
 rem ---------------------------------------------------------------------------
 rem ここまで追記して動作未確認
@@ -47,7 +47,7 @@ echo ^>^> Time stamp: %tstmp%
 
 rem "Everything" 停止
 echo ^>^> Kill Everything
-taskkill /f /im Everything.exe
+taskkill /f /im Everything.exe > nul 2>&1
 
 rem バックアップ 作成
 set eve_path="C:"%HOMEPATH%"\AppData\Roaming\Everything"
@@ -110,4 +110,3 @@ popd
 
 pause
 exit /b 0
-

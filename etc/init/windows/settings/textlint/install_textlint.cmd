@@ -19,7 +19,7 @@ exit
 set cmd=npm bin -g
 
 rem  スクリプトがある "Dir" に "cd"
-pushd /d %~dp0
+pushd "%~dp0"
 
 echo ^>^> Check dependencies
 for /f %%i in ('%cmd%') do set npm_path=%%i
