@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/04/19 09:01:59
-rem Last Change: 2018/11/15 12:30:00.
+rem Last Change: 2018/11/17 09:44:36.
 
 title Setting powerline
 
@@ -16,7 +16,11 @@ exit
 
 :main_routine
 rem  スクリプトがある "Dir" に "cd"
+<<<<<<< HEAD
 pushd "%~dp0"
+=======
+pushd %~dp0
+>>>>>>> f2797e1122bedb259341e007fbc848627a472e94
 
 echo ^>^> Start setting cmder-powerline-prompt
 copy powerline_prompt.lua %CMDER_ROOT%/config

@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2018/11/15 13:48:32.
+rem Last Change: 2018/11/21 08:12:27.
 
 set batch_title="Install textlint"
 title %batch_title%
@@ -19,7 +19,11 @@ exit
 set cmd=npm bin -g
 
 rem  スクリプトがある "Dir" に "cd"
+<<<<<<< HEAD
 pushd "%~dp0"
+=======
+pushd %~dp0
+>>>>>>> f2797e1122bedb259341e007fbc848627a472e94
 
 echo ^>^> Check dependencies
 for /f %%i in ('%cmd%') do set npm_path=%%i
