@@ -1,22 +1,22 @@
 @echo off
 setlocal
 rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/11/15 13:46:30.
+rem Last Change: 2018/11/17 09:47:59.
 
 title Setting Anaconda path
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
-rem ç®¡ç†è€…æ¨©é™ãªã‚‰ãƒ¡ã‚¤ãƒ³å‡¦ç†
+rem ŠÇ—ÒŒ ŒÀ‚È‚çƒƒCƒ“ˆ—
 if not errorlevel 1 goto main_routine
 
-rem ç®¡ç†è€…æ¨©é™ã§ãªã‘ã‚Œã°ç®¡ç†è€…æ¨©é™ã§å†èµ·å‹•
+rem ŠÇ—ÒŒ ŒÀ‚Å‚È‚¯‚ê‚ÎŠÇ—ÒŒ ŒÀ‚ÅÄ‹N“®
 @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
 exit
 
 :main_routine
-rem  ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "cd"
-pushd /d %~dp0
+rem  ƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "cd"
+pushd %~dp0
 
 echo Start set link
 

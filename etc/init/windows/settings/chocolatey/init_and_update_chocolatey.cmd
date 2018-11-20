@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2017/02/17 00:54:41
-rem Last Change: 2018/11/15 12:26:23.
+rem Last Change: 2018/11/17 09:42:44.
 
 title Update Chocolatey
 
@@ -23,7 +23,8 @@ set bat_path=%~dp0
 set config_files=packages_%computername%.config
 
 rem スクリプトがある "Dir" に "cd"
-pushd /d %bat_path%
+rem pushd /d %bat_path%
+pushd %bat_path%
 
 rem "Chocolatey" インストール済みかチェック
 chocolatey -v > nul 2>&1

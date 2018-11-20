@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2018/11/15 12:25:16.
+rem Last Change: 2018/11/17 09:43:34.
 
 title Setting CCleaner
 

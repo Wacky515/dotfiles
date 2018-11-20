@@ -1,36 +1,36 @@
 @echo off
 setlocal
 rem Created:     2018/09/24 13:05:56
-rem Last Change: 2018/11/15 13:50:49.
+rem Last Change: 2018/11/17 09:48:24.
 
 set batch_title="Setting Jabber"
 title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
-rem ç®¡ç†è€…æ¨©é™ãªã‚‰ãƒ¡ã‚¤ãƒ³å‡¦ç†
+rem ŠÇ—ÒŒ ŒÀ‚È‚çƒƒCƒ“ˆ—
 if not errorlevel 1 goto main_routine
 
-rem ç®¡ç†è€…æ¨©é™ã§ãªã‘ã‚Œã°ç®¡ç†è€…æ¨©é™ã§å†èµ·å‹•
+rem ŠÇ—ÒŒ ŒÀ‚Å‚È‚¯‚ê‚ÎŠÇ—ÒŒ ŒÀ‚ÅÄ‹N“®
 @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
 exit
 
 :main_routine
-rem ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "cd"
+rem ƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "cd"
 set bat_path=%~dp0
-pushd /d %bat_path%
+pushd %bat_path%
 
-rem è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã‚‹ "Dir" ã« "cd"
-pushd %OneDrive%"\ä»•äº‹\settings\Jabber"
+rem İ’èƒtƒ@ƒCƒ‹‚ª‚ ‚é "Dir" ‚É "cd"
+pushd %OneDrive%"\d–\settings\Jabber"
 
 echo ^>^> %batch_title%
 
-rem æ—¥ä»˜å–å¾—
+rem “ú•tæ“¾
 set yyyy=%date:~0,4%
 set mm=%date:~5,2%
 set dd=%date:~8,2%
 
-rem æ™‚åˆ»å–å¾—
+rem æ“¾
 set hh=%time:~0,2%
 set mi=%time:~3,2%
 set ss=%time:~6,2%
@@ -38,11 +38,11 @@ set ss=%time:~6,2%
 set tstmp=%yyyy%-%mm%-%dd%_%hh%-%mi%-%ss%
 echo ^>^> Time stamp: %tstmp%
 
-rem "Jabber" åœæ­¢
+rem "Jabber" ’â~
 echo ^>^> Kill Jabber
 taskkill /f /im CiscoJabber.exe
 
-rem ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ— ä½œæˆ
+rem ƒoƒbƒNƒAƒbƒv ì¬
 set jbr_path="C:"%HOMEPATH%"\AppData\Roaming\Cisco\Unified Communications\Jabber\CSF\Config"
 set backup=%jbr_path%"\old"
 
@@ -63,7 +63,7 @@ if exist %jbr_path%"\jabberLocalConfig.xml" (
 
 rem mkdir %jbr_path%"\Jabber"
 
-rem ã‚·ãƒ³ãƒœãƒªãƒƒã‚¯ãƒªãƒ³ã‚¯ ä½œæˆ
+rem ƒVƒ“ƒ{ƒŠƒbƒNƒŠƒ“ƒN ì¬
 mklink %jbr_path%"\jabberLocalConfig.xml" "jabberLocalConfig.xml"
 
 endlocal
