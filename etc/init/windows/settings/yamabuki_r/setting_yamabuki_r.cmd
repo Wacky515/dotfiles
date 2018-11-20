@@ -38,12 +38,13 @@ ver | find "Version 10.0." > nul
 if not errorlevel 1 goto win10
 
 :win7
-echo "This PC is Windows7"
+echo ^>^> "This PC is Windows7"
 copy "yamabuki_r.lnk" %HOMEPATH%"\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 if errorlevel 1 copy "yamabuki_r.lnk" %HOMEPATH%"\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 goto end
 
 :win10
+echo ^>^> "This PC is Windows10"
 copy "yamabuki_r.lnk" %HOMEPATH%"\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 goto end
 
@@ -54,4 +55,3 @@ popd
 
 pause
 exit /b 0
-
