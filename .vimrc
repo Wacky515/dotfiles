@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 00:00:00
-" Last Change: 2018/11/15 09:25:22.
+" Last Change: 21-Nov-2018.
 
 " MEMO: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -184,7 +184,8 @@ set runtimepath+=$HOME/.vim
 runtime! userautoload/*.vim
 " プラグインの設定ファイル
 runtime! userautoload/plugin_settings/*.vim
-" Yahoo Web API key（プライベートキー)
+
+" " Yahoo Web API key（プライベートキー)
 let g:vimrc_yahoo_web_api_key = {}
 if filereadable(expand('~/\OneDrive\仕事\Settings\YahooWebApi\.vimrc_yahoo_web_api_key'))
     execute 'source' expand('~/\OneDrive\仕事\Settings\YahooWebApi\.vimrc_yahoo_web_api_key')
