@@ -1,10 +1,25 @@
+' Created:     201*/**/** **:**:**
+' Last Change: 2018/11/23 11:54:08.
+
+' ïœêîêÈåæÇã≠êß
+Option Explicit
+On Error Resume Next
+
 Dim shell
-Set shell = WScript.CreateObject("WScript.Shell")
-
 Dim env
-Set env = shell.Environment("USER")
+Dim strEnvName
 
-' env.item("PATH") = env.item("PATH") & ";" & "C:\Program Files (x86)\Lynx for Win32"
-env.item("PATH") = env.item("PATH") & ";" & "C:%homepath%\Lynx_for_Win32"
+Set shell = WScript.CreateObject("WScript.Shell")
+strEnvName = "C:\%homepath%\Lynx_for_Win32"
 
-MsgBox env.item("PATH")
+Set env = shell.Environment("User")
+
+If instr(env.item("PATH"), strEnvName) = 0 Then
+    env.item("PATH") = env.item("PATH") & ";" & strEnvName
+    MsgBox env.item("PATH")
+Else
+    WScript.Echo "Is exist"
+End if
+
+Set env  = Nothing
+Set shell  = Nothing
