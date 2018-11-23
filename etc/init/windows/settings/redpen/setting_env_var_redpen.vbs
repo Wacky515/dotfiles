@@ -1,4 +1,4 @@
-' Created:     2018/10/04 11:19:01
+﻿' Created:     2018/10/04 11:19:01
 ' Last Change: 2018/10/04 12:12:38.
 
 ' 変数宣言を強制
@@ -10,7 +10,7 @@ Dim env
 Dim strEnvName
 
 Set shell = WScript.CreateObject("WScript.Shell")
-strEnvName = "C:%homepath%\redpen-distribution-1.10.1\bin"
+strEnvName = "C:\%homepath%\redpen-distribution-1.10.1\bin"
 
 Set env = shell.Environment("User")
     ' If Err.Number = 0 Then  ' {{{

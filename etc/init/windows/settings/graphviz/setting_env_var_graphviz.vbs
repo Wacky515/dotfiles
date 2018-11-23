@@ -1,10 +1,25 @@
+' Created:     201*/**/** **:**:**
+' Last Change: 2018/11/23 11:54:40.
+
+' 変数宣言を強制
+Option Explicit
+On Error Resume Next
+
 Dim shell
-Set shell = WScript.CreateObject("WScript.Shell")
-
 Dim env
-Set env = shell.Environment("USER")
+Dim strEnvName
 
-' env.item("PATH") = env.item("PATH") & ";" & "C:%homepath%\graphviz\release\bin\"
-env.item("PATH") = env.item("PATH") & ";" & "C:\graphviz\release\bin\"
+Set shell = WScript.CreateObject("WScript.Shell")
+strEnvName = "C:\graphviz\release\bin\"
 
-MsgBox env.item("PATH")
+Set env = shell.Environment("User")
+
+If instr(env.item("PATH"), strEnvName) = 0 Then
+    env.item("PATH") = env.item("PATH") & ";" & strEnvName
+    MsgBox env.item("PATH")
+Else
+    WScript.Echo "Is exist"
+End if
+
+Set env  = Nothing
+Set shell  = Nothing

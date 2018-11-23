@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/11/15 12:54:09.
+rem Last Change: 2018/11/23 16:43:39.
 
 title Setting GVim Open
 
@@ -19,7 +19,7 @@ set homedir="C:"%HOMEPATH%
 
 rem OS 64bit”Å‚Æ32bit”Å‚Å•ªŠò
 if exist ""C:"%HOMEPATH%"\vim81-kaoriya-win64\"" goto vim64
-if exist ""C:"%HOMEPATH%"\vim80-kaoriya-win32\"" (
+if exist ""C:"%HOMEPATH%"\vim81-kaoriya-win32\"" (
     goto vim32
 ) else (
     echo ^>^> Please set GVim in home directory
