@@ -1,9 +1,10 @@
 @echo off
 setlocal
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2018/11/17 09:43:34.
+rem Last Change: 2018/11/22 20:33:21.
 
-title Setting CCleaner
+set batch_title="Setting CCleaner""
+title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
@@ -19,7 +20,7 @@ rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 pushd %bat_path%
 
-echo ^>^> Setting CCleaner
+echo ^>^> %batch_title%
 
 rem 日付取得
 set yyyy=%date:~0,4%
@@ -73,5 +74,5 @@ rem copy "ccleaner.ini" %inifile%
 endlocal
 popd
 
-pause
+rem pause
 exit /b 0
