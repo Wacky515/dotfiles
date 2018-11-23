@@ -1,9 +1,10 @@
 @echo off
 setlocal
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2018/11/17 09:45:13.
+rem Last Change: 2018/11/22 20:41:58.
 
-title Setting Everything
+set batch_title="Setting Everything"
+title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
@@ -19,18 +20,7 @@ rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 pushd %bat_path%
 
-rem ---------------------------------------------------------------------------
-rem ここから追記して動作未確認
-rem ---------------------------------------------------------------------------
-
-rem 設定ファイルがある "Dir" に "cd"
-pushd %OneDrive%"\仕事\Settings\Everything"
-
-rem ---------------------------------------------------------------------------
-rem ここまで追記して動作未確認
-rem ---------------------------------------------------------------------------
-
-echo ^>^> Setting Everything
+echo ^>^> %batch_title%
 
 rem 日付取得
 set yyyy=%date:~0,4%
@@ -45,34 +35,30 @@ set ss=%time:~6,2%
 set tstmp=%yyyy%-%mm%-%dd%_%hh%-%mi%-%ss%
 echo ^>^> Time stamp: %tstmp%
 
+set inidir="C:"%HOMEPATH%"\AppData\Roaming\Everything"
+set backup=%inidir%"\old\"%tstmp%
+
+set srcdir=%OneDrive%"\仕事\Settings\Everything"
+
+rem 設定ファイルがある "Dir" に "cd"
+pushd %srcdir%
+
 rem "Everything" 停止
 echo ^>^> Kill Everything
 taskkill /f /im Everything.exe > nul 2>&1
 
 rem バックアップ 作成
-set eve_path="C:"%HOMEPATH%"\AppData\Roaming\Everything"
-set backup=%eve_path%"\old\"%tstmp%
-
 mkdir %backup%
 
 rem :backup
-if exist %eve_path% (
-    move %eve_path%\* %backup%
+if exist %inidir% (
+    move %inidir%\* %backup%
     )
 
 rem シンボリックリンク 作成
+echo ^>^> Make symbolic link *.ini
 for %%i in (*.ini) do (
-    rem MEMO: 下記修正した、確認
-    mklink %eve_path%"\"%%i %bat_path%\%%i
-)
-rem FIXME: ここまででSyntax Error
-rem FIXME: *.ini コピー失敗している
-
-rem MEMO: x64環境下
-for %%i in (*.ini) do (
-    rem MEMO: 下記2つ 記述方法が 32bit と 64bit で異なるか確認
-    rem mklink %eve_path%"\"%%i "%bat_path%\%%i"
-    mklink %eve_path%%%i "%bat_path%%%i"
+    mklink %inidir%"\"%%i %srcdir%"\"%%i
 )
 
 rem デスクトップショートカット 作成
@@ -94,8 +80,6 @@ if exist "C:\Program Files\Everything\Everything.exe" (
 )
 
 :evex64
-rem FIXME: Syntax Error x64はデスクトップの指定が異なる？
-rem MEMO: ショートカットのコピー自体は成功している
 copy ".\x86_shortcut\Everything.lnk" %USERPROFILE%"\Desktop\"
 goto end
 
