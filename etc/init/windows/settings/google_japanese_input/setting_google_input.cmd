@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2018/11/17 09:45:57.
+rem Last Change: 2018/11/22 20:43:01.
 
 set batch_title="Setting Google Japanese input"
 title %batch_title%
@@ -20,16 +20,6 @@ rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 pushd %bat_path%
 
-rem ---------------------------------------------------------------------------
-rem ここから追記して動作未確認
-rem ---------------------------------------------------------------------------
-
-rem 設定ファイルがある "Dir" に "cd"
-pushd %OneDrive%"/仕事/settings/GoogleJapaneseInput"
-
-rem ---------------------------------------------------------------------------
-rem ここまで追記して動作未確認
-rem ---------------------------------------------------------------------------
 echo ^>^> %batch_title%
 
 rem 日付取得
@@ -45,36 +35,46 @@ set ss=%time:~6,2%
 set tstmp=%yyyy%-%mm%-%dd%_%hh%-%mi%-%ss%
 echo ^>^> Time stamp: %tstmp%
 
+set dbdir="C:"%HOMEPATH%"\AppData\LocalLow\Google"
+
+set backup=%dbdir%"\old"
+set srcdir=%OneDrive%"\仕事\settings\GoogleJapaneseInput"
+
+rem 設定ファイルがある "Dir" に "cd"
+pushd %srcdir%
+
 rem "Google日本語入力の関連サービス" 停止
 echo ^>^> Kill Google Japanese input
-
-kill /f /im GoogleIMEJa* > nul 2>&1
+taskkill /f /im GoogleIMEJa* > nul 2>&1
 
 rem バックアップ 作成
-set gglin_path="C:"%HOMEPATH%"\AppData\LocalLow\Google"
-set backup=%gglin_path%"\old"
-
-if not exist %backup% (
-    goto mkbakdir
+if exist %backup% (
+    goto bkup
 ) else (
-    goto backup
+    goto mkbakdir
 )
 
 :mkbakdir
 mkdir %backup%
 
-:backup
-if exist %gglin_path%"\Google Japanese Input" (
-    move %gglin_path%"\Google Japanese Input" ^
+:bkup
+if exist %dbdir%"\Google Japanese Input" (
+    echo 1
+    move %dbdir%"\Google Japanese Input" ^
         %backup%"\Google Japanese Input_"%tstmp%
+    echo 2
     )
 
-mkdir %gglin_path%"\Google Japanese Input"
+cd
+echo 3
+mkdir %dbdir%"\Google Japanese Input"
+cd
+echo 4
 
 rem シンボリックリンク 作成
+rem echo ^>^> Make symbolic link *.db
 for %%i in (*.db) do (
-    rem mklink %gglin_path%"\Google Japanese Input\"%%i "%bat_path%\%%i"
-    mklink %gglin_path%"\Google Japanese Input\"%%i "%%i"
+    mklink %dbdir%"\Google Japanese Input\"%%i %srcdir%"\"%%i
 )
 
 endlocal

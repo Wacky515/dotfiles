@@ -1,9 +1,9 @@
 @echo off
 setlocal
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2018/11/21 08:12:27.
+rem Last Change: 2018/11/23 10:59:07.
 
-set batch_title="Install textlint"
+set batch_title="Install textlint(Subroutine)"
 title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
@@ -19,11 +19,14 @@ exit
 set cmd=npm bin -g
 
 rem  スクリプトがある "Dir" に "cd"
-<<<<<<< HEAD
-pushd "%~dp0"
-=======
 pushd %~dp0
->>>>>>> f2797e1122bedb259341e007fbc848627a472e94
+
+rem NOT TEST
+rem ---------------------------------------------------------------------------
+echo ^>^> Set .textrintrc
+mklink %homepat%"\dotfiles\.textrintrc" %homepat%"\Documents"
+rem ---------------------------------------------------------------------------
+rem NOT TEST
 
 echo ^>^> Check dependencies
 for /f %%i in ('%cmd%') do set npm_path=%%i
