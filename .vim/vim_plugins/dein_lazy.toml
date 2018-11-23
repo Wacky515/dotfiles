@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/11/13 10:13:46.
+# Last Change: 2018/11/22 20:14:00.
 # TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -107,6 +107,14 @@ repo = 'ujihisa/unite-font'
 repo = 'rhysd/unite-codic.vim'
 [[plugins]]
 repo = 'koron/codic-vim'
+
+# FIXME: 起動時エラーのためKILL
+# [[plugins]]
+# repo = 'Shougo/unite-outline'
+# depends = 'unite.vim'
+# hook_add = 'source ~/.vim/userautoload/plugins/plugins-unite-outline.vim'
+# [[plugins]]
+# repo = 'tsukkee/unite-tag.git'
 
 # 入力補完
 # 最新
