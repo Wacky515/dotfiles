@@ -19,17 +19,6 @@ rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 pushd %bat_path%
 
-rem ---------------------------------------------------------------------------
-rem ここから追記して動作未確認
-rem ---------------------------------------------------------------------------
-
-rem 設定ファイルがある "Dir" に "cd"
-pushd %OneDrive%"\仕事\Settings\CCleaner"
-
-rem ---------------------------------------------------------------------------
-rem ここまで追記して動作未確認
-rem ---------------------------------------------------------------------------
-
 echo ^>^> Setting CCleaner
 
 rem 日付取得
@@ -48,6 +37,10 @@ echo ^>^> Time stamp: %tstmp%
 set inidir="C:\Program Files\CCleaner\"
 set inifile="C:\Program Files\CCleaner\ccleaner.ini"
 set backup=%inidir%"\old\"%tstmp%
+set srcdir=%OneDrive%"\仕事\Settings\CCleaner"
+
+rem 設定ファイルがある "Dir" に "cd"
+pushd %srcdir%
 
 rem "CCleaner" 停止
 echo ^>^> Kill CCleaner
@@ -62,30 +55,23 @@ if exist %inifile% (
 
 :bkup
 echo ^>^> Backup old *.ini
-rem FIXME: Syntax error
-rem ren %inifile% ccleaner%tstmp%.ini
+mkdir %backup%
 move %inifile% %backup%
 
 rem シンボリックリンク 作成
 :mklink
-
-rem ---------------------------------------------------------------------------
-rem ここから追記して動作未確認
-rem ---------------------------------------------------------------------------
-
 rem echo ^>^> Copy *.ini
 rem copy "ccleaner.ini" %inifile%
-if not exist %inifile% (
-	echo ^>^> Make symbolic link *.ini
-	mklink %inifile% "ccleaner.ini"
+if exist %inifile% (
+	del /q %inifile%
 	)
 
-rem ---------------------------------------------------------------------------
-rem ここまで追記して動作未確認
-rem ---------------------------------------------------------------------------
+echo ^>^> Make symbolic link *.ini
+mklink %inifile% %srcdir%"\ccleaner.ini"
+rem copy "ccleaner.ini" %inifile%
 
 endlocal
 popd
 
-rem pause
+pause
 exit /b 0
