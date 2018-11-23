@@ -1,11 +1,25 @@
+' Created:     201*/**/** **:**:**
+' Last Change: 2018/11/23 11:56:20.
+
+' 変数宣言を強制
+Option Explicit
+On Error Resume Next
+
 Dim shell
-Set shell = WScript.CreateObject("WScript.Shell")
-
 Dim env
-Set env = shell.Environment("USER")
+Dim strEnvName
 
-env.item("PATH") = env.item("PATH") & ";" & "C:\Python35" & ";" & "C:\Python35\Scripts\"
-' env.item("PYTHONHOME") = "C:\tools\Anaconda3\pkgs\python-3.5.4-h1357f44_23"
-' env.item("PYTHONPATH") = "%PYTHONHOME%" & "\libs"
+Set shell = WScript.CreateObject("WScript.Shell")
+strEnvName = "C:\Python35" & ";" & "C:\Python35\Scripts\"
 
-MsgBox env.item("PATH")
+Set env = shell.Environment("User")
+
+If instr(env.item("PATH"), strEnvName) = 0 Then
+    env.item("PATH") = env.item("PATH") & ";" & strEnvName
+    MsgBox env.item("PATH")
+Else
+    WScript.Echo "Is exist"
+End if
+
+Set env  = Nothing
+Set shell  = Nothing

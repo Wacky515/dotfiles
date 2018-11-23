@@ -1,9 +1,9 @@
 @echo off
 setlocal
-rem Created:     2018/07/17 10:19:01
-rem Last Change: 2018/11/17 09:46:33.
+rem Created:     2018/10/05 09:54:50
+rem Last Change: 2018/11/23 11:32:24.
 
-set batch_title="Setting GENE dictionary"
+set batch_title="General setting Windows10"
 title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
@@ -21,10 +21,8 @@ pushd %~dp0
 
 echo ^>^> %batch_title%
 
-if not exist %homepath%/vimfiles/dict (
-    mkdir %homepath/vimfiles/dict
-    )
-copy GENE.TXT %homepath%/vimfiles/dict/
+rem "スナップされたウィンドウのサイズを変更するときに、隣接するスナップ ウィンドウのサイズも同時に変更する" を無効にする
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "JointResize" /t REG_DWORD /d "0" /f
 
 endlocal
 popd
