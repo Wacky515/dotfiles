@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/19 20:47:58
-" Last Change: 2018/10/09 08:13:17.
+" Last Change: 2018/11/22 14:10:40.
 
 " ---------------------------------------------------------------------------
 " マップキー
@@ -110,3 +110,4 @@ if executable('rg')
     " "Windows" 設定
     let g:unite_source_grep_encoding='utf-8'
 endif
+
