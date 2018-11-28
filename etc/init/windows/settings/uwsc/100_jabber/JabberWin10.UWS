@@ -1,14 +1,19 @@
-EXEC("C:\Program Files\Cisco Systems\Cisco Jabber\CiscoJabber.exe")
+// EXEC("C:\Program Files\Cisco Systems\Cisco Jabber\CiscoJabber.exe")
+EXEC("C:\Program Files (x86)\Cisco Systems\Cisco Jabber\CiscoJabber.exe")
 DEF_DLL PostMessageA(Hwnd,Long,Long,Dword):Bool:user32
 
 IFB CHKIMG("OpenOption.bmp")
     BTN(LEFT,CLICK, G_IMG_X+10, G_IMG_Y+10)
-    KBD(VK_v, CLICK, 200)
+    // KBD(VK_v, CLICK, 200)
+    KBD(VK_DOWN, CLICK, 200)
+    KBD(VK_DOWN, CLICK, 200)
+    KBD(VK_DOWN, CLICK, 200)
+    KBD(VK_RIGHT, CLICK, 200)
     id = GETID("", "#32768", -1)
-    IFB CHKIMG("ShowDockWindow.bmp")
+    IFB CHKIMG("ShowDockWindowWin10.bmp")
         BTN(LEFT,CLICK, G_IMG_X+10, G_IMG_Y+10)
     ELSE
-        MSGBOX("v ドック～表示 が見つかりませんでした")
+        MSGBOX("ドック～表示 はOFFです")
         KBD(VK_LEFT, CLICK, 100)
         KBD(VK_ESC, CLICK, 100)
     ENDIF
@@ -21,12 +26,17 @@ MMV(0, 0)
 SLEEP(1)
 IFB CHKIMG("OpenOption.bmp")
     BTN(LEFT,CLICK, G_IMG_X+10, G_IMG_Y+10)
-    KBD(VK_h, CLICK, 200)
+    // KBD(VK_h, CLICK, 200)
+    KBD(VK_DOWN, CLICK, 200)
+    KBD(VK_DOWN, CLICK, 200)
+    KBD(VK_DOWN, CLICK, 200)
+    KBD(VK_DOWN, CLICK, 200)
+    KBD(VK_RIGHT, CLICK, 200)
     id = GETID("", "#32768", -1)
-    IFB CHKIMG("SendUserData.bmp")
+    IFB CHKIMG("SendUserDataWin10.bmp")
         BTN(LEFT,CLICK, G_IMG_X+10, G_IMG_Y+10)
     ELSE
-        MSGBOX("v 使用状況～送信 が見つかりませんでした")
+        MSGBOX("使用状況～送信 はOFFです")
         KBD(VK_LEFT, CLICK, 100)
         KBD(VK_ESC, CLICK, 100)
     ENDIF
@@ -40,7 +50,9 @@ MMV(0, 0)
 SLEEP(1)
 IFB CHKIMG("OpenOption.bmp")
     BTN(LEFT,CLICK, G_IMG_X+10, G_IMG_Y+10)
-    KBD(VK_f, CLICK, 100)
+    // KBD(VK_f, CLICK, 100)
+    KBD(VK_DOWN, CLICK, 100)
+    KBD(VK_RIGHT, CLICK, 100)
     KBD(VK_DOWN, CLICK, 100)
     KBD(VK_DOWN, CLICK, 100)
     KBD(VK_RETURN, CLICK, 100)
@@ -58,7 +70,7 @@ IFB CHKIMG("OpenOption.bmp")
     IFB CHKIMG("SaveLog.bmp")
         BTN(LEFT,CLICK, G_IMG_X+10, G_IMG_Y+10)
     ELSE
-        MSGBOX("v 開いている～おきます が見つかりませんでした")
+        MSGBOX("開いている～おきます はONです")
     ENDIF
 
     MMV(0, 0)
@@ -66,7 +78,7 @@ IFB CHKIMG("OpenOption.bmp")
     IFB CHKIMG("CheckSpell.bmp")
         BTN(LEFT,CLICK, G_IMG_X+10, G_IMG_Y+10)
     ELSE
-        MSGBOX("v 自動的～します が見つかりませんでした")
+        MSGBOX("自動的～します はONです")
     ENDIF
 
 //    MMV(0, 0)
@@ -82,7 +94,7 @@ IFB CHKIMG("OpenOption.bmp")
 //    IFB CHKIMG("ChangeFont.bmp")
 //        BTN(LEFT,CLICK, G_IMG_X+10, G_IMG_Y+10)
 //    ELSE
-//        MSGBOX("v 新着～を変更 が見つかりませんでした")
+//        MSGBOX("新着～を変更 はOFFです")
 //    ENDIF
 
 //    KBD(VK_TAB,CLICK,40)
