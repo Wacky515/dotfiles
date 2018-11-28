@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/11/22 20:14:00.
+# Last Change: 2018/11/26 11:28:20.
 # TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -231,10 +231,12 @@ if = "has('nvim')"
 # <Leader>md: 編集中のファイルをブラウザで表示
 [[plugins]]
 repo = 'kannokanno/previm'
-on_ft = ['markdown','mkd']
+# Google検索使うので ↓ KILL
+# on_ft = ['markdown','mkd']
 [[plugins]]
 repo = 'tyru/open-browser.vim'
-on_ft = ['markdown','mkd']
+# Google検索使うので ↓ KILL
+# on_ft = ['markdown','mkd']
 # MEMO: ↓エラーになる
 # hook_add = '''
 #   let g:previm_open_cmd =

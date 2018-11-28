@@ -5,12 +5,12 @@ scriptencoding utf-8
 if has("mac")
     let g:previm_open_cmd = "open -a Safari"
 
-" 以下をONにすると "vimproc" のエラーになる
 "" Windows の場合
 elseif has("win32") || has("win64")
+    let g:previm_open_cmd = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+    " let g:previm_open_cmd = ""
+    " 以下をONにすると "vimproc" のエラーになる
     " let g:previm_open_cmd = "open -a Chrome"
-    let g:previm_open_cmd = ""
-
 endif
 
 " <Leader>md: 編集中のファイルをブラウザで表示
@@ -29,3 +29,4 @@ nmap <Leader>ks <Plug>(ChromeAutoScrollUpStop)
 " GitHub的な見た目
 " let g:previm_disable_default_css = 1
 " let g:previm_custom_css_path = "~/dotfiles/.vim/template/previm/markdown.css"
+
