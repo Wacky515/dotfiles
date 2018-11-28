@@ -1,9 +1,9 @@
 @echo off
 setlocal
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2018/11/27 08:39:34.
+rem Last Change: 2018/11/27 08:42:19.
 
-set batch_title="Setting CCleaner"
+set batch_title="Setting UWSC"
 title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
@@ -35,17 +35,17 @@ set ss=%time:~6,2%
 set tstmp=%yyyy%-%mm%-%dd%_%hh%-%mi%-%ss%
 echo ^>^> Time stamp: %tstmp%
 
-set inidir="C:\Program Files\CCleaner\"
-set inifile=%inidir%"\ccleaner.ini"
+set inidir="C:\Users\mm12167.DMJ\AppData\Roaming\UWSC"
+set inifile=%inidir%"\UWSC.INI"
 set backup=%inidir%"\old\"%tstmp%
-set srcdir=%OneDrive%"\仕事\Settings\CCleaner"
+rem set srcdir=%OneDrive%"\仕事\Settings\***"
 
 rem 設定ファイルがある "Dir" に "cd"
-pushd %srcdir%
+rem pushd %srcdir%
 
-rem "CCleaner" 停止
-echo ^>^> Kill CCleaner
-taskkill /f /im CCleaner.exe > nul 2>&1
+rem "UWSC" 停止
+echo ^>^> Kill UWSC
+taskkill /f /im UWSC.exe > nul 2>&1
 
 rem バックアップ 作成
 if exist %inifile% (
@@ -61,15 +61,12 @@ move %inifile% %backup%
 
 rem シンボリックリンク 作成
 :mklink
-rem echo ^>^> Copy *.ini
-rem copy "ccleaner.ini" %inifile%
 if exist %inifile% (
 	del /q %inifile%
 	)
 
 echo ^>^> Make symbolic link *.ini
 mklink %inifile% %srcdir%"\ccleaner.ini"
-rem copy "ccleaner.ini" %inifile%
 
 endlocal
 popd
