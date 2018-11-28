@@ -3,7 +3,7 @@ setlocal
 rem Created:     2018/01/01 00:00:00
 rem Last Change: 2018/11/22 20:33:21.
 
-set batch_title="Setting CCleaner""
+set batch_title="Setting CCleaner"
 title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
