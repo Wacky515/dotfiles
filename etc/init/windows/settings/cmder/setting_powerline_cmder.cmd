@@ -15,12 +15,7 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
-rem  スクリプトがある "Dir" に "cd"
-<<<<<<< HEAD
-pushd "%~dp0"
-=======
 pushd %~dp0
->>>>>>> f2797e1122bedb259341e007fbc848627a472e94
 
 echo ^>^> Start setting cmder-powerline-prompt
 copy powerline_prompt.lua %CMDER_ROOT%/config
