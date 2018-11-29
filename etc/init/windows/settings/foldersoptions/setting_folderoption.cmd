@@ -1,4 +1,4 @@
-ï»¿@echo off
+@echo off
 setlocal
 rem Created:     2018/03/31 09:53:57
 rem Last Change: 2018/11/17 09:45:44.
@@ -16,13 +16,9 @@ rem ŠÇ—ÒŒ ŒÀ‚Å‚È‚¯‚ê‚ÎŠÇ—ÒŒ ŒÀ‚ÅÄ‹N“®
 exit
 
 :main_routine
-<<<<<<< HEAD
-rem  ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "cd"
-pushd "%~dp0"
-=======
+
 rem  ƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "cd"
 pushd %~dp0
->>>>>>> f2797e1122bedb259341e007fbc848627a472e94
 
 echo ^>^> %batch_title%
 

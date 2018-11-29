@@ -28,6 +28,7 @@ set mm=%date:~5,2%
 set dd=%date:~8,2%
 
 rem éûçèéÊìæ
+set time=%time: =0%
 set hh=%time:~0,2%
 set mi=%time:~3,2%
 set ss=%time:~6,2%
@@ -35,7 +36,7 @@ set ss=%time:~6,2%
 set tstmp=%yyyy%-%mm%-%dd%_%hh%-%mi%-%ss%
 echo ^>^> Time stamp: %tstmp%
 
-set inidir="C:\Users\mm12167.DMJ\AppData\Roaming\UWSC"
+set inidir=%homepath%"\AppData\Roaming\UWSC"
 set inifile=%inidir%"\UWSC.INI"
 set backup=%inidir%"\old\"%tstmp%
 rem set srcdir=%OneDrive%"\édéñ\Settings\***"
@@ -71,5 +72,5 @@ mklink %inifile% %srcdir%"\ccleaner.ini"
 endlocal
 popd
 
-rem pause
+pause
 exit /b 0
