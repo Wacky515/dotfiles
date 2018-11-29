@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/11/17 09:46:13.
+rem Last Change: 2018/11/29 12:12:37.
 
 title Setting Graphiz
 
@@ -29,9 +29,9 @@ if not exist C:\%~n1 (
 cscript setting_env_var_graphviz.vbs
 
 :eof
-
 endlocal
 popd
 
-pause
-exit
+rem pause
+exit /b 0
+

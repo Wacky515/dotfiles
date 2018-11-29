@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/11/15 12:28:51.
+rem Last Change: 2018/11/29 11:59:31.
 
 title Setting Cmder here
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
@@ -22,3 +22,4 @@ popd
 
 rem pause
 exit /b 0
+

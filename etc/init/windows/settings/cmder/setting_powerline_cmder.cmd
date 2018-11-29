@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/04/19 09:01:59
-rem Last Change: 2018/11/17 09:44:36.
+rem Last Change: 2018/11/29 12:00:07.
 
 title Setting powerline
 
@@ -25,3 +25,4 @@ popd
 
 rem pause
 exit /b 0
+

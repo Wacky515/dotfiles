@@ -1,7 +1,7 @@
 @echo off
 
 for /r %%f in ( * ) do call :sub "%%f"
-pause
+rem pause
 exit /b
 
 :sub
@@ -11,3 +11,4 @@ set fname=%fname:.test=%
 rem echo %fname%
 ren "%~1" "%fname%%~x1"
 goto :EOF
+

@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/03/31 09:53:57
-rem Last Change: 2018/11/17 09:45:44.
+rem Last Change: 2018/11/29 12:09:28.
 
 set batch_title="Setting for Folder options"
 title %batch_title%
@@ -16,7 +16,6 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
-
 rem  スクリプトがある "Dir" に "cd"
 pushd %~dp0
 
@@ -48,3 +47,4 @@ popd
 
 rem pause
 exit /b 0
+
