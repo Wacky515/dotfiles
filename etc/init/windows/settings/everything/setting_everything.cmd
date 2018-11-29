@@ -28,6 +28,7 @@ set mm=%date:~5,2%
 set dd=%date:~8,2%
 
 rem æ“¾
+set time=%time: =0%
 set hh=%time:~0,2%
 set mi=%time:~3,2%
 set ss=%time:~6,2%
