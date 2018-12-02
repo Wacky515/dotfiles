@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2018/11/23 11:39:32.
+rem Last Change: 2018/11/29 14:16:41.
 
 title Initialize dotfile
 
@@ -69,12 +69,8 @@ if not exist %homepath%\dotfiles\.git (
             echo ^>^> Already clone Git
             )
 
-rem rem 再度スクリプトがある "Dir" に "cd"
-rem pushd %bat_path%
-
-rem 設定ファイルがある "Dir" に "cd"
-set srcdir=%OneDrive%"\仕事\InitApps"
-pushd %srcdir%
+rem 再度スクリプトがある "Dir" に "cd"
+pushd %bat_path%
 
 rem git\init\settings と OneDrive\仕事\settings 内の setting_*.cmd 実行
 call sub_install_all.cmd

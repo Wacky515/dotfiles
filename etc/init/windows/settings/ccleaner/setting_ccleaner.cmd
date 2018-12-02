@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2018/11/27 08:39:34.
+rem Last Change: 2018/11/29 15:57:29.
 
 set batch_title="Setting CCleaner"
 title %batch_title%
@@ -77,3 +77,4 @@ popd
 
 rem pause
 exit /b 0
+
