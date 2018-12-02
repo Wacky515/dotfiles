@@ -1,6 +1,6 @@
 @echo off
 rem Created:     2016/08/17 00:00:00
-rem Last Change: 2018/11/17 09:49:26.
+rem Last Change: 2018/11/29 12:42:11.
 
 rem TODO: 常時管理者として実行する
 rem TODO: "init.vim"、"ginit.vim" シンボリックリンクの
@@ -9,7 +9,19 @@ rem ↑ "NyaoVim" も・・・
 
 rem DONE: ginit.vim コピー後、)の使い方が誤っています エラーになる
 
-rem  スクリプトがある "Dir" に "cd"
+set batch_title="Make dotfiles "
+title %batch_title%
+
+whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
+
+rem 管理者権限ならメイン処理
+if not errorlevel 1 goto main_routine
+
+rem 管理者権限でなければ管理者権限で再起動
+@powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
+exit
+
+:main_routine
 pushd %~dp0
 
 set NVIM_PATH=%HOMEPATH%"\AppData\Local\nvim"
