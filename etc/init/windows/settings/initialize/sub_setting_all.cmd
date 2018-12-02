@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/11/23 13:21:44.
+rem Last Change: 2018/11/29 15:53:29.
 
 title Initialize setting
 
@@ -12,50 +12,70 @@ echo ^>^> Search setting batch in Git
 pushd %git_path%
 
 for /r %%i in (setting_*) do (
-    echo ^>^> Catch:  %%~nxi
+    if %%~xi == .cmd (echo ^>^> Catch: %%~nxi)
+    if %%~xi == .vbs (echo ^>^> Catch: %%~nxi)
+    if %%~xi == .reg (echo ^>^> Catch: %%~nxi
+        ) else (
+            rem pass
+        )
     )
 
-rem for /r %%j in (setting_*.cmd) do (
-rem     echo ^>^> Automatically execute %%~nxj by batch
-rem     call %%j
-rem     )
-rem call init_and_update_chocolatey.cmd
-
-for /r %%k in (setting_*.vbs) do (
-    echo ^>^> Automatically execute %%~nxk by batch
-    cscript %%k
-    )
-
-for /r %%l in (install_*.reg) do (
-    echo ^>^> Automatically execute %%~nxl by batch
-    reg import %%l
+for /r %%j in (setting_*) do (
+    pushd %git_path%
+    if %%~xj == .cmd (
+        echo ^>^> Automatically execute %%~nxj by batch
+        echo %%~dpj
+        echo %%~nxj
+        cd %%~dpj
+        call %%~nxj
+        echo 1
+        rem pushd %git_path%
+        )
+    if %%~xj == .vbs (
+        echo ^>^> Automatically execute %%~nxj by batch
+        cscript %%j
+        rem pushd %git_path%
+        )
+    if %%~xj == .reg (
+        echo ^>^> Automatically execute %%~nxj by batch
+        reg import %%j
+        rem pushd %git_path%
+        )
     )
 
 echo ^>^> Search setting batch in OneDrive
 pushd %od_path%
 
-for /r %%m in (setting_*) do (
-    echo ^>^> Catch:  %%~nxm
+for /r %%k in (setting_*) do (
+    if %%~xk == .cmd (echo ^>^> Catch: %%~nxk)
+    if %%~xk == .vbs (echo ^>^> Catch: %%~nxk)
+    if %%~xk == .reg (echo ^>^> Catch: %%~nxk
+        ) else (
+            rem pass
+        )
     )
 
-rem for /r %%n in (setting_*.cmd) do (
-rem     echo ^>^> Automatically execute %%~nxn by batch
-rem     call %%n
-rem     )
-
-for /r %%o in (setting_*.vbs) do (
-    echo ^>^> Automatically execute %%~oxn by batch
-    cscript %%o
-    )
-
-for /r %%p in (install_*.reg) do (
-    echo ^>^> Automatically execute %%~nxp by batch
-    reg import %%p
+for /r %%l in (setting_*) do (
+    if %%~xl == .cmd (
+        echo ^>^> Automatically execute %%~nxl by batch
+        call %%l
+        pushd %od_path%
+        )
+    if %%~xl == .vbs (
+        echo ^>^> Automatically execute %%~nxl by batch
+        cscript %%l
+        pushd %od_path%
+        )
+    if %%~xl == .reg (
+        echo ^>^> Automatically execute %%~nxl by batch
+        reg import %%l
+        pushd %od_path%
+        )
     )
 
 popd
 endlocal
 
 rem pause
-rem exit /b 0
+exit /b 0
 
