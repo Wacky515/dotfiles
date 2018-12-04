@@ -1,9 +1,9 @@
 @echo off
 setlocal
 rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/11/29 12:10:27.
+rem Last Change: 2018/12/04 09:21:30.
 
-set batch_title="Setting for Folder options"
+set batch_title=Setting for Folder options
 title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL

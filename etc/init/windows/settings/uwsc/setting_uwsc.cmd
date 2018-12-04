@@ -1,9 +1,9 @@
 @echo off
 setlocal
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2018/11/27 08:42:19.
+rem Last Change: 2018/12/04 09:22:48.
 
-set batch_title="Setting UWSC"
+set batch_title=Setting UWSC
 title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
@@ -72,5 +72,5 @@ mklink %inifile% %srcdir%"\ccleaner.ini"
 endlocal
 popd
 
-pause
+rem pause
 exit /b 0

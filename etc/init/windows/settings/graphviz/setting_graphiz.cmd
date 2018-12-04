@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/11/29 12:12:37.
+rem Last Change: 2018/12/04 16:25:19.
 
 title Setting Graphiz
 
@@ -16,10 +16,8 @@ for %%i in (*.7z) do (
     )
 
 :unzip
-if not exist C:\%~n1 (
+if not exist "C:\"%~n1 (
     echo ^>^> Set %~n1 in C Drive
-    rem %dir_7zip% e -y -oC:\%~n1 %1
-    rem %dir_7zip% x -y -oC:\%~n1 %1
     %dir_7zip% x -y -oC:\ %1
     ) else (
     echo ^>^> Aleady set %~n1, skip
