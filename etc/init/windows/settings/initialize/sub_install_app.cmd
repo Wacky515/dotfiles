@@ -1,9 +1,9 @@
 @echo off
 setlocal
 rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/11/23 16:51:22.
+rem Last Change: 2018/12/04 08:51:00.
 
-title Set initialize app
+title Install initialize App
 
 rem rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0

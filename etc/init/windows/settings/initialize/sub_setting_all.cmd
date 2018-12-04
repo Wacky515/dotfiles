@@ -1,12 +1,12 @@
 @echo off
 setlocal
 rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/11/29 15:53:29.
+rem Last Change: 2018/12/04 10:23:04.
 
 title Initialize setting
 
 set git_path=%homepath%\dotfiles\etc\init\windows\settings\
-set od_path=%homepath%\OneDrive\ŽdŽ–\Settings\
+set od_path=%OneDrive%\ŽdŽ–\Settings\
 
 echo ^>^> Search setting batch in Git
 pushd %git_path%
@@ -28,7 +28,7 @@ for /r %%j in (setting_*) do (
         echo %%~nxj
         cd %%~dpj
         call %%~nxj
-        echo 1
+        rem echo 1
         rem pushd %git_path%
         )
     if %%~xj == .vbs (

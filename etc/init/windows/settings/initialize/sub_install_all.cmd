@@ -1,12 +1,12 @@
 @echo off
 setlocal
 rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/11/29 15:22:53.
+rem Last Change: 2018/12/04 10:22:52.
 
-title Install Initialize App
+title Initialize batch for install
 
 set git_path=%homepath%\dotfiles\etc\init\windows\settings\
-set od_path=%homepath%\OneDrive\ŽdŽ–\Settings\
+set od_path=%OneDrive%\ŽdŽ–\Settings\
 
 echo ^>^> Search install batch in Git
 pushd %git_path%
@@ -73,4 +73,3 @@ endlocal
 
 rem pause
 exit /b 0
-

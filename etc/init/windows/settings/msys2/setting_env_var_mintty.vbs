@@ -1,5 +1,5 @@
 ' Created:     201*/**/** **:**:**
-' Last Change: 2018/11/23 12:01:54.
+' Last Change: 2018/12/04 08:27:53.
 
 ' 変数宣言を強制
 Option Explicit
@@ -18,7 +18,7 @@ If instr(env.item("HOME"), strEnvName) = 0 Then
     env.item("HOME") = env.item("HOME") & ";" & strEnvName
     MsgBox env.item("HOME")
 Else
-    WScript.Echo "Is exist"
+    WScript.Echo "Already exist"
 End if
 
 Set env  = Nothing

@@ -1,6 +1,6 @@
 @echo off
 rem Created:     2016/08/17 00:00:00
-rem Last Change: 2018/11/29 12:42:11.
+rem Last Change: 2018/12/04 09:23:37.
 
 rem TODO: 常時管理者として実行する
 rem TODO: "init.vim"、"ginit.vim" シンボリックリンクの
@@ -9,7 +9,7 @@ rem ↑ "NyaoVim" も・・・
 
 rem DONE: ginit.vim コピー後、)の使い方が誤っています エラーになる
 
-set batch_title="Make dotfiles "
+set batch_title=Make dotfiles
 title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL

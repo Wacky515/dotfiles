@@ -1,9 +1,9 @@
 @echo off
 setlocal
 rem Created:     2018/09/13 11:23:41
-rem Last Change: 2018/11/17 09:44:55.
+rem Last Change: 2018/12/04 09:20:31.
 
-set batch_title="Decompress file(Recursion)"
+set batch_title=Decompress file(Recursion)
 title %batch_title%
 
 rem  スクリプトがある "Dir" に "cd"

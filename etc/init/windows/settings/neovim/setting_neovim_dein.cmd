@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2018/11/17 09:47:46.
+rem Last Change: 2018/12/04 14:28:04.
 
 title Setting NeoVim's dein
 
@@ -19,11 +19,19 @@ rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 pushd %bat_path%
 
+pip3 --version > nul 2>&1
+if errorlevel 1 (
+    echo ^>^> Install pip3 first
+    call "C:\"%OneDrive%"\仕事\Settings\Python\install_python.cmd"
+    rem goto eof
+    )
+
 pip3 install neovim
 
+:eof
 endlocal
 popd
 
-pause
-exit /b0
+rem pause
+exit /b 0
 

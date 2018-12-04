@@ -1,9 +1,9 @@
 @echo off
 setlocal
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2018/11/23 11:32:24.
+rem Last Change: 2018/12/04 09:21:01.
 
-set batch_title="General setting Windows10"
+set batch_title=General setting Windows10
 title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
@@ -24,9 +24,11 @@ echo ^>^> %batch_title%
 rem "スナップされたウィンドウのサイズを変更するときに、隣接するスナップ ウィンドウのサイズも同時に変更する" を無効にする
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "JointResize" /t REG_DWORD /d "0" /f
 
+rem "ウィンドウをスナップするときに、利用可能な領域に合わせて自動的にサイズを変更するる" を無効にする
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "SnapFill" /t REG_DWORD /d "0" /f
+
 endlocal
 popd
 
 rem pause
 exit /b 0
-
