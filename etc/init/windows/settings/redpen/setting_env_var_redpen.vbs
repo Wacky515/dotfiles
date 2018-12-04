@@ -1,7 +1,7 @@
-ï»¿' Created:     2018/10/04 11:19:01
-' Last Change: 2018/10/04 12:12:38.
+' Created:     2018/10/04 11:19:01
+' Last Change: 2018/12/04 11:04:06.
 
-' å¤‰æ•°å®£è¨€ã‚’å¼·åˆ¶
+' •Ï”éŒ¾‚ğ‹­§
 Option Explicit
 On Error Resume Next
 
@@ -10,17 +10,17 @@ Dim env
 Dim strEnvName
 
 Set shell = WScript.CreateObject("WScript.Shell")
-strEnvName = "C:\%homepath%\redpen-distribution-1.10.1\bin"
+strEnvName = "C:\%homepath%\redpen-distribution-1.10.1\bin\"
 
 Set env = shell.Environment("User")
     ' If Err.Number = 0 Then  ' {{{
     '     ' strEnvName = "TESTENV"
     '     ' strEnvName = "C:%homepath%\redpen-distribution-1.10.1\bin"
     '     env.Remove(strEnvName)
-    '     ' WScript.Echo "ç’°å¢ƒå¤‰æ•° " & strEnvName & " ã‚’å‰Šé™¤ã—ã¾ã—ãŸã€‚"
+    '     ' WScript.Echo "ŠÂ‹«•Ï” " & strEnvName & " ‚ğíœ‚µ‚Ü‚µ‚½B"
     '     WScript.Echo "Dell"
     ' ' Else
-    '     ' WScript.Echo "ã‚¨ãƒ©ãƒ¼: " & Err.Description
+    '     ' WScript.Echo "ƒGƒ‰[: " & Err.Description
     ' End If
 ' env.item("PATH") = env.item("PATH") & ";" & strEnvName &
 ' env.item("PATH") = env.item("PATH") & ";" & strEnvName
@@ -31,7 +31,7 @@ If instr(env.item("PATH"), strEnvName) = 0 Then
     env.item("PATH") = env.item("PATH") & ";" & strEnvName
     MsgBox env.item("PATH")
 Else
-    WScript.Echo "Is exist"
+    WScript.Echo "Already exist"
 End if
 
 Set env  = Nothing

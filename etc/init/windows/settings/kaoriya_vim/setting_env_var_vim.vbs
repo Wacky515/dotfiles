@@ -1,7 +1,7 @@
 ' Created:     201*/**/** **:**:**
-' Last Change: 2018/11/23 16:40:24.
+' Last Change: 2018/12/04 08:07:56.
 
-' ?Ï??éŒ¾?ğ‹­?
+' •Ï”éŒ¾‚ğ‹­§
 Option Explicit
 On Error Resume Next
 
@@ -12,7 +12,7 @@ Dim osbits
 
 Set shell = WScript.CreateObject("WScript.Shell")
 
-' OS?r?b?g???ÅğŒ•???
+' OS?r?b?g????????
 osbits = GetObject("winmgmts:root\cimv2:Win32_Processor='cpu0'").AddressWidth
 
 If osbits = 64 Then
@@ -30,7 +30,7 @@ If instr(env.item("PATH"), strEnvName) = 0 Then
     env.item("PATH") = env.item("PATH") & ";" & strEnvName
     MsgBox env.item("PATH")
 Else
-    WScript.Echo "Is exist"
+    WScript.Echo "Already exist"
 End if
 
 Set env  = Nothing

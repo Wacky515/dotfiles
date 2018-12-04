@@ -1,9 +1,10 @@
 @echo off
 setlocal
 rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/11/17 09:46:56.
+rem Last Change: 2018/12/04 16:19:27.
 
-title Setting Pacman
+set batch_title=Setting Pacman
+title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
@@ -18,13 +19,14 @@ exit
 rem  スクリプトがある "Dir" に "cd"
 pushd %~dp0
 
-echo Start set link
+echo ^>^> %batch_title%
+echo ^>^> Start set link
 
 mklink "C:\tools\msys64\etc" "\.pacman.conf"
 
 endlocal
 popd
 
-pause
+rem pause
 exit /b 0
 

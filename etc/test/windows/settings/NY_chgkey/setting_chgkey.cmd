@@ -1,9 +1,9 @@
 @echo off
 setlocal
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2018/11/17 09:49:10.
+rem Last Change: 2018/12/04 09:23:20.
 
-set batch_title="Setting CCleaner"
+set batch_title=Setting CCleaner
 title %batch_title%
 
 rem スクリプトがある "Dir" に "cd"

@@ -3,7 +3,7 @@ setlocal
 rem Created:     2018/05/10 19:22:34
 rem Last Change: 2018/11/29 14:16:41.
 
-title Initialize dotfile
+title Initialize dotfiles
 
 set bat_path=%~dp0
 set config_files=packages_%computername%.config
@@ -44,7 +44,7 @@ if exist *_%config_files% (
             )
         ) else (
             echo ^>^> "Setting default parameter"
-            cinst -y packages.config
+            cinst -y %homepath%"\dotfiles\etc\init\windows\settings\chocolatey\packages.config"
             )
 
 cup all -y

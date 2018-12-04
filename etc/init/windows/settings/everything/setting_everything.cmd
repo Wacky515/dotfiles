@@ -1,9 +1,9 @@
 @echo off
 setlocal
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2018/11/29 12:07:19.
+rem Last Change: 2018/12/04 11:14:03.
 
-set batch_title="Setting Everything"
+set batch_title=Setting Everything
 title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
@@ -93,6 +93,6 @@ goto end
 endlocal
 popd
 
-pause
+rem pause
 exit /b 0
 

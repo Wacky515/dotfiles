@@ -17,9 +17,15 @@ exit
 :main_routine
 pushd %~dp0
 
-echo ^>^> Start setting cmder-powerline-prompt
-copy powerline_prompt.lua %CMDER_ROOT%/config
+if not exist %CMDER_ROOT%/config (
+    echo ^>^> Not set %CMDER_ROOT%
+    goto :eol
+    ) else (
+    echo ^>^> Start setting cmder-powerline-prompt
+    copy powerline_prompt.lua %CMDER_ROOT%/config
+    )
 
+:eol
 endlocal
 popd
 
