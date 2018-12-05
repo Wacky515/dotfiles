@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2017/01/18 00:00:00
-rem Last Change: 2018/12/04 11:11:45.
+rem Last Change: 2018/12/05 09:27:44.
 
 set batch_title=Setting Yamabuki R
 title %batch_title%
@@ -54,3 +54,4 @@ popd
 
 rem pause
 exit /b 0
+

@@ -1,9 +1,9 @@
 @echo off
 setlocal
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2018/12/04 09:22:39.
+rem Last Change: 2018/12/05 09:14:02.
 
-set batch_title=Install textlint(Subroutine)
+set batch_title=Install textlint
 title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL

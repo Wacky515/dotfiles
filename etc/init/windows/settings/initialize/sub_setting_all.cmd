@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/12/04 10:23:04.
+rem Last Change: 2018/12/05 09:47:16.
 
 title Initialize setting
 
@@ -12,13 +12,14 @@ echo ^>^> Search setting batch in Git
 pushd %git_path%
 
 for /r %%i in (setting_*) do (
-    if %%~xi == .cmd (echo ^>^> Catch: %%~nxi)
-    if %%~xi == .vbs (echo ^>^> Catch: %%~nxi)
-    if %%~xi == .reg (echo ^>^> Catch: %%~nxi
+    if %%~xi == .cmd (echo    ^>^> Catch: %%~nxi)
+    if %%~xi == .vbs (echo    ^>^> Catch: %%~nxi)
+    if %%~xi == .reg (echo    ^>^> Catch: %%~nxi
         ) else (
             rem pass
         )
     )
+echo    ^>^> Done
 
 for /r %%j in (setting_*) do (
     pushd %git_path%
@@ -47,13 +48,14 @@ echo ^>^> Search setting batch in OneDrive
 pushd %od_path%
 
 for /r %%k in (setting_*) do (
-    if %%~xk == .cmd (echo ^>^> Catch: %%~nxk)
-    if %%~xk == .vbs (echo ^>^> Catch: %%~nxk)
-    if %%~xk == .reg (echo ^>^> Catch: %%~nxk
+    if %%~xk == .cmd (echo    ^>^> Catch: %%~nxk)
+    if %%~xk == .vbs (echo    ^>^> Catch: %%~nxk)
+    if %%~xk == .reg (echo    ^>^> Catch: %%~nxk
         ) else (
             rem pass
         )
     )
+echo    ^>^> Done
 
 for /r %%l in (setting_*) do (
     if %%~xl == .cmd (
