@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2018/12/04 09:22:48.
+rem Last Change: 2018/12/05 09:26:56.
 
 set batch_title=Setting UWSC
 title %batch_title%
@@ -16,10 +16,6 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
-rem スクリプトがある "Dir" に "cd"
-set bat_path=%~dp0
-pushd %bat_path%
-
 echo ^>^> %batch_title%
 
 rem 日付取得
@@ -36,13 +32,14 @@ set ss=%time:~6,2%
 set tstmp=%yyyy%-%mm%-%dd%_%hh%-%mi%-%ss%
 echo ^>^> Time stamp: %tstmp%
 
+set bat_path=%~dp0
 set inidir=%homepath%"\AppData\Roaming\UWSC"
 set inifile=%inidir%"\UWSC.INI"
 set backup=%inidir%"\old\"%tstmp%
-rem set srcdir=%OneDrive%"\仕事\Settings\***"
+set srcdir=%bat_path%
 
-rem 設定ファイルがある "Dir" に "cd"
-rem pushd %srcdir%
+rem rem スクリプトがある "Dir" に "cd"
+rem pushd %bat_path%
 
 rem "UWSC" 停止
 echo ^>^> Kill UWSC
@@ -67,10 +64,11 @@ if exist %inifile% (
 	)
 
 echo ^>^> Make symbolic link *.ini
-mklink %inifile% %srcdir%"\ccleaner.ini"
+mklink %inifile% %srcdir%"\UWSC.INI"
 
 endlocal
 popd
 
 rem pause
 exit /b 0
+

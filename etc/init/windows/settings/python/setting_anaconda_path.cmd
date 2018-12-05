@@ -1,9 +1,9 @@
 @echo off
 setlocal
 rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/12/04 17:13:13.
+rem Last Change: 2018/12/05 09:11:25.
 
-set "batch_title"=Setting Anaconda path
+set batch_title=Setting Anaconda path
 title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
@@ -31,6 +31,6 @@ if exist "C:\Python35\Lib\site-packages\.anaconda.pth" (
 endlocal
 popd
 
-pause
+rem pause
 exit /b 0
 
