@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/03/31 09:53:57
-rem Last Change: 2018/12/04 09:20:51.
+rem Last Change: 2018/12/05 15:23:22.
 
 set batch_title=Setting for Folder options
 title %batch_title%
@@ -16,7 +16,6 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
-
 rem スクリプトがある "Dir" に "cd"
 pushd %~dp0
 
@@ -45,20 +44,46 @@ reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Ad
 
 echo ^>^> Don't make Suffix
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v link /T REG_Binary /d 00000000 /f
-reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\NamingTemplates" /v ShortcutNameTemplate /f
+reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\NamingTemplates" /v ShortcutNameTemplate /f > nul 2>&1
 
 echo ^>^> Hide Task view
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowTaskViewButton" /t REG_DWORD /d "0" /f
 
 echo ^>^> Hide People
-reg add "HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer" /v "HidePeopleBar" /t REG_DWORD /d "0" /f
+reg add "HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer" /v "HidePeopleBar" /t REG_DWORD /d "1" /f
 
 rem エクスプローラー 再起動
 taskkill /f /im explorer.exe > nul 2>&1
 start explorer.exe
 
+ver | find /i "Version 6.1." > nul
+if %errorlevel% equ 0 goto windows7
+
+ver | find /i "Version 10.0." > nul
+if %errorlevel% equ 0 goto windows10
+
+:windows7
+echo ^>^> This OS is Windows7
+pushd "windows7"
+for %%i in (general_setting_*.cmd) do (
+        call %%i
+        )
+pushd %srcdir%
+goto eof
+
+:windows10
+echo ^>^> This OS is Windows10
+pushd "windows10"
+for %%j in (general_setting_*.cmd) do (
+        call %%j
+        )
+pushd %srcdir%
+goto eof
+
+:eof
 endlocal
 popd
 
 rem pause
 exit /b 0
+
