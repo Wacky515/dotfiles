@@ -1,9 +1,9 @@
 @echo off
 setlocal
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2018/11/29 15:57:29.
+rem Last Change: 2018/12/04 09:20:20.
 
-set batch_title="Setting CCleaner"
+set batch_title=Setting CCleaner
 title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL

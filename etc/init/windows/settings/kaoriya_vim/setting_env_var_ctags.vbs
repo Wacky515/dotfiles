@@ -1,7 +1,7 @@
-ï»¿' Created:     201*/**/** **:**:**
-' Last Change: 2018/11/23 11:55:11.
+' Created:     201*/**/** **:**:**
+' Last Change: 2018/12/04 08:20:53.
 
-' å¤‰æ•°å®£è¨€ã‚’å¼·åˆ¶
+' •Ï”éŒ¾‚ğ‹­§
 Option Explicit
 On Error Resume Next
 
@@ -10,7 +10,7 @@ Dim env
 Dim strEnvName
 
 Set shell = WScript.CreateObject("WScript.Shell")
-strEnvName = "C:\%homepath%\dotfiles\.vim\ctags"
+strEnvName = "C:\%homepath%\dotfiles\.vim\ctags\"
 
 Set env = shell.Environment("User")
 
@@ -18,7 +18,7 @@ If instr(env.item("PATH"), strEnvName) = 0 Then
     env.item("PATH") = env.item("PATH") & ";" & strEnvName
     MsgBox env.item("PATH")
 Else
-    WScript.Echo "Is exist"
+    WScript.Echo "Already exist"
 End if
 
 Set env  = Nothing

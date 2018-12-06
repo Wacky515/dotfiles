@@ -3,7 +3,7 @@ setlocal
 rem Created:     20**/**/** **:**:**
 rem Last Change: 2018/11/23 11:36:07.
 
-title Install Initialize font
+title Install initialize font
 
 rem rem スクリプトがある "Dir" に "cd"
 rem set bat_path=%~dp0

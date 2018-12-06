@@ -1,7 +1,7 @@
 ' Created:     201*/**/** **:**:**
 ' Last Change: 2018/11/23 11:56:20.
 
-' å¤‰æ•°å®£è¨€ã‚’å¼·åˆ¶
+' •Ï”éŒ¾‚ğ‹­§
 Option Explicit
 On Error Resume Next
 
@@ -18,7 +18,7 @@ If instr(env.item("PATH"), strEnvName) = 0 Then
     env.item("PATH") = env.item("PATH") & ";" & strEnvName
     MsgBox env.item("PATH")
 Else
-    WScript.Echo "Is exist"
+    WScript.Echo "Already exist"
 End if
 
 Set env  = Nothing
