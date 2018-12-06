@@ -1,14 +1,14 @@
 @echo off
 setlocal
 rem Created:     2018/06/07 10:30:32
-rem Last Change: 2018/11/17 09:47:10.
+rem Last Change: 2018/12/04 09:21:53.
 
 rem TODO:
 rem 既存のシンボリックリンク削除
 rem zsh用の.ini作成
 rem 上記のシンボリックリンク
 
-set batch_title="Setting zsh"
+set batch_title=Setting zsh
 title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL

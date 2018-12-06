@@ -1,12 +1,10 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2018/11/29 14:16:41.
+rem Last Change: 2018/12/05 11:10:11.
 
-title Initialize dotfile
-
-set bat_path=%~dp0
-set config_files=packages_%computername%.config
+set batch_title=Initialize dotfiles
+title %batch_title%
 
 rem 管理者権限で起動されたかチェック
 whoami /priv | find "SeLoadDriverPrivilege" > nul
@@ -19,8 +17,14 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
+set bat_path=%~dp0
+set config_files=packages_%computername%.config
+set def_conf=%homepath%"\dotfiles\etc\init\windows\settings\chocolatey\packages.config"
+
 rem スクリプトがある "Dir" に "cd"
 pushd %bat_path%
+
+echo ^>^> %batch_title%
 
 rem "Chocolatey" インストール済みかチェック
 chocolatey -v > nul 2>&1
@@ -35,28 +39,29 @@ cinst -y git onedrive teamviewer
 :update
 echo ^>^> Already installed Chocolatey, Update software
 
+rem Test時はKILL
+rem ---------------------------------------------------------------------------
 rem "***_packages_***.config" を読み込み、インストール
 if exist *_%config_files% (
-        echo ^>^> Install app for this PC
-        for %%i in (*_%config_files%) do (
-            rem cinst -y %config_files%
-            cinst -y %%i
-            )
-        ) else (
-            echo ^>^> "Setting default parameter"
-            cinst -y packages.config
-            )
-
+    echo ^>^> Install app for this PC
+    for %%i in (*_%config_files%) do (
+        cinst -y %%i
+        )
+    ) else (
+        echo ^>^> "Setting default parameter"
+        cinst -y %def_conf%
+        )
 cup all -y
+rem ---------------------------------------------------------------------------
 
 rem ホームディレクトリに "cd"
 pushd %homepath%
 
 echo ^>^> Check installed Git or not
-if not exist %homepath%\dotfiles\.git (
-        echo ^>^> Git clone first
-        if exist %homepath%\dotfiles\ (
-            rmdir /s %homepath%\dotfiles\
+if not exist %homepath%"\dotfiles\.git" (
+        echo    ^>^> Git clone first
+        if exist %homepath%"\dotfiles\" (
+            rmdir /s %homepath%"\dotfiles\"
             )
         git clone https://github.com/Wacky515/dotfiles.git
         rem 暫定的に以下の branch に checkout
@@ -66,32 +71,35 @@ if not exist %homepath%\dotfiles\.git (
         pushd dotfiles
         call link.cmd
         ) else (
-            echo ^>^> Already clone Git
+            echo    ^>^> Already Git clone
             )
 
 rem 再度スクリプトがある "Dir" に "cd"
 pushd %bat_path%
 
-rem git\init\settings と OneDrive\仕事\settings 内の setting_*.cmd 実行
+rem "git\init\settings" と O"neDrive\仕事\settings" の "setting_*.cmd" 実行
 call sub_install_all.cmd
-call sub_setting_all.cmd
-
-pause
-echo ^>^> Chocolatey update
-cup all -y
+rem pause
 
 rem ホームディレクトリに *.7z で圧縮したアプリを展開
-rem call sub_install_all.cmd
 call sub_install_app.cmd
+rem pause
 
-rem TODO: 以下を復活させる
+call sub_setting_all.cmd
+rem pause
+
+echo ^>^> Chocolatey update
+cup all -y
+rem pause
+
 call sub_install_font.cmd
 
-echo "*** PLEASE RESTART PC ***"
+echo "*** CAUTION, RESTART PC AFTER KEY IN ***"
+pause
+shutdown.exe -r -t 60
 
 endlocal
 popd
 
-pause
 exit /b 0
 

@@ -1,9 +1,9 @@
 @echo off
 setlocal
 rem Created:     2017/07/09 21:50:53
-rem Last Change: 2018/11/17 09:48:48.
+rem Last Change: 2018/12/04 09:23:12.
 
-set batch_title="Get system sound setting"
+set batch_title=Get system sound setting
 title %batch_title""
 
 rem スクリプトがある "Dir" に "cd"

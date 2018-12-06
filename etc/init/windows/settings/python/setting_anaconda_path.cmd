@@ -1,9 +1,10 @@
 @echo off
 setlocal
 rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/11/17 09:47:59.
+rem Last Change: 2018/12/05 09:11:25.
 
-title Setting Anaconda path
+set batch_title=Setting Anaconda path
+title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
@@ -20,12 +21,16 @@ pushd %~dp0
 
 echo Start set link
 
-rem mklink %HOMEPATH%"\.gvimrc" ".\dotfiles\.gvimrc"
-mklink "C:\Python35\Lib\site-packages\.anaconda.pth" "\.anaconda.pth"
+if exist "C:\Python35\Lib\site-packages\.anaconda.pth" (
+    mklink "C:\Python35\Lib\site-packages\.anaconda.pth" "\.anaconda.pth"
+    ) else (
+    echo ^>^> Install Anaconda by Chocolatey
+    cinst anaconda3 -y
+    )
 
 endlocal
 popd
 
-pause
+rem pause
 exit /b 0
 

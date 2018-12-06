@@ -1,9 +1,9 @@
 @echo off
 setlocal
 rem Created:     2017/01/18 00:00:00
-rem Last Change: 2018/11/22 12:02:31.
+rem Last Change: 2018/12/05 09:27:44.
 
-set batch_title="Setting Yamabuki R"
+set batch_title=Setting Yamabuki R
 title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
@@ -38,19 +38,20 @@ echo ^>^> "This PC is Windows7"
 copy "yamabuki_r.lnk" %HOMEPATH%"\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 rem FIXME: ↑ と重複してるけど動作する、意味不明
 if errorlevel 1 copy "yamabuki_r.lnk" %HOMEPATH%"\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
-goto end
+goto eof
 
 :win10
 echo ^>^> "This PC is Windows10"
 copy "yamabuki_r.lnk" %HOMEPATH%"\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 rem FIXME: ↑ と重複してるけど動作する、意味不明
 if errorlevel 1 copy "yamabuki_r.lnk" %HOMEPATH%"\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
-goto end
+goto eof
 
-:end
+:eof
 
 endlocal
 popd
 
 rem pause
 exit /b 0
+
