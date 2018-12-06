@@ -1,9 +1,9 @@
 @echo off
 setlocal
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2018/11/22 20:43:01.
+rem Last Change: 2018/12/04 09:21:41.
 
-set batch_title="Setting Google Japanese input"
+set batch_title=Setting Google Japanese input
 title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
@@ -60,17 +60,11 @@ mkdir %backup%
 
 :bkup
 if exist %dbdir%"\Google Japanese Input" (
-    echo 1
     move %dbdir%"\Google Japanese Input" ^
         %backup%"\Google Japanese Input_"%tstmp%
-    echo 2
     )
 
-cd
-echo 3
 mkdir %dbdir%"\Google Japanese Input"
-cd
-echo 4
 
 rem シンボリックリンク 作成
 rem echo ^>^> Make symbolic link *.db
