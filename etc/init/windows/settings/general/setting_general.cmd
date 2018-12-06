@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/03/31 09:53:57
-rem Last Change: 2018/12/05 15:23:22.
+rem Last Change: 2018/12/06 08:18:59.
 
 set batch_title=Setting for Folder options
 title %batch_title%
@@ -51,6 +51,11 @@ reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Ad
 
 echo ^>^> Hide People
 reg add "HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer" /v "HidePeopleBar" /t REG_DWORD /d "1" /f
+
+echo ^>^> OFF UAC
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "ConsentPromptBehaviorAdmin" /t REG_DWORD /d "0" /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "PromptOnSecureDesktop" /t REG_DWORD /d "0" /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "EnableLUA" /t REG_DWORD /d "1" /f
 
 rem エクスプローラー 再起動
 taskkill /f /im explorer.exe > nul 2>&1
