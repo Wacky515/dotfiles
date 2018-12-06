@@ -1,3 +1,4 @@
+// TODO: 名前順ソーティング
 KBD(VK_WIN,DOWN,30)
 KBD(VK_D,CLICK,30)
 KBD(VK_E,CLICK,30)
