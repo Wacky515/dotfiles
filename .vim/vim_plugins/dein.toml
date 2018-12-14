@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/11/13 09:45:29.
+# Last Change: 2018/12/13 07:38:48.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -122,6 +122,14 @@ repo = 'ryanoasis/vim-devicons'
     # <Ctrl>e: ウィンドウリサイズ開始
 [[plugins]]
 repo = 'simeji/winresizer'
+
+# 起動画面に直近で開いたファイル等を表示
+[[plugins]]
+repo = 'mhinz/vim-startify'
+
+# マルチカーソル
+[[plugins]]
+repo = 'terryma/vim-multiple-cursors'
 
 # カーソル移動の機能強化
 [[plugins]]

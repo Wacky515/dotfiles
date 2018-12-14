@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2018/12/04 09:20:20.
+rem Last Change: 2018/12/13 08:23:20.
 
 set batch_title=Setting CCleaner
 title %batch_title%
@@ -50,31 +50,31 @@ taskkill /f /im CCleaner.exe > nul 2>&1
 
 rem バックアップ 作成
 if exist %inifile% (
-    goto bkup
-) else (
-    goto mklink
-)
+        goto bkup
+        ) else (
+            goto mklink
+            )
 
-:bkup
-echo ^>^> Backup old *.ini
-mkdir %backup%
-move %inifile% %backup%
+    :bkup
+    echo ^>^> Backup old *.ini
+    mkdir %backup%
+    move %inifile% %backup%
 
-rem シンボリックリンク 作成
-:mklink
-rem echo ^>^> Copy *.ini
-rem copy "ccleaner.ini" %inifile%
+    rem シンボリックリンク 作成
+    :mklink
+    rem echo ^>^> Copy *.ini
+    rem copy "ccleaner.ini" %inifile%
 if exist %inifile% (
-	del /q %inifile%
-	)
+        del /q %inifile%
+        )
 
-echo ^>^> Make symbolic link *.ini
-mklink %inifile% %srcdir%"\ccleaner.ini"
-rem copy "ccleaner.ini" %inifile%
+    echo ^>^> Make symbolic link *.ini
+    mklink %inifile% %srcdir%"\ccleaner.ini"
+    rem copy "ccleaner.ini" %inifile%
 
-endlocal
-popd
+    endlocal
+    popd
 
-rem pause
-exit /b 0
+    rem pause
+    exit /b 0
 
