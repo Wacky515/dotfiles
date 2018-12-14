@@ -4,6 +4,9 @@
 
 ### FIXME: "NeoVim" で変更必要
 
+- g;: 変更箇所へ進む
+- g,: 変更箇所へ戻る
+
 - ev: vimrcを開く
 - eg: gvimrcを開く
 - ,v: vimrcを反映
