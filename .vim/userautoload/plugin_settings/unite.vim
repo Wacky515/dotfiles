@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/19 20:47:58
-" Last Change: 2018/11/22 14:10:40.
+" Last Change: 2018/12/14 16:55:43.
 
 " ---------------------------------------------------------------------------
 " マップキー
@@ -33,26 +33,26 @@ nnoremap <silent> [unite]L :<C-u>Unite
 
 " Uniteを開いている間のキーマッピング
 if globpath(&rtp, 'plugin/unite.vim') != ''
-  nnoremap sc :<C-u>Unite colorscheme font<Cr>
+    nnoremap sc :<C-u>Unite colorscheme font<Cr>
 endif
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
-	" <Esc>: 終了
-	nmap <buffer> <Esc> <Plug>(unite_exit)
-	" jj: ノーマルモードに移動
-	imap <buffer> jj <Plug>(unite_insert_leave)
-	" <Ctrl>w: バックスラッシュ削除
-	imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
-	" <Ctrl>h: 縦に分割して開く
-	nnoremap <silent> <buffer> <expr> <C-h> unite#do_action('split')
-	inoremap <silent> <buffer> <expr> <C-h> unite#do_action('split')
-	" <Ctrl>v: 横に分割して開く
-	nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
-	inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
-	" <Ctrl>o: その場所に開く
-	nnoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
-	inoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
+    " <Esc>: 終了
+    nmap <buffer> <Esc> <Plug>(unite_exit)
+    " jj: ノーマルモードに移動
+    imap <buffer> jj <Plug>(unite_insert_leave)
+    " <Ctrl>w: バックスラッシュ削除
+    imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
+    " <Ctrl>h: 縦に分割して開く
+    nnoremap <silent> <buffer> <expr> <C-h> unite#do_action('split')
+    inoremap <silent> <buffer> <expr> <C-h> unite#do_action('split')
+    " <Ctrl>v: 横に分割して開く
+    nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+    inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+    " <Ctrl>o: その場所に開く
+    nnoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
+    inoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
 endfunction
 
 " ---------------------------------------------------------------------------
@@ -64,7 +64,8 @@ let g:unite_enable_start_insert = 1
 let g:unite_enable_split_vertically = 1
 " 最近開いたファイル履歴の保存数
 let g:unite_source_file_mru_limit = 1000
-"file_mruの表示フォーマットを指定。空にすると表示スピードが高速化される
+"file_mruの表示フォーマットを指定
+    "空にすると表示スピードが高速化される
 let g:unite_source_file_mru_filename_format = ""
 
 " ---------------------------------------------------------------------------
@@ -74,28 +75,27 @@ let g:unite_source_file_mru_filename_format = ""
 " FIXME: E117発生のためキル
 
 " let diff_action = {
-"     \ 'description' : 'diff',
-"     \ 'is_selectable' : 1,
-"     \ }
-"
+"             \ 'description' : 'diff',
+"             \ 'is_selectable' : 1,
+"             \ }
+
 " function! diff_action.func(candidates)
-"   if len(a:candidates) == 1
-"     " カレントバッファとdiff
-"     execute 'vert diffsplit ' . a:candidates[0].action__path
-"   elseif len(a:candidates) == 2
-"     " 選択されたファイルとdiff
-"     execute 'tabnew ' . a:candidates[0].action__path
-"     execute 'vert diffsplit ' . a:candidates[1].action__path
-"   else
-"     " 3-way以上は非対応
-"     echo 'too many candidates!'
-"   endif
+"     if len(a:candidates) == 1
+"         " カレントバッファとdiff
+"         execute 'vert diffsplit ' . a:candidates[0].action__path
+"     elseif len(a:candidates) == 2
+"         " 選択されたファイルとdiff
+"         execute 'tabnew ' . a:candidates[0].action__path
+"         execute 'vert diffsplit ' . a:candidates[1].action__path
+"     else
+"         " 3-way以上は非対応
+"         echo 'too many candidates!'
+"     endif
 " endfunction
-"
+
 " FIXME: ↓でE117発生
 " " call unite#custom_action('file', 'diff', diff_action)
-" call unite#custom#action('file', 'diff', diff_action)
-"
+
 " unlet diff_action
 
 " ---------------------------------------------------------------------------
@@ -110,4 +110,12 @@ if executable('rg')
     " "Windows" 設定
     let g:unite_source_grep_encoding='utf-8'
 endif
+
+" ---------------------------------------------------------------------------
+" unite-tagsの設定
+" ---------------------------------------------------------------------------
+" autocmd BufEnter *
+"             \    if empty(&buftype)
+"             \ |      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
+"             \ |  endif
 

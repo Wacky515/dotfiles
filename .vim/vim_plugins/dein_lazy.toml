@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/11/26 11:28:20.
+# Last Change: 2018/12/14 14:48:11.
 # TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -228,7 +228,6 @@ if = "has('nvim')"
 
 # Markdown
 # プレビュー
-# <Leader>md: 編集中のファイルをブラウザで表示
 [[plugins]]
 repo = 'kannokanno/previm'
 # Google検索使うので ↓ KILL
