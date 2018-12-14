@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/12/13 07:38:48.
+# Last Change: 2018/12/14 15:20:34.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -40,7 +40,7 @@ repo = 'cohama/agit.vim'
     # :Gitv: 機能追加版 "gitk" 実行
 [[plugins]]
 repo = 'gregsexton/gitv'
-depends = ['fugitive']
+depends = ['vim-fugitive']
 # コミットログ入力強化
 [[plugins]]
 repo = 'rhysd/committia.vim'
@@ -57,6 +57,10 @@ repo = 'nazo/pt.vim'
     # :DirDiff A B: AとBを比較
 [[plugins]]
 repo = 'vim-scripts/DirDiff.vim'
+
+# Ctags
+[[plugins]]
+repo = 'majutsushi/tagbar'
 
 # Undo履歴
     # F4|:GundoToggle: Undo履歴起動
@@ -85,6 +89,8 @@ repo = 'rinx/yj-proofreading.vim'
 depends = ['mattn/webapi-vim']
 [[plugins]]
 repo = 'rhysd/committia.vim'
+[[plugins]]
+repo = 'mattn/webapi-vim'
 
 # <Leader>o: ファイラ起動
 [[plugins]]
@@ -247,17 +253,17 @@ hook_add = '''
 repo = 'dhruvasagar/vim-table-mode'
 
 # GAME
-[[plugins]]
-repo = 'rbtnn/game_engine.vim'
+# [[plugins]]
+# repo = 'rbtnn/game_engine.vim'
 # [[plugins]]
 # repo = 'rbtnn/pipe.vim'
 # depends = ['game_engine']
-[[plugins]]
-repo = 'rbtnn/mario.vim'
-depends = ['game_engine']
-[[plugins]]
-repo = 'rbtnn/puyo.vim'
-depends = ['game_engine']
+# [[plugins]]
+# repo = 'rbtnn/mario.vim'
+# depends = ['game_engine']
+# [[plugins]]
+# repo = 'rbtnn/puyo.vim'
+# depends = ['game_engine']
 # [[plugins]]
 # repo = 'rbtnn/reversi.vim'
 # depends = ['game_engine']
