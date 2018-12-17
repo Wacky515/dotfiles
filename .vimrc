@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 00:00:00
-" Last Change: 2018/12/14 16:28:00.
+" Last Change: 2018/12/17 08:57:26.
 
 " MEMO: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -11,10 +11,10 @@ augroup END
 " "Python3" のパス設定
 if hostname() == "ProSalad133.local"
     let g:python3_host_prog = "/usr/local/bin/Python3"
-elseif hostname() == "HBAMB748A"
+elseif hostname() == "HBAMB748A" || "HBAMB819"
     let g:python3_host_prog = "C:\\Python35\\python.exe"
-elseif hostname() == "HBAMB819"
-    let g:python3_host_prog = "C:\\Python35\\python.exe"
+" elseif hostname() == "HBAMB819"
+"     let g:python3_host_prog = "C:\\Python35\\python.exe"
 elseif hostname() == "SALADCARBONX1"
     let g:python3_host_prog = "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
 else
@@ -22,7 +22,7 @@ else
 endif
 " if has("nvim") && hostname() == "ProSalad133.local"  " {{{
 "     let g:python3_host_prog = "/usr/local/bin/Python3"
-" elseif has("nvim") && hostname() == "HBAMB748A"
+" elseif has("nvim") && hostname() == "HBAMB748A" || "HBAMB819"
 "     let g:python3_host_prog = "C:\\Python35\\python.exe"
 " elseif has("nvim") && hostname() == "SALADCARBONX1"
 "     let g:python3_host_prog = "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
@@ -41,14 +41,14 @@ endif
 if ((has("win32") || has("win64")) && !has("kaoriya"))
 
     " TODO:  " {{{
-    " Windows の Vim で dein がインストールできたら
-    " 通常の dein と統合する
+    " "Windows" の "Vim" で "dein" がインストールできたら
+    " 通常の "dein" と統合する
     " プラグインをインストールするディレクトリを指定
     " let s:plugin_dir = expand("~\.cache\dein")
-    "
+
     " " "dein.vim" をインストールするディレクトリをランタイムパスへ追加
     " let s:dein_dir = s:plugin_dir . "\\repos\\github.com\\Shougo\\dein.vim"
-    "
+
     " " "dein.vimが" なければ "git clone"
     " if &runtimepath !~# "/dein.vim"
     "     if !isdirectory(s:dein_dir)
@@ -56,25 +56,25 @@ if ((has("win32") || has("win64")) && !has("kaoriya"))
     "     endif
     "     execute "set runtimepath^=" . s:dein_dir
     " endif
-    "
+
     " " 設定開始
     " if dein#load_state(s:plugin_dir)
     "     call dein#begin(s:plugin_dir)
-    "
+
     "     " プラグインリスト "*.toml" を指定
     "     let g:plugin_dir  = expand("~/vimfiles/plugin")
     "     let s:toml        = g:plugin_dir . "/dein.toml"
     "     let s:lazy_toml   = g:plugin_dir . "/dein_lazy.toml"
-    "
+
     "     " "*.toml" を読込み、キャッシュ
     "     call dein#load_toml(s:toml,      {"lazy": 0})
     "     call dein#load_toml(s:lazy_toml, {"lazy": 1})
-    "
+
     "     " 設定終了
     "     call dein#end()
     "     call dein#save_state()
     " endif
-    "
+
     " " 未インストールのプラグインがあればインストール
     " if dein#check_install()
     "     call dein#install()
@@ -94,23 +94,33 @@ else
 
     " プラグインをインストールするディレクトリを指定
     if !has("nvim")
-        let s:plugin_dir = expand("~/.cache/dein/")
+        if has("unix")
+            let s:plugin_dir = expand("~/.cache/dein/")
+        elseif has("win32") || has("win64")
+            let s:plugin_dir = expand("~\\.cache\\dein\\")
+        endif
+
     elseif has("unix")
         " TODO: Unix系のパス設定追加
         let s:plugin_dir = expand("~/.config/nvim/.cache/dein/")
     elseif has("win32") || has("win64")
-        if hostname() == "HBAMB748A"
-            let s:plugin_dir = expand("C:\\Users\\MM12167\\AppData\\Local\\nvim\\.cache\\dein\\")
-        else
+        if hostname() == "HBAMB748A"|| "HBAMB819"
+            let s:plugin_dir = expand("~\\AppData\\Local\\nvim\\.cache\\dein\\")
+        " if hostname() == "HBAMB748A"
+        "     let s:plugin_dir = expand("C:\\Users\\MM12167\\AppData\\Local\\nvim\\.cache\\dein\\")
+        " elseif hostname() == "HBAMB819"
+        "     let s:plugin_dir = expand("C:\\Users\\MM12167.DMJ\\AppData\\Local\\nvim\\.cache\\dein\\")
+        " else
             " FTR: let s:plugin_dir = expand("~/.cache/nvim/dein/")
             let s:plugin_dir = expand("~/AppData/Local/nvim/.cache/dein/")
         endif
+
     elseif exists("g:nyaovim_version")
         let s:dein_cache_path = expand("~/.config/nyaovim/dein")
     endif
 
     " "dein.vim" をインストールするディレクトリをランタイムパスへ追加
-    if hostname() == "HBAMB748A"
+    if hostname() == "HBAMB748A" || "HBAMB819"
         let s:dein_dir = s:plugin_dir . "repos\\github.com\\Shougo\\dein.vim"
     else
         let s:dein_dir = s:plugin_dir . "repos/github.com/Shougo/dein.vim"
@@ -129,8 +139,13 @@ else
         call dein#begin(s:plugin_dir)
 
         " プラグインリスト "*.toml" を指定
-        if has("nvim") && hostname() == "HBAMB748A"
-            let g:plugin_dir  = expand("C:\\Users\\MM12167\\.vim\\vim_plugins")
+        " if has("nvim") && hostname() == "HBAMB748A"
+        "     let g:plugin_dir  = expand("C:\\Users\\MM12167\\.vim\\vim_plugins")
+        " elseif has("nvim") && hostname() == "HBAMB819"
+        "     let g:plugin_dir  = expand("C:\\Users\\MM12167.DMJ\\.vim\\vim_plugins")
+        " endif
+        if has("nvim") && hostname() == "HBAMB748A" || "HBAMB819"
+            let g:plugin_dir  = expand("~\\.vim\\vim_plugins")
             let s:toml        = g:plugin_dir . "\\dein.toml"
             let s:lazy_toml   = g:plugin_dir . "\\dein_lazy.toml"
             let s:python_toml = g:plugin_dir . "\\dein_python.toml"
@@ -164,7 +179,7 @@ else
         call dein#install()
     endif
 endif
-"
+
 " " MEMO:
 " " プラグインの追加・削除やtomlファイルの設定を変更した後は
 " " 適宜 "du: call dein#check_update()" や "dc: call dein#clear_state()" を実行する
@@ -192,6 +207,6 @@ runtime! userautoload/plugin_settings/*.vim
 " endif
 
 " 読み込んだプラグインも含め、ファイルタイプの検出
-" ファイルタイプ別プラグイン/インデントを有効化する
+    " ファイルタイプ別プラグイン/インデントを有効化する
 filetype plugin indent on
 
