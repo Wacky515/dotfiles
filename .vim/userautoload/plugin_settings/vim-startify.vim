@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/12/13 07:39:11
-" Last Change: 2018/12/17 14:52:31.
+" Last Change: 2018/12/18 07:13:46.
 
 " ---------------------------------------------------------------------------
 "  マップキー
@@ -9,10 +9,11 @@ scriptencoding utf-8
 " ---------------------------------------------------------------------------
 "  基本設定
 " ---------------------------------------------------------------------------
-let g:startify_files_number = 5
+let g:startify_files_number = 10
 
 " ヘッダ部分に表示する文字列を設定
     " "date" コマンドを実行し日付を設定
+    " MEMO: "Windows" は "date" がエラーになる
 if has("win32") || has("win64")
     let g:startify_custom_header = 'startify#fortune#cowsay()'
 elseif
@@ -20,9 +21,10 @@ elseif
                 \ map(split(system('date'), '\n'), '"   ". v:val') + ['','']
 endif
 
-" 最近使ったファイルの接頭アルファベットを指定
+" " 最近使ったファイルの接頭アルファベットを指定
 " let g:startify_custom_indices = ['f', 'g', 'h', 'r', 'i', 'o', 'b']
 
+" 接頭記号を指定
 let g:startify_list_order = [
             \ ['♻  最近使ったファイル:'],
             \ 'files',
@@ -34,7 +36,7 @@ let g:startify_list_order = [
             \ 'bookmarks'
             \ ]
 
-" よく使うファイルをブックマークとして登録
+" ブックマーク
 let g:startify_bookmarks = [
             \ "~/.vimrc",
             \ "~/.gvimrc",
@@ -42,7 +44,7 @@ let g:startify_bookmarks = [
             \ "~/dotfiles/.vim/vim_plugins/dein_lazy.toml"
             \ ]
 
-" ASCII ART 中央揃え
+" アスキーアート 中央揃え
     " :h startifyを参照
 function! s:filter_header(lines) abort
     let longest_line   = max(map(copy(a:lines), 'len(v:val)'))
@@ -136,3 +138,4 @@ let g:startify_custom_header = s:filter_header([
             " \ '                       ~~~_._?<<(.,1(..-JJJJJ+JG+xZUUOrwzZ7!',
             " \ '                              ````(WMMMMMMMMMMM$<+?1v<!`',
             " \ '                                 `        ``````',
+
