@@ -1,5 +1,5 @@
 ' Created:     201*/**/** **:**:**
-' Last Change: 2018/12/04 08:24:02.
+' Last Change: 2018/12/18 07:08:38.
 
 ' 変数宣言を強制
 Option Explicit
@@ -23,3 +23,4 @@ End if
 
 Set env  = Nothing
 Set shell  = Nothing
+
