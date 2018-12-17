@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/12/17 10:13:34.
+# Last Change: 2018/12/17 14:33:00.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -17,11 +17,8 @@ hook_source = '''  " {{{
     nmap gp <Plug>(yankround-gp)
     xmap gp <Plug>(yankround-gp)
     nmap gP <Plug>(yankround-gP)
-    " "multiple cursor" とコンフリクトするので変更
     nmap <C-p> <Plug>(yankround-prev)
     nmap <C-n> <Plug>(yankround-next)
-    " nmap <C-j> <Plug>(yankround-prev)
-    " nmap <C-k> <Plug>(yankround-next)
 '''  # }}}
 # [[plugins]]  # {{{
 # repo = 'vim-scripts/YankRing.vim'
