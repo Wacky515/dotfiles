@@ -1,12 +1,15 @@
 scriptencoding utf-8
 " Created:     2016/07/31 00:00:00
-" Last Change: 2018/12/17 08:57:26.
+" Last Change: 2018/12/17 14:26:50.
 
 " MEMO: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
 augroup MyAutoCmd
     autocmd!
 augroup END
+
+" "DLL" がない場合は "vimproc" がロードされるタイミングで自動でダウンロード & 更新
+let g:vimproc#download_windows_dll = 1
 
 " "Python3" のパス設定
 if hostname() == "ProSalad133.local"
