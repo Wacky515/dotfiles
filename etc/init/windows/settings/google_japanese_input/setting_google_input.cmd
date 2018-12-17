@@ -1,7 +1,7 @@
 @echo off
 setlocal
-rem Created:     2018/01/01 00:00:00
-rem Last Change: 2018/12/04 09:21:41.
+rem Created:     201*/**/** **:**:**
+rem Last Change: 2018/12/17 16:27:33.
 
 set batch_title=Setting Google Japanese input
 title %batch_title%
@@ -77,3 +77,4 @@ popd
 
 rem pause
 exit /b 0
+

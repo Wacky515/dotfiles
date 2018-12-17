@@ -1,8 +1,7 @@
 @echo off
 setlocal
 rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/11/17 09:42:44.
-
+rem Last Change: 2018/12/17 16:18:05.
 title Output Chocolatey list
 
 rem 管理者権限で起動されたかチェック
@@ -23,3 +22,4 @@ popd
 
 rem pause
 exit /b 0
+
