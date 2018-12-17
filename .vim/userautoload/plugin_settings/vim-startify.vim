@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/12/13 07:39:11
-" Last Change: 2018/12/14 16:26:10.
+" Last Change: 2018/12/17 14:52:31.
 
 " ---------------------------------------------------------------------------
 "  マップキー
@@ -31,13 +31,15 @@ let g:startify_list_order = [
             \ ['⚑  セッション:'],
             \ 'sessions',
             \ ['☺  ブックマーク:'],
-            \ 'bookmarks',
+            \ 'bookmarks'
             \ ]
 
 " よく使うファイルをブックマークとして登録
 let g:startify_bookmarks = [
             \ "~/.vimrc",
-            \ "~/.gvimrc"
+            \ "~/.gvimrc",
+            \ "~/dotfiles/.vim/vim_plugins/dein.toml",
+            \ "~/dotfiles/.vim/vim_plugins/dein_lazy.toml"
             \ ]
 
 " ASCII ART 中央揃え

@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/09/13 22:57:48
-" Last Change: 2018/12/17 09:34:21.
+" Last Change: 2018/12/17 11:50:50.
 
 " MEMO: "dein.toml" に移管した設定を戻したい
 " ---------------------------------------------------------------------------
@@ -34,6 +34,7 @@ call dein#add('roxma/vim-hug-neovim-rpc')
 set completeopt+=noinsert
 
 " MEMO: こちらに記述を戻す
+" MEMO: 記述順は "dein.toml" が新しい
 " MEMO: "dein.toml" に移管
 " let g:deoplete#enable_at_startup = 1
 " let g:deoplete#auto_complete_delay = 0
@@ -44,3 +45,4 @@ set completeopt+=noinsert
 " let g:deoplete#enable_smart_case = 1
 " let g:deoplete#file#enable_buffer_path = 1
 " let g:deoplete#max_list = 10000
+
