@@ -1,5 +1,6 @@
 scriptencoding utf-8
-" Last Change: 2018/04/04 22:43:40.
+" Created:     201*/**/** **:**:**
+" Last Change: 2018/12/17 16:00:00.
 " MEMO: "VeoVim" が起動しない時は "dein" のディレクトリを消す
 
 " !!!: 必ず先頭に記述
@@ -11,6 +12,8 @@ augroup END
 if hostname() == "HBAMB748A"
     " "Windows7" の "NeoVim" はデリミタが "\\"
     execute "source" "C:\\Users\\MM12167\\.vimrc"
+elseif hostname() == "HBAMB819"
+    execute "source" "C:\\Users\\MM12167.DMJ\\.vimrc"
 
 else
     " "Vim" 毎のrcファイルパス設定
@@ -27,3 +30,4 @@ else
     " 基本設定
     call s:source_rc(".vimrc")
 endif
+

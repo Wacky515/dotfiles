@@ -1,5 +1,6 @@
 scriptencoding utf-8
-" Last Change: 2018/04/05 11:00:27.
+" Created:     201*/**/** **:**:**
+" Last Change: 2018/12/17 16:02:24.
 " TODO: 開いたパスに%HOMEPATH%ディレクトリが生成されてしまう
 
 " !!!: 必ず先頭に記述
@@ -20,6 +21,8 @@ endif
 
 if hostname() == "HBAMB748A"
     execute "source" "C:\\Users\\MM12167\\.gvimrc"
+elseif hostname() == "HBAMB819"
+    execute "source" "C:\\Users\\MM12167.DMJ\\.gvimrc"
 elseif hostname() == "SALADCARBONX1"
     " "Vim" 毎のrcファイルパス設定
     let g:rc_dir = expand("~/dotfiles")
@@ -35,3 +38,4 @@ elseif hostname() == "SALADCARBONX1"
     " GUI基本設定
     call s:source_rc(".gvimrc")
 endif
+
