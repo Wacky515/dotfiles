@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/09/13 22:57:48
-" Last Change: 2018/11/12 12:53:13.
+" Last Change: 2018/12/17 09:34:21.
 
 " MEMO: "dein.toml" に移管した設定を戻したい
 " ---------------------------------------------------------------------------
@@ -35,7 +35,7 @@ set completeopt+=noinsert
 
 " MEMO: こちらに記述を戻す
 " MEMO: "dein.toml" に移管
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 " let g:deoplete#auto_complete_delay = 0
 " let g:deoplete#auto_complete_start_length = 1
 " let g:deoplete#enable_camel_case = 0
