@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/12/14 14:48:11.
+# Last Change: 2018/12/17 10:05:45.
 # TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -124,7 +124,7 @@ if = "has('python3')"
 depends = ['roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
 on_i = 1
 hook_add = '''  " {{{
-    " let g:deoplete#enable_at_startup = 1
+    let g:deoplete#enable_at_startup = 1
     let g:deoplete#auto_complete_delay = 0
 '''  # }}}
 on_event = ['InsertCharPre']
@@ -138,9 +138,9 @@ hook_source = '''  " {{{
 
     let g:deoplete#auto_complete_start_length = 1
     let g:deoplete#enable_camel_case = 0
+    let g:deoplete#enable_smart_case = 1
     let g:deoplete#enable_ignore_case = 0
     let g:deoplete#enable_refresh_always = 0
-    let g:deoplete#enable_smart_case = 1
     let g:deoplete#file#enable_buffer_path = 1
     let g:deoplete#max_list = 10000
      " "hook_add" と重複してるのでコメントアウト
