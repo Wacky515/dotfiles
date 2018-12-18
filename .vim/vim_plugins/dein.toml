@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/12/17 14:54:01.
+# Last Change: 2018/12/18 08:49:21.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -7,7 +7,6 @@ repo = 'Shougo/dein.vim'
 
 # コピペ 履歴保存
 # MEMO: 弊害が多いので "YankRnkg" -> "yankround" に変更
-    # ヤンク後に "<Ctrl>p|n" で履歴選択
 [[plugins]]
 repo = 'LeafCage/yankround.vim'
 hook_source = '''  " {{{
@@ -20,11 +19,6 @@ hook_source = '''  " {{{
     nmap <C-p> <Plug>(yankround-prev)
     nmap <C-n> <Plug>(yankround-next)
 '''  # }}}
-# [[plugins]]  # {{{
-# repo = 'vim-scripts/YankRing.vim'
-# if = "!has('nvim')"
-# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
-# }}}
 
 # "Git" 用プラグイン
 [[plugins]]
@@ -63,7 +57,6 @@ repo = 'vim-scripts/DirDiff.vim'
 repo = 'majutsushi/tagbar'
 
 # Undo履歴
-    # F4|:GundoToggle: Undo履歴起動
 [[plugins]]
 repo = 'sjl/gundo.vim'
 
@@ -72,7 +65,6 @@ repo = 'sjl/gundo.vim'
 repo = 'osyo-manga/vim-over'
 
 # チートシート表示
-# ":Cheat" でプレビュー
 [[plugins]]
 repo = 'reireias/vim-cheatsheet'
 
@@ -84,22 +76,23 @@ repo = 'thinca/vim-ref'
 repo = 'daisuzu/translategoogle.vim'
 
 # 文章校正
-# [[plugins]]
+# [[plugins]]  # {{{
 # repo = 'rinx/yj-proofreading.vim'
 # depends = ['mattn/webapi-vim']
 # [[plugins]]
 # repo = 'mattn/webapi-vim'
+# }}}
 
-# <Leader>o: ファイラ起動
+# ファイラ
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 [[plugins]]
 repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
+depends = ['nerdtree']
 # ,sp: カレントディレクトリ以下を検索
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
 if = "!has('nvim')"
-# ファイラー
 # :VimFiler で起動 # {{{
     # o: バッファを縦分割 or ディレクトリ同期
     # O: 別バッファに選択中のディレクトリの中を展開
@@ -112,22 +105,21 @@ repo = 'Shougo/vimfiler'
 # ステータスライン ビジュアル強化
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-depends = ['vim-fugitive', 'majutsushi/tagbar']
+# depends = ['vim-fugitive', 'majutsushi/tagbar']
+depends = ['vim-fugitive', 'tagbar']
 # < http://itchyny.hatenablog.com/entry/20130828/1377653592 >
-# どの関数の中にいるか表示
-[[plugins]]
-repo = 'majutsushi/tagbar'
 # アイコン表示
-    # "lightline" 拡張用
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
+# どの関数中か表示
+[[plugins]]
+repo = 'majutsushi/tagbar'
 
-# ウィンドウサイズ変更 簡便化
-    # <Ctrl>e: ウィンドウリサイズ開始
+# ウィンドウリサイズ
 [[plugins]]
 repo = 'simeji/winresizer'
 
-# 起動画面に直近で開いたファイル等を表示
+# 起動画面機能強化
 [[plugins]]
 repo = 'mhinz/vim-startify'
 
@@ -135,11 +127,11 @@ repo = 'mhinz/vim-startify'
 [[plugins]]
 repo = 'terryma/vim-multiple-cursors'
 
-# カーソル移動の機能強化
+# カーソル機能強化
 [[plugins]]
 repo = 'lokaltog/vim-easymotion'
 
-# コメントON/OFF トグル
+# コメント ON/OFFトグル
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
 
@@ -148,20 +140,20 @@ repo = 'tomtom/tcomment_vim'
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
 
-# 閉じ括弧保管
+# 閉じ括弧入力補完
 [[plugins]]
 repo = 'cohama/lexima.vim'
 
-# "%" で移動を強化
+# "%" 移動機能強化
     # *.htmlのタグなど
 [[plugins]]
 repo = 'tmhedberg/matchit'
 
-# 選択したテキストを'""'、"()"、"[]"などで囲む
+# 選択テキストを'""'、"()"、"[]"などで囲む
 [[plugins]]
 repo = 'tpope/vim-surround'
 
-# スネークケースやキャメルケースへの変換 # {{{
+# スネークケース、キャメルケースへ変換  # {{{
     # ノーマルモードで
         # crs: "SnakeCase"  → "snake_case"
         # crm: "mixed_case" → "MixedCase"
@@ -175,26 +167,25 @@ repo = 'tpope/vim-abolish'
 [[plugins]]
 repo = 'kana/vim-smartchr'
 
-# タイムスタンプを挿入
-    #  "Last Change: ." を記入
+# タイムスタンプ 挿入
 [[plugins]]
 repo = 'vim-scripts/autodate.vim'
 
 # 日付のインクリメント・デクリメント
-# FIXME: yyyy/mm/dd 形式は対応していない
+    # FIXME: yyyy/mm/dd 形式は対応していない
 [[plugins]]
 repo = 'tpope/vim-speeddating'
 
-# カーソル位置のコンテキストの "filetype" を自動切替
+# カーソル位置の "filetype" を自動切替
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = ['context_filetype.vim']
-# カーソル位置のコンテキストの "filetype" を自動判定
+# カーソル位置の "filetype" を自動判定
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
 # # 関数、クラス、変数、構造体、列挙型、マクロ定義など 一覧表示
-# ":TlistOpen" で開始
+    # ":TlistOpen" で開始
 [[plugins]]
 repo = 'vim-scripts/taglist.vim'
 
@@ -207,25 +198,20 @@ on_ft = ['toml']
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 
-# マークをビジュアル化
+# マーク ビジュアル化
 [[plugins]]
 repo = 'jacquesbh/vim-showmarks'
 
-# Vim上で計算機機能
+# 計算機
     # :Calc: で計算開始
     # "Python" 必要
 [[plugins]]
 repo = 'gregsexton/VimCalc'
 if = "!has('python')"
 
-# カレンダー
+# カレンダ
 [[plugins]]
 repo = 'itchyny/calendar.vim'
-
-# MEMO: ↓コピペができないのでKILL
-# # コマンドラインで "Emacs" キーバインド
-# [[plugins]]
-# repo = 'houtsnip/vim-emacscommandline'
 
 # # "true"/"false"、"yes"、"no"、"on"/"off" などをトグル
 # [[plugins]]
@@ -250,22 +236,6 @@ hook_add = '''
 [[plugins]]
 repo = 'dhruvasagar/vim-table-mode'
 
-# GAME
-# [[plugins]]
-# repo = 'rbtnn/game_engine.vim'
-# [[plugins]]
-# repo = 'rbtnn/pipe.vim'
-# depends = ['game_engine']
-# [[plugins]]
-# repo = 'rbtnn/mario.vim'
-# depends = ['game_engine']
-# [[plugins]]
-# repo = 'rbtnn/puyo.vim'
-# depends = ['game_engine']
-# [[plugins]]
-# repo = 'rbtnn/reversi.vim'
-# depends = ['game_engine']
-
 # ---------------------------------------------------------------------------
 # 導入予定
 # ---------------------------------------------------------------------------
@@ -288,8 +258,29 @@ repo = 'dhruvasagar/vim-table-mode'
 # 削除予定
 # ---------------------------------------------------------------------------
 # "VimShell"
-# ",s: :VimShell" で起動
-[[plugins]]
-repo = 'Shougo/vimshell'
-if = "!has('nvim')"
+# # ",s: :VimShell" で起動
+# [[plugins]]
+# repo = 'Shougo/vimshell'
+# if = "!has('nvim')"
+
+# MEMO: ↓コピペができないのでKILL
+# # コマンドラインで "Emacs" キーバインド
+# [[plugins]]
+# repo = 'houtsnip/vim-emacscommandline'
+
+# GAME
+# [[plugins]]
+# repo = 'rbtnn/game_engine.vim'
+# [[plugins]]
+# repo = 'rbtnn/pipe.vim'
+# depends = ['game_engine']
+# [[plugins]]
+# repo = 'rbtnn/mario.vim'
+# depends = ['game_engine']
+# [[plugins]]
+# repo = 'rbtnn/puyo.vim'
+# depends = ['game_engine']
+# [[plugins]]
+# repo = 'rbtnn/reversi.vim'
+# depends = ['game_engine']
 

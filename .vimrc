@@ -1,6 +1,6 @@
 scriptencoding utf-8
-" Created:     2016/07/31 00:00:00
-" Last Change: 2018/12/17 14:26:50.
+" Created:     2016/07/31 **:**:**
+" Last Change: 2018/12/18 08:36:58.
 
 " MEMO: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -8,7 +8,7 @@ augroup MyAutoCmd
     autocmd!
 augroup END
 
-" "DLL" がない場合は "vimproc" がロードされるタイミングで自動でダウンロード & 更新
+" "vimproc" ロードの時、"*.dll" 自動DL & 更新
 let g:vimproc#download_windows_dll = 1
 
 " "Python3" のパス設定
@@ -19,24 +19,15 @@ elseif hostname() == "HBAMB748A" || "HBAMB819"
 " elseif hostname() == "HBAMB819"
 "     let g:python3_host_prog = "C:\\Python35\\python.exe"
 elseif hostname() == "SALADCARBONX1"
+    " FTR: let g:python3_host_prog = "~\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
     let g:python3_host_prog = "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
 else
-    let g:python3_host_prog = "C:\\Python35\\python.exe"
+    if has("unix")
+        let g:python3_host_prog = "/usr/local/bin/Python3"
+    elseif has("win32") || has("win64")
+        let g:python3_host_prog = "C:\\Python35\\python.exe"
+    endif
 endif
-" if has("nvim") && hostname() == "ProSalad133.local"  " {{{
-"     let g:python3_host_prog = "/usr/local/bin/Python3"
-" elseif has("nvim") && hostname() == "HBAMB748A" || "HBAMB819"
-"     let g:python3_host_prog = "C:\\Python35\\python.exe"
-" elseif has("nvim") && hostname() == "SALADCARBONX1"
-"     let g:python3_host_prog = "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
-" elseif has("win32") || has("win64")
-"     if hostname() == "SALADCARBONX1"
-"         let g:python3_host_prog = "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
-"     elseif
-"         let g:python3_host_prog = "C:\\Python35\\python.exe"
-"     endif
-" endif
-" }}}
 
 " ---------------------------------------------------------------------------
 " dein.vimの設定
@@ -128,6 +119,7 @@ else
     else
         let s:dein_dir = s:plugin_dir . "repos/github.com/Shougo/dein.vim"
     endif
+
     execute "set runtimepath+=" . s:dein_dir
 
     " "dein.vimが" なければ "git clone"
@@ -142,11 +134,6 @@ else
         call dein#begin(s:plugin_dir)
 
         " プラグインリスト "*.toml" を指定
-        " if has("nvim") && hostname() == "HBAMB748A"
-        "     let g:plugin_dir  = expand("C:\\Users\\MM12167\\.vim\\vim_plugins")
-        " elseif has("nvim") && hostname() == "HBAMB819"
-        "     let g:plugin_dir  = expand("C:\\Users\\MM12167.DMJ\\.vim\\vim_plugins")
-        " endif
         if has("nvim") && hostname() == "HBAMB748A" || "HBAMB819"
             let g:plugin_dir  = expand("~\\.vim\\vim_plugins")
             let s:toml        = g:plugin_dir . "\\dein.toml"
