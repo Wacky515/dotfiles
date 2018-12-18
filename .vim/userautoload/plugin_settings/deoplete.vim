@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/09/13 22:57:48
-" Last Change: 2018/12/17 11:50:50.
+" Last Change: 2018/12/18 07:26:53.
 
 " MEMO: "dein.toml" に移管した設定を戻したい
 " ---------------------------------------------------------------------------
@@ -16,7 +16,7 @@ scriptencoding utf-8
 " ---------------------------------------------------------------------------
 " 基本設定
 " ---------------------------------------------------------------------------
-" TEMP: 'roxma/nvim-yarp' と 'roxma/vim-hug-neovim-rpc' を
+" TEMP: "roxma/nvim-yarp" と "roxma/vim-hug-neovim-rpc" を
 " "dein_lazy.toml" でインストールできないので以下で代替
 if ((has("nvim") || has("timers")) && has("python3"))
             \ && system("pip3 show neovim") !=# ''
@@ -35,7 +35,7 @@ set completeopt+=noinsert
 
 " MEMO: こちらに記述を戻す
 " MEMO: 記述順は "dein.toml" が新しい
-" MEMO: "dein.toml" に移管
+" DONE: "dein.toml" に移管
 " let g:deoplete#enable_at_startup = 1
 " let g:deoplete#auto_complete_delay = 0
 " let g:deoplete#auto_complete_start_length = 1
