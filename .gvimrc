@@ -1,6 +1,6 @@
 scriptencoding utf-8
-" Created:     2016/08/03 00:00:00
-" Last Change: 2018/12/06 08:10:32.
+" Created:     2016/08/03 **:**:**
+" Last Change: 2018/12/18 08:38:32.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -208,3 +208,4 @@ elseif has("win32") || has("win64")
         " set background=dark
     endif
 endif
+
