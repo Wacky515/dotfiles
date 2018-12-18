@@ -1,6 +1,6 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/12/18 08:57:58.
-# TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
+# Last Change: 2018/12/18 09:12:50.
+# TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
 [[plugins]]
@@ -229,16 +229,17 @@ if = "has('nvim')"
 # プレビュー
 [[plugins]]
 repo = 'kannokanno/previm'
-# MEMO: Google検索使うので ↓ KILL
+# ~~MEMO: Google検索使うので ↓ KILL~~
 # MEMO: markdownしか対応していない
 on_ft = ['markdown','mkd']
 [[plugins]]
 repo = 'tyru/open-browser.vim'
-# MEMO: Google検索使うので ↓ KILL
+# ~~MEMO: Google検索使うので ↓ KILL~~
 # MEMO: markdownしか対応していない
 on_ft = ['markdown','mkd']
-# MEMO: ↓エラーになる
-# MEMO: 64bitの設定、"*.vim" に記述
+# DONE: ↓エラーになる
+    # "vimproc" 自動DL & 更新で解決
+# MEMO: ↓ は64bitの設定、"*.vim" に記述
 # hook_add = '''
 #   let g:previm_open_cmd =
 #            \ 'C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe'
@@ -305,3 +306,4 @@ gui = 1
 # ---------------------------------------------------------------------------
 # TODO: 導入予定
 # ---------------------------------------------------------------------------
+
