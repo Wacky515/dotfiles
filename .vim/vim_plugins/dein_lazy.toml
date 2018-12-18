@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/12/17 14:38:28.
+# Last Change: 2018/12/18 08:57:58.
 # TODO: "hook_post_source"、"hook_post_source" は "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -210,8 +210,9 @@ hook_post_update = '''
 repo = 'kassio/neoterm'
 if = "has('nvim')"
 
+# MEMO: dein_python.toml に移管
 # # Python用プラグイン
-# [[plugins]]
+# [[plugins]]  # {{{
 # repo = 'davidhalter/jedi-vim'
 # on_ft = ['python']
 # # Pythonシンタックスハイライト
@@ -222,6 +223,7 @@ if = "has('nvim')"
 # # [[plugins]]
 # # repo = 'vim-scripts/python_fold'
 # # on_ft = ['python']
+# }}}
 
 # Markdown
 # プレビュー
@@ -278,8 +280,8 @@ hook_add = '''
 # フォントのサイズ変更
 [[plugins]]
 repo = 'thinca/vim-fontzoom'
-on_cmd = ['Fontzoom']
-on_map = ['<Plug>(fontzoom-']
+# on_cmd = ['Fontzoom']
+# on_map = ['<Plug>(fontzoom-']
 gui = 1
 
 # ---------------------------------------------------------------------------
