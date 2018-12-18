@@ -1,5 +1,6 @@
 scriptencoding utf-8
-" Last Change: 2018/04/03 10:10:25.
+" Created:     201*/**/** **:**:**
+" Last Change: 2018/12/18 08:02:43.
 
 let g:committia_hooks = {}
 function! g:committia_hooks.edit_open(info)
@@ -17,3 +18,4 @@ function! g:committia_hooks.edit_open(info)
     imap <buffer><C-p> <Plug>(committia-scroll-diff-up-half)
 
 endfunction
+
