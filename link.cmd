@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 00:00:00
-rem Last Change: 2018/12/18 11:42:44.
+rem Last Change: 2018/12/19 10:25:14.
 
 rem DONE: "init.vim"、"ginit.vim" シンボリックリンクの
     rem ソースのパスが変数化できない為、"copy"で暫定対応
@@ -26,29 +26,17 @@ exit
 :main_routine
 pushd %~dp0
 
-set NVIM_PATH=%HOMEPATH%"\AppData\Local\nvim"
 set dist_init=%homepath%"\AppData\Local\nvim\"
 set srce_init=%homepath%"\dotfiles\nvim\"
 
 echo ^>^> Start set link
 
 rem "NeoVim" 設定
-if not exist %NVIM_PATH% (
-    mklink /d %dist_init% %srce_init% > nul 2>&1
-    if %ERRORLEVEL% == 0 (
-        echo ^>^> *.nvim copy success!
+rmdir %dist_init%
+mklink /d %dist_init% %srce_init% > nul 2>&1
+if %ERRORLEVEL% == 0 (
+    echo ^>^> *.nvim copy success!
     )
-rem if exist %NVIM_PATH% (  rem {{{
-    rem mklink %NVIM_PATH%"\init.nvim" %homepath%"\dotfiles\init.nvim" > nul 2>&1
-    rem if %ERRORLEVEL% == 0 (
-    rem     echo ^>^> init.vim copy success!
-    rem     )
-    rem rem mklink %NVIM_PATH%"\ginit.nvim" %homepath%"\dotfiles\ginit.nvim" > nul 2>&1
-    rem if %ERRORLEVEL% == 0 (
-    rem     echo ^>^> ginit.vim copy success!
-    rem     )
-    rem )
-rem }}}
 
 rem "NyaoVim" 設定
 if exist %HOMEPATH%"\AppData\Roaming\NyaoVim" (
@@ -96,6 +84,6 @@ echo ^>^> End set link
 popd
 endlocal
 
-rem pause
+pause
 exit /b 0
 
