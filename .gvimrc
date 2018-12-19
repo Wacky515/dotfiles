@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2018/12/19 11:21:22.
+" Last Change: 2018/12/19 15:40:53.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -143,7 +143,10 @@ elseif (has("win32") || has("win64"))
             set printfont=Cica:h12
             set rop=type:directx,renmode:5
         else
-            Guifont! Cica:h16
+            Guifont! Cica:h14
+            set termguicolors
+            " TEMP: "dein" に移管する
+            colorscheme iceberg
         endif
         " colorscheme iceberg
         " set background=dark
@@ -154,9 +157,6 @@ elseif (has("win32") || has("win64"))
             set rop=type:directx,renmode:5
         else
             Guifont! Cica:h15
-            set termguicolors
-            " TEMP: "dein" に移管する
-            colorscheme iceberg
         endif
         " colorscheme hybrid
         " set background=dark
