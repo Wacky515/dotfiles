@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2018/12/18 08:38:32.
+" Last Change: 2018/12/19 11:21:22.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -31,12 +31,12 @@ set guioptions-=m
 if has("mac")
     set transparency=10
 endif
-if has("win32") || ("win64")
+if (has("win32") || ("win64"))
     :autocmd GUIEnter * set transparency=235
 endif
 
 " メッセージ 文字化け対策
-if has("win32") || ("win64")
+if (has("win32") || ("win64"))
     source $VIMRUNTIME/delmenu.vim
     set langmenu=ja_jp.utf-8
     source $VIMRUNTIME/menu.vim
@@ -112,7 +112,7 @@ elseif has("mac")
     " set background=dark
     endif
 
-elseif has("win32") || has("win64")
+elseif (has("win32") || has("win64"))
     " Home setting
     if hostname() == "SALADCARBONX1"
         if !has("nvim")
@@ -127,7 +127,7 @@ elseif has("win32") || has("win64")
         " set background=dark
 
     " muRata setting
-    elseif hostname() == "hbalt071"
+    elseif hostname() == "HBALT071"
         if !has("nvim")
             set guifont=Cica:h11
             set printfont=Cica:h8
@@ -137,7 +137,7 @@ elseif has("win32") || has("win64")
         endif
         " colorscheme iceberg
         " set background=dark
-    elseif hostname() == "hbamb748"
+    elseif hostname() == "HBAMB748"
         if !has("nvim")
             set guifont=Cica:h14
             set printfont=Cica:h12
@@ -153,7 +153,10 @@ elseif has("win32") || has("win64")
             set printfont=Cica:h13
             set rop=type:directx,renmode:5
         else
-            Guifont! Cica:h16
+            Guifont! Cica:h15
+            set termguicolors
+            " TEMP: "dein" に移管する
+            colorscheme iceberg
         endif
         " colorscheme hybrid
         " set background=dark
@@ -183,7 +186,10 @@ elseif has("win32") || has("win64")
             set printfont=Cica:h10
             set rop=type:directx,renmode:5
         else
-            Guifont! Cica:h16
+            Guifont! Cica:h12
+            set termguicolors
+            " TEMP: "dein" に移管する
+            colorscheme iceberg
         endif
         " colorscheme hybrid
         " set background=dark
