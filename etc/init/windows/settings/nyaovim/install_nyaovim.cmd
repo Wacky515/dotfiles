@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/12/19 11:37:29
-rem Last Change: 2018/12/19 11:41:12.
+rem Last Change: 2018/12/19 15:28:47.
 
 set batch_title=Install NyaoVim
 title %batch_title%
@@ -38,7 +38,7 @@ cinst -y nodejs.install
 
 :install_nyaovim
 echo ^>^> %batch_title%
-cmd npm -g nyaovim
+cmd /c npm install -g nyaovim
 
 endlocal
 popd

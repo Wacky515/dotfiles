@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2018/12/18 10:32:32.
+" Last Change: 2018/12/19 15:34:24.
 " TODO: 開いたパスに%HOMEPATH%ディレクトリが生成されてしまう
 
 " !!!: 必ず先頭に記述
@@ -19,7 +19,9 @@ if has("gui")
     winpos  200  10
 endif
 
-if hostname() == "HBAMB748A"
+if hostname() == "HBAMB748"
+    execute "source" "C:\\Users\\MM12167\\.gvimrc"
+elseif hostname() == "HBAMB748A"
     execute "source" "C:\\Users\\MM12167\\.gvimrc"
 elseif hostname() == "HBAMB819"
     execute "source" "C:\\Users\\MM12167.DMJ\\.gvimrc"
