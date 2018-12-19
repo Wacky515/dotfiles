@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 00:00:00
-rem Last Change: 2018/12/19 10:25:14.
+rem Last Change: 2018/12/19 12:49:50.
 
 rem DONE: "init.vim"、"ginit.vim" シンボリックリンクの
     rem ソースのパスが変数化できない為、"copy"で暫定対応
@@ -24,14 +24,16 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
-pushd %~dp0
-
-set dist_init=%homepath%"\AppData\Local\nvim\"
-set srce_init=%homepath%"\dotfiles\nvim\"
+set batch_path=%~dp0
+pushd %batch_path%
 
 echo ^>^> Start set link
 
 rem "NeoVim" 設定
+
+set dist_init=%homepath%"\AppData\Local\nvim\"
+set srce_init=%homepath%"\dotfiles\nvim\"
+
 rmdir %dist_init%
 mklink /d %dist_init% %srce_init% > nul 2>&1
 if %ERRORLEVEL% == 0 (
@@ -39,13 +41,26 @@ if %ERRORLEVEL% == 0 (
     )
 
 rem "NyaoVim" 設定
-if exist %HOMEPATH%"\AppData\Roaming\NyaoVim" (
-    mklink %HOMEPATH%"\AppData\Roaming\NyaoVim\nyaovimrc.html" ".\dotfiles\nyaovimrc.html" > nul 2>&1
-    rem copy nyaovimrc.html %HOMEPATH%"\AppData\Roaming\NyaoVim\"
-    if %ERRORLEVEL% == 0 (
-        echo ^>^> nyaovimrc.html link success!
-        )
+echo %batch_path%
+set dist_html=%homepath%"\AppData\Roaming\NyaoVim\nyaovimrc.html"
+set srce_html=%batch_path%".nyaovimrc.html"
+set dist_dot_html=%batch_path%"\AppData\Roaming\NyaoVim\"
+set srce_dot_html=%batch_path%"\dotfiles\nyaovim\nyaovimrc.html"
+
+rem set dist_html=%homepath%"\AppData\Roaming\NyaoVim\nyaovimrc.html"
+rem set srce_html=%homepath%"\dotfiles\.nyaovimrc.html"
+rem set dist_dot_html=%homepath%"\AppData\Roaming\NyaoVim\"
+rem set srce_dot_html=%homepath%"\dotfiles\nyaovim\nyaovimrc.html"
+
+if exist %dist_html% (
+    del %dist_html%
     )
+rem copy %srce_dot_html% %dist_dot_html%
+mklink %dist_html% %srce_html%
+rem copy %srce_html% %dist_html%
+if %ERRORLEVEL% == 0 (
+echo ^>^> nyaovimrc.html link success!
+)
 
 rem ".gitconfig" 設定
 mklink %HOMEPATH%"\.gitconfig" ".\dotfiles\.gitconfig" > nul 2>&1
@@ -74,6 +89,8 @@ for %%j in (.*) do (
             rem echo ignore4 %%j  rem 消すな！
         ) else if %%j == .gitconfig.linux (
             rem echo ignore5 %%j  rem 消すな！
+        ) else if %%j == .nyaovimrc.html (
+            rem echo ignore6 %%j  rem 消すな！
         ) else (
             mklink %HOMEPATH%"\"%%j ".\dotfiles\"%%j > nul 2>&1
         )
@@ -84,6 +101,6 @@ echo ^>^> End set link
 popd
 endlocal
 
-pause
+rem pause
 exit /b 0
 
