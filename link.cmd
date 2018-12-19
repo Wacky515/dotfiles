@@ -1,15 +1,16 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 00:00:00
-rem Last Change: 2018/12/19 12:49:50.
-
-rem DONE: "init.vim"、"ginit.vim" シンボリックリンクの
-    rem ソースのパスが変数化できない為、"copy"で暫定対応
-rem ↑ "NyaoVim" も・・・
-    rem 対策版TEST
+rem Last Change: 2018/12/19 15:13:22.
 
 rem DONE: 常時管理者として実行する
 rem DONE: ginit.vim コピー後、)の使い方が誤っています エラーになる
+
+rem MEMO: バッチで %homepath% を指定するとバグる
+rem DONE: "init.vim"、"ginit.vim" シンボリックリンクの
+    rem ソースのパスが変数化できない為、"copy"で暫定対応
+rem DONE: ↑ "NyaoVim" も・・・
+    rem 対策版TEST
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -37,27 +38,19 @@ set srce_init=%homepath%"\dotfiles\nvim\"
 rmdir %dist_init%
 mklink /d %dist_init% %srce_init% > nul 2>&1
 if %ERRORLEVEL% == 0 (
-    echo ^>^> *.nvim copy success!
+    echo ^>^> init.vim、ginit.vim copy success!
     )
 
 rem "NyaoVim" 設定
-echo %batch_path%
 set dist_html=%homepath%"\AppData\Roaming\NyaoVim\nyaovimrc.html"
-set srce_html=%batch_path%".nyaovimrc.html"
-set dist_dot_html=%batch_path%"\AppData\Roaming\NyaoVim\"
-set srce_dot_html=%batch_path%"\dotfiles\nyaovim\nyaovimrc.html"
-
-rem set dist_html=%homepath%"\AppData\Roaming\NyaoVim\nyaovimrc.html"
-rem set srce_html=%homepath%"\dotfiles\.nyaovimrc.html"
-rem set dist_dot_html=%homepath%"\AppData\Roaming\NyaoVim\"
-rem set srce_dot_html=%homepath%"\dotfiles\nyaovim\nyaovimrc.html"
+set srce_html=%batch_path%"nyaovimrc.html"
 
 if exist %dist_html% (
     del %dist_html%
     )
-rem copy %srce_dot_html% %dist_dot_html%
-mklink %dist_html% %srce_html%
-rem copy %srce_html% %dist_html%
+rem "mklink" だと起動しない
+copy %srce_html% %dist_html%
+rem mklink %dist_html% %srce_html%
 if %ERRORLEVEL% == 0 (
 echo ^>^> nyaovimrc.html link success!
 )
