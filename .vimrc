@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 20-Dec-2018.
+" Last Change: 2018/12/20 11:19:56.
 
 " MEMO: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -98,7 +98,7 @@ if dein#load_state(s:plugin_dir)
 		let s:lazy_toml        = g:plugin_dir . "/dein_lazy.toml"
 		let s:python_toml      = g:plugin_dir . "/dein_python.toml"
 
-		let g:plugin_dir_nvim  = expand("~/\.vim/vim_plugins_nvim")
+		let g:plugin_dir_nvim  = expand("~/.vim/vim_plugins_nvim")
 		let s:toml_nvim        = g:plugin_dir_nvim . "/dein_nvim.toml"
 		let s:lazy_toml_nvim   = g:plugin_dir_nvim . "/dein_lazy_nvim.toml"
 		let s:python_toml_nvim = g:plugin_dir_nvim . "/dein_python_nvim.toml"
