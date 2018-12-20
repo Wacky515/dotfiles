@@ -1,16 +1,17 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 00:00:00
-rem Last Change: 2018/12/19 15:13:22.
+rem Last Change: 2018/12/20 09:28:15.
 
-rem DONE: 常時管理者として実行する
+rem DONE: 常時管理者として実行する  rem {{{
 rem DONE: ginit.vim コピー後、)の使い方が誤っています エラーになる
 
 rem MEMO: バッチで %homepath% を指定するとバグる
 rem DONE: "init.vim"、"ginit.vim" シンボリックリンクの
     rem ソースのパスが変数化できない為、"copy"で暫定対応
 rem DONE: ↑ "NyaoVim" も・・・
-    rem 対策版TEST
+    rem DONE: 対策版TEST
+rem }}}
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -31,9 +32,13 @@ pushd %batch_path%
 echo ^>^> Start set link
 
 rem "NeoVim" 設定
-
-set dist_init=%homepath%"\AppData\Local\nvim\"
 set srce_init=%homepath%"\dotfiles\nvim\"
+if "%processor_architecture%" equ "x86" (
+        set dist_init=%homepath%"\AppData\Local\nvim\"
+        )
+if "%processor_architecture%" equ "AMD64" (
+        set dist_init=%xdg_config_home%"\nvim\"
+        )
 
 rmdir %dist_init%
 mklink /d %dist_init% %srce_init% > nul 2>&1
@@ -49,8 +54,8 @@ if exist %dist_html% (
     del %dist_html%
     )
 rem "mklink" だと起動しない
-copy %srce_html% %dist_html%
 rem mklink %dist_html% %srce_html%
+copy %srce_html% %dist_html%
 if %ERRORLEVEL% == 0 (
 echo ^>^> nyaovimrc.html link success!
 )
@@ -96,4 +101,3 @@ endlocal
 
 rem pause
 exit /b 0
-
