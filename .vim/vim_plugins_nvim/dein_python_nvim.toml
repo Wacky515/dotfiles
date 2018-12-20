@@ -1,3 +1,23 @@
 # Created:     2018/12/19 08:50:47
-# Last Change: 2018/12/19 08:51:04.
+# Last Change: 2018/12/20 14:48:23.
+
+# Python用プラグイン
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = ['python']
+
+# 補完
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
+on_ft = ['python']
+
+# シンタックスハイライト
+[[plugins]]
+repo = 'pfdevilliers/Pretty-Vim-Python'
+on_ft = ['python']
+
+# 自動折りたたみ
+# [[plugins]]
+# repo = 'vim-scripts/python_fold'
+# on_ft = ['python']
 

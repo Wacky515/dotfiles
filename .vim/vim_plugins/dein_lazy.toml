@@ -1,82 +1,8 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/12/18 09:12:50.
+# Last Change: 2018/12/20 15:40:20.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-if = "has('python3')"
-depends = ['neomru.vim']
-# MEMO: ↓は "*.vim" に移管できない
-hook_source = '''  " {{{
-    " プロンプトを ">" にする
-    call denite#custom#option('default', 'prompt', '>')
-    call denite#custom#option('default', 'direction', 'top')
-
-    " <C-n>/<C-p>: 上下移動
-    call denite#custom#map('normal',
-                \ '<C-n>', '<denite:move_to_next_line>')
-    call denite#custom#map('normal',
-                \ '<C-p>', '<denite:move_to_previous_line>')
-    call denite#custom#map('insert',
-                \ '<C-n>', '<denite:move_to_next_line>')
-    call denite#custom#map('insert',
-                \ '<C-p>', '<denite:move_to_previous_line>')
-
-    " <C-j>/<C-k>: 入力履歴移動
-    call denite#custom#map('insert',
-                \ '<C-j>', '<denite:assign_next_text>')
-    call denite#custom#map('insert',
-                \ '<C-k>', '<denite:assign_previous_text>')
-
-    " <C-t>: "tabopen"
-    call denite#custom#map('insert',
-                \ "<C-t>", '<denite:do_action:tabopen>')
-    " <C-v>: "vsplit"
-    call denite#custom#map('insert',
-                \ "<C-v>", '<denite:do_action:vsplit>')
-    call denite#custom#map('normal',
-                \ "v", '<denite:do_action:vsplit>')
-
-    " jj :ノーマルモード
-    call denite#custom#map('insert',
-                \ 'jj', '<denite:enter_mode:normal>')
-    " <C-s>: 水平画面分割して開く
-    call denite#custom#map('insert',
-                \ '<C-s>', '<denite:do_action:split>')
-    " <C-i>: 垂直画面分割して開く
-    call denite#custom#map('insert',
-                \ '<C-i>', '<denite:do_action:vsplit>')
-    " <C-o>: 新規タブで開く
-    call denite#custom#map('insert',
-                \ '<C-o>', '<denite:do_action:tabopen>')
-
-    " "file_rec" 検索時に "FuzzyMatch" を有効にし
-    " 検索対象から指定のファイルを除外
-    call denite#custom#source(
-                \ 'file_rec', 'matchers',
-                \ ['matcher_fuzzy',
-                \ 'matcher_project_files',
-                \ 'matcher_ignore_globs'])
-
-    " 検索対象外のファイル指定
-    call denite#custom#filter('matcher_ignore_globs',
-                \ 'ignore_globs',
-                \ [ '.git/', 'build/',
-                \ '.ropeproject/', '__pycache__/',
-                \ 'venv/', 'images/', 'img/',
-                \ 'fonts/', 'img/', 'fonts/',
-                \ 'images/', '*.o', '*.make', '*.min.*'])
-
-    " "Grep" に "RipGrep" を使用
-    if executable('rg')
-        call denite#custom#var('file_rec', 'command',
-                \ ['rg', '--files', '--glob', '!.git'])
-        call denite#custom#var('grep', 'command', ['rg'])
-    endif
-'''  # }}}
-on_i = 1
-on_cmd = ['Denite']
 [[plugins]]
 repo = 'Shougo/unite.vim'
 # TODO: "Denite" 動作テスト完了後に
@@ -90,60 +16,8 @@ repo = 'Shougo/neomru.vim'
 if = "!has('nvim')"
 on_source = ['dein.vim', 'unite.vim', 'denite.nvim']
 on_path = '.*'
-# "Denite|Unite" 用 "Source" 郡
-# "Colorscheme" プレビュー
-    # Ul: :Unite colorscheme でプレビュー
-    # Dl: :Denite colorscheme でプレビュー
-[[plugins]]
-repo = 'ujihisa/unite-colorscheme'
-# FIXME: ↓何も表示されない
-# フォントプレビュー
-    # ":Unite font" でプレビュー
-    # ":Denite font" でプレビュー
-[[plugins]]
-repo = 'ujihisa/unite-font'
-# 英和・和英辞書
-[[plugins]]
-repo = 'rhysd/unite-codic.vim'
-[[plugins]]
-repo = 'koron/codic-vim'
-
-# FIXME: 起動時エラーのためKILL
-# [[plugins]]
-# repo = 'Shougo/unite-outline'
-# depends = 'unite.vim'
-# hook_add = 'source ~/.vim/userautoload/plugins/plugins-unite-outline.vim'
-# [[plugins]]
-# repo = 'tsukkee/unite-tag.git'
 
 # 入力補完
-# 最新
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-if = "has('python3')"
-depends = ['roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
-on_i = 1
-hook_add = '''  " {{{
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#auto_complete_delay = 0
-'''  # }}}
-on_event = ['InsertCharPre']
-hook_source = '''  " {{{
-    inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-    inoremap <expr><C-l> deoplete#complete_common_string()
-    inoremap <expr><C-i> deoplete#complete_common_string()
-    inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-                \ neosnippet#expandable_or_jumpable() ?
-                \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-
-    let g:deoplete#auto_complete_start_length = 1
-    let g:deoplete#enable_camel_case = 0
-    let g:deoplete#enable_smart_case = 1
-    let g:deoplete#enable_ignore_case = 0
-    let g:deoplete#enable_refresh_always = 0
-    let g:deoplete#file#enable_buffer_path = 1
-    let g:deoplete#max_list = 10000
-'''  # }}}
 # 2番目に新しい
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
@@ -166,29 +40,6 @@ repo = 'Shougo/neocomplcache.vim'
 if = "!has('python3') && !has('lua')"
 on_i = 1
 # }}}
-[[plugins]]
-repo = 'Shougo/neco-vim'
-[[plugins]]
-repo = 'Shougo/neco-syntax'
-[[plugins]]
-repo = 'ujihisa/neco-look'
-
-# 構文解析
-[[plugins]]
-repo = 'w0rp/ale'
-if = "has('job') && has('channel') && has('timers')"
-[[plugins]]
-repo = 'scrooloose/syntastic'
-if = "!has('job') || !has('channel') || !has('timers')"
-
-# スニペット
-[[plugins]]
-repo = 'Shougo/neosnippet'
-depends = ['neosnippet-snippets', 'context_filetype.vim']
-on_i = 1
-on_ft = ['snippet']
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
 
 # 非同期処理
 [[plugins]]
@@ -205,10 +56,14 @@ hook_post_update = '''
     endif
     let g:dein#plugin.build = cmd
 '''
-# "NeoVim" の "Terminal" ラッパープラグイン
-[[plugins]]
-repo = 'kassio/neoterm'
-if = "has('nvim')"
+
+# FIXME: 起動時エラーのためKILL
+# [[plugins]]
+# repo = 'Shougo/unite-outline'
+# depends = 'unite.vim'
+# hook_add = 'source ~/.vim/userautoload/plugins/plugins-unite-outline.vim'
+# [[plugins]]
+# repo = 'tsukkee/unite-tag.git'
 
 # MEMO: dein_python.toml に移管
 # # Python用プラグイン
@@ -226,25 +81,7 @@ if = "has('nvim')"
 # }}}
 
 # Markdown
-# プレビュー
-[[plugins]]
-repo = 'kannokanno/previm'
-# ~~MEMO: Google検索使うので ↓ KILL~~
-# MEMO: markdownしか対応していない
-on_ft = ['markdown','mkd']
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-# ~~MEMO: Google検索使うので ↓ KILL~~
-# MEMO: markdownしか対応していない
-on_ft = ['markdown','mkd']
-# DONE: ↓エラーになる
-    # "vimproc" 自動DL & 更新で解決
-# MEMO: ↓ は64bitの設定、"*.vim" に記述
-# hook_add = '''
-#   let g:previm_open_cmd =
-#            \ 'C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe'
-# '''
-# # シンタックスハイライト 1  # {{{
+# # シンタックスハイライト  # {{{
 # [[plugins]]
 # repo = 'plasticboy/vim-markdown'
 # on_ft = ['markdown','mkd']
@@ -253,37 +90,6 @@ on_ft = ['markdown','mkd']
 #     let g:vim_markdown_auto_insert_bullets = 0
 #     let g:vim_markdown_new_list_item_indent = 0
 # '''  # }}}
-# シンタックスハイライト 2
-[[plugins]]
-repo = 'rcmdnk/vim-markdown'
-on_ft = ['markdown','mkd']
-hook_add = '''
-  let g:vim_markdown_frontmatter = 1
-  let g:vim_markdown_math = 1
-'''
-
-# Fuzzy Matcher
-[[plugins]]
-repo = 'junegunn/fzf'
-build = './install --bin'
-merged = '0'
-[[plugins]]
-repo = 'junegunn/fzf.vim'
-depends = ['fzf']
-hook_add = '''
-    command! -bang -nargs=* Rg
-      \ call fzf#vim#grep(
-      \ 'rg --line-number --no-heading '.shellescape(<q-args>), 0,
-      \ fzf#vim#with_preview({'options': '--exact --reverse'},
-      \ 'right:50%:wrap'))
-'''
-
-# フォントのサイズ変更
-[[plugins]]
-repo = 'thinca/vim-fontzoom'
-# on_cmd = ['Fontzoom']
-# on_map = ['<Plug>(fontzoom-']
-gui = 1
 
 # ---------------------------------------------------------------------------
 # TODO: 動作確認
