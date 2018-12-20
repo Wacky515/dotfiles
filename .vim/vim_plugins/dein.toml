@@ -1,79 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/12/18 08:49:21.
-
-# "dein.vim" 本体
-[[plugins]]
-repo = 'Shougo/dein.vim'
-
-# コピペ 履歴保存
-# MEMO: 弊害が多いので "YankRnkg" -> "yankround" に変更
-[[plugins]]
-repo = 'LeafCage/yankround.vim'
-hook_source = '''  " {{{
-    nmap p <Plug>(yankround-p)
-    xmap p <Plug>(yankround-p)
-    nmap P <Plug>(yankround-P)
-    nmap gp <Plug>(yankround-gp)
-    xmap gp <Plug>(yankround-gp)
-    nmap gP <Plug>(yankround-gP)
-    nmap <C-p> <Plug>(yankround-prev)
-    nmap <C-n> <Plug>(yankround-next)
-'''  # }}}
-
-# "Git" 用プラグイン
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-# 追加、削除マーカ表示
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
-# "git log" を強化
-    # :Agit 強化版 "git log" 実行
-[[plugins]]
-repo = 'cohama/agit.vim'
-# "gitk" 機能追加
-    # :Gitv: 機能追加版 "gitk" 実行
-[[plugins]]
-repo = 'gregsexton/gitv'
-depends = ['vim-fugitive']
-# コミットログ入力強化
-[[plugins]]
-repo = 'rhysd/committia.vim'
-
-# Grep
-# The Silver Searcher
-[[plugins]]
-repo = 'rking/ag.vim'
-# The Platinum Searcher
-[[plugins]]
-repo = 'nazo/pt.vim'
-
-# Diff
-    # :DirDiff A B: AとBを比較
-[[plugins]]
-repo = 'vim-scripts/DirDiff.vim'
-
-# Ctags
-[[plugins]]
-repo = 'majutsushi/tagbar'
-
-# Undo履歴
-[[plugins]]
-repo = 'sjl/gundo.vim'
-
-# 置換強化
-[[plugins]]
-repo = 'osyo-manga/vim-over'
-
-# チートシート表示
-[[plugins]]
-repo = 'reireias/vim-cheatsheet'
-
-# 辞書
-[[plugins]]
-repo = 'thinca/vim-ref'
-# 翻訳
-[[plugins]]
-repo = 'daisuzu/translategoogle.vim'
+# Last Change: 2018/12/20 11:17:09.
 
 # 文章校正
 # [[plugins]]  # {{{
@@ -216,17 +142,6 @@ repo = 'itchyny/calendar.vim'
 # # "true"/"false"、"yes"、"no"、"on"/"off" などをトグル
 # [[plugins]]
 # repo = 'toggle.vim'
-
-# カラースキーム
-[[plugins]]
-repo = 'cocopon/iceberg.vim'
-if = "has('gui_running')"
-hook_add = '''
-    set termguicolors
-    set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme iceberg
-    au MyAutoCmd VimEnter * highlight Visual ctermbg=216
-'''
 
 # ---------------------------------------------------------------------------
 # 動作確認中 新規導入プラグイン

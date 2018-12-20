@@ -1,7 +1,7 @@
 @echo off
 setlocal
-rem Created:     2016/08/17 00:00:00
-rem Last Change: 2018/12/20 09:28:15.
+rem Created:     2016/08/17 **:**:**
+rem Last Change: 2018/12/20 11:13:11.
 
 rem DONE: 常時管理者として実行する  rem {{{
 rem DONE: ginit.vim コピー後、)の使い方が誤っています エラーになる
