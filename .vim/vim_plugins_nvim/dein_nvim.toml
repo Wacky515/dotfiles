@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2018/12/20 10:19:42.
+# Last Change: 2018/12/20 13:42:44.
 
 # "dein.vim" 本体
 [[plugins]]
@@ -74,6 +74,142 @@ repo = 'thinca/vim-ref'
 # 翻訳
 [[plugins]]
 repo = 'daisuzu/translategoogle.vim'
+
+# ファイラ
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+[[plugins]]
+repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
+depends = ['nerdtree']
+# ,sp: カレントディレクトリ以下を検索
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
+if = "!has('nvim')"
+# :VimFiler で起動 # {{{
+    # o: バッファを縦分割 or ディレクトリ同期
+    # O: 別バッファに選択中のディレクトリの中を展開
+    # gs: セーフモード ON/OFF
+    # q: 終了
+# }}}
+[[plugins]]
+repo = 'Shougo/vimfiler'
+
+# ステータスライン ビジュアル強化
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+# depends = ['vim-fugitive', 'majutsushi/tagbar']
+depends = ['vim-fugitive', 'tagbar']
+# < http://itchyny.hatenablog.com/entry/20130828/1377653592 >
+# アイコン表示
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+# どの関数中か表示
+[[plugins]]
+repo = 'majutsushi/tagbar'
+
+# ウィンドウリサイズ
+[[plugins]]
+repo = 'simeji/winresizer'
+
+# 起動画面機能強化
+[[plugins]]
+repo = 'mhinz/vim-startify'
+
+# マルチカーソル
+[[plugins]]
+repo = 'terryma/vim-multiple-cursors'
+
+# カーソル機能強化
+[[plugins]]
+repo = 'lokaltog/vim-easymotion'
+
+# コメント ON/OFFトグル
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+# テキスト整形
+# 対象行を選択し "ga" -> "整形対象" ->  "デリミタ" を入力
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+
+# 閉じ括弧入力補完
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
+# "%" 移動機能強化
+    # *.htmlのタグなど
+[[plugins]]
+repo = 'tmhedberg/matchit'
+
+# 選択テキストを'""'、"()"、"[]"などで囲む
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+# スネークケース、キャメルケースへ変換  # {{{
+    # ノーマルモードで
+        # crs: "SnakeCase"  → "snake_case"
+        # crm: "mixed_case" → "MixedCase"
+        # crc: "camel_case" → "camelCase"
+        # cru: "upper_case" → "UPPER_CASE"
+# }}}
+[[plugins]]
+repo = 'tpope/vim-abolish'
+
+# "=" を自動的に " = " にする
+[[plugins]]
+repo = 'kana/vim-smartchr'
+
+# タイムスタンプ 挿入
+[[plugins]]
+repo = 'vim-scripts/autodate.vim'
+
+# 日付のインクリメント・デクリメント
+    # FIXME: yyyy/mm/dd 形式は対応していない
+[[plugins]]
+repo = 'tpope/vim-speeddating'
+
+
+# カーソル位置の "filetype" を自動切替
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
+# カーソル位置の "filetype" を自動判定
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+# # 関数、クラス、変数、構造体、列挙型、マクロ定義など 一覧表示
+    # ":TlistOpen" で開始
+[[plugins]]
+repo = 'vim-scripts/taglist.vim'
+
+# "*.toml" シンタックスハイライト
+[[plugins]]
+repo  = 'cespare/vim-toml'
+on_ft = ['toml']
+
+# インデント カラー化
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+# マーク ビジュアル化
+[[plugins]]
+repo = 'jacquesbh/vim-showmarks'
+
+# テーブル作成
+# ":TableModeToggle" で開始
+[[plugins]]
+repo = 'dhruvasagar/vim-table-mode'
+
+# カレンダ
+[[plugins]]
+repo = 'itchyny/calendar.vim'
+
+# 計算機
+    # :Calc: で計算開始
+    # "Python" 必要
+[[plugins]]
+repo = 'gregsexton/VimCalc'
+if = "!has('python')"
 
 # カラースキーム
 [[plugins]]
