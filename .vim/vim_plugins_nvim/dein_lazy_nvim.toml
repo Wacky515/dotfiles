@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2018/12/20 15:08:46.
+# Last Change: 2018/12/20 16:36:06.
 
 # 統合ユーザインターフェース
 [[plugins]]
@@ -93,6 +93,12 @@ repo = 'ujihisa/unite-font'
 repo = 'rhysd/unite-codic.vim'
 [[plugins]]
 repo = 'koron/codic-vim'
+# 依存 "plugin"
+    # 重複している
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
 
 # 入力補完
 # 最新
@@ -122,6 +128,8 @@ hook_source = '''  " {{{
     let g:deoplete#file#enable_buffer_path = 1
     let g:deoplete#max_list = 10000
 '''  # }}}
+[[plugins]]
+repo = 'Shougo/deoplete-rct'
 [[plugins]]
 repo = 'Shougo/neco-vim'
 [[plugins]]
