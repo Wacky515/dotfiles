@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 20-Dec-2018.
+" Last Change: 2018/12/20 12:10:04.
 
 " MEMO: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -15,6 +15,7 @@ let g:vimproc#download_windows_dll = 1
 if hostname() == "ProSalad133.local"
     let g:python3_host_prog = "/usr/local/bin/Python3"
 elseif hostname() == ("HBAMB748" || "HBAMB748A" || "HBAMB819")
+    let g:python_host_prog = "C:\\Python27\\python.exe"
     let g:python3_host_prog = "C:\\Python35\\python.exe"
 elseif hostname() == "SALADCARBONX1"
     " FTR: let g:python3_host_prog = "~\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
