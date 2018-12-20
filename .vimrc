@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2018/12/20 12:13:35.
+" Last Change: 2018/12/20 12:43:02.
 
 " MEMO: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -81,6 +81,9 @@ elseif has("nvim")
 endif
 execute "set runtimepath+=" . s:dein_dir
 
+" ログ
+let g:dein#install_log_filename = s:dein_dir . "/dein.log"
+
 " "dein.vimが" なければ "git clone"
 if !isdirectory(s:dein_dir)
 	call mkdir(s:dein_dir, "p")
@@ -103,6 +106,7 @@ if dein#load_state(s:plugin_dir)
 		let s:toml_nvim        = g:plugin_dir_nvim . "/dein_nvim.toml"
 		let s:lazy_toml_nvim   = g:plugin_dir_nvim . "/dein_lazy_nvim.toml"
 		let s:python_toml_nvim = g:plugin_dir_nvim . "/dein_python_nvim.toml"
+
 	elseif has("nvim")
 		let g:plugin_dir_nvim  = expand("~\\.vim\\vim_plugins_nvim")
 		let s:toml_nvim        = g:plugin_dir_nvim . "\\dein_nvim.toml"
@@ -127,8 +131,13 @@ if dein#load_state(s:plugin_dir)
 	endif
 
 	if exists("g:nyaovim_version")
-		call dein#add("rhysd/nyaovim-markdown-preview")
-		call dein#add("rhysd/nyaovim-mini-browser")
+        call dein#load_toml(s:toml_nvim,            {"lazy": 0})
+        call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
+        if has ("python3")
+            call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
+        endif
+		" call dein#add("rhysd/nyaovim-markdown-preview")
+		" call dein#add("rhysd/nyaovim-mini-browser")
 		" call dein#add("rhysd/nyaovim-popup-tooltip")
 	endif
 
@@ -138,8 +147,8 @@ if dein#load_state(s:plugin_dir)
 endif
 
 " 未インストールのプラグインがあればインストール
-if dein#check_install()
-call dein#install()
+if has("vim_starting") && dein#check_install()
+    call dein#install()
 endif
 
 " MEMO:

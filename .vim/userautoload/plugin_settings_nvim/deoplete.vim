@@ -1,31 +1,34 @@
 scriptencoding utf-8
 " Created:     2018/09/13 22:57:48
-" Last Change: 2018/12/18 07:26:53.
+" Last Change: 2018/12/20 15:44:47.
 
-" MEMO: "dein.toml" に移管した設定を戻したい
 " ---------------------------------------------------------------------------
 " マップキー
 " ---------------------------------------------------------------------------
+" TODO: "dein.toml" に移管した設定を戻したい  " {{{
 " inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
 " inoremap <expr><C-l> deoplete#complete_common_string()
 " inoremap <expr><C-i> deoplete#complete_common_string()
 " inoremap <expr><tab> pumvisible() ? "\<C-n>" :
 "         \ neosnippet#expandable_or_jumpable() ?
 "         \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+"}}}
 
 " ---------------------------------------------------------------------------
 " 基本設定
 " ---------------------------------------------------------------------------
 " TEMP: "roxma/nvim-yarp" と "roxma/vim-hug-neovim-rpc" を
 " "dein_lazy.toml" でインストールできないので以下で代替
-if ((has("nvim") || has("timers")) && has("python3"))
-            \ && system("pip3 show neovim") !=# ''
-    call dein#add('Shougo/deoplete.nvim')
-    if !has('nvim')
-        call dein#add('roxma/nvim-yarp')
-        call dein#add('roxma/vim-hug-neovim-rpc')
-    endif
-endif
+" MEMO: "NeoVim" で "dein" の "depends" が条件分岐できないのでKILL
+" if ((has("nvim") || has("timers")) && has("python3"))  " {{{
+"             \ && system("pip3 show neovim") !=# ''
+"    call dein#add('Shougo/deoplete.nvim')
+"    if !has('nvim')
+"        call dein#add('roxma/nvim-yarp')
+"        call dein#add('roxma/vim-hug-neovim-rpc')
+"    endif
+" endif
+" }}}
 
 call dein#add('roxma/nvim-yarp')
 call dein#add('roxma/vim-hug-neovim-rpc')
@@ -33,7 +36,7 @@ call dein#add('roxma/vim-hug-neovim-rpc')
 " 一つ目の候補を選択状態にする
 set completeopt+=noinsert
 
-" MEMO: こちらに記述を戻す
+" TODO: こちらに記述を戻す  " {{{
 " MEMO: 記述順は "dein.toml" が新しい
 " DONE: "dein.toml" に移管
 " let g:deoplete#enable_at_startup = 1
@@ -45,4 +48,22 @@ set completeopt+=noinsert
 " let g:deoplete#enable_smart_case = 1
 " let g:deoplete#file#enable_buffer_path = 1
 " let g:deoplete#max_list = 10000
+" }}}
+
+" ---------------------------------------------------------------------------
+" Jedi
+" ---------------------------------------------------------------------------
+let g:deoplete#sources#jedi#server_timeout=100
+let g:deoplete#sources#jedi#statement_length=100
+" "jedi" の補完はOFF
+    " "deoplete-jedi" で非同期処理してくれる
+let g:jedi#completions_enabled = 0
+
+if hostname() == "ProSalad133.local"
+    let g:deoplete#sources#jedi#python_path = "/usr/local/bin/python3.6"
+elseif hostname() == ("HBAMB748" || "HBAMB748A" || "HBAMB819")
+    let g:deoplete#sources#jedi#python_path = "C:\\Python35\\python.exe"
+elseif hostname() == "SALADCARBONX1"
+    let g:deoplete#sources#jedi#python_path = "~\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
+endif
 
