@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2018/12/18 10:32:30.
+" Last Change: 2018/12/20 08:47:27.
 " MEMO: "NeoVim" が起動しない時は "dein" のディレクトリを消す
 
 " !!!: 必ず先頭に記述
@@ -9,8 +9,10 @@ augroup MyAutoCmd
     autocmd!
 augroup END
 
-if hostname() == "HBAMB748A"
-    " "Windows7" の "NeoVim" はデリミタが "\\"
+if hostname() == "HBAMB748"
+    " MEMO: "Windows7" の "NeoVim" はデリミタが "\\"
+    execute "source" "C:\\Users\\MM12167\\.vimrc"
+elseif hostname() == "HBAMB748A"
     execute "source" "C:\\Users\\MM12167\\.vimrc"
 elseif hostname() == "HBAMB819"
     execute "source" "C:\\Users\\MM12167.DMJ\\.vimrc"
