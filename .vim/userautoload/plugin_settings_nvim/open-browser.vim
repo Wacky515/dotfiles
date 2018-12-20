@@ -1,12 +1,12 @@
 scriptencoding utf-8
+" Created:     2018/**/** **:**:**
+" Last Change: 2018/12/20 11:46:35.
 
-" Last Change: 2018/12/17 14:41:24.
-
-" <Leader>p: カーソル下を "Google検索"
+" <Leader>g: カーソル下を "Google検索"
 " disable netrw's gx mapping.
 let g:netrw_nogx = 1
-nmap <Leader>p <Plug>(openbrowser-smart-search)
-vmap <Leader>p <Plug>(openbrowser-smart-search)
+nmap <Leader>g <Plug>(openbrowser-smart-search)
+vmap <Leader>g <Plug>(openbrowser-smart-search)
 
 if has("win64")
     let g:previm_open_cmd =
