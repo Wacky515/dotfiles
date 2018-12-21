@@ -1,16 +1,37 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/12/21 11:50:56.
+# Last Change: 2018/12/21 14:05:00.
 
+# 入力補完
+# 最新
 [[plugins]]
-repo = 'junegunn/vim-plug'
+repo = 'Shougo/deoplete.nvim'
+if = "has('python3')"
+depends = ['roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
+hook_add = '''  " {{{
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#auto_complete_delay = 0
+'''  # }}}
+on_event = ['InsertCharPre']
 hook_source = '''  " {{{
-    call plug#begin('~/.vim/plugged')
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-    " Initialize plugin system
-    call plug#end()
-'''
-# }}}
+    inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+    inoremap <expr><C-l> deoplete#complete_common_string()
+    inoremap <expr><C-i> deoplete#complete_common_string()
+    inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+                \ neosnippet#expandable_or_jumpable() ?
+                \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+
+    let g:deoplete#auto_complete_start_length = 1
+    let g:deoplete#enable_camel_case = 0
+    let g:deoplete#enable_smart_case = 1
+    let g:deoplete#enable_ignore_case = 0
+    let g:deoplete#enable_refresh_always = 0
+    let g:deoplete#file#enable_buffer_path = 1
+    let g:deoplete#max_list = 10000
+'''  # }}}
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
 
 # 移管済み  " {{{
 # # "true"/"false"、"yes"、"no"、"on"/"off" などをトグル
