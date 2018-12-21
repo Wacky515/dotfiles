@@ -154,7 +154,7 @@
 ## Grep
 
 - \<Leader\>r: カーソル下を "RipGrep" 対象に挿入
-- \<Leader\>p: カーソル下を "The Platinum Searcher" 対象に挿入
+- \<Leader\>P: カーソル下を "The Platinum Searcher" 対象に挿入
 - \<Leader\>a: カーソル下を "The Sliver Searcher" 対象に挿入
 - \<Leader\>G: カーソル下を "外部grep" 対象に挿入
 - \<Leader\>g: カーソル下を "VimGrep" 対象に挿入

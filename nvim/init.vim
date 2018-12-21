@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2018/12/20 08:47:27.
+" Last Change: 2018/12/21 16:09:04.
 " MEMO: "NeoVim" が起動しない時は "dein" のディレクトリを消す
 
 " !!!: 必ず先頭に記述
@@ -34,4 +34,13 @@ else
     " 基本設定
     call s:source_rc(".vimrc")
 endif
+
+if exists("g:nyaovim_version")
+    if has('vim_starting')
+        " execute "source" ".\\.ginit.vim"
+        execute "source" "C:\\Users\\MM12167.DMJ\\AppData\\Local\\nvim\\ginit.vim"
+    endif
+endif
+
+set ambiwidth=double
 
