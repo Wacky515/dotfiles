@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2018/12/21 16:33:22.
+" Last Change: 2018/12/21 17:18:19.
 
 " MEMO: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -141,8 +141,8 @@ if dein#load_state(s:plugin_dir)
         endif
 	endif
 
+" MEMO: 重複
 if hostname() == ("HBAMB748" || "HBAMB819")
-    " MEMO: 重複
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
 endif
