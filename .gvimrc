@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2018/12/21 13:45:54.
+" Last Change: 2018/12/21 16:37:57.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -71,8 +71,8 @@ syntax on
 " フォントの設定
 if has("linux")
     if !has("nvim")
-    set guifont=Cica:h16
-    set printfont=Cica:h12
+        set guifont=Cica:h16
+        set printfont=Cica:h12
     else
         Guifont! DejaVu\ Sans\ Mono\ 13
     endif
@@ -96,11 +96,11 @@ elseif has("mac")
         " set background=dark
     elseif hostname() == "saladserver.com"
         if !has("nvim")
-            " set guifont=Osaka:h24
             set guifont=Cica:h24
+            " set guifont=Osaka:h24
         else
-            " Guifont! Osaka:h24
             Guifont! Cica:h24
+            " Guifont! Osaka:h24
         endif
         " colorscheme iceberg
         " set background=dark
@@ -144,6 +144,7 @@ elseif (has("win32") || has("win64"))
             set guifont=Cica:h14
             set printfont=Cica:h12
             set rop=type:directx,renmode:5
+<<<<<<< HEAD
         elseif has("nvim")
             if exists("g:nyaovim_version")
                 color iceberg
@@ -153,6 +154,15 @@ elseif (has("win32") || has("win64"))
                 " TEMP: "dein" に移管する
                 colorscheme iceberg
             endif
+=======
+        else
+            if !exists("g:nyaovim_version")
+                Guifont! Cica:h12
+            endif
+            set termguicolors
+            " TEMP: "dein" に移管する
+            colorscheme iceberg
+>>>>>>> 503d77f529d1984d4f7166aa349adcd3057f4ec4
         endif
         " colorscheme iceberg
         " set background=dark
@@ -191,6 +201,7 @@ elseif (has("win32") || has("win64"))
             set guifont=Cica:h12
             set printfont=Cica:h10
             set rop=type:directx,renmode:5
+<<<<<<< HEAD
         elseif has("nvim")
             if exists("g:nyaovim_version")
                 color iceberg
@@ -200,6 +211,15 @@ elseif (has("win32") || has("win64"))
                 " TEMP: "dein" に移管する
                 colorscheme iceberg
             endif
+=======
+        else
+            if !exists("g:nyaovim_version")
+                Guifont! Cica:h12
+            endif
+            set termguicolors
+            " TEMP: "dein" に移管する
+            colorscheme iceberg
+>>>>>>> 503d77f529d1984d4f7166aa349adcd3057f4ec4
         endif
         " colorscheme hybrid
         " set background=dark
