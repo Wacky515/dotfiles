@@ -1,17 +1,19 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2018/12/19 15:40:53.
+" Last Change: 2018/12/21 13:45:54.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
 " ----------------------------------------------------------------------
-
 " MEMO: "Dein" に設定移譲
 " カラースキーマの指定
 " 暗背景用の配色にする
 " " 明背景用の配色にする " {{{
 " set background=light
 " }}}
+if exists("g:nyaovim_version")
+    color iceberg
+endif
 
 " 選択行番号の色
 highlight LineNr ctermfg=darkyellow
@@ -142,11 +144,15 @@ elseif (has("win32") || has("win64"))
             set guifont=Cica:h14
             set printfont=Cica:h12
             set rop=type:directx,renmode:5
-        else
-            Guifont! Cica:h14
-            set termguicolors
-            " TEMP: "dein" に移管する
-            colorscheme iceberg
+        elseif has("nvim")
+            if exists("g:nyaovim_version")
+                color iceberg
+            else
+                Guifont! Cica:h14
+                set termguicolors
+                " TEMP: "dein" に移管する
+                colorscheme iceberg
+            endif
         endif
         " colorscheme iceberg
         " set background=dark
@@ -185,11 +191,15 @@ elseif (has("win32") || has("win64"))
             set guifont=Cica:h12
             set printfont=Cica:h10
             set rop=type:directx,renmode:5
-        else
-            Guifont! Cica:h12
-            set termguicolors
-            " TEMP: "dein" に移管する
-            colorscheme iceberg
+        elseif has("nvim")
+            if exists("g:nyaovim_version")
+                color iceberg
+            else
+                Guifont! Cica:h12
+                set termguicolors
+                " TEMP: "dein" に移管する
+                colorscheme iceberg
+            endif
         endif
         " colorscheme hybrid
         " set background=dark

@@ -1,18 +1,12 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2018/12/21 11:31:05.
+" Last Change: 2018/12/21 12:08:29.
 
 " MEMO: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
 augroup MyAutoCmd
     autocmd!
 augroup END
-
-" if hostname() == "HBAMB819"
-"     " MEMO: 重複
-"     call dein#add('roxma/nvim-yarp')
-"     call dein#add('roxma/vim-hug-neovim-rpc')
-" endif
 
 " "vimproc" ロードの時、"*.dll" 自動DL & 更新
 let g:vimproc#download_windows_dll = 1
@@ -141,11 +135,18 @@ if dein#load_state(s:plugin_dir)
         call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
         if has ("python3")
             call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
+		call dein#add("rhysd/nyaovim-markdown-preview")
+		call dein#add("rhysd/nyaovim-mini-browser")
+		call dein#add("rhysd/nyaovim-popup-tooltip")
         endif
-		" call dein#add("rhysd/nyaovim-markdown-preview")
-		" call dein#add("rhysd/nyaovim-mini-browser")
-		" call dein#add("rhysd/nyaovim-popup-tooltip")
 	endif
+
+if hostname() == ("HBAMB748" || "HBAMB819")
+    " MEMO: 重複
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+endif
+
 
 	" 設定終了
 	call dein#end()
