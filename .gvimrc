@@ -1,11 +1,10 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2018/12/19 15:40:53.
+" Last Change: 2018/12/21 15:43:32.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
 " ----------------------------------------------------------------------
-
 " MEMO: "Dein" に設定移譲
 " カラースキーマの指定
 " 暗背景用の配色にする
@@ -69,8 +68,8 @@ syntax on
 " フォントの設定
 if has("linux")
     if !has("nvim")
-    set guifont=Cica:h16
-    set printfont=Cica:h12
+        set guifont=Cica:h16
+        set printfont=Cica:h12
     else
         Guifont! DejaVu\ Sans\ Mono\ 13
     endif
@@ -94,11 +93,11 @@ elseif has("mac")
         " set background=dark
     elseif hostname() == "saladserver.com"
         if !has("nvim")
-            " set guifont=Osaka:h24
             set guifont=Cica:h24
+            " set guifont=Osaka:h24
         else
-            " Guifont! Osaka:h24
             Guifont! Cica:h24
+            " Guifont! Osaka:h24
         endif
         " colorscheme iceberg
         " set background=dark
@@ -143,7 +142,9 @@ elseif (has("win32") || has("win64"))
             set printfont=Cica:h12
             set rop=type:directx,renmode:5
         else
-            Guifont! Cica:h14
+            if !exists("g:nyaovim_version")
+                Guifont! Cica:h12
+            endif
             set termguicolors
             " TEMP: "dein" に移管する
             colorscheme iceberg
@@ -186,7 +187,9 @@ elseif (has("win32") || has("win64"))
             set printfont=Cica:h10
             set rop=type:directx,renmode:5
         else
-            Guifont! Cica:h12
+            if !exists("g:nyaovim_version")
+                Guifont! Cica:h12
+            endif
             set termguicolors
             " TEMP: "dein" に移管する
             colorscheme iceberg
