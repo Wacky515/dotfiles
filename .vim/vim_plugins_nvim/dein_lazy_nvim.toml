@@ -1,5 +1,6 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2018/12/20 16:36:06.
+# Last Change: 2018/12/21 09:09:23.
+# TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
 [[plugins]]
@@ -80,6 +81,13 @@ on_cmd = ['Denite']
 # "Colorscheme" プレビュー
     # Ul: :Unite colorscheme でプレビュー
     # Dl: :Denite colorscheme でプレビュー
+# "Denite|Unite" 用 "mru"
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+# DONE: "NeoVim" では無駄なディレクトリが生成される
+if = "!has('nvim')"
+on_source = ['dein.vim', 'unite.vim', 'denite.nvim']
+on_path = '.*'
 [[plugins]]
 repo = 'ujihisa/unite-colorscheme'
 # FIXME: ↓何も表示されない
@@ -93,12 +101,6 @@ repo = 'ujihisa/unite-font'
 repo = 'rhysd/unite-codic.vim'
 [[plugins]]
 repo = 'koron/codic-vim'
-# 依存 "plugin"
-    # 重複している
-[[plugins]]
-repo = 'roxma/nvim-yarp'
-[[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
 
 # 入力補完
 # 最新
@@ -128,6 +130,12 @@ hook_source = '''  " {{{
     let g:deoplete#file#enable_buffer_path = 1
     let g:deoplete#max_list = 10000
 '''  # }}}
+# ---------------------------------------------------------------------------
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+# ---------------------------------------------------------------------------
 [[plugins]]
 repo = 'Shougo/deoplete-rct'
 [[plugins]]
