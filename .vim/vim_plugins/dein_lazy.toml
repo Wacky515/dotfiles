@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/12/21 07:41:26.
+# Last Change: 2018/12/21 12:22:26.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -15,7 +15,8 @@ depends = ['neomru.vim']
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 depends = ['context_filetype.vim']
-if = "!has('python3') && has('lua')"
+if = "!has('nvim') && has('lua')"
+# if = "!has('python3') && has('lua')"
 # MEMO: この "hook_source" は条件分岐の為 "*.vim" に移管しない
 hook_source = '''
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"

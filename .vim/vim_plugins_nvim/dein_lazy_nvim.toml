@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2018/12/21 09:09:23.
+# Last Change: 2018/12/21 15:32:20.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -85,7 +85,7 @@ on_cmd = ['Denite']
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 # DONE: "NeoVim" では無駄なディレクトリが生成される
-if = "!has('nvim')"
+# if = "!has('nvim')"
 on_source = ['dein.vim', 'unite.vim', 'denite.nvim']
 on_path = '.*'
 [[plugins]]
@@ -106,8 +106,8 @@ repo = 'koron/codic-vim'
 # 最新
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-if = "has('python3')"
-depends = ['roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
+if = "has('nvim')"
+# if = "has('python3')"
 on_i = 1
 hook_add = '''  " {{{
     let g:deoplete#enable_at_startup = 1
@@ -130,12 +130,6 @@ hook_source = '''  " {{{
     let g:deoplete#file#enable_buffer_path = 1
     let g:deoplete#max_list = 10000
 '''  # }}}
-# ---------------------------------------------------------------------------
-[[plugins]]
-repo = 'roxma/nvim-yarp'
-[[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
-# ---------------------------------------------------------------------------
 [[plugins]]
 repo = 'Shougo/deoplete-rct'
 [[plugins]]
