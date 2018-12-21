@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2018/12/21 16:09:04.
+" Last Change: 2018/12/21 17:16:49.
 " MEMO: "NeoVim" が起動しない時は "dein" のディレクトリを消す
 
 " !!!: 必ず先頭に記述
@@ -9,36 +9,38 @@ augroup MyAutoCmd
     autocmd!
 augroup END
 
-if hostname() == "HBAMB748"
-    " MEMO: "Windows7" の "NeoVim" はデリミタが "\\"
-    execute "source" "C:\\Users\\MM12167\\.vimrc"
-elseif hostname() == "HBAMB748A"
-    execute "source" "C:\\Users\\MM12167\\.vimrc"
-elseif hostname() == "HBAMB819"
-    execute "source" "C:\\Users\\MM12167.DMJ\\.vimrc"
-elseif hostname() == "SALADCARBONX1"
-    execute "source" "~\\.vimrc"
+execute "source" "~\\.vimrc"
 
-else
-    " "Vim" 毎のrcファイルパス設定
-    let g:rc_dir = expand("~/dotfiles")
+" if hostname() == "HBAMB748"  " {{{
+"     " MEMO: "Windows7" の "NeoVim" はデリミタが "\\"
+"     execute "source" "C:\\Users\\MM12167\\.vimrc"
+" elseif hostname() == "HBAMB748A"
+"     execute "source" "C:\\Users\\MM12167\\.vimrc"
+" elseif hostname() == "HBAMB819"
+"     execute "source" "C:\\Users\\MM12167.DMJ\\.vimrc"
+" elseif hostname() == "SALADCARBONX1"
+"     execute "source" "~\\.vimrc"
 
-    " rcファイル読込み関数
-    function! s:source_rc(rc_file_name)
-        let rc_file = expand(g:rc_dir . "/" . a:rc_file_name)
-        if filereadable(rc_file)
-            execute "source" rc_file
-        endif
-    endfunction
+" else
+"     " "Vim" 毎のrcファイルパス設定
+"     let g:rc_dir = expand("~/dotfiles")
 
-    " 基本設定
-    call s:source_rc(".vimrc")
-endif
+"     " rcファイル読込み関数
+"     function! s:source_rc(rc_file_name)
+"         let rc_file = expand(g:rc_dir . "/" . a:rc_file_name)
+"         if filereadable(rc_file)
+"             execute "source" rc_file
+"         endif
+"     endfunction
+"
+"     " 基本設定
+"     call s:source_rc(".vimrc")
+" endif
+" }}}
 
 if exists("g:nyaovim_version")
     if has('vim_starting')
-        " execute "source" ".\\.ginit.vim"
-        execute "source" "C:\\Users\\MM12167.DMJ\\AppData\\Local\\nvim\\ginit.vim"
+        execute "source" "~\\nvim\\ginit.vim"
     endif
 endif
 
