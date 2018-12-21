@@ -1,4 +1,3 @@
-scriptencoding utf-8
 " Created:     2016/08/08 22:24:35
 " Last Change: 2018/12/18 10:26:29.
 
@@ -43,4 +42,3 @@ augroup END
 " augroup END
 " autocmd MyAutoGroup BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 " }}}
-

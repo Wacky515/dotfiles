@@ -1,6 +1,6 @@
 ﻿scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2018/11/21 09:07:30.
+" Last Change: 2018/12/21 11:30:35.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -21,7 +21,9 @@ inoremap jj <Esc>
 nnoremap bk :<C-u>w %.bk
 
 " 挿入モードで dl: 仕切り線を挿入
-inoremap dl ---------------------------------------------------------------------------<Esc>:TComment<CR>^
+" dl: 仕切り線を挿入
+noremap dl i---------------------------------------------------------------------------<Esc>:TComment<CR>^
+" inoremap dl ---------------------------------------------------------------------------<Esc>:TComment<CR>^
 
 " " 0: 直下に空行挿入
 " nnoremap 0 :<C-u>call append(expand('.'), '')<CR>j
@@ -50,8 +52,24 @@ vnoremap <TAB> %
 
 " bo: エクスプローラで開く
 nnoremap <silent> bo :<C-u>browse open<CR>
-" bs: エクスプローラで保存
-nnoremap <silent> bo :<C-u>browse sav<CR>
+" bs: エクスプローラで保存場所選択して保存
+nnoremap <silent> bs :<C-u>browse sav<CR>
+" <Ctrl>s: エクスプローラで保存場所選択して保存
+nnoremap <C-s> :<C-u>browse sav<CR>
+" if !has("nvim") " {{{
+"     imap <script> <C-s> <SID>(gui-save)<Esc>
+"     nmap <script> <C-s> <SID>(gui-save)
+"     imap <script> <SID>(gui-save) <C-o><SID>(gui-save)
+"     nnoremap      <SID>(gui-save) :<C-u>call <SID>gui_save()<CR>
+"     function! s:gui_save()
+"         if bufname('%') ==# ''
+"             browse confirm saveas
+"         else
+"             update
+"         endif
+"     endfunction
+" endif
+" }}}
 
 " bp: 前のバッファを開く
 nnoremap <silent> bp :<C-u>bprevious<CR>
@@ -59,8 +77,29 @@ nnoremap <silent> bp :<C-u>bprevious<CR>
 nnoremap <silent> bn :<C-u>bnext<CR>
 " bb: 直前のバッファを開く
 nnoremap <silent> bb :<C-u>b#<CR>
-" <Ctrl>j: 裏バッファへ切替え
-nnoremap <C-j> <C-^>
+" <Ctrl>j: 裏バッファを開く
+    " MEMO: マルチカーソルに譲渡
+" nnoremap <C-j> <C-^>
+
+" 上方向に1行分スクロール
+" noremap <C-,> <C-y>
+" 下方向に1行分スクロール
+noremap Y <C-e>
+
+" <Shift><矢印>: ウィンドウサイズ変更
+    " FIXME: Windows動作せず
+if !(has("win32") || has("win64"))
+    nnoremap <S-Left>  <C-w><<CR>
+    nnoremap <S-Right> <C-w>><CR>
+    nnoremap <S-Up>    <C-w>-<CR>
+    nnoremap <S-Down>  <C-w>+<CR>
+endif
+
+" <矢印>: ウィンドウ移動
+nnoremap <Left>  <C-w>h
+nnoremap <Right> <C-w>l
+nnoremap <Up>    <C-w>k
+nnoremap <Down>  <C-w>j
 
 " TODO: LinuxのNeoVimで確認
 " w!!: スーパーユーザーとして保存（sudoが使える環境限定）
@@ -68,11 +107,12 @@ if has("unix")
     cmap w!! w !sudo tee > /dev/null %
 endif
 
-" "Macの時ノーマルモードで:と;を入れ替える
+" "Mac" のノーマルモードで ":" と ";" を入替え  " {{{
 " if has("mac")
 "     noremap : ;
 "     noremap ; :
 " endif
+" }}}
 
 " FIXME: "NeoVim" で変更必要
 if !has("nvim")
@@ -96,23 +136,6 @@ nnoremap <silent> cy ce<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
 vnoremap <silent> cy c<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
 nnoremap <silent> ciy ciw<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
 
-" <Ctrl>s: エクスプローラで保存場所選択して保存
-nnoremap <C-s> :<C-u>browse sav<CR>
-" if !has("nvim") " {{{
-"     imap <script> <C-s> <SID>(gui-save)<Esc>
-"     nmap <script> <C-s> <SID>(gui-save)
-"     imap <script> <SID>(gui-save) <C-o><SID>(gui-save)
-"     nnoremap      <SID>(gui-save) :<C-u>call <SID>gui_save()<CR>
-"     function! s:gui_save()
-"         if bufname('%') ==# ''
-"             browse confirm saveas
-"         else
-"             update
-"         endif
-"     endfunction
-" endif
-" }}}
-
 " TODO: 動作確認
 " 起動時のみカレントディレクトリを開いたファイルの親ディレクトリに指定
 function! s:ChangeCurrentDir(directory, bang)
@@ -134,7 +157,7 @@ function! s:mkdir(dir, force)
     endif
 endfunction
 
-if has("unix") || has("mac")
+if (has("unix") || has("mac"))
     autocmd MyAutoCmd BufWritePre * call s:mkdir(expand("<afile>:p:h"), v:cmdbang)
 endif
 
@@ -165,24 +188,21 @@ cnoremap <C-p> <Up>
 " ---------------------------------------------------------------------------
 " <Space> を "Leader" に割当て
 " let mapleader = "\<Space>"
-" －> ".vimrc" へ
+" MEMO: ".vimrc" へ
 
 " <Leader>w: ファイルを保存
-" nnoremap <Leader>w :<Nop>
-" nnoremap <Leader>w :<C-u>w<CR>
 autocmd VimEnter * nnoremap <Leader>w :<C-u>w<CR>
+
+" <C-i>: 前のカーソル位置
+autocmd VimEnter * nnoremap <C-i> <C-i>
 
 " <Leader>q: ファイルを閉じる
 nnoremap <Leader>q :<C-u>q<CR>
-
-" <Leader>w: ファイルを保存
-" －> 重複していて効かないので ".vimrc" へ
 
 " <Leader>s: ウィンドウを縦分割
 nnoremap <Leader>s :<C-u>sp<CR>
 
 " <Leader>v: ウィンドウを横分割
-" nnoremap <Leader>v :<C-u>vs<CR>
 nnoremap <Leader>v :<C-u>vs<CR><C-w>l
 
 " <Leader>S: ウィンドウを縦分割(ファイルを選択)
@@ -190,8 +210,6 @@ nnoremap <Leader>S :<C-u>sp<TAB>
 
 " <Leader>V: ウィンドウを横分割（ファイルを選択）
 nnoremap <Leader>V :<C-u>vs<TAB>
-" nnoremap <Leader>V :<C-u>vs
-" nnoremap <Leader>V :<C-u>vs<TAB><C-w>l
 
 " <Leader>t: 新規タブを作成
 nnoremap <Leader>t :<C-u>tabnew<CR>
@@ -213,3 +231,4 @@ func! s:func_copy_cmd_output(cmd)
 endfunc
 
 command! -nargs=1 -complete=command CopyCmdOutput call <SID>func_copy_cmd_output(<q-args>)
+

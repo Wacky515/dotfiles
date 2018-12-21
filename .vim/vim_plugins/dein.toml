@@ -1,6 +1,18 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/12/20 13:43:05.
+# Last Change: 2018/12/21 11:50:56.
 
+[[plugins]]
+repo = 'junegunn/vim-plug'
+hook_source = '''  " {{{
+    call plug#begin('~/.vim/plugged')
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+    " Initialize plugin system
+    call plug#end()
+'''
+# }}}
+
+# 移管済み  " {{{
 # # "true"/"false"、"yes"、"no"、"on"/"off" などをトグル
 # [[plugins]]
 # repo = 'toggle.vim'
@@ -64,4 +76,4 @@
 # [[plugins]]
 # repo = 'rbtnn/reversi.vim'
 # depends = ['game_engine']
-
+# }}}

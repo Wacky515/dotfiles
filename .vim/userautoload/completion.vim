@@ -1,4 +1,4 @@
-﻿scriptencoding utf-8
+scriptencoding utf-8
 " Created:     2018/12/14 13:56:04
 " Last Change: 2018/12/14 13:57:39.
 
@@ -43,4 +43,3 @@ function! s:hint_i_ctrl_x() abort
 endfunction
 
 inoremap <expr> <C-x>  <SID>hint_i_ctrl_x()
-

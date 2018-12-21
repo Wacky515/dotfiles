@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/09/13 22:57:48
-" Last Change: 2018/12/20 15:44:47.
+" Last Change: 2018/12/21 09:12:58.
 
 " ---------------------------------------------------------------------------
 " マップキー
@@ -30,6 +30,7 @@ scriptencoding utf-8
 " endif
 " }}}
 
+" MEMO: 重複
 call dein#add('roxma/nvim-yarp')
 call dein#add('roxma/vim-hug-neovim-rpc')
 
