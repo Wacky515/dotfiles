@@ -1,5 +1,5 @@
 ﻿# Create:      201*/**/** **:**:**
-# Last Change: 2018/12/21 14:33:49.
+# Last Change: 2018/12/21 17:03:51.
 # ------------------------------
 # 独自追記
 # ------------------------------
@@ -12,6 +12,7 @@ gitconfig_hbamb748.local
 /etc/init/windows/settings/cygwin/apt-cyg/
 ~/AppData/Local/nvim/.netrwhist
 ~/AppData/Local/nvim/rplugin.vim
+nvim/.netrwhist
 
 # 特定の拡張子を無視する場合はどこにも/を付けない
 *.bk
