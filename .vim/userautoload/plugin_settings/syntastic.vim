@@ -1,5 +1,6 @@
 scriptencoding utf-8
-" Last Change: 2018/11/12 12:34:09.
+" Create:      201*/**/** **:**:**
+" Last Change: 2018/12/21 15:23:53.
 
 " ---------------------------------------------------------------------------
 " マップキー
@@ -59,3 +60,4 @@ let g:syntastic_check_on_w = 0
 " 最大文字数を拡大
 " let g:syntastic_python_flake8_args="--max-line-length=120
 " }}}
+
