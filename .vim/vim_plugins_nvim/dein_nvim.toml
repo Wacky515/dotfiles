@@ -1,12 +1,11 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2018/12/20 13:42:44.
+# Last Change: 2018/12/21 10:47:33.
 
 # "dein.vim" 本体
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# コピペ 履歴保存
-# MEMO: 弊害が多いので "YankRnkg" -> "yankround" に変更
+# コピペ履歴保存
 [[plugins]]
 repo = 'LeafCage/yankround.vim'
 hook_source = '''  " {{{
@@ -20,7 +19,7 @@ hook_source = '''  " {{{
     nmap <C-n> <Plug>(yankround-next)
 '''  # }}}
 
-# "Git" 用プラグイン
+# Git
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 # 追加、削除マーカ表示
@@ -55,6 +54,10 @@ repo = 'vim-scripts/DirDiff.vim'
 # Ctags
 [[plugins]]
 repo = 'majutsushi/tagbar'
+
+# キーバインド衝突確認
+[[plugins]]
+repo = 'lukhio/vim-mapping-conflicts'
 
 # Undo履歴
 [[plugins]]
@@ -167,7 +170,6 @@ repo = 'vim-scripts/autodate.vim'
     # FIXME: yyyy/mm/dd 形式は対応していない
 [[plugins]]
 repo = 'tpope/vim-speeddating'
-
 
 # カーソル位置の "filetype" を自動切替
 [[plugins]]

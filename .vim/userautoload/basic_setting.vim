@@ -52,4 +52,3 @@ nnoremap <expr> "  <SID>hint_cmd_output('"', 'registers')
 nnoremap <expr> q  <SID>hint_cmd_output('q', 'registers')
 " マクロ再生
 nnoremap <expr> @  <SID>hint_cmd_output('@', 'registers')
-
