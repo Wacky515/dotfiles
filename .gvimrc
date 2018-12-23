@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2018/12/21 16:44:12.
+" Last Change: 2018/12/22 22:33:55.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -123,7 +123,12 @@ elseif (has("win32") || has("win64"))
             " Windows Cica 専用設定 ("NeoVim" 版設定探す）
             set rop=type:directx,renmode:5
         else
-            Guifont! Cica:h12
+            if !exists("g:nyaovim_version")
+                Guifont! Cica:h11
+            endif
+            set termguicolors
+            " TEMP: "dein" に移管する
+            colorscheme iceberg
         endif
         " colorscheme iceberg
         " set background=dark
