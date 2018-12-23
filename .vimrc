@@ -1,25 +1,31 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2018/12/21 17:18:19.
+" Last Change: 2018/12/23 22:24:22.
 
 " MEMO: 必ず先頭に記述
-" "autocmd"（マクロ） の初期化
+" "autocmd" （マクロ）の初期化
 augroup MyAutoCmd
     autocmd!
 augroup END
 
-" "vimproc" ロードの時、"*.dll" 自動DL & 更新
+" "vimproc" 読込み時、"*.dll" 自動DL & 更新
 let g:vimproc#download_windows_dll = 1
 
 " "Python3" のパス設定
 if hostname() == "ProSalad133.local"
     let g:python3_host_prog = "/usr/local/bin/Python3"
-elseif hostname() == ("HBAMB748" || "HBAMB748A" || "HBAMB819")
+elseif hostname() == "HBAMB748"
+    let g:python_host_prog = "C:\\Python27\\python.exe"
+    let g:python3_host_prog = "C:\\Python35\\python.exe"
+elseif hostname() ==  "HBAMB748A"
+    let g:python_host_prog = "C:\\Python27\\python.exe"
+    let g:python3_host_prog = "C:\\Python35\\python.exe"
+elseif hostname() ==  "HBAMB819"
     let g:python_host_prog = "C:\\Python27\\python.exe"
     let g:python3_host_prog = "C:\\Python35\\python.exe"
 elseif hostname() == "SALADCARBONX1"
-    " FTR: let g:python3_host_prog = "~\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
-    let g:python3_host_prog = "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
+    let g:python3_host_prog =
+                \ "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
 else
     if has("unix")
         let g:python3_host_prog = "/usr/local/bin/Python3"
@@ -51,17 +57,18 @@ if !has("nvim")
 		" let s:plugin_dir = expand("~\\.cache\\dein\\")
 	endif
 elseif has("nvim")
-	if has("unix")
-		let s:plugin_dir = expand("~/.config/nvim/.cache/dein/")
-	elseif (has("win32") || has("win64"))
-		if hostname() == ("HBAMB748" || "HBAMB748A" || "HBAMB819")
-			let s:plugin_dir = expand("~\\.config\\nvim\\.cache\\dein\\")
-			" let s:plugin_dir = expand("~\\AppData\\Local\\nvim\\.cache\\dein\\")
-		else
-			" FTR: ********* = expand("~/.cache/nvim/dein/")
-			let s:plugin_dir = expand("~\\.config\\nvim\\.cache\\dein\\")
-			 " let s:plugin_dir = expand("~\\AppData\\Local\\nvim\\.cache\\dein\\")
-		endif
+    if has("unix")
+        let s:plugin_dir = expand("~/.config/nvim/.cache/dein/")
+    elseif (has("win32") || has("win64"))
+        if hostname() == "HBAMB748"
+            let s:plugin_dir = expand("~\\.config\\nvim\\.cache\\dein\\")
+        elseif hostname() ==  "HBAMB748A"
+            let s:plugin_dir = expand("~\\.config\\nvim\\.cache\\dein\\")
+        elseif hostname() ==  "HBAMB819"
+            let s:plugin_dir = expand("~\\.config\\nvim\\.cache\\dein\\")
+        else
+            let s:plugin_dir = expand("~\\.config\\nvim\\.cache\\dein\\")
+        endif
 	endif
 
 elseif exists("g:nyaovim_version")
@@ -142,11 +149,13 @@ if dein#load_state(s:plugin_dir)
 	endif
 
 " MEMO: 重複
-if hostname() == ("HBAMB748" || "HBAMB819")
+if hostname() == "HBAMB748"
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+elseif hostname() == "HBAMB819"
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
 endif
-
 
 	" 設定終了
 	call dein#end()
