@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/12/13 07:39:11
-" Last Change: 2018/12/18 08:08:26.
+" Last Change: 2018/12/22 20:55:16.
 
 " ---------------------------------------------------------------------------
 "  マップキー
@@ -42,8 +42,13 @@ let g:startify_list_order = [
 let g:startify_bookmarks = [
             \ "~/.vimrc",
             \ "~/.gvimrc",
+            \ "~/dotfiles/nvim/init.vim",
+            \ "~/dotfiles/nvim/ginit.vim",
+            \ "~/dotfiles/nyaovimrc.html",
             \ "~/dotfiles/.vim/vim_plugins/dein.toml",
-            \ "~/dotfiles/.vim/vim_plugins/dein_lazy.toml"
+            \ "~/dotfiles/.vim/vim_plugins/dein_lazy.toml",
+            \ "~/dotfiles/.vim/vim_plugins_nvim/dein_nvim.toml",
+            \ "~/dotfiles/.vim/vim_plugins_nvim/dein_lazy_nvim.toml"
             \ ]
 
 " アスキーアート 中央揃え
