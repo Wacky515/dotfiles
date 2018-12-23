@@ -1,10 +1,10 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2018/12/21 17:16:49.
+" Last Change: 2018/12/22 22:40:52.
 " MEMO: "NeoVim" が起動しない時は "dein" のディレクトリを消す
 
 " !!!: 必ず先頭に記述
-" "autocmd"（マクロ） の初期化
+" "autocmd" （マクロ）の初期化
 augroup MyAutoCmd
     autocmd!
 augroup END
@@ -40,9 +40,13 @@ execute "source" "~\\.vimrc"
 
 if exists("g:nyaovim_version")
     if has('vim_starting')
-        execute "source" "~\\nvim\\ginit.vim"
+        if hostname() == "SALADCARBONX1"
+            execute "source" "~\\AppData\\Local\\nvim\\ginit.vim"
+        elseif hostname() == "HBAMB748"
+            execute "source" "~\\nvim\\ginit.vim"
+        elseif hostname() == "HBAMB819"
+            execute "source" "~\\nvim\\ginit.vim"
+        endif
     endif
 endif
-
-set ambiwidth=double
 
