@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/12/21 14:05:00.
+# Last Change: 2018/12/21 17:31:18.
 
 # 入力補完
 # 最新
@@ -32,6 +32,17 @@ hook_source = '''  " {{{
 repo = 'roxma/nvim-yarp'
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
+
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
+# :VimFiler で起動 # {{{
+    # o: バッファを縦分割 or ディレクトリ同期
+    # O: 別バッファに選択中のディレクトリの中を展開
+    # gs: セーフモード ON/OFF
+    # q: 終了
+# }}}
+[[plugins]]
+repo = 'Shougo/vimfiler'
 
 # 移管済み  " {{{
 # # "true"/"false"、"yes"、"no"、"on"/"off" などをトグル
@@ -98,3 +109,4 @@ repo = 'roxma/vim-hug-neovim-rpc'
 # repo = 'rbtnn/reversi.vim'
 # depends = ['game_engine']
 # }}}
+
