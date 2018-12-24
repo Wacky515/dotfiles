@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/12/21 12:22:26.
+# Last Change: 2018/12/24 10:50:24.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -8,6 +8,7 @@ repo = 'Shougo/unite.vim'
 # TODO: "Denite" 動作テスト完了後に
 # ↓を復帰して "Unite" 使用完了
 # if = "!has('python3')"
+if = "!exists('g:nyaovim_version')"
 depends = ['neomru.vim']
 
 # 入力補完
