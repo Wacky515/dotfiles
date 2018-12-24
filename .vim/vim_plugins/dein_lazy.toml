@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/12/24 10:50:24.
+# Last Change: 2018/12/24 12:34:59.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -7,9 +7,20 @@
 repo = 'Shougo/unite.vim'
 # TODO: "Denite" 動作テスト完了後に
 # ↓を復帰して "Unite" 使用完了
-# if = "!has('python3')"
+# if = "!has(te'python3')"
 if = "!exists('g:nyaovim_version')"
 depends = ['neomru.vim']
+[[plugins]]
+repo = 'ujihisa/unite-colorscheme'
+# FIXME: ↓何も表示されない
+# フォントプレビュー
+    # ":Unite font" でプレビュー
+    # ":Denite font" でプレビュー
+[[plugins]]
+repo = 'ujihisa/unite-font'
+# 英和・和英辞書
+[[plugins]]
+repo = 'rhysd/unite-codic.vim'
 
 # 入力補完
 # 2番目に新しい
