@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2018/12/22 22:26:38.
+rem Last Change: 2018/12/24 13:49:26.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -52,6 +52,21 @@ rem mklink %dist_html% %srce_html%
 copy %srce_html% %dist_html%
 if %ERRORLEVEL% == 0 (
 echo ^>^> nyaovimrc.html link success!
+)
+
+rem "OniVim" İ’è
+set dist_json=%homepath%"\AppData\Roaming\Oni\config.tsx"
+set srce_json=%batch_path%"config.tsx"
+rem set dist_json=%homepath%"\AppData\Roaming\Oni\tsconfig.json"
+rem set srce_json=%batch_path%"tsconfig.json"
+
+if exist %dist_json% (
+    del %dist_json%
+    )
+mklink %dist_json% %srce_json%
+rem copy %srce_json% %dist_json%
+if %ERRORLEVEL% == 0 (
+echo ^>^> tsconfig.json link success!
 )
 
 rem ".gitconfig" İ’è
