@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2018/12/24 09:48:14.
+" Last Change: 2018/12/24 23:15:38.
 
 " MEMO: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -114,12 +114,19 @@ if dein#load_state(s:plugin_dir)
 		let s:python_toml_nvim = g:plugin_dir_nvim . "/dein_python_nvim.toml"
 
 	elseif has("nvim")
-		let g:plugin_dir_nvim  = expand("~\\.vim\\vim_plugins_nvim")
-		let s:toml_nvim        = g:plugin_dir_nvim . "\\dein_nvim.toml"
-		let s:lazy_toml_nvim   = g:plugin_dir_nvim . "\\dein_lazy_nvim.toml"
-		let s:python_toml_nvim = g:plugin_dir_nvim . "\\dein_python_nvim.toml"
-		" CHECK: ↓ いる？
-		" call dein#add(s:dein_dir)
+        if has("unix")
+            let g:plugin_dir_nvim  = expand("~/.vim/vim_plugins_nvim")
+            let s:toml_nvim        = g:plugin_dir_nvim . "/dein_nvim.toml"
+            let s:lazy_toml_nvim   = g:plugin_dir_nvim . "/dein_lazy_nvim.toml"
+            let s:python_toml_nvim = g:plugin_dir_nvim . "/dein_python_nvim.toml"
+        else
+            let g:plugin_dir_nvim  = expand("~\\.vim\\vim_plugins_nvim")
+            let s:toml_nvim        = g:plugin_dir_nvim . "\\dein_nvim.toml"
+            let s:lazy_toml_nvim   = g:plugin_dir_nvim . "\\dein_lazy_nvim.toml"
+            let s:python_toml_nvim = g:plugin_dir_nvim . "\\dein_python_nvim.toml"
+            " CHECK: ↓ いる？
+            " call dein#add(s:dein_dir)
+        endif
 	endif
 
 	"*.toml" を読込み、キャッシュ
