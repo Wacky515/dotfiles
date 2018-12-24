@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/12/21 17:31:18.
+# Last Change: 2018/12/24 10:52:48.
 
 # 入力補完
 # 最新
@@ -35,6 +35,7 @@ repo = 'roxma/vim-hug-neovim-rpc'
 
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
+
 # :VimFiler で起動 # {{{
     # o: バッファを縦分割 or ディレクトリ同期
     # O: 別バッファに選択中のディレクトリの中を展開

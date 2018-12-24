@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/22 00:00:00
-" Last Change: 2018/09/24 10:04:48.
+" Last Change: 2018/12/24 11:11:39.
 
 " <Leader>o: 現在開いているバッファをIDE風に開く
 nnoremap <silent> <Leader>o :<C-u>NERDTree<CR>
@@ -61,3 +61,4 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['css'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['md'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['txt'] = ''
+
