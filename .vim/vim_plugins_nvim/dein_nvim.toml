@@ -1,12 +1,12 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2018/12/21 17:31:58.
+# Last Change: 2018/12/24 10:47:03.
 
 # MEMO:
 # hook_add         プラグイン追加後
 # hook_source      プラグイン読込み前
 # hook_post_source プラグイン読込み後
 
-# "DEIn.vim" 本体
+# "dein.vim" 本体
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -90,12 +90,9 @@ repo = 'scrooloose/nerdtree'
 [[plugins]]
 repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
 depends = ['nerdtree']
-# ,sp: カレントディレクトリ以下を検索
 # ステータスライン ビジュアル強化
-
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-# depends = ['vim-fugitive', 'majutsushi/tagbar']
 depends = ['vim-fugitive', 'tagbar']
 # < http://itchyny.hatenablog.com/entry/20130828/1377653592 >
 # アイコン表示
