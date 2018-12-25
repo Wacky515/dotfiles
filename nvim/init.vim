@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2018/12/22 22:40:52.
+" Last Change: 2018/12/25 22:41:38.
 " MEMO: "NeoVim" が起動しない時は "dein" のディレクトリを消す
 
 " !!!: 必ず先頭に記述
@@ -9,33 +9,33 @@ augroup MyAutoCmd
     autocmd!
 augroup END
 
-execute "source" "~\\.vimrc"
+" execute "source" "~\\.vimrc"
 
-" if hostname() == "HBAMB748"  " {{{
-"     " MEMO: "Windows7" の "NeoVim" はデリミタが "\\"
-"     execute "source" "C:\\Users\\MM12167\\.vimrc"
-" elseif hostname() == "HBAMB748A"
-"     execute "source" "C:\\Users\\MM12167\\.vimrc"
-" elseif hostname() == "HBAMB819"
-"     execute "source" "C:\\Users\\MM12167.DMJ\\.vimrc"
-" elseif hostname() == "SALADCARBONX1"
-"     execute "source" "~\\.vimrc"
+if hostname() == "HBAMB748"  " {{{
+    " MEMO: "Windows7" の "NeoVim" はデリミタが "\\"
+    execute "source" "C:\\Users\\MM12167\\.vimrc"
+elseif hostname() == "HBAMB748A"
+    execute "source" "C:\\Users\\MM12167\\.vimrc"
+elseif hostname() == "HBAMB819"
+    execute "source" "C:\\Users\\MM12167.DMJ\\.vimrc"
+elseif hostname() == "SALADCARBONX1"
+    execute "source" "~\\.vimrc"
 
-" else
-"     " "Vim" 毎のrcファイルパス設定
-"     let g:rc_dir = expand("~/dotfiles")
+else
+    " "Vim" 毎のrcファイルパス設定
+    let g:rc_dir = expand("~/dotfiles")
 
-"     " rcファイル読込み関数
-"     function! s:source_rc(rc_file_name)
-"         let rc_file = expand(g:rc_dir . "/" . a:rc_file_name)
-"         if filereadable(rc_file)
-"             execute "source" rc_file
-"         endif
-"     endfunction
-"
-"     " 基本設定
-"     call s:source_rc(".vimrc")
-" endif
+    " rcファイル読込み関数
+    function! s:source_rc(rc_file_name)
+        let rc_file = expand(g:rc_dir . "/" . a:rc_file_name)
+        if filereadable(rc_file)
+            execute "source" rc_file
+        endif
+    endfunction
+
+    " 基本設定
+    call s:source_rc(".vimrc")
+endif
 " }}}
 
 if exists("g:nyaovim_version")
