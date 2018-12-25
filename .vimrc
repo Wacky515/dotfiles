@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2018/12/24 09:48:14.
+" Last Change: 2018/12/25 14:44:34.
 
 " MEMO: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -16,7 +16,10 @@ if hostname() == "ProSalad133.local"
     let g:python3_host_prog = "/usr/local/bin/Python3"
 elseif hostname() == "HBAMB748"
     let g:python_host_prog = "C:\\Python27\\python.exe"
-    let g:python3_host_prog = "C:\\Python35\\python.exe"
+    let g:python3_host_prog = "C:\\Python36\\python.exe"
+    " let g:python3_host_prog =
+    " let g:python3_host_prog = "C:\\Python35\\python.exe"
+                \ "C:\\tools\\miniconda3\\pkgs\\python-3.6.6-hea74fb7_0\\\python.exe"
 elseif hostname() ==  "HBAMB748A"
     let g:python_host_prog = "C:\\Python27\\python.exe"
     let g:python3_host_prog = "C:\\Python35\\python.exe"
@@ -142,6 +145,7 @@ if dein#load_state(s:plugin_dir)
         if has ("python3")
             call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
         endif
+		call dein#add("Shougo/unite.vim")
 		call dein#add("rhysd/nyaovim-markdown-preview")
 		call dein#add("rhysd/nyaovim-mini-browser")
 		call dein#add("rhysd/nyaovim-popup-tooltip")
@@ -150,11 +154,11 @@ if dein#load_state(s:plugin_dir)
     " MEMO: 重複
     if !has("nvim")
         if hostname() == "HBAMB748"
-            call dein#add('roxma/nvim-yarp')
-            call dein#add('roxma/vim-hug-neovim-rpc')
+            call dein#add("roxma/nvim-yarp")
+            call dein#add("roxma/vim-hug-neovim-rpc")
         elseif hostname() == "HBAMB819"
-            call dein#add('roxma/nvim-yarp')
-            call dein#add('roxma/vim-hug-neovim-rpc')
+            call dein#add("roxma/nvim-yarp")
+            call dein#add("roxma/vim-hug-neovim-rpc")
         endif
     endif
 
