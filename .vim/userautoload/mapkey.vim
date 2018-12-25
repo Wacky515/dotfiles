@@ -1,6 +1,6 @@
 ﻿scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2018/12/21 15:36:35.
+" Last Change: 2018/12/24 11:27:25.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -124,6 +124,15 @@ if !has("nvim")
     nnoremap <silent> ,v :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
     " ,g: gvimrcを反映
     nnoremap <silent> ,g :<C-u>source $MYGVIMRC<CR>
+elseif has("nvim")
+    " ev: vimrcを開く
+    nmap ev :<C-u>edit ~/dotfiles/.vimrc<CR>
+    " eg: gvimrcを開く
+    nmap eg :<C-u>edit ~/dotfiles/.gvimrc<CR>
+    " ,v: vimrcを反映
+    nnoremap <silent> ,v :<C-u>source ~/dotfiles/.vimrc \| if has("gui_running") \| source ~/dotfiles/.vimrc \| endif <CR>
+    " ,g: gvimrcを反映
+    nnoremap <silent> ,g :<C-u>source ~/dotfiles/.gvimrc<CR>
 endif
 
 " "NeoVim" の "Terminal mode" をノーマルモードを使用する

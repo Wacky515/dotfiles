@@ -33,3 +33,8 @@
 	sslVerify = false
 [remote "origin"]
 	proxy = 
+[difftool "sourcetree"]
+	cmd = '' \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+	cmd = "'' "
+	trustExitCode = true
