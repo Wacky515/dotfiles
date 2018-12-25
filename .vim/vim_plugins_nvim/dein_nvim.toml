@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2018/12/24 10:47:03.
+# Last Change: 2018/12/25 14:43:22.
 
 # MEMO:
 # hook_add         プラグイン追加後
@@ -9,6 +9,10 @@
 # "dein.vim" 本体
 [[plugins]]
 repo = 'Shougo/dein.vim'
+
+# [[plugins]]
+# repo = 'Shougo/unite.vim'
+# if = "!exists('g:nyaovim_version')"
 
 # コピペ履歴保存
 [[plugins]]
