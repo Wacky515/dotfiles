@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Symbolic linkig dotfiles.
 # Created:     2017/02/08 00:00:00
-# Last Change: 2018/06/03 21:10:37.
+# Last Change: 2018/12/24 23:05:11.
 # TODO:
 # FIXME:
     # ${HOME} を単体起動と外部呼出しで通常動作させる
@@ -100,9 +100,10 @@ echo ""
 if [ ! -e ~/.config/nvim/ ]; then
     sudo -- bash -c "mkdir ~/.config/nvim/"
 fi
-sudo ln -snfv ${DOT_DIR}/init.vim ~/.config/nvim/init.vim
-sudo ln -snfv ${DOT_DIR}/ginit.vim ~/.config/nvim/ginit.vim
+sudo ln -snfv ${DOT_DIR}/nvim/init.vim ~/.config/nvim/init.vim
+sudo ln -snfv ${DOT_DIR}/nvim/ginit.vim ~/.config/nvim/ginit.vim
 
 gm_echo ">> Dotfiles link success"
 gm_echo ">> End make symbolic link"
 result_echo $? "${PROCESS}"
+

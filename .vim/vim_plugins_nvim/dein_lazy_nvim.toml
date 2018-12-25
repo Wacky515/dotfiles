@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2018/12/21 15:32:20.
+# Last Change: 2018/12/24 12:46:30.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -89,18 +89,10 @@ repo = 'Shougo/neomru.vim'
 on_source = ['dein.vim', 'unite.vim', 'denite.nvim']
 on_path = '.*'
 [[plugins]]
-repo = 'ujihisa/unite-colorscheme'
-# FIXME: ↓何も表示されない
-# フォントプレビュー
-    # ":Unite font" でプレビュー
-    # ":Denite font" でプレビュー
-[[plugins]]
-repo = 'ujihisa/unite-font'
-# 英和・和英辞書
-[[plugins]]
-repo = 'rhysd/unite-codic.vim'
-[[plugins]]
 repo = 'koron/codic-vim'
+# "NyaoVim" と "OniVim" で必要
+[[plugins]]
+repo = 'Shougo/unite.vim'
 
 # 入力補完
 # 最新

@@ -1,5 +1,6 @@
 scriptencoding utf-8
-" Last Change: 2018/11/14 11:36:55.
+" Created:     20**/**/** **:**:**
+" Last Change: 2018/12/24 09:05:30.
 
 " 新規作成時、動的にテンプレートを読込む
 augroup templateload

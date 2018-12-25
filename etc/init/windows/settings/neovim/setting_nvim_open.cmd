@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/12/20 15:51:47
-rem Last Change: 2018/12/20 16:20:53.
+rem Last Change: 2018/12/24 12:29:38.
 
 set batch_title=Setting NeoVim Open
 title %batch_title%
@@ -22,8 +22,7 @@ set drive="C:"
 echo ^>^> %batch_title%
 
 echo ^>^> Set Open by NeoVim
-reg add "HKEY_CLASSES_ROOT\*\shell\NeoVim open" /v "Icon" /t REG_SZ /d %prefix%"C:\tools\neovim\Neovim\bin\nvim-qt.exe\" /f
-rem reg add "HKEY_CLASSES_ROOT\*\shell\NeoVim open\command" /t REG_SZ /d "\"%drive%\C:\tools\neovim\Neovim\bin\nvim-qt.exe\" \"%%1\"" /f
+reg add "HKEY_CLASSES_ROOT\*\shell\NeoVim open" /v "Icon" /t REG_SZ /d C:\tools\neovim\Neovim\bin\nvim-qt.exe /f
 reg add "HKEY_CLASSES_ROOT\*\shell\NeoVim open\command" /t REG_SZ /d "\"%drive%\tools\neovim\Neovim\bin\nvim-qt.exe\" \"%%1\"" /f
 goto eof
 

@@ -1,10 +1,11 @@
 scriptencoding utf-8
 " Created:     2018/03/30 12:15:44
-" Last Change: 2018/09/20 12:35:52.
+" Last Change: 2018/12/24 10:42:13.
 
 " ,s: ショートカットキー
 nnoremap ,s <Nop>
-nnoremap ,sp :<C-u>CtrlP<CR>
+" キーマップ "startify" に移譲
+" nnoremap ,sp :<C-u>CtrlP<CR>
 nnoremap ,sa :<C-u>CtrlP<Space>
 nnoremap ,sb :<C-u>CtrlPBuffer<CR>
 nnoremap ,sd :<C-u>CtrlPDir<CR>
