@@ -1,12 +1,12 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2018/12/21 16:35:45.
+# Last Change: 2018/12/24 10:47:03.
 
 # MEMO:
 # hook_add         プラグイン追加後
 # hook_source      プラグイン読込み前
 # hook_post_source プラグイン読込み後
 
-# "DEIn.vim" 本体
+# "dein.vim" 本体
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -90,24 +90,9 @@ repo = 'scrooloose/nerdtree'
 [[plugins]]
 repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
 depends = ['nerdtree']
-# ,sp: カレントディレクトリ以下を検索
-[[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
-if = "!has('nvim')"
-# :VimFiler で起動 # {{{
-    # o: バッファを縦分割 or ディレクトリ同期
-    # O: 別バッファに選択中のディレクトリの中を展開
-    # gs: セーフモード ON/OFF
-    # q: 終了
-# }}}
-[[plugins]]
-repo = 'Shougo/vimfiler'
-if = "!exists('g:nyaovim_version')"
-
 # ステータスライン ビジュアル強化
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-# depends = ['vim-fugitive', 'majutsushi/tagbar']
 depends = ['vim-fugitive', 'tagbar']
 # < http://itchyny.hatenablog.com/entry/20130828/1377653592 >
 # アイコン表示
@@ -133,7 +118,6 @@ repo = 'lokaltog/vim-easymotion'
 # コメント ON/OFFトグル
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
-# if = "!has('nvim')"
 
 # テキスト整形
 # 対象行を選択し "ga" -> "整形対象" ->  "デリミタ" を入力

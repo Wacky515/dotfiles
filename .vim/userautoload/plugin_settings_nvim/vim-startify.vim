@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/12/13 07:39:11
-" Last Change: 2018/12/22 20:55:16.
+" Last Change: 2018/12/24 22:59:15.
 
 " ---------------------------------------------------------------------------
 "  マップキー
@@ -16,9 +16,9 @@ let g:startify_files_number = 10
 " ヘッダ部分に表示する文字列を設定
     " "date" コマンドを実行し日付を設定
     " MEMO: "Windows" は "date" がエラーになる
-if has("win32") || has("win64")
+if (has("win32") || has("win64"))
     let g:startify_custom_header = 'startify#fortune#cowsay()'
-elseif
+else
     let g:startify_custom_header =
                 \ map(split(system('date'), '\n'), '"   ". v:val') + ['','']
 endif
