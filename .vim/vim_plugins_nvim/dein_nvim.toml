@@ -10,10 +10,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# [[plugins]]
-# repo = 'Shougo/unite.vim'
-# if = "!exists('g:nyaovim_version')"
-
 # コピペ履歴保存
 [[plugins]]
 repo = 'LeafCage/yankround.vim'
