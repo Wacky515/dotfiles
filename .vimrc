@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2018/12/26 10:03:14.
+" Last Change: 2018/12/27 10:51:39.
 
 " MEMO: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -150,8 +150,8 @@ if dein#load_state(s:plugin_dir)
             call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
         endif
 		call dein#add("rhysd/nyaovim-markdown-preview")
-		call dein#add("rhysd/nyaovim-mini-browser")
 		call dein#add("rhysd/nyaovim-popup-tooltip")
+		call dein#add("rhysd/nyaovim-mini-browser")
 	endif
 
     " MEMO: 重複
