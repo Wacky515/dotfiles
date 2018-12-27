@@ -1,4 +1,5 @@
-# Last Change: 2018/06/08 16:32:06.
+# Created:     20**/**/** **:**:**
+# Last Change: 2018/12/27 15:48:46.
 # 環境変数
 export LANG=ja_JP.UTF-8
 
@@ -30,3 +31,4 @@ case ${OSTYPE} in
         # exec zsh
         exec fish
 esac
+

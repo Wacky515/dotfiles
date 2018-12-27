@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2018/12/25 14:36:48.
+" Last Change: 2018/12/27 15:36:14.
 " MEMO: "NeoVim" が起動しない時は "dein" のディレクトリを消す
 
 " !!!: 必ず先頭に記述
@@ -48,4 +48,7 @@ if exists("g:nyaovim_version")
         endif
     endif
 endif
+
+"クリップボードを共有する
+set clipboard=unnamed
 
