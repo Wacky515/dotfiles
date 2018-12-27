@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/12/13 07:39:11
-" Last Change: 2018/12/24 22:59:15.
+" Last Change: 2018/12/27 12:22:55.
 
 " ---------------------------------------------------------------------------
 "  マップキー
@@ -12,15 +12,10 @@ nnoremap ,st :Startify<CR>
 "  基本設定
 " ---------------------------------------------------------------------------
 let g:startify_files_number = 10
+let g:startify_fortune_use_unicode = 1
 
-" ヘッダ部分に表示する文字列を設定
-    " "date" コマンドを実行し日付を設定
-    " MEMO: "Windows" は "date" がエラーになる
-if (has("win32") || has("win64"))
-    let g:startify_custom_header = 'startify#fortune#cowsay()'
-else
-    let g:startify_custom_header =
-                \ map(split(system('date'), '\n'), '"   ". v:val') + ['','']
+if exists("g:nyaovim_version")
+    autocmd VimEnter * execute "normal \<Leader>t"
 endif
 
 " " 最近使ったファイルの接頭アルファベットを指定
@@ -59,6 +54,17 @@ function! s:filter_header(lines) abort
                 \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
     return centered_lines
 endfunction
+
+" ヘッダ部分に表示する文字列を設定
+    " "date" コマンドを実行し日付を設定  " {{{
+    " MEMO: "Windows" は "date" がエラーになる
+" if (has("win32") || has("win64"))
+"     let g:startify_custom_header = 'startify#fortune#cowsay()'
+" else
+"     let g:startify_custom_header =
+"                 \ map(split(system('date'), '\n'), '"   ". v:val') + ['','']
+" endif
+"}}}
 
 let g:startify_custom_header = s:filter_header([
             \ '      ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁    ░▓▓▒         ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁',

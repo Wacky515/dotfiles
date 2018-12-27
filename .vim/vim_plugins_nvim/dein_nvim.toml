@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2018/12/25 14:43:22.
+# Last Change: 2018/12/27 10:48:51.
 
 # MEMO:
 # hook_add         プラグイン追加後
@@ -98,6 +98,8 @@ depends = ['vim-fugitive', 'tagbar']
 # アイコン表示
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
 
 # ウィンドウリサイズ
 [[plugins]]
@@ -212,4 +214,10 @@ hook_add = '''
     au MyAutoCmd VimEnter * nested colorscheme iceberg
     au MyAutoCmd VimEnter * highlight Visual ctermbg=216
 '''
+[[plugins]]
+repo = 'shinshin86/twc.vim'
+
+# JOKE
+[[plugins]]
+repo = 'wordijp/kuririn-no-kotoka.vim'
 
