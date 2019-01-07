@@ -1,3 +1,25 @@
+scriptencoding utf-8
+" Created:     2018/12/13 07:39:11
+" Last Change: 2019/01/07 17:14:11.
+
+" ---------------------------------------------------------------------------
+"  マップキー
+" ---------------------------------------------------------------------------
+" ,st: ロゴ画面
+nnoremap ,st :Startify<CR>
+
+" ---------------------------------------------------------------------------
+"  基本設定
+" ---------------------------------------------------------------------------
+let g:startify_files_number = 10
+let g:startify_fortune_use_unicode = 1
+
+if exists("g:nyaovim_version")
+    autocmd VimEnter * execute "normal :tabnew\<CR>"
+    autocmd VimEnter * execute "normal :Startify\<CR>"
+endif
+
+" " 最近使ったファイルの接頭アルファベットを指定
 " let g:startify_custom_indices = ['f', 'g', 'h', 'r', 'i', 'o', 'b']
 
 " 接頭記号を指定
