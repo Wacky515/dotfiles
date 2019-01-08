@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2018/12/23 22:24:22.
+" Last Change: 2018/12/24 23:15:38.
 
 " MEMO: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -70,7 +70,6 @@ elseif has("nvim")
             let s:plugin_dir = expand("~\\.config\\nvim\\.cache\\dein\\")
         endif
 	endif
-
 elseif exists("g:nyaovim_version")
 	let s:dein_cache_path = expand("~/.config/nyaovim/dein")
 endif
@@ -115,26 +114,33 @@ if dein#load_state(s:plugin_dir)
 		let s:python_toml_nvim = g:plugin_dir_nvim . "/dein_python_nvim.toml"
 
 	elseif has("nvim")
-		let g:plugin_dir_nvim  = expand("~\\.vim\\vim_plugins_nvim")
-		let s:toml_nvim        = g:plugin_dir_nvim . "\\dein_nvim.toml"
-		let s:lazy_toml_nvim   = g:plugin_dir_nvim . "\\dein_lazy_nvim.toml"
-		let s:python_toml_nvim = g:plugin_dir_nvim . "\\dein_python_nvim.toml"
-		" CHECK: ↓ いる？
-		" call dein#add(s:dein_dir)
+        if has("unix")
+            let g:plugin_dir_nvim  = expand("~/.vim/vim_plugins_nvim")
+            let s:toml_nvim        = g:plugin_dir_nvim . "/dein_nvim.toml"
+            let s:lazy_toml_nvim   = g:plugin_dir_nvim . "/dein_lazy_nvim.toml"
+            let s:python_toml_nvim = g:plugin_dir_nvim . "/dein_python_nvim.toml"
+        else
+            let g:plugin_dir_nvim  = expand("~\\.vim\\vim_plugins_nvim")
+            let s:toml_nvim        = g:plugin_dir_nvim . "\\dein_nvim.toml"
+            let s:lazy_toml_nvim   = g:plugin_dir_nvim . "\\dein_lazy_nvim.toml"
+            let s:python_toml_nvim = g:plugin_dir_nvim . "\\dein_python_nvim.toml"
+            " CHECK: ↓ いる？
+            " call dein#add(s:dein_dir)
+        endif
 	endif
 
 	"*.toml" を読込み、キャッシュ
 	if !has("nvim")
-		call dein#load_toml(s:toml,             {"lazy": 0})
-		call dein#load_toml(s:lazy_toml,        {"lazy": 1})
+		call dein#load_toml(s:toml,                 {"lazy": 0})
+		call dein#load_toml(s:lazy_toml,            {"lazy": 1})
 		if has ("python3")
-			call dein#load_toml(s:python_toml,  {"lazy": 1})
+			call dein#load_toml(s:python_toml,      {"lazy": 1})
 		endif
 	endif
-	call dein#load_toml(s:toml_nvim,            {"lazy": 0})
-	call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
+	call dein#load_toml(s:toml_nvim,                {"lazy": 0})
+	call dein#load_toml(s:lazy_toml_nvim,           {"lazy": 1})
 	if has ("python3")
-		call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
+		call dein#load_toml(s:python_toml_nvim,     {"lazy": 1})
 	endif
 
 	if exists("g:nyaovim_version")
@@ -142,20 +148,22 @@ if dein#load_state(s:plugin_dir)
         call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
         if has ("python3")
             call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
+        endif
 		call dein#add("rhysd/nyaovim-markdown-preview")
 		call dein#add("rhysd/nyaovim-mini-browser")
 		call dein#add("rhysd/nyaovim-popup-tooltip")
-        endif
 	endif
 
-" MEMO: 重複
-if hostname() == "HBAMB748"
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-elseif hostname() == "HBAMB819"
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-endif
+    " MEMO: 重複
+    if !has("nvim")
+        if hostname() == "HBAMB748"
+            call dein#add('roxma/nvim-yarp')
+            call dein#add('roxma/vim-hug-neovim-rpc')
+        elseif hostname() == "HBAMB819"
+            call dein#add('roxma/nvim-yarp')
+            call dein#add('roxma/vim-hug-neovim-rpc')
+        endif
+    endif
 
 	" 設定終了
 	call dein#end()
