@@ -1,15 +1,9 @@
 ﻿scriptencoding utf-8
+" Created:     201*/**/** **:**:**
+" Last Change: 2019/01/08 13:52:41.
 
 if exists("b:did_ftplugin_python")
     finish
-endif
-
-" set pythonthreedll=$VIM/python3/python35.dll
-" set pythonthreedll="C:\tools\Anaconda3\envs\TestAnacondaVEnv\python35.dll"
-if has("win64")
-    " let $PYTHONHOME='C:\ProgramData\chocolatey\.chocolatey\anaconda3.5.0.1'
-    " let $PYTHONHOME='C:\tools\Anaconda3\envs\TestAnacondaVEnv\python35.dll'
-    " set pythonthreedll="C:\tools\Anaconda3\envs\TestAnacondaVEnv\python35.dll"
 endif
 
 let b:did_ftplugin_python = 1
@@ -23,26 +17,34 @@ setlocal expandtab
 setlocal tabstop=4
 setlocal shiftwidth=4
 
-" jedi-vim" で "Anaconda3 " のライブラリを補完できるようにpathを追加
+" "jedi-vim" で "Anaconda3" のライブラリを補完できるように "path" を追加
 if has('vim_starting')
     if has('macunix')
         " brew install python3
         set pythonthreedll=
-            \/usr/local/Cellar/python3/3.6.4_2/
-            \Frameworks/Python.framework/Versions/3.6/Python
+                    \ /usr/local/Cellar/python3/3.6.4_2/
+                    \ Frameworks/Python.framework/Versions/3.6/Python
         set pythonthreehome=
-            \/usr/local/Cellar/python3/3.6.4_2/
-            \Frameworks/Python.framework/Versions/3.6
-
+                    \ /usr/local/Cellar/python3/3.6.4_2/
+                    \ Frameworks/Python.framework/Versions/3.6
     elseif has('win32')
         " 完璧ではない
         " embed 版のpython をダウンロードして vim と同じフォルダに置く。
         "   python35.dll
         "   python35.zip
-
     endif
 endif
-" https://qiita.com/CutBaum/items/a8de8e3f4e32c0a3ad1e
+
+" REF:
+    " if has("linux")
+        " set pythonthreedll=$VIM/python3/python35.dll
+    " elseif has("win64")
+        " let $PYTHONHOME='C:\ProgramData\chocolatey\.chocolatey\anaconda3.5.0.1'
+        " let $PYTHONHOME='C:\tools\Anaconda3\envs\TestAnacondaVEnv\python35.dll'
+        " set pythonthreedll=C:\tools\Anaconda3\envs\TestAnacondaVEnv\python35.dll
+    " endif
+
+" REF: https://qiita.com/CutBaum/items/a8de8e3f4e32c0a3ad1e
 
 " スクリプトを実行
 nnoremap <F5> :w <ENTER> :!python % <ENTER>
@@ -88,59 +90,59 @@ nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
 " jedi-vim" で "Anaconda3 " のライブラリを補完できるようにpathを追加
 " FIXED?: "Linux" 環境下でエラー
 if !has("unix")
-" python3 << EOF
-python << EOF
-import os
-import sys
+    " python3 << EOF
+    python << EOF
+    import os
+    import sys
 
-path = "C:/tools/Anaconda3/Lib/site-packages"
-if not path in sys.path:
-    sys.path.insert(0, path)
-EOF
-endif
+    path = "C:/tools/Anaconda3/Lib/site-packages"
+    if not path in sys.path:
+        sys.path.insert(0, path)
+        EOF
+    endif
 
-" 以下の条件分けは "endif" 無しエラーが解決できないためKill
-" if !has("unix") "{{{
-"     python << EOF
-"         import os
-"         import sys
-"         home = os.path.expanduser("~")
-"         path = home + "/Anaconda2/Lib/site-packages"
-"         if not path in sys.path:
-"             sys.path.insert(0, path)
-"     EOF
-" endif
+    " 以下の条件分けは "endif" 無しエラーが解決できないためKill
+    " if !has("unix") "{{{
+    "     python << EOF
+    "         import os
+    "         import sys
+    "         home = os.path.expanduser("~")
+    "         path = home + "/Anaconda2/Lib/site-packages"
+    "         if not path in sys.path:
+    "             sys.path.insert(0, path)
+    "     EOF
+    " endif
 
-" if has("win32") || has("win64")
-"     python << EOF
-"     import os
-"     import sys
-"     home = os.path.expanduser("~")
-"     path = home + "/Anaconda2/Lib/site-packages"
-"     if not path in sys.path:
-"         sys.path.insert(0, path)
-"     EOF
-" endif "}}}
+    " if has("win32") || has("win64")
+    "     python << EOF
+    "     import os
+    "     import sys
+    "     home = os.path.expanduser("~")
+    "     path = home + "/Anaconda2/Lib/site-packages"
+    "     if not path in sys.path:
+    "         sys.path.insert(0, path)
+    "     EOF
+    " endif "}}}
 
-" if !has("unix") "{{{
-"     python << EOF
-"     import os
-"     import sys
-"     home = os.path.expanduser("~")
-"     path = home + "/Anaconda2/Lib/site-packages"
-"     if not path in sys.path:
-"         sys.path.insert(0, path)
-"     EOF
-" endif
+    " if !has("unix") "{{{
+    "     python << EOF
+    "     import os
+    "     import sys
+    "     home = os.path.expanduser("~")
+    "     path = home + "/Anaconda2/Lib/site-packages"
+    "     if not path in sys.path:
+    "         sys.path.insert(0, path)
+    "     EOF
+    " endif
 
-" if has("win32") || has("win64")
-"     python << EOF
-"     import os
-"     import sys
-"     home = os.path.expanduser("~")
-"     path = home + "/Anaconda2/Lib/site-packages"
-"     if not path in sys.path:
-"         sys.path.insert(0, path)
-"     EOF
-" endif
-" }}}
+    " if has("win32") || has("win64")
+    "     python << EOF
+    "     import os
+    "     import sys
+    "     home = os.path.expanduser("~")
+    "     path = home + "/Anaconda2/Lib/site-packages"
+    "     if not path in sys.path:
+    "         sys.path.insert(0, path)
+    "     EOF
+    " endif
+    " }}}
