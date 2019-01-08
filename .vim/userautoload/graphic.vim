@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/14 14:59:36
-" Last Change: 2018/12/21 10:51:26.
+" Last Change: 2018/12/27 15:30:01.
 
 " ---------------------------------------------------------------------------
 " メイン表示篇
@@ -54,6 +54,15 @@ if has("autocmd")
     \   exe "normal! g'\"" |
     \ endif
 endif
+
+" インサートモードに入った時にカーソル行(列)の色を変更する
+augroup vimrc_change_cursorline_color
+  autocmd!
+  " インサートモードに入った時にカーソル行の色をブルーグリーンにする
+  autocmd InsertEnter * highlight CursorLine ctermbg=24 guibg=#005f87 | highlight CursorColumn ctermbg=24 guibg=#005f87
+  " インサートモードを抜けた時にカーソル行の色を黒に近いダークグレーにする
+  autocmd InsertLeave * highlight CursorLine ctermbg=236 guibg=#303030 | highlight CursorColumn ctermbg=236 guibg=#303030
+augroup END
 
 " ---------------------------------------------------------------------------
 " 全角スペースをハイライト

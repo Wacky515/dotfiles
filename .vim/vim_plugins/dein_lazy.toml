@@ -1,5 +1,5 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2018/12/24 12:34:59.
+# Last Change: 2019/01/08 16:52:29.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -8,7 +8,6 @@ repo = 'Shougo/unite.vim'
 # TODO: "Denite" 動作テスト完了後に
 # ↓を復帰して "Unite" 使用完了
 # if = "!has(te'python3')"
-if = "!exists('g:nyaovim_version')"
 depends = ['neomru.vim']
 [[plugins]]
 repo = 'ujihisa/unite-colorscheme'
@@ -23,12 +22,45 @@ repo = 'ujihisa/unite-font'
 repo = 'rhysd/unite-codic.vim'
 
 # 入力補完
+# 最新
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if = "has('python3') && has('timers')"
+depends = ['nvim-yarp', 'vim-hug-neovim-rpc']
+on_i = 1
+hook_add = '''  " {{{
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#auto_complete_delay = 0
+'''  # }}}
+on_event = ['InsertCharPre']
+hook_source = '''  " {{{
+    inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+    inoremap <expr><C-l> deoplete#complete_common_string()
+    inoremap <expr><C-i> deoplete#complete_common_string()
+    inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+                \ neosnippet#expandable_or_jumpable() ?
+                \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+
+    let g:deoplete#auto_complete_start_length = 1
+    let g:deoplete#enable_camel_case = 0
+    let g:deoplete#enable_smart_case = 1
+    let g:deoplete#enable_ignore_case = 0
+    let g:deoplete#enable_refresh_always = 0
+    let g:deoplete#file#enable_buffer_path = 1
+    let g:deoplete#max_list = 10000
+'''  # }}}
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+
 # 2番目に新しい
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
+if = "!has('python3') && !has('timers') && has('lua')"
+# if = "!has('nvim') && has('lua')"
 depends = ['context_filetype.vim']
-if = "!has('nvim') && has('lua')"
-# if = "!has('python3') && has('lua')"
+on_i = 1
 # MEMO: この "hook_source" は条件分岐の為 "*.vim" に移管しない
 hook_source = '''
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
@@ -38,7 +70,6 @@ inoremap <expr><tab> pumvisible() ? "\<C-n>" :
             \ neosnippet#expandable_or_jumpable() ?
             \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 '''
-# on_i = 1
 # 最古
 [[plugins]]
 repo = 'Shougo/neocomplcache.vim'

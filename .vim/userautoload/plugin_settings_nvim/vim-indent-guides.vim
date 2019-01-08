@@ -1,5 +1,6 @@
 scriptencoding utf-8
-" Last Change: 2018/04/10 12:45:05.
+" Created:     201*/**/** **:**:**
+" Last Change: 2018/12/27 17:07:51.
 
 if has("gui_running")
     " Vim起動後自動的にON
@@ -9,3 +10,4 @@ if has("gui_running")
     let g:indent_guides_color_change_percent=30
     let g:indent_guides_guide_size=1
 end
+

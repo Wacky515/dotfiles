@@ -1,6 +1,6 @@
 scriptencoding utf-8
-" Created:     2018/03/22 00:00:00
-" Last Change: 2018/12/24 11:11:39.
+" Created:     2018/03/22 **:**:**
+" Last Change: 2018/12/27 09:28:42.
 
 " <Leader>o: 現在開いているバッファをIDE風に開く
 nnoremap <silent> <Leader>o :<C-u>NERDTree<CR>
