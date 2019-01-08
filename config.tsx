@@ -17,6 +17,7 @@ export const activate = (oni: Oni.Plugin.Api) => {
     // oni.input.unbind("<c-p>")
     // }}}
 
+    oni.input.unbindAll()
     oni.input.unbind("<C-p>")
     oni.input.unbind("<S-C-p>")
     const isNormalMode =
@@ -46,10 +47,12 @@ export const configuration = {
     // "ui.fontSmoothing": "auto",
 
     "autoClosingPairs.enabled": false,
-    "commandline.mode": false,
+    "commandline.mode": true,
+    // "commandline.mode": false,
     "editor.errors.slideOnForce": false,
     "editor.fontFamily": "Cica, Dejavu Sans Mono, Consolas",
-    "editor.fontLigatures": false,
+    "editor.fontLigatures": true,
+    // "editor.fontLigatures": false,
     // "editor.fontSize": "11px",
     "editor.fontWeight": "normal",
     "editor.linePadding": 1,
@@ -59,7 +62,8 @@ export const configuration = {
     "oni.hideMenu": true,
     "oni.useDefaultConfig": false,
     "sidebar.enabled": false,
-    "statusbar.enabled": false,
+    "statusbar.enabled": true,
+    // "statusbar.enabled": false,
     "tabs.mode": "native",
     "ui.animations.enabled": true,
     // "ui.colorscheme": "onedark",

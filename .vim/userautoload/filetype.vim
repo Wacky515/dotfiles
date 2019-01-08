@@ -1,5 +1,6 @@
+scriptencoding utf-8
 " Created:     2016/08/08 22:24:35
-" Last Change: 2018/12/18 10:26:29.
+" Last Change: 2019/01/08 14:47:52.
 
 " MEMO: 詳細設定は "~/dotfiles/.vim/filetype_settings" に記述
 augroup filetypedetect
