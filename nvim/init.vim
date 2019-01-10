@@ -1,10 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-<<<<<<< HEAD
-" Last Change: 2018/12/25 22:57:35.
-=======
-" Last Change: 2018/12/27 15:36:14.
->>>>>>> fc7e4ed5a3a6e1c4447b39c25f8bf8416b16147c
+" Last Change: 2019/01/10 16:38:22.
 " MEMO: "NeoVim" が起動しない時は "dein" のディレクトリを消す
 
 " !!!: 必ず先頭に記述
