@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2019/01/08 14:19:20.
+" Last Change: 2019/01/10 14:35:01.
 
 let g:deoplete#enable_at_startup = 1
 
@@ -164,16 +164,16 @@ if dein#load_state(s:plugin_dir)
 		call dein#add("rhysd/nyaovim-mini-browser")
 	endif
 
-    " MEMO: èdï°
-    if !has("nvim")
-        if hostname() == "HBAMB748"
-            call dein#add("roxma/nvim-yarp")
-            call dein#add("roxma/vim-hug-neovim-rpc")
-        elseif hostname() == "HBAMB819"
-            call dein#add("roxma/nvim-yarp")
-            call dein#add("roxma/vim-hug-neovim-rpc")
-        endif
-    endif
+    " " MEMO: èdï°
+    " if !has("nvim")
+    "     if hostname() == "HBAMB748"
+    "         call dein#add("roxma/nvim-yarp")
+    "         call dein#add("roxma/vim-hug-neovim-rpc")
+    "     elseif hostname() == "HBAMB819"
+    "         call dein#add("roxma/nvim-yarp")
+    "         call dein#add("roxma/vim-hug-neovim-rpc")
+    "     endif
+    " endif
 
 	" ê›íËèIóπ
 	call dein#end()
