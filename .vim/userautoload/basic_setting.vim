@@ -1,6 +1,6 @@
 scriptencoding utf-8
-" Created:     20**/**/** :**:**:**
-" Last Change: 2018/12/24 08:39:59.
+" Created:     20**/**/** **:**:**
+" Last Change: 2019/01/10 14:35:06.
 
 " モード変更の挙動が遅い対処
 set timeout timeoutlen=1000 ttimeoutlen=50
