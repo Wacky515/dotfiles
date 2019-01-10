@@ -66,11 +66,11 @@
 
 - mgs :  Gstatus\<CR\>\<C-w\>T
   - 選択ファイル上で -: "git add/reset" をトグル
-- mga :  Gwrite\<CR\>
-- mgc :  Gcommit-v\<CR\>
-- mgb :  Gblame\<CR\>
-- mgd :  Gdiff\<CR\>
-- mgm :  Gmerge\<CR\>
+- mga:   Gwrite\<CR\>
+- mgc:   Gcommit-v\<CR\>
+- mgb:   Gblame\<CR\>
+- mgd:   Gdiff\<CR\>
+- mgm:   Gmerge\<CR\>
 - :Agit: 強化版"git log" 起動
 - :Gitv: "gitk" 実行
 
@@ -96,7 +96,6 @@
 - \<F11\>: ALE修正
   - \<C-k\>: 次の修正
   - \<C-l\>: 前の修正
-
 
 - \<C-i\>p: CtrlP 起動
 - \<C-s\>: エクスプローラで保存場所選択して保存
@@ -156,7 +155,7 @@
 ## Grep
 
 - \<Leader\>r: カーソル下を "RipGrep" 対象に挿入
-- \<Leader\>P: カーソル下を "The Platinum Searcher" 対象に挿入
+- \<Leader\>***P***: カーソル下を "The Platinum Searcher" 対象に挿入
 - \<Leader\>a: カーソル下を "The Sliver Searcher" 対象に挿入
 - \<Leader\>G: カーソル下を "外部grep" 対象に挿入
 - \<Leader\>g: カーソル下を "VimGrep" 対象に挿入
