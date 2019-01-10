@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/12/13 07:39:11
-" Last Change: 2019/01/07 17:14:11.
+" Last Change: 2019/01/10 09:54:52.
 
 " ---------------------------------------------------------------------------
 "  マップキー
@@ -44,7 +44,9 @@ let g:startify_bookmarks = [
             \ "~/dotfiles/.vim/vim_plugins/dein.toml",
             \ "~/dotfiles/.vim/vim_plugins/dein_lazy.toml",
             \ "~/dotfiles/.vim/vim_plugins_nvim/dein_nvim.toml",
-            \ "~/dotfiles/.vim/vim_plugins_nvim/dein_lazy_nvim.toml"
+            \ "~/dotfiles/.vim/vim_plugins_nvim/dein_lazy_nvim.toml",
+            \ "~/dotfiles/.vim/userautoload/plugin_settings_nvim/vim-startify.vim",
+            \ "R:/E2M0/E2M-4/【秘】-E2M4-1/10.個人ファイル/Wakita/Docments/出張各種申請 Memo.md"
             \ ]
 
 " アスキーアート 中央揃え
