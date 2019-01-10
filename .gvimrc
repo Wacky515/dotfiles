@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2018/12/22 22:33:55.
+" Last Change: 2019/01/10 09:27:49.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -18,10 +18,10 @@ endif
 " 選択行番号の色
 highlight LineNr ctermfg=darkyellow
 
-" コマンドライン（Vim画面下部）の行数
+" コマンドライン（"Vim" 画面下部）の行数
 set cmdheight=5
 
-" ターミナルwo256色表示
+" ターミナル256色表示
 set t_Co=256
 
 " ツールバー消去
@@ -29,7 +29,7 @@ set guioptions-=T
 " メニューバー非表示
 set guioptions-=m
 
-" ウィンドウ 半透明化（LinuxはVimから設定できない）
+" ウィンドウ 半透明化（"Linux" は "Vim" から設定できない）
 if has("mac")
     set transparency=10
 endif
