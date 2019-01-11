@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/01/10 09:27:49.
+" Last Change: 2019/01/10 22:27:28.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -81,9 +81,11 @@ if has("linux")
 elseif has("mac")
     if hostname() == "ProSalad13.local"
         if !has("nvim")
-            set guifont=Ricty_Diminished:h16
+            set guifont=Cica:h16
+            " set guifont=Ricty_Diminished:h16
         else
-            Guifont! Ricty_Diminished:h16
+            Guifont! Cica:h16
+            " Guifont! Ricty_Diminished:h16
         endif
     elseif hostname() == "ProSalad133.local"
         if !has("nvim")
