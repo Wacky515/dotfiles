@@ -106,6 +106,12 @@ elseif has("mac")
         endif
         " colorscheme iceberg
         " set background=dark
+    elseif hostname() == "SaladBook.com"
+        if !has("nvim")
+            set guifont=Cica:h24
+        else
+            Guifont! Cica:h24
+        endif
     else
         if !has("nvim")
             set guifont=Cica:h18
