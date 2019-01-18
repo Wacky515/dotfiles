@@ -1,14 +1,14 @@
-# Created:     20**/**/** **:**:**
-# Last Change: 2018/12/27 15:48:46.
+# Created:     201*/**/** **:**:**
+# Last Change: 2019/01/18 10:05:03.
 # 環境変数
 export LANG=ja_JP.UTF-8
 
-## エイリアス
+# エイリアス
 alias la="ls -la"
 alias ll="ls -l"
 alias fn="find ./ -name"
 
-## OS 別設定
+# OS 別設定
 case ${OSTYPE} in
     darwin*)
         # "Mac" 用設定
@@ -28,7 +28,9 @@ case ${OSTYPE} in
         alias nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
         alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"
 
+        # "ls" で日本語ファイル名文字化け防止
+        alias ls='ls --show-control-chars'
+
         # exec zsh
         exec fish
 esac
-
