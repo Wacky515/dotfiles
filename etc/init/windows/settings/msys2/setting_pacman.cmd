@@ -1,7 +1,7 @@
 @echo off
 setlocal
-rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/12/04 16:19:27.
+rem Created:     201*/**/** **:**:**
+rem Last Change: 2019/01/18 11:22:22.
 
 set batch_title=Setting Pacman
 title %batch_title%
@@ -19,14 +19,27 @@ exit
 rem  スクリプトがある "Dir" に "cd"
 pushd %~dp0
 
+rem 不要
+rem rem TODO: "Pacman" 存在確認処理
+rem pacman -Sl | grep 'pacman ' >> nul
+rem if %errorlevel% equ 0 goto setting_pacman
+
+rem TODO: install Pacman
+
+rem :setting_pacman
 echo ^>^> %batch_title%
 echo ^>^> Start set link
 
-mklink "C:\tools\msys64\etc" "\.pacman.conf"
+if exist "C:\tools\msys64\etc\pacman.conf" (
+        echo ^>^> Backup default file
+        rename "C:\tools\msys64\etc\pacman.conf" "pacman.conf.bak"
+        )
+
+mklink "C:\tools\msys64\etc\pacman.conf" %~dp0%"pacman.conf"
 
 endlocal
 popd
 
-rem pause
+pause
 exit /b 0
 
