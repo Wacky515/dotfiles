@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/01/10 22:27:28.
+" Last Change: 2019/02/02 14:57:43.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -198,6 +198,51 @@ elseif (has("win32") || has("win64"))
         " colorscheme iceberg
         " set background=dark
     elseif hostname() == "HBAMB819"
+        if !has("nvim")
+            set guifont=Cica:h12
+            set printfont=Cica:h10
+            set rop=type:directx,renmode:5
+        else
+            if !exists("g:nyaovim_version")
+                Guifont! Cica:h12
+            endif
+            set termguicolors
+            " TEMP: "dein" に移管する
+            colorscheme iceberg
+        endif
+        " colorscheme hybrid
+        " set background=dark
+    elseif hostname() == "SMM0761"
+        if !has("nvim")
+            set guifont=Cica:h12
+            set printfont=Cica:h10
+            set rop=type:directx,renmode:5
+        else
+            if !exists("g:nyaovim_version")
+                Guifont! Cica:h12
+            endif
+            set termguicolors
+            " TEMP: "dein" に移管する
+            colorscheme iceberg
+        endif
+        " colorscheme hybrid
+        " set background=dark
+    elseif hostname() == "SMM1319"
+        if !has("nvim")
+            set guifont=Cica:h12
+            set printfont=Cica:h10
+            set rop=type:directx,renmode:5
+        else
+            if !exists("g:nyaovim_version")
+                Guifont! Cica:h12
+            endif
+            set termguicolors
+            " TEMP: "dein" に移管する
+            colorscheme iceberg
+        endif
+        " colorscheme hybrid
+        " set background=dark
+    elseif hostname() == "SMM1380"
         if !has("nvim")
             set guifont=Cica:h12
             set printfont=Cica:h10
