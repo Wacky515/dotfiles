@@ -17,3 +17,4 @@ if [[ `uname` =~ ^(MSYS_NT-|MINGW32_NT-).+$ ]]; then
     # fi
 
 fi
+export PATH="/usr/local/sbin:$PATH"
