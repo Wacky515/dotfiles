@@ -1,3 +1,25 @@
+scriptencoding utf-8
+" Created:     2018/12/13 07:39:11
+" Last Change: 2019/01/17 14:36:42.
+
+" ---------------------------------------------------------------------------
+"  マップキー
+" ---------------------------------------------------------------------------
+" ,st: ロゴ画面
+nnoremap ,st :Startify<CR>
+
+" ---------------------------------------------------------------------------
+"  基本設定
+" ---------------------------------------------------------------------------
+let g:startify_files_number = 10
+let g:startify_fortune_use_unicode = 1
+
+if exists("g:nyaovim_version")
+    autocmd VimEnter * execute "normal :tabnew\<CR>"
+    autocmd VimEnter * execute "normal :Startify\<CR>"
+endif
+
+" " 最近使ったファイルの接頭アルファベットを指定
 " let g:startify_custom_indices = ['f', 'g', 'h', 'r', 'i', 'o', 'b']
 
 " 接頭記号を指定
@@ -22,7 +44,10 @@ let g:startify_bookmarks = [
             \ "~/dotfiles/.vim/vim_plugins/dein.toml",
             \ "~/dotfiles/.vim/vim_plugins/dein_lazy.toml",
             \ "~/dotfiles/.vim/vim_plugins_nvim/dein_nvim.toml",
-            \ "~/dotfiles/.vim/vim_plugins_nvim/dein_lazy_nvim.toml"
+            \ "~/dotfiles/.vim/vim_plugins_nvim/dein_lazy_nvim.toml",
+            \ "~/dotfiles/.vim/userautoload/plugin_settings_nvim/vim-startify.vim",
+            \ "R:/E2M0/E2M-4/【秘】-E2M4-1/10.個人ファイル/Wakita/Docments/機械要素購入.md",
+            \ "R:/E2M0/E2M-4/【秘】-E2M4-1/10.個人ファイル/Wakita/Docments/出張各種申請 Memo.md"
             \ ]
 
 " アスキーアート 中央揃え
