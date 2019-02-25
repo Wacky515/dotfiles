@@ -1,5 +1,6 @@
+scriptencoding utf-8
 " Created:     2016/08/08 22:24:35
-" Last Change: 2018/12/18 10:26:29.
+" Last Change: 2019/01/09 11:06:49.
 
 " MEMO: 詳細設定は "~/dotfiles/.vim/filetype_settings" に記述
 augroup filetypedetect
@@ -14,7 +15,7 @@ augroup filetypedetect
 augroup END
 
 " オプション名 | 補足
-" -------------|----------------------------
+" -------------+----------------------------------------------------------------
 " expandtab    | "Tab" 押下で入力されるスペースの数
 " tabstop      | 画面上で表示する1つのタブ文字の幅
 " softtabstop  | 連続した空白に対して "Tab" や "BS" 押下で動くカーソル幅

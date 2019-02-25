@@ -1,7 +1,7 @@
 scriptencoding utf-8
 " Created:     2018/03/30 12:15:44
-" Last Change: 2018/12/27 10:19:38.
-Unite codic
+" Last Change: 2019/01/07 15:59:57.
+
 " <C-i>: ショートカットキー
 nnoremap <C-i> <Nop>
 " nnoremap ,s <Nop>

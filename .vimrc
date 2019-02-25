@@ -1,6 +1,8 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2018/12/27 10:51:39.
+" Last Change: 2019/01/10 14:35:01.
+
+let g:deoplete#enable_at_startup = 1
 
 " MEMO: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -14,10 +16,20 @@ let g:vimproc#download_windows_dll = 1
 " "Python3" のパス設定
 if hostname() == "ProSalad133.local"
     let g:python3_host_prog = "/usr/local/bin/Python3"
+elseif hostname() == "SaladBook.local"
+    let g:python3_host_prog = "/usr/local/bin/Python3"
 elseif hostname() == "HBAMB748"
     let g:python_host_prog = "C:\\Python27\\python.exe"
-    let g:python3_host_prog = "C:\\Python36\\python.exe"
     " let g:python3_host_prog = "C:\\Python35\\python.exe"
+    " let g:python3_host_prog = "C:\\Python36\\python.exe"
+    " let g:python3_host_prog = "C:\\tools\\Anaconda3\\python.exe"
+    " let g:python3_host_prog = "C:\\tools\\Anaconda3\\envs\\TestTensorflow\\python.exe"
+    let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
+    if !has("nvim")
+        " set pythonthreedll=C:\Python36\python36.dll
+        " set pythonthreedll=C:\tools\Anaconda3\envs\TestTensorflow\python36.dll
+        set pythonthreedll=C:\tools\miniconda3\python36.dll
+    endif
 elseif hostname() ==  "HBAMB748A"
     let g:python_host_prog = "C:\\Python27\\python.exe"
     let g:python3_host_prog = "C:\\Python35\\python.exe"
@@ -153,17 +165,6 @@ if dein#load_state(s:plugin_dir)
 		call dein#add("rhysd/nyaovim-popup-tooltip")
 		call dein#add("rhysd/nyaovim-mini-browser")
 	endif
-
-    " MEMO: 重複
-    if !has("nvim")
-        if hostname() == "HBAMB748"
-            call dein#add('roxma/nvim-yarp')
-            call dein#add('roxma/vim-hug-neovim-rpc')
-        elseif hostname() == "HBAMB819"
-            call dein#add('roxma/nvim-yarp')
-            call dein#add('roxma/vim-hug-neovim-rpc')
-        endif
-    endif
 
 	" 設定終了
 	call dein#end()

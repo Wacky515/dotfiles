@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2018/12/22 22:33:55.
+" Last Change: 2019/02/02 14:57:43.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -18,10 +18,10 @@ endif
 " 選択行番号の色
 highlight LineNr ctermfg=darkyellow
 
-" コマンドライン（Vim画面下部）の行数
+" コマンドライン（"Vim" 画面下部）の行数
 set cmdheight=5
 
-" ターミナルwo256色表示
+" ターミナル256色表示
 set t_Co=256
 
 " ツールバー消去
@@ -29,7 +29,7 @@ set guioptions-=T
 " メニューバー非表示
 set guioptions-=m
 
-" ウィンドウ 半透明化（LinuxはVimから設定できない）
+" ウィンドウ 半透明化（"Linux" は "Vim" から設定できない）
 if has("mac")
     set transparency=10
 endif
@@ -81,9 +81,11 @@ if has("linux")
 elseif has("mac")
     if hostname() == "ProSalad13.local"
         if !has("nvim")
-            set guifont=Ricty_Diminished:h16
+            set guifont=Cica:h16
+            " set guifont=Ricty_Diminished:h16
         else
-            Guifont! Ricty_Diminished:h16
+            Guifont! Cica:h16
+            " Guifont! Ricty_Diminished:h16
         endif
     elseif hostname() == "ProSalad133.local"
         if !has("nvim")
@@ -104,6 +106,12 @@ elseif has("mac")
         endif
         " colorscheme iceberg
         " set background=dark
+    elseif hostname() == "SaladBook.com"
+        if !has("nvim")
+            set guifont=Cica:h24
+        else
+            Guifont! Cica:h24
+        endif
     else
         if !has("nvim")
             set guifont=Cica:h18
@@ -190,6 +198,51 @@ elseif (has("win32") || has("win64"))
         " colorscheme iceberg
         " set background=dark
     elseif hostname() == "HBAMB819"
+        if !has("nvim")
+            set guifont=Cica:h12
+            set printfont=Cica:h10
+            set rop=type:directx,renmode:5
+        else
+            if !exists("g:nyaovim_version")
+                Guifont! Cica:h12
+            endif
+            set termguicolors
+            " TEMP: "dein" に移管する
+            colorscheme iceberg
+        endif
+        " colorscheme hybrid
+        " set background=dark
+    elseif hostname() == "SMM0761"
+        if !has("nvim")
+            set guifont=Cica:h12
+            set printfont=Cica:h10
+            set rop=type:directx,renmode:5
+        else
+            if !exists("g:nyaovim_version")
+                Guifont! Cica:h12
+            endif
+            set termguicolors
+            " TEMP: "dein" に移管する
+            colorscheme iceberg
+        endif
+        " colorscheme hybrid
+        " set background=dark
+    elseif hostname() == "SMM1319"
+        if !has("nvim")
+            set guifont=Cica:h12
+            set printfont=Cica:h10
+            set rop=type:directx,renmode:5
+        else
+            if !exists("g:nyaovim_version")
+                Guifont! Cica:h12
+            endif
+            set termguicolors
+            " TEMP: "dein" に移管する
+            colorscheme iceberg
+        endif
+        " colorscheme hybrid
+        " set background=dark
+    elseif hostname() == "SMM1380"
         if !has("nvim")
             set guifont=Cica:h12
             set printfont=Cica:h10
