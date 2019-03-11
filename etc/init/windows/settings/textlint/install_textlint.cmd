@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2019/03/08 17:48:14.
+rem Last Change: 2019/03/11 12:28:10.
 
 set batch_title=Install textlint
 title %batch_title%
@@ -38,29 +38,41 @@ cinst -y nodejs.install
 
 :install_textlint
 echo ^>^> %batch_title%
-if not exist %homepath%\textlintrc (
-    mkdir %homepath%\textlintrc
-    )
-pushd %homepath%\textlintrc
-cmd /c npm init -y
+rem if not exist %homepath%\textlintrc ( rem  {{{
+rem     echo ^>^> Make working dir
+rem     mkdir %homepath%\textlintrc
+rem     )
+rem pushd %homepath%\textlintrc
 
-cmd /c npm install textlint -global --save-dev
-cmd /c npm install textlint-rule-preset-japanese --save-dev
-cmd /c npm install textlint-rule-preset-ja-technical-writing --save-dev
-cmd /c npm install textlint-rule-preset-ja-spacing -global --save-dev
-cmd /c npm install textlint-filter-rule-comments -global --save-dev
-cmd /c npm install textlint-filter-rule-whitelist -global --save-dev
+rem if not exist %homepath%\textlintrc\package.json (
+rem     echo ^>^> Make package.json
+rem     cmd /c npm init -y
+rem     )
+rem }}}
 
-rem cmd /c npm install @textlint-ja/textlint-rule-no-insert-dropping-sa --save-dev
-rem cmd /c npm install ja-hiragana-fukushi --save-dev
-rem cmd /c npm install ja-hiragana-hojodoushi --save-dev
-rem cmd /c npm install ja-no-redundant-expression --save-dev
-rem cmd /c npm install ja-unnatural-alphabet --save-dev
-rem cmd /c npm install joyo-kanji --save-dev
-rem cmd /c npm install no-renyo-chushi --save-dev
-rem cmd /c npm install one-white-space-between-zenkaku-and-hankaku-eiji --save-dev
+cmd /c npm update -global npm
 
-cmd /c npm install markdownlint-cli -global --save-dev
+rem cmd /c npm install -global textlint -save-dev
+cmd /c npm install -global textlint@11.2.3 --save-dev
+cmd /c npm install -global textlint-rule-preset-japanese --save-dev
+cmd /c npm install -global textlint-rule-preset-ja-technical-writing --save-dev
+cmd /c npm install -global textlint-rule-spellcheck-tech-word --save-dev
+cmd /c npm install -global textlint-rule-preset-ja-spacing --save-dev
+cmd /c npm install -global textlint-filter-rule-comments --save-dev
+cmd /c npm install -global textlint-filter-rule-whitelist --save-dev
+cmd /c npm install -global markdownlint-cli --save-dev
+
+cmd /c npm install -global @textlint-ja/textlint-rule-no-insert-dropping-sa --save-dev
+cmd /c npm install -global textlint-rule-ja-hiragana-fukushi --save-dev
+cmd /c npm install -global textlint-rule-ja-hiragana-hojodoushi --save-dev
+cmd /c npm install -global textlint-rule-ja-no-redundant-expression --save-dev
+cmd /c npm install -global textlint-rule-ja-unnatural-alphabet --save-dev
+cmd /c npm install -global textlint-rule-joyo-kanji --save-dev
+cmd /c npm install -global textlint-rule-no-renyo-chushi --save-dev
+cmd /c npm install -global textlint-rule-one-white-space-between-zenkaku-and-hankaku-eiji --save-dev
+
+rem REF:
+rem https://github.com/textlint/textlint/wiki/Collection-of-textlint-rule
 
 endlocal
 popd
