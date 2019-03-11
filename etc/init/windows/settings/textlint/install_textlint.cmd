@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2018/12/05 09:14:02.
+rem Last Change: 2019/03/08 17:48:14.
 
 set batch_title=Install textlint
 title %batch_title%
@@ -40,21 +40,31 @@ cinst -y nodejs.install
 echo ^>^> %batch_title%
 if not exist %homepath%\textlintrc (
     mkdir %homepath%\textlintrc
-    cmd npm init -y
     )
 pushd %homepath%\textlintrc
+cmd /c npm init -y
 
 cmd /c npm install textlint -global --save-dev
+cmd /c npm install textlint-rule-preset-japanese --save-dev
 cmd /c npm install textlint-rule-preset-ja-technical-writing --save-dev
 cmd /c npm install textlint-rule-preset-ja-spacing -global --save-dev
 cmd /c npm install textlint-filter-rule-comments -global --save-dev
 cmd /c npm install textlint-filter-rule-whitelist -global --save-dev
+
+rem cmd /c npm install @textlint-ja/textlint-rule-no-insert-dropping-sa --save-dev
+rem cmd /c npm install ja-hiragana-fukushi --save-dev
+rem cmd /c npm install ja-hiragana-hojodoushi --save-dev
+rem cmd /c npm install ja-no-redundant-expression --save-dev
+rem cmd /c npm install ja-unnatural-alphabet --save-dev
+rem cmd /c npm install joyo-kanji --save-dev
+rem cmd /c npm install no-renyo-chushi --save-dev
+rem cmd /c npm install one-white-space-between-zenkaku-and-hankaku-eiji --save-dev
 
 cmd /c npm install markdownlint-cli -global --save-dev
 
 endlocal
 popd
 
-rem pause
+pause
 exit /b 0
 
