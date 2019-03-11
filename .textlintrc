@@ -1,63 +1,64 @@
 ﻿{
 "rules": {
-    // 技術文書向けの textlint ルールプリセット
-    "preset-ja-technical-writing": {
-    // 1文の長さ
-    "sentence-length": {
-        max: 90
-    },
-    // 1文中のカンマ
-    "max-comma": {
-        max: 3
-    },
-    // 1文中の読点
-    "max-ten": {
-        max: 3
-    },
-    // 連続できる最大の漢字長: 固有名詞は allow オプションに記述して回避できる
-    "max-kanji-continuous-len": {
-        max: 6
-    },
-    // 「ですます調」、「である調」を統一する
-    "no-mix-dearu-desumasu": {
-        // 見出しは自動
-        "preferInHeader": "",
-        // 本文はですます調を強制
-        "preferInBody": "ですます",
-        // 箇条書きはである調を強制
-        "preferInList": "である",
-        // 文末以外のチェックをしない
-        "strict": false
-    },
-    // 文末の句点記号に「。」を使う
-    "ja-no-mixed-period": {
-        "periodMark": "。"
-    },
-    // 二重否定の使用禁止
-    "no-double-negative-ja": true,
-    // ら抜き言葉の使用禁止
-    "no-dropping-the-ra": true,
-    // 逆接の接続助詞「が」の連続使用禁止
-    "no-doubled-conjunctive-particle-ga": true,
-    // 同じ接続詞の連続使用禁止
-    "no-doubled-conjunction": true,
-    // 同じ助詞の連続使用禁止
-    "no-doubled-joshi": {
-        "min_interval": 1
-    },
-    // UTF8-MAC 濁点の使用禁止
-    "no-nfd": true,
-    // 感嘆符「!！?？」の使用禁止しない
-    "no-exclamation-question-mark": false,
-    // 半角カナの使用禁止
-    "no-hankaku-kana": true,
-    // 弱い日本語表現の使用禁止
-    "ja-no-weak-phrase": true,
-    // 同一の単語を間違えて連続しているか検知
-    "ja-no-successive-word": true,
-    // よくある日本語の誤用を検知
-    "ja-no-abusage": true
-    },
+    // // 技術文書向けの textlint ルールプリセット
+    // "preset-ja-technical-writing": {
+    // // 1文の長さ
+    // "sentence-length": {
+    //     max: 90
+    // },
+    // // 1文中のカンマ
+    // "max-comma": {
+    //     max: 3
+    // },
+    // // 1文中の読点
+    // "max-ten": {
+    //     max: 3
+    // },
+    // // 連続できる最大の漢字長: 固有名詞は allow オプションに記述して回避できる
+    // "max-kanji-continuous-len": {
+    //     max: 6
+    // },
+    // // 「ですます調」、「である調」を統一する
+    // "no-mix-dearu-desumasu": {
+    //     // 見出しは自動
+    //     "preferInHeader": "",
+    //     // 本文はですます調を強制
+    //     "preferInBody": "ですます",
+    //     // 箇条書きはである調を強制
+    //     "preferInList": "である",
+    //     // 文末以外のチェックをしない
+    //     "strict": false
+    // },
+    // // 文末の句点記号に「。」を使う
+    // "ja-no-mixed-period": {
+    //     "periodMark": "。"
+    // },
+    // // 二重否定の使用禁止
+    // "no-double-negative-ja": true,
+    // // ら抜き言葉の使用禁止
+    // "no-dropping-the-ra": true,
+    // // 逆接の接続助詞「が」の連続使用禁止
+    // "no-doubled-conjunctive-particle-ga": true,
+    // // 同じ接続詞の連続使用禁止
+    // "no-doubled-conjunction": true,
+    // // 同じ助詞の連続使用禁止
+    // "no-doubled-joshi": {
+    //     "min_interval": 1
+    // },
+    // // UTF8-MAC 濁点の使用禁止
+    // "no-nfd": true,
+    // // 感嘆符「!！?？」の使用禁止しない
+    // "no-exclamation-question-mark": false,
+    // // 半角カナの使用禁止
+    // "no-hankaku-kana": true,
+    // // 弱い日本語表現の使用禁止
+    // "ja-no-weak-phrase": true,
+    // // 同一の単語を間違えて連続しているか検知
+    // "ja-no-successive-word": true,
+    // // よくある日本語の誤用を検知
+    // "ja-no-abusage": true
+    // },
+
     // 日本語周りにおけるスペースの有無を決定する textlint ルールプリセット
     "preset-ja-spacing": {
     // カタカナ語間は中黒または半角スペースを用いて区切る
@@ -78,6 +79,7 @@
     // インラインコードの前後が日本語である場合に半角スペースを入れない
     "ja-space-around-code": false
     },
+
     // FIXME: ERRORの為、一旦KILL
     // サ抜き、サ入れ表現の誤用を検知
     // "@textlint-ja/textlint-rule-no-insert-dropping-sa": true,
