@@ -1,5 +1,5 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2019/01/17 18:22:09.
+# Last Change: 2019/03/10 21:14:05.
 
 if [[ `uname` =~ ^(MSYS_NT-|MINGW32_NT-).+$ ]]; then
 
@@ -7,14 +7,18 @@ if [[ `uname` =~ ^(MSYS_NT-|MINGW32_NT-).+$ ]]; then
     alias gitk="/c/Program\ Files/Git/cmd/gitk"
 
     # "mintty" が ."bashrc" を読込む設定
-    if [ -f ~/.bashrc ]; then
+    if [[ -f ~/.bashrc ]]; then
         . ~/.bashrc
     fi
 
     # # "mintty" 用色設定ファイルが存在すれば読込み
-    # if [ -f path/to/sol.dark ];then
+    # if [[ -f path/to/sol.dark ]]; then
     #     source path/to/sol.dark
     # fi
 
+else
+    # TODO: "Mac" 用の条件分岐
+    export PATH="/usr/local/sbin:$PATH"
+
 fi
-export PATH="/usr/local/sbin:$PATH"
+
