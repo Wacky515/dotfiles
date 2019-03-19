@@ -1,4 +1,12 @@
 ﻿{
+    "filters": {
+        "whitelist": {
+            "whitelistConfigPaths": [
+                "./.allow.json"
+                ]
+        }
+    },
+
     "rules": {
         // 技術文書向けの textlint ルールプリセット
         "preset-ja-technical-writing": {
@@ -60,26 +68,28 @@
         },
 
         // 日本語周りにおけるスペースの有無を決定する textlint ルールプリセット
-        "preset-ja-spacing": {
-        // カタカナ語間は中黒または半角スペースを用いて区切る
-        "ja-nakaguro-or-halfwidth-space-between-katakana": true,
-        // かっこの外内側にスペースを入れない
-        "ja-no-space-around-parentheses": true,
-        // 全角文字どうしの間にスペースを入れない
-        "ja-no-space-between-full-width": false,
-        // 半角文字と全角文字の間にスペースを入れない
-        "ja-space-between-half-and-full-width": {
-        //   "space": "always"
-           "space": "never"
+        "preset-ja-spacing": false,
+        // "preset-ja-spacing": {
+        // // カタカナ語間は中黒または半角スペースを用いて区切る
+        // "ja-nakaguro-or-halfwidth-space-between-katakana": true,
+        // // かっこの外内側にスペースを入れない
+        // "ja-no-space-around-parentheses": true,
+        // // 全角文字どうしの間にスペースを入れない
+        // "ja-no-space-between-full-width": false,
+        // // 半角文字と全角文字の間にスペースを入れない
+        // "ja-space-between-half-and-full-width": {
+        //     // "space": "always"
+        //     "space": "never"
         // },
-        // 文末に感嘆符を使用し、後に別の文が続く場合は、直後に全角スペースを挿入
-        "ja-space-after-exclamation": false,
-        // 文末に疑問符を使用し、後に別の文が続く場合は、直後に全角スペースを挿入
-        "ja-space-after-question": false,
-        // インラインコードの前後が日本語である場合に半角スペースを入れない
-        "ja-space-around-code": false
-        },
+        // // 文末に感嘆符を使用し、後に別の文が続く場合は、直後に全角スペースを挿入
+        // "ja-space-after-exclamation": false,
+        // // 文末に疑問符を使用し、後に別の文が続く場合は、直後に全角スペースを挿入
+        // "ja-space-after-question": false,
+        // // インラインコードの前後が日本語である場合に半角スペースを入れない
+        // "ja-space-around-code": false
+        // },
 
+        // Webエンジニア用の技術的な単語チェック
         "spellcheck-tech-word": true,
 
         // サ抜き、サ入れ表現の誤用を検知
@@ -96,7 +106,8 @@
         "joyo-kanji": true,
         // 連用中止法を検知
         "no-renyo-chushi": true,
-        // 全角文字と半角英字の間に半角スペース、ただし次の全角文字 [、。「 」（）｛｝【】『』] の前後には不要
-        "one-white-space-between-zenkaku-and-hankaku-eiji": true
+        // 全角文字と半角英字の間に半角スペースを入れる
+        // ただし次の全角文字 [、。「 」（）｛｝【】『』] の前後には不要
+        "one-white-space-between-zenkaku-and-hankaku-eiji": false
     }
 }
