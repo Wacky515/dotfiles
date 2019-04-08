@@ -1,14 +1,14 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     __DATE__
-rem Last Change: 2018/11/15 13:43:23.
+rem Last Change: 2019/04/05 11:01:03.
 
-rem set batch_title="***"
+rem set batch_title=***
 rem title %batch_title%
 
-rem ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "cd"
+rem ƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "cd"
 set bat_path=%~dp0
-pushd /d %bat_path%
+pushd %bat_path%
 
 rem echo ^>^> %batch_title%
 echo ^>^> Start
