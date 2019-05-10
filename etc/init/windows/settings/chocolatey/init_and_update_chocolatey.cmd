@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2017/02/17 00:54:41
-rem Last Change: 2018/11/17 09:42:44.
+rem Last Change: 2019/05/06 09:17:26.
 
 title Update Chocolatey
 
@@ -23,7 +23,6 @@ set bat_path=%~dp0
 set config_files=packages_%computername%.config
 
 rem スクリプトがある "Dir" に "cd"
-rem pushd /d %bat_path%
 pushd %bat_path%
 
 rem "Chocolatey" インストール済みかチェック
@@ -36,11 +35,10 @@ echo ^>^> Install Chocolatey
 :update
 echo ^>^> Already installed Chocolatey, Update software
 
-rem DONE: "***_packages_***.config" を読み込み、インストール
+rem "***_packages_***.config" を読み込み、インストール
 if exist *_%config_files% (
         echo ^>^> Setting for this PC
         for %%i in (*_%config_files%) do (
-            rem cinst -y %config_files%
             cinst -y %%i
             )
         )
