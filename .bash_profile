@@ -1,5 +1,5 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2019/03/10 21:14:05.
+# Last Change: 2019/06/01 10:09:04.
 
 if [[ `uname` =~ ^(MSYS_NT-|MINGW32_NT-).+$ ]]; then
 
@@ -17,7 +17,7 @@ if [[ `uname` =~ ^(MSYS_NT-|MINGW32_NT-).+$ ]]; then
     # fi
 
 else
-    # TODO: "Mac" 用の条件分岐
+    # "Mac" 用の条件分岐
     export PATH="/usr/local/sbin:$PATH"
 
 fi
