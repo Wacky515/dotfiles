@@ -1,5 +1,5 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2019/01/18 10:05:03.
+# Last Change: 2019/06/15 21:40:03.
 # 環境変数
 export LANG=ja_JP.UTF-8
 
@@ -14,6 +14,7 @@ case ${OSTYPE} in
         # "Mac" 用設定
         export CLICOLOR=1
         alias ls="ls -G -F"
+        exec fish
         ;;
 
     linux*)
