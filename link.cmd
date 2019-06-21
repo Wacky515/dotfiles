@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2018/12/24 13:49:26.
+rem Last Change: 2019/03/13 10:53:13.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -22,84 +22,83 @@ pushd %batch_path%
 echo ^>^> Start set link
 
 rem "NeoVim" 設定
-set srce_init=%homepath%"\dotfiles\nvim\"
+set src_init=%homepath%"\dotfiles\nvim\"
 if "%processor_architecture%" equ "x86" (
-        set dist_init=%homepath%"\AppData\Local\nvim\"
+        set dst_init=%homepath%"\AppData\Local\nvim\"
         )
 if "%processor_architecture%" equ "AMD64" (
     if %computername% == SALADCARBONX1 (
-        set dist_init=%homepath%"\AppData\Local\nvim\"
+        set dst_init=%homepath%"\AppData\Local\nvim\"
     ) else (
-        set dist_init=%xdg_config_home%"\nvim\"
+        set dst_init=%xdg_config_home%"\nvim\"
         )
     )
 
-rmdir /s /q %dist_init%
-mklink /d %dist_init% %srce_init% > nul 2>&1
-if %ERRORLEVEL% == 0 (
+rmdir /s /q %dst_init%
+mklink /d %dst_init% %src_init% > nul 2>&1
+if %errorlevel% == 0 (
     echo ^>^> init.vim、ginit.vim copy success!
     )
 
 rem "NyaoVim" 設定
-set dist_html=%homepath%"\AppData\Roaming\NyaoVim\nyaovimrc.html"
-set srce_html=%batch_path%"nyaovimrc.html"
+set dst_html=%homepath%"\AppData\Roaming\NyaoVim\nyaovimrc.html"
+set src_html=%batch_path%"nyaovimrc.html"
 
-if exist %dist_html% (
-    del %dist_html%
+if exist %dst_html% (
+    del %dst_html%
     )
-rem "mklink" だと起動しない
-rem mklink %dist_html% %srce_html%
-copy %srce_html% %dist_html%
-if %ERRORLEVEL% == 0 (
-echo ^>^> nyaovimrc.html link success!
-)
+rem MEMO: "mklink" だと起動しない
+rem mklink %dst_html% %src_html%
+copy %src_html% %dst_html%
+if %errorlevel% == 0 (
+    echo ^>^> nyaovimrc.html link success!
+    )
 
 rem "OniVim" 設定
-set dist_json=%homepath%"\AppData\Roaming\Oni\config.tsx"
-set srce_json=%batch_path%"config.tsx"
-rem set dist_json=%homepath%"\AppData\Roaming\Oni\tsconfig.json"
-rem set srce_json=%batch_path%"tsconfig.json"
+set dst_json=%homepath%"\AppData\Roaming\Oni\config.tsx"
+set src_json=%batch_path%"config.tsx"
+rem set dst_json=%homepath%"\AppData\Roaming\Oni\tsconfig.json"
+rem set src_json=%batch_path%"tsconfig.json"
 
-if exist %dist_json% (
-    del %dist_json%
+if exist %dst_json% (
+    del %dst_json%
     )
-mklink %dist_json% %srce_json%
-rem copy %srce_json% %dist_json%
-if %ERRORLEVEL% == 0 (
-echo ^>^> tsconfig.json link success!
-)
+mklink %dst_json% %src_json%
+if %errorlevel% == 0 (
+    echo ^>^> tsconfig.json link success!
+    )
 
 rem ".gitconfig" 設定
-mklink %HOMEPATH%"\.gitconfig" ".\dotfiles\.gitconfig" > nul 2>&1
-if %ERRORLEVEL% == 0 (
+mklink %homepath%"\.gitconfig" ".\dotfiles\.gitconfig" > nul 2>&1
+if %errorlevel% == 0 (
     echo ^>^> .gitconfig link success!
     )
-mklink %HOMEPATH%"\.gitconfig.os" ".\dotfiles\.gitconfig.windows" > nul 2>&1
-if %ERRORLEVEL% == 0 (
+mklink %homepath%"\.gitconfig.os" ".\dotfiles\.gitconfig.windows" > nul 2>&1
+if %errorlevel% == 0 (
     echo ^>^> .gitconfig.os link success!
     )
 
-rem :mk_sylink
-mklink /d %HOMEPATH%"\.vim" ".\dotfiles\.vim" > nul 2>&1
-if %ERRORLEVEL% == 0 (
+rem ".vim" 設定
+mklink /d %homepath%"\.vim" ".\dotfiles\.vim" > nul 2>&1
+if %errorlevel% == 0 (
     echo ^>^> .vim link success!
     )
 
 for %%j in (.*) do (
     if %%j == .bash_history (
-        rem echo ignore1 %%j  rem 消すな！
+            rem PASS
         ) else if %%j == .gitconfig (
-            rem echo ignore2 %%j  rem 消すな！
+            rem PASS
         ) else if %%j == .zsh_history (
-            rem echo ignore3 %%j  rem 消すな！
+            rem PASS
         ) else if %%j == .gitconfig.windows (
-            rem echo ignore4 %%j  rem 消すな！
+            rem PASS
         ) else if %%j == .gitconfig.linux (
-            rem echo ignore5 %%j  rem 消すな！
+            rem PASS
         ) else if %%j == .nyaovimrc.html (
-            rem echo ignore6 %%j  rem 消すな！
+            rem PASS
         ) else (
-            mklink %HOMEPATH%"\"%%j ".\dotfiles\"%%j > nul 2>&1
+            mklink %homepath%"\"%%j ".\dotfiles\"%%j > nul 2>&1
         )
     )
 

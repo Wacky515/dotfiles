@@ -1,9 +1,9 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     __DATE__
-rem Last Change: 2019/02/28 13:01:13.
+rem Last Change: 2019/06/21 12:28:00.
 
-rem set batch_title="***"
+rem set batch_title=***
 rem title %batch_title%
 
 rem スクリプトがある "Dir" に "cd"
