@@ -1,5 +1,5 @@
 ' Created:     201*/**/** **:**:**
-' Last Change: 2018/12/04 08:20:53.
+' Last Change: 2019/06/28 14:20:09.
 
 ' •Ï”éŒ¾‚ğ‹­§
 Option Explicit
@@ -10,7 +10,7 @@ Dim env
 Dim strEnvName
 
 Set shell = WScript.CreateObject("WScript.Shell")
-strEnvName = "C:\%homepath%\dotfiles\.vim\ctags\"
+strEnvName = "C:%homepath%\dotfiles\.vim\ctags\"
 
 Set env = shell.Environment("User")
 
