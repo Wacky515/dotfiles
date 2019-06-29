@@ -1,5 +1,5 @@
 ' Created:     2018/10/04 11:19:01
-' Last Change: 2018/12/04 11:04:06.
+' Last Change: 2019/06/28 14:22:38.
 
 ' •Ï”éŒ¾‚ğ‹­§
 Option Explicit
@@ -10,7 +10,7 @@ Dim env
 Dim strEnvName
 
 Set shell = WScript.CreateObject("WScript.Shell")
-strEnvName = "C:\%homepath%\redpen-distribution-1.10.1\bin\"
+strEnvName = "C:%homepath%\redpen-distribution-1.10.1\bin\"
 
 Set env = shell.Environment("User")
     ' If Err.Number = 0 Then  ' {{{
