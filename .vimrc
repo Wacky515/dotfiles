@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2019/06/29 17:11:22.
+" Last Change: 2019/06/29 20:21:33.
 
 let g:deoplete#enable_at_startup = 1
 
@@ -32,7 +32,8 @@ elseif hostname() ==  "HBAMB819"
     let g:python3_host_prog = "C:\\Python35\\python.exe"
 elseif hostname() == "SALADCARBONX1"
     let g:python3_host_prog =
-                \ "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
+                \ "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
+                " \ "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
 else
     if has("unix")
         let g:python3_host_prog = "/usr/local/bin/Python3"

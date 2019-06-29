@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/19 09:19:36
-" Last Change: 2019/06/28 13:16:42.
+" Last Change: 2019/06/29 21:33:51.
 
 " REF: https://qiita.com/okamos/items/4e1665ecd416ef77df7c
 " ---------------------------------------------------------------------------
@@ -9,12 +9,6 @@ scriptencoding utf-8
 nmap [denite] <Nop>
 map D [denite]
 
-" NOTWORK:
-" DM: 最近使用したファイル一覧
-nnoremap <silent> [denite]M :<C-u>Denite
-            \ -direction=topleft
-            \ -cursor-wrap=true
-            \ file_mru<CR>
 " DB: 現在のバッファ一覧
 nnoremap <silent> [denite]B :<C-u>Denite
             \ -direction=topleft
@@ -25,15 +19,6 @@ nnoremap <silent> [denite]F :<C-u>DeniteBufferDir
             \ -direction=topleft
             \ -cursor-wrap=true
             \ file file:new<CR>
-" NOTWORK:
-" DC: ブックマーク一覧
-nnoremap <silent> [denite]C :<C-u>Denite
-            \ -direction=topleft
-            \ -cursor-wrap=true
-            \ bookmark<CR>
-" NOTWORK:
-" DA: ブックマークに追加
-nnoremap <silent> [denite]A :<C-u>DeniteBookmarkAdd<CR>
 " DR: レジスタ一覧
 nnoremap <silent> [denite]R :<C-u>Denite
             \ -direction=topleft
@@ -41,11 +26,28 @@ nnoremap <silent> [denite]R :<C-u>Denite
             \ -buffer-name=register
             \ register<CR>
 " DG: Grep
-nnoremap <silent> [denite]G :<C-u>Denit -auto_preview grep<CR>
+nnoremap <silent> [denite]G :<C-u>Denite -auto_preview grep<CR>
 " DL: "Colorscheme" プレビュー
 nnoremap <silent> [denite]L :<C-u>Denite
             \ -auto-preview
             \ colorscheme<CR>
+
+" " DC: カーソルのハイライト
+" nmap <silent> [denite]C :<C-u>Denite file_rec -highlight-mode-insert=Search<CR>
+
+" NOTWORK:
+" " DM: 最近使用したファイル一覧
+" nnoremap <silent> [denite]M :<C-u>Denite
+"             \ -direction=topleft
+"             \ -cursor-wrap=true
+"             \ file_mru<CR>
+" " DC: ブックマーク一覧
+" nnoremap <silent> [denite]C :<C-u>Denite
+"             \ -direction=topleft
+"             \ -cursor-wrap=true
+"             \ bookmark<CR>
+" " DA: ブックマークに追加
+" nnoremap <silent> [denite]A :<C-u>DeniteBookmarkAdd<CR>
 
 " " <C-n>/<C-p>: 上下移動
 " call denite#custom#map('normal', '<C-n>', '<denite:move_to_next_line>')
@@ -71,9 +73,6 @@ nnoremap <silent> [denite]L :<C-u>Denite
 " call denite#custom#map('insert', '<C-i>', '<denite:do_action:vsplit>')
 " " <C-o>: 新規タブで開く
 " call denite#custom#map('insert', '<C-o>', '<denite:do_action:tabopen>')
-
-" DC: カーソルのハイライト
-nmap <silent> [denite]C :<C-u>Denite file_rec -highlight-mode-insert=Search<CR>
 
 " ---------------------------------------------------------------------------
 " 基本設定
