@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2019/01/10 14:35:01.
+" Last Change: 2019/06/29 17:11:22.
 
 let g:deoplete#enable_at_startup = 1
 
@@ -13,21 +13,15 @@ augroup END
 " "vimproc" 読込み時、"*.dll" 自動DL & 更新
 let g:vimproc#download_windows_dll = 1
 
-" "Python3" のパス設定
+" "Python" のパス設定
 if hostname() == "ProSalad133.local"
     let g:python3_host_prog = "/usr/local/bin/Python3"
 elseif hostname() == "SaladBook.local"
     let g:python3_host_prog = "/usr/local/bin/Python3"
 elseif hostname() == "HBAMB748"
     let g:python_host_prog = "C:\\Python27\\python.exe"
-    " let g:python3_host_prog = "C:\\Python35\\python.exe"
-    " let g:python3_host_prog = "C:\\Python36\\python.exe"
-    " let g:python3_host_prog = "C:\\tools\\Anaconda3\\python.exe"
-    " let g:python3_host_prog = "C:\\tools\\Anaconda3\\envs\\TestTensorflow\\python.exe"
     let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
     if !has("nvim")
-        " set pythonthreedll=C:\Python36\python36.dll
-        " set pythonthreedll=C:\tools\Anaconda3\envs\TestTensorflow\python36.dll
         set pythonthreedll=C:\tools\miniconda3\python36.dll
     endif
 elseif hostname() ==  "HBAMB748A"

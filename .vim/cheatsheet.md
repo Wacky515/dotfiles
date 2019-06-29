@@ -82,7 +82,7 @@
 - md:    マークの全削除
 - ml:    マーク一覧を表示/非表示
 - ms"*": 次にマークする "*" を設定
-- m"*":  NOT_WORK: マークする "*" を設定して、同時にマーク
+- m"*":  NOTWORK: マークする "*" を設定して、同時にマーク
 - ddp:   マーク削除
   - 基本カット&ペースト機能で代替
 
@@ -153,6 +153,16 @@
 - \<C-b\>: 上方向に1画面分スクロール  *B* ack
 - \<C-f\>: 下方向に1画面分スクロール  *F* orward
 
+## Denite
+
+- DB: 現在のバッファ一覧
+- DF: 現在のバッファのディレクトリ下のファイル一覧
+- DL: "Colorscheme" プレビュー
+- NOTWORK:
+- DM: 最近使用したファイル一覧
+- DC: ブックマーク一覧
+- DA: ブックマークに追加
+
 ## Grep
 
 - \<Leader\>r: カーソル下を "RipGrep" 対象に挿入
@@ -161,16 +171,19 @@
 - \<Leader\>G: カーソル下を "外部grep" 対象に挿入
 - \<Leader\>g: カーソル下を "VimGrep" 対象に挿入
 
-## 辞典検索（未動作）
+## 辞典検索
 
 - \<Leader\>k:  カーソル下を英和辞典検索（GENE）
 - \<Leader\>dj: カーソル下を英和辞典検索
 - \<Leader\>de: カーソル下を和英辞典検索
-- \<Leader\>da: カーソル下の単語をスペースアルクで検索
-- \<Leader\>dw: カーソル下をWikiで検索
+- NOTWORK: \<Leader\>da: カーソル下の単語をスペースアルクで検索
+- NOTWORK: \<Leader\>dw: カーソル下をWikiで検索
 
 - ,gj: カーソル下をGoogle翻訳（英和）
 - ,ge: カーソル下をGoogle翻訳（和英）
+
+- :AutoTranslateModeToggle: 動的に翻訳
+- :Translate              : ビジュアルモードで選択した状態
 
 - \<Leader\>sc: "Syntastic" 実行
 - \<Leader\>sc: "Syntastic" トグル
@@ -224,3 +237,12 @@ autocmd VimEnter * imap <Nul> <C-Space>
 
 - "autocmd" イベントで "VimEnter" を指定すれば基本的に "Plugin" より後に読み込まれる
   - "Plugin" の上書きはある程度回避できる
+
+## 天気予報
+
+- :Weather: 天気予報
+
+## 乗換え案内
+
+- :TrainSearchRoute {出発駅} {到着駅}: 乗換え情報
+- :TrainLateInfo: 電車遅延情報

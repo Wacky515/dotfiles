@@ -1,5 +1,5 @@
 ' Created:     201*/**/** **:**:**
-' Last Change: 2018/12/04 08:07:33.
+' Last Change: 2019/06/28 14:21:08.
 
 ' •Ï”éŒ¾‚ğ‹­§
 Option Explicit
@@ -10,7 +10,7 @@ Dim env
 Dim strEnvName
 
 Set shell = WScript.CreateObject("WScript.Shell")
-strEnvName = "C:\%homepath%\Lynx_for_Win32"
+strEnvName = "C:%homepath%\Lynx_for_Win32"
 
 Set env = shell.Environment("User")
 

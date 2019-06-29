@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2018/12/27 10:48:51.
+# Last Change: 2019/06/24 13:32:46.
 
 # MEMO:
 # hook_add         プラグイン追加後
@@ -61,6 +61,12 @@ repo = 'vim-scripts/DirDiff.vim'
 [[plugins]]
 repo = 'majutsushi/tagbar'
 
+# LSP(Language Server Protocol)
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+
 # キーバインド衝突確認
 [[plugins]]
 repo = 'lukhio/vim-mapping-conflicts'
@@ -83,6 +89,8 @@ repo = 'thinca/vim-ref'
 # 翻訳
 [[plugins]]
 repo = 'daisuzu/translategoogle.vim'
+[[plugins]]
+repo = 'skanehira/translate.vim'
 
 # ファイラ
 [[plugins]]
@@ -216,6 +224,14 @@ hook_add = '''
 '''
 [[plugins]]
 repo = 'shinshin86/twc.vim'
+
+# 天気予報
+[[plugins]]
+repo = 'skanehira/weather.vim'
+
+# 乗換え案内
+[[plugins]]
+repo = 'skanehira/train.vim'
 
 # JOKE
 [[plugins]]
