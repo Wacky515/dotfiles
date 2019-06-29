@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/03/13 10:53:13.
+rem Last Change: 2019/06/29 21:44:42.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -41,8 +41,8 @@ if %errorlevel% == 0 (
     )
 
 rem "NyaoVim" ê›íË
-set dst_html=%homepath%"\AppData\Roaming\NyaoVim\nyaovimrc.html"
 set src_html=%batch_path%"nyaovimrc.html"
+set dst_html=%homepath%"\AppData\Roaming\NyaoVim\nyaovimrc.html"
 
 if exist %dst_html% (
     del %dst_html%
@@ -55,10 +55,8 @@ if %errorlevel% == 0 (
     )
 
 rem "OniVim" ê›íË
-set dst_json=%homepath%"\AppData\Roaming\Oni\config.tsx"
 set src_json=%batch_path%"config.tsx"
-rem set dst_json=%homepath%"\AppData\Roaming\Oni\tsconfig.json"
-rem set src_json=%batch_path%"tsconfig.json"
+set dst_json=%homepath%"\AppData\Roaming\Oni\config.tsx"
 
 if exist %dst_json% (
     del %dst_json%
