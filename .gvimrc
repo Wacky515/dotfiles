@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/06/30 21:05:25.
+" Last Change: 2019/06/30 21:30:36.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -116,7 +116,7 @@ elseif (has("win32") || has("win64"))
             " Windows Cica 専用設定 ("NeoVim" 版設定探す）
             set rop=type:directx,renmode:5
         else
-            set termguicolors
+            Guifont! Cica:h11
         endif
 
     " muRata setting
@@ -126,7 +126,7 @@ elseif (has("win32") || has("win64"))
             set printfont=Cica:h12
             set rop=type:directx,renmode:5
         else
-            set termguicolors
+            Guifont! Cica:h14
         endif
     elseif hostname() == "HBAMB748A"
         if !has("nvim")
@@ -166,7 +166,7 @@ elseif (has("win32") || has("win64"))
             set printfont=Cica:h10
             set rop=type:directx,renmode:5
         else
-            set termguicolors
+            Guifont! Cica:h12
         endif
     elseif hostname() == "SMM0761"
         if !has("nvim")
@@ -174,7 +174,7 @@ elseif (has("win32") || has("win64"))
             set printfont=Cica:h10
             set rop=type:directx,renmode:5
         else
-            set termguicolors
+            Guifont! Cica:h12
         endif
     elseif hostname() == "SMM1319"
         if !has("nvim")
@@ -182,7 +182,7 @@ elseif (has("win32") || has("win64"))
             set printfont=Cica:h10
             set rop=type:directx,renmode:5
         else
-            set termguicolors
+            Guifont! Cica:h12
         endif
     elseif hostname() == "SMM1380"
         if !has("nvim")
@@ -190,7 +190,7 @@ elseif (has("win32") || has("win64"))
             set printfont=Cica:h10
             set rop=type:directx,renmode:5
         else
-            set termguicolors
+            Guifont! Cica:h12
         endif
 
         " Xacti setting " {{{
