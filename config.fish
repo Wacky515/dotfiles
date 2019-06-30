@@ -1,5 +1,5 @@
 # Created:     2018/**/** **:**:**
-# Last Change: 2019/03/10 21:09:21.
+# Last Change: 2019/06/30 16:01:13.
 
 # history の表示に日付を追加する
 function history
