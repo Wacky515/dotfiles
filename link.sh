@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Symbolic linkig dotfiles.
 # Created:     2017/02/08 00:00:00
-# Last Change: 2018/12/24 23:05:11.
+# Last Change: 2019/06/30 16:16:24.
 # TODO:
 # FIXME:
     # ${HOME} を単体起動と外部呼出しで通常動作させる
@@ -41,7 +41,7 @@ gm_echo ">> ${PROCESS^}"
 
 gm_echo ">> Start .gitconfig link"
 
-# まず "git" の設定
+# "git" の設定
 ln -snfv ${DOT_DIR}/.gitconfig ~/.gitconfig
 if [ $? = 0 ]
 then
@@ -96,7 +96,7 @@ done
 
 echo ""
 
-# "init.vim"、"ginit.vim" の "Init処理"
+# "NeoVim" 設定
 if [ ! -e ~/.config/nvim/ ]; then
     sudo -- bash -c "mkdir ~/.config/nvim/"
 fi
@@ -106,4 +106,17 @@ sudo ln -snfv ${DOT_DIR}/nvim/ginit.vim ~/.config/nvim/ginit.vim
 gm_echo ">> Dotfiles link success"
 gm_echo ">> End make symbolic link"
 result_echo $? "${PROCESS}"
+
+# "NyaoVim" 設定
+if [ ! -e ~/.config/nyaovim/ ]; then
+    # sudo -- bash -c "mkdir ~/.config/nyaovim/"
+    bash -c "mkdir ~/.config/nyaovim/"
+fi
+sudo ln -snfv ${DOT_DIR}/nyaovimrc.html ~/.config/nyaovim/nyaovimrc.html
+
+# "OniVim" 設定
+if [ ! -e ~/.config/oni/ ]; then
+    sudo -- bash -c "mkdir ~/.config/oni/"
+fi
+sudo ln -snfv ${DOT_DIR}/config.tsx ~/.config/oni/config.tsx
 
