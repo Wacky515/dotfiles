@@ -1,5 +1,5 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2019/06/15 21:40:03.
+# Last Change: 2019/06/30 16:02:09.
 # 環境変数
 export LANG=ja_JP.UTF-8
 

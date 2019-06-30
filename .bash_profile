@@ -1,7 +1,8 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2019/06/15 21:43:25.
+# Last Change: 2019/06/30 16:00:32.
 
 export PATH="/usr/local/sbin:$PATH"
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # FIXME: "Mac" でエラーのためキル
 # # "Mac" 用の条件分岐

@@ -1,8 +1,14 @@
 scriptencoding utf-8
 " Created:     20**/**/** **:**:**
-" Last Change: 2019/01/10 14:35:06.
+" Last Change: 2019/06/30 13:08:09.
 
-" モード変更の挙動が遅い対処
+" 起動時メッセージ
+augroup InitialMessage
+    autocmd!
+    autocmd VimEnter * echo "(U^w^) < Enjoy vimming!"
+augroup END
+
+" モード変更の挙動が遅い対策
 set timeout timeoutlen=1000 ttimeoutlen=50
 
 " 入力コマンド履歴の保存数

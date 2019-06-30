@@ -1,32 +1,45 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2018/12/17 16:00:00.
-" MEMO: "VeoVim" ‚ª‹N“®‚µ‚È‚¢‚Í "dein" ‚ÌƒfƒBƒŒƒNƒgƒŠ‚ğÁ‚·
+" Last Change: 2019/06/30 21:07:57.
+" MEMO: "VeoVim" ãŒèµ·å‹•ã—ãªã„æ™‚ã¯ "dein" ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’æ¶ˆã™
 
-" !!!: •K‚¸æ“ª‚É‹Lq
-" "autocmd"iƒ}ƒNƒj ‚Ì‰Šú‰»
+" !!!: å¿…ãšå…ˆé ­ã«è¨˜è¿°
+" "autocmd"ï¼ˆãƒã‚¯ãƒ­ï¼‰ ã®åˆæœŸåŒ–
 augroup MyAutoCmd
     autocmd!
 augroup END
 
-if hostname() == "HBAMB748A"
-    " "Windows7" ‚Ì "NeoVim" ‚ÍƒfƒŠƒ~ƒ^‚ª "\\"
-    execute "source" "C:\\Users\\MM12167\\.vimrc"
-elseif hostname() == "HBAMB819"
-    execute "source" "C:\\Users\\MM12167.DMJ\\.vimrc"
-
+if has("linux")
+    execute "source" "~/.vimrc"
+elseif has("mac")
+    execute "source" "~/.vimrc"
+    " MEMO: "gui_runnig" ã§ãªãã¦ã‚‚ "colorscheme" å¤‰æ›´ã§ãã‚‹ç‚ºã€ã“ã“ã«è¨˜è¿°
+    if has("mac")
+        colorscheme iceberg
+    endif
+elseif (has("win32") || has("win64"))
+    if hostname() == "HBAMB748A"
+        " "Windows7" ã® "NeoVim" ã¯ãƒ‡ãƒªãƒŸã‚¿ãŒ "Â¥Â¥"
+        execute "source" "C:Â¥Â¥UsersÂ¥Â¥MM12167Â¥Â¥.vimrc"
+    elseif hostname() == "HBAMB819"
+        execute "source" "C:Â¥Â¥UsersÂ¥Â¥MM12167.DMJÂ¥Â¥.vimrc"
+    else
+        execute "source" "%homepath%Â¥Â¥.vimrc"
+    endif
 else
-    " "Vim" –ˆ‚Ìrcƒtƒ@ƒCƒ‹ƒpƒXİ’è
-    let g:rc_dir = expand("~/dotfiles")
-
-    " rcƒtƒ@ƒCƒ‹“Ç‚İŠÖ”
-    function! s:source_rc(rc_file_name)
-        let rc_file = expand(g:rc_dir . "/" . a:rc_file_name)
-        if filereadable(rc_file)
-            execute "source" rc_file
-        endif
-    endfunction
-
-    " Šî–{İ’è
-    call s:source_rc(".vimrc")
+    execute "source" "~/.vimrc"
 endif
+
+" "Vim" æ¯ã®rcãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹è¨­å®š
+let g:rc_dir = expand("â€¾/dotfiles")
+
+" rcãƒ•ã‚¡ã‚¤ãƒ«èª­è¾¼ã¿é–¢æ•°
+function! s:source_rc(rc_file_name)
+    let rc_file = expand(g:rc_dir . "/" . a:rc_file_name)
+    if filereadable(rc_file)
+        execute "source" rc_file
+    endif
+endfunction
+
+" åŸºæœ¬è¨­å®š
+call s:source_rc(".vimrc")
