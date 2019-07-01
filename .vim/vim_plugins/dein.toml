@@ -1,78 +1,12 @@
 # Created:     2018/03/07 21:59:29
-# Last Change: 2019/01/08 15:48:22.
+# Last Change: 2019/07/01 21:36:47.
 
+[[plugins]]
+repo = 'Shougo/vimfiler'
 # :VimFiler で起動 # {{{
     # o: バッファを縦分割 or ディレクトリ同期
     # O: 別バッファに選択中のディレクトリの中を展開
     # gs: セーフモード ON/OFF
     # q: 終了
-# }}}
-[[plugins]]
-repo = 'Shougo/vimfiler'
-
-# 移管済み  " {{{
-# # "true"/"false"、"yes"、"no"、"on"/"off" などをトグル
-# [[plugins]]
-# repo = 'toggle.vim'
-
-# ---------------------------------------------------------------------------
-# 動作確認中 新規導入プラグイン
-# ---------------------------------------------------------------------------
-
-# ---------------------------------------------------------------------------
-# 導入予定
-# ---------------------------------------------------------------------------
-# {{{
-# japanese doc
-# [[plugins]]
-# repo = 'vim-jp/vimdoc-ja'
-# on_ft = ['help']
-
-# "ctags" 自動更新
-# https://github.com/soramugi/auto-ctags.vim
-
-# テンプレート作成
-# [[plugins]]
-# repo = 'thinca/vim-template'
-# < http://lambdalisue.hatenablog.com/entry/2013/06/23/071344 >
-# }}}
-
-# ---------------------------------------------------------------------------
-# 削除予定
-# ---------------------------------------------------------------------------
-# 文章校正
-# [[plugins]]  # {{{
-# repo = 'rinx/yj-proofreading.vim'
-# depends = ['mattn/webapi-vim']
-# [[plugins]]
-# repo = 'mattn/webapi-vim'
-# }}}
-
-# "VimShell"
-# # ",s: :VimShell" で起動
-# [[plugins]]
-# repo = 'Shougo/vimshell'
-# if = "!has('nvim')"
-
-# MEMO: ↓コピペができないのでKILL
-# # コマンドラインで "Emacs" キーバインド
-# [[plugins]]
-# repo = 'houtsnip/vim-emacscommandline'
-
-# GAME
-# [[plugins]]
-# repo = 'rbtnn/game_engine.vim'
-# [[plugins]]
-# repo = 'rbtnn/pipe.vim'
-# depends = ['game_engine']
-# [[plugins]]
-# repo = 'rbtnn/mario.vim'
-# depends = ['game_engine']
-# [[plugins]]
-# repo = 'rbtnn/puyo.vim'
-# depends = ['game_engine']
-# [[plugins]]
-# repo = 'rbtnn/reversi.vim'
-# depends = ['game_engine']
 # }}}
 
