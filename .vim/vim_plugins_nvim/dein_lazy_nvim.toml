@@ -1,15 +1,13 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2019/06/29 21:22:22.
+# Last Change: 2019/07/01 22:32:28.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 if = "has('python3')"
-
 # "E892: 文字列を浮動小数点数として扱っています" のためKILL
 # depends = ['neomru.vim']
-
 # MEMO: ↓は "*.vim" に移管できない
 hook_source = '''  " {{{
     " プロンプトを ">" にする
@@ -54,29 +52,103 @@ hook_source = '''  " {{{
     call denite#custom#map('insert',
                 \ '<C-o>', '<denite:do_action:tabopen>')
 
-    " "file_rec" 検索時に "FuzzyMatch" を有効にし
-    " 検索対象から指定のファイルを除外
-    call denite#custom#source(
-                \ 'file_rec', 'matchers',
-                \ ['matcher_fuzzy',
-                \ 'matcher_project_files',
-                \ 'matcher_ignore_globs'])
+    " The Silver searcher
+    if executable('ag')
+        let s:ignore_globs = [
+                    \ '.git',
+                    \ '.svn',
+                    \ 'node_modules']
 
-    " 検索対象外のファイル指定
-    call denite#custom#filter('matcher_ignore_globs',
-                \ 'ignore_globs',
-                \ [ '.git/', 'build/',
-                \ '.ropeproject/', '__pycache__/',
-                \ 'venv/', 'images/', 'img/',
-                \ 'fonts/', 'img/', 'fonts/',
-                \ 'images/', '*.o', '*.make', '*.min.*'])
+        " 検索対象から以下を除外
+        call denite#custom#var(
+                    \ 'command',
+                    \ 'grep',
+                    \ 'file/rec',
+                    \ ['ag',
+                    \ '--follow',]
+                    \ + map(deepcopy(s:ignore_globs),
+                    \ { k, v -> '--ignore=' . v }) + [
+                    \ '',
+                    \ '--nocolor',
+                    \ '--nogroup',
+                    \ '-g'])
 
-    " "Grep" に "RipGrep" を使用
-    if executable('rg')
-        call denite#custom#var('file_rec', 'command',
-                \ ['rg', '--files', '--glob', '!.git'])
-        call denite#custom#var('grep', 'command', ['rg'])
+        " "file_rec" 検索時に "FuzzyMatch" を有効にし
+        " 検索対象から指定のファイルを除外
+        call denite#custom#source(
+                    \ 'file/rec',
+                    \ 'matchers',
+                    \ ['matcher_fuzzy',
+                    \ 'matcher_project_files',
+                    \ 'matcher_ignore_globs'])
+
+        " 他ソース向けに "ignore_globs" 初期化
+        call denite#custom#filter(
+                    \ 'ignore_globs',
+                    \ 'matcher/ignore_globs',
+                    \ s:ignore_globs,
+                    \ ['*.make',
+                    \ '*.min.*'
+                    \ '*.o',
+                    \ '.git/',
+                    \ '.ropeproject/',
+                    \ '__pycache__/',
+                    \ 'build/',
+                    \ 'fonts/',
+                    \ 'images/',
+                    \ 'img/',
+                    \ 'venv/',
+                    \ 'ropeproject/'])
     endif
+"     " RipGrep
+"     if executable('rg')
+"         " 検索対象から以下を除外
+"         call denite#custom#var(
+"                     \ 'command',
+"                     \ 'grep',
+"                     \ 'file_rec',
+"                     \ ['!.git',
+"                     \ '--files',
+"                     \ '--glob',
+"                     \ 'rg'])
+"         let g:denite_source_grep_command = 'rg'
+"         let g:denite_source_grep_default_opts = '-n --no-heading --color never'
+"         let g:unite_source_grep_recursive_opt = ''
+"         " Hit数制御
+"         let g:unite_source_grep_max_candidates = 200
+"         " "Windows" 設定
+"         let g:unite_source_grep_encoding='utf-8'
+"     endif
+"
+"     " FuzzyMatch
+"     if executable('matcher_fuzzy')
+"         " "file_rec" 検索時に "FuzzyMatch" を有効にし
+"         " 検索対象から指定のファイルを除外
+"         call denite#custom#source(
+"                     \ 'file_rec',
+"                     \ 'matchers',
+"                     \ ['matcher_fuzzy',
+"                     \ 'matcher_project_files',
+"                     \ 'matcher_ignore_globs'])
+"
+"         " 検索対象外のファイル指定
+"         call denite#custom#filter(
+"                     \ 'ignore_globs',
+"                     \ 'matcher_ignore_globs',
+"                     \ s:ignore_globs,
+"                     \ ['*.make',
+"                     \ '*.min.*',
+"                     \ '*.o',
+"                     \ '.git/',
+"                     \ '.ropeproject/',
+"                     \ '__pycache__/',
+"                     \ 'build/',
+"                     \ 'fonts/',
+"                     \ 'images/',
+"                     \ 'img/',
+"                     \ 'venv/',
+"                     \ 'ropeproject/'])
+"     endif
 '''  # }}}
 on_i = 1
 on_cmd = ['Denite']
@@ -85,13 +157,10 @@ on_cmd = ['Denite']
     # Ul: :Unite colorscheme でプレビュー
     # Dl: :Denite colorscheme でプレビュー
 # "Denite|Unite" 用 "mru"
-
 # "E892: 文字列を浮動小数点数として扱っています" のためKILL
-# [[plugins]]
-# repo = 'Shougo/neomru.vim'
-
-# DONE: "NeoVim" では無駄なディレクトリが生成される
-# if = "!has('nvim')"
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+if = "has('mac')"
 on_source = ['dein.vim', 'unite.vim', 'denite.nvim']
 on_path = '.*'
 [[plugins]]
