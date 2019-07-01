@@ -33,7 +33,8 @@ export const configuration = {
     // add custom config here, such as
 
     // "ui.colorscheme": "nord",
-    "ui.colorscheme": "iceberg",
+    // "ui.colorscheme": "iceberg",
+    "ui.colorscheme": "hybrid",
 
     // "oni.useDefaultConfig": true,
     // "oni.bookmarks": ["~/Documents"],
