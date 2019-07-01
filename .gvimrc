@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/06/30 21:30:36.
+" Last Change: 2019/07/01 11:49:45.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -65,7 +65,6 @@ syntax on
 "}}}
 
 if exists("g:nyaovim_version")
-    " color iceberg
     let s:plugin_dir = expand("~/.config/nyaovim/dein")
     try
         if s:on_nyaovim || s:true_color_enabled
@@ -77,6 +76,10 @@ if exists("g:nyaovim_version")
         endif
     endtry
 endif
+
+" if exists("g:gui_oni")
+"     echo Setting for Oni
+" endif
 
 " !!!: 以下からは記述場所を順番を変えない！！！
 " フォントの設定
