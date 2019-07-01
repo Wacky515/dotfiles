@@ -444,7 +444,7 @@
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/dotfiles/etc/init/osx/iTerm2</string>
+	<string>~/Library/Mobile Documents/com~apple~CloudDocs</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{722, 448}</string>
 	<key>NSNavPanelMediaBrowserTypeForOpenModeKey</key>
@@ -485,12 +485,14 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>410 392 620 392 0 0 1440 900 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 136 599 459 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>245 271 796 473 0 0 1440 900 </string>
+	<string>450 234 918 452 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>42 142 1362 651 0 0 1440 900 </string>
+	<string>75 145 1298 651 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>197 52 650 427 0 0 1440 900 </string>
 	<key>New Bookmarks</key>
@@ -658,7 +660,7 @@
 			<key>Background Image Is Tiled</key>
 			<false/>
 			<key>Background Image Location</key>
-			<string>/Users/skydog/dotfiles/etc/init/osx/iTerm2/4-BO2L6U.jpeg</string>
+			<string>/Users/wacky515/Library/Mobile Documents/com~apple~CloudDocs/Settings/Terminal/1c322811.jpg</string>
 			<key>Badge Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -673,13 +675,13 @@
 				<real>1</real>
 			</dict>
 			<key>Blend</key>
-			<real>1</real>
+			<real>0.19605869391025643</real>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
 			<true/>
 			<key>Blur Radius</key>
-			<real>1.6701881894279602</real>
+			<real>3.8908589784263956</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1113,7 +1115,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.90000000000000002</real>
+			<real>0.21828997461928934</real>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -1183,22 +1185,28 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/wacky515/dotfiles/etc/init/osx/iTerm2</string>
+	<key>SUAutomaticallyUpdate</key>
+	<true/>
 	<key>SUEnableAutomaticChecks</key>
-	<false/>
+	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
 	<string>https://iterm2.com/appcasts/final.xml?shard=56</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
+	<key>SULastCheckTime</key>
+	<date>2019-07-01T00:38:58Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
+	<key>SmartPlacement</key>
+	<true/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.1.7</string>
+	<string>3.2.9</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
