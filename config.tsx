@@ -1,3 +1,5 @@
+// Created:     2019/00/00 00:00:00
+// Last Change: 2019/07/01 11:36:48.
 
 import * as React from "react"
 import * as Oni from "oni-api"
@@ -6,14 +8,9 @@ export const activate = (oni: Oni.Plugin.Api) => {
     console.log("config activated")
 
     // Input  // {{{
-    //
     // Add input bindings here:
-    //
     // oni.input.bind("<c-enter>", () => console.log("Control+Enter was pressed"))
-
-    //
     // Or remove the default bindings here by uncommenting the below line:
-    //
     // oni.input.unbind("<c-p>")
     // }}}
 
@@ -31,41 +28,30 @@ export const deactivate = (oni: Oni.Plugin.Api) => {
 
 export const configuration = {
     // add custom config here, such as
-
-    // "ui.colorscheme": "nord",
     "ui.colorscheme": "iceberg",
 
-    // "oni.useDefaultConfig": true,
-    // "oni.bookmarks": ["~/Documents"],
-    // "oni.loadInitVim": false,
-    // "editor.fontSize": "12px",
-    // "editor.fontFamily": "Monaco",
-    "editor.fontSize": "20px",
+    "oni.bookmarks": ["~/Dotfiles"],
+    "oni.loadInitVim": true,
+    "oni.useDefaultConfig": false,
+
+    "editor.fontSize": "18px",
+    "editor.fontFamily": "Cica, Dejavu Sans Mono, Consolas",
 
     // UI customizations
-    // "ui.animations.enabled": true,
-    // "ui.fontSmoothing": "auto",
+    "ui.animations.enabled": true,
+    "ui.fontSmoothing": "auto",
 
-    "autoClosingPairs.enabled": false,
-    "commandline.mode": true,
-    // "commandline.mode": false,
     "editor.errors.slideOnForce": false,
-    "editor.fontFamily": "Cica, Dejavu Sans Mono, Consolas",
     "editor.fontLigatures": true,
-    // "editor.fontLigatures": false,
-    // "editor.fontSize": "11px",
     "editor.fontWeight": "normal",
     "editor.linePadding": 1,
     "editor.quickInfo.enabled": false,
     "editor.scrollBar.visible": false,
-    "oni.loadInitVim": true,
+
+    "autoClosingPairs.enabled": false,
+    "commandline.mode": true,
     "oni.hideMenu": true,
-    "oni.useDefaultConfig": false,
     "sidebar.enabled": false,
     "statusbar.enabled": true,
-    // "statusbar.enabled": false,
     "tabs.mode": "native",
-    "ui.animations.enabled": true,
-    // "ui.colorscheme": "onedark",
-    "ui.fontSmoothing": "auto",
-    }
+}

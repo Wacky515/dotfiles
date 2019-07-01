@@ -1,6 +1,6 @@
 # Last Change: 2018/06/20 03:08:11.
 [user]
-	name = wacky515
+	name = 脇田 純
 	email = wacky515@gmail.com
 
 [color]
@@ -22,7 +22,7 @@
     lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
 [core]
-    excludesfile = ~/.gitignore
+	excludesfile = /Users/wacky515/.gitignore
 	editor = vim
 
 [include]
