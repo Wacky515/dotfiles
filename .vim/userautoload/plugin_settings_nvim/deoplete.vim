@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/09/13 22:57:48
-" Last Change: 2018/12/21 09:12:58.
+" Last Change: 2019/07/02 09:09:17.
 
 " ---------------------------------------------------------------------------
 " マップキー
@@ -12,34 +12,21 @@ scriptencoding utf-8
 " inoremap <expr><tab> pumvisible() ? "\<C-n>" :
 "         \ neosnippet#expandable_or_jumpable() ?
 "         \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-"}}}
+" }}}
 
 " ---------------------------------------------------------------------------
 " 基本設定
 " ---------------------------------------------------------------------------
 " TEMP: "roxma/nvim-yarp" と "roxma/vim-hug-neovim-rpc" を
 " "dein_lazy.toml" でインストールできないので以下で代替
-" MEMO: "NeoVim" で "dein" の "depends" が条件分岐できないのでKILL
-" if ((has("nvim") || has("timers")) && has("python3"))  " {{{
-"             \ && system("pip3 show neovim") !=# ''
-"    call dein#add('Shougo/deoplete.nvim')
-"    if !has('nvim')
-"        call dein#add('roxma/nvim-yarp')
-"        call dein#add('roxma/vim-hug-neovim-rpc')
-"    endif
-" endif
-" }}}
-
-" MEMO: 重複
 call dein#add('roxma/nvim-yarp')
 call dein#add('roxma/vim-hug-neovim-rpc')
 
-" 一つ目の候補を選択状態にする
-set completeopt+=noinsert
+" " 一つ目の候補を選択状態にする
+" set completeopt+=noinsert
 
 " TODO: こちらに記述を戻す  " {{{
 " MEMO: 記述順は "dein.toml" が新しい
-" DONE: "dein.toml" に移管
 " let g:deoplete#enable_at_startup = 1
 " let g:deoplete#auto_complete_delay = 0
 " let g:deoplete#auto_complete_start_length = 1
@@ -63,7 +50,7 @@ let g:jedi#completions_enabled = 0
 if hostname() == "ProSalad133.local"
     let g:deoplete#sources#jedi#python_path = "/usr/local/bin/python3.6"
 elseif hostname() == ("HBAMB748" || "HBAMB748A" || "HBAMB819")
-    let g:deoplete#sources#jedi#python_path = "C:\\Python35\\python.exe"
+    let g:deoplete#sources#jedi#python_path = "C:\\Python36\\python.exe"
 elseif hostname() == "SALADCARBONX1"
     let g:deoplete#sources#jedi#python_path = "~\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
 endif

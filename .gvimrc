@@ -1,13 +1,13 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/07/01 11:49:45.
+" Last Change: 2019/07/02 20:13:14.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
 " ----------------------------------------------------------------------
+" MEMO: "Dein" に移管済み
 " カラースキーマの指定
 " 暗背景用の配色にする
-" MEMO: "Dein" に移管済み
 
 " " 明背景用の配色にする " {{{
 " set background=light
@@ -68,15 +68,20 @@ if exists("g:nyaovim_version")
     let s:plugin_dir = expand("~/.config/nyaovim/dein")
     try
         if s:on_nyaovim || s:true_color_enabled
-            colorscheme spring-night
-            let g:airline_theme = 'spring_night'
+            colorscheme iceberg
+            " colorscheme spring-night
+            " let g:airline_theme = 'spring_night'
         else
             colorscheme wallaby
             let g:airline_theme = 'wombat'
         endif
+    catch
+        set background=dark
+        colorscheme default
     endtry
 endif
 
+" MEMO: "Oni" 用設定
 " if exists("g:gui_oni")
 "     echo Setting for Oni
 " endif
@@ -87,10 +92,7 @@ if has("linux")
     if !has("nvim")
         set guifont=Cica:h16
         set printfont=Cica:h12
-    else
-        Guifont! DejaVu\ Sans\ Mono\ 13
     endif
-    Guifont! Cica:h18
 
 elseif has("mac")
     if hostname() == "ProSalad133.local"
@@ -118,8 +120,6 @@ elseif (has("win32") || has("win64"))
             set printfont=Cica:h8
             " Windows Cica 専用設定 ("NeoVim" 版設定探す）
             set rop=type:directx,renmode:5
-        else
-            Guifont! Cica:h11
         endif
 
     " muRata setting
@@ -128,16 +128,12 @@ elseif (has("win32") || has("win64"))
             set guifont=Cica:h14
             set printfont=Cica:h12
             set rop=type:directx,renmode:5
-        else
-            Guifont! Cica:h14
         endif
     elseif hostname() == "HBAMB748A"
         if !has("nvim")
             set guifont=Cica:h15
             set printfont=Cica:h13
             set rop=type:directx,renmode:5
-        else
-            Guifont! Cica:h15
         endif
     elseif hostname() == "HBALT071"
         if !has("nvim")
@@ -152,48 +148,36 @@ elseif (has("win32") || has("win64"))
             set guifont=Cica:h11
             set printfont=Cica:h8
             set rop=type:directx,renmode:5
-        else
-            Guifont! Cica:h16
         endif
     elseif hostname() == "LAPTOP-DOA35GAR"
         if !has("nvim")
             set guifont=Cica:h11
             set printfont=Cica:h8
             set rop=type:directx,renmode:5
-        else
-            Guifont! Cica:h12
         endif
     elseif hostname() == "HBAMB819"
         if !has("nvim")
             set guifont=Cica:h12
             set printfont=Cica:h10
             set rop=type:directx,renmode:5
-        else
-            Guifont! Cica:h12
         endif
     elseif hostname() == "SMM0761"
         if !has("nvim")
             set guifont=Cica:h12
             set printfont=Cica:h10
             set rop=type:directx,renmode:5
-        else
-            Guifont! Cica:h12
         endif
     elseif hostname() == "SMM1319"
         if !has("nvim")
             set guifont=Cica:h12
             set printfont=Cica:h10
             set rop=type:directx,renmode:5
-        else
-            Guifont! Cica:h12
         endif
     elseif hostname() == "SMM1380"
         if !has("nvim")
             set guifont=Cica:h12
             set printfont=Cica:h10
             set rop=type:directx,renmode:5
-        else
-            Guifont! Cica:h12
         endif
 
         " Xacti setting " {{{
@@ -209,8 +193,6 @@ elseif (has("win32") || has("win64"))
         if !has("nvim")
             set guifont=Meiryo_UI:h18
             set rop=type:directx,renmode:5
-        else
-            Guifont! Meiryo_UI:h18
         endif
     endif
 endif
