@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2019/06/30 20:22:53.
+" Last Change: 2019/07/02 09:16:26.
 
 " NOT_WORK:
     " - Python3 3.6.4
@@ -30,7 +30,7 @@ elseif hostname() == "HBAMB748"
     let g:python_host_prog = "C:\\Python27\\python.exe"
     let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
     if !has("nvim")
-        set pythonthreedll=C:\tools\miniconda3\python36.dll
+        set pythonthreedll=C:\Python36\python36.dll
     endif
 elseif hostname() ==  "HBAMB748A"
     let g:python_host_prog = "C:\\Python27\\python.exe"
@@ -41,7 +41,6 @@ elseif hostname() ==  "HBAMB819"
 elseif hostname() == "SALADCARBONX1"
     let g:python3_host_prog =
     \ "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
-    " \ "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
 else
     if has("unix")
         let g:python3_host_prog = "/usr/local/bin/Python3"
@@ -73,6 +72,8 @@ if !has("nvim")
     endif
 elseif exists("g:nyaovim_version")
     let s:plugin_dir = expand("~/.config/nyaovim/dein")
+elseif exists("g:gui_oni")
+    let s:plugin_dir = expand("~/.config/oni/dein")
 elseif has("nvim")
     if has("unix")
         let s:plugin_dir = expand("~/.config/nvim/.cache/dein/")
@@ -157,11 +158,11 @@ if dein#load_state(s:plugin_dir)
     endif
 
     if exists("g:nyaovim_version")
-        call dein#load_toml(s:toml_nvim,            {"lazy": 0})
-        call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
-        if has ("python3")
-            call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
-        endif
+        " call dein#load_toml(s:toml_nvim,            {"lazy": 0})
+        " call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
+        " if has ("python3")
+        "     call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
+        " endif
         call dein#add("rhysd/nyaovim-markdown-preview")
         call dein#add("rhysd/nyaovim-popup-tooltip")
         call dein#add("rhysd/nyaovim-mini-browser")

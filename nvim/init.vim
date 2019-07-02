@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/06/30 21:47:05.
+" Last Change: 2019/07/02 12:32:06.
 " MEMO: "VeoVim" が起動しない時は "dein" のディレクトリを消す
 
 " !!!: 必ず先頭に記述
@@ -11,24 +11,21 @@ augroup END
 
 if has("linux")
     execute "source" "~/.vimrc"
+    if !has("gui_running")
+        execute "source" "~/.gvimrc"
+    endif
 elseif has("mac")
     execute "source" "~/.vimrc"
-    " MEMO: "gui_runnig" でなくても "colorscheme" 変更できる為、ここに記述
-    colorscheme iceberg
+    if !has("gui_running")
+        execute "source" "~/.gvimrc"
+    endif
+    " colorscheme iceberg
 elseif (has("win32") || has("win64"))
-    execute "source" "~\\.vimrc"
-    " if hostname() == "HBAMB748A"
-    "     " "Windows7" の "NeoVim" はデリミタが "\\"
-    "     execute "source" "C:\\Users\\MM12167\\.vimrc"
-    " elseif hostname() == "HBAMB819"
-    "     execute "source" "C:\\Users\\MM12167.DMJ\\.vimrc"
-    " else
-    "     execute "source" "~\\.vimrc"
-    " endif
-    " MEMO: "gui_runnig" でなくても "colorscheme" 変更できる為、ここに記述
-    colorscheme iceberg
-else
     execute "source" "~/.vimrc"
+    if !has("gui_running")
+        execute "source" "~/.gvimrc"
+    endif
+    colorscheme iceberg
 endif
 
 " "Vim" 毎のrcファイルパス設定
