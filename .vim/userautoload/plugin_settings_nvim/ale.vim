@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/15 13:25:06
-" Last Change: 2018/12/18 08:10:34.
+" Last Change: 2019/07/02 09:30:25.
 
 " ---------------------------------------------------------------------------
 "  マップキー
@@ -71,7 +71,7 @@ let g:ale_fixers = {
             \ 'python': ['autopep8', 'isort'],
             \ 'go': ['gofmt'],
             \ 'javascript': ['prettier'],
-            \ 'php': ['phpcbf'],
+            \ 'php': ['phpcbf']
             \ }
 
 let g:ale_python_pylint_executable = 'pylint3'
