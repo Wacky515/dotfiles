@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/07/02 10:48:10.
+" Last Change: 2019/07/02 20:13:14.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -68,12 +68,16 @@ if exists("g:nyaovim_version")
     let s:plugin_dir = expand("~/.config/nyaovim/dein")
     try
         if s:on_nyaovim || s:true_color_enabled
-            colorscheme spring-night
-            let g:airline_theme = 'spring_night'
+            colorscheme iceberg
+            " colorscheme spring-night
+            " let g:airline_theme = 'spring_night'
         else
             colorscheme wallaby
             let g:airline_theme = 'wombat'
         endif
+    catch
+        set background=dark
+        colorscheme default
     endtry
 endif
 
