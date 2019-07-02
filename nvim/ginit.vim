@@ -1,41 +1,46 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2018/12/17 16:02:24.
-" TODO: ŠJ‚¢‚½ƒpƒX‚É%HOMEPATH%ƒfƒBƒŒƒNƒgƒŠ‚ª¶¬‚³‚ê‚Ä‚µ‚Ü‚¤
+" Last Change: 2019/07/02 11:06:49.
+" TODO: é–‹ã„ãŸãƒ‘ã‚¹ã«%HOMEPATH%ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒç”Ÿæˆã•ã‚Œã¦ã—ã¾ã†
 
-" !!!: •K‚¸æ“ª‚É‹Lq
-" "autocmd"iƒ}ƒNƒj ‚Ì‰Šú‰»
+" !!!: å¿…ãšå…ˆé ­ã«è¨˜è¿°
+" "autocmd"ï¼ˆãƒã‚¯ãƒ­ï¼‰ ã®åˆæœŸåŒ–
 augroup MyAutoCmd
     autocmd!
 augroup END
 
-" TODO: ƒEƒCƒ“ƒhƒEƒTƒCƒY‹L‰¯‚·‚é
-" ƒEƒCƒ“ƒhƒE•
+" TODO: ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚ºè¨˜æ†¶ã™ã‚‹
+" ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦å¹…
 set columns=180
-" ƒEƒCƒ“ƒhƒE‚
+" ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦é«˜
 set lines=57
-    " ƒEƒCƒ“ƒhƒEˆÊ’u
+    " ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ä½ç½®
 if has("gui")
     winpos  200  10
 endif
 
-if hostname() == "HBAMB748A"
-    execute "source" "C:\\Users\\MM12167\\.gvimrc"
-elseif hostname() == "HBAMB819"
-    execute "source" "C:\\Users\\MM12167.DMJ\\.gvimrc"
-elseif hostname() == "SALADCARBONX1"
-    " "Vim" –ˆ‚Ìrcƒtƒ@ƒCƒ‹ƒpƒXİ’è
-    let g:rc_dir = expand("~/dotfiles")
-
-    " rcƒtƒ@ƒCƒ‹“Ç‚İŠÖ”
-    function! s:source_rc(rc_file_name)
-        let rc_file = expand(g:rc_dir . "/" . a:rc_file_name)
-        if filereadable(rc_file)
-            execute "source" rc_file
-        endif
-    endfunction
-
-    " GUIŠî–{İ’è
-    call s:source_rc(".gvimrc")
+if has("linux")
+    execute "source" "~/.gvimrc"
+elseif has("mac")
+    execute "source" "~/.gvimrc"
+elseif (has("win32") || has("win64"))
+    execute "source" "~/.gvimrc"
+    " MEMO: "nvim-qt" å°‚ç”¨ã®ã‚³ãƒãƒ³ãƒ‰
+    " TODO: æ¡ä»¶åˆ†å²åŒ–ã™ã‚‹
+    Guifont! Cica:h14
 endif
+
+" "Vim" æ¯ã®rcãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹è¨­å®š
+let g:rc_dir = expand("~/dotfiles")
+
+" rcãƒ•ã‚¡ã‚¤ãƒ«èª­è¾¼ã¿é–¢æ•°
+function! s:source_rc(rc_file_name)
+    let rc_file = expand(g:rc_dir . "/" . a:rc_file_name)
+    if filereadable(rc_file)
+        execute "source" rc_file
+    endif
+endfunction
+
+" GUIåŸºæœ¬è¨­å®š
+call s:source_rc(".gvimrc")
 
