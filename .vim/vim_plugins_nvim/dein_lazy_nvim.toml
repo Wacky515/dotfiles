@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2019/07/02 20:46:04.
+# Last Change: 2019/07/03 08:48:48.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -10,13 +10,12 @@ if = "has('python3')"
 # depends = ['neomru.vim']
 # MEMO: ↓は "*.vim" に移管できない
 hook_source = '''  " {{{
-    " プロンプトを ">" にする
     call denite#custom#option('default', {
                 \ 'auto_accel': v:true,
                 \ 'prompt': '>',
                 \ 'source_names': 'short',
                 \ })
-    call denite#custom#option('default', 'direction', 'top')
+        call denite#custom#option('default', 'direction', 'top')
 
     " <C-n>/<C-p>: 上下移動
     call denite#custom#map('normal',
@@ -56,80 +55,18 @@ hook_source = '''  " {{{
     call denite#custom#map('insert',
                 \ '<C-o>', '<denite:do_action:tabopen>')
 
-"     " The Silver searcher
-"     if executable('ag')
-"         let s:ignore_globs = [
-"                     \ '.git',
-"                     \ '.svn',
-"                     \ 'node_modules'
-"                     \ ]
-"
-"         " 検索対象から以下を除外
-"         call denite#custom#var(
-"                     \ 'file/rec',
-"                     \ 'command', [
-"                     \ 'ag',
-"                     \ '--follow',]
-"                     \ + map(deepcopy(s:ignore_globs),
-"                     \ { k, v -> '--ignore=' . v }) + [
-"                     \ '--nocolor',
-"                     \ '--nogroup',
-"                     \ '-g'
-"                     \ ''
-"                     \ ])
-"
-"         " "file_rec" 検索時に "FuzzyMatch" を有効にし
-"         " 検索対象から指定のファイルを除外
-"         call denite#custom#source(
-"                     \ 'file/rec',
-"                     \ 'matchers', [
-"                     \ 'matcher_fuzzy',
-"                     \ 'matcher_project_files',
-"                     \ 'matcher_ignore_globs'])
-"
-"         " 他ソース向けに "ignore_globs" 初期化
-"         call denite#custom#filter(
-"                     \ 'ignore_globs',
-"                     \ 'matcher/ignore_globs',
-"                     \ s:ignore_globs
-"                     \ )
-"     endif
+    " The Silver searcher
+    if executable('ag')
+        let s:ignore_globs = [
+                    \ '.git',
+                    \ '.svn',
+                    \ 'node_modules']
 
-    " RipGrep
-    if executable('rg')
         " 検索対象から以下を除外
-<<<<<<< HEAD
-        call denite#custom#var('file_rec', 'command',
-                    \ ['rg', '--files', '--glob', '!.git'])
-        call denite#custom#var('grep', 'command', ['rg', '--threads', '1'])
-        call denite#custom#var('grep', 'recursive_opts', [])
-        call denite#custom#var('grep', 'final_opts', [])
-        call denite#custom#var('grep', 'separator', ['--'])
-        call denite#custom#var('grep', 'default_opts',
-                    \ ['--vimgrep', '--no-heading'])
-    else
-        call denite#custom#var('file_rec', 'command',
-                    \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-    endif
-
-    call denite#custom#source('file_old', 'matchers',
-                \ ['matcher_fuzzy', 'matcher_project_files'])
-    call denite#custom#source('tag', 'matchers', ['matcher_substring'])
-    if has('nvim')
-        call denite#custom#source('file_rec,grep', 'matchers',
-                    \ ['matcher_cpsm'])
-    endif
-    call denite#custom#source('file_old', 'converters',
-                \ ['converter_relative_word'])
-
-    call denite#custom#alias('source', 'file_rec/git', 'file_rec')
-    call denite#custom#var('file_rec/git', 'command',
-      \ ['git', 'ls-files', '-co', '--exclude-standard'])
-=======
         call denite#custom#var(
                     \ 'command',
-                    \ 'file/rec',
-                    \ ['ag',
+                    \ 'file/rec', [
+                    \ 'ag',
                     \ '--follow',]
                     \ + map(deepcopy(s:ignore_globs),
                     \ { k, v -> '--ignore=' . v }) + [
@@ -137,55 +74,19 @@ hook_source = '''  " {{{
                     \ '--nocolor',
                     \ '--nogroup',
                     \ '-g'])
->>>>>>> 3b9db9dd539af5d1057b0ee29cce45efa35f44b9
 
-    let s:menus = {}
-    let s:menus.vim = {
-        \ 'description': 'Vim',
-        \ }
-    let s:menus.vim.file_candidates = [
-        \ ['    > Edit configuation file (init.vim)', '~/.config/nvim/init.vim']
-        \ ]
-    call denite#custom#var('menu', 'menus', s:menus)
-
-    call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-        \ [ '.git/', '.ropeproject/', '__pycache__/',
-        \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
-
-    call denite#custom#action('file', 'buffer',
-        \ {context -> denite#do_action(context, 'open', context['targets'])})
-
-    " FuzzyMatch
-    if executable('matcher_fuzzy')
         " "file_rec" 検索時に "FuzzyMatch" を有効にし
         " 検索対象から指定のファイルを除外
         call denite#custom#source(
-                    \ 'file_rec',
+                    \ 'file/rec',
                     \ 'matchers',
                     \ ['matcher_fuzzy',
                     \ 'matcher_project_files',
                     \ 'matcher_ignore_globs'])
 
-        " 検索対象外のファイル指定
+        " 他ソース向けに "ignore_globs" 初期化
         call denite#custom#filter(
                     \ 'ignore_globs',
-<<<<<<< HEAD
-                    \ 'matcher_ignore_globs',
-                    \ s:ignore_globs,
-                    \ ['*.make',
-                    \ '*.min.*',
-                    \ '*.o',
-                    \ '.git/',
-                    \ '.ropeproject/',
-                    \ '__pycache__/',
-                    \ 'build/',
-                    \ 'fonts/',
-                    \ 'images/',
-                    \ 'img/',
-                    \ 'venv/',
-                    \ 'ropeproject/'])
-    endif
-=======
                     \ 'matcher/ignore_globs',
                     \ s:ignore_globs)
 
@@ -240,7 +141,6 @@ hook_source = '''  " {{{
 "                     \ 'venv/',
 "                     \ 'ropeproject/'])
 "     endif
->>>>>>> 3b9db9dd539af5d1057b0ee29cce45efa35f44b9
 '''  # }}}
 on_i = 1
 on_cmd = ['Denite']
