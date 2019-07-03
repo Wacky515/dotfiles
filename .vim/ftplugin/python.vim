@@ -1,7 +1,18 @@
 ﻿scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/01/08 13:52:41.
+" Last Change: 2019/07/03 18:26:09.
 
+" ---------------------------------------------------------------------------
+"  マップキー
+" ---------------------------------------------------------------------------
+" スクリプトを実行
+nnoremap <F5> :w <ENTER> :!python % <ENTER>
+" デバッグを実行
+nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
+
+" ---------------------------------------------------------------------------
+"  基本設定
+" ---------------------------------------------------------------------------
 if exists("b:did_ftplugin_python")
     finish
 endif
@@ -46,11 +57,6 @@ endif
 
 " REF: https://qiita.com/CutBaum/items/a8de8e3f4e32c0a3ad1e
 
-" スクリプトを実行
-nnoremap <F5> :w <ENTER> :!python % <ENTER>
-" デバッグを実行
-nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
-
 " シンタックスハイライトに "self" 追加
 augroup python
     autocmd!
@@ -82,67 +88,62 @@ set colorcolumn=80
 " import os
 " import sys
 
-" スクリプトを実行
-nnoremap <F5> :w <ENTER> :!python % <ENTER>
-" デバッグを実行
-nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
-
-" jedi-vim" で "Anaconda3 " のライブラリを補完できるようにpathを追加
-" FIXED?: "Linux" 環境下でエラー
-if !has("unix")
-    " python3 << EOF
-    python << EOF
-    import os
-    import sys
-
-    path = "C:/tools/Anaconda3/Lib/site-packages"
-    if not path in sys.path:
-        sys.path.insert(0, path)
-        EOF
-    endif
-
-    " 以下の条件分けは "endif" 無しエラーが解決できないためKill
-    " if !has("unix") "{{{
-    "     python << EOF
-    "         import os
-    "         import sys
-    "         home = os.path.expanduser("~")
-    "         path = home + "/Anaconda2/Lib/site-packages"
-    "         if not path in sys.path:
-    "             sys.path.insert(0, path)
-    "     EOF
-    " endif
-
-    " if has("win32") || has("win64")
-    "     python << EOF
-    "     import os
-    "     import sys
-    "     home = os.path.expanduser("~")
-    "     path = home + "/Anaconda2/Lib/site-packages"
-    "     if not path in sys.path:
-    "         sys.path.insert(0, path)
-    "     EOF
-    " endif "}}}
-
-    " if !has("unix") "{{{
-    "     python << EOF
-    "     import os
-    "     import sys
-    "     home = os.path.expanduser("~")
-    "     path = home + "/Anaconda2/Lib/site-packages"
-    "     if not path in sys.path:
-    "         sys.path.insert(0, path)
-    "     EOF
-    " endif
-
-    " if has("win32") || has("win64")
-    "     python << EOF
-    "     import os
-    "     import sys
-    "     home = os.path.expanduser("~")
-    "     path = home + "/Anaconda2/Lib/site-packages"
-    "     if not path in sys.path:
-    "         sys.path.insert(0, path)
-    "     EOF
-    " endif
-    " }}}
+" " jedi-vim" で "Anaconda3 " のライブラリを補完できるようにpathを追加
+" " FIXED?: "Linux" 環境下でエラー
+" if !has("unix")
+"     " python3 << EOF
+"     python << EOF
+"     import os
+"     import sys
+"
+"     path = "C:/tools/Anaconda3/Lib/site-packages"
+"     if not path in sys.path:
+"         sys.path.insert(0, path)
+"         EOF
+"     endif
+"
+"     " 以下の条件分けは "endif" 無しエラーが解決できないためKill
+"     " if !has("unix") "{{{
+"     "     python << EOF
+"     "         import os
+"     "         import sys
+"     "         home = os.path.expanduser("~")
+"     "         path = home + "/Anaconda2/Lib/site-packages"
+"     "         if not path in sys.path:
+"     "             sys.path.insert(0, path)
+"     "     EOF
+"     " endif
+"
+"     " if has("win32") || has("win64")
+"     "     python << EOF
+"     "     import os
+"     "     import sys
+"     "     home = os.path.expanduser("~")
+"     "     path = home + "/Anaconda2/Lib/site-packages"
+"     "     if not path in sys.path:
+"     "         sys.path.insert(0, path)
+"     "     EOF
+"     " endif "}}}
+"
+"     " if !has("unix") "{{{
+"     "     python << EOF
+"     "     import os
+"     "     import sys
+"     "     home = os.path.expanduser("~")
+"     "     path = home + "/Anaconda2/Lib/site-packages"
+"     "     if not path in sys.path:
+"     "         sys.path.insert(0, path)
+"     "     EOF
+"     " endif
+"
+"     " if has("win32") || has("win64")
+"     "     python << EOF
+"     "     import os
+"     "     import sys
+"     "     home = os.path.expanduser("~")
+"     "     path = home + "/Anaconda2/Lib/site-packages"
+"     "     if not path in sys.path:
+"     "         sys.path.insert(0, path)
+"     "     EOF
+"     " endif
+"     " }}}
