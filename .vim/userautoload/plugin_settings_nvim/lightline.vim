@@ -1,5 +1,5 @@
 ﻿scriptencoding utf-8
-" Last Change: 2018/11/13 11:39:53.
+" Last Change: 2019/07/03 14:41:30.
 
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示
 if has("unix")
@@ -7,48 +7,47 @@ if has("unix")
 endif
 
 " TODO: "Cica" を使用しているマシンのみセパレータ有効化
-" FIXME: 抽象化する
+" FIXME: 抽象化する  " {{{
 " if hostname() != "SALADCARBONX1" || "ProSalad133.local"
 " if set guifont? != "Cica*"
+" }}}
 
 " 設定1
-            " \ 'colorscheme': 'jellybeans',
-            " \ 'colorscheme': 'powerline',
-            " \ 'colorscheme': 'solarized',
-            " \ 'colorscheme': 'landscape',
-            " \ 'colorscheme': 'PaperColor',
-            " \ 'colorscheme': 'seoul256',
-            " \ 'colorscheme': 'Dracula',
-            " \ 'colorscheme': 'one',
-            " \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-            " \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
+" MEMO: 設定参考
+" \ 'colorscheme': 'jellybeans',  " {{{
+" \ 'colorscheme': 'powerline',
+" \ 'colorscheme': 'solarized',
+" \ 'colorscheme': 'landscape',
+" \ 'colorscheme': 'PaperColor',
+" \ 'colorscheme': 'seoul256',
+" \ 'colorscheme': 'Dracula',
+" \ 'colorscheme': 'one',
+" \ 'separator':    { 'left': "\ue0b0", 'right': "\ue0b2" },
+" \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
+" }}}
+
 let g:lightline = {
             \ 'colorscheme': 'wombat',
-            \ 'separator': { 'left': "\ue0cc", 'right': "\ue0b2" },
+            \ 'separator':    { 'left': "\ue0cc", 'right': "\ue0b2" },
             \ 'subseparator': { 'left': "\ue0cd", 'right': "\ue0b3" },
             \ 'mode_map': {'c': 'NORMAL'},
             \ 'active': {
             \     'left': [
-            \         ['mode', 'paste'],
+            \         ['mode',     'paste'],
             \         ['fugitive', 'filename'],
-            \         ['modified', 'ale']
-            \     ]
-            \ },
+            \         ['modified', 'ale']]},
             \ 'component': {
-            \   'lineinfo': ' %3l:%-2v',
-            \ },
+            \   'lineinfo': ' %3l:%-2v',},
             \ 'component_function': {
-            \     'mode': 'MyMode',
-            \     'fugitive': 'MyFugitive',
-            \     'filename': 'MyFilename',
-            \     'modified': 'MyModified',
-            \     'ale': 'MyAle',
+            \     'mode':         'MyMode',
+            \     'fugitive':     'MyFugitive',
+            \     'filename':     'MyFilename',
+            \     'modified':     'MyModified',
+            \     'ale':          'MyAle',
             \     'fileencoding': 'MyFileencoding',
-            \     'fileformat': 'MyFileformat',
-            \     'filetype': 'MyFiletype',
-            \     'readonly': 'MyReadonly',
-            \     }
-            \ }
+            \     'fileformat':   'MyFileformat',
+            \     'filetype':     'MyFiletype',
+            \     'readonly':     'MyReadonly',}}
 
 function! MyMode()
     return winwidth(0) > 60 ? lightline#mode() : ''
@@ -82,21 +81,22 @@ endfunction
 
 if dein#tap('ale')
     function! MyAle()
-      let l:count = ale#statusline#Count(bufnr(''))
-      let l:errors = l:count.error + l:count.style_error
-      let l:warnings = l:count.warning + l:count.style_warning
-      return l:count.total == 0 ? '' : ':' . l:errors . ' :' . l:warnings
+        let l:count = ale#statusline#Count(bufnr(''))
+        let l:errors = l:count.error + l:count.style_error
+        let l:warnings = l:count.warning + l:count.style_warning
+        return l:count.total == 0 ? '' : ':' . l:errors . ' :' . l:warnings
     endfunction
-  else
+else
     function! MyAle()
-      return ''
+        return ''
     endfunction
-  endif
+endif
+
 " function! s:ale_string(mode)  " {{{
 "     if !exists('g:ale_buffer_info')
 "         return ''
 "     endif
-"
+
 "     let l:buffer = bufnr('%')
 "     let [l:error_count, l:warning_count] = ale#statusline#Count(l:buffer)
 "     let [l:error_format, l:warning_format, l:no_errors] = g:ale_statusline_format
@@ -108,7 +108,7 @@ if dein#tap('ale')
 "     elseif a:mode == 1
 "         return l:warning_count ? printf(l:warning_format, l:warning_count) : ''
 "     endif
-"
+
 "     return l:error_count == 0 && l:warning_count == 0 ? l:no_errors : ''
 " endfunction
 " }}}
@@ -123,7 +123,7 @@ function! MyFileencoding()
 endfunction
 
 function! MyFileformat()
-     return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+    return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
 
 function! MyFiletype()

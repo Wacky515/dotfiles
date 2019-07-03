@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2019/07/03 08:48:48.
+# Last Change: 2019/07/03 16:15:19.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -112,35 +112,35 @@ hook_source = '''  " {{{
 "         let g:unite_source_grep_encoding='utf-8'
 "     endif
 
-"     " FuzzyMatch
-"     if executable('matcher_fuzzy')
-"         " "file_rec" 検索時に "FuzzyMatch" を有効にし
-"         " 検索対象から指定のファイルを除外
-"         call denite#custom#source(
-"                     \ 'file_rec',
-"                     \ 'matchers',
-"                     \ ['matcher_fuzzy',
-"                     \ 'matcher_project_files',
-"                     \ 'matcher_ignore_globs'])
+    " FuzzyMatch
+    if executable('matcher_fuzzy')
+        " "file_rec" 検索時に "FuzzyMatch" を有効にし
+        " 検索対象から指定のファイルを除外
+        call denite#custom#source(
+                    \ 'file_rec',
+                    \ 'matchers',
+                    \ ['matcher_fuzzy',
+                    \ 'matcher_project_files',
+                    \ 'matcher_ignore_globs'])
 
-"         " 検索対象外のファイル指定
-"         call denite#custom#filter(
-"                     \ 'ignore_globs',
-"                     \ 'matcher_ignore_globs',
-"                     \ s:ignore_globs,
-"                     \ ['*.make',
-"                     \ '*.min.*',
-"                     \ '*.o',
-"                     \ '.git/',
-"                     \ '.ropeproject/',
-"                     \ '__pycache__/',
-"                     \ 'build/',
-"                     \ 'fonts/',
-"                     \ 'images/',
-"                     \ 'img/',
-"                     \ 'venv/',
-"                     \ 'ropeproject/'])
-"     endif
+        " 検索対象外のファイル指定
+        call denite#custom#filter(
+                    \ 'ignore_globs',
+                    \ 'matcher_ignore_globs',
+                    \ s:ignore_globs,
+                    \ ['*.make',
+                    \ '*.min.*',
+                    \ '*.o',
+                    \ '.git/',
+                    \ '.ropeproject/',
+                    \ '__pycache__/',
+                    \ 'build/',
+                    \ 'fonts/',
+                    \ 'images/',
+                    \ 'img/',
+                    \ 'venv/',
+                    \ 'ropeproject/'])
+    endif
 '''  # }}}
 on_i = 1
 on_cmd = ['Denite']
@@ -235,8 +235,8 @@ on_ft = ['markdown','mkd']
 repo = 'rcmdnk/vim-markdown'
 on_ft = ['markdown','mkd']
 hook_add = '''
-  let g:vim_markdown_frontmatter = 1
-  let g:vim_markdown_math = 1
+    let g:vim_markdown_frontmatter = 1
+    let g:vim_markdown_math = 1
 '''
 
 # Fuzzy Matcher
@@ -248,11 +248,17 @@ merged = '0'
 repo = 'junegunn/fzf.vim'
 depends = ['fzf']
 hook_add = '''
+    command! -bang -nargs=* Ag
+                \ call fzf#vim#grep(
+                \   'ag --column --color --hidden --ignore .git '.shellescape(<q-args>), 0,
+                \   <bang>0 ? fzf#vim#with_preview('up:60%')
+                \           : fzf#vim#with_preview('right:50%', '?'),
+                \   <bang>0)
     command! -bang -nargs=* Rg
-      \ call fzf#vim#grep(
-      \ 'rg --line-number --no-heading '.shellescape(<q-args>), 0,
-      \ fzf#vim#with_preview({'options': '--exact --reverse'},
-      \ 'right:50%:wrap'))
+                \ call fzf#vim#grep(
+                \   'rg --line-number --no-heading '.shellescape(<q-args>), 0,
+                \   fzf#vim#with_preview({'options': '--exact --reverse'},
+                \   'right:50%:wrap'))
 '''
 
 # フォントのサイズ変更

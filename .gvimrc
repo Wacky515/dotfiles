@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/07/02 20:13:14.
+" Last Change: 2019/07/03 14:44:46.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -119,27 +119,27 @@ elseif (has("win32") || has("win64"))
             set guifont=Cica:h11
             set printfont=Cica:h8
             " Windows Cica 専用設定 ("NeoVim" 版設定探す）
-            set rop=type:directx,renmode:5
+            set renderoptions=type:directx,renmode:5
         endif
 
     " muRata setting
     elseif hostname() == "HBAMB748"
         if !has("nvim")
-            set guifont=Cica:h14
+            set guifont=Cica:h15
             set printfont=Cica:h12
-            set rop=type:directx,renmode:5
+            set renderoptions=type:directx,renmode:5
         endif
     elseif hostname() == "HBAMB748A"
         if !has("nvim")
             set guifont=Cica:h15
             set printfont=Cica:h13
-            set rop=type:directx,renmode:5
+            set renderoptions=type:directx,renmode:5
         endif
     elseif hostname() == "HBALT071"
         if !has("nvim")
             set guifont=Cica:h11
             set printfont=Cica:h8
-            set rop=type:directx,renmode:5
+            set renderoptions=type:directx,renmode:5
         else
             Guifont! Cica:h16
         endif
@@ -147,37 +147,37 @@ elseif (has("win32") || has("win64"))
         if !has("nvim")
             set guifont=Cica:h11
             set printfont=Cica:h8
-            set rop=type:directx,renmode:5
+            set renderoptions=type:directx,renmode:5
         endif
     elseif hostname() == "LAPTOP-DOA35GAR"
         if !has("nvim")
             set guifont=Cica:h11
             set printfont=Cica:h8
-            set rop=type:directx,renmode:5
+            set renderoptions=type:directx,renmode:5
         endif
     elseif hostname() == "HBAMB819"
         if !has("nvim")
             set guifont=Cica:h12
             set printfont=Cica:h10
-            set rop=type:directx,renmode:5
+            set renderoptions=type:directx,renmode:5
         endif
     elseif hostname() == "SMM0761"
         if !has("nvim")
             set guifont=Cica:h12
             set printfont=Cica:h10
-            set rop=type:directx,renmode:5
+            set renderoptions=type:directx,renmode:5
         endif
     elseif hostname() == "SMM1319"
         if !has("nvim")
             set guifont=Cica:h12
             set printfont=Cica:h10
-            set rop=type:directx,renmode:5
+            set renderoptions=type:directx,renmode:5
         endif
     elseif hostname() == "SMM1380"
         if !has("nvim")
             set guifont=Cica:h12
             set printfont=Cica:h10
-            set rop=type:directx,renmode:5
+            set renderoptions=type:directx,renmode:5
         endif
 
         " Xacti setting " {{{
@@ -192,7 +192,7 @@ elseif (has("win32") || has("win64"))
     else
         if !has("nvim")
             set guifont=Meiryo_UI:h18
-            set rop=type:directx,renmode:5
+            set renderoptions=type:directx,renmode:5
         endif
     endif
 endif
