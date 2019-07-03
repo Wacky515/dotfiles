@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/15 13:25:06
-" Last Change: 2019/07/02 09:30:25.
+" Last Change: 2019/07/03 09:09:21.
 
 " ---------------------------------------------------------------------------
 "  マップキー
@@ -61,18 +61,20 @@ let g:ale_linters = {
             \ }
 
 " 自動整形
-let g:ale_fixers = {
-            \ 'markdown': [
+if has("gui_running")
+    let g:ale_fixers = {
+                \ 'markdown': [
                 \ {buffer, lines -> {'command': 'textlint
                 \ -c ~/.config/textlintrc
                 \ -o /dev/null --fix --no-color --quiet %t',
                 \ 'read_temporary_file': 1}}
-            \ ],
-            \ 'python': ['autopep8', 'isort'],
-            \ 'go': ['gofmt'],
-            \ 'javascript': ['prettier'],
-            \ 'php': ['phpcbf']
-            \ }
+                \ ],
+                \ 'python': ['autopep8', 'isort'],
+                \ 'go': ['gofmt'],
+                \ 'javascript': ['prettier'],
+                \ 'php': ['phpcbf']
+                \ }
+endif
 
 let g:ale_python_pylint_executable = 'pylint3'
 let g:ale_php_phpcs_standard = 'psr2'
