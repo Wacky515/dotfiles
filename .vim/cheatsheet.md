@@ -212,6 +212,12 @@
   - diffoff:       Diffモードを終了
   - diffupdate:    Diff状態をアップデート
 
+## Jedi
+
+- \<Leader\>d: 定義元ジャンプ
+- \<Leader\>r: 変数リネーム
+- \<Leader\>n: 使用箇所表示
+
 ## コマンドラインモード
 
 - \<Home\>:           行頭へ移動
