@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/07/03 14:44:46.
+" Last Change: 2019/07/13 09:19:46.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -176,6 +176,18 @@ elseif (has("win32") || has("win64"))
     elseif hostname() == "SMM1380"
         if !has("nvim")
             set guifont=Cica:h12
+            set printfont=Cica:h10
+            set renderoptions=type:directx,renmode:5
+        endif
+    elseif hostname() == "SMM1496"
+        if !has("nvim")
+            set guifont=Cica:h12
+            set printfont=Cica:h10
+            set renderoptions=type:directx,renmode:5
+        endif
+    elseif hostname() == "mmctosmm"
+        if !has("nvim")
+            set guifont=Cica:h14
             set printfont=Cica:h10
             set renderoptions=type:directx,renmode:5
         endif
