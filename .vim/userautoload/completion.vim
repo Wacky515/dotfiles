@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/12/14 13:56:04
-" Last Change: 2018/12/14 13:57:39.
+" Last Change: 2019/07/13 09:41:28.
 
 " 入力キーの辞書
 let s:compl_key_dict = {
@@ -43,3 +43,4 @@ function! s:hint_i_ctrl_x() abort
 endfunction
 
 inoremap <expr> <C-x>  <SID>hint_i_ctrl_x()
+
