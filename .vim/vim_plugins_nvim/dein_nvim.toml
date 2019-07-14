@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2019/07/13 10:19:54.
+# Last Change: 2019/07/14 15:11:26.
 
 # MEMO:
 # hook_add         プラグイン追加後
@@ -196,9 +196,9 @@ repo = 'nathanaelkane/vim-indent-guides'
 [[plugins]]
 repo = 'jacquesbh/vim-showmarks'
 
-# "NeoVim" ノーマルモード時にIME OFF
-[[plugins]]
-repo = 'rbtnn/winime.vim'
+# # "NeoVim" ノーマルモード時にIME OFF
+# [[plugins]]
+# repo = 'rbtnn/winime.vim'
 
 # テーブル作成
 # ":TableModeToggle" で開始
