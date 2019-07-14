@@ -111,7 +111,8 @@ elseif has("mac")
     elseif hostname() == "SaladBook.local"
         set guifont=Cica:h16
         set printfont=Cica:h12
-        colorscheme solarized
+        " colorscheme solarized
+        colorscheme iceberg
     else
         set guifont=Cica:h16
         set printfont=Cica:h12
