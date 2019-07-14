@@ -107,9 +107,11 @@ elseif has("mac")
     elseif hostname() == "saladserver.com"
         set guifont=Cica:h24
         set printfont=Cica:h20
-    elseif hostname() == "SaladBook.com"
+    " elseif hostname() == "SaladBook.com"
+    elseif hostname() == "SaladBook.local"
         set guifont=Cica:h16
         set printfont=Cica:h12
+        colorscheme solarized
     else
         set guifont=Cica:h16
         set printfont=Cica:h12

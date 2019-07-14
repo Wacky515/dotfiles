@@ -26,7 +26,7 @@ if hostname() == "ProSalad133.local"
 elseif hostname() == "SaladBook.local"
     let g:python3_host_prog = "/usr/local/bin/Python3"
 elseif hostname() == "HBAMB748"
-    let g:python_host_prog = "C:\\Python27\\python.exe"
+    let g:python_host_prog  = "C:\\Python27\\python.exe"
     let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
     if !has("nvim")
         " "HBAMB748" "vim" で未知 "Unkwown option" エラー
@@ -37,10 +37,10 @@ elseif hostname() == "HBAMB748"
         endif
     endif
 elseif hostname() ==  "HBAMB748A"
-    let g:python_host_prog = "C:\\Python27\\python.exe"
+    let g:python_host_prog  = "C:\\Python27\\python.exe"
     let g:python3_host_prog = "C:\\Python35\\python.exe"
 elseif hostname() ==  "HBAMB819"
-    let g:python_host_prog = "C:\\Python27\\python.exe"
+    let g:python_host_prog  = "C:\\Python27\\python.exe"
     let g:python3_host_prog = "C:\\Python35\\python.exe"
 elseif hostname() == "SALADCARBONX1"
     let g:python3_host_prog =
