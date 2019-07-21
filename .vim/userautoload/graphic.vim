@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/14 14:59:36
-" Last Change: 2018/12/27 15:30:01.
+" Last Change: 2019/07/13 10:13:59.
 
 " ---------------------------------------------------------------------------
 " メイン表示篇
@@ -42,7 +42,7 @@ set shiftwidth=4
 " コマンド・改行・自動インデント時、現在行と同じインデントを挿入
 set autoindent
 " 改行時に前行の構文をチェックし次行のインデントを増減
-    " "{" があると次行は自動で1段深く自動インデント
+" "{" があると次行は自動で1段深く自動インデント
 set smartindent
 " "<" 、 ">" でインデントする時、"shiftwidth" の倍数に丸める
 set shiftround
@@ -50,19 +50,41 @@ set shiftround
 " ファイルを開いた時に最後のカーソル位置を復元する
 if has("autocmd")
     autocmd BufReadPost *
-    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-    \   exe "normal! g'\"" |
-    \ endif
+                \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+                \   exe "normal! g'\"" |
+                \ endif
 endif
 
-" インサートモードに入った時にカーソル行(列)の色を変更する
+" インサートモード時カーソル行(列)色を変更
 augroup vimrc_change_cursorline_color
-  autocmd!
-  " インサートモードに入った時にカーソル行の色をブルーグリーンにする
-  autocmd InsertEnter * highlight CursorLine ctermbg=24 guibg=#005f87 | highlight CursorColumn ctermbg=24 guibg=#005f87
-  " インサートモードを抜けた時にカーソル行の色を黒に近いダークグレーにする
-  autocmd InsertLeave * highlight CursorLine ctermbg=236 guibg=#303030 | highlight CursorColumn ctermbg=236 guibg=#303030
+    autocmd!
+    " インサートモード時にカーソル行ブルーグリーン
+    autocmd InsertEnter
+                \ * highlight
+                \ CursorLine ctermbg=24
+                \ guibg=#005f87
+                \ | highlight
+                \ CursorColumn ctermbg=24
+                \ guibg=#005f87
+    " インサートモードを抜けた時カーソル行ダークグレー
+    autocmd InsertLeave
+                \ * highlight
+                \ CursorLine ctermbg=236
+                \ guibg=#303030
+                \ | highlight
+                \ CursorColumn ctermbg=236
+                \ guibg=#303030
 augroup END
+
+" NVIM: カーソル形状をモード毎に変更
+if (has('nvim') && has('vim_starting'))
+    " 挿入モード時、非点滅縦線
+    let &t_SI .= "\e[6 q"
+    " ノーマルモード時、非点滅ブロック
+    let &t_EI .= "\e[2 q"
+    " 置換モード時、非点滅下線
+    let &t_SR .= "\e[4 q"
+endif
 
 " ---------------------------------------------------------------------------
 " 全角スペースをハイライト
@@ -103,10 +125,10 @@ if !has("nvim")
         autocmd VimLeavePre * call s:save_window()
         function! s:save_window()
             let options = [
-                \ "set columns=" . &columns,
-                \ "set lines=" . &lines,
-                \ "winpos " . getwinposx() . " " . getwinposy(),
-                \ ]
+                        \ "set columns=" . &columns,
+                        \ "set lines=" . &lines,
+                        \ "winpos " . getwinposx() . " " . getwinposy(),
+                        \ ]
             call writefile(options, g:save_window_file)
         endfunction
     augroup END
@@ -120,7 +142,7 @@ endif
 " コマンドラインモード表示篇
 " ---------------------------------------------------------------------------
 " コマンドラインモードの補完GUI
-    " 候補をリストで表示し "TAB" でフォーカス
+" 候補をリストで表示し "TAB" でフォーカス
 set wildmenu wildmode=list:full
 
 " ---------------------------------------------------------------------------
