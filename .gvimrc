@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/07/03 14:44:46.
+" Last Change: 2019/07/03 21:13:38.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -29,7 +29,9 @@ set guioptions-=m
 
 " ウィンドウ 半透明化（"Linux" は "Vim" から設定できない）
 if has("mac")
-    set transparency=10
+    if !has("nvim")
+        set transparency=10
+    endif
 endif
 if (has("win32") || ("win64"))
     :autocmd GUIEnter * set transparency=235
@@ -98,6 +100,7 @@ elseif has("mac")
     if hostname() == "ProSalad133.local"
         set guifont=Cica:h16
         set printfont=Cica:h12
+        colorscheme iceberg
     elseif hostname() == "ProSalad13.local"
         set guifont=Cica:h16
         set printfont=Cica:h12
