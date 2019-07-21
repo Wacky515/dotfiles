@@ -1,11 +1,12 @@
 ﻿scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2018/12/27 09:34:01.
+" Last Change: 2019/07/13 11:06:57.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
 " ---------------------------------------------------------------------------
 " TODO: マークにジャンプ時、画面をトップに位置にする
+
 " キーマッピングに適しているキー " {{{
     " 1. <Space>
     " 2. ,
@@ -20,10 +21,8 @@ inoremap jj <Esc>
 " bk: バックアップファイル作成
 nnoremap bk :<C-u>w %.bk
 
-" 挿入モードで dl: 仕切り線を挿入
 " dl: 仕切り線を挿入
 noremap dl i---------------------------------------------------------------------------<Esc>:TComment<CR>^
-" inoremap dl ---------------------------------------------------------------------------<Esc>:TComment<CR>^
 
 " " 0: 直下に空行挿入
 " nnoremap 0 :<C-u>call append(expand('.'), '')<CR>j
@@ -81,10 +80,10 @@ nnoremap <silent> bb :<C-u>b#<CR>
     " MEMO: マルチカーソルに譲渡
 " nnoremap <C-j> <C-^>
 
-" 上方向に1行分スクロール
-" noremap <C-,> <C-y>
-" 下方向に1行分スクロール
-noremap Y <C-e>
+" <Ctrl>p: 上方向に1行分スクロール
+noremap <C-p> <C-y>
+" <Ctrl>n: 下方向に1行分スクロール
+noremap <C-n> <C-e>
 
 " <Shift><矢印>: ウィンドウサイズ変更
     " FIXME: Windows動作せず
@@ -119,7 +118,6 @@ endif
 " endif
 " }}}
 
-" FIXME: "NeoVim" で変更必要
 if !has("nvim")
     " ev: vimrcを開く
     nmap ev :<C-u>edit $MYVIMRC<CR>
@@ -140,7 +138,7 @@ elseif has("nvim")
     nnoremap <silent> ,g :<C-u>source ~/dotfiles/.gvimrc<CR>
 endif
 
-" "NeoVim" の "Terminal mode" をノーマルモードを使用する
+" "NeoVim" の "Terminal mode" でノーマルモードを使用する
 if has("nvim")
   tnoremap <silent> <Esc> <C-\><C-n>
 endif
@@ -201,8 +199,8 @@ cnoremap <C-p> <Up>
 " Leader篇
 " ---------------------------------------------------------------------------
 " <Space> を "Leader" に割当て
+" MEMO: ".vimrc" に記述
 " let mapleader = "\<Space>"
-" MEMO: ".vimrc" へ
 
 " <Leader>w: ファイルを保存
 autocmd VimEnter * nnoremap <Leader>w :<C-u>w<CR>

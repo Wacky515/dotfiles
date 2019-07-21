@@ -1,6 +1,6 @@
 scriptencoding utf-8
-" Created:     20**/**/** **:**:**
-" Last Change: 2018/12/27 11:48:19.
+" Created:     201*/**/** **:**:**
+" Last Change: 2019/07/13 09:53:15.
 
 " <Leader>m: "Atom" 起動
 nnoremap <Leader>,m :<C-u>! Atom "%:p"<CR>

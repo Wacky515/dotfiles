@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/07/03 21:13:38.
+" Last Change: 2019/07/21 10:37:09.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -107,9 +107,12 @@ elseif has("mac")
     elseif hostname() == "saladserver.com"
         set guifont=Cica:h24
         set printfont=Cica:h20
-    elseif hostname() == "SaladBook.com"
+    " elseif hostname() == "SaladBook.com"
+    elseif hostname() == "SaladBook.local"
         set guifont=Cica:h16
         set printfont=Cica:h12
+        " colorscheme solarized
+        colorscheme iceberg
     else
         set guifont=Cica:h16
         set printfont=Cica:h12
@@ -179,6 +182,18 @@ elseif (has("win32") || has("win64"))
     elseif hostname() == "SMM1380"
         if !has("nvim")
             set guifont=Cica:h12
+            set printfont=Cica:h10
+            set renderoptions=type:directx,renmode:5
+        endif
+    elseif hostname() == "SMM1496"
+        if !has("nvim")
+            set guifont=Cica:h12
+            set printfont=Cica:h10
+            set renderoptions=type:directx,renmode:5
+        endif
+    elseif hostname() == "mmctosmm"
+        if !has("nvim")
+            set guifont=Cica:h14
             set printfont=Cica:h10
             set renderoptions=type:directx,renmode:5
         endif
