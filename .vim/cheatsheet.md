@@ -71,6 +71,8 @@
   - (D|U)M: 最近使用したファイル一覧
 - UW:     最近使用したウィンドウ一覧
 
+## Git
+
 - mgs :  Gstatus\<CR\>\<C-w\>T
   - 選択ファイル上で -: "git add/reset" をトグル
 - mga:   Gwrite\<CR\>
@@ -80,6 +82,8 @@
 - mgm:   Gmerge\<CR\>
 - :Agit: 強化版"git log" 起動
 - :Gitv: "gitk" 実行
+
+## マーク
 
 - mn:    現在位置をマーク
 - m,"*": "*" のマークへ移動
