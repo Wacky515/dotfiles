@@ -4,7 +4,7 @@
 
 - Run command below
 
-`bitsadmin /transfer initWindows https://raw.githubusercontent.com/Wacky515/dotfiles/master/etc/init/windows/settings/chocolatey/init_and_update_chocolatey.cmd C:\Temp\init_and_update_chocolatey.cmd`
+`bitsadmin /transfer initWindows https://raw.githubusercontent.com/Wacky515/dotfiles/master/etc/init/windows/settings/chocolatey/init_and_update_chocolatey.cmd C:\Temp\init_and_update_chocolatey.cmd && cd C:\Temp && init_and_update_chocolatey`
 
 ## Windows install list
 
