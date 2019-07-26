@@ -4,7 +4,7 @@
 
 - Run command below
 
-`mkdir if not exist C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize (mkdir C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize) else (echo Exist folder) && bitsadmin /transfer initWindows https://raw.githubusercontent.com/Wacky515/dotfiles/master/etc/init/windows/settings/initialize/init_dotfiles.cmd C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize\init_and_update_chocolatey.cmd && cd C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize && init_and_update_chocolatey`
+`if not exist C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize (mkdir C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize) else (echo Exist folder) && bitsadmin /transfer initWindows https://raw.githubusercontent.com/Wacky515/dotfiles/master/etc/init/windows/settings/initialize/init_dotfiles.cmd C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize/init_dotfiles.cmd && cd C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize && init_dotfiles.cmd`
 
 ## Windows install list
 
