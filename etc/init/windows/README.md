@@ -1,12 +1,21 @@
-#Initial setting scripts for Windows
+# Initial setting scripts for Windows
 
-## None
+## Usage
+
+- Run command below
+
+`bitsadmin /transfer test https://github.com/Wacky515/dotfiles/blob/master/etc/init/windows/settings/chocolatey/init_and_update_chocolatey.cmd C:%homepath%\init_and_update_chocolatey.cmd`
 
 ## Windows install list
-`brew list >> *_list.txt`
 
-## All user
+`clist -l >> *_list.txt`
+
+## Control Panel setting
+
+### All user
+
 `HKEY_USERS\.DEFAULT\Control Panel`
 
-## Current user
+### Current user
+
 `HKEY_CURRENT_USER\Control Panel`
