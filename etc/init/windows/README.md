@@ -2,9 +2,9 @@
 
 ## Usage
 
-- Run command below ***as Administrator***
+- Run command below
 
-`@echo off&/v:on /c set init_path=C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize&if not exist !init_path! (mkdir !init_path!) else (echo '>'> Already exist folder) & bitsadmin /transfer initWindows https://raw.githubusercontent.com/Wacky515/dotfiles/master/etc/init/windows/settings/initialize/init_dotfiles.cmd !init_path!/init_dotfiles.cmd && cd !init_path! && init_dotfiles.cmd`
+`if not exist C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize (mkdir C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize) else (echo '>'> Already exist folder) && bitsadmin /transfer initWindows https://raw.githubusercontent.com/Wacky515/dotfiles/master/etc/init/windows/settings/initialize/init_dotfiles.cmd C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize/init_dotfiles.cmd && cd C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize && init_dotfiles.cmd`
 
 ## Windows install list
 
