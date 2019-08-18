@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2018/12/05 11:10:11.
+rem Last Change: 2019/08/18 17:42:16.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -19,7 +19,7 @@ exit
 :main_routine
 set bat_path=%~dp0
 set config_files=packages_%computername%.config
-set def_conf=%homepath%"\dotfiles\etc\init\windows\settings\chocolatey\packages.config"
+set def_conf=C:%homepath%\dotfiles\etc\init\windows\settings\chocolatey\packages.config
 
 rem スクリプトがある "Dir" に "cd"
 pushd %bat_path%
@@ -28,7 +28,7 @@ echo ^>^> %batch_title%
 
 rem "Chocolatey" インストール済みかチェック
 chocolatey -v > nul 2>&1
-if %errorlevel% equ 0 goto update
+if %errorlevel% equ 0 goto clone
 
 echo ^>^> Install Chocolatey
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
@@ -36,8 +36,32 @@ echo ^>^> Install Chocolatey
 rem 必須パッケージのみ "cinst"
 cinst -y git onedrive teamviewer
 
-:update
-echo ^>^> Already installed Chocolatey, Update software
+:clone
+echo ^>^> Already installed Chocolatey
+rem ホームディレクトリに "cd"
+pushd %homepath%
+
+echo ^>^> Check installed Git or not
+if not exist %homepath%\dotfiles\.git (
+        echo ^>^> Git clone first
+        if exist %homepath%\dotfiles\ (
+            rmdir /s %homepath%\dotfiles\
+            )
+        git clone https://github.com/Wacky515/dotfiles.git
+        rem 暫定的に以下の branch に checkout
+        rem git checkout ftr_win
+
+        rem link.cmd 実行
+        pushd dotfiles
+        call link.cmd
+        ) else (
+            echo ^>^> Already Git clone
+            )
+
+rem 再度スクリプトがある "Dir" に "cd"
+pushd %bat_path%
+
+echo ^>^> Update Chocolatey
 
 rem Test時はKILL
 rem ---------------------------------------------------------------------------
@@ -48,34 +72,12 @@ if exist *_%config_files% (
         cinst -y %%i
         )
     ) else (
-        echo ^>^> "Setting default parameter"
+        echo ^>^> Setting default parameter
         cinst -y %def_conf%
         )
 cup all -y
 rem ---------------------------------------------------------------------------
 
-rem ホームディレクトリに "cd"
-pushd %homepath%
-
-echo ^>^> Check installed Git or not
-if not exist %homepath%"\dotfiles\.git" (
-        echo    ^>^> Git clone first
-        if exist %homepath%"\dotfiles\" (
-            rmdir /s %homepath%"\dotfiles\"
-            )
-        git clone https://github.com/Wacky515/dotfiles.git
-        rem 暫定的に以下の branch に checkout
-        rem git checkout ftr_win
-
-        rem link.cmd 実行
-        pushd dotfiles
-        call link.cmd
-        ) else (
-            echo    ^>^> Already Git clone
-            )
-
-rem 再度スクリプトがある "Dir" に "cd"
-pushd %bat_path%
 
 rem "git\init\settings" と O"neDrive\仕事\settings" の "setting_*.cmd" 実行
 call sub_install_all.cmd
