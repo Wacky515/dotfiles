@@ -1,16 +1,16 @@
 @echo off
 setlocal
-rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/12/04 08:51:00.
+rem Created:     201*/**/** **:**:**
+rem Last Change: 2019/08/19 18:41:06.
 
 title Install initialize App
 
 rem rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
-rem pushd %bat_path%
 
 rem 設定ファイルがある "Dir" に "cd"
-set srcdir=%OneDrive%"\仕事\InitApps"
+rem set srcdir=%OneDrive%"\仕事\InitApps"
+set srcdir=C:%homepath%\Mega\仕事\InitApps
 pushd %srcdir%
 
 set dir_7zip="C:\ProgramData\chocolatey\tools\7z.exe"

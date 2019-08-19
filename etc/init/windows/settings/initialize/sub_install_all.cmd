@@ -1,13 +1,13 @@
 @echo off
 setlocal
-rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/12/05 09:41:46.
+rem Created:     201*/**/** **:**:**
+rem Last Change: 2019/08/19 18:39:24.
 
 title Initialize batch for install
 
 set git_path=%homepath%\dotfiles\etc\init\windows\settings\
-set od_path=%OneDrive%\ŽdŽ–\Settings\
-
+rem set od_path=%OneDrive%\ŽdŽ–\Settings\
+set od_path=C:%homepath%\Mega\ŽdŽ–\Settings\
 echo ^>^> Search install batch in Git
 pushd %git_path%
 
@@ -39,7 +39,8 @@ for /r %%j in (install_*) do (
         )
     )
 
-echo ^>^> Search install batch in OneDrive
+rem echo ^>^> Search install batch in OneDrive
+echo ^>^> Search install batch in Mega sync
 pushd %od_path%
 
 for /r %%k in (install_*) do (
