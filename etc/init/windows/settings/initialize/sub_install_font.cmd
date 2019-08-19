@@ -1,16 +1,13 @@
 @echo off
 setlocal
-rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/11/23 11:36:07.
+rem Created:     201*/**/** **:**:**
+rem Last Change: 2019/08/19 18:42:13.
 
 title Install initialize font
 
-rem rem スクリプトがある "Dir" に "cd"
-rem set bat_path=%~dp0
-rem pushd %bat_path%
-
 rem 設定ファイルがある "Dir" に "cd"
-set srcdir=%OneDrive%"\仕事\InitApps""
+rem set srcdir=%OneDrive%"\仕事\InitApps"
+set srcdir=C:%homepath%\Mega\仕事\InitApps
 pushd %srcdir%
 
 rem 参考: http://qiita.com/masarusan24/items/d3a5ab7c37e9b6d9a51f

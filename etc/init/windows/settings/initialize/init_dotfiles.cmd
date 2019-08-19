@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/08/18 17:54:11.
+rem Last Change: 2019/08/19 18:34:17.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -34,7 +34,7 @@ echo ^>^> Install Chocolatey
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 
 rem 必須パッケージのみ "cinst"
-cinst -y git onedrive teamviewer
+cinst -y git onedrive megasync teamviewer
 
 :clone
 echo ^>^> Already installed Chocolatey
@@ -49,8 +49,6 @@ if not exist %homepath%\dotfiles\.git (
             for /d %%j in (%homepath%\dotfiles\) do rmdir /s /q "%%j"
             )
         git clone https://github.com/Wacky515/dotfiles.git
-        rem 暫定的に以下の branch に checkout
-        rem git checkout ftr_win
 
         rem link.cmd 実行
         pushd dotfiles
@@ -63,7 +61,6 @@ rem 再度スクリプトがある "Dir" に "cd"
 pushd %bat_path%
 
 echo ^>^> Update Chocolatey
-
 rem Test時はKILL
 rem ---------------------------------------------------------------------------
 rem "***_packages_***.config" を読み込み、インストール
@@ -80,7 +77,7 @@ cup all -y
 rem ---------------------------------------------------------------------------
 
 
-rem "git\init\settings" と O"neDrive\仕事\settings" の "setting_*.cmd" 実行
+rem "git\init\settings" と "Mega\仕事\settings" の "setting_*.cmd" 実行
 call sub_install_all.cmd
 rem pause
 
