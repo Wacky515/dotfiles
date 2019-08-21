@@ -1,25 +1,26 @@
 @echo off
 setlocal
 rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/12/05 09:47:16.
+rem Last Change: 2019/08/20 08:46:50.
 
 title Initialize setting
 
-set git_path=%homepath%\dotfiles\etc\init\windows\settings\
-set od_path=%OneDrive%\ŽdŽ–\Settings\
+set git_path=C:%homepath%\dotfiles\etc\init\windows\settings
+rem set od_path=%OneDrive%\ŽdŽ–\Settings
+set ms_path=C:%homepath%\ŽdŽ–\Settings
 
 echo ^>^> Search setting batch in Git
 pushd %git_path%
 
 for /r %%i in (setting_*) do (
-    if %%~xi == .cmd (echo    ^>^> Catch: %%~nxi)
-    if %%~xi == .vbs (echo    ^>^> Catch: %%~nxi)
-    if %%~xi == .reg (echo    ^>^> Catch: %%~nxi
+    if %%~xi == .cmd (echo ^>^> Catch: %%~nxi)
+    if %%~xi == .vbs (echo ^>^> Catch: %%~nxi)
+    if %%~xi == .reg (echo ^>^> Catch: %%~nxi
         ) else (
             rem pass
         )
     )
-echo    ^>^> Done
+echo ^>^> Done
 
 for /r %%j in (setting_*) do (
     pushd %git_path%
@@ -29,49 +30,50 @@ for /r %%j in (setting_*) do (
         echo %%~nxj
         cd %%~dpj
         call %%~nxj
-        rem echo 1
-        rem pushd %git_path%
         )
     if %%~xj == .vbs (
         echo ^>^> Automatically execute %%~nxj by batch
         cscript %%j
-        rem pushd %git_path%
         )
     if %%~xj == .reg (
         echo ^>^> Automatically execute %%~nxj by batch
         reg import %%j
-        rem pushd %git_path%
         )
     )
 
-echo ^>^> Search setting batch in OneDrive
-pushd %od_path%
+rem echo ^>^> Search setting batch in OneDrive
+rem pushd %od_path%
+echo ^>^> Search setting batch in Mega sync
+pushd %ms_path%
 
 for /r %%k in (setting_*) do (
-    if %%~xk == .cmd (echo    ^>^> Catch: %%~nxk)
-    if %%~xk == .vbs (echo    ^>^> Catch: %%~nxk)
-    if %%~xk == .reg (echo    ^>^> Catch: %%~nxk
+    if %%~xk == .cmd (echo ^>^> Catch: %%~nxk)
+    if %%~xk == .vbs (echo ^>^> Catch: %%~nxk)
+    if %%~xk == .reg (echo ^>^> Catch: %%~nxk
         ) else (
             rem pass
         )
     )
-echo    ^>^> Done
+echo ^>^> Done
 
 for /r %%l in (setting_*) do (
     if %%~xl == .cmd (
         echo ^>^> Automatically execute %%~nxl by batch
         call %%l
-        pushd %od_path%
+        rem pushd %od_path%
+        pushd %ms_path%
         )
     if %%~xl == .vbs (
         echo ^>^> Automatically execute %%~nxl by batch
         cscript %%l
-        pushd %od_path%
+        rem pushd %od_path%
+        pushd %ms_path%
         )
     if %%~xl == .reg (
         echo ^>^> Automatically execute %%~nxl by batch
         reg import %%l
-        pushd %od_path%
+        rem pushd %od_path%
+        pushd %ms_path%
         )
     )
 
