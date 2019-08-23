@@ -1,7 +1,7 @@
 @echo off
 setlocal
-rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/12/04 16:25:19.
+rem Created:     201*/**/** **:**:**
+rem Last Change: 2019/08/24 07:07:51.
 
 title Setting Graphiz
 
@@ -17,6 +17,8 @@ for %%i in (*.7z) do (
 
 :unzip
 if not exist "C:\"%~n1 (
+    rem NEED TO FIX
+    rem moved zip to mega
     echo ^>^> Set %~n1 in C Drive
     %dir_7zip% x -y -oC:\ %1
     ) else (
