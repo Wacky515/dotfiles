@@ -274,19 +274,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 136 599 459 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-<<<<<<< HEAD:etc/test/osx/iTerm2/com.googlecode.iterm2.plist
-	<string>245 284 796 473 0 0 1440 900 </string>
-	<key>NSWindow Frame iTerm Window 0</key>
-	<string>45 105 1274 731 0 0 1440 900 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
-	<string>197 52 650 427 0 0 1440 900 </string>
-=======
 	<string>240 137 937 512 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>87 390 570 402 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>339 84 570 452 0 0 1440 900 </string>
->>>>>>> d92ba09a452ac7fbf2b70f665bdb4497143f9d68:etc/init/osx/iTerm2/old/com.googlecode.iterm2.plist
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
