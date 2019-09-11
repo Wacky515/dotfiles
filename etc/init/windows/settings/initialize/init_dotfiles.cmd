@@ -1,11 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-<<<<<<< HEAD
-rem Last Change: 2019/08/23 11:19:06.
-=======
-rem Last Change: 2019/08/20 08:36:46.
->>>>>>> b92add9d7f43b6e9df35a98d662b6ec15c3dd84b
+rem Last Change: 2019/09/11 13:37:28.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -52,11 +48,7 @@ if not exist %homepath%\dotfiles\.git (
     if exist %homepath%\dotfiles\ (
         del /s /q %homepath%\dotfiles\
         for /d %%j in (%homepath%\dotfiles\) do rmdir /s /q "%%j")
-<<<<<<< HEAD
         git clone --depth 1 https://github.com/Wacky515/dotfiles.git
-=======
-        git clone https://github.com/Wacky515/dotfiles.git
->>>>>>> b92add9d7f43b6e9df35a98d662b6ec15c3dd84b
 
         rem link.cmd é¿çs
         pushd %homepath%\dotfiles
