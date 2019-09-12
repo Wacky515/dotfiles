@@ -1,15 +1,12 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2018/06/03 22:55:28.
+# Last Change: 2019/09/12 11:29:30.
 
 # FIXME:
-    # sudo権限を終了しないとbrewが使えない
+    # sudo権限を終了しないと "brew" が使えない
 
 # DONE:
-    # "type" を "has" に置き換える
-    # OS X: echoの文頭名のファイルが生成されてしまう
-    # ワンライナーの末尾 "~ | bash)" が原因
 
 set -euo pipefail
 export LC_ALL=C
@@ -126,8 +123,8 @@ exit 1
 fi
 echo ""
 
-info "Check install HomeBrew or not "
 if [ "$(uname)" == "Darwin" ]; then
+    info "Check install HomeBrew or not "
     if ! has "brew"; then
         # info "Install HomeBrew"
         # xcode-select --install
@@ -157,10 +154,8 @@ if [ ! -d ${DOT_DIR}"/.git" ]; then
         if has "brew"; then
             brew install git
         elif has "apt"; then
-        # if type "apt" > /dev/null 2>&1; then
             sudo apt -y install git
         elif has "yum"; then
-        # elif type "yum" > /dev/null 2>&1; then
             sudo yum -y install git
         else
             echo error "Can not find package control system"
@@ -181,26 +176,6 @@ echo ""
 case ${OSTYPE} in
 darwin*)
     # "OS X" 用設定
-    # "echo" のエラーは解消済のハズ、以下は不要
-    #    # info "Check install Bash4.x or not  " {{{
-    # if [ ! -e /usr/local/bin/bash ]; then
-    #     info "Brew install Bash4.x"
-    #
-    #     brew install bash > /dev/null 2>&1
-    #     # brew upgrade bash > /dev/null 2>&1
-    #     # sudo bash -c "echo /usr/local/bin/bash >> /etc/shells"
-    #     # chsh -s /usr/local/bin/bash
-    #     # sudo bash -c "echo /usr/local/Celler/bash >> /etc/shells"
-    #     chsh -s /usr/local/Celler/bash
-    #
-    #     # ↓端末再起動要否は未確認
-    #     # exec $SHELL -l
-    # else
-    #     info "Installed Bash4.x"
-    # fi
-    # echo ""
-    #  }}}
-
     info "Call setting OS X"
     cd ~/dotfiles/etc/test/osx
     bash ./init_osx.sh
@@ -214,5 +189,5 @@ linux*)
     ;;
 esac
 
-# ↓エラー？
+# ↓ エラー？
 exec $SHELL -l
