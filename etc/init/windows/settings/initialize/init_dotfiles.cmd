@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/12 15:49:51.
+rem Last Change: 2019/09/12 16:50:38.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -45,17 +45,18 @@ pushd %homepath%
 echo ^>^> Check installed Git or not
 if not exist %homepath%\dotfiles\.git (
     echo ^>^> Git clone first
-    if exist %homepath%\dotfiles\ (
-        del /s /q %homepath%\dotfiles\
-        for /d %%j in (%homepath%\dotfiles\) do rmdir /s /q "%%j")
-        git clone --depth 1 https://github.com/Wacky515/dotfiles.git
-
-        rem link.cmd 実行
-        pushd %homepath%\dotfiles
-        call link.cmd
-    ) else (
-        echo ^>^> Already Git clone
-    )
+    rem init_dotfile.cmd ごと消えるので一旦キル、支障なかったら消去
+    rem if exist %homepath%\dotfiles\ (
+        rem del /s /q %homepath%\dotfiles\
+    rem )
+    rem for /d %%j in (%homepath%\dotfiles\) do rmdir /s /q "%%j")
+    git clone --depth 1 https://github.com/Wacky515/dotfiles.git
+) else (
+    echo ^>^> Already Git clone
+)
+rem link.cmd 実行
+pushd %homepath%\dotfiles
+call link.cmd
 
 rem rem 再度スクリプトがある "Dir" に "pushd"
 rem pushd %bat_path%
