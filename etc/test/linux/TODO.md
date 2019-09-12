@@ -7,3 +7,4 @@
 
 - make_dotfiles.sh の has() を切出す
 - type -> has() に置換
+- 最初に curl インストール

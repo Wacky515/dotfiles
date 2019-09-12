@@ -12,4 +12,5 @@ cd ~/oyainput
 make
 sudo make install
 result_echo $? "${PROCESS}"
-# 自動起動させる
+
+# TODO: 自動起動させる
