@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2019/09/12 11:29:30.
+# Last Change: 2019/09/12 11:37:15.
 
 # FIXME:
     # sudo権限を終了しないと "brew" が使えない
@@ -113,7 +113,7 @@ info "*** ATTENTION ***"
 info "This script can change your entire setup."
 info "I recommend to read first. You can even copy commands one by one."
 echo ""
-read -p "$(warn 'Start install? [y/N] ')" -n 1 -r
+read -p "$(warn 'Start install? [Y/N] ')" -n 1 -r
 
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 echo ""
