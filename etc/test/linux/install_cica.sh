@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Install Cica font for Ubuntu
 # Created:     2018/05/06 18:08:09
-# Last Change: 2019/09/11 13:45:30.
+# Last Change: 2019/09/12 12:39:09.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
@@ -36,14 +36,19 @@ ym_echo ">> ${PROCESS^}"
 # rm -r ~/ubuntu-font-family-0.83.zip
 # }}}
 
-# 存在しない場合のみ
-mkdir ~/.fonts
-cd $_
-wget https://github.com/miiton/Cica/releases/download/v2.1.0/Cica_v2.1.0.zip
-unzip Cica_v2.1.0.zip
+if [ ! -e ~/.fonts ]; then
+    mkdir ~/.fonts
+fi
+
+cd ~/.fonts
+# wget https://github.com/miiton/Cica/releases/download/v2.1.0/Cica_v2.1.0.zip
+# unzip Cica_v2.1.0.zip
+wget https://github.com/miiton/Cica/releases/download/v5.0.1/Cica_v5.0.1_without_emoji.zip
+unzip Cica_v5.0.1.zip
 mv Cica-*.ttf ~/.fonts/.
 sudo fc-cache -fv
-rm -f Cica_v2.1.0.zip
-rm -lf COPYRIGHT.txt LICENSE.txt
+# rm -f Cica_v2.1.0.zip
+rm -f Cica_v5.0.1.zip
+rm -f COPYRIGHT.txt LICENSE.txt
 
 result_echo $? "${PROCESS}"

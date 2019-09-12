@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Install fish
 # Created:     2018/05/09 06:20:09
-# Last Change: 2018/05/10 10:01:57.
+# Last Change: 2019/09/12 12:42:24.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
@@ -17,7 +17,14 @@ echo ">> Restart terminal"
 # *** OK ***
 # FIXME: separate from here!!
 
-curl -L http://get.oh-my.fish | fish
+# Installk "fisherman"
+wget -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+
+# Install "oh-my.fish"
+wget -L http://get.oh-my.fish | fish
+
+# Install "powerline フォント"
+sudo apt-get install fonts-powerline
 
 # Install "peco"
 cd ~
@@ -32,7 +39,7 @@ echo ">> Add setting as following"
 echo "function fish_user_key_bindings"
 echo "    bind \cr peco_select_history"
 echo "end"
-vi ~/.config/fish/config.fish
+vi -u NONE ~/.config/fish/config.fish
 
 chsh -s /usr/bin/fish
 
