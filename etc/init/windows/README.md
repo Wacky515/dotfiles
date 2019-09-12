@@ -4,7 +4,7 @@
 
 - Run command below
 
-`rmdir /s /q C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize >nul 2>&1 & mkdir C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize & bitsadmin /transfer initWindows https://raw.githubusercontent.com/Wacky515/dotfiles/master/etc/init/windows/settings/initialize/init_dotfiles.cmd C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize\init_dotfiles.cmd && cd C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize && init_dotfiles.cmd`
+`rmdir /s /q C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize > nul 2>&1 & mkdir C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize & bitsadmin /transfer initWindows https://raw.githubusercontent.com/Wacky515/dotfiles/master/etc/init/windows/settings/initialize/init_dotfiles.cmd C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize\init_dotfiles.cmd && cd C:%homepath%\dotfiles\master\etc\init\windows\settings\initialize && init_dotfiles.cmd`
 
 ## Chocolatey installed list
 

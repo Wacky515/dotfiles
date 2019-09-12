@@ -1,14 +1,16 @@
-# Last Change: 2018/05/27 00:12:33.
+# Last Change: 2019/09/12 15:59:08.
 [core]
     # コミット時に改行コードを CRLF -> LF
         # true: コミット時 CRLF -> LF、チェックアウト時 LF -> CRLF
         # input: コミット時のみ CRLF -> LF
             # "Windows" のみ true と同一
         # false: 変換しない
-    autocrlf = true
+    # autocrlf = true
 
     # true: 改行コードが混在している場合は変換しない
-    safecrlf = true
+    # safecrlf = true
+
+    autocrlf = false
 
 [diff]
 	tool = WinMerge
