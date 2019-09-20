@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/06/29 21:44:42.
+rem Last Change: 2019/09/12 17:01:58.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -49,9 +49,11 @@ if exist %dst_html% (
     )
 rem MEMO: "mklink" ‚¾‚Æ‹N“®‚µ‚È‚¢
 rem mklink %dst_html% %src_html%
-copy %src_html% %dst_html%
+copy %src_html% %dst_html% > nul 2>&1
 if %errorlevel% == 0 (
     echo ^>^> nyaovimrc.html link success!
+    ) else (
+        echo ^>^> Not install NyaoVim
     )
 
 rem "OniVim" İ’è

@@ -1,8 +1,12 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/12 16:50:38.
+rem Last Change: 2019/09/20 14:20:18.
 
+call :redirect >%homepath%\init_dotfile.log
+exit /b
+
+:redirect
 set batch_title=Initialize dotfiles
 title %batch_title%
 
