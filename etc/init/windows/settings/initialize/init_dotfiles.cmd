@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/12 16:50:38.
+rem Last Change: 2019/09/22 14:16:24.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -98,6 +98,8 @@ cup all -y
 rem pause
 
 call sub_install_font.cmd
+
+rmdir /s /q C:%homepath%\init_dotfiles\master\etc\init\windows\settings\initialize > nul 2>&1
 
 echo *** CAUTION, AUTOMATICALLY RESTART PC AFTER KEY INPUT ***
 pause
