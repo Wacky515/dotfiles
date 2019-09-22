@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/22 14:16:24.
+rem Last Change: 2019/09/22 15:05:13.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -46,9 +46,10 @@ echo ^>^> Check installed Git or not
 if not exist %homepath%\dotfiles\.git (
     echo ^>^> Git clone first
     rem init_dotfile.cmd Ç≤Ç∆è¡Ç¶ÇÈÇÃÇ≈àÍíUÉLÉãÅAéxè·Ç»Ç©Ç¡ÇΩÇÁè¡ãé
-    rem if exist %homepath%\dotfiles\ (
-        rem del /s /q %homepath%\dotfiles\
-    rem )
+    rem éxè·Ç†ÇË
+    if exist %homepath%\dotfiles\ (
+        del /s /q %homepath%\dotfiles\
+    )
     rem for /d %%j in (%homepath%\dotfiles\) do rmdir /s /q "%%j")
     git clone --depth 1 https://github.com/Wacky515/dotfiles.git
 ) else (
