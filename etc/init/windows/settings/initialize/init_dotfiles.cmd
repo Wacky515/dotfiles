@@ -1,7 +1,11 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
+<<<<<<< HEAD
 rem Last Change: 2019/09/20 14:20:18.
+=======
+rem Last Change: 2019/09/22 15:05:13.
+>>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
 
 call :redirect >%homepath%\init_dotfile.log
 exit /b
@@ -50,9 +54,10 @@ echo ^>^> Check installed Git or not
 if not exist %homepath%\dotfiles\.git (
     echo ^>^> Git clone first
     rem init_dotfile.cmd ‚²‚ÆÁ‚¦‚é‚Ì‚Åˆê’UƒLƒ‹AŽxá‚È‚©‚Á‚½‚çÁ‹Ž
-    rem if exist %homepath%\dotfiles\ (
-        rem del /s /q %homepath%\dotfiles\
-    rem )
+    rem Žxá‚ ‚è
+    if exist %homepath%\dotfiles\ (
+        del /s /q %homepath%\dotfiles\
+    )
     rem for /d %%j in (%homepath%\dotfiles\) do rmdir /s /q "%%j")
     git clone --depth 1 https://github.com/Wacky515/dotfiles.git
 ) else (
@@ -102,6 +107,8 @@ cup all -y
 rem pause
 
 call sub_install_font.cmd
+
+rmdir /s /q C:%homepath%\init_dotfiles\master\etc\init\windows\settings\initialize > nul 2>&1
 
 echo *** CAUTION, AUTOMATICALLY RESTART PC AFTER KEY INPUT ***
 pause

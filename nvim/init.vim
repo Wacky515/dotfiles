@@ -38,10 +38,17 @@
     <meta property="og:image" content="https://avatars2.githubusercontent.com/u/10362050?s=400&amp;v=4" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="Wacky515/dotfiles" /><meta property="og:url" content="https://github.com/Wacky515/dotfiles" /><meta property="og:description" content="Contribute to Wacky515/dotfiles development by creating an account on GitHub." />
 
   <link rel="assets" href="https://github.githubassets.com/">
+<<<<<<< HEAD
   <link rel="web-socket" href="wss://live.github.com/_sockets/VjI6NDQ3NzIzMzgwOjNjYmIxNjA3ZjA3MjRlNDI2ODliMTg5Yzc0YTFjNTcyZDQwZTQ1YzZiNTk4NjRhZjUzZDI3MDc5NzJjMWVmYmI=--bebdf9a3cf8476bba158208732b6ef54e2b45e20">
   <meta name="pjax-timeout" content="1000">
   <link rel="sudo-modal" href="/sessions/sudo_modal">
   <meta name="request-id" content="7F1F:650B:1E46E2:2BE749:5D848236" data-pjax-transient>
+=======
+  <link rel="web-socket" href="wss://live.github.com/_sockets/VjI6NDQ4MjYzNzI5OmYxMzlkNTU3YjFmNzBiYjdhZmMyNGJlZWEyY2VkMDFkYjViZjA1ZTkyZjkyZjM3ZjBhMDU5Yjg0NTA0NGRjYTM=--ada6fd6aee85a371a07f3998b0ca0dadf41fafc9">
+  <meta name="pjax-timeout" content="1000">
+  <link rel="sudo-modal" href="/sessions/sudo_modal">
+  <meta name="request-id" content="B896:386A:22B865:339525:5D870408" data-pjax-transient>
+>>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
 
 
   
@@ -52,7 +59,11 @@
     <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
     <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
 
+<<<<<<< HEAD
   <meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="7F1F:650B:1E46E2:2BE749:5D848236" /><meta name="octolytics-dimension-region_edge" content="ap-northeast-1" /><meta name="octolytics-dimension-region_render" content="iad" /><meta name="octolytics-dimension-ga_id" content="" class="js-octo-ga-id" /><meta name="octolytics-dimension-visitor_id" content="1331184128091259318" /><meta name="octolytics-actor-id" content="10362050" /><meta name="octolytics-actor-login" content="Wacky515" /><meta name="octolytics-actor-hash" content="f9dff18a250afe1b3bcdccaa78a2ebc65b7ee32cf03f276728e124a24bc08504" />
+=======
+  <meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="B896:386A:22B865:339525:5D870408" /><meta name="octolytics-dimension-region_edge" content="ap-northeast-1" /><meta name="octolytics-dimension-region_render" content="iad" /><meta name="octolytics-dimension-ga_id" content="" class="js-octo-ga-id" /><meta name="octolytics-dimension-visitor_id" content="1840337417105462381" /><meta name="octolytics-actor-id" content="10362050" /><meta name="octolytics-actor-login" content="Wacky515" /><meta name="octolytics-actor-hash" content="f9dff18a250afe1b3bcdccaa78a2ebc65b7ee32cf03f276728e124a24bc08504" />
+>>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
 <meta name="analytics-location" content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-pjax-transient="true" />
 
 
@@ -71,6 +82,7 @@
     <meta name="user-login" content="Wacky515">
 
       <meta name="expected-hostname" content="github.com">
+<<<<<<< HEAD
     <meta name="js-proxy-site-detection-payload" content="MmU3ZjhjZjI0MjJmYjYyMjVhNzQ0NjFlOGEyMjc5ZjM4MTRjOTY0MGM3YTU2NGM1NzkwZGY3NDMyODc3MTc1Nnx7InJlbW90ZV9hZGRyZXNzIjoiMjAzLjEzOC4yNDIuMjA2IiwicmVxdWVzdF9pZCI6IjdGMUY6NjUwQjoxRTQ2RTI6MkJFNzQ5OjVEODQ4MjM2IiwidGltZXN0YW1wIjoxNTY4OTY1MTgwLCJob3N0IjoiZ2l0aHViLmNvbSJ9">
 
     <meta name="enabled-features" content="ACTIONS_V2_ON_MARKETPLACE,MARKETPLACE_FEATURED_BLOG_POSTS,MARKETPLACE_INVOICED_BILLING,MARKETPLACE_SOCIAL_PROOF_CUSTOMERS,MARKETPLACE_TRENDING_SOCIAL_PROOF,MARKETPLACE_RECOMMENDATIONS,MARKETPLACE_PENDING_INSTALLATIONS,NOTIFY_ON_BLOCK,RELATED_ISSUES,GHE_CLOUD_TRIAL">
@@ -78,6 +90,15 @@
   <meta name="html-safe-nonce" content="4364dd57864526642dfed3eba17e4056180acf1e">
 
   <meta http-equiv="x-pjax-version" content="bf456c20e641d2ac3e4c027c7d712241">
+=======
+    <meta name="js-proxy-site-detection-payload" content="ZDVjODhiZjNjNzAxZjA3ZjAxZmUxNzQ0ZTMxMGM2MzU3MzgxZGIwYjZmODJlNmVkNjQwZjMyYzc0OWRmYWVlZHx7InJlbW90ZV9hZGRyZXNzIjoiMTE0LjE1My41OS4xNDIiLCJyZXF1ZXN0X2lkIjoiQjg5NjozODZBOjIyQjg2NTozMzk1MjU6NUQ4NzA0MDgiLCJ0aW1lc3RhbXAiOjE1NjkxMjk0ODYsImhvc3QiOiJnaXRodWIuY29tIn0=">
+
+    <meta name="enabled-features" content="ACTIONS_V2_ON_MARKETPLACE,MARKETPLACE_FEATURED_BLOG_POSTS,MARKETPLACE_INVOICED_BILLING,MARKETPLACE_SOCIAL_PROOF_CUSTOMERS,MARKETPLACE_TRENDING_SOCIAL_PROOF,MARKETPLACE_RECOMMENDATIONS,MARKETPLACE_PENDING_INSTALLATIONS,NOTIFY_ON_BLOCK,RELATED_ISSUES,GHE_CLOUD_TRIAL">
+
+  <meta name="html-safe-nonce" content="c05e7e9244823672652c99cd4e6fb56173c6f591">
+
+  <meta http-equiv="x-pjax-version" content="24f9801158fdd88174c0e209f697754a">
+>>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
   
 
       <link href="https://github.com/Wacky515/dotfiles/commits/master.atom" rel="alternate" title="Recent Commits to dotfiles:master" type="application/atom+xml">
@@ -159,7 +180,11 @@
           aria-autocomplete="list"
           aria-controls="jump-to-results"
           aria-label="Search or jump to…"
+<<<<<<< HEAD
           data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations#csrf-token=+ktF5fjknpkm+jp/wh20LO4TD+zEcIZaeH/GdwxqJfjS1s9mVeGRTasMjtDc0vl6OawEBuXkI+7tVCfNofpCTQ=="
+=======
+          data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations#csrf-token=vN8f72G5qR/RLUbms9/zUzouAYfnLPNj07FoF5ZBBFBPmIAzdjNOZj9SyF3b1tRBsd8+56s4ppYjzIFOB4nwUA=="
+>>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
           spellcheck="false"
           autocomplete="off"
           >
@@ -312,7 +337,11 @@
       <img class="avatar" height="20" width="20" alt="@Wacky515" src="https://avatars3.githubusercontent.com/u/10362050?s=60&amp;v=4" />
       Wacky515
 </a>
+<<<<<<< HEAD
     <!-- '"` --><!-- </textarea></xmp> --></option></form><form action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="4YryYxbmjUV+0Hox0C4xsXEbGc2bxiDPZwhmT5PP3o7DuusTZRT8ZbhXe8xIO/Pu1lDsJG8r7I8YnuUXcY+qXw==" />
+=======
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="Eivxh/9WxkU+OGLF1k9nUWpdgf3erAg1qqoGNM25zqCRpfWw70/gXWKeJidDrSTeQ6V96wDksAI7WKxt8XKCBg==" />
+>>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
       <button type="submit" class="Header-link mr-0 mr-lg-3 py-2 py-lg-0 border-top border-lg-top-0 border-white-fade-15 d-lg-none btn-link d-block width-full text-left" data-ga-click="Header, sign out, icon:logout" style="padding-left: 2px;">
         <svg class="octicon octicon-sign-out v-align-middle" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9V7H8V5h4V3l4 3-4 3zm-2 3H6V3L2 1h8v3h1V1c0-.55-.45-1-1-1H1C.45 0 0 .45 0 1v11.38c0 .39.22.73.55.91L6 16.01V13h4c.55 0 1-.45 1-1V8h-1v4z"/></svg>
         Sign out
@@ -403,7 +432,11 @@
   " data-team-hovercards-enabled>
   <details class="js-user-status-details details-reset details-overlay details-overlay-dark">
     <summary class="btn-link btn-block link-gray no-underline js-toggle-user-status-edit toggle-user-status-edit "
+<<<<<<< HEAD
       role="menuitem" data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:10362050,&quot;target&quot;:&quot;EDIT_USER_STATUS&quot;,&quot;user_id&quot;:10362050,&quot;client_id&quot;:&quot;309940457.1568965046&quot;,&quot;originating_request_id&quot;:&quot;7F1F:650B:1E46E2:2BE749:5D848236&quot;,&quot;originating_url&quot;:&quot;https://github.com/Wacky515/dotfiles/blob/master/nvim/init.vim&quot;,&quot;referrer&quot;:&quot;https://github.com/Wacky515/dotfiles/tree/master/nvim&quot;}}" data-hydro-click-hmac="05079d54fbd796ed5a4b92ae2c2df4cc3e77202c5d10bb21609bb4a0794d0a2b">
+=======
+      role="menuitem" data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:10362050,&quot;target&quot;:&quot;EDIT_USER_STATUS&quot;,&quot;user_id&quot;:10362050,&quot;client_id&quot;:&quot;428486945.1567511661&quot;,&quot;originating_request_id&quot;:&quot;B896:386A:22B865:339525:5D870408&quot;,&quot;originating_url&quot;:&quot;https://github.com/Wacky515/dotfiles/blob/master/nvim/init.vim&quot;,&quot;referrer&quot;:&quot;https://github.com/Wacky515/dotfiles/tree/master/nvim&quot;}}" data-hydro-click-hmac="543ec88e9c904f978225744b928e5e9b67479775ca6496c537354a42fd0e6d97">
+>>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
       <div class="d-flex">
         <div class="f6 lh-condensed user-status-header
           d-inline-block v-align-middle
@@ -430,7 +463,11 @@
       </div>
     </summary>
     <details-dialog class="details-dialog rounded-1 anim-fade-in fast Box Box--overlay" role="dialog" tabindex="-1">
+<<<<<<< HEAD
       <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="position-relative flex-auto js-user-status-form" action="/users/status?compact=1&amp;link_mentions=0&amp;truncate=1" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="ViDLE6BPmVgshzTpW5cNoLX9DXzyLVlJQVsM9Lf7pyJpAAlxJ7sM+PO4ScEii7+L5QYCaAMhcw9my9ZAHBgbjQ==" />
+=======
+      <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="position-relative flex-auto js-user-status-form" action="/users/status?compact=1&amp;link_mentions=0&amp;truncate=1" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="UL7a2VlE0vb20uqv8027CJtwFc+s4wTgIfv3GSVReSAFIoqxC50oZT3kh7opZ2wXq1i0emyz6GsOEm/QiNbMvA==" />
+>>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
         <div class="Box-header bg-gray border-bottom p-3">
           <button class="Box-btn-octicon js-toggle-user-status-edit btn-octicon float-right" type="reset" aria-label="Close dialog" data-close-dialog>
             <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
@@ -550,22 +587,38 @@
       </li>
       <li class="dropdown-divider" role="none"></li>
         <li>
+<<<<<<< HEAD
           <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 30 minutes" value="2019-09-20T17:09:40+09:00">
+=======
+          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 30 minutes" value="2019-09-22T14:48:06+09:00">
+>>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
             in 30 minutes
           </button>
         </li>
         <li>
+<<<<<<< HEAD
           <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 1 hour" value="2019-09-20T17:39:40+09:00">
+=======
+          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 1 hour" value="2019-09-22T15:18:06+09:00">
+>>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
             in 1 hour
           </button>
         </li>
         <li>
+<<<<<<< HEAD
           <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 4 hours" value="2019-09-20T20:39:40+09:00">
+=======
+          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 4 hours" value="2019-09-22T18:18:06+09:00">
+>>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
             in 4 hours
           </button>
         </li>
         <li>
+<<<<<<< HEAD
           <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="today" value="2019-09-20T23:59:59+09:00">
+=======
+          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="today" value="2019-09-22T23:59:59+09:00">
+>>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
             today
           </button>
         </li>
@@ -611,7 +664,11 @@
     <div role="none" class="dropdown-divider"></div>
     <a role="menuitem" class="dropdown-item" href="https://help.github.com" data-ga-click="Header, go to help, text:help">Help</a>
     <a role="menuitem" class="dropdown-item" href="/settings/profile" data-ga-click="Header, go to settings, icon:settings">Settings</a>
+<<<<<<< HEAD
     <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="logout-form" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="B7IrCIBiYV5+jJ25JmT9RmCJ2vhMmesmtu2/Lbye634lgjJ485AQfrgLnES+cT8Zx8IvEbh0J2bJezx1Xt6frw==" />
+=======
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="logout-form" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="ucaQFEtC681XWVnFNHpz8yHywtSIzXx7tW3lYtGerR86SJQjW1vN1Qv/HSehmDB8CAo+wlaFxEwkn0877VXhuQ==" />
+>>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
       
       <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout" role="menuitem">
         Sign out
@@ -663,10 +720,17 @@
 
   <li>
     
+<<<<<<< HEAD
     <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-remote="true" class="clearfix js-social-form js-social-container" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="cPMWmqN8T4RDYQ3j8TOnRlg+z13W9qQO4IpJuV4bER9TAAJyH1mq9jnABH+aZwSLXpoGlrOejCNNrpvZQxIUfw==" />      <input type="hidden" name="repository_id" value="63524121">
 
       <details class="details-reset details-overlay select-menu float-left">
         <summary class="select-menu-button float-left btn btn-sm btn-with-count" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;WATCH_BUTTON&quot;,&quot;repository_id&quot;:63524121,&quot;client_id&quot;:&quot;309940457.1568965046&quot;,&quot;originating_request_id&quot;:&quot;7F1F:650B:1E46E2:2BE749:5D848236&quot;,&quot;originating_url&quot;:&quot;https://github.com/Wacky515/dotfiles/blob/master/nvim/init.vim&quot;,&quot;referrer&quot;:&quot;https://github.com/Wacky515/dotfiles/tree/master/nvim&quot;,&quot;user_id&quot;:10362050}}" data-hydro-click-hmac="f31224756e5484c277743a3167e6fb0bc8f35c7f51d74d7f97b203f1bb3f37e5" data-ga-click="Repository, click Watch settings, action:blob#show">          <span data-menu-button>
+=======
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-remote="true" class="clearfix js-social-form js-social-container" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="sAcP2vt7tecLvzGL5nQWDtGBNN3XndpYRnHVFWi+c3kII55CeTPTNqV1c5E4Koe5BiqnO3FyrXGRL3dF0iYwTg==" />      <input type="hidden" name="repository_id" value="63524121">
+
+      <details class="details-reset details-overlay select-menu float-left">
+        <summary class="select-menu-button float-left btn btn-sm btn-with-count" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;WATCH_BUTTON&quot;,&quot;repository_id&quot;:63524121,&quot;client_id&quot;:&quot;428486945.1567511661&quot;,&quot;originating_request_id&quot;:&quot;B896:386A:22B865:339525:5D870408&quot;,&quot;originating_url&quot;:&quot;https://github.com/Wacky515/dotfiles/blob/master/nvim/init.vim&quot;,&quot;referrer&quot;:&quot;https://github.com/Wacky515/dotfiles/tree/master/nvim&quot;,&quot;user_id&quot;:10362050}}" data-hydro-click-hmac="ef78b25b65591e3768e4f0d155daab4534e6e4dca91c196338fe87046905e111" data-ga-click="Repository, click Watch settings, action:blob#show">          <span data-menu-button>
+>>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
               <svg class="octicon octicon-eye v-align-text-bottom" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"/></svg>
               Unwatch
           </span>
@@ -737,18 +801,30 @@
 
   <li>
       <div class="js-toggler-container js-social-container starring-container ">
+<<<<<<< HEAD
     <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="starred js-social-form" action="/Wacky515/dotfiles/unstar" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="UNVEhAtqbGondNnJSRgbNZcFEF+oylQIYlTFtQGZtbpV8cYMPa5p3/oaNgWXnfnxWxEP9Ze/yrBaSFsaedS7ow==" />
       <input type="hidden" name="context" value="repository"></input>
       <button type="submit" class="btn btn-sm btn-with-count js-toggler-target" aria-label="Unstar this repository" title="Unstar Wacky515/dotfiles" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;UNSTAR_BUTTON&quot;,&quot;repository_id&quot;:63524121,&quot;client_id&quot;:&quot;309940457.1568965046&quot;,&quot;originating_request_id&quot;:&quot;7F1F:650B:1E46E2:2BE749:5D848236&quot;,&quot;originating_url&quot;:&quot;https://github.com/Wacky515/dotfiles/blob/master/nvim/init.vim&quot;,&quot;referrer&quot;:&quot;https://github.com/Wacky515/dotfiles/tree/master/nvim&quot;,&quot;user_id&quot;:10362050}}" data-hydro-click-hmac="80c538cde00961a9fb45a298fe99a0cdb49f87dc10279b9082edd12adfbd6f36" data-ga-click="Repository, click unstar button, action:blob#show; text:Unstar">        <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
+=======
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="starred js-social-form" action="/Wacky515/dotfiles/unstar" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="C1USa1tVbQCcwIMyh4+OF3oytO2J5Tslg8u58ORjy+/a6KWtFxty+lG1X7/rMEoscZE8izsskz6Zdc91Q6VKhw==" />
+      <input type="hidden" name="context" value="repository"></input>
+      <button type="submit" class="btn btn-sm btn-with-count js-toggler-target" aria-label="Unstar this repository" title="Unstar Wacky515/dotfiles" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;UNSTAR_BUTTON&quot;,&quot;repository_id&quot;:63524121,&quot;client_id&quot;:&quot;428486945.1567511661&quot;,&quot;originating_request_id&quot;:&quot;B896:386A:22B865:339525:5D870408&quot;,&quot;originating_url&quot;:&quot;https://github.com/Wacky515/dotfiles/blob/master/nvim/init.vim&quot;,&quot;referrer&quot;:&quot;https://github.com/Wacky515/dotfiles/tree/master/nvim&quot;,&quot;user_id&quot;:10362050}}" data-hydro-click-hmac="cdc2db3f3bde39c76213089d81baecb0d3045841bd0d73620f46091f6505a79c" data-ga-click="Repository, click unstar button, action:blob#show; text:Unstar">        <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
+>>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
         Unstar
 </button>        <a class="social-count js-social-count" href="/Wacky515/dotfiles/stargazers"
            aria-label="1 user starred this repository">
            1
         </a>
 </form>
+<<<<<<< HEAD
     <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="unstarred js-social-form" action="/Wacky515/dotfiles/star" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="fFOEqPMVvxoUDIyiRr8Tdg5DGnd9aPqFADp2a2Z+rN1Fixze2pbT9BQwm3ak/jjfJ+UobricgWPpO2scTBj5NA==" />
       <input type="hidden" name="context" value="repository"></input>
       <button type="submit" class="btn btn-sm btn-with-count js-toggler-target" aria-label="Unstar this repository" title="Star Wacky515/dotfiles" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;STAR_BUTTON&quot;,&quot;repository_id&quot;:63524121,&quot;client_id&quot;:&quot;309940457.1568965046&quot;,&quot;originating_request_id&quot;:&quot;7F1F:650B:1E46E2:2BE749:5D848236&quot;,&quot;originating_url&quot;:&quot;https://github.com/Wacky515/dotfiles/blob/master/nvim/init.vim&quot;,&quot;referrer&quot;:&quot;https://github.com/Wacky515/dotfiles/tree/master/nvim&quot;,&quot;user_id&quot;:10362050}}" data-hydro-click-hmac="a4824903eac57c131728c3a4fc7df9750c047f6148b93738f7fbcb31cc0838bb" data-ga-click="Repository, click star button, action:blob#show; text:Star">        <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
+=======
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="unstarred js-social-form" action="/Wacky515/dotfiles/star" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="JUS7siDaMsPVPKMvr2XbTwyP4TkA+h5VsX9l8kY0qjMHekrUEAvELRRUo8BLDY3iuzH4MYiMMHiflgERAhK43Q==" />
+      <input type="hidden" name="context" value="repository"></input>
+      <button type="submit" class="btn btn-sm btn-with-count js-toggler-target" aria-label="Unstar this repository" title="Star Wacky515/dotfiles" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;STAR_BUTTON&quot;,&quot;repository_id&quot;:63524121,&quot;client_id&quot;:&quot;428486945.1567511661&quot;,&quot;originating_request_id&quot;:&quot;B896:386A:22B865:339525:5D870408&quot;,&quot;originating_url&quot;:&quot;https://github.com/Wacky515/dotfiles/blob/master/nvim/init.vim&quot;,&quot;referrer&quot;:&quot;https://github.com/Wacky515/dotfiles/tree/master/nvim&quot;,&quot;user_id&quot;:10362050}}" data-hydro-click-hmac="b5d8da9429df12cce5151b159d5f89409c3e4b53a104424e116fb0d2ea2360f3" data-ga-click="Repository, click star button, action:blob#show; text:Star">        <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
+>>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
         Star
 </button>        <a class="social-count js-social-count" href="/Wacky515/dotfiles/stargazers"
            aria-label="1 user starred this repository">
@@ -995,13 +1071,21 @@
                 <svg class="octicon octicon-device-desktop" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M15 2H1c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h5.34c-.25.61-.86 1.39-2.34 2h8c-1.48-.61-2.09-1.39-2.34-2H15c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm0 9H1V3h14v8z"/></svg>
             </a>
 
+<<<<<<< HEAD
             <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form js-update-url-with-hash" action="/Wacky515/dotfiles/edit/master/nvim/init.vim" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="/HwSlnYEdksc+8GBcQjqBTLmzW3SHtCxe1gUaxVHqz7LauVR04KR4loES/yTJEwTLEAb078Wetntt/84d0yIDg==" />
+=======
+            <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form js-update-url-with-hash" action="/Wacky515/dotfiles/edit/master/nvim/init.vim" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="uwwu6zJA8H5uXzXZSO+6QzV9I+WU5UPR0NUEjkd6m67OuFIISb00G6PnUDoKJhJLdemvIGuqnmUzyiFLVu0lpw==" />
+>>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
               <button class="btn-octicon tooltipped tooltipped-nw" type="submit"
                 aria-label="Edit this file" data-hotkey="e" data-disable-with>
                 <svg class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg>
               </button>
 </form>
+<<<<<<< HEAD
           <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form" action="/Wacky515/dotfiles/delete/master/nvim/init.vim" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="g++/mXeaUT9aSd0lgN0l4FQgs8kgaLG5+40hB7o7Ec+LWVWuPQ/G6zhw7UY1guqRCvNV9x7Poqs61eLfUWmFVA==" />
+=======
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form" action="/Wacky515/dotfiles/delete/master/nvim/init.vim" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="u7+5eDqpdVbzJGDcrkpWdd/VZtZBcvLFsCM0g6SFHiq3g+ni0EB7SS/IZ7E+w1+Rsc74z85nxRFPVcD6cF3l9g==" />
+>>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
             <button class="btn-octicon btn-octicon-danger tooltipped tooltipped-nw" type="submit"
               aria-label="Delete this file" data-disable-with>
               <svg class="octicon octicon-trashcan" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z"/></svg>
@@ -1254,7 +1338,11 @@
 <div class="footer container-lg width-full p-responsive" role="contentinfo">
   <div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
     <ul class="list-style-none d-flex flex-wrap col-12 col-lg-5 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+<<<<<<< HEAD
       <li class="mr-3 mr-lg-0">&copy; 2019 <span title="0.33384s from unicorn-6d7dd458d4-kjz7z">GitHub</span>, Inc.</li>
+=======
+      <li class="mr-3 mr-lg-0">&copy; 2019 <span title="0.24568s from unicorn-7dfbf8565-skcqh">GitHub</span>, Inc.</li>
+>>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
         <li class="mr-3 mr-lg-0"><a data-ga-click="Footer, go to terms, text:terms" href="https://github.com/site/terms">Terms</a></li>
         <li class="mr-3 mr-lg-0"><a data-ga-click="Footer, go to privacy, text:privacy" href="https://github.com/site/privacy">Privacy</a></li>
         <li class="mr-3 mr-lg-0"><a data-ga-click="Footer, go to security, text:security" href="https://github.com/security">Security</a></li>
@@ -1292,9 +1380,15 @@
 
 
     
+<<<<<<< HEAD
     <script crossorigin="anonymous" integrity="sha512-rEdxy7RMtkhAP5COIi6trXu3Yzu4vc5HpaCJV0awLiSxTOsPrD2wBUFjRivtQLDrzfJksltUNc4ldS4pBvztNQ==" type="application/javascript" src="https://github.githubassets.com/assets/frameworks-a706e1c1.js"></script>
     
     <script crossorigin="anonymous" async="async" integrity="sha512-lqoeATLBumvclb3Ozzc70VMafdajsvh2bpOuNfH5McfTiHAMGmUFC/w/tTTEoQsAF1x2OdiBF1wFo5668z4qkA==" type="application/javascript" src="https://github.githubassets.com/assets/github-bootstrap-0afa9d56.js"></script>
+=======
+    <script crossorigin="anonymous" integrity="sha512-6ds1nmSieMZVJUz/Lg1/PhdizfysNwmo+T94e9p4BT3M6jtP8m1Hi/Slym0TJQpUW/rjhG8FWutX5JkiKF69CQ==" type="application/javascript" src="https://github.githubassets.com/assets/frameworks-8b4af415.js"></script>
+    
+    <script crossorigin="anonymous" async="async" integrity="sha512-i7Fnzhn9vNYtInnoi+GE4HOgQt1Wj/GUXZg4zDMJuUYp2wkswEwg9mpT2EA6caO5OU+yLyNxBxX3ZRp68snVLA==" type="application/javascript" src="https://github.githubassets.com/assets/github-bootstrap-b012f3cd.js"></script>
+>>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
     
     
     
