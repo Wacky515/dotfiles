@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/09/24 16:03:24.
+rem Last Change: 2019/09/24 16:04:14.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -129,6 +129,6 @@ echo ^>^> End set link
 popd
 endlocal
 
-pause
+rem pause
 exit /b 0
 
