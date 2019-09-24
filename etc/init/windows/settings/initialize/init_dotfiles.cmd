@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/24 17:13:10.
+rem Last Change: 2019/09/24 17:28:48.
 
 echo ^>^> Standard output in ~/init_dotfile.log
 
@@ -56,6 +56,7 @@ if not exist %homepath%\dotfiles\.git (
     if exist %homepath%\dotfiles\ (
         rmdir /s /q %homepath%\dotfiles\
     )
+    pushd %homepath%
     git clone --depth 1 https://github.com/Wacky515/dotfiles.git
 ) else (
     echo ^>^> Already Git clone
