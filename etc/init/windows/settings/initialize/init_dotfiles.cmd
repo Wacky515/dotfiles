@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/24 17:49:03.
+rem Last Change: 2019/09/24 18:03:04.
 
 echo ^>^> Standard output in ~/init_dotfile.log
 
@@ -35,7 +35,7 @@ echo ^>^> %batch_title%
 
 rem "Chocolatey" インストール済みかチェック
 chocolatey -v > nul 2>&1
-if %errorlevel% equ 0 goto gclone
+if %errorlevel% equ 0 goto chkgit
 
 echo ^>^> Install Chocolatey
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
@@ -43,20 +43,26 @@ echo ^>^> Install Chocolatey
 rem 必須パッケージのみ "cinst"
 cinst -y git onedrive megasync teamviewer
 
-:gclone
+:chkgit
 echo ^>^> Already installed Chocolatey
 rem ホームディレクトリに "cd"
 pushd %homepath%
 
 echo ^>^> Check installed Git or not
+git -v > nul 2>&1
+if %errorlevel% equ 0 goto gclone
+echo ^>^> Faild install git automatically
+exit /b 1000
+
+:gclone
+echo ^>^> Check Git clone or not
 if not exist %homepath%\dotfiles\.git (
-    echo ^>^> Git clone first
+    echo ^>^> Git clone not yet, clone first
     rem init_dotfile.cmd ごと消えるので一旦キル、支障なかったら消去
     rem 支障あり
     if exist %homepath%\dotfiles\ (
         rmdir /s /q %homepath%\dotfiles\
     )
-    pushd %homepath%
     rem git clone --depth 1 https://github.com/Wacky515/dotfiles.git
     git clone https://github.com/Wacky515/dotfiles.git
 ) else (
