@@ -1,20 +1,19 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/09/24 16:00:09.
+rem Last Change: 2019/09/24 16:02:14.
 
 set batch_title=Make dotfiles
 title %batch_title%
 
-rem TODO: テスト用、コメントアウト戻す
-rem whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
-rem
-rem rem 管理者権限ならメイン処理
-rem if not errorlevel 1 goto main_routine
-rem
-rem rem 管理者権限でなければ管理者権限で再起動
-rem @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
-rem exit
+whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
+
+rem 管理者権限ならメイン処理
+if not errorlevel 1 goto main_routine
+
+rem 管理者権限でなければ管理者権限で再起動
+@powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
+exit
 
 :main_routine
 set batch_path=%~dp0
@@ -53,14 +52,12 @@ if "%processor_architecture%" equ "AMD64" (
 rmdir /s /q %dst_init%
 echo %xdg_config_home%
 echo %dst_init%
-pause
 mklink /d %dst_init% %src_init% > nul 2>&1
 if %errorlevel% == 0 (
     echo ^>^> init.vim、ginit.vim copy success!
 ) else (
     echo ^>^> init.vim、ginit.vim copy failed:%errorlevel%
 )
-pause
 
 :instnyao
 rem "NyaoVim" 設定
@@ -86,7 +83,7 @@ set dst_json=%homepath%"\AppData\Roaming\Oni\config.tsx"
 if exist %dst_json% (
     del %dst_json%
 )
-mklink %dst_json% %src_json%
+mklink %dst_json% %src_json% > nul 2>&1
 if %errorlevel% == 0 (
     echo ^>^> tsconfig.json link success!
 ) else (
@@ -132,6 +129,6 @@ echo ^>^> End set link
 popd
 endlocal
 
-pause
+rem pause
 exit /b 0
 
