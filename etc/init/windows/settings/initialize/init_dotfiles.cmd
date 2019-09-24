@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/24 18:11:26.
+rem Last Change: 2019/09/24 18:15:31.
 
 echo ^>^> Standard output in ~/init_dotfile.log
 
@@ -43,17 +43,18 @@ echo ^>^> Install Chocolatey
 :must_inst
 echo ^>^> Already installed Chocolatey
 rem 必須パッケージのみ "cinst"
-cinst -y git onedrive megasync teamviewer
+cinst -y git onedrive megasync
+rem cinst -y git onedrive megasync teamviewer
 
 rem ホームディレクトリに "cd"
 pushd %homepath%
 
 echo ^>^> Check installed Git or not
-git -v > nul 2>&1
+git --version > nul 2>&1
 if %errorlevel% equ 0 goto gclone
 echo ^>^> Try install git
 cinst -y git
-git -v > nul 2>&1
+git --version > nul 2>&1
 if %errorlevel% equ 0 goto gclone
 echo ^>^> Field install git automatically
 exit /b 1000
