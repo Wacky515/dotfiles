@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/24 18:07:12.
+rem Last Change: 2019/09/24 18:11:26.
 
 echo ^>^> Standard output in ~/init_dotfile.log
 
@@ -35,16 +35,16 @@ echo ^>^> %batch_title%
 
 rem "Chocolatey" インストール済みかチェック
 chocolatey -v > nul 2>&1
-if %errorlevel% equ 0 goto chkgit
+if %errorlevel% equ 0 goto must_inst
 
 echo ^>^> Install Chocolatey
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 
+:must_inst
+echo ^>^> Already installed Chocolatey
 rem 必須パッケージのみ "cinst"
 cinst -y git onedrive megasync teamviewer
 
-:chkgit
-echo ^>^> Already installed Chocolatey
 rem ホームディレクトリに "cd"
 pushd %homepath%
 
@@ -55,7 +55,7 @@ echo ^>^> Try install git
 cinst -y git
 git -v > nul 2>&1
 if %errorlevel% equ 0 goto gclone
-echo ^>^> Faild install git automatically
+echo ^>^> Field install git automatically
 exit /b 1000
 
 :gclone
