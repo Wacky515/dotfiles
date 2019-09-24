@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/09/12 17:01:58.
+rem Last Change: 2019/09/24 11:38:53.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -20,25 +20,28 @@ set batch_path=%~dp0
 pushd %batch_path%
 
 echo ^>^> Start set link
+pause
 
 rem "NeoVim" Ý’è
 set src_init=%homepath%"\dotfiles\nvim\"
 if "%processor_architecture%" equ "x86" (
-        set dst_init=%homepath%"\AppData\Local\nvim\"
-        )
+    set dst_init=%homepath%"\AppData\Local\nvim\"
+)
 if "%processor_architecture%" equ "AMD64" (
     if %computername% == SALADCARBONX1 (
         set dst_init=%homepath%"\AppData\Local\nvim\"
     ) else (
         set dst_init=%xdg_config_home%"\nvim\"
-        )
     )
+)
 
 rmdir /s /q %dst_init%
 mklink /d %dst_init% %src_init% > nul 2>&1
 if %errorlevel% == 0 (
     echo ^>^> init.vimAginit.vim copy success!
-    )
+) else (
+    echo ^>^> init.vimAginit.vim copy failed:%errorlevel%
+)
 
 rem "NyaoVim" Ý’è
 set src_html=%batch_path%"nyaovimrc.html"
@@ -46,15 +49,15 @@ set dst_html=%homepath%"\AppData\Roaming\NyaoVim\nyaovimrc.html"
 
 if exist %dst_html% (
     del %dst_html%
-    )
+)
 rem MEMO: "mklink" ‚¾‚Æ‹N“®‚µ‚È‚¢
 rem mklink %dst_html% %src_html%
 copy %src_html% %dst_html% > nul 2>&1
 if %errorlevel% == 0 (
     echo ^>^> nyaovimrc.html link success!
-    ) else (
-        echo ^>^> Not install NyaoVim
-    )
+) else (
+    echo ^>^> Not install NyaoVim
+)
 
 rem "OniVim" Ý’è
 set src_json=%batch_path%"config.tsx"
@@ -62,51 +65,51 @@ set dst_json=%homepath%"\AppData\Roaming\Oni\config.tsx"
 
 if exist %dst_json% (
     del %dst_json%
-    )
+)
 mklink %dst_json% %src_json%
 if %errorlevel% == 0 (
     echo ^>^> tsconfig.json link success!
-    )
+)
 
 rem ".gitconfig" Ý’è
 mklink %homepath%"\.gitconfig" ".\dotfiles\.gitconfig" > nul 2>&1
 if %errorlevel% == 0 (
     echo ^>^> .gitconfig link success!
-    )
+)
 mklink %homepath%"\.gitconfig.os" ".\dotfiles\.gitconfig.windows" > nul 2>&1
 if %errorlevel% == 0 (
     echo ^>^> .gitconfig.os link success!
-    )
+)
 
 rem ".vim" Ý’è
 mklink /d %homepath%"\.vim" ".\dotfiles\.vim" > nul 2>&1
 if %errorlevel% == 0 (
     echo ^>^> .vim link success!
-    )
+)
 
 for %%j in (.*) do (
     if %%j == .bash_history (
-            rem PASS
-        ) else if %%j == .gitconfig (
-            rem PASS
-        ) else if %%j == .zsh_history (
-            rem PASS
-        ) else if %%j == .gitconfig.windows (
-            rem PASS
-        ) else if %%j == .gitconfig.linux (
-            rem PASS
-        ) else if %%j == .nyaovimrc.html (
-            rem PASS
-        ) else (
-            mklink %homepath%"\"%%j ".\dotfiles\"%%j > nul 2>&1
-        )
+        rem PASS
+    ) else if %%j == .gitconfig (
+        rem PASS
+    ) else if %%j == .zsh_history (
+        rem PASS
+    ) else if %%j == .gitconfig.windows (
+        rem PASS
+    ) else if %%j == .gitconfig.linux (
+        rem PASS
+    ) else if %%j == .nyaovimrc.html (
+        rem PASS
+    ) else (
+        mklink %homepath%"\"%%j ".\dotfiles\"%%j > nul 2>&1
     )
+)
 
 echo ^>^> End set link
 
 popd
 endlocal
 
-rem pause
+pause
 exit /b 0
 
