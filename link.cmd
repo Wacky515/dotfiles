@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/09/24 12:13:48.
+rem Last Change: 2019/09/24 12:23:22.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -35,6 +35,8 @@ if "%processor_architecture%" equ "AMD64" (
 )
 
 rmdir /s /q %dst_init%
+echo %xdg_config_home%
+pause
 mklink /d %dst_init% %src_init% > nul 2>&1
 if %errorlevel% == 0 (
     echo ^>^> init.vimAginit.vim copy success!
