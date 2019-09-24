@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/09/24 11:38:53.
+rem Last Change: 2019/09/24 12:13:48.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -20,7 +20,6 @@ set batch_path=%~dp0
 pushd %batch_path%
 
 echo ^>^> Start set link
-pause
 
 rem "NeoVim" İ’è
 set src_init=%homepath%"\dotfiles\nvim\"
@@ -42,6 +41,7 @@ if %errorlevel% == 0 (
 ) else (
     echo ^>^> init.vimAginit.vim copy failed:%errorlevel%
 )
+pause
 
 rem "NyaoVim" İ’è
 set src_html=%batch_path%"nyaovimrc.html"
