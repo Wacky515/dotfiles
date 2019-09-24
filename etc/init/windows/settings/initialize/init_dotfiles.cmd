@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/24 18:03:04.
+rem Last Change: 2019/09/24 18:07:12.
 
 echo ^>^> Standard output in ~/init_dotfile.log
 
@@ -49,6 +49,10 @@ rem ホームディレクトリに "cd"
 pushd %homepath%
 
 echo ^>^> Check installed Git or not
+git -v > nul 2>&1
+if %errorlevel% equ 0 goto gclone
+echo ^>^> Try install git
+cinst -y git
 git -v > nul 2>&1
 if %errorlevel% equ 0 goto gclone
 echo ^>^> Faild install git automatically
