@@ -1,19 +1,19 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/09/24 12:28:20.
+rem Last Change: 2019/09/24 12:35:36.
 
 set batch_title=Make dotfiles
 title %batch_title%
 
-whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
-
-rem 管理者権限ならメイン処理
-if not errorlevel 1 goto main_routine
-
-rem 管理者権限でなければ管理者権限で再起動
-@powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
-exit
+rem whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
+rem
+rem rem 管理者権限ならメイン処理
+rem if not errorlevel 1 goto main_routine
+rem
+rem rem 管理者権限でなければ管理者権限で再起動
+rem @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
+rem exit
 
 :main_routine
 set batch_path=%~dp0
@@ -30,12 +30,12 @@ if "%processor_architecture%" equ "AMD64" (
     if %computername% == SALADCARBONX1 (
         set dst_init=%homepath%"\AppData\Local\nvim\"
     ) else (
-        if not %xdg_config_home% equ ""
-        set dst_init=%xdg_config_home%"\nvim\"
-    ) else (
-        set dst_init=%homepath%"\AppData\Local\nvim\"
+        if %xdg_config_home% equ "" (
+            set dst_init=%homepath%"\AppData\Local\nvim\"
+        ) else (
+            set dst_init=%xdg_config_home%"\nvim\"
+        )
     )
-)
 )
 
 rmdir /s /q %dst_init%
