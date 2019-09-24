@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/09/24 14:42:08.
+rem Last Change: 2019/09/24 14:50:05.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -30,10 +30,10 @@ if "%processor_architecture%" equ "AMD64" (
     if %computername% == SALADCARBONX1 (
         set dst_init=%homepath%"\AppData\Local\nvim\"
     ) else (
-        if not exist %xdg_config_home% (
-            set dst_init=%homepath%"\AppData\Local\nvim\"
-        ) else (
+        if exist %xdg_config_home%\* (
             set dst_init=%xdg_config_home%"\nvim\"
+        ) else (
+            set dst_init=%homepath%"\AppData\Local\nvim\"
         )
     )
 )
