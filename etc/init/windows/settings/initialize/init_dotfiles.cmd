@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/24 18:15:31.
+rem Last Change: 2019/09/24 18:40:06.
 
 echo ^>^> Standard output in ~/init_dotfile.log
 
@@ -44,7 +44,6 @@ echo ^>^> Install Chocolatey
 echo ^>^> Already installed Chocolatey
 rem 必須パッケージのみ "cinst"
 cinst -y git onedrive megasync
-rem cinst -y git onedrive megasync teamviewer
 
 rem ホームディレクトリに "cd"
 pushd %homepath%
@@ -63,13 +62,12 @@ exit /b 1000
 echo ^>^> Check Git clone or not
 if not exist %homepath%\dotfiles\.git (
     echo ^>^> Git clone not yet, clone first
-    rem init_dotfile.cmd ごと消えるので一旦キル、支障なかったら消去
-    rem 支障あり
     if exist %homepath%\dotfiles\ (
         rmdir /s /q %homepath%\dotfiles\
     )
-    rem git clone --depth 1 https://github.com/Wacky515/dotfiles.git
-    git clone https://github.com/Wacky515/dotfiles.git
+    del %homepath%\.gitconfig
+    del %homepath%\.gitignore
+    git clone --depth 1 https://github.com/Wacky515/dotfiles.git
 ) else (
     echo ^>^> Already Git clone
 )
