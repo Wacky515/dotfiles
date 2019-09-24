@@ -1,11 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-<<<<<<< HEAD
-rem Last Change: 2019/09/20 14:20:18.
-=======
-rem Last Change: 2019/09/22 15:05:13.
->>>>>>> d877f3295e932c86e1544773170eceda9f4da8e9
+rem Last Change: 2019/09/24 15:49:41.
 
 call :redirect >%homepath%\init_dotfile.log
 exit /b

@@ -1,11 +1,12 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/09/24 15:02:30.
+rem Last Change: 2019/09/24 16:00:09.
 
 set batch_title=Make dotfiles
 title %batch_title%
 
+rem TODO: テスト用、コメントアウト戻す
 rem whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 rem
 rem rem 管理者権限ならメイン処理
@@ -22,7 +23,15 @@ pushd %batch_path%
 echo ^>^> Start set link
 
 rem "NeoVim" 設定
+rem "NeoVim" インストール済みかチェック
+nvim -v > nul 2>&1
+if not %errorlevel% equ 0 (
+    echo ^>^> Not install NeoVim
+    goto instnyao
+)
+
 set src_init=%homepath%"\dotfiles\nvim\"
+
 if "%processor_architecture%" equ "x86" (
     set dst_init=%homepath%"\AppData\Local\nvim\"
 )
@@ -53,6 +62,7 @@ if %errorlevel% == 0 (
 )
 pause
 
+:instnyao
 rem "NyaoVim" 設定
 set src_html=%batch_path%"nyaovimrc.html"
 set dst_html=%homepath%"\AppData\Roaming\NyaoVim\nyaovimrc.html"
@@ -79,6 +89,8 @@ if exist %dst_json% (
 mklink %dst_json% %src_json%
 if %errorlevel% == 0 (
     echo ^>^> tsconfig.json link success!
+) else (
+    echo ^>^> Not install OniVim
 )
 
 rem ".gitconfig" 設定
