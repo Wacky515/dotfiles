@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/09/24 16:04:14.
+rem Last Change: 2019/09/25 14:13:05.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -42,16 +42,14 @@ if "%processor_architecture%" equ "AMD64" (
             set dst_init=%xdg_config_home%"\nvim\"
         ) else (
             if not exist %homepath%\AppData\Local\nvim\* (
-                mkdir %homepath%\AppData\Local\nvim
+                mkdir %homepath%\AppData\Local\nvim\
             )
-            set dst_init=%homepath%\AppData\Local\nvim
+            set dst_init=%homepath%\AppData\Local\nvim\
         )
     )
 )
 
 rmdir /s /q %dst_init%
-echo %xdg_config_home%
-echo %dst_init%
 mklink /d %dst_init% %src_init% > nul 2>&1
 if %errorlevel% == 0 (
     echo ^>^> init.vimAginit.vim copy success!
