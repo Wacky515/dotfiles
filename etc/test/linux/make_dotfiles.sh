@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2019/09/12 11:37:15.
+# Last Change: 2019/09/25 17:14:31.
 
 # FIXME:
     # sudo権限を終了しないと "brew" が使えない
@@ -118,13 +118,13 @@ read -p "$(warn 'Start install? [Y/N] ')" -n 1 -r
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 echo ""
 
-error "Installation failed. Nothing changed."
+error ">> Installation failed. Nothing changed."
 exit 1
 fi
 echo ""
 
 if [ "$(uname)" == "Darwin" ]; then
-    info "Check install HomeBrew or not "
+    info ">> Check install HomeBrew or not "
     if ! has "brew"; then
         # info "Install HomeBrew"
         # xcode-select --install
@@ -133,24 +133,24 @@ if [ "$(uname)" == "Darwin" ]; then
         # /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         cd
     else
-        info "Already install HomeBrew"
+        info ">> Already install HomeBrew"
     fi
 brew update
 fi
 
-info "Start setting dotfiles"
+info ">> Start setting dotfiles"
 # "dotfiles/.git" がなければ "git clone" かダウンロード
 if [ ! -d ${DOT_DIR}"/.git" ]; then
     if [ -d ${DOT_DIR} ]; then
         rm -r ${DOT_DIR}
     fi
 
-    info "Check install git or not"
+    info ">> Check install git or not"
     if has "git"; then
-        warn "Already install git"
+        warn ">> Already install git"
 
     else
-        warn "Install Git first"
+        warn ">> Install Git first"
         if has "brew"; then
             brew install git
         elif has "apt"; then
@@ -158,17 +158,17 @@ if [ ! -d ${DOT_DIR}"/.git" ]; then
         elif has "yum"; then
             sudo yum -y install git
         else
-            echo error "Can not find package control system"
+            error ">> Can not find package control system"
         fi
     fi
 
-    info "Git clone..."
+    info ">> Git clone..."
     cd ~/
     git clone "${GIT_URL}"
 
-    info "Download dotfiles complete"
+    info ">> Download dotfiles complete"
 else
-    info "Aleady exist dotfiles"
+    info ">> Aleady exist dotfiles"
 fi
 echo ""
 
@@ -176,14 +176,14 @@ echo ""
 case ${OSTYPE} in
 darwin*)
     # "OS X" 用設定
-    info "Call setting OS X"
+    info ">> Call setting OS X"
     cd ~/dotfiles/etc/test/osx
     bash ./init_osx.sh
     ;;
 
 linux*)
     # "Linux" 用設定
-    info "Call setting Linux"
+    info ">> Call setting Linux"
     cd ~/dotfiles/etc/test/linux
     bash ./init_linux.sh
     ;;

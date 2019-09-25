@@ -1,5 +1,15 @@
 # TODO Linux init
 
+## Failed install
+
+- Atom
+  - *.shが更新されてなかったから？
+- Cica
+- Oh My Fish
+- oyainput
+
+## Memo
+
 - [ ] Vim fugitive E117, E15 発生
   - 会社PCだけ発生
 - install guake, byoubu

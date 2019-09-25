@@ -1,7 +1,7 @@
 #!bin/bash
 # @(#) Init Linux
 # Created:     2017/12/25 00:00:00
-# Last Change: 2018/05/10 18:37:11.
+# Last Change: 2019/09/25 17:10:55.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
@@ -36,10 +36,10 @@ done
 declare -a info=($(./get_distribution.sh))
 ym_echo ">> Install & setting each bit"
 if [[ ${info[1]} == "x86_64" ]]; then
-    echo "64bit"
+    echo ">> 64bit"
     os_bit=x64
 else
-    echo "32bit"
+    echo ">> 32bit"
     os_bit=x32
 fi
 cd ./${os_bit}

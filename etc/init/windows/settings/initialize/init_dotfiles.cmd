@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/25 16:03:25.
+rem Last Change: 2019/09/25 17:28:34.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -64,6 +64,7 @@ exit /b
 
 :chk_choco
 rem "Chocolatey" インストール済みかチェック
+echo ^>^> Check installed Chocolatey or not
 chocolatey -v > nul 2>&1
 if %errorlevel% equ 0 goto must_inst
 

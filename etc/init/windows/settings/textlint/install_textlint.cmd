@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2019/03/11 12:28:10.
+rem Last Change: 2019/09/25 17:27:02.
 
 set batch_title=Install textlint
 title %batch_title%
@@ -77,6 +77,6 @@ rem https://github.com/textlint/textlint/wiki/Collection-of-textlint-rule
 endlocal
 popd
 
-pause
+rem pause
 exit /b 0
 
