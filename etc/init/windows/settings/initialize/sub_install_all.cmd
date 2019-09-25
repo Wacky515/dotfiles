@@ -1,13 +1,20 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/08/20 08:45:11.
+rem Last Change: 2019/09/25 12:42:16.
 
 title Initialize batch for install
 
 set git_path=C:%homepath%\dotfiles\etc\init\windows\settings
-rem set od_path=%OneDrive%\仕事\Settings\
-set ms_path=C:%homepath%\仕事\Settings
+
+if %computername% == HBAMB748 (
+    set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings
+) else if %computername% == HBAMB819 (
+    set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings
+) else (
+    set ms_path=C:%homepath%\仕事\Settings
+)
+
 echo ^>^> Search install batch in Git
 pushd %git_path%
 

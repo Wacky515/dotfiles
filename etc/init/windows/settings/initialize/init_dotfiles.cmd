@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/24 18:40:06.
+rem Last Change: 2019/09/25 12:38:44.
 
 echo ^>^> Standard output in ~/init_dotfile.log
 
@@ -97,9 +97,16 @@ cup all -y
 rem ---------------------------------------------------------------------------
 
 rem 再度スクリプトがある "Dir" に "pushd"
-pushd %bat_path%
+rem if %computername% == HBAMB748 (
+rem     pushd R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings
+rem ) else if %computername% == HBAMB819 (
+rem     pushd R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings
+rem ) else (
+rem     pushd %bat_path%
+rem )
+pushd %homepath%\dotfiles\etc\init\windows\settings\initialize\
 
-rem "git\init\settings" と "Mega\仕事\settings" の "setting_*.cmd" 実行
+rem "git\init\settings" と "Mega(R:)\仕事\Settings" の "setting_*.cmd" 実行
 call sub_install_all.cmd
 rem pause
 
