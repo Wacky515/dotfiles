@@ -1,14 +1,19 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/08/19 18:42:13.
+rem Last Change: 2019/09/25 13:49:48.
 
 title Install initialize font
 
 rem 設定ファイルがある "Dir" に "cd"
-rem set srcdir=%OneDrive%"\仕事\InitApps"
-set srcdir=C:%homepath%\Mega\仕事\InitApps
-pushd %srcdir%
+if %computername% == HBAMB748 (
+    set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps\
+) else if %computername% == HBAMB819 (
+    set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps\
+) else (
+    set src_dir=C:%homepath%\OneDrive\仕事\InitApps\
+)
+pushd %src_dir%
 
 rem 参考: http://qiita.com/masarusan24/items/d3a5ab7c37e9b6d9a51f
 reg import .\Fonts\fontlink.reg

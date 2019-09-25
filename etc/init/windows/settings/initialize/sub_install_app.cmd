@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/08/19 18:41:06.
+rem Last Change: 2019/09/25 13:51:01.
 
 title Install initialize App
 
@@ -9,9 +9,15 @@ rem rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 
 rem 設定ファイルがある "Dir" に "cd"
-rem set srcdir=%OneDrive%"\仕事\InitApps"
-set srcdir=C:%homepath%\Mega\仕事\InitApps
-pushd %srcdir%
+if %computername% == HBAMB748 (
+    set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps\
+) else if %computername% == HBAMB819 (
+    set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps\
+) else (
+    set src_dir=C:%homepath%\OneDrive\仕事\InitApps\
+)
+
+pushd %src_dir%
 
 set dir_7zip="C:\ProgramData\chocolatey\tools\7z.exe"
 
@@ -19,13 +25,13 @@ for %%i in (*.7z) do (
         call :unzip %%i
         )
 
-if exist %srcdir%\%computername% (
+if exist %src_dir%\%computername% (
         echo ^>^> %computername%'s setting
-        pushd %srcdir%\%computername%
+        pushd %src_dir%\%computername%
         for %%j in (*.7z) do (
             call :unzip %%j
             )
-        pushd %srcdir%
+        pushd %src_dir%
         )
 
 if "%processor_architecture%" equ "x86" goto x32
@@ -33,20 +39,20 @@ if "%processor_architecture%" equ "AMD64" goto x64
 
 :x32
 echo ^>^> This OS is 32 bit
-pushd %srcdir%"\x32"
+pushd %src_dir%"\x32"
 for %%k in (*.7z) do (
         call :unzip %%k
         )
-pushd %srcdir%
+pushd %src_dir%
 goto OSver
 
 :x64
 echo ^>^> This OS is 64 bit
-pushd %srcdir%"\x64"
+pushd %src_dir%"\x64"
 for %%l in (*.7z) do (
         call :unzip %%l
         )
-pushd %srcdir%
+pushd %src_dir%
 goto OSver
 
 :OSver
@@ -61,20 +67,20 @@ goto eof
 
 :windows7
 echo ^>^> This OS is Windows7
-pushd %srcdir%"\Windows7"
+pushd %src_dir%"\Windows7"
 for %%m in (*.7z) do (
         call :unzip %%m
         )
-pushd %srcdir%
+pushd %src_dir%
 goto :eof
 
 :windows10
 echo ^>^> This OS is Windows10
-pushd %srcdir%"\Windows10"
+pushd %src_dir%"\Windows10"
 for %%n in (*.7z) do (
         call :unzip %%n
         )
-pushd %srcdir%
+pushd %src_dir%
 
 rem rem TODO: インストール有無 判定
 rem if not exist %homepath%\SlimDrivers-setup.exe (
@@ -82,7 +88,7 @@ rem if not exist %homepath%\SlimDrivers-setup.exe (
         rem         )
 
 echo ^>^> Install some Apps
-pushd %srcdir%".\Install"
+pushd %src_dir%".\Install"
 for %%o in (*.7z) do (
         call :inst %%o
         )
