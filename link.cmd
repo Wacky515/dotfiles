@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/09/25 14:13:05.
+rem Last Change: 2019/09/25 16:10:06.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -29,17 +29,17 @@ if not %errorlevel% equ 0 (
     goto instnyao
 )
 
-set src_init=%homepath%"\dotfiles\nvim\"
+set src_init=%homepath%\dotfiles\nvim\
 
 if "%processor_architecture%" equ "x86" (
-    set dst_init=%homepath%"\AppData\Local\nvim\"
+    set dst_init=%homepath%\AppData\Local\nvim\
 )
 if "%processor_architecture%" equ "AMD64" (
     if %computername% == SALADCARBONX1 (
-        set dst_init=%homepath%"\AppData\Local\nvim\"
+        set dst_init=%homepath%\AppData\Local\nvim\
     ) else (
         if exist %xdg_config_home%\* (
-            set dst_init=%xdg_config_home%"\nvim\"
+            set dst_init=%xdg_config_home%\nvim\
         ) else (
             if not exist %homepath%\AppData\Local\nvim\* (
                 mkdir %homepath%\AppData\Local\nvim\
@@ -59,8 +59,8 @@ if %errorlevel% == 0 (
 
 :instnyao
 rem "NyaoVim" Ý’è
-set src_html=%batch_path%"nyaovimrc.html"
-set dst_html=%homepath%"\AppData\Roaming\NyaoVim\nyaovimrc.html"
+set src_html=%batch_path%\nyaovimrc.html
+set dst_html=%homepath%\AppData\Roaming\NyaoVim\nyaovimrc.html
 
 if exist %dst_html% (
     del %dst_html%
@@ -75,8 +75,8 @@ if %errorlevel% == 0 (
 )
 
 rem "OniVim" Ý’è
-set src_json=%batch_path%"config.tsx"
-set dst_json=%homepath%"\AppData\Roaming\Oni\config.tsx"
+set src_json=%batch_path%\config.tsx
+set dst_json=%homepath%\AppData\Roaming\Oni\config.tsx
 
 if exist %dst_json% (
     del %dst_json%
@@ -89,17 +89,17 @@ if %errorlevel% == 0 (
 )
 
 rem ".gitconfig" Ý’è
-mklink %homepath%"\.gitconfig" ".\dotfiles\.gitconfig" > nul 2>&1
+mklink %homepath%\.gitconfig .\dotfiles\.gitconfig > nul 2>&1
 if %errorlevel% == 0 (
     echo ^>^> .gitconfig link success!
 )
-mklink %homepath%"\.gitconfig.os" ".\dotfiles\.gitconfig.windows" > nul 2>&1
+mklink %homepath%\.gitconfig.os .\dotfiles\.gitconfig.windows > nul 2>&1
 if %errorlevel% == 0 (
     echo ^>^> .gitconfig.os link success!
 )
 
 rem ".vim" Ý’è
-mklink /d %homepath%"\.vim" ".\dotfiles\.vim" > nul 2>&1
+mklink /d %homepath%\.vim .\dotfiles\.vim > nul 2>&1
 if %errorlevel% == 0 (
     echo ^>^> .vim link success!
 )
@@ -118,7 +118,7 @@ for %%j in (.*) do (
     ) else if %%j == .nyaovimrc.html (
         rem PASS
     ) else (
-        mklink %homepath%"\"%%j ".\dotfiles\"%%j > nul 2>&1
+        mklink %homepath%\%%j .\dotfiles\%%j > nul 2>&1
     )
 )
 

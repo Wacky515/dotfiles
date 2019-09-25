@@ -1,36 +1,36 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/25 15:49:54.
+rem Last Change: 2019/09/25 16:03:25.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
 
-rem ç®¡ç†è€…æ¨©é™ã§èµ·å‹•ã•ã‚ŒãŸã‹ãƒã‚§ãƒƒã‚¯
+rem ŠÇ—ÒŒ ŒÀ‚Å‹N“®‚³‚ê‚½‚©ƒ`ƒFƒbƒN
 whoami /priv | find "SeLoadDriverPrivilege" > nul
 
-rem ç®¡ç†è€…æ¨©é™ãªã‚‰ãƒ¡ã‚¤ãƒ³å‡¦ç†
+rem ŠÇ—ÒŒ ŒÀ‚È‚çƒƒCƒ“ˆ—
 if not errorlevel 1 goto main_routine
 
-rem ç®¡ç†è€…æ¨©é™ã§ãªã‘ã‚Œã°ç®¡ç†è€…æ¨©é™ã§å†èµ·å‹•
+rem ŠÇ—ÒŒ ŒÀ‚Å‚È‚¯‚ê‚ÎŠÇ—ÒŒ ŒÀ‚ÅÄ‹N“®
 @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
 exit
 
 :main_routine
 set bat_path=%~dp0
 set config_files=packages_%computername%.config
-set conf_path=C:%homepath%\dotfiles\etc\init\windows\settings\chocolatey
+set conf_path=C:%homepath%\dotfiles\etc\init\windows\settings\chocolatey\
 set def_conf=%conf_path%\packages.config
 
-rem ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "cd"
+rem ƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "cd"
 pushd %bat_path%
 
 echo ^>^> %batch_title%
 echo.
 echo #####    ####  ####### #####  ##  ##     #####   ###
 echo  #   #  #    # #  #  #  #      #   #      #     #  #
-echo  #   #  #    #    #     #      #   #      #     #   
-echo  #   ## #    ##   #     # #    #   #      # #   ##  
+echo  #   #  #    #    #     #      #   #      #     #
+echo  #   ## #    ##   #     # #    #   #      # #   ##
 echo  #   ## #    ##   #     # #    #   #      # #     ##
 echo  #   #  #    #    #     #      #   #      #        #
 echo  #   #  #    #    #     #      #   #      #   ##   #
@@ -63,7 +63,7 @@ call :chk_choco >%homepath%\init_dotfile.log
 exit /b
 
 :chk_choco
-rem "Chocolatey" ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«æ¸ˆã¿ã‹ãƒã‚§ãƒƒã‚¯
+rem "Chocolatey" ƒCƒ“ƒXƒg[ƒ‹Ï‚İ‚©ƒ`ƒFƒbƒN
 chocolatey -v > nul 2>&1
 if %errorlevel% equ 0 goto must_inst
 
@@ -72,10 +72,10 @@ echo ^>^> Install Chocolatey
 
 :must_inst
 echo ^>^> Already installed Chocolatey
-rem å¿…é ˆãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®ã¿ "cinst"
+rem •K{ƒpƒbƒP[ƒW‚Ì‚İ "cinst"
 cinst -y git onedrive megasync
 
-rem ãƒ›ãƒ¼ãƒ ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã« "cd"
+rem ƒz[ƒ€ƒfƒBƒŒƒNƒgƒŠ‚É "cd"
 pushd %homepath%
 
 echo ^>^> Check installed Git or not
@@ -101,21 +101,21 @@ if not exist %homepath%\dotfiles\.git (
 ) else (
     echo ^>^> Already Git clone
 )
-rem link.cmd å®Ÿè¡Œ
-pushd %homepath%\dotfiles
+rem link.cmd Às
+pushd %homepath%\dotfiles\
 call link.cmd
 
-rem rem å†åº¦ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "pushd"
+rem rem Ä“xƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "pushd"
 rem pushd %bat_path%
-rem "*.config" ã®ã‚ã‚‹ "Dir" ã« "pushd"
+rem "*.config" ‚Ì‚ ‚é "Dir" ‚É "pushd"
 pushd %conf_path%
 
-echo ^>^> Update Chocolatey
-rem Testæ™‚ã¯KILL
+echo ^>^> Install apps by Chocolatey
+rem Test‚ÍKILL
 rem ---------------------------------------------------------------------------
-rem "***_packages_***.config" ã‚’èª­ã¿è¾¼ã¿ã€ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
+rem "***_packages_***.config" ‚ğ“Ç‚İ‚İAƒCƒ“ƒXƒg[ƒ‹
 if exist *_%config_files% (
-    echo ^>^> Install app for this PC
+    echo ^>^> Install apps for this PC
     for %%i in (*_%config_files%) do (
         cinst -y %%i
         )
@@ -123,18 +123,19 @@ if exist *_%config_files% (
         echo ^>^> Setting default parameter
         cinst -y %def_conf%
         )
+echo ^>^> Update Chocolatey
 cup all -y
 rem ---------------------------------------------------------------------------
 
-rem å†åº¦ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "pushd"
-rem "init_dotfiles" ã§å®Ÿè¡Œã™ã‚‹å ´åˆãŒã‚ã‚‹ã®ã§çµ¶å¯¾Path
-pushd %homepath%\dotfiles\etc\init\windows\settings\initialized
+rem Ä“xƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "pushd"
+rem "init_dotfiles" ‚ÅÀs‚·‚éê‡‚ª‚ ‚é‚Ì‚Åâ‘ÎPath
+pushd %homepath%\dotfiles\etc\init\windows\settings\initialize\
 
-rem "git\init\settings" ã¨ "Mega(R:)\ä»•äº‹\Settings" ã® "setting_*.cmd" å®Ÿè¡Œ
+rem "git\init\settings" ‚Æ "Mega(R:)\d–\Settings" ‚Ì "setting_*.cmd" Às
 call sub_install_all.cmd
 rem pause
 
-rem ãƒ›ãƒ¼ãƒ ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã« *.7z ã§åœ§ç¸®ã—ãŸã‚¢ãƒ—ãƒªã‚’å±•é–‹
+rem ƒz[ƒ€ƒfƒBƒŒƒNƒgƒŠ‚É *.7z ‚Åˆ³k‚µ‚½ƒAƒvƒŠ‚ğ“WŠJ
 call sub_install_app.cmd
 rem pause
 
