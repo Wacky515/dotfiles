@@ -3,11 +3,12 @@ scriptencoding utf-8
 " Last Change: 2019/07/03 16:02:04.
 
 " NOT_WORK:
-" " "Macvim" で "Python3" を呼出す（Python2と併用不可のため）
+" " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
 " if (has("mac") && has("kaoriya"))
 "     if has('python3')
 "     endif
 " endif
+" }}}
 
 let g:deoplete#enable_at_startup = 1
 
@@ -21,7 +22,7 @@ augroup END
 let g:vimproc#download_windows_dll = 1
 
 " "Python" のパス設定
-if hostname() == "ProSalad133.local"
+if hostname()     == "ProSalad133.local"
     let g:python3_host_prog = "/usr/local/bin/Python3"
 elseif hostname() == "SaladBook.local"
     let g:python3_host_prog = "/usr/local/bin/Python3"
@@ -75,10 +76,9 @@ elseif exists("g:gui_oni")
     let s:plugin_dir = expand("~/.config/oni/dein")
 elseif has("nvim")
     if has("unix")
-        let s:plugin_dir = expand("~/.config/nvim/.cache/dein/")
+        let s:plugin_dir     = expand("~/.config/nvim/.cache/dein/")
     elseif (has("win32") || has("win64"))
-        if hostname() == "HBAMB748"
-            " let s:plugin_dir = expand("C:\\Users\\mm12167\\.config\\nvim\\.cache\\dein\\")
+        if hostname()     == "HBAMB748"
             let s:plugin_dir = expand("~\\.config\\nvim\\.cache\\dein\\")
         elseif hostname() ==  "HBAMB748A"
             let s:plugin_dir = expand("~\\.config\\nvim\\.cache\\dein\\")
@@ -93,7 +93,7 @@ endif
 " TODO: Unix系のパス設定追加
 " "dein.vim" をインストールするディレクトリをランタイムパスへ追加
 if !has("nvim")
-    let s:dein_dir = s:plugin_dir . "repos/github.com/Shougo/dein.vim"
+    let s:dein_dir     = s:plugin_dir . "repos/github.com/Shougo/dein.vim"
 elseif has("nvim")
     if (has("win32") || has("win64"))
         let s:dein_dir = s:plugin_dir . "repos\\github.com\\Shougo\\dein.vim"
@@ -145,16 +145,16 @@ if dein#load_state(s:plugin_dir)
 
     "*.toml" を読込み、キャッシュ
     if !has("nvim")
-        call dein#load_toml(s:toml,                 {"lazy": 0})
-        call dein#load_toml(s:lazy_toml,            {"lazy": 1})
+        call dein#load_toml(s:toml,             {"lazy": 0})
+        call dein#load_toml(s:lazy_toml,        {"lazy": 1})
         if has ("python3")
-            call dein#load_toml(s:python_toml,      {"lazy": 1})
+            call dein#load_toml(s:python_toml,  {"lazy": 1})
         endif
     endif
-    call dein#load_toml(s:toml_nvim,                {"lazy": 0})
-    call dein#load_toml(s:lazy_toml_nvim,           {"lazy": 1})
+    call dein#load_toml(s:toml_nvim,            {"lazy": 0})
+    call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
     if has ("python3")
-        call dein#load_toml(s:python_toml_nvim,     {"lazy": 1})
+        call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
     endif
 
     if exists("g:nyaovim_version")
@@ -201,4 +201,3 @@ endif
 " 読み込んだプラグインも含め、ファイルタイプの検出
 " ファイルタイプ別プラグイン/インデントを有効化する
 filetype plugin indent on
-
