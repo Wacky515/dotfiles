@@ -1,5 +1,4 @@
 #!/bin/bash
-# @(#) Install fish
 # Created:     2018/05/09 06:20:09
 # Last Change: 2019/09/25 17:08:04.
 

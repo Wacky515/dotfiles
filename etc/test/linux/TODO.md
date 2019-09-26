@@ -2,15 +2,17 @@
 
 ## Failed install
 
-- Atom
+- [X] Atom
   - *.shが更新されてなかったから？
-- Cica
+    - YES
+- [x] Cica
 - Oh My Fish
 - oyainput
 
 ## Failed setting
 
-- synlinkの .gitconfig .gitconfig.os どれか SSL エラー
+- [x] synlinkの .gitconfig SSL エラー
+  - SSL設定を .gitconfig.windows に移管
 
 ## Memo
 
