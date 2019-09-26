@@ -90,10 +90,11 @@ endif
 
 " !!!: 以下からは記述場所を順番を変えない！！！
 " フォントの設定
-if has("linux")
+if has("unix")
     if !has("nvim")
-        set guifont=Cica:h16
-        set printfont=Cica:h12
+        set guifont=Cica\ 16
+        set printfont=Cica\ 12
+        colorscheme iceberg
     endif
 
 elseif has("mac")

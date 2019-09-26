@@ -11,6 +11,9 @@
 
 ## Failed setting
 
+- 作成したディレクトリの権限がrootになってる
+  - GVim dein のフォルダも！
+
 - [x] synlinkの .gitconfig SSL エラー
   - SSL設定を .gitconfig.windows に移管
 
