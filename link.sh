@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Symbolic linkig dotfiles.
 # Created:     2017/02/08 **:**:**
-# Last Change: 2019/09/26 11:56:04.
+# Last Change: 2019/09/26 16:42:38.
 # TODO:
 # FIXME:
     # ${HOME} を単体起動と外部呼出しで通常動作させる
@@ -88,7 +88,7 @@ echo ""
 
 # "NeoVim" 設定
 if [ ! -e ~/.config/nvim/ ]; then
-    sudo -- bash -c "mkdir ~/.config/nvim/"
+    sudo -- bash -c "mkdir -m 777 ~/.config/nvim/"
 fi
 sudo ln -snfv ${DOT_DIR}/nvim/init.vim ~/.config/nvim/init.vim
 sudo ln -snfv ${DOT_DIR}/nvim/ginit.vim ~/.config/nvim/ginit.vim
@@ -100,12 +100,12 @@ result_echo $? "${PROCESS}"
 # "NyaoVim" 設定
 if [ ! -e ~/.config/nyaovim/ ]; then
     # sudo -- bash -c "mkdir ~/.config/nyaovim/"
-    bash -c "mkdir ~/.config/nyaovim/"
+    bash -c "mkdir -m 777 ~/.config/nyaovim/"
 fi
 sudo ln -snfv ${DOT_DIR}/nyaovimrc.html ~/.config/nyaovim/nyaovimrc.html
 
 # "OniVim" 設定
 if [ ! -e ~/.config/oni/ ]; then
-    sudo -- bash -c "mkdir ~/.config/oni/"
+    sudo -- bash -c "mkdir -m 777 ~/.config/oni/"
 fi
 sudo ln -snfv ${DOT_DIR}/config.tsx ~/.config/oni/config.tsx

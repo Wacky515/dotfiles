@@ -1,17 +1,22 @@
 #!/bin/bash
 # @(#) Install Cica font for Ubuntu
 # Created:     2018/05/06 18:08:09
-# Last Change: 2019/09/12 12:39:09.
+# Last Change: 2019/09/26 16:37:11.
 
-source ~/dotfiles/function/result_echo.sh
-source ~/dotfiles/function/color_echo.sh
+set -ueo pipefail
+export LC_ALL=C
+
+for f in ~/dotfiles/function/*.sh
+do
+    source ${f}
+done
 
 readonly PROCESS="install Cica"
 
 ym_echo ">> ${PROCESS^}"
 
 if [ ! -e ~/.fonts ]; then
-    mkdir ~/.fonts
+    mkdir -m 777 ~/.fonts
 fi
 
 cd ~/Downloads

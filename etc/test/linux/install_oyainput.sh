@@ -1,16 +1,28 @@
 #!/bin/bash
 # @(#) Intall oyainput
+# Created:     201*/**/** **:**:**
+# Last Change: 2019/09/26 16:37:10.
 
-source ~/dotfiles/function/result_echo.sh
+# TODO: 自動起動させる
+
+set -ueo pipefail
+export LC_ALL=C
+
+for f in ~/dotfiles/function/*.sh
+do
+    source ${f}
+done
 
 readonly PROCESS="install oyainput"
 
 ym_echo ">> ${PROCESS^}"
-mkdir ~/oyainput
+
+if [ ! -e ~/oyainput ]; then
+    mkdir -m 777 ~/oyainput
+fi
+
 git clone https://github.com/inwskatsube/oyainput.git
 cd ~/oyainput
 make
 sudo make install
 result_echo $? "${PROCESS}"
-
-# TODO: 自動起動させる
