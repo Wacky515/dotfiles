@@ -1,4 +1,4 @@
-# Last Change: 2019/09/12 15:59:08.
+# Last Change: 2019/09/26 10:46:24.
 [core]
     # コミット時に改行コードを CRLF -> LF
         # true: コミット時 CRLF -> LF、チェックアウト時 LF -> CRLF
@@ -11,6 +11,11 @@
     # safecrlf = true
 
     autocrlf = false
+
+[http]
+	sslBackend = openssl
+	sslCAInfo = C:\\Program Files\\Git\\mingw64\\ssl\\cert.pem
+	sslVerify = false
 
 [diff]
 	tool = WinMerge

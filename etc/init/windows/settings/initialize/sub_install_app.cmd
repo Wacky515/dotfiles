@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/09/25 13:51:01.
+rem Last Change: 2019/09/26 09:11:10.
 
 title Install initialize App
 
@@ -87,7 +87,7 @@ rem if not exist %homepath%\SlimDrivers-setup.exe (
         rem         %homepath%\SlimDrivers-setup.exe
         rem         )
 
-echo ^>^> Install some Apps
+echo ^>^> Install some apps
 pushd %src_dir%".\Install"
 for %%o in (*.7z) do (
         call :inst %%o

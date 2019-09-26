@@ -8,6 +8,10 @@
 - Oh My Fish
 - oyainput
 
+## Failed setting
+
+- synlinkの .gitconfig .gitconfig.os どれか SSL エラー
+
 ## Memo
 
 - [ ] Vim fugitive E117, E15 発生

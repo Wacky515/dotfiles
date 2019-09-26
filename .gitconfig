@@ -1,4 +1,4 @@
-# Last Change: 2019/09/12 16:00:51.
+# Last Change: 2019/09/26 10:46:21.
 [user]
 	name = 脇田 純
 	email = wacky515@gmail.com
@@ -27,17 +27,17 @@
 
 [include]
     path = gitconfig.os
-[http]
-	sslBackend = openssl
-	sslCAInfo = C:\\Program Files\\Git\\mingw64\\ssl\\cert.pem
-	sslVerify = false
+
 [remote "origin"]
 	proxy =
+
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
+
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+
 [commit]
 	template = /Users/wacky515/.stCommitMsg

@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/09/25 16:10:06.
+rem Last Change: 2019/09/26 10:40:09.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -104,18 +104,17 @@ if %errorlevel% == 0 (
     echo ^>^> .vim link success!
 )
 
+rem "mklink" 時にスキップするドットファイル
 for %%j in (.*) do (
     if %%j == .bash_history (
         rem PASS
     ) else if %%j == .gitconfig (
         rem PASS
-    ) else if %%j == .zsh_history (
+    ) else if %%j == .gitconfig.linux (
         rem PASS
     ) else if %%j == .gitconfig.windows (
         rem PASS
-    ) else if %%j == .gitconfig.linux (
-        rem PASS
-    ) else if %%j == .nyaovimrc.html (
+    ) else if %%j == .zsh_history (
         rem PASS
     ) else (
         mklink %homepath%\%%j .\dotfiles\%%j > nul 2>&1
