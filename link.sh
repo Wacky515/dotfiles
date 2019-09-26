@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Symbolic linkig dotfiles.
-# Created:     2017/02/08 00:00:00
-# Last Change: 2019/06/30 16:16:24.
+# Created:     2017/02/08 **:**:**
+# Last Change: 2019/09/26 11:56:04.
 # TODO:
 # FIXME:
     # ${HOME} を単体起動と外部呼出しで通常動作させる
@@ -29,16 +29,6 @@ readonly DOT_DIR="${HOME}/dotfiles"
 readonly PROCESS="symbolic linkig dotfiles"
 
 gm_echo ">> ${PROCESS^}"
-
-# case ${OSTYPE} in
-# darwin*)
-#     gm_echo ">> ${PROCESS}"
-#     ;;
-# linux*)
-#     gm_echo ">> ${PROCESS^}"
-#     ;;
-# esac
-
 gm_echo ">> Start .gitconfig link"
 
 # "git" の設定
@@ -58,30 +48,30 @@ echo ""
 gm_echo ">> Start dotfiles link"
 
 cp -nv ${DOT_DIR}/.bash_history ~/.bash_history
-cp -nv ${DOT_DIR}/.zsh_history ~/.zsh_history
+cp -nv ${DOT_DIR}/.zsh_history  ~/.zsh_history
 
 for f in .??*
 do
     # 無視したいファイルやディレクトリは以下に追記
 
-    [[ ${f} = ".bash_history" ]] && continue
-    [[ ${f} = ".zsh_history" ]] && continue
+    [[ ${f} = ".bash_history"      ]] && continue
+    [[ ${f} = ".zsh_history"       ]] && continue
 
-    [[ ${f} = ".git" ]] && continue
-    [[ ${f} = ".git" ]] && continue
-    [[ ${f} = ".gitconfig" ]] && continue
-    [[ ${f} = ".gitconfig.linux" ]] && continue
+    [[ ${f} = ".git"               ]] && continue
+    [[ ${f} = ".git"               ]] && continue
+    [[ ${f} = ".gitconfig"         ]] && continue
+    [[ ${f} = ".gitconfig.linux"   ]] && continue
     [[ ${f} = ".gitconfig.windows" ]] && continue
 
-    [[ ${f} == ".DS_Store" ]] && continue
-    [[ ${f} = "*. ~" ]] && continue
-    [[ ${f} = "*.un~" ]] && continue
-    [[ ${f} = "*.swp" ]] && continue
-    [[ ${f} = "*.old" ]] && continue
+    [[ ${f} = "*. ~"               ]] && continue
+    [[ ${f} = "*.un~"              ]] && continue
+    [[ ${f} = "*.swp"              ]] && continue
+    [[ ${f} = "*.old"              ]] && continue
+    [[ ${f} == ".DS_Store"         ]] && continue
 
-    [[ ${f} = "README.md" ]] && continue
-    [[ ${f} = "*.sh" ]] && continue
-    [[ ${f} = ".modfying" ]] && continue
+    [[ ${f} = "*.sh"               ]] && continue
+    [[ ${f} = ".modfying"          ]] && continue
+    [[ ${f} = "README.md"          ]] && continue
 
     # シンボリックリンク 作成
     gm_echo set ${f}
@@ -119,4 +109,3 @@ if [ ! -e ~/.config/oni/ ]; then
     sudo -- bash -c "mkdir ~/.config/oni/"
 fi
 sudo ln -snfv ${DOT_DIR}/config.tsx ~/.config/oni/config.tsx
-
