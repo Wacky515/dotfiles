@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/25 17:28:34.
+rem Last Change: 2019/09/27 12:38:23.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -27,14 +27,14 @@ pushd %bat_path%
 
 echo ^>^> %batch_title%
 echo.
-echo #####    ####  ####### #####  ##  ##     #####   ###
-echo  #   #  #    # #  #  #  #      #   #      #     #  #
-echo  #   #  #    #    #     #      #   #      #     #
-echo  #   ## #    ##   #     # #    #   #      # #   ##
-echo  #   ## #    ##   #     # #    #   #      # #     ##
-echo  #   #  #    #    #     #      #   #      #        #
-echo  #   #  #    #    #     #      #   #      #   ##   #
-echo ## ##    ####    ###   ##     ##  #####  ###### ####
+echo #####    ####  ####### ##### ### ##    #####    ### #
+echo  #   #  #    # #  #  #  #  #  #   #     #      #   #
+echo  #    # #    #    #     #     #   #     #      #
+echo  #    # #    #    #     # ##  #   #     # ##   ##
+echo  #    # #    #    #     #  #  #   #     #  #     ##
+echo  #    # #    #    #     #     #   #     #         #
+echo  #   #  #    #    #     #     #   #     #   # #   #
+echo #####    ####    ###   ##    ### ##### ######  ####
 echo.
 echo *** WHAT IS INSIDE? ***
 echo 1. Download dotfiles from "https://github.com/Wacky515/dotfiles"
@@ -106,8 +106,23 @@ rem link.cmd 実行
 pushd %homepath%\dotfiles\
 call link.cmd
 
-rem rem 再度スクリプトがある "Dir" に "pushd"
-rem pushd %bat_path%
+rem Rドライブコピー
+if %computername% == HBAMB748 (
+    goto cp_rd
+) else if %computername% == HBAMB819 (
+    goto cp_rd
+) else (
+    goto inst_apps
+)
+
+:cp_rd
+if not exist %homepath%\OneDrive\仕事\* (
+    mkdir %homepath%\OneDrive\仕事\
+)
+set rd_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\
+robocopy /e rd_path %homepath%\OneDrive\仕事\
+
+:inst_apps
 rem "*.config" のある "Dir" に "pushd"
 pushd %conf_path%
 
