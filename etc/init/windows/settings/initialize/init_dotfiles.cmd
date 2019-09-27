@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/27 16:15:10.
+rem Last Change: 2019/09/27 16:16:47.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -111,7 +111,7 @@ if not exist %homepath%\OneDrive\ŽdŽ–\Settings\* (
 )
 
 rem ProxyŠÂ‹«‚©Šm”F
-wlan show profile name=murata-dmj-peap >null
+netsh wlan show profile name=murata-dmj-peap >null
 if %errorlevel% equ 0 goto cp_rd
 echo ^>^> Not in proxy
 rem megasync
