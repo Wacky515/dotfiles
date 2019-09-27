@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/27 15:15:13.
+rem Last Change: 2019/09/27 15:22:06.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -45,7 +45,7 @@ echo *** HOW TO INSTALL? ***
 echo See the README for documentation.
 echo Licensed under the MIT license.
 echo.
-echo *** ATTENTION ***"
+echo *** ATTENTION ***
 echo Standard output in ~/init_dotfile.log.
 echo This script can change your entire setup.
 echo I recommend to read first. You can even copy commands one by one.
@@ -112,12 +112,13 @@ rem echo "%chk_proxy%" | findstr "直接アクセス (プロキシ サーバーなし)。" >nul
 echo "%chk_proxy%"
 echo "%chk_proxy%" | findstr "直接アクセス (プロキシ サーバーなし)。"
 rem if %chk_proxy% == 直接アクセス (プロキシ サーバーなし)。 (
-if not %errorlevel% 1 goto in_proxy
+rem if not %errorlevel% 1 goto in_proxy
+if %chk_proxy% == 直接アクセス (
+    echo ^>^> In proxy
+    goto cp_rd
+)
 
-echo ^>^> In proxy
-goto cp_rd
-
-:in_proxy
+:not_proxy
 echo ^>^> Not in proxy
 rem megasync
 rem pause
