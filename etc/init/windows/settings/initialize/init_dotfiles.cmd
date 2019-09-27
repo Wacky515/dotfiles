@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/27 13:56:10.
+rem Last Change: 2019/09/27 14:21:51.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -106,6 +106,7 @@ rem link.cmd 実行
 pushd %homepath%\dotfiles\
 call link.cmd
 
+netsh winhttp show proxy | findstr "直接アクセス (プロキシ サーバーなし)。"
 rem Rドライブコピー
 if %computername% == HBAMB748 (
     goto cp_rd
@@ -123,7 +124,7 @@ if not exist %homepath%\OneDrive\仕事\* (
     mkdir %homepath%\OneDrive\仕事\
 )
 set rd_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\
-robocopy /e rd_path %homepath%\OneDrive\仕事\
+robocopy rd_path %homepath%\OneDrive\仕事\ *.* /e
 
 :inst_apps
 rem "*.config" のある "Dir" に "pushd"
