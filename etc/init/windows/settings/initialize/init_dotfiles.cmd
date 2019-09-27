@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/27 15:26:18.
+rem Last Change: 2019/09/27 16:02:32.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -106,6 +106,10 @@ rem link.cmd 実行
 pushd %homepath%\dotfiles\
 call link.cmd
 
+if not exist %homepath%\OneDrive\仕事\Settings\* (
+    mkdir %homepath%\OneDrive\仕事\Settings\
+)
+
 for /f %%j in ('netsh winhttp show proxy') do set chk_proxy=%%j
     if not %chk_proxy% == 直接アクセス (
         echo ^>^> In proxy
@@ -114,7 +118,7 @@ for /f %%j in ('netsh winhttp show proxy') do set chk_proxy=%%j
     echo ^>^> Not in proxy
     rem megasync
     rem pause
-    bitsadmin /transfer DownloadSettingMega https://mega.nz/#F!ubhxia6L
+    bitsadmin /transfer DownloadSettingMega https://mega.nz/#F!ubhxia6L %homepath%\OneDrive\仕事\Settings\
     goto inst_apps
     )
 
@@ -131,9 +135,6 @@ if %computername% == HBAMB748 (
 
 :cp_rd
 echo ^>^> Copy Settng from R drive
-if not exist %homepath%\OneDrive\仕事\* (
-    mkdir %homepath%\OneDrive\仕事\
-)
 set rd_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\
 robocopy %rd_path% %homepath%\OneDrive\仕事\ *.* /e
 
