@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/27 14:49:51.
+rem Last Change: 2019/09/27 15:07:03.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -117,10 +117,9 @@ goto cp_rd
 
 :in_proxy
 echo ^>^> Not in proxy
-megasync
-pause
-rem URL わからない
-rem bitsadmin /transfer DownloadSettingMega ***
+rem megasync
+rem pause
+bitsadmin /transfer DownloadSettingMega https://mega.nz/#F!ubhxia6L
 goto inst_apps
 
 rem Rドライブコピー
