@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/27 13:29:28.
+rem Last Change: 2019/09/27 13:56:10.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -112,6 +112,8 @@ if %computername% == HBAMB748 (
 ) else if %computername% == HBAMB819 (
     goto cp_rd
 ) else (
+    megasync
+    pause
     goto inst_apps
 )
 
