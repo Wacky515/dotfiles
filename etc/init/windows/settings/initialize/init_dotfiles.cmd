@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/27 16:16:47.
+rem Last Change: 2019/09/27 17:01:35.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -133,8 +133,9 @@ if %computername% == HBAMB748 (
 :cp_rd
 echo ^>^> In proxy
 echo ^>^> Copy Settng from R drive
-set rd_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\
-robocopy %rd_path% %homepath%\OneDrive\仕事\ *.* /e
+set rd_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings\
+rem robocopy %rd_path% %homepath%\OneDrive\仕事\Settings\ *.* /s /e
+robocopy %rd_path% C:\%homepath%\OneDrive\仕事\Settings\ /s /e
 
 :inst_apps
 rem "*.config" のある "Dir" に "pushd"
