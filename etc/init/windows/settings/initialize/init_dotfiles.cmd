@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/27 15:13:09.
+rem Last Change: 2019/09/27 15:15:13.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -109,6 +109,7 @@ call link.cmd
 rem netsh winhttp show proxy | findstr "直接アクセス (プロキシ サーバーなし)。"
 for /f %%j in ('netsh winhttp show proxy') do set chk_proxy=%%j
 rem echo "%chk_proxy%" | findstr "直接アクセス (プロキシ サーバーなし)。" >nul
+echo "%chk_proxy%"
 echo "%chk_proxy%" | findstr "直接アクセス (プロキシ サーバーなし)。"
 rem if %chk_proxy% == 直接アクセス (プロキシ サーバーなし)。 (
 if not %errorlevel% 1 goto in_proxy
