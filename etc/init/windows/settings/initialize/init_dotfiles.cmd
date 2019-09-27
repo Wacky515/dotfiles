@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/27 14:21:51.
+rem Last Change: 2019/09/27 14:49:51.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -106,7 +106,23 @@ rem link.cmd 実行
 pushd %homepath%\dotfiles\
 call link.cmd
 
-netsh winhttp show proxy | findstr "直接アクセス (プロキシ サーバーなし)。"
+rem netsh winhttp show proxy | findstr "直接アクセス (プロキシ サーバーなし)。"
+for /f %%j in ('netsh winhttp show proxy') do set chk_proxy数=%%j
+echo "%chk_proxy%" | findstr "直接アクセス (プロキシ サーバーなし)。" >nul
+rem if %chk_proxy% == 直接アクセス (プロキシ サーバーなし)。 (
+if not %errorlevel% 1 goto in_proxy
+
+echo ^>^> In proxy
+goto cp_rd
+
+:in_proxy
+echo ^>^> Not in proxy
+megasync
+pause
+rem URL わからない
+rem bitsadmin /transfer DownloadSettingMega ***
+goto inst_apps
+
 rem Rドライブコピー
 if %computername% == HBAMB748 (
     goto cp_rd
