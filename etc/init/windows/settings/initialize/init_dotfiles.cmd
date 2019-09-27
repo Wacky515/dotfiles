@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/27 15:22:06.
+rem Last Change: 2019/09/27 15:26:18.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -106,24 +106,17 @@ rem link.cmd 実行
 pushd %homepath%\dotfiles\
 call link.cmd
 
-rem netsh winhttp show proxy | findstr "直接アクセス (プロキシ サーバーなし)。"
 for /f %%j in ('netsh winhttp show proxy') do set chk_proxy=%%j
-rem echo "%chk_proxy%" | findstr "直接アクセス (プロキシ サーバーなし)。" >nul
-echo "%chk_proxy%"
-echo "%chk_proxy%" | findstr "直接アクセス (プロキシ サーバーなし)。"
-rem if %chk_proxy% == 直接アクセス (プロキシ サーバーなし)。 (
-rem if not %errorlevel% 1 goto in_proxy
-if %chk_proxy% == 直接アクセス (
-    echo ^>^> In proxy
-    goto cp_rd
-)
-
-:not_proxy
-echo ^>^> Not in proxy
-rem megasync
-rem pause
-bitsadmin /transfer DownloadSettingMega https://mega.nz/#F!ubhxia6L
-goto inst_apps
+    if not %chk_proxy% == 直接アクセス (
+        echo ^>^> In proxy
+        goto cp_rd
+    ) else (
+    echo ^>^> Not in proxy
+    rem megasync
+    rem pause
+    bitsadmin /transfer DownloadSettingMega https://mega.nz/#F!ubhxia6L
+    goto inst_apps
+    )
 
 rem Rドライブコピー
 if %computername% == HBAMB748 (
@@ -142,7 +135,7 @@ if not exist %homepath%\OneDrive\仕事\* (
     mkdir %homepath%\OneDrive\仕事\
 )
 set rd_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\
-robocopy rd_path %homepath%\OneDrive\仕事\ *.* /e
+robocopy %rd_path% %homepath%\OneDrive\仕事\ *.* /e
 
 :inst_apps
 rem "*.config" のある "Dir" に "pushd"
