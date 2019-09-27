@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/27 12:41:45.
+rem Last Change: 2019/09/27 13:29:28.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -116,6 +116,7 @@ if %computername% == HBAMB748 (
 )
 
 :cp_rd
+echo ^>^> Copy Settng from R drive
 if not exist %homepath%\OneDrive\édéñ\* (
     mkdir %homepath%\OneDrive\édéñ\
 )
