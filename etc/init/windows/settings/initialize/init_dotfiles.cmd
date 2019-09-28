@@ -6,13 +6,13 @@ rem Last Change: 2019/09/27 17:13:24.
 set batch_title=Initialize dotfiles
 title %batch_title%
 
-rem ŠÇ—ÒŒ ŒÀ‚Å‹N“®‚³‚ê‚½‚©ƒ`ƒFƒbƒN
+rem ç®¡ç†è€…æ¨©é™ã§èµ·å‹•ã•ã‚ŒãŸã‹ãƒã‚§ãƒƒã‚¯
 whoami /priv | find "SeLoadDriverPrivilege" > nul
 
-rem ŠÇ—ÒŒ ŒÀ‚È‚çƒƒCƒ“ˆ—
+rem ç®¡ç†è€…æ¨©é™ãªã‚‰ãƒ¡ã‚¤ãƒ³å‡¦ç†
 if not errorlevel 1 goto main_routine
 
-rem ŠÇ—ÒŒ ŒÀ‚Å‚È‚¯‚ê‚ÎŠÇ—ÒŒ ŒÀ‚ÅÄ‹N“®
+rem ç®¡ç†è€…æ¨©é™ã§ãªã‘ã‚Œã°ç®¡ç†è€…æ¨©é™ã§å†èµ·å‹•
 @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
 exit
 
@@ -22,7 +22,7 @@ set config_files=packages_%computername%.config
 set conf_path=C:%homepath%\dotfiles\etc\init\windows\settings\chocolatey\
 set def_conf=%conf_path%\packages.config
 
-rem ƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "cd"
+rem ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "cd"
 pushd %bat_path%
 
 echo ^>^> %batch_title%
@@ -63,7 +63,7 @@ call :chk_choco >%homepath%\init_dotfile.log
 exit /b
 
 :chk_choco
-rem "Chocolatey" ƒCƒ“ƒXƒg[ƒ‹Ï‚İ‚©ƒ`ƒFƒbƒN
+rem "Chocolatey" ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«æ¸ˆã¿ã‹ãƒã‚§ãƒƒã‚¯
 echo ^>^> Check installed Chocolatey or not
 chocolatey -v > nul 2>&1
 if %errorlevel% equ 0 goto must_inst
@@ -73,10 +73,10 @@ echo ^>^> Install Chocolatey
 
 :must_inst
 echo ^>^> Already installed Chocolatey
-rem •K{ƒpƒbƒP[ƒW‚Ì‚İ "cinst"
+rem å¿…é ˆãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®ã¿ "cinst"
 cinst -y git onedrive megasync
 
-rem ƒz[ƒ€ƒfƒBƒŒƒNƒgƒŠ‚É "cd"
+rem ãƒ›ãƒ¼ãƒ ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã« "cd"
 pushd %homepath%
 
 echo ^>^> Check installed Git or not
@@ -102,24 +102,27 @@ if not exist %homepath%\dotfiles\.git (
 ) else (
     echo ^>^> Already Git clone
 )
-rem link.cmd Às
+rem link.cmd å®Ÿè¡Œ
 pushd %homepath%\dotfiles\
 call link.cmd
 
-if not exist %homepath%\OneDrive\d–\Settings\* (
-    mkdir %homepath%\OneDrive\d–\Settings\
+if not exist %homepath%\OneDrive\ä»•äº‹\Settings\* (
+    mkdir %homepath%\OneDrive\ä»•äº‹\Settings\
 )
 
-rem ProxyŠÂ‹«‚©Šm”F
+rem Proxyç’°å¢ƒã‹ç¢ºèª
 netsh wlan show profile name=murata-dmj-peap >null
 if %errorlevel% equ 0 goto cp_rd
 echo ^>^> Not in proxy
 rem megasync
 rem pause
-bitsadmin /transfer DownloadSettingMega https://mega.nz/#F!ubhxia6L %homepath%\OneDrive\d–\Settings\
+bitsadmin /transfer DownloadSettingMega https://mega.nz/#F!ubhxia6L %homepath%\OneDrive\ä»•äº‹\Settings.zip
+start https://mega.nz/#F!ubhxia6L
+echo ^>^> Please download Setting folder
+pause
 goto inst_apps
 
-rem Rƒhƒ‰ƒCƒuƒRƒs[
+rem Rãƒ‰ãƒ©ã‚¤ãƒ–ã‚³ãƒ”ãƒ¼
 if %computername% == HBAMB748 (
     goto cp_rd
 ) else if %computername% == HBAMB819 (
@@ -133,19 +136,19 @@ if %computername% == HBAMB748 (
 :cp_rd
 echo ^>^> In proxy
 echo ^>^> Copy Settng from R drive
-set rd_path=R:\E2M0\E2M-4\y”éz-E2M4-1\10.ŒÂlƒtƒ@ƒCƒ‹\Wakita\d–\Settings\
-rem robocopy %rd_path% %homepath%\OneDrive\d–\Settings\ *.* /s /e
-rem robocopy %rd_path% C:\%homepath%\OneDrive\d–\Settings\ /s /e
-robocopy R:\E2M0\E2M-4\y”éz-E2M4-1\10.ŒÂlƒtƒ@ƒCƒ‹\Wakita\d–\Settings\ C:\Users\mm12167\OneDrive\d–\Settings\ /s /e
+set rd_path=R:\E2M0\E2M-4\ã€ç§˜ã€‘-E2M4-1\10.å€‹äººãƒ•ã‚¡ã‚¤ãƒ«\Wakita\ä»•äº‹\Settings\
+rem robocopy %rd_path% %homepath%\OneDrive\ä»•äº‹\Settings\ *.* /s /e
+rem robocopy %rd_path% C:\%homepath%\OneDrive\ä»•äº‹\Settings\ /s /e
+robocopy R:\E2M0\E2M-4\ã€ç§˜ã€‘-E2M4-1\10.å€‹äººãƒ•ã‚¡ã‚¤ãƒ«\Wakita\ä»•äº‹\Settings\ C:\Users\mm12167\OneDrive\ä»•äº‹\Settings\ /s /e
 
 :inst_apps
-rem "*.config" ‚Ì‚ ‚é "Dir" ‚É "pushd"
+rem "*.config" ã®ã‚ã‚‹ "Dir" ã« "pushd"
 pushd %conf_path%
 
 echo ^>^> Install apps by Chocolatey
-rem Test‚ÍKILL
+rem Testæ™‚ã¯KILL
 rem ---------------------------------------------------------------------------
-rem "***_packages_***.config" ‚ğ“Ç‚İ‚İAƒCƒ“ƒXƒg[ƒ‹
+rem "***_packages_***.config" ã‚’èª­ã¿è¾¼ã¿ã€ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
 if exist *_%config_files% (
     echo ^>^> Install apps for this PC
     for %%i in (*_%config_files%) do (
@@ -159,15 +162,15 @@ echo ^>^> Update Chocolatey
 cup all -y
 rem ---------------------------------------------------------------------------
 
-rem Ä“xƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "pushd"
-rem "init_dotfiles" ‚ÅÀs‚·‚éê‡‚ª‚ ‚é‚Ì‚Åâ‘ÎPath
+rem å†åº¦ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "pushd"
+rem "init_dotfiles" ã§å®Ÿè¡Œã™ã‚‹å ´åˆãŒã‚ã‚‹ã®ã§çµ¶å¯¾Path
 pushd %homepath%\dotfiles\etc\init\windows\settings\initialize\
 
-rem "git\init\settings" ‚Æ "Mega(R:)\d–\Settings" ‚Ì "setting_*.cmd" Às
+rem "git\init\settings" ã¨ "Mega(R:)\ä»•äº‹\Settings" ã® "setting_*.cmd" å®Ÿè¡Œ
 call sub_install_all.cmd
 rem pause
 
-rem ƒz[ƒ€ƒfƒBƒŒƒNƒgƒŠ‚É *.7z ‚Åˆ³k‚µ‚½ƒAƒvƒŠ‚ğ“WŠJ
+rem ãƒ›ãƒ¼ãƒ ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã« *.7z ã§åœ§ç¸®ã—ãŸã‚¢ãƒ—ãƒªã‚’å±•é–‹
 call sub_install_app.cmd
 rem pause
 
