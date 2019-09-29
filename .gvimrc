@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/07/21 10:37:09.
+" Last Change: 2019/09/29 11:01:21.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -123,7 +123,7 @@ elseif (has("win32") || has("win64"))
     " Home setting
     if hostname() == "SALADCARBONX1"
         if !has("nvim")
-            set guifont=Cica:h11
+            set guifont=Cica:h13
             set printfont=Cica:h8
             " Windows Cica 専用設定 ("NeoVim" 版設定探す）
             set renderoptions=type:directx,renmode:5
