@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/30 16:03:10.
+rem Last Change: 2019/09/30 16:24:21.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -217,8 +217,12 @@ rem pause
 call sub_install_font.cmd
 
 echo ^>^> Erase temp data
-rmdir /s /q C:\%homepath%\init_dotfiles\ > nul 2>&1
-rmdir /s /q C:\%homepath%\OneDrive\仕事\Settings.zip > nul 2>&1
+if exist C:\%homepath%\init_dotfiles\ (
+    rmdir /s /q C:\%homepath%\init_dotfiles\ > nul 2>&1
+)
+if exist C:\%homepath%\OneDrive\仕事\Settings.zip (
+    rmdir /s /q C:\%homepath%\OneDrive\仕事\Settings.zip > nul 2>&1
+)
 
 rem link.cmd 実行
 pushd %homepath%\dotfiles\
