@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2019/09/25 17:27:02.
+rem Last Change: 2019/09/30 14:26:56.
 
 set batch_title=Install textlint
 title %batch_title%
@@ -16,13 +16,13 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
-set cmd=npm bin -g
+set command=npm bin -g
 
 rem  スクリプトがある "Dir" に "cd"
 pushd %~dp0
 
 echo ^>^> Check dependencies
-for /f %%i in ('%cmd%') do set npm_path=%%i
+for /f %%i in ('%command%') do set npm_path=%%i
 if exist %npm_path% goto install_textlint
 
 rem "Chocolatey" インストール済みかチェック

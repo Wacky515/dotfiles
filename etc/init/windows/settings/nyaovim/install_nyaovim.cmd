@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/12/19 11:37:29
-rem Last Change: 2018/12/19 15:28:47.
+rem Last Change: 2019/09/30 14:28:08.
 
 set batch_title=Install NyaoVim
 title %batch_title%
@@ -16,13 +16,13 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
-set cmd=npm bin -g
+set command=npm bin -g
 
 rem  スクリプトがある "Dir" に "cd"
 pushd %~dp0
 
 echo ^>^> Check dependencies
-for /f %%i in ('%cmd%') do set npm_path=%%i
+for /f %%i in ('%command%') do set npm_path=%%i
 if exist %npm_path% goto install_nyaovim
 
 rem "Chocolatey" インストール済みかチェック
