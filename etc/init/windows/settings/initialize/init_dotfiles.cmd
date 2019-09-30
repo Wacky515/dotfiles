@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/30 15:23:05.
+rem Last Change: 2019/09/30 15:36:50.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -88,14 +88,11 @@ git --version > nul 2>&1
 if %errorlevel% equ 0 goto gclone
 echo ^>^> Field install git automatically
 exit /b 1000
-
+ii
 :gclone
 echo ^>^> Check Git clone or not
-rem FIXME: ‘¶Ý”»•Ê‚Å‚«‚Ä‚¢‚È‚¢
-rem if not exist C:\%homepath%\dotfiles\README.md (
-if not exist dotfiles\README.md (
+if not exist C:\%homepath%\dotfiles\.git\ (
     echo ^>^> Git clone not yet, clone first
-    pause
     if exist %homepath%\dotfiles\ (
         rmdir /s /q %homepath%\dotfiles\
     )
