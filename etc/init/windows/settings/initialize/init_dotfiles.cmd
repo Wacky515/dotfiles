@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/30 13:42:06.
+rem Last Change: 2019/09/30 14:51:32.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -92,7 +92,7 @@ exit /b 1000
 :gclone
 echo ^>^> Check Git clone or not
 rem FIXME: 存在判別できていない
-if not exist %homepath%\dotfiles\.git\hooks\* (
+if not exist %homepath%\dotfiles\.git\config (
     echo ^>^> Git clone not yet, clone first
     if exist %homepath%\dotfiles\ (
         rmdir /s /q %homepath%\dotfiles\
@@ -107,7 +107,7 @@ rem link.cmd 実行
 pushd %homepath%\dotfiles\
 call link.cmd
 
-if not exist %homepath%\OneDrive\仕事\Settings\* (
+if not exist %homepath%\OneDrive\仕事\Settings\ (
     mkdir %homepath%\OneDrive\仕事\Settings\
 )
 echo ^>^> Check exist "Settings" or not
@@ -131,7 +131,7 @@ rem if %errorlevel% equ 0 goto cp_nas
 rem netsh wlan show profile name=*_SaladCapsule* >nul
 rem if %errorlevel% equ 0 goto cp_nas
 rem }}}
-ping 172.16.84.100 /n 1
+ping 172.16.84.100 /n 1 > nul 2>&1
 if %errorlevel% equ 0 goto cp_rd
 
 echo ^>^> Not in proxy
@@ -162,7 +162,7 @@ rem goto inst_apps
 rem rem Rドライブコピー
 echo ^>^> In proxy
 net use v: /delete > nul 2>&1
-net use v: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\
+net use v: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事
 echo ^>^> Copy "Settngs" from R drive
 robocopy v:\Settings\ C:\%homepath%\OneDrive\仕事\Settings\ /s /e
 echo ^>^> Copy "InitApps" from R drive
