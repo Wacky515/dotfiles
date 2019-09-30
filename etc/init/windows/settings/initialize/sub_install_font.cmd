@@ -1,18 +1,18 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/09/25 13:49:48.
+rem Last Change: 2019/09/30 12:16:45.
 
 title Install initialize font
 
 rem 設定ファイルがある "Dir" に "cd"
-if %computername% == HBAMB748 (
-    set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps\
-) else if %computername% == HBAMB819 (
-    set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps\
-) else (
+rem if %computername% == HBAMB748 (
+rem     set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps\
+rem ) else if %computername% == HBAMB819 (
+rem     set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps\
+rem ) else (
     set src_dir=C:%homepath%\OneDrive\仕事\InitApps\
-)
+rem )
 pushd %src_dir%
 
 rem 参考: http://qiita.com/masarusan24/items/d3a5ab7c37e9b6d9a51f

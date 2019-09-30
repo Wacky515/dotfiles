@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/09/26 09:11:10.
+rem Last Change: 2019/09/30 12:16:31.
 
 title Install initialize App
 
@@ -9,13 +9,13 @@ rem rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 
 rem 設定ファイルがある "Dir" に "cd"
-if %computername% == HBAMB748 (
-    set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps\
-) else if %computername% == HBAMB819 (
-    set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps\
-) else (
+rem if %computername% == HBAMB748 (
+rem     set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps\
+rem ) else if %computername% == HBAMB819 (
+rem     set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps\
+rem ) else (
     set src_dir=C:%homepath%\OneDrive\仕事\InitApps\
-)
+rem )
 
 pushd %src_dir%
 

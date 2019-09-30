@@ -1,18 +1,18 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/09/25 13:52:47.
+rem Last Change: 2019/09/30 12:17:02.
 
 title Initialize setting
 
 set git_path=C:%homepath%\dotfiles\etc\init\windows\settings
-if %computername% == HBAMB748 (
-    set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Setting\
-) else if %computername% == HBAMB819 (
-    set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Setting\
-) else (
+rem if %computername% == HBAMB748 (
+rem     set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Setting\
+rem ) else if %computername% == HBAMB819 (
+rem     set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Setting\
+rem ) else (
     set ms_path=C:%homepath%\OneDrive\仕事\Settings\
-)
+rem )
 
 echo ^>^> Search setting batch in Git
 pushd %git_path%
