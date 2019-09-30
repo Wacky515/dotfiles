@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2017/01/18 **:**:**
-rem Last Change: 2019/09/30 11:12:15.
+rem Last Change: 2019/09/30 15:31:40.
 
 set batch_title=Setting Yamabuki R
 title %batch_title%
@@ -23,7 +23,7 @@ pushd %bat_path%
 echo ^>^> %batch_title%
 
 rem 設定ファイル コピー
-if exitst %HOMEPATH%\yamabuki_r1.11.1.w\ (
+if exist %homepath%\yamabuki_r1.11.1.w\ (
     copy /y "yamabuki_r.ypr" %HOMEPATH%\yamabuki_r1.11.1.w\
 ) else (
     echo ^>^> Not install Yamabuki R

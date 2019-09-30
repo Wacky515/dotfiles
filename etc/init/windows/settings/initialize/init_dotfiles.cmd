@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/30 15:19:19.
+rem Last Change: 2019/09/30 15:23:05.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -46,7 +46,7 @@ echo See the README for documentation.
 echo Licensed under the MIT license.
 echo.
 echo *** ATTENTION ***
-echo Standard output in ~/init_dotfile.log.
+echo Standard and Standard errer output in ~/init_dotfile.log.
 echo This script can change your entire setup.
 echo I recommend to read first. You can even copy commands one by one.
 echo.
