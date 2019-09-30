@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2017/01/18 **:**:**
-rem Last Change: 2019/09/30 09:15:23.
+rem Last Change: 2019/09/30 11:12:15.
 
 set batch_title=Setting Yamabuki R
 title %batch_title%
@@ -23,7 +23,12 @@ pushd %bat_path%
 echo ^>^> %batch_title%
 
 rem 設定ファイル コピー
-copy /y "yamabuki_r.ypr" %HOMEPATH%\yamabuki_r1.11.1.w\
+if exitst %HOMEPATH%\yamabuki_r1.11.1.w\ (
+    copy /y "yamabuki_r.ypr" %HOMEPATH%\yamabuki_r1.11.1.w\
+) else (
+    echo ^>^> Not install Yamabuki R
+    exit /b 1
+)
 
 rem スタートアップにショートカット 作成
     rem Windows7/10で当該Dir異なるはずやけど同じやがな・・・

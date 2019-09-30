@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/30 10:39:50.
+rem Last Change: 2019/09/30 10:48:08.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -109,6 +109,9 @@ call link.cmd
 if not exist %homepath%\OneDrive\仕事\Settings\* (
     mkdir %homepath%\OneDrive\仕事\Settings\
 )
+if exist %homepath%\OneDrive\仕事\Settings\Wallpaper\ (
+    goto inst_apps
+)
 
 rem Proxy環境か確認
 netsh wlan show profile name=murata-dmj-peap >null
@@ -149,15 +152,10 @@ rem robocopy src dst /s /e
 :cp_rd
 echo ^>^> In proxy
 echo ^>^> Copy Settng from R drive
-rem set rd_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings\
-rem robocopy %rd_path% %homepath%\OneDrive\仕事\Settings\ *.* /s /e
-rem robocopy %rd_path% C:\%homepath%\OneDrive\仕事\Settings\ /s /e
-rem robocopy R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings\ C:\Users\mm12167\OneDrive\仕事\Settings\ /s /e
-rem xcopy R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings C:\Users\mm12167\OneDrive\仕事\Settings /d /i
-net use v: /delete
+net use v: /delete > nul 2>&1
 net use v: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings
 robocopy v: C:\%homepath%\OneDrive\仕事\Settings\ /s /e
-net use v: /delete
+net use v: /delete > nul 2>&1
 
 :inst_apps
 rem "*.config" のある "Dir" に "pushd"

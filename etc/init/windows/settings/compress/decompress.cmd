@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/09/13 11:23:41
-rem Last Change: 2018/12/04 09:20:31.
+rem Last Change: 2019/09/30 10:51:58.
 
 set batch_title=Decompress file(Recursion)
 title %batch_title%
@@ -18,4 +18,3 @@ popd
 
 rem pause
 exit /b 0
-
