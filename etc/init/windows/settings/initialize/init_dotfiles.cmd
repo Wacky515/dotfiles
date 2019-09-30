@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/30 10:48:08.
+rem Last Change: 2019/09/30 11:35:25.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -59,7 +59,7 @@ if /i "%input%" == "Y" (goto redirect)
 exit /b 0
 
 :redirect
-call :chk_choco >%homepath%\init_dotfile.log
+call :chk_choco > %homepath%\init_dotfile.log 2>&1
 exit /b
 
 :chk_choco
@@ -91,13 +91,13 @@ exit /b 1000
 
 :gclone
 echo ^>^> Check Git clone or not
-if not exist %homepath%\dotfiles\.git (
+if not exist %homepath%\dotfiles\.git\* (
     echo ^>^> Git clone not yet, clone first
     if exist %homepath%\dotfiles\ (
         rmdir /s /q %homepath%\dotfiles\
     )
-    del %homepath%\.gitconfig
-    del %homepath%\.gitignore
+    del %homepath%\.gitconfig > nul 2>&1
+    del %homepath%\.gitignore > nul 2>&1
     git clone --depth 1 https://github.com/Wacky515/dotfiles.git
 ) else (
     echo ^>^> Already Git clone
@@ -109,7 +109,9 @@ call link.cmd
 if not exist %homepath%\OneDrive\ŽdŽ–\Settings\* (
     mkdir %homepath%\OneDrive\ŽdŽ–\Settings\
 )
+echo ^>^> Check exist "Settings" or not
 if exist %homepath%\OneDrive\ŽdŽ–\Settings\Wallpaper\ (
+    echo ^>^> Already exist "Settings", Install apps
     goto inst_apps
 )
 

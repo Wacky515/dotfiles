@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2018/12/05 15:27:36.
+rem Last Change: 2019/09/30 11:30:45.
 
 set batch_title=General setting Windows10
 title %batch_title%
@@ -33,5 +33,5 @@ reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Ad
 endlocal
 popd
 
-pause
+rem pause
 exit /b 0
