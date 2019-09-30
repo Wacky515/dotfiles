@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/09/30 12:16:45.
+rem Last Change: 2019/09/30 15:49:36.
 
 title Install initialize font
 
@@ -19,15 +19,17 @@ rem ŽQl: http://qiita.com/masarusan24/items/d3a5ab7c37e9b6d9a51f
 reg import .\Fonts\fontlink.reg
 
 for %%i in (.\Fonts\*.ttf) do (
-    echo %%~nxi
+    echo ^>^> Install %%~nxi
     if not exist "%windir%\%%~nxi" (cscript .\setting_font.vbs %%~nxi)
     )
 
 for %%j in (.\Fonts\*.ttc) do (
+    echo ^>^> Install %%~nxj
     if not exist "%windir%\%%~nxj" (cscript .\setting_font.vbs %%~nxj)
     )
 
 for %%k in (.\Fonts\*.otf) do (
+    echo ^>^> Install %%~nxk
     if not exist "%windir%\%%~nxk" (cscript .\setting_font.vbs %%~nxk)
     )
 
@@ -36,4 +38,3 @@ endlocal
 
 rem pause
 rem exit /b 0
-

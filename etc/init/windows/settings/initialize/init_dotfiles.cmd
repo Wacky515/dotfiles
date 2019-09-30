@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/30 15:36:50.
+rem Last Change: 2019/09/30 15:39:07.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -169,10 +169,10 @@ net use w: /delete > nul 2>&1
 :cp_nas
 echo ^>^> In home network
 echo ^>^> Copy "Settngs" from NAS
-rem robocopy src dst /s /e
+robocopy src dst /s /e
 echo ^>^> Copy "InitApps" from NAS
-rem robocopy src dst /s /e
-rem goto inst_apps
+robocopy src dst /s /e
+goto inst_apps
 
 :inst_apps
 rem "*.config" ‚Ì‚ ‚é "Dir" ‚É "pushd"
