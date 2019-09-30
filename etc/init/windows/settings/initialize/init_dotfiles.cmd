@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/30 14:51:32.
+rem Last Change: 2019/09/30 14:57:44.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -162,12 +162,15 @@ rem goto inst_apps
 rem rem Rドライブコピー
 echo ^>^> In proxy
 net use v: /delete > nul 2>&1
-net use v: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事
+net use w: /delete > nul 2>&1
+net use v: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings\
+net use w: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps\
 echo ^>^> Copy "Settngs" from R drive
-robocopy v:\Settings\ C:\%homepath%\OneDrive\仕事\Settings\ /s /e
+robocopy v: C:\%homepath%\OneDrive\仕事\Settings\ /s /e
 echo ^>^> Copy "InitApps" from R drive
-robocopy v:\InitApps\ C:\%homepath%\OneDrive\仕事\InitApps\ /s /e
+robocopy w: C:\%homepath%\OneDrive\仕事\InitApps\ /s /e
 net use v: /delete > nul 2>&1
+net use w: /delete > nul 2>&1
 
 :inst_apps
 rem "*.config" のある "Dir" に "pushd"
