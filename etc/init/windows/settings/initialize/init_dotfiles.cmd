@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/30 10:07:46.
+rem Last Change: 2019/09/30 10:20:19.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -152,8 +152,8 @@ echo ^>^> Copy Settng from R drive
 rem set rd_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings\
 rem robocopy %rd_path% %homepath%\OneDrive\仕事\Settings\ *.* /s /e
 rem robocopy %rd_path% C:\%homepath%\OneDrive\仕事\Settings\ /s /e
-robocopy R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings\ C:\Users\mm12167\OneDrive\仕事\Settings\ /s /e
-
+rem robocopy R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings\ C:\Users\mm12167\OneDrive\仕事\Settings\ /s /e
+xcopy R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings\ C:\Users\mm12167\OneDrive\仕事\Settings\ /d /i
 :inst_apps
 rem "*.config" のある "Dir" に "pushd"
 pushd %conf_path%
