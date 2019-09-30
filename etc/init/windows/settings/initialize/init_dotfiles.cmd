@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/30 15:10:23.
+rem Last Change: 2019/09/30 15:19:19.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -92,7 +92,8 @@ exit /b 1000
 :gclone
 echo ^>^> Check Git clone or not
 rem FIXME: 存在判別できていない
-if not exist %homepath%\dotfiles\README.md (
+rem if not exist C:\%homepath%\dotfiles\README.md (
+if not exist dotfiles\README.md (
     echo ^>^> Git clone not yet, clone first
     pause
     if exist %homepath%\dotfiles\ (
@@ -134,6 +135,8 @@ rem if %errorlevel% equ 0 goto cp_nas
 rem }}}
 ping 172.16.84.100 /n 1 > nul 2>&1
 if %errorlevel% equ 0 goto cp_rd
+ping 10.0.1.1 /n 1 > nul 2>&1
+if %errorlevel% equ 0 goto cp_nas
 
 echo ^>^> Not in proxy
 rem megasync
@@ -144,7 +147,6 @@ rem bitsadmin /transfer DownloadInitAppsMega https://mega.nz/*** %homepath%\OneD
 rem start https://mega.nz/***
 echo ^>^> Please download "Settings" and "InitApps" folder manually
 pause
-rem TODO: Unzip
 "C:\Program Files\7-Zip\7z.exe" x -y
     \ -oC:\%homepath%\OneDrive\仕事\Settings\
     \ C:\%homepath%\OneDrive\仕事\Settings.zip
@@ -152,12 +154,6 @@ rem TODO: Unzip
     \ -oC:\%homepath%\OneDrive\仕事\InitApps\
     \ C:\%homepath%\OneDrive\仕事\InitApps.zip
 goto inst_apps
-
-:cp_nas
-echo ^>^> In home network
-echo ^>^> Copy Settng from NAS
-rem robocopy src dst /s /e
-rem goto inst_apps
 
 :cp_rd
 rem rem Rドライブコピー
@@ -172,6 +168,14 @@ echo ^>^> Copy "InitApps" from R drive
 robocopy w: C:\%homepath%\OneDrive\仕事\InitApps\ /s /e
 net use v: /delete > nul 2>&1
 net use w: /delete > nul 2>&1
+
+:cp_nas
+echo ^>^> In home network
+echo ^>^> Copy "Settngs" from NAS
+rem robocopy src dst /s /e
+echo ^>^> Copy "InitApps" from NAS
+rem robocopy src dst /s /e
+rem goto inst_apps
 
 :inst_apps
 rem "*.config" のある "Dir" に "pushd"
