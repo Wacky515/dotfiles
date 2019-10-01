@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/10/01 13:50:46.
+rem Last Change: 2019/10/01 13:53:02.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -150,18 +150,18 @@ if exist %homepath%\OneDrive\仕事\Settings\ (
 )
 rem bitsadmin /transfer DownloadSettingsMega https://mega.nz/#F!ubhxia6L %homepath%\OneDrive\仕事\Settings.zip
 start https://mega.nz/#F!ubhxia6L
+pause
+"C:\Program Files\7-Zip\7z.exe" x -y
+    ^ -oC:%homepath%\OneDrive\仕事\Settings\
+    ^ C:%homepath%\OneDrive\仕事\Settings.zip
 
 if exist %homepath%\OneDrive\仕事\InitApps\ (
     rmdir /s /q %homepath%\OneDrive\仕事\InitApps\
 )
 rem bitsadmin /transfer DownloadInitAppsMega https://mega.nz/#F!yTATTABQ %homepath%\OneDrive\仕事\InitApps.zip
 start https://mega.nz/#F!yTATTABQ
-
-echo ^>^> Please download "Settings" and "InitApps" folder manually
 pause
-"C:\Program Files\7-Zip\7z.exe" x -y
-    ^ -oC:%homepath%\OneDrive\仕事\Settings\
-    ^ C:%homepath%\OneDrive\仕事\Settings.zip
+echo ^>^> Please download "Settings" and "InitApps" folder manually
 "C:\Program Files\7-Zip\7z.exe" x -y
     ^ -oC:%homepath%\OneDrive\仕事\InitApps\
     ^ C:%homepath%\OneDrive\仕事\InitApps.zip
