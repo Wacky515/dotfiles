@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/10/01 13:59:39.
+rem Last Change: 2019/10/01 14:11:17.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -156,10 +156,10 @@ start https://mega.nz/#F!ubhxia6L
 pause
 
 "C:\Program Files\7-Zip\7z.exe" x -y
-    ^ -oC:%homepath%\OneDrive\仕事\Settings\
+    ^ -oC:%homepath%\OneDrive\仕事\Settings
     ^ C:%homepath%\OneDrive\仕事\Settings.zip
 
-if exist %homepath%\OneDrive\仕事\InitApps\ (
+if exist %homepath%\OneDrive\仕事\InitApps (
     rmdir /s /q %homepath%\OneDrive\仕事\InitApps\
 )
 echo ^>^> Please download "InitApps" folder manually
