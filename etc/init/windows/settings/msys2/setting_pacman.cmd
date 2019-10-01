@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/01/18 11:22:22.
+rem Last Change: 2019/10/01 10:53:23.
 
 set batch_title=Setting Pacman
 title %batch_title%
@@ -40,6 +40,6 @@ mklink "C:\tools\msys64\etc\pacman.conf" %~dp0%"pacman.conf"
 endlocal
 popd
 
-pause
+rem pause
 exit /b 0
 
