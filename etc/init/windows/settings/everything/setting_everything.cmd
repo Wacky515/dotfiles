@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2019/10/01 14:46:56.
+rem Last Change: 2019/10/01 15:27:50.
 
 set batch_title=Setting Everything
 title %batch_title%
@@ -73,8 +73,8 @@ if not exist %userprofile%\Desktop\Everything.lnk (
 :cplnk
 echo ^>^> Make shortcut in Desktop
 
-if exist C:\Program Files (x86)\Everything\Everything.exe goto evex64
-if exist C:\Program Files\Everything\Everything.exe (
+if exist "C:\Program Files (x86)\Everything\Everything.exe" goto evex64
+if exist "C:\Program Files\Everything\Everything.exe" (
     goto eve
 ) else (
     goto end
