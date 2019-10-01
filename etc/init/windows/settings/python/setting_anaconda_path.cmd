@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/12/05 09:11:25.
+rem Last Change: 2019/10/01 09:33:36.
 
 set batch_title=Setting Anaconda path
 title %batch_title%
@@ -19,7 +19,7 @@ exit
 rem  スクリプトがある "Dir" に "cd"
 pushd %~dp0
 
-echo Start set link
+echo ^>^> %batch_title%
 
 if exist "C:\Python35\Lib\site-packages\.anaconda.pth" (
     mklink "C:\Python35\Lib\site-packages\.anaconda.pth" "\.anaconda.pth"

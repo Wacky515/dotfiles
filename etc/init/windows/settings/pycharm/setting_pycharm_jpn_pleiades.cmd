@@ -1,7 +1,7 @@
 @echo off
 setlocal
-rem Created:     20**/**/** ** **:**:**
-rem Last Change: 2018/12/05 11:05:20.
+rem Created:     201*/**/** ** **:**:**
+rem Last Change: 2019/10/01 09:16:46.
 
 set batch_title=Setting PyCharm Japanese
 title %batch_title%
@@ -35,18 +35,18 @@ if exist "C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2018.3\" (
         echo ^>^> Check PyCharm install directory
     )
 
-echo ---------------------------------------------------------------------------
-echo "Open PyCharm -> Help -> Edit Custom VM Options -> Yes"
-echo "Paste below"
-echo "-Xverify:none"
-echo "-javaagent:C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2018.3\jp.sourceforge.mergedoc.pleiades\pleiades.jar"
-echo "And restart PyCharm"
-echo "Details on < http://shimizu3.webcrow.jp/tawa/pro-cont/pa03.html >"
-echo ---------------------------------------------------------------------------
+echo ----------------------------------------------------------------------------------------------------------------------------------
+echo Open PyCharm -> Help -> Edit Custom VM Options -> Yes
+echo Paste below
+echo     -Xverify:none
+echo     -javaagent:C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2018.3\jp.sourceforge.mergedoc.pleiades\pleiades.jar
+echo And restart PyCharm
+echo Details on ^< http://shimizu3.webcrow.jp/tawa/pro-cont/pa03.html ^>
+echo ----------------------------------------------------------------------------------------------------------------------------------
+pause
 
 endlocal
 popd
 
 rem pause
 rem exit /b 0
-

@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/03/31 09:53:57
-rem Last Change: 2018/12/06 08:18:59.
+rem Last Change: 2019/10/01 09:06:14.
 
 set batch_title=Setting for Folder options
 title %batch_title%
@@ -24,8 +24,8 @@ echo ^>^> %batch_title%
 echo ^>^> Show hide file extention
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t REG_DWORD /d "0" /f
 
-echo ^>^> Show hidden file, folder and drive
-reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Hidden" /t REG_DWORD /d "1" /f
+rem echo ^>^> Show hidden file, folder and drive
+rem reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Hidden" /t REG_DWORD /d "1" /f
 
 echo ^>^> Show operating system
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowSuperHidden" /t REG_DWORD /d "1" /f
@@ -42,14 +42,14 @@ reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Ad
 echo ^>^> Always show menus
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "AlwaysShowMenus" /t REG_DWORD /d "1" /f
 
-echo ^>^> Don't make Suffix
+echo ^>^> Don't make suffix
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v link /T REG_Binary /d 00000000 /f
 reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\NamingTemplates" /v ShortcutNameTemplate /f > nul 2>&1
 
-echo ^>^> Hide Task view
+echo ^>^> Hide task view
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowTaskViewButton" /t REG_DWORD /d "0" /f
 
-echo ^>^> Hide People
+echo ^>^> Hide people
 reg add "HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer" /v "HidePeopleBar" /t REG_DWORD /d "1" /f
 
 echo ^>^> OFF UAC
@@ -68,7 +68,7 @@ ver | find /i "Version 10.0." > nul
 if %errorlevel% equ 0 goto windows10
 
 :windows7
-echo ^>^> This OS is Windows7
+echo ^>^> This OS is Windows7, general setting as Windows7
 pushd "windows7"
 for %%i in (general_setting_*.cmd) do (
         call %%i
@@ -77,7 +77,7 @@ pushd %srcdir%
 goto eof
 
 :windows10
-echo ^>^> This OS is Windows10
+echo ^>^> This OS is Windows10, general setting as Windows10
 pushd "windows10"
 for %%j in (general_setting_*.cmd) do (
         call %%j
@@ -91,4 +91,3 @@ popd
 
 rem pause
 exit /b 0
-

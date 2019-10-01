@@ -1,2 +1,0 @@
-Commandline: apt-get install git
-Commandline: apt-get install vim-gnome

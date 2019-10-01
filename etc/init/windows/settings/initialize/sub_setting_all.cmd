@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/09/30 12:17:02.
+rem Last Change: 2019/10/01 09:35:39.
 
 title Initialize setting
 
@@ -31,8 +31,6 @@ for /r %%j in (setting_*) do (
     pushd %git_path%
     if %%~xj == .cmd (
         echo ^>^> Automatically execute %%~nxj by batch
-        echo %%~dpj
-        echo %%~nxj
         cd %%~dpj
         call %%~nxj
         )

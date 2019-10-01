@@ -1,6 +1,0 @@
-@echo off
-rem empty.exeを?s?y?s?t?e?m?3?2にコピーする操作を追加する！！
-
-empty.exe *
-
-pause
