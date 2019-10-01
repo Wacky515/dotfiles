@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/10/01 14:59:15.
+rem Last Change: 2019/10/01 16:07:58.
 
 title Install initialize App
 
@@ -34,7 +34,7 @@ if exist %src_dir%\%computername% (
         pushd %src_dir%
         )
 
-if "%processor_architecture%" equ "x86" goto x32
+if "%processor_architecture%" equ   "x86" goto x32
 if "%processor_architecture%" equ "AMD64" goto x64
 
 :x32

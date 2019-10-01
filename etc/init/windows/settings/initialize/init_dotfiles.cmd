@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/10/01 15:23:38.
+rem Last Change: 2019/10/01 15:57:24.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -93,7 +93,7 @@ git --version > nul 2>&1
 if %errorlevel% equ 0 goto gclone
 echo ^>^> Field install git automatically
 exit /b 1000
-ii
+
 :gclone
 echo ^>^> Check Git clone or not
 if not exist C:%homepath%\dotfiles\.git\ (
@@ -114,9 +114,10 @@ call link.cmd
 echo ^>^> Check exist "Settings" or not
 if exist %homepath%\OneDrive\仕事\Settings\Wallpaper\ (
     echo ^>^> Already exist "Settings", Install apps
-    goto inst_apps
+    goto chk_initapps
 )
 echo ^>^> Not exist "Settings"
+goto chk_proxy
 
 :chk_initapps
 echo ^>^> Check exist "InitApps" or not
@@ -126,6 +127,7 @@ if exist %homepath%\OneDrive\仕事\InitApps\x64\ (
 )
 echo ^>^> Not exist "InitApps"
 
+:chk_proxy
 rem Proxy環境か確認
 rem if %computername% == HBAMB748  rem ({{{
 rem     goto cp_rd
@@ -151,7 +153,6 @@ if exist %homepath%\OneDrive\仕事\Settings\ (
     rmdir /s /q %homepath%\OneDrive\仕事\Settings\
 )
 echo ^>^> Please download "Settings" folder manually
-rem bitsadmin /transfer DownloadSettingsMega https://mega.nz/#F!ubhxia6L %homepath%\OneDrive\仕事\Settings.zip
 start https://mega.nz/#F!ubhxia6L
 pause
 
@@ -161,7 +162,6 @@ if exist %homepath%\OneDrive\仕事\InitApps (
     rmdir /s /q %homepath%\OneDrive\仕事\InitApps\
 )
 echo ^>^> Please download "InitApps" folder manually
-rem bitsadmin /transfer DownloadInitAppsMega https://mega.nz/#F!yTATTABQ %homepath%\OneDrive\仕事\InitApps.zip
 start https://mega.nz/#F!yTATTABQ
 pause
 
