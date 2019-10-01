@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/10/01 14:43:06.
+rem Last Change: 2019/10/01 14:59:15.
 
 title Install initialize App
 
@@ -117,4 +117,3 @@ endlocal
 
 rem pause
 exit /b 0
-
