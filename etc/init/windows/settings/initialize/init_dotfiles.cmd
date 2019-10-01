@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/10/01 11:21:47.
+rem Last Change: 2019/10/01 12:42:19.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -96,7 +96,7 @@ exit /b 1000
 ii
 :gclone
 echo ^>^> Check Git clone or not
-if not exist C:\%homepath%\dotfiles\.git\ (
+if not exist C:%homepath%\dotfiles\.git\ (
     echo ^>^> Git clone not yet, clone first
     if exist %homepath%\dotfiles\ (
         rmdir /s /q %homepath%\dotfiles\
@@ -111,9 +111,6 @@ rem link.cmd 実行
 pushd %homepath%\dotfiles\
 call link.cmd
 
-if not exist %homepath%\OneDrive\仕事\Settings\ (
-    mkdir %homepath%\OneDrive\仕事\Settings\
-)
 echo ^>^> Check exist "Settings" or not
 if exist %homepath%\OneDrive\仕事\Settings\Wallpaper\ (
     echo ^>^> Already exist "Settings", Install apps
@@ -121,9 +118,6 @@ if exist %homepath%\OneDrive\仕事\Settings\Wallpaper\ (
 )
 
 :chk_initapps
-if not exist %homepath%\OneDrive\仕事\InitApps\ (
-    mkdir %homepath%\OneDrive\仕事\InitApps\
-)
 echo ^>^> Check exist "InitApps" or not
 if exist %homepath%\OneDrive\仕事\InitApps\x64\ (
     echo ^>^> Already exist "InitApps", Install apps
@@ -151,33 +145,45 @@ ping 10.0.1.1 /n 1 > nul 2>&1
 if %errorlevel% equ 0 goto cp_nas
 
 echo ^>^> Not in proxy
-rem megasync
-rem pause
-bitsadmin /transfer DownloadSettingMega https://mega.nz/#F!ubhxia6L %homepath%\OneDrive\仕事\Settings.zip
+if exist %homepath%\OneDrive\仕事\Settings\ (
+    rmdir /s /q %homepath%\OneDrive\仕事\Settings\
+)
+rem bitsadmin /transfer DownloadSettingsMega https://mega.nz/#F!ubhxia6L %homepath%\OneDrive\仕事\Settings.zip
 start https://mega.nz/#F!ubhxia6L
-rem bitsadmin /transfer DownloadInitAppsMega https://mega.nz/*** %homepath%\OneDrive\仕事\InitApps.zip
-rem start https://mega.nz/***
+
+if exist %homepath%\OneDrive\仕事\InitApps\ (
+    rmdir /s /q %homepath%\OneDrive\仕事\InitApps\
+)
+rem bitsadmin /transfer DownloadInitAppsMega https://mega.nz/#F!yTATTABQ %homepath%\OneDrive\仕事\InitApps.zip
+start https://mega.nz/#F!yTATTABQ
+
 echo ^>^> Please download "Settings" and "InitApps" folder manually
 pause
 "C:\Program Files\7-Zip\7z.exe" x -y
-    \ -oC:\%homepath%\OneDrive\仕事\Settings\
-    \ C:\%homepath%\OneDrive\仕事\Settings.zip
+    ^ -oC:%homepath%\OneDrive\仕事\Settings\
+    ^ C:%homepath%\OneDrive\仕事\Settings.zip
 "C:\Program Files\7-Zip\7z.exe" x -y
-    \ -oC:\%homepath%\OneDrive\仕事\InitApps\
-    \ C:\%homepath%\OneDrive\仕事\InitApps.zip
+    ^ -oC:%homepath%\OneDrive\仕事\InitApps\
+    ^ C:%homepath%\OneDrive\仕事\InitApps.zip
 goto inst_apps
 
 :cp_rd
 rem rem Rドライブコピー
 echo ^>^> In proxy
+if not exist %homepath%\OneDrive\仕事\Settings\ (
+    mkdir %homepath%\OneDrive\仕事\Settings\
+)
+if not exist %homepath%\OneDrive\仕事\InitApps\ (
+    mkdir %homepath%\OneDrive\仕事\InitApps\
+)
 net use v: /delete > nul 2>&1
 net use w: /delete > nul 2>&1
 net use v: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings
 net use w: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps
 echo ^>^> Copy "Settngs" from R drive
-robocopy v: C:\%homepath%\OneDrive\仕事\Settings\ /s /e
+robocopy v: C:%homepath%\OneDrive\仕事\Settings\ /s /e
 echo ^>^> Copy "InitApps" from R drive
-robocopy w: C:\%homepath%\OneDrive\仕事\InitApps\ /s /e
+robocopy w: C:%homepath%\OneDrive\仕事\InitApps\ /s /e
 net use v: /delete > nul 2>&1
 net use w: /delete > nul 2>&1
 
@@ -239,18 +245,18 @@ rem ---------------------------------------------------------------------------
 
 :erase
 echo ^>^> Erase temp data
-if exist C:\%homepath%\init_dotfiles\ (
+if exist C:%homepath%\init_dotfiles\ (
     echo ^>^> Del init_dotfiles
-    rmdir /s /q C:\%homepath%\init_dotfiles\ > nul 2>&1
+    rmdir /s /q C:%homepath%\init_dotfiles\ > nul 2>&1
 )
-if exist C:\%homepath%\OneDrive\仕事\Settings.zip (
+if exist C:%homepath%\OneDrive\仕事\Settings.zip (
     echo ^>^> Del Settings.zip
-    rmdir /s /q C:\%homepath%\OneDrive\仕事\Settings.zip > nul 2>&1
+    rmdir /s /q C:%homepath%\OneDrive\仕事\Settings.zip > nul 2>&1
 )
 
-if exist C:\%homepath%\OneDrive\仕事\InitApps.zip (
+if exist C:%homepath%\OneDrive\仕事\InitApps.zip (
     echo ^>^> Del InitApps.zip
-    rmdir /s /q C:\%homepath%\OneDrive\仕事\InitApps.zip > nul 2>&1
+    rmdir /s /q C:%homepath%\OneDrive\仕事\InitApps.zip > nul 2>&1
 )
 
 rem link.cmd 実行

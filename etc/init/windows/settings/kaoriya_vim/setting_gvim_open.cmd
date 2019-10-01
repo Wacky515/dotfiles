@@ -1,7 +1,7 @@
 @echo off
 setlocal
-rem Created:     20**/**/** **:**:**
-rem Last Change: 2018/12/06 14:26:41.
+rem Created:     201*/**/** **:**:**
+rem Last Change: 2019/10/01 12:49:02.
 
 set batch_title=Setting GVim Open
 title %batch_title%
@@ -16,13 +16,13 @@ rem ŠÇ—ŽÒŒ ŒÀ‚Å‚È‚¯‚ê‚ÎŠÇ—ŽÒŒ ŒÀ‚ÅÄ‹N“®
 exit
 
 :main_routine
-set homedir="C:"%homepath%
+set homedir=C:%homepath%
 
 echo ^>^> %batch_title%
 
 rem OS 64bit”Å‚Æ32bit”Å‚Å•ªŠò
-if exist %homedir%"\vim81-kaoriya-win64\" goto vim64
-if exist %homedir%"\vim81-kaoriya-win32\" (
+if exist %homedir%\vim81-kaoriya-win64\ goto vim64
+if exist %homedir%\vim81-kaoriya-win32\ (
     goto vim32
 ) else (
 
@@ -47,4 +47,3 @@ endlocal
 
 rem pause
 exit /b 0
-

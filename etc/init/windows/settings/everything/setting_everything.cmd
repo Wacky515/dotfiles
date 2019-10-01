@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2018/12/04 11:14:03.
+rem Last Change: 2019/10/01 12:38:07.
 
 set batch_title=Setting Everything
 title %batch_title%
@@ -36,10 +36,10 @@ set ss=%time:~6,2%
 set tstmp=%yyyy%-%mm%-%dd%_%hh%-%mi%-%ss%
 echo ^>^> Time stamp: %tstmp%
 
-set inidir="C:"%HOMEPATH%"\AppData\Roaming\Everything"
+set inidir=C:%homepath%\AppData\Roaming\Everything
 set backup=%inidir%"\old\"%tstmp%
 
-set srcdir=%OneDrive%"\仕事\Settings\Everything"
+set srcdir=%homepath%\OneDrive\仕事\Settings\Everything
 
 rem 設定ファイルがある "Dir" に "cd"
 pushd %srcdir%
@@ -59,11 +59,11 @@ if exist %inidir% (
 rem シンボリックリンク 作成
 echo ^>^> Make symbolic link *.ini
 for %%i in (*.ini) do (
-    mklink %inidir%"\"%%i %srcdir%"\"%%i
+    mklink %inidir%\%%i %srcdir%\%%i
 )
 
 rem デスクトップショートカット 作成
-if not exist %USERPROFILE%"\Desktop\Everything.lnk" (
+if not exist %userprofile%\Desktop\Everything.lnk (
     goto cplnk
 ) else (
     echo ^>^> Already set desktop shortcut
@@ -73,19 +73,19 @@ if not exist %USERPROFILE%"\Desktop\Everything.lnk" (
 :cplnk
 echo ^>^> Make shortcut in Desktop
 
-if exist "C:\Program Files (x86)\Everything\Everything.exe" goto evex64
-if exist "C:\Program Files\Everything\Everything.exe" (
+if exist C:\Program Files (x86)\Everything\Everything.exe goto evex64
+if exist C:\Program Files\Everything\Everything.exe (
     goto eve
 ) else (
     goto end
 )
 
 :evex64
-copy ".\x86_shortcut\Everything.lnk" %USERPROFILE%"\Desktop\"
+copy .\x86_shortcut\Everything.lnk %userprofile%\Desktop\
 goto end
 
 :eve
-copy ".\shortcut\Everything.lnk" %USERPROFILE%"\Desktop\"
+copy .\shortcut\Everything.lnk %userprofile%\Desktop\
 goto end
 
 :end

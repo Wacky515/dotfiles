@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/07/17 10:19:01
-rem Last Change: 2018/12/05 10:06:12.
+rem Last Change: 2019/10/01 12:40:02.
 
 set batch_title=Setting GENE dictionary
 title %batch_title%
@@ -18,14 +18,14 @@ exit
 :main_routine
 rem rem  スクリプトがある "Dir" に "cd"
 rem pushd %~dp0
-pushd %OneDrive%"\仕事\Settings\KaoriyaVim\"
+pushd %homepath%\OneDrive\仕事\Settings\KaoriyaVim\
 
 cd
 echo ^>^> %batch_title%
 
-if not exist %homepath%"/vimfiles/dict/" (
-    mkdir %homepath%"/vimfiles/dict/"
-    copy ".\GENE.TXT" %homepath%"/vimfiles/dict/"
+if not exist %homepath%\vimfiles\dict\ (
+    mkdir %homepath%\vimfiles\dict\
+    copy .\GENE.TXT %homepath%\vimfiles\dict\
     )
 
 endlocal
@@ -33,4 +33,3 @@ popd
 
 rem pause
 exit /b 0
-

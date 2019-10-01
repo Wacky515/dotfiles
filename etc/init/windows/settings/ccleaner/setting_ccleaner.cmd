@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2019/07/10 14:38:24.
+rem Last Change: 2019/10/01 12:34:12.
 
 set batch_title=Setting CCleaner
 title %batch_title%
@@ -36,10 +36,10 @@ set ss=%time:~6,2%
 set tstmp=%yyyy%-%mm%-%dd%_%hh%-%mi%-%ss%
 echo ^>^> Time stamp: %tstmp%
 
-set inidir="C:\Program Files\CCleaner\"
-set inifile=%inidir%"\ccleaner.ini"
-set backup=%inidir%"\old\"%tstmp%
-set srcdir=%OneDrive%"\仕事\Settings\CCleaner"
+set inidir=C:\Program Files\CCleaner\
+set inifile=%inidir%\ccleaner.ini
+set backup=%inidir%\old\%tstmp%
+set srcdir=%homepath%\OneDrive\仕事\Settings\CCleaner
 
 rem 設定ファイルがある "Dir" に "cd"
 pushd %srcdir%

@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2018/12/05 09:26:56.
+rem Last Change: 2019/10/01 12:44:09.
 
 set batch_title=Setting UWSC
 title %batch_title%
@@ -33,9 +33,9 @@ set tstmp=%yyyy%-%mm%-%dd%_%hh%-%mi%-%ss%
 echo ^>^> Time stamp: %tstmp%
 
 set bat_path=%~dp0
-set inidir=%homepath%"\AppData\Roaming\UWSC"
-set inifile=%inidir%"\UWSC.INI"
-set backup=%inidir%"\old\"%tstmp%
+set inidir=%homepath%\AppData\Roaming\UWSC
+set inifile=%inidir%\UWSC.INI
+set backup=%inidir%\old\%tstmp%
 set srcdir=%bat_path%
 
 rem rem スクリプトがある "Dir" に "cd"
@@ -64,7 +64,7 @@ if exist %inifile% (
 	)
 
 echo ^>^> Make symbolic link *.ini
-mklink %inifile% %srcdir%"\UWSC.INI"
+mklink %inifile% %srcdir%\UWSC.INI
 
 endlocal
 popd
