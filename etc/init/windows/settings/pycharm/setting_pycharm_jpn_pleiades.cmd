@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     201*/**/** ** **:**:**
-rem Last Change: 2019/10/01 12:41:41.
+rem Last Change: 2019/10/01 14:16:33.
 
 set batch_title=Setting PyCharm Japanese
 title %batch_title%
@@ -24,10 +24,10 @@ pushd %homepath%\OneDrive\ŽdŽ–\Settings\PyCharm\
 
 echo ^>^> %batch_title%
 
-if exist C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2018.3\ (
-    if not exist C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2018.3\jp.sourceforge.mergedoc.pleiades (
+if exist "C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2018.3\" (
+    if not exist "C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2018.3\jp.sourceforge.mergedoc.pleiades" (
         echo ^>^> Copy setting files
-        xcopy jp.sourceforge.mergedoc.pleiades C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2018.3\jp.sourceforge.mergedoc.pleiades /s/e/i
+        xcopy jp.sourceforge.mergedoc.pleiades "C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2018.3\jp.sourceforge.mergedoc.pleiades" /s/e/i
         ) else (
             echo ^>^> Aleady exist
         )
