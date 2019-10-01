@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/10/01 14:17:45.
+rem Last Change: 2019/10/01 14:22:44.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -155,7 +155,7 @@ rem bitsadmin /transfer DownloadSettingsMega https://mega.nz/#F!ubhxia6L %homepa
 start https://mega.nz/#F!ubhxia6L
 pause
 
-"C:\Program Files\7-Zip\7z.exe" x -y -oC:%homepath%\OneDrive\仕事\Settings C:%homepath%\OneDrive\仕事\Settings.zip
+"C:\Program Files\7-Zip\7z.exe" x -y -oC:%homepath%\OneDrive\仕事\ C:%homepath%\OneDrive\仕事\Settings.zip
 
 if exist %homepath%\OneDrive\仕事\InitApps (
     rmdir /s /q %homepath%\OneDrive\仕事\InitApps\
@@ -165,7 +165,7 @@ rem bitsadmin /transfer DownloadInitAppsMega https://mega.nz/#F!yTATTABQ %homepa
 start https://mega.nz/#F!yTATTABQ
 pause
 
-"C:\Program Files\7-Zip\7z.exe" x -y -oC:%homepath%\OneDrive\仕事\InitApps\ C:%homepath%\OneDrive\仕事\InitApps.zip
+"C:\Program Files\7-Zip\7z.exe" x -y -oC:%homepath%\OneDrive\仕事\ C:%homepath%\OneDrive\仕事\InitApps.zip
 goto inst_apps
 
 :cp_rd

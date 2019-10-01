@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/09/30 12:16:31.
+rem Last Change: 2019/10/01 14:43:06.
 
 title Install initialize App
 
@@ -39,7 +39,7 @@ if "%processor_architecture%" equ "AMD64" goto x64
 
 :x32
 echo ^>^> This OS is 32 bit
-pushd %src_dir%"\x32"
+pushd %src_dir%\x32
 for %%k in (*.7z) do (
         call :unzip %%k
         )
@@ -48,7 +48,7 @@ goto OSver
 
 :x64
 echo ^>^> This OS is 64 bit
-pushd %src_dir%"\x64"
+pushd %src_dir%\x64
 for %%l in (*.7z) do (
         call :unzip %%l
         )
@@ -67,7 +67,7 @@ goto eof
 
 :windows7
 echo ^>^> This OS is Windows7
-pushd %src_dir%"\Windows7"
+pushd %src_dir%\Windows7
 for %%m in (*.7z) do (
         call :unzip %%m
         )
@@ -76,7 +76,7 @@ goto :eof
 
 :windows10
 echo ^>^> This OS is Windows10
-pushd %src_dir%"\Windows10"
+pushd %src_dir%\Windows10
 for %%n in (*.7z) do (
         call :unzip %%n
         )
@@ -88,7 +88,7 @@ rem if not exist %homepath%\SlimDrivers-setup.exe (
         rem         )
 
 echo ^>^> Install some apps
-pushd %src_dir%".\Install"
+pushd %src_dir%\Install
 for %%o in (*.7z) do (
         call :inst %%o
         )

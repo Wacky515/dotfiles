@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/10/01 12:36:24.
+rem Last Change: 2019/10/01 14:52:09.
 
 set batch_title=Setting Google Japanese input
 title %batch_title%
@@ -36,10 +36,10 @@ set ss=%time:~6,2%
 set tstmp=%yyyy%-%mm%-%dd%_%hh%-%mi%-%ss%
 echo ^>^> Time stamp: %tstmp%
 
-set dbdir=C:%homepath%\AppData\LocalLow\Google
+set dbdir=C:%homepath%\AppData\LocalLow\Google\
 
 set backup=%dbdir%\old
-set srcdir=%homepath%\OneDrive\仕事\settings\GoogleJapaneseInput
+set srcdir=%homepath%\OneDrive\仕事\settings\GoogleJapaneseInput\
 
 rem 設定ファイルがある "Dir" に "cd"
 pushd %srcdir%

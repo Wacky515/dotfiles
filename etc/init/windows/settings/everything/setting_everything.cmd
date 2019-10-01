@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2019/10/01 12:38:07.
+rem Last Change: 2019/10/01 14:46:56.
 
 set batch_title=Setting Everything
 title %batch_title%
@@ -36,10 +36,10 @@ set ss=%time:~6,2%
 set tstmp=%yyyy%-%mm%-%dd%_%hh%-%mi%-%ss%
 echo ^>^> Time stamp: %tstmp%
 
-set inidir=C:%homepath%\AppData\Roaming\Everything
-set backup=%inidir%"\old\"%tstmp%
+set inidir=C:%homepath%\AppData\Roaming\Everything\
+set backup=%inidir%\old\%tstmp%
 
-set srcdir=%homepath%\OneDrive\仕事\Settings\Everything
+set srcdir=%homepath%\OneDrive\仕事\Settings\Everything\
 
 rem 設定ファイルがある "Dir" に "cd"
 pushd %srcdir%
@@ -95,4 +95,3 @@ popd
 
 rem pause
 exit /b 0
-
