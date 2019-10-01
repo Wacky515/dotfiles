@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/10/01 13:53:02.
+rem Last Change: 2019/10/01 13:59:39.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -116,6 +116,7 @@ if exist %homepath%\OneDrive\仕事\Settings\Wallpaper\ (
     echo ^>^> Already exist "Settings", Install apps
     goto inst_apps
 )
+echo ^>^> Not exist "Settings"
 
 :chk_initapps
 echo ^>^> Check exist "InitApps" or not
@@ -123,6 +124,7 @@ if exist %homepath%\OneDrive\仕事\InitApps\x64\ (
     echo ^>^> Already exist "InitApps", Install apps
     goto inst_apps
 )
+echo ^>^> Not exist "InitApps"
 
 rem Proxy環境か確認
 rem if %computername% == HBAMB748  rem ({{{
@@ -148,9 +150,11 @@ echo ^>^> Not in proxy
 if exist %homepath%\OneDrive\仕事\Settings\ (
     rmdir /s /q %homepath%\OneDrive\仕事\Settings\
 )
+echo ^>^> Please download "Settings" folder manually
 rem bitsadmin /transfer DownloadSettingsMega https://mega.nz/#F!ubhxia6L %homepath%\OneDrive\仕事\Settings.zip
 start https://mega.nz/#F!ubhxia6L
 pause
+
 "C:\Program Files\7-Zip\7z.exe" x -y
     ^ -oC:%homepath%\OneDrive\仕事\Settings\
     ^ C:%homepath%\OneDrive\仕事\Settings.zip
@@ -158,10 +162,11 @@ pause
 if exist %homepath%\OneDrive\仕事\InitApps\ (
     rmdir /s /q %homepath%\OneDrive\仕事\InitApps\
 )
+echo ^>^> Please download "InitApps" folder manually
 rem bitsadmin /transfer DownloadInitAppsMega https://mega.nz/#F!yTATTABQ %homepath%\OneDrive\仕事\InitApps.zip
 start https://mega.nz/#F!yTATTABQ
 pause
-echo ^>^> Please download "Settings" and "InitApps" folder manually
+
 "C:\Program Files\7-Zip\7z.exe" x -y
     ^ -oC:%homepath%\OneDrive\仕事\InitApps\
     ^ C:%homepath%\OneDrive\仕事\InitApps.zip
