@@ -1,7 +1,7 @@
 @echo off
 setlocal
-rem Created:     2018/01/01 00:00:00
-rem Last Change: 2019/10/01 12:44:09.
+rem Created:     2018/**/** **:**:**
+rem Last Change: 2019/10/01 17:16:50.
 
 set batch_title=Setting UWSC
 title %batch_title%
@@ -71,4 +71,3 @@ popd
 
 rem pause
 exit /b 0
-
