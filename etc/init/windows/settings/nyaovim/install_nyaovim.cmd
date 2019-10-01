@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/12/19 11:37:29
-rem Last Change: 2019/09/30 14:28:08.
+rem Last Change: 2019/10/01 17:14:47.
 
 set batch_title=Install NyaoVim
 title %batch_title%
@@ -45,4 +45,3 @@ popd
 
 rem pause
 exit /b 0
-

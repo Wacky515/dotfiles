@@ -1,25 +1,17 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/10/01 16:07:58.
+rem Last Change: 2019/10/01 17:16:24.
 
 title Install initialize App
+
+set dir_7zip="C:\ProgramData\chocolatey\tools\7z.exe"
 
 rem rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 
-rem 設定ファイルがある "Dir" に "cd"
-rem if %computername% == HBAMB748 (
-rem     set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps\
-rem ) else if %computername% == HBAMB819 (
-rem     set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps\
-rem ) else (
-    set src_dir=C:%homepath%\OneDrive\仕事\InitApps\
-rem )
-
+set src_dir=C:%homepath%\OneDrive\仕事\InitApps\
 pushd %src_dir%
-
-set dir_7zip="C:\ProgramData\chocolatey\tools\7z.exe"
 
 for %%i in (*.7z) do (
         call :unzip %%i
@@ -87,7 +79,7 @@ rem if not exist %homepath%\SlimDrivers-setup.exe (
         rem         %homepath%\SlimDrivers-setup.exe
         rem         )
 
-echo ^>^> Install some apps
+echo ^>^> Install apps
 pushd %src_dir%\Install
 for %%o in (*.7z) do (
         call :inst %%o

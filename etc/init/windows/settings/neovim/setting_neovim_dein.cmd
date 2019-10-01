@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/10/01 14:31:48.
+rem Last Change: 2019/10/01 17:15:46.
 
 title Setting NeoVim's dein
 
@@ -22,7 +22,6 @@ pushd %bat_path%
 pip3 --version > nul 2>&1
 if errorlevel 1 (
     echo ^>^> Install pip3 first
-    rem call %OneDrive%"\édéñ\Settings\Python3\install_python.cmd"
     call %homepath%\OneDrive\édéñ\Settings\Python3\install_python.cmd
     )
 
@@ -34,4 +33,3 @@ popd
 
 rem pause
 exit /b 0
-
