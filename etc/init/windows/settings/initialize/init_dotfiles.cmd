@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/10/01 12:42:19.
+rem Last Change: 2019/10/01 13:50:46.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -247,7 +247,7 @@ rem ---------------------------------------------------------------------------
 echo ^>^> Erase temp data
 if exist C:%homepath%\init_dotfiles\ (
     echo ^>^> Del init_dotfiles
-    rmdir /s /q C:%homepath%\init_dotfiles\ > nul 2>&1
+    rmdir /s /q C:%homepath%\init_dotfiles > nul 2>&1
 )
 if exist C:%homepath%\OneDrive\ŽdŽ–\Settings.zip (
     echo ^>^> Del Settings.zip
