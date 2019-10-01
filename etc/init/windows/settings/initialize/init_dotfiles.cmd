@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/09/30 16:24:21.
+rem Last Change: 2019/10/01 10:46:58.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -112,6 +112,16 @@ if not exist %homepath%\OneDrive\仕事\Settings\ (
 echo ^>^> Check exist "Settings" or not
 if exist %homepath%\OneDrive\仕事\Settings\Wallpaper\ (
     echo ^>^> Already exist "Settings", Install apps
+    goto inst_apps
+)
+
+:chk_initapps
+if not exist %homepath%\OneDrive\仕事\InitApps\ (
+    mkdir %homepath%\OneDrive\仕事\InitApps\
+)
+echo ^>^> Check exist "InitApps" or not
+if exist %homepath%\OneDrive\仕事\InitApps\x64\ (
+    echo ^>^> Already exist "InitApps", Install apps
     goto inst_apps
 )
 
