@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/10/01 10:46:58.
+rem Last Change: 2019/10/01 11:21:47.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -50,12 +50,17 @@ echo Standard and Standard errer output in ~/init_dotfile.log.
 echo This script can change your entire setup.
 echo I recommend to read first. You can even copy commands one by one.
 echo.
-echo Start install? [Y/N]
+echo Start install [Y/N], or test[t]?
 
 set /p input=
 if defined input set input=%input:"=%
 if /i "%input%" == "y" (goto redirect)
 if /i "%input%" == "Y" (goto redirect)
+if /i "%input%" == "t" (
+    set test=1
+    goto redirect
+)
+
 exit /b 0
 
 :redirect
@@ -189,8 +194,9 @@ rem "*.config" のある "Dir" に "pushd"
 pushd %conf_path%
 
 echo ^>^> Install apps by Chocolatey
-rem Test時はKILL
+rem Test時はスキップ
 rem ---------------------------------------------------------------------------
+if %test% equ 1 goto inst_all
 rem "***_packages_***.config" を読み込み、インストール
 if exist *_%config_files% (
     echo ^>^> Install apps for this PC
@@ -205,6 +211,7 @@ echo ^>^> Update Chocolatey
 cup all -y
 rem ---------------------------------------------------------------------------
 
+:inst_all
 rem 再度スクリプトがある "Dir" に "pushd"
 rem "init_dotfiles" で実行する場合があるので絶対Path
 pushd %homepath%\dotfiles\etc\init\windows\settings\initialize\
@@ -224,14 +231,26 @@ echo ^>^> Chocolatey update
 cup all -y
 rem pause
 
+rem Test時はスキップ
+rem ---------------------------------------------------------------------------
+if %test% equ 1 goto erase
 call sub_install_font.cmd
+rem ---------------------------------------------------------------------------
 
+:erase
 echo ^>^> Erase temp data
 if exist C:\%homepath%\init_dotfiles\ (
+    echo ^>^> Del init_dotfiles
     rmdir /s /q C:\%homepath%\init_dotfiles\ > nul 2>&1
 )
 if exist C:\%homepath%\OneDrive\仕事\Settings.zip (
+    echo ^>^> Del Settings.zip
     rmdir /s /q C:\%homepath%\OneDrive\仕事\Settings.zip > nul 2>&1
+)
+
+if exist C:\%homepath%\OneDrive\仕事\InitApps.zip (
+    echo ^>^> Del InitApps.zip
+    rmdir /s /q C:\%homepath%\OneDrive\仕事\InitApps.zip > nul 2>&1
 )
 
 rem link.cmd 実行
