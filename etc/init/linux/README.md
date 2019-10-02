@@ -1,6 +1,11 @@
-#Initial setting scripts for Linux
+# Test setting scripts for Linux
 
-## None
+## Usage
 
-## Linux install list
-`grep "apt-get install" /var/log/apt/history.log > ~/dotfiles/etc/init/manually_list.txt`
+- Run command below
+
+|Tool|OS|Command|
+|---|---|---|
+|cURL|***|bash -c "$(curl -fsSL https://raw.githubusercontent.com/Wacky515/dotfiles/master/etc/test/linux/make_dotfiles.sh)" | tee ~/make_dotfiles.log
+|Wget1|***|bash -c "$(wget -qO - https://raw.githubusercontent.com/Wacky515/dotfiles/master/etc/test/linux/make_dotfiles.sh &#124; bash)" | tee ~/make_dotfiles.log
+|Wget2|Ubuntu|bash -c "$(wget -qO - https://raw.githubusercontent.com/Wacky515/dotfiles/master/etc/test/linux/make_dotfiles.sh)" | tee ~/make_dotfiles.log

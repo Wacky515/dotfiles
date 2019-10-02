@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/10/01 15:57:24.
+rem Last Change: 2019/10/02 09:31:34.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -36,12 +36,8 @@ echo  #    # #    #    #     #     #   #     #         #
 echo  #   #  #    #    #     #     #   #     #   # #   #
 echo #####    ####    ###   ##    ### ##### ######  ####
 echo.
-echo *** WHAT IS INSIDE? ***
-echo 1. Download dotfiles from "https://github.com/Wacky515/dotfiles".
-echo 2. Symbolic linking dotfiles to home directory.
-echo 3. Install packages.
-echo.
 echo *** HOW TO INSTALL? ***
+echo.
 echo See the README for documentation.
 echo Licensed under the MIT license.
 echo.
