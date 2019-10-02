@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/10/02 11:08:18.
+rem Last Change: 2019/10/02 11:32:59.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -266,8 +266,9 @@ if exist C:%homepath%\OneDrive\édéñ\InitApps.zip (
 )
 
 rem link.cmd é¿çs
-pushd %homepath%\dotfiles\
-call link.cmd
+rem pushd %homepath%\dotfiles\
+rem call link.cmd
+call C:%homepath%\dotfiles\etc\init\windows\settings\chocolatey\init_and_update_chocolatey.cmd
 
 echo *** CAUTION, AUTOMATICALLY RESTART PC KEY INPUT AFTER 60sec ***
 pause
