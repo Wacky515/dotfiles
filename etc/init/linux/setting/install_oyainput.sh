@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Intall oyainput
 # Created:     201*/**/** **:**:**
-# Last Change: 2019/09/26 17:15:23.
+# Last Change: 2019/10/01 11:54:28.
 
 # TODO: 自動起動させる
 
@@ -26,4 +26,8 @@ git clone https://github.com/inwskatsube/oyainput.git
 cd ~/oyainput
 make
 sudo make install
+
+bash oyainput
+echo ">> Please setting automatically start up"
+
 result_echo $? "${PROCESS}"
