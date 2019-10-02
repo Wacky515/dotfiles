@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2019/10/01 09:58:51.
+# Last Change: 2019/10/02 09:50:09.
 
 # FIXME:
     # sudo権限を終了しないと "brew" が使えない
@@ -95,12 +95,8 @@ dotfiles_logo='
 ██████╔╝╚██████╔╝   ██║   ██║     ██║███████╗███████╗███████║
 ╚═════╝  ╚═════╝    ╚═╝   ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝
 
-*** WHAT IS INSIDE? ***
-1. Download dotfiles from "https://github.com/Wacky515/dotfiles".
-2. Symbolic linking dotfiles to home directory.
-3. Install packages.
-
 *** HOW TO INSTALL? ***
+
 See the README for documentation.
 Licensed under the MIT license.
 '

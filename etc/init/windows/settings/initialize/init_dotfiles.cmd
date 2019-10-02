@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/10/02 09:31:34.
+rem Last Change: 2019/10/02 10:26:15.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -42,6 +42,7 @@ echo See the README for documentation.
 echo Licensed under the MIT license.
 echo.
 echo *** ATTENTION ***
+echo.
 echo Standard and Standard errer output in ~/init_dotfile.log.
 echo This script can change your entire setup.
 echo I recommend to read first. You can even copy commands one by one.
@@ -50,8 +51,14 @@ echo Start install [Y/N], or test[t]?
 
 set /p input=
 if defined input set input=%input:"=%
-if /i "%input%" == "y" (goto redirect)
-if /i "%input%" == "Y" (goto redirect)
+if /i "%input%" == "y" (
+    set test=0
+    goto redirect
+)
+if /i "%input%" == "Y" (
+    set test=0
+    goto redirect
+)
 if /i "%input%" == "t" (
     set test=1
     goto redirect
