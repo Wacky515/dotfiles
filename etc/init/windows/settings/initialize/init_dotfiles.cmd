@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/10/02 10:26:15.
+rem Last Change: 2019/10/02 11:08:18.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -114,23 +114,6 @@ rem link.cmd 実行
 pushd %homepath%\dotfiles\
 call link.cmd
 
-echo ^>^> Check exist "Settings" or not
-if exist %homepath%\OneDrive\仕事\Settings\Wallpaper\ (
-    echo ^>^> Already exist "Settings", Install apps
-    goto chk_initapps
-)
-echo ^>^> Not exist "Settings"
-goto chk_proxy
-
-:chk_initapps
-echo ^>^> Check exist "InitApps" or not
-if exist %homepath%\OneDrive\仕事\InitApps\x64\ (
-    echo ^>^> Already exist "InitApps", Install apps
-    goto inst_apps
-)
-echo ^>^> Not exist "InitApps"
-
-:chk_proxy
 rem Proxy環境か確認
 rem if %computername% == HBAMB748  rem ({{{
 rem     goto cp_rd
@@ -151,25 +134,21 @@ if %errorlevel% equ 0 goto cp_rd
 ping 10.0.1.1 /n 1 > nul 2>&1
 if %errorlevel% equ 0 goto cp_nas
 
-echo ^>^> Not in proxy
-if exist %homepath%\OneDrive\仕事\Settings\ (
-    rmdir /s /q %homepath%\OneDrive\仕事\Settings\
+echo ^>^> Check exist "Settings" or not
+if exist %homepath%\OneDrive\仕事\Settings\Wallpaper\ (
+    echo ^>^> Already exist "Settings", Install apps
+    goto chk_initapps
 )
-echo ^>^> Please download "Settings" folder manually
-start https://mega.nz/#F!ubhxia6L
-pause
+echo ^>^> Not exist "Settings"
+goto dl_mega
 
-"C:\Program Files\7-Zip\7z.exe" x -y -oC:%homepath%\OneDrive\仕事\ C:%homepath%\OneDrive\仕事\Settings.zip
-
-if exist %homepath%\OneDrive\仕事\InitApps (
-    rmdir /s /q %homepath%\OneDrive\仕事\InitApps\
+:chk_initapps
+echo ^>^> Check exist "InitApps" or not
+if exist %homepath%\OneDrive\仕事\InitApps\x64\ (
+    echo ^>^> Already exist "InitApps", Install apps
+    goto inst_apps
 )
-echo ^>^> Please download "InitApps" folder manually
-start https://mega.nz/#F!yTATTABQ
-pause
-
-"C:\Program Files\7-Zip\7z.exe" x -y -oC:%homepath%\OneDrive\仕事\ C:%homepath%\OneDrive\仕事\InitApps.zip
-goto inst_apps
+echo ^>^> Not exist "InitApps"
 
 :cp_rd
 rem rem Rドライブコピー
@@ -190,6 +169,7 @@ echo ^>^> Copy "InitApps" from R drive
 robocopy w: C:%homepath%\OneDrive\仕事\InitApps\ /s /e
 net use v: /delete > nul 2>&1
 net use w: /delete > nul 2>&1
+goto inst_apps
 
 :cp_nas
 echo ^>^> In home network
@@ -197,6 +177,27 @@ echo ^>^> Copy "Settngs" from NAS
 robocopy src dst /s /e
 echo ^>^> Copy "InitApps" from NAS
 robocopy src dst /s /e
+goto inst_apps
+
+:dl_mega
+echo ^>^> Not in proxy
+if exist %homepath%\OneDrive\仕事\Settings\ (
+    rmdir /s /q %homepath%\OneDrive\仕事\Settings\
+)
+echo ^>^> Please download "Settings" folder manually
+start https://mega.nz/#F!ubhxia6L
+pause
+
+"C:\Program Files\7-Zip\7z.exe" x -y -oC:%homepath%\OneDrive\仕事\ C:%homepath%\OneDrive\仕事\Settings.zip
+
+if exist %homepath%\OneDrive\仕事\InitApps (
+    rmdir /s /q %homepath%\OneDrive\仕事\InitApps\
+)
+echo ^>^> Please download "InitApps" folder manually
+start https://mega.nz/#F!yTATTABQ
+pause
+
+"C:\Program Files\7-Zip\7z.exe" x -y -oC:%homepath%\OneDrive\仕事\ C:%homepath%\OneDrive\仕事\InitApps.zip
 goto inst_apps
 
 :inst_apps
