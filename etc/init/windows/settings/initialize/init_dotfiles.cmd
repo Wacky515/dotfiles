@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/10/02 11:32:59.
+rem Last Change: 2019/10/02 12:24:06.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -264,6 +264,8 @@ if exist C:%homepath%\OneDrive\仕事\InitApps.zip (
     echo ^>^> Del InitApps.zip
     del C:%homepath%\OneDrive\仕事\InitApps.zip > nul 2>&1
 )
+
+call C:%homepath%\OneDrive\仕事\Batch\empty.cmd
 
 rem link.cmd 実行
 rem pushd %homepath%\dotfiles\

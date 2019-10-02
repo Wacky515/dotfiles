@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2017/02/17 00:54:41
-rem Last Change: 2019/10/02 12:15:36.
+rem Last Change: 2019/10/02 12:22:01.
 
 title Update Chocolatey
 
@@ -51,7 +51,7 @@ if exist *_%config_files% (
 cup all -y
 
 rem デスクトップショートカット 作成
-if not exist %userprofile%\Desktop\%~n0.lnk (
+if not exist %userprofile%\Desktop\init_and_update_chocolatey.lnk (
     goto cplnk
 ) else (
     echo ^>^> Already set desktop shortcut
@@ -60,7 +60,7 @@ if not exist %userprofile%\Desktop\%~n0.lnk (
 
 :cplnk
 echo ^>^> Set desktop shortcut
-copy %~n0.lnk %userprofile%\Desktop\
+copy init_and_update_chocolatey.lnk %userprofile%\Desktop\
 
 :end
 
