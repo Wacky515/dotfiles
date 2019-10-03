@@ -32,4 +32,3 @@
 
 [includeIf "gitdir:C:/Users/mm12167/"]
     path = ~/gitconfig_hbamb748.local
-

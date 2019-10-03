@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/10/01 10:53:23.
+rem Last Change: 2019/10/03 13:38:59.
 
 set batch_title=Setting Pacman
 title %batch_title%
@@ -19,27 +19,23 @@ exit
 rem  スクリプトがある "Dir" に "cd"
 pushd %~dp0
 
-rem 不要
-rem rem TODO: "Pacman" 存在確認処理
-rem pacman -Sl | grep 'pacman ' >> nul
-rem if %errorlevel% equ 0 goto setting_pacman
-
-rem TODO: install Pacman
+rem TODO: Install Pacman
 
 rem :setting_pacman
-echo ^>^> %batch_title%
-echo ^>^> Start set link
+echo ^>^> Start %batch_title%
 
-if exist "C:\tools\msys64\etc\pacman.conf" (
-        echo ^>^> Backup default file
-        rename "C:\tools\msys64\etc\pacman.conf" "pacman.conf.bak"
-        )
+if exist C:\tools\msys64\etc\pacman.conf (
+    echo ^>^> Backup default file
+    rename C:\tools\msys64\etc\pacman.conf pacman.conf.bak
+)
 
-mklink "C:\tools\msys64\etc\pacman.conf" %~dp0%"pacman.conf"
+mklink C:\tools\msys64\etc\pacman.conf .\pacman.conf
+
+call msys2_shell.cmd -no-start -defterm -mingw64 -here %homepath%\dotfiles\etc\init\windows\settings\msys2\install_init_apps.sh
+call %homepath%\dotfiles\etc\init\windows\settings\msys2\fish\AFTER_INS_FISH_setting_fish.cmd
 
 endlocal
 popd
 
 rem pause
 exit /b 0
-

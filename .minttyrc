@@ -27,11 +27,7 @@ OpaqueWhenFocused=no
 
 BoldAsFont=-1
 Font=MeiryoKe_Console
-<<<<<<< HEAD
 FontHeight=12
-=======
-FontHeight=10
->>>>>>> e2d0365de6b3525cea5ef2490a4080bfdf9de091
 # Font=Ricty Diminished
 # Font=Cica  # 汚い
 # FontHeight=12
