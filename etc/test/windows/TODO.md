@@ -1,20 +1,18 @@
 # Initialize Windows TODO
 
-- �C���X�g�[���� �X�L�b�v
-- Pyghon 3.6.6 �C���X�g�[�� �d��
+- Install/ インストール済 スキップ
+- Pyghon 3.6.6 インストール 重複
 
-- MS IME �폜
-- �^�b�`�p�b�h�̃X�N���[������ �t�]
-  - ���@�q�b�g������ꂸ
-    - �蓮�ŕύX
-- ��ԃ��[�h
-- �������̃t�H���g
+- MS IME 削除
+- タッチパッドのスクロール方向 逆転
+  - 方法ヒットさせられず
+    - 手動で変更
+- 黒
+  - Windowsで設定同期される、アカウント使えないPCどうするか
+- メモ帳
+  - フォント設定
 
-- [x] �R�}���h�v�����v�g ��ɊǗ��҂Ƃ��Ď��s
-- [x] �E�B���h�E���X�i�b�v�����Ƃ���~ �L��
-- [x] �E�C���h�E ����ʎ��̑��� �L��
-
-## �𓀎��t�H���_�d��
+## 解凍時フォルダ重複
 
 - [x] ConvertCharacterCode
 - [x] diskinfo643.3.2.2
@@ -22,4 +20,10 @@
 - [x] Lynx_for_Win32
 - [x] registrychangesview
 
-- [x] "�E�B���h�E���X�i�b�v�����Ƃ��ɉ��ɔz�u�ł�����̂�\������" OFF
+## DONE
+
+- [x] コマンドプロンプト 常に管理者として実行
+- [x] ウィンドウをスナップしたときに~ キル
+- [x] ウインドウ 半画面時の相方 キル
+
+- [x] "ウィンドウをスナップしたときに横に配置できるものを表示する" OFF
