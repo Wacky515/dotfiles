@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install HomeBrew
 # Created:     2018/05/03 10:58:45
-# Last Change: 2019/10/01 09:53:49.
+# Last Change: 2019/10/04 07:06:12.
 
 for f in ~/dotfiles/function/*.sh
 do
@@ -43,7 +43,8 @@ brew install argon/mas/mas
 brew install rcmdnk/file/brew-file
 if [ ! -f ~/.config/brewfile/Brewfile ]; then
     sudo mkdir -m 777 ~/.config/brewfile
-    sudo ln -s ~/dotfiles/etc/init/osx/brewfile/Brewfile \
+    # sudo ln -s ~/dotfiles/etc/init/osx/brewfile/Brewfile \
+    sudo ln -s ~/Library/Mobile Documents/com~apple~CloudDocs/Settings/BrewFile/Brewfile \
         ~/.config/brewfile
 fi
 # brew file install Brewfile

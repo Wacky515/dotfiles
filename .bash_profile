@@ -1,5 +1,5 @@
 # Created:     2017/**/** **:**:**
-# Last Change: 2019/10/03 14:08:07.
+# Last Change: 2019/10/05 21:45:42.
 
 export PATH="/usr/local/sbin:$PATH"
 # FIXME: "Mac" でエラーのためキル
@@ -17,7 +17,7 @@ elif [[ `uname` =~ ^(MSYS_NT-|MINGW32_NT-).+$ ]]; then
     # "gitk" は "Windows" 用を使う
     alias gitk="/c/Program\ Files/Git/cmd/gitk"
 
-    # "mintty" が ."bashrc" を読込む設定
+    "mintty" が ."bashrc" を読込む設定
     if [[ -f ~/.bashrc ]]; then
         source ~/.bashrc
     fi

@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/09/29 11:01:21.
+" Last Change: 2019/10/05 21:34:16.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -98,13 +98,16 @@ if has("unix")
     endif
 
 elseif has("mac")
-    if hostname() == "ProSalad133.local"
+    if hostname() == "ProSalad13-2018.local"
         set guifont=Cica:h16
         set printfont=Cica:h12
-        colorscheme iceberg
     elseif hostname() == "ProSalad13.local"
         set guifont=Cica:h16
         set printfont=Cica:h12
+    elseif hostname() == "ProSalad133.local"
+        set guifont=Cica:h16
+        set printfont=Cica:h12
+        colorscheme iceberg
     elseif hostname() == "saladserver.com"
         set guifont=Cica:h24
         set printfont=Cica:h20
