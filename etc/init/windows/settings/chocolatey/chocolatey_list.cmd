@@ -1,16 +1,16 @@
 @echo off
 setlocal
-rem Created:     20**/**/** **:**:**
+rem Created:     201*/**/** **:**:**
 rem Last Change: 2018/12/17 16:18:05.
 title Output Chocolatey list
 
-rem ŠÇ—ÒŒ ŒÀ‚Å‹N“®‚³‚ê‚½‚©ƒ`ƒFƒbƒN
+rem ç®¡ç†è€…æ¨©é™ã§èµ·å‹•ã•ã‚ŒãŸã‹ãƒã‚§ãƒƒã‚¯
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
-rem ŠÇ—ÒŒ ŒÀ‚È‚çƒƒCƒ“ˆ—
+rem ç®¡ç†è€…æ¨©é™ãªã‚‰ãƒ¡ã‚¤ãƒ³å‡¦ç†
 if not errorlevel 1 goto main_routine
 
-rem ŠÇ—ÒŒ ŒÀ‚Å‚È‚¯‚ê‚ÎŠÇ—ÒŒ ŒÀ‚ÅÄ‹N“®
+rem ç®¡ç†è€…æ¨©é™ã§ãªã‘ã‚Œã°ç®¡ç†è€…æ¨©é™ã§å†èµ·å‹•
 @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
 exit
 
@@ -22,4 +22,3 @@ popd
 
 rem pause
 exit /b 0
-

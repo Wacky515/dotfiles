@@ -6,15 +6,15 @@ rem Last Change: 2019/10/03 10:16:37.
 title Update Chocolatey
 
 rem http://pachicoma.hateblo.jp/entry/2017/02/28/Chocolatey%E3%81%A8%E3%81%84%E3%81%86Windows10%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B
-rem DONE: ã‹LURLQÆ‚µ‚ÄƒŠƒtƒ@ƒNƒ^ƒŠƒ“ƒO
+rem DONE: ä¸Šè¨˜URLå‚ç…§ã—ã¦ãƒªãƒ•ã‚¡ã‚¯ã‚¿ãƒªãƒ³ã‚°
 
-rem ŠÇ—ÒŒ ŒÀ‚Å‹N“®‚³‚ê‚½‚©ƒ`ƒFƒbƒN
+rem ç®¡ç†è€…æ¨©é™ã§èµ·å‹•ã•ã‚ŒãŸã‹ãƒã‚§ãƒƒã‚¯
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
-rem ŠÇ—ÒŒ ŒÀ‚È‚çƒƒCƒ“ˆ—
+rem ç®¡ç†è€…æ¨©é™ãªã‚‰ãƒ¡ã‚¤ãƒ³å‡¦ç†
 if not errorlevel 1 goto main_routine
 
-rem ŠÇ—ÒŒ ŒÀ‚Å‚È‚¯‚ê‚ÎŠÇ—ÒŒ ŒÀ‚ÅÄ‹N“®
+rem ç®¡ç†è€…æ¨©é™ã§ãªã‘ã‚Œã°ç®¡ç†è€…æ¨©é™ã§å†èµ·å‹•
 @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
 exit
 
@@ -22,15 +22,15 @@ exit
 set bat_path=%~dp0
 set config_files=packages_%computername%.config
 
-rem rem ƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "cd"
+rem rem ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "cd"
 rem pushd %bat_path%
-rem "dotfiles" ‚É "cd"
+rem "dotfiles" ã« "cd"
 if not exist C:%homepath%\dotfiles\ (
     mkdir C:%homepath%\dotfiles\
 )
 pushd C:%homepath%\dotfiles\
 
-rem "Chocolatey" ƒCƒ“ƒXƒg[ƒ‹Ï‚İ‚©ƒ`ƒFƒbƒN
+rem "Chocolatey" ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«æ¸ˆã¿ã‹ãƒã‚§ãƒƒã‚¯
 chocolatey -v > nul 2>&1
 if %errorlevel% equ 0 goto update
 
@@ -40,7 +40,7 @@ echo ^>^> Install Chocolatey
 :update
 echo ^>^> Already installed Chocolatey, Update software
 
-rem "***_packages_***.config" ‚ğ“Ç‚İ‚İAƒCƒ“ƒXƒg[ƒ‹
+rem "***_packages_***.config" ã‚’èª­ã¿è¾¼ã¿ã€ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
 if exist *_%config_files% (
         echo ^>^> Setting for this PC
         for %%i in (*_%config_files%) do (
@@ -50,7 +50,7 @@ if exist *_%config_files% (
 
 cup all -y
 
-rem ƒfƒXƒNƒgƒbƒvƒVƒ‡[ƒgƒJƒbƒg ì¬
+rem ãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ—ã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆ ä½œæˆ
 if not exist %userprofile%\Desktop\init_and_update_chocolatey.lnk (
     goto cplnk
 ) else (

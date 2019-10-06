@@ -8,26 +8,26 @@ title %batch_title%
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
-rem ŠÇ—ŽÒŒ ŒÀ‚È‚çƒƒCƒ“ˆ—
+rem ç®¡ç†è€…æ¨©é™ãªã‚‰ãƒ¡ã‚¤ãƒ³å‡¦ç†
 if not errorlevel 1 goto main_routine
 
-rem ŠÇ—ŽÒŒ ŒÀ‚Å‚È‚¯‚ê‚ÎŠÇ—ŽÒŒ ŒÀ‚ÅÄ‹N“®
+rem ç®¡ç†è€…æ¨©é™ã§ãªã‘ã‚Œã°ç®¡ç†è€…æ¨©é™ã§å†èµ·å‹•
 @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
 exit
 
 :main_routine
-rem ƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "cd"
+rem ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "cd"
 set bat_path=%~dp0
 pushd %bat_path%
 
 echo ^>^> %batch_title%
 
-rem “ú•tŽæ“¾
+rem æ—¥ä»˜å–å¾—
 set yyyy=%date:~0,4%
 set mm=%date:~5,2%
 set dd=%date:~8,2%
 
-rem ŽžŽæ“¾
+rem æ™‚åˆ»å–å¾—
 set time=%time: =0%
 set hh=%time:~0,2%
 set mi=%time:~3,2%
@@ -39,16 +39,16 @@ echo ^>^> Time stamp: %tstmp%
 set inidir="C:\Program Files\CCleaner\"
 set inifile=%inidir%\ccleaner.ini
 set backup=%inidir%\old\%tstmp%
-set srcdir=%homepath%\OneDrive\ŽdŽ–\Settings\CCleaner
+set srcdir=%homepath%\OneDrive\ä»•äº‹\Settings\CCleaner
 
-rem Ý’èƒtƒ@ƒCƒ‹‚ª‚ ‚é "Dir" ‚É "cd"
+rem è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã‚‹ "Dir" ã« "cd"
 pushd %srcdir%
 
-rem "CCleaner" ’âŽ~
+rem "CCleaner" åœæ­¢
 echo ^>^> Kill CCleaner
 taskkill /f /im CCleaner.exe > nul 2>&1
 
-rem ƒoƒbƒNƒAƒbƒv ì¬
+rem ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ— ä½œæˆ
 if exist %inifile% (
     goto bkup
 ) else (
@@ -60,7 +60,7 @@ echo ^>^> Backup old *.ini
 mkdir %backup%
 move %inifile% %backup%
 
-rem ƒVƒ“ƒ{ƒŠƒbƒNƒŠƒ“ƒN ì¬
+rem ã‚·ãƒ³ãƒœãƒªãƒƒã‚¯ãƒªãƒ³ã‚¯ ä½œæˆ
 :mklink
 rem echo ^>^> Copy *.ini
 rem copy "ccleaner.ini" %inifile%
