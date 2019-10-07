@@ -267,4 +267,3 @@ repo = 'thinca/vim-fontzoom'
 # on_cmd = ['Fontzoom']
 # on_map = ['<Plug>(fontzoom-']
 gui = 1
-

@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2019/07/14 15:11:26.
+# Last Change: 2019/10/07 09:20:44.
 
 # MEMO:
 # hook_add         プラグイン追加後
@@ -229,15 +229,15 @@ hook_add = '''
 [[plugins]]
 repo = 'shinshin86/twc.vim'
 
-# 天気予報
-[[plugins]]
-repo = 'skanehira/weather.vim'
-
-# 乗換え案内
-[[plugins]]
-repo = 'skanehira/train.vim'
-
 # JOKE
 [[plugins]]
 repo = 'wordijp/kuririn-no-kotoka.vim'
 
+# DISCON:
+# # 天気予報
+# [[plugins]]
+# repo = 'skanehira/weather.vim'
+
+# # 乗換え案内
+# [[plugins]]
+# repo = 'skanehira/train.vim'

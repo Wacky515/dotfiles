@@ -1,256 +1,261 @@
-# Vimƒ}ƒbƒvƒL[
+# Vim ãƒžãƒƒãƒ—ã‚­ãƒ¼
 
-## ˆê”Ê
+## ä¸€èˆ¬
 
-### FIXME: "NeoVim" ‚Å•ÏX•K—v
+### FIXME: "NeoVim" ã§å¤‰æ›´å¿…è¦
 
-- ev: vimrc‚ðŠJ‚­
-- eg: gvimrc‚ðŠJ‚­
-- ,v: vimrc‚ð”½‰f
-- ,g: gvimrc‚ð”½‰f
+- ev: vimrc ã‚’é–‹ã
+- eg: gvimrc ã‚’é–‹ã
+- ,v: vimrc ã‚’åæ˜ 
+- ,g: gvimrc ã‚’åæ˜ 
 
 ---
 
-- :e!: ƒtƒ@ƒCƒ‹Ä“Çž
+- :e!: ãƒ•ã‚¡ã‚¤ãƒ«å†èª­è¾¼
 
-- vv: ƒJ[ƒ\ƒ‹‚©‚çs––‚Ü‚Å‘I‘ð
-- Y:  ƒJ[ƒ\ƒ‹‚©‚çs––‚Ü‚Åƒ„ƒ“ƒN
-- g;: •ÏX‰ÓŠ‚Öi‚Þ
-- g,: •ÏX‰ÓŠ‚Ö–ß‚é
+- vv: ã‚«ãƒ¼ã‚½ãƒ«ã‹ã‚‰è¡Œæœ«ã¾ã§é¸æŠž
+- Y: ã‚«ãƒ¼ã‚½ãƒ«ã‹ã‚‰è¡Œæœ«ã¾ã§ãƒ¤ãƒ³ã‚¯
+- g;: å¤‰æ›´ç®‡æ‰€ã¸é€²ã‚€
+- g,: å¤‰æ›´ç®‡æ‰€ã¸æˆ»ã‚‹
 
-- bk: ƒoƒbƒNƒAƒbƒvƒtƒ@ƒCƒ‹ì¬
+- bk: ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆ
 
-- ,g:  ƒJ[ƒ\ƒ‹‰º‚ð "GoogleŒŸõ"
-- ,s:  "VimShell" ‹N“®
-- ,uc: "Unite codic" ‹N“®
-- ,hs: ƒEƒBƒ“ƒhƒE‚ð•ªŠ„‚µ‚ÄƒVƒFƒ‹‚ð‹N“®
-- ,cd: ƒvƒƒOƒ‰ƒ}—pƒl[ƒ~ƒ“ƒOŽ«‘
+- ,g: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã‚’ "Google æ¤œç´¢"
+- ,s: "VimShell" èµ·å‹•
+- ,uc: "Unite codic" èµ·å‹•
+- ,hs: ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’åˆ†å‰²ã—ã¦ã‚·ã‚§ãƒ«ã‚’èµ·å‹•
+- ,cd: ãƒ—ãƒ­ã‚°ãƒ©ãƒžç”¨ãƒãƒ¼ãƒŸãƒ³ã‚°è¾žæ›¸
 
 - NOTWORK:
-  - +: ƒtƒHƒ“ƒg Šg‘å
-  - -: ƒtƒHƒ“ƒg k¬
-    - :Zoomfont ‚µ‚Ä‚©‚ç‚Å‚È‚¢‚Æ—LŒø‚Å‚Í‚È‚¢H
+  - +: ãƒ•ã‚©ãƒ³ãƒˆ æ‹¡å¤§
+  - -: ãƒ•ã‚©ãƒ³ãƒˆ ç¸®å°
+    - :Zoomfont ã—ã¦ã‹ã‚‰ã§ãªã„ã¨æœ‰åŠ¹ã§ã¯ãªã„ï¼Ÿ
 
-### ‘}“üƒ‚[ƒh‚Å
+### æŒ¿å…¥ãƒ¢ãƒ¼ãƒ‰ã§
 
-- ,df:     ”NŒŽ“úŽž•ª‚ð‘}“ü
-- ,dd:     ”NŒŽ“ú‚ð‘}“ü
-- ,dt:     Žž•ª‚ð‘}“ü
-- ,ds:     ”NŒŽ“ú—j“ú‚ð‘}“ü
-- ,dy:     —j“ú‚ð‘}“ü
-- dl:      ŽdØ‚èü‚ð‘}“ü
-- \<C-w\>: ‘O‚Ì’PŒê‚ðíœ
-- \<C-@\>: ‚³‚Á‚«‘}“ü‚µ‚½•¶Žš‚ð‘}“ü‚µ‚Ä‘}“üƒ‚[ƒhI—¹
+- ,df: å¹´æœˆæ—¥æ™‚åˆ†ã‚’æŒ¿å…¥
+- ,dd: å¹´æœˆæ—¥ã‚’æŒ¿å…¥
+- ,dt: æ™‚åˆ†ã‚’æŒ¿å…¥
+- ,ds: å¹´æœˆæ—¥æ›œæ—¥ã‚’æŒ¿å…¥
+- ,dy: æ›œæ—¥ã‚’æŒ¿å…¥
+- dl: ä»•åˆ‡ã‚Šç·šã‚’æŒ¿å…¥
+- \<C-w\>: å‰ã®å˜èªžã‚’å‰Šé™¤
+- \<C-@\>: ã•ã£ãæŒ¿å…¥ã—ãŸæ–‡å­—ã‚’æŒ¿å…¥ã—ã¦æŒ¿å…¥ãƒ¢ãƒ¼ãƒ‰çµ‚äº†
 
-- :TableModeToggle:      ƒe[ƒuƒ‹ì¬
-- ƒrƒWƒ…ƒAƒ‹ƒ‚[ƒh‚Å ga: ƒe[ƒuƒ‹®Œ`
+- :TableModeToggle: ãƒ†ãƒ¼ãƒ–ãƒ«ä½œæˆ
+- ãƒ“ã‚¸ãƒ¥ã‚¢ãƒ«ãƒ¢ãƒ¼ãƒ‰ã§ ga: ãƒ†ãƒ¼ãƒ–ãƒ«æ•´å½¢
+
   - USAGE
-    - "*," ‚Æ“ü—Í‚·‚ê‚ÎƒeƒLƒXƒg®Œ`
-      - 2•¶Žš–Ú‚Ì "," ‚ÍƒfƒŠƒ~ƒ^
-      - —á) |‚Å‹åØ‚ç‚ê‚Ä‚¢‚ê‚ÎA"*|" ‚Æ“ü—Í
-    - ƒfƒŠƒ~ƒ^‚ÌƒfƒtƒHƒ‹ƒg’è‹`
+    - "\*," ã¨å…¥åŠ›ã™ã‚Œã°ãƒ†ã‚­ã‚¹ãƒˆæ•´å½¢
+      - 2 æ–‡å­—ç›®ã® "," ã¯ãƒ‡ãƒªãƒŸã‚¿
+      - ä¾‹) |ã§å¥åˆ‡ã‚‰ã‚Œã¦ã„ã‚Œã°ã€"\*|" ã¨å…¥åŠ›
+    - ãƒ‡ãƒªãƒŸã‚¿ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå®šç¾©
       - \<Space\>, = : . | & # ,
-  - 1•¶Žš–Ú‚Ì "*" ‚Í‰½”Ô–Ú‚ÌƒfƒŠƒ~ƒ^‚É®Œ`‚ð“K—p‚·‚é‚©
-    - "*" ‚Í‘S‚Ä‚ð‘ÎÛ‚É‚·‚é
-    - "1," ‚Æ“ü—Í‚·‚ê‚Î1”Ô–Ú‚Ì "," ‚É‘Î‚µ‚Ä®Œ`
-      - ƒfƒtƒHƒ‹ƒg‚Å‚Í1‚È‚Ì‚Å "," ‚¾‚¯‚Å‚à‚æ‚¢
+  - 1 æ–‡å­—ç›®ã® "\*" ã¯ä½•ç•ªç›®ã®ãƒ‡ãƒªãƒŸã‚¿ã«æ•´å½¢ã‚’é©ç”¨ã™ã‚‹ã‹
+    - "\*" ã¯å…¨ã¦ã‚’å¯¾è±¡ã«ã™ã‚‹
+    - "1," ã¨å…¥åŠ›ã™ã‚Œã° 1 ç•ªç›®ã® "," ã«å¯¾ã—ã¦æ•´å½¢
+      - ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ 1 ãªã®ã§ "," ã ã‘ã§ã‚‚ã‚ˆã„
 
 - NOTWORK:
-  - ee: "EasyMotion" ŠJŽn
+  - ee: "EasyMotion" é–‹å§‹
 
 ## Denite/Unite
 
-- (D|U)B: Œ»Ý‚Ìƒoƒbƒtƒ@ˆê——
-- (D|U)F: Œ»Ý‚Ìƒoƒbƒtƒ@‚ÌƒfƒBƒŒƒNƒgƒŠˆê——
-- (D|U)R: ƒŒƒWƒXƒ^ˆê——
-- UC:     ƒuƒbƒNƒ}[ƒNˆê——
-- UA:     ƒuƒbƒNƒ}[ƒN‚É’Ç‰Á
-- UT:     ƒoƒbƒtƒ@‚ðV‚µ‚¢ƒ^ƒu‚ÅŠJ‚­
-- DL:     Colorscheme ƒvƒŒƒrƒ…[
+- (D|U)B: ç¾åœ¨ã®ãƒãƒƒãƒ•ã‚¡ä¸€è¦§
+- (D|U)F: ç¾åœ¨ã®ãƒãƒƒãƒ•ã‚¡ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªä¸€è¦§
+- (D|U)R: ãƒ¬ã‚¸ã‚¹ã‚¿ä¸€è¦§
+- UC: ãƒ–ãƒƒã‚¯ãƒžãƒ¼ã‚¯ä¸€è¦§
+- UA: ãƒ–ãƒƒã‚¯ãƒžãƒ¼ã‚¯ã«è¿½åŠ 
+- UT: ãƒãƒƒãƒ•ã‚¡ã‚’æ–°ã—ã„ã‚¿ãƒ–ã§é–‹ã
+- DL: Colorscheme ãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼
 - NOTWORK:
-  - (D|U)M: Å‹ßŽg—p‚µ‚½ƒtƒ@ƒCƒ‹ˆê——
-- UW:     Å‹ßŽg—p‚µ‚½ƒEƒBƒ“ƒhƒEˆê——
+  - (D|U)M: æœ€è¿‘ä½¿ç”¨ã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ä¸€è¦§
+- UW: æœ€è¿‘ä½¿ç”¨ã—ãŸã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ä¸€è¦§
 
 ## Git
 
-- mgs :  Gstatus\<CR\>\<C-w\>T
-  - ‘I‘ðƒtƒ@ƒCƒ‹ã‚Å -: "git add/reset" ‚ðƒgƒOƒ‹
-- mga:   Gwrite\<CR\>
-- mgc:   Gcommit-v\<CR\>
-- mgb:   Gblame\<CR\>
-- mgd:   Gdiff\<CR\>
-- mgm:   Gmerge\<CR\>
-- :Agit: ‹­‰»”Å"git log" ‹N“®
-- :Gitv: "gitk" ŽÀs
+- mgs : Gstatus\<CR\>\<C-w\>T
+  - é¸æŠžãƒ•ã‚¡ã‚¤ãƒ«ä¸Šã§ -: "git add/reset" ã‚’ãƒˆã‚°ãƒ«
+- mga: Gwrite\<CR\>
+- mgc: Gcommit-v\<CR\>
+- mgb: Gblame\<CR\>
+- mgd: Gdiff\<CR\>
+- mgm: Gmerge\<CR\>
+- :Agit: å¼·åŒ–ç‰ˆ"git log" èµ·å‹•
+- :Gitv: "gitk" å®Ÿè¡Œ
 
-## ƒ}[ƒN
+## ãƒžãƒ¼ã‚¯
 
-- mn:    Œ»ÝˆÊ’u‚ðƒ}[ƒN
-- m,"*": "*" ‚Ìƒ}[ƒN‚ÖˆÚ“®
-- mj:    ŽŸ‚Ìƒ}[ƒN‚ÖˆÚ“®
-- mk:    ‘O‚Ìƒ}[ƒN‚ÖˆÚ“®
-- md:    ƒ}[ƒN‚Ì‘Síœ
-- ml:    ƒ}[ƒNˆê——‚ð•\Ž¦/”ñ•\Ž¦
-- ms"*": ŽŸ‚Éƒ}[ƒN‚·‚é "*" ‚ðÝ’è
-- m"*":  NOTWORK: ƒ}[ƒN‚·‚é "*" ‚ðÝ’è‚µ‚ÄA“¯Žž‚Éƒ}[ƒN
-- ddp:   ƒ}[ƒNíœ
-  - Šî–{ƒJƒbƒg&ƒy[ƒXƒg‹@”\‚Å‘ã‘Ö
+- mn: ç¾åœ¨ä½ç½®ã‚’ãƒžãƒ¼ã‚¯
+- m,"_": "_" ã®ãƒžãƒ¼ã‚¯ã¸ç§»å‹•
+- mj: æ¬¡ã®ãƒžãƒ¼ã‚¯ã¸ç§»å‹•
+- mk: å‰ã®ãƒžãƒ¼ã‚¯ã¸ç§»å‹•
+- md: ãƒžãƒ¼ã‚¯ã®å…¨å‰Šé™¤
+- ml: ãƒžãƒ¼ã‚¯ä¸€è¦§ã‚’è¡¨ç¤º/éžè¡¨ç¤º
+- ms"_": æ¬¡ã«ãƒžãƒ¼ã‚¯ã™ã‚‹ "_" ã‚’è¨­å®š
+- m"_": NOTWORK: ãƒžãƒ¼ã‚¯ã™ã‚‹ "_" ã‚’è¨­å®šã—ã¦ã€åŒæ™‚ã«ãƒžãƒ¼ã‚¯
+- ddp: ãƒžãƒ¼ã‚¯å‰Šé™¤
 
-- :CdCurrent:      ŠJ‚¢‚Ä‚¢‚é‚Æ‚±‚ë‚ðƒJƒŒƒ“ƒgƒfƒBƒŒƒgƒŠ‚É•ÏX
+  - åŸºæœ¬ã‚«ãƒƒãƒˆ&ãƒšãƒ¼ã‚¹ãƒˆæ©Ÿèƒ½ã§ä»£æ›¿
 
-- \<F4\>:  "Gundo.vim" ƒEƒBƒ“ƒhƒE‚ðŠJ•Â‚ðƒgƒOƒ‹
-- \<F6\>:  "ctags" ì¬
-- \<F7\>:  ƒ`[ƒgƒV[ƒg •\Ž¦
-- \<F8\>:  ƒXƒjƒyƒbƒg“o˜^/•ÒW
-  - NeoSnippetEdit: ƒXƒjƒyƒbƒg“o˜^/•ÒW
-- \<F9\>:  Ctagˆê——
-- \<F11\>: ALEC³
-  - \<C-k\>: ŽŸ‚ÌC³
-  - \<C-l\>: ‘O‚ÌC³
+- :CdCurrent: é–‹ã„ã¦ã„ã‚‹ã¨ã“ã‚ã‚’ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ã‚£ãƒ¬ãƒˆãƒªã«å¤‰æ›´
 
-- \<C-i\>p: CtrlP ‹N“®
-- \<C-s\>:  ƒGƒNƒXƒvƒ[ƒ‰‚Å•Û‘¶êŠ‘I‘ð‚µ‚Ä•Û‘¶
+- \<F4\>: "Gundo.vim" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’é–‹é–‰ã‚’ãƒˆã‚°ãƒ«
+- \<F6\>: "ctags" ä½œæˆ
+- \<F7\>: ãƒãƒ¼ãƒˆã‚·ãƒ¼ãƒˆ è¡¨ç¤º
+- \<F8\>: ã‚¹ãƒ‹ãƒšãƒƒãƒˆç™»éŒ²/ç·¨é›†
+  - NeoSnippetEdit: ã‚¹ãƒ‹ãƒšãƒƒãƒˆç™»éŒ²/ç·¨é›†
+- \<F9\>: Ctag ä¸€è¦§
+- \<F11\>: ALE ä¿®æ­£
 
-- \<C-ww\> or \<C-w\>\<C-w\>: ŽŸ‚ÌƒEƒBƒ“ƒhƒE‚ÖˆÚ“®
-- \<C-wW\>:                   ‘O‚ÌƒEƒBƒ“ƒhƒE‚Ö(‹t•ûŒü)
+  - \<C-k\>: æ¬¡ã®ä¿®æ­£
+  - \<C-l\>: å‰ã®ä¿®æ­£
 
-- \<C-h\>: ‚’¼•ªŠ„‚Å "ctags" •\Ž¦
-- \<C-l\>: …•½•ªŠ„‚Å "ctags" •\Ž¦
+- \<C-i\>p: CtrlP èµ·å‹•
+- \<C-s\>: ã‚¨ã‚¯ã‚¹ãƒ—ãƒ­ãƒ¼ãƒ©ã§ä¿å­˜å ´æ‰€é¸æŠžã—ã¦ä¿å­˜
 
-- \<C-j\>: ƒ}ƒ‹ƒ`ƒJ[ƒ\ƒ‹ ‘I‘ðŠJŽn
-  - •¡”‰Ÿ‰º‚Å‘I‘ð‚µ‚Ä‚¢‚­
-- \<Alt\>k: ƒ}ƒ‹ƒ`ƒJ[ƒ\ƒ‹ ‘S‘I‘ð
+- \<C-ww\> or \<C-w\>\<C-w\>: æ¬¡ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã¸ç§»å‹•
+- \<C-wW\>: å‰ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã¸(é€†æ–¹å‘)
 
-- \<Shift\>k: ƒJ[ƒ\ƒ‹‰º‚ðƒwƒ‹ƒvŒŸõ
+- \<C-h\>: åž‚ç›´åˆ†å‰²ã§ "ctags" è¡¨ç¤º
+- \<C-l\>: æ°´å¹³åˆ†å‰²ã§ "ctags" è¡¨ç¤º
 
-- \<Leader\>s:  ƒEƒBƒ“ƒhƒE‚ðc•ªŠ„
-- \<Leader\>v:  ƒEƒBƒ“ƒhƒE‚ð‰¡•ªŠ„
+- \<C-j\>: ãƒžãƒ«ãƒã‚«ãƒ¼ã‚½ãƒ« é¸æŠžé–‹å§‹
+  - è¤‡æ•°æŠ¼ä¸‹ã§é¸æŠžã—ã¦ã„ã
+- \<Alt\>k: ãƒžãƒ«ãƒã‚«ãƒ¼ã‚½ãƒ« å…¨é¸æŠž
 
-- \<Leader\>i:  ‰Šú”z’u3‰æ–Ê•ªŠ„
-- \<Leader\>e:  ƒEƒBƒ“ƒhƒEƒTƒCƒY•ÏXŠJŽn
-- \<Leader\>o:  Œ»ÝŠJ‚¢‚Ä‚¢‚éƒoƒbƒtƒ@‚ðIDE•—‚ÉŠJ‚­
-- \<Leader\>md: •ÒW’†‚Ìƒtƒ@ƒCƒ‹‚ðƒuƒ‰ƒEƒU‚Å•\Ž¦iMarkdown—pj
-- \<Leader\>br: •ÒW’†‚Ìƒtƒ@ƒCƒ‹‚ðƒuƒ‰ƒEƒU‚Å•\Ž¦i”Ä—pj
-- \<Leader\>j:  Vim‚ÌƒJ[ƒ\ƒ‹ˆÚ“®‚Æƒuƒ‰ƒEƒU‚Ì‰ºƒXƒNƒ[ƒ‹‚ð˜A“®
-- \<Leader\>js: ‰ºƒXƒNƒ[ƒ‹˜A“®‚ð’âŽ~
-- \<Leader\>k:  Vim‚ÌƒJ[ƒ\ƒ‹ˆÚ“®‚Æƒuƒ‰ƒEƒU‚ÌãƒXƒNƒ[ƒ‹‚ð˜A“®
-- \<Leader\>ks: ãƒXƒNƒ[ƒ‹˜A“®‚ð’âŽ~
+- \<Shift\>k: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã‚’ãƒ˜ãƒ«ãƒ—æ¤œç´¢
 
-- \<Leader\>m:  over.vimiƒrƒWƒ…ƒAƒ‹‹­‰»’uŠ·j‚Ì‹N“®
-  - sub: ƒJ[ƒ\ƒ‹‰º‚Ì’PŒê‚ðƒnƒCƒ‰ƒCƒg•t‚«‚Å’uŠ·
-  - sup: ƒRƒs[‚µ‚½•¶Žš—ñ‚ðƒnƒCƒ‰ƒCƒg•t‚«‚Å’uŠ·
+- \<Leader\>s: ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ç¸¦åˆ†å‰²
+- \<Leader\>v: ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’æ¨ªåˆ†å‰²
 
-- \<Leader\>l: ƒXƒyƒ‹ƒ`ƒFƒbƒNON/OFF‚ðƒgƒOƒ‹
-  - ]s: ŽŸ‚ÌƒXƒyƒ‹ƒ~ƒX‚Ì‰ÓŠ‚ÖˆÚ“®
-  - [s: ‘O‚ÌƒXƒyƒ‹ƒ~ƒX‚Ì‰ÓŠ‚ÖˆÚ“®
-  - z=: ³ƒXƒyƒ‹Œó•â‚ð•\Ž¦‚µC³
-  - zg: ƒJ[ƒ\ƒ‹‰º‚ð³ƒXƒyƒ‹‚Æ‚µ“o˜^
-  - zw: ƒJ[ƒ\ƒ‹‰º‚ðŒëƒXƒyƒ‹‚Æ‚µ“o˜^
+- \<Leader\>i: åˆæœŸé…ç½® 3 ç”»é¢åˆ†å‰²
+- \<Leader\>e: ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚ºå¤‰æ›´é–‹å§‹
+- \<Leader\>o: ç¾åœ¨é–‹ã„ã¦ã„ã‚‹ãƒãƒƒãƒ•ã‚¡ã‚’ IDE é¢¨ã«é–‹ã
+- \<Leader\>md: ç·¨é›†ä¸­ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ–ãƒ©ã‚¦ã‚¶ã§è¡¨ç¤ºï¼ˆMarkdown ç”¨ï¼‰
+- \<Leader\>br: ç·¨é›†ä¸­ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ–ãƒ©ã‚¦ã‚¶ã§è¡¨ç¤ºï¼ˆæ±Žç”¨ï¼‰
+- \<Leader\>j: Vim ã®ã‚«ãƒ¼ã‚½ãƒ«ç§»å‹•ã¨ãƒ–ãƒ©ã‚¦ã‚¶ã®ä¸‹ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã‚’é€£å‹•
+- \<Leader\>js: ä¸‹ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«é€£å‹•ã‚’åœæ­¢
+- \<Leader\>k: Vim ã®ã‚«ãƒ¼ã‚½ãƒ«ç§»å‹•ã¨ãƒ–ãƒ©ã‚¦ã‚¶ã®ä¸Šã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã‚’é€£å‹•
+- \<Leader\>ks: ä¸Šã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«é€£å‹•ã‚’åœæ­¢
 
-- \<Leader\>zh: ‘SŠp‰p”Žš‚ð”¼Šp‚É‚·‚é
+- \<Leader\>m: over.vimï¼ˆãƒ“ã‚¸ãƒ¥ã‚¢ãƒ«å¼·åŒ–ç½®æ›ï¼‰ã®èµ·å‹•
 
-- \<Leader\>md: •ÒW’†‚Ìƒtƒ@ƒCƒ‹‚ðƒuƒ‰ƒEƒU‚Å•\Ž¦
-- \<Leader\>,m: "atom" ‹N“®
-- \<Leader\>,c: "VS Code" ‹N“®
+  - sub: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã®å˜èªžã‚’ãƒã‚¤ãƒ©ã‚¤ãƒˆä»˜ãã§ç½®æ›
+  - sup: ã‚³ãƒ”ãƒ¼ã—ãŸæ–‡å­—åˆ—ã‚’ãƒã‚¤ãƒ©ã‚¤ãƒˆä»˜ãã§ç½®æ›
 
-## CtrlˆÚ“®
+- \<Leader\>l: ã‚¹ãƒšãƒ«ãƒã‚§ãƒƒã‚¯ ON/OFF ã‚’ãƒˆã‚°ãƒ«
 
-- \<C-y\>: ã•ûŒü‚É1s•ªƒXƒNƒ[ƒ‹
-- \<C-m\>: 1s‰º‚Ìæ“ª
-- \<S-y\>: ‰º•ûŒü‚É1s•ªƒXƒNƒ[ƒ‹
-- \<C-u\>: ã•ûŒü‚É”¼‰æ–Ê•ªƒXƒNƒ[ƒ‹ *U* p
-- \<C-d\>: ‰º•ûŒü‚É”¼‰æ–Ê•ªƒXƒNƒ[ƒ‹ *D* own
-- \<C-b\>: ã•ûŒü‚É1‰æ–Ê•ªƒXƒNƒ[ƒ‹  *B* ack
-- \<C-f\>: ‰º•ûŒü‚É1‰æ–Ê•ªƒXƒNƒ[ƒ‹  *F* orward
-- \<C-p\>: ã•ûŒü‚É1s•ªƒXƒNƒ[ƒ‹
-- \<C-n\>: ‰º•ûŒü‚É1s•ªƒXƒNƒ[ƒ‹
+  - ]s: æ¬¡ã®ã‚¹ãƒšãƒ«ãƒŸã‚¹ã®ç®‡æ‰€ã¸ç§»å‹•
+  - [s: å‰ã®ã‚¹ãƒšãƒ«ãƒŸã‚¹ã®ç®‡æ‰€ã¸ç§»å‹•
+  - z=: æ­£ã‚¹ãƒšãƒ«å€™è£œã‚’è¡¨ç¤ºã—ä¿®æ­£
+  - zg: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã‚’æ­£ã‚¹ãƒšãƒ«ã¨ã—ç™»éŒ²
+  - zw: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã‚’èª¤ã‚¹ãƒšãƒ«ã¨ã—ç™»éŒ²
+
+- \<Leader\>zh: å…¨è§’è‹±æ•°å­—ã‚’åŠè§’ã«ã™ã‚‹
+
+- \<Leader\>md: ç·¨é›†ä¸­ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ–ãƒ©ã‚¦ã‚¶ã§è¡¨ç¤º
+- \<Leader\>,m: "atom" èµ·å‹•
+- \<Leader\>,c: "VS Code" èµ·å‹•
+
+## Ctrl ç§»å‹•
+
+- \<C-y\>: ä¸Šæ–¹å‘ã« 1 è¡Œåˆ†ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«
+- \<C-m\>: 1 è¡Œä¸‹ã®å…ˆé ­
+- \<S-y\>: ä¸‹æ–¹å‘ã« 1 è¡Œåˆ†ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«
+- \<C-u\>: ä¸Šæ–¹å‘ã«åŠç”»é¢åˆ†ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ« _U_ p
+- \<C-d\>: ä¸‹æ–¹å‘ã«åŠç”»é¢åˆ†ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ« _D_ own
+- \<C-b\>: ä¸Šæ–¹å‘ã« 1 ç”»é¢åˆ†ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ« _B_ ack
+- \<C-f\>: ä¸‹æ–¹å‘ã« 1 ç”»é¢åˆ†ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ« _F_ orward
+- \<C-p\>: ä¸Šæ–¹å‘ã« 1 è¡Œåˆ†ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«
+- \<C-n\>: ä¸‹æ–¹å‘ã« 1 è¡Œåˆ†ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«
 
 ## Grep
 
-- \<Leader\>r: ƒJ[ƒ\ƒ‹‰º‚ð "RipGrep" ‘ÎÛ‚É‘}“ü
-- \<Leader\>***P***: ƒJ[ƒ\ƒ‹‰º‚ð "The Platinum Searcher" ‘ÎÛ‚É‘}“ü
-- \<Leader\>a: ƒJ[ƒ\ƒ‹‰º‚ð "The Sliver Searcher" ‘ÎÛ‚É‘}“ü
-- \<Leader\>G: ƒJ[ƒ\ƒ‹‰º‚ð "ŠO•”grep" ‘ÎÛ‚É‘}“ü
-- \<Leader\>g: ƒJ[ƒ\ƒ‹‰º‚ð "VimGrep" ‘ÎÛ‚É‘}“ü
+- \<Leader\>r: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã‚’ "RipGrep" å¯¾è±¡ã«æŒ¿å…¥
+- \<Leader\>**_P_**: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã‚’ "The Platinum Searcher" å¯¾è±¡ã«æŒ¿å…¥
+- \<Leader\>a: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã‚’ "The Sliver Searcher" å¯¾è±¡ã«æŒ¿å…¥
+- \<Leader\>G: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã‚’ "å¤–éƒ¨ grep" å¯¾è±¡ã«æŒ¿å…¥
+- \<Leader\>g: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã‚’ "VimGrep" å¯¾è±¡ã«æŒ¿å…¥
 
-## Ž«“TŒŸõ
+## è¾žå…¸æ¤œç´¢
 
-- \<Leader\>k:  ƒJ[ƒ\ƒ‹‰º‚ð‰p˜aŽ«“TŒŸõiGENEj
-- \<Leader\>dj: ƒJ[ƒ\ƒ‹‰º‚ð‰p˜aŽ«“TŒŸõ
-- \<Leader\>de: ƒJ[ƒ\ƒ‹‰º‚ð˜a‰pŽ«“TŒŸõ
-- NOTWORK: \<Leader\>da: ƒJ[ƒ\ƒ‹‰º‚Ì’PŒê‚ðƒXƒy[ƒXƒAƒ‹ƒN‚ÅŒŸõ
-- NOTWORK: \<Leader\>dw: ƒJ[ƒ\ƒ‹‰º‚ðWiki‚ÅŒŸõ
+- \<Leader\>k: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã‚’è‹±å’Œè¾žå…¸æ¤œç´¢ï¼ˆGENEï¼‰
+- \<Leader\>dj: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã‚’è‹±å’Œè¾žå…¸æ¤œç´¢
+- \<Leader\>de: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã‚’å’Œè‹±è¾žå…¸æ¤œç´¢
+- NOTWORK: \<Leader\>da: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã®å˜èªžã‚’ã‚¹ãƒšãƒ¼ã‚¹ã‚¢ãƒ«ã‚¯ã§æ¤œç´¢
+- NOTWORK: \<Leader\>dw: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã‚’ Wiki ã§æ¤œç´¢
 
-- ,gj: ƒJ[ƒ\ƒ‹‰º‚ðGoogle–|–ói‰p˜aj
-- ,ge: ƒJ[ƒ\ƒ‹‰º‚ðGoogle–|–ói˜a‰pj
+- ,gj: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã‚’ Google ç¿»è¨³ï¼ˆè‹±å’Œï¼‰
+- ,ge: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã‚’ Google ç¿»è¨³ï¼ˆå’Œè‹±ï¼‰
 
-- :AutoTranslateModeToggle: “®“I‚É–|–ó
-- :Translate              : ƒrƒWƒ…ƒAƒ‹ƒ‚[ƒh‚Å‘I‘ð‚µ‚½ó‘Ô
+- :AutoTranslateModeToggle: å‹•çš„ã«ç¿»è¨³
+- :Translate : ãƒ“ã‚¸ãƒ¥ã‚¢ãƒ«ãƒ¢ãƒ¼ãƒ‰ã§é¸æŠžã—ãŸçŠ¶æ…‹
 
-- \<Leader\>sc: "Syntastic" ŽÀs
-- \<Leader\>sc: "Syntastic" ƒgƒOƒ‹
+- \<Leader\>sc: "Syntastic" å®Ÿè¡Œ
+- \<Leader\>sc: "Syntastic" ãƒˆã‚°ãƒ«
 
-## •âŠ®
+## è£œå®Œ
 
-- \<C-x\>\<C-l\>:   s•âŠ®
-- \<C-x\>\<C-n\>:   Œ»Ý‚Ìƒtƒ@ƒCƒ‹•âŠ®
-- \<C-x\>\<C-k\>:   "dictionary" •âŠ®
-- \<C-x\>\<C-t\>:   "thesaurus" •âŠ®
-- \<C-x\>\<C-i\>:   •ÒW’†‚ÆŠO•”ŽQÆƒtƒ@ƒCƒ‹‚ÌƒL[ƒ[ƒh•âŠ®
-- \<C-x\>\<C-]\>:   "tags" •âŠ®
-- \<C-x\>\<C-f\>:   ƒtƒ@ƒCƒ‹–¼•âŠ®
-- \<C-x\>\<C-d\>:   ’è‹`‚à‚µ‚­‚Íƒ}ƒNƒ•âŠ®
-- \<C-x\>\<C-v\>:   Vim‚ÌƒRƒ}ƒ“ƒhƒ‰ƒCƒ“•âŠ®
-- \<C-x\>\<C-u\>:   ƒ†[ƒU’è‹`•âŠ®
-- \<C-x\>\<C-o\>:   ƒIƒ€ƒj•âŠ®
-- \<C-x\>\<C-s\>:   ƒXƒyƒŠƒ“ƒO•âŠ®
-- \<C-n\>, \<C-p\>: "complete" •âŠ®
+- \<C-x\>\<C-l\>: è¡Œè£œå®Œ
+- \<C-x\>\<C-n\>: ç¾åœ¨ã®ãƒ•ã‚¡ã‚¤ãƒ«è£œå®Œ
+- \<C-x\>\<C-k\>: "dictionary" è£œå®Œ
+- \<C-x\>\<C-t\>: "thesaurus" è£œå®Œ
+- \<C-x\>\<C-i\>: ç·¨é›†ä¸­ã¨å¤–éƒ¨å‚ç…§ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰è£œå®Œ
+- \<C-x\>\<C-]\>: "tags" è£œå®Œ
+- \<C-x\>\<C-f\>: ãƒ•ã‚¡ã‚¤ãƒ«åè£œå®Œ
+- \<C-x\>\<C-d\>: å®šç¾©ã‚‚ã—ãã¯ãƒžã‚¯ãƒ­è£œå®Œ
+- \<C-x\>\<C-v\>: Vim ã®ã‚³ãƒžãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³è£œå®Œ
+- \<C-x\>\<C-u\>: ãƒ¦ãƒ¼ã‚¶å®šç¾©è£œå®Œ
+- \<C-x\>\<C-o\>: ã‚ªãƒ ãƒ‹è£œå®Œ
+- \<C-x\>\<C-s\>: ã‚¹ãƒšãƒªãƒ³ã‚°è£œå®Œ
+- \<C-n\>, \<C-p\>: "complete" è£œå®Œ
 
 ## Diff
 
 ### Kaoriya
 
-- :VDsplit (ƒtƒ@ƒCƒ‹–¼|ƒoƒbƒtƒ@”Ô†)
-  - [c:            ‘O•û‚Ì•ÏX‚Ìæ“ª‚ÖˆÚ“®
-  - ]c:            ŽŸ•û‚Ì•ÏX‚Ìæ“ª‚ÖˆÚ“®
-  - :diffg[et]|do: ·•ª‚ð‚à‚¤•Ð•û‚Ì‚ÖƒRƒs[
-  - :diffpu[t]|dp: ·•ª‚ð‚à‚¤•Ð•û‚Ì‚ÖƒRƒs[
-  - diffoff:       Diffƒ‚[ƒh‚ðI—¹
-  - diffupdate:    Diffó‘Ô‚ðƒAƒbƒvƒf[ƒg
+- :VDsplit (ãƒ•ã‚¡ã‚¤ãƒ«å|ãƒãƒƒãƒ•ã‚¡ç•ªå·)
+  - [c: å‰æ–¹ã®å¤‰æ›´ã®å…ˆé ­ã¸ç§»å‹•
+  - ]c: æ¬¡æ–¹ã®å¤‰æ›´ã®å…ˆé ­ã¸ç§»å‹•
+  - :diffg[et]|do: å·®åˆ†ã‚’ã‚‚ã†ç‰‡æ–¹ã®ã¸ã‚³ãƒ”ãƒ¼
+  - :diffpu[t]|dp: å·®åˆ†ã‚’ã‚‚ã†ç‰‡æ–¹ã®ã¸ã‚³ãƒ”ãƒ¼
+  - diffoff: Diff ãƒ¢ãƒ¼ãƒ‰ã‚’çµ‚äº†
+  - diffupdate: Diff çŠ¶æ…‹ã‚’ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆ
 
 ## Jedi
 
-- \<Leader\>d: ’è‹`Œ³ƒWƒƒƒ“ƒv
-- \<Leader\>r: •Ï”ƒŠƒl[ƒ€
-- \<Leader\>n: Žg—p‰ÓŠ•\Ž¦
+- \<Leader\>d: å®šç¾©å…ƒã‚¸ãƒ£ãƒ³ãƒ—
+- \<Leader\>r: å¤‰æ•°ãƒªãƒãƒ¼ãƒ 
+- \<Leader\>n: ä½¿ç”¨ç®‡æ‰€è¡¨ç¤º
 
-## ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ƒ‚[ƒh
+## ã‚³ãƒžãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ãƒ¢ãƒ¼ãƒ‰
 
-- \<Home\>:           s“ª‚ÖˆÚ“®
-- \<End\>:            s––‚ÖˆÚ“®
-- \<Left\>:           ˆê•¶Žš–ß‚é
-- \<Right\>:          ˆê•¶Žši‚Þ
-- \<Shift\>\<Left\>:  ‘O‚Ì’PŒê‚ÖˆÚ“®
-- \<Shift\>\<Right\>: ŽŸ‚Ì’PŒê‚ÖˆÚ“®
-- \<Del\>:            ƒJ[ƒ\ƒ‹‚Ì‰º‚Ì•¶Žš‚ðíœ
-- \<Down\>:           —š—ð‚ð1‚Âi‚Þ
-- \<Up\>:             —š—ð‚ð1‚Â–ß‚é
-- \<Shift\>\<Ins\>:   ƒy[ƒXƒg
+- \<Home\>: è¡Œé ­ã¸ç§»å‹•
+- \<End\>: è¡Œæœ«ã¸ç§»å‹•
+- \<Left\>: ä¸€æ–‡å­—æˆ»ã‚‹
+- \<Right\>: ä¸€æ–‡å­—é€²ã‚€
+- \<Shift\>\<Left\>: å‰ã®å˜èªžã¸ç§»å‹•
+- \<Shift\>\<Right\>: æ¬¡ã®å˜èªžã¸ç§»å‹•
+- \<Del\>: ã‚«ãƒ¼ã‚½ãƒ«ã®ä¸‹ã®æ–‡å­—ã‚’å‰Šé™¤
+- \<Down\>: å±¥æ­´ã‚’ 1 ã¤é€²ã‚€
+- \<Up\>: å±¥æ­´ã‚’ 1 ã¤æˆ»ã‚‹
+- \<Shift\>\<Ins\>: ãƒšãƒ¼ã‚¹ãƒˆ
 
-## Plugin ƒL[ƒoƒCƒ“ƒhŠ„‚èž‚Ý‘Îô
+## Plugin ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰å‰²ã‚Šè¾¼ã¿å¯¾ç­–
 
 ```vimscript
 autocmd VimEnter * imap <Nul> <C-Space>
 ```
 
-- "autocmd" ƒCƒxƒ“ƒg‚Å "VimEnter" ‚ðŽw’è‚·‚ê‚ÎŠî–{“I‚É "Plugin" ‚æ‚èŒã‚É“Ç‚Ýž‚Ü‚ê‚é
-  - "Plugin" ‚Ìã‘‚«‚Í‚ ‚é’ö“x‰ñ”ð‚Å‚«‚é
+- "autocmd" ã‚¤ãƒ™ãƒ³ãƒˆã§ "VimEnter" ã‚’æŒ‡å®šã™ã‚Œã°åŸºæœ¬çš„ã« "Plugin" ã‚ˆã‚Šå¾Œã«èª­ã¿è¾¼ã¾ã‚Œã‚‹
+  - "Plugin" ã®ä¸Šæ›¸ãã¯ã‚ã‚‹ç¨‹åº¦å›žé¿ã§ãã‚‹
 
-## “V‹C—\•ñ
+## å¤©æ°—äºˆå ±
 
-- :Weather: “V‹C—\•ñ
+- :Weather: å¤©æ°—äºˆå ±
 
-## æŠ·‚¦ˆÄ“à
+## ä¹—æ›ãˆæ¡ˆå†…
 
-- :TrainSearchRoute {o”­‰w} {“ž’…‰w}: æŠ·‚¦î•ñ
-- :TrainLateInfo: “dŽÔ’x‰„î•ñ
+- :TrainSearchRoute {å‡ºç™ºé§…} {åˆ°ç€é§…}: ä¹—æ›ãˆæƒ…å ±
+- :TrainLateInfo: é›»è»Šé…å»¶æƒ…å ±
