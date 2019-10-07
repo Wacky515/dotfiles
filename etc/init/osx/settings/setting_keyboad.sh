@@ -23,4 +23,3 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
 
 result_echo $? "${PROCESS}"
-

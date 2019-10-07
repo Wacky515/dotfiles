@@ -26,7 +26,7 @@ for /r %%i in (*) do (
         ) else if /i %%~xi == .lzh (
             call :recomp "%%i"
 
-        rem 除外ファイルは以下に記述
+        rem 髯､螟悶ヵ繧｡繧､繝ｫ縺ｯ莉･荳九↓險倩ｿｰ
         ) else if %%~xi == .lnk (
             call :ignore "%%i"
         ) else if %%~xi == .7z (
