@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/09/26 10:40:09.
+rem Last Change: 2019/10/07 09:52:27.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -29,28 +29,28 @@ if not %errorlevel% equ 0 (
     goto instnyao
 )
 
-set src_init=%homepath%\dotfiles\nvim\
+set src_nvim=%homepath%\dotfiles\nvim\
 
 if "%processor_architecture%" equ "x86" (
-    set dst_init=%homepath%\AppData\Local\nvim\
+    set dst_nvim=%homepath%\AppData\Local\nvim\
 )
 if "%processor_architecture%" equ "AMD64" (
     if %computername% == SALADCARBONX1 (
-        set dst_init=%homepath%\AppData\Local\nvim\
+        set dst_nvim=%homepath%\AppData\Local\nvim\
     ) else (
         if exist %xdg_config_home%\* (
-            set dst_init=%xdg_config_home%\nvim\
+            set dst_nvim=%xdg_config_home%\nvim\
         ) else (
             if not exist %homepath%\AppData\Local\nvim\* (
                 mkdir %homepath%\AppData\Local\nvim\
             )
-            set dst_init=%homepath%\AppData\Local\nvim\
+            set dst_nvim=%homepath%\AppData\Local\nvim\
         )
     )
 )
 
-rmdir /s /q %dst_init%
-mklink /d %dst_init% %src_init% > nul 2>&1
+rem rmdir /s /q %dst_nvim%
+mklink /d %dst_nvim% %src_nvim% > nul 2>&1
 if %errorlevel% == 0 (
     echo ^>^> init.vimAginit.vim copy success!
 ) else (
