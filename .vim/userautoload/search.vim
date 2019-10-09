@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/01/08 14:47:50.
+" Last Change: 2019/10/09 11:53:58.
 
 " インクリメンタルサーチ
 " ※ 検索文字入力で即時検索開始
@@ -37,3 +37,5 @@ nnoremap /  /\v
 cnoremap <expr> / getcmdtype() == "/" ? "\/" : "/"
 cnoremap <expr> ? getcmdtype() == "?" ? "\?" : "?"
 
+" カーソル下と同じ単語 ハイライト
+autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))

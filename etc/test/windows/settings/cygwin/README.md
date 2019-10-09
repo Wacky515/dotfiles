@@ -1,3 +1,7 @@
+# MEMO
+
+- PacMan 使えないため dep
+
 # TODO
 
 - このフォルダに apt-cyg が生成される
