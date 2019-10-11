@@ -3,31 +3,31 @@ scriptencoding utf-8
 " Last Change: 2019/10/05 21:34:16.
 
 " ----------------------------------------------------------------------
-" å¤–è¦³ãƒ†ãƒ¼ãƒç¯‡
+" ŠOŠÏƒe[ƒ}•Ñ
 " ----------------------------------------------------------------------
-" MEMO: "Dein" ã«ç§»ç®¡æ¸ˆã¿
-" ã‚«ãƒ©ãƒ¼ã‚¹ã‚­ãƒ¼ãƒã®æŒ‡å®š
-" æš—èƒŒæ™¯ç”¨ã®é…è‰²ã«ã™ã‚‹
+" MEMO: "Dein" ‚ÉˆÚŠÇÏ‚İ
+" ƒJƒ‰[ƒXƒL[ƒ}‚Ìw’è
+" ˆÃ”wŒi—p‚Ì”zF‚É‚·‚é
 
-" " æ˜èƒŒæ™¯ç”¨ã®é…è‰²ã«ã™ã‚‹ " {{{
+" " –¾”wŒi—p‚Ì”zF‚É‚·‚é " {{{
 " set background=light
 " }}}
 
-" é¸æŠè¡Œç•ªå·ã®è‰²
+" ‘I‘ğs”Ô†‚ÌF
 highlight LineNr ctermfg=darkyellow
 
-" ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ï¼ˆ"Vim" ç”»é¢ä¸‹éƒ¨ï¼‰ã®è¡Œæ•°
+" ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“i"Vim" ‰æ–Ê‰º•”j‚Ìs”
 set cmdheight=5
 
-" ã‚¿ãƒ¼ãƒŸãƒŠãƒ«256è‰²è¡¨ç¤º
+" ƒ^[ƒ~ƒiƒ‹256F•\¦
 set t_Co=256
 
-" ãƒ„ãƒ¼ãƒ«ãƒãƒ¼æ¶ˆå»
+" ƒc[ƒ‹ƒo[Á‹
 set guioptions-=T
-" ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒãƒ¼éè¡¨ç¤º
+" ƒƒjƒ…[ƒo[”ñ•\¦
 set guioptions-=m
 
-" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ åŠé€æ˜åŒ–ï¼ˆ"Linux" ã¯ "Vim" ã‹ã‚‰è¨­å®šã§ããªã„ï¼‰
+" ƒEƒBƒ“ƒhƒE ”¼“§–¾‰»i"Linux" ‚Í "Vim" ‚©‚çİ’è‚Å‚«‚È‚¢j
 if has("mac")
     if !has("nvim")
         set transparency=10
@@ -37,31 +37,31 @@ if (has("win32") || ("win64"))
     :autocmd GUIEnter * set transparency=235
 endif
 
-" ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ æ–‡å­—åŒ–ã‘å¯¾ç­–
+" ƒƒbƒZ[ƒW •¶š‰»‚¯‘Îô
 if (has("win32") || ("win64"))
     source $VIMRUNTIME/delmenu.vim
     set langmenu=ja_jp.utf-8
     source $VIMRUNTIME/menu.vim
 endif
 
-" ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ãƒã‚¤ãƒ©ã‚¤ãƒˆ
-" "dein.vim" ã«é–¢ã™ã‚‹è¨­å®šã®å¾Œã«ON
+" ƒVƒ“ƒ^ƒbƒNƒXƒnƒCƒ‰ƒCƒg
+" "dein.vim" ‚ÉŠÖ‚·‚éİ’è‚ÌŒã‚ÉON
 syntax on
 
-" ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—ç³»ãƒã‚¤ãƒ©ã‚¤ãƒˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’å°å…¥ã—ã¦ã„ã‚‹å ´åˆ "{{{
-" syntax on" ã¯ç¾åœ¨ã®runtimepathã«å«ã¾ã‚Œã¦ã„ã‚‹è¨­å®šã‚’ã‚‚ã¨ã«ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ã‚’ç”Ÿæˆã™ã‚‹
-" runtimepathã‚’åˆæœŸåŒ–ã™ã‚‹ã‚ˆã†ãªå‡¦ç†ã‚’ã—ãŸå¾Œã«syntax onã—ã¦ã‚‚ã‚ã¾ã‚Šæ„å‘³ã¯ãªã
-" runtimepathã‚’ã™ã¹ã¦è¨­å®šã—çµ‚ãˆãŸå¾Œã«syntax onã‚’ã™ã‚‹ã¹ã
-" æ‚ªã„ãƒ‘ã‚¿ãƒ¼ãƒ³
-" runtimepathã‚’åˆæœŸåŒ–ã™ã‚‹ã‚ˆã†ãªå‡¦ç†
+" ƒtƒ@ƒCƒ‹ƒ^ƒCƒvŒnƒnƒCƒ‰ƒCƒgƒvƒ‰ƒOƒCƒ“‚ğ“±“ü‚µ‚Ä‚¢‚éê‡ "{{{
+" syntax on" ‚ÍŒ»İ‚Ìruntimepath‚ÉŠÜ‚Ü‚ê‚Ä‚¢‚éİ’è‚ğ‚à‚Æ‚ÉƒVƒ“ƒ^ƒbƒNƒX‚ğ¶¬‚·‚é
+" runtimepath‚ğ‰Šú‰»‚·‚é‚æ‚¤‚Èˆ—‚ğ‚µ‚½Œã‚Ésyntax on‚µ‚Ä‚à‚ ‚Ü‚èˆÓ–¡‚Í‚È‚­
+" runtimepath‚ğ‚·‚×‚Äİ’è‚µI‚¦‚½Œã‚Ésyntax on‚ğ‚·‚é‚×‚«
+" ˆ«‚¢ƒpƒ^[ƒ“
+" runtimepath‚ğ‰Šú‰»‚·‚é‚æ‚¤‚Èˆ—
 " set runtimepath=$VIMRUNTIME
 " syntax on
-" ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—ç³»ãƒã‚¤ãƒ©ã‚¤ãƒˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³
+" ƒtƒ@ƒCƒ‹ƒ^ƒCƒvŒnƒnƒCƒ‰ƒCƒgƒvƒ‰ƒOƒCƒ“
 " neoBundle 'kongo2002/fsharp-vim'
-" è‰¯ã„ãƒ‘ã‚¿ãƒ¼ãƒ³
-" runtimepathã‚’åˆæœŸåŒ–ã™ã‚‹ã‚ˆã†ãªå‡¦ç†
+" —Ç‚¢ƒpƒ^[ƒ“
+" runtimepath‚ğ‰Šú‰»‚·‚é‚æ‚¤‚Èˆ—
 " set runtimepath=$VIMRUNTIME
-" ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—ç³»ãƒã‚¤ãƒ©ã‚¤ãƒˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³
+" ƒtƒ@ƒCƒ‹ƒ^ƒCƒvŒnƒnƒCƒ‰ƒCƒgƒvƒ‰ƒOƒCƒ“
 " neoBundle 'kongo2002/fsharp-vim'
 " syntax on
 "}}}
@@ -83,13 +83,13 @@ if exists("g:nyaovim_version")
     endtry
 endif
 
-" MEMO: "Oni" ç”¨è¨­å®š
+" MEMO: "Oni" —pİ’è
 " if exists("g:gui_oni")
 "     echo Setting for Oni
 " endif
 
-" !!!: ä»¥ä¸‹ã‹ã‚‰ã¯è¨˜è¿°å ´æ‰€ã‚’é †ç•ªã‚’å¤‰ãˆãªã„ï¼ï¼ï¼
-" ãƒ•ã‚©ãƒ³ãƒˆã®è¨­å®š
+" !!!: ˆÈ‰º‚©‚ç‚Í‹LqêŠ‚ğ‡”Ô‚ğ•Ï‚¦‚È‚¢III
+" ƒtƒHƒ“ƒg‚Ìİ’è
 if has("unix")
     if !has("nvim")
         set guifont=Cica\ 16
@@ -128,7 +128,7 @@ elseif (has("win32") || has("win64"))
         if !has("nvim")
             set guifont=Cica:h13
             set printfont=Cica:h8
-            " Windows Cica å°‚ç”¨è¨­å®š ("NeoVim" ç‰ˆè¨­å®šæ¢ã™ï¼‰
+            " Windows Cica ê—pİ’è ("NeoVim" ”Åİ’è’T‚·j
             set renderoptions=type:directx,renmode:5
         endif
 
