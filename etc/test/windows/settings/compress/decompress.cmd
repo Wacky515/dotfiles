@@ -6,7 +6,7 @@ rem Last Change: 2019/09/30 10:51:58.
 set batch_title=Decompress file(Recursion)
 title %batch_title%
 
-rem  ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "cd"
+rem  ƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "cd"
 pushd %~dp0
 
 echo ^>^> Start %batch_title%

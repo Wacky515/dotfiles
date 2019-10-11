@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/10/07 09:52:27.
+rem Last Change: 2019/10/07 10:20:22.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -128,4 +128,3 @@ endlocal
 
 rem pause
 exit /b 0
-

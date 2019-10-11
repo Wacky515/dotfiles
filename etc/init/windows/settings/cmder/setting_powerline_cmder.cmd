@@ -1,31 +1,35 @@
 @echo off
 setlocal
 rem Created:     2018/04/19 09:01:59
-rem Last Change: 2018/11/29 12:00:07.
+rem Last Change: 2019/10/10 10:55:27.
 
-title Setting powerline
+title Setting cmder's powerline
 
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
-rem ç®¡ç†è€…æ¨©é™ãªã‚‰ãƒ¡ã‚¤ãƒ³å‡¦ç†
+rem ŠÇ—ŽÒŒ ŒÀ‚È‚çƒƒCƒ“ˆ—
 if not errorlevel 1 goto main_routine
 
-rem ç®¡ç†è€…æ¨©é™ã§ãªã‘ã‚Œã°ç®¡ç†è€…æ¨©é™ã§å†èµ·å‹•
+rem ŠÇ—ŽÒŒ ŒÀ‚Å‚È‚¯‚ê‚ÎŠÇ—ŽÒŒ ŒÀ‚ÅÄ‹N“®
 @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
 exit
 
 :main_routine
-pushd %~dp0
+pushd C:%homepath%\OneDrive\ŽdŽ–\Settings\Cmder
 
-if not exist %CMDER_ROOT%/config (
-    echo ^>^> Not set %CMDER_ROOT%
-    goto :eol
-    ) else (
+set cmder_root=C:\tools\cmder\
+
+if not exist %cmder_root%\config\ (
+    echo ^>^> Not exist %cmder_root%
+    goto :end
+) else (
     echo ^>^> Start setting cmder-powerline-prompt
-    copy powerline_prompt.lua %CMDER_ROOT%/config
-    )
+    copy /y powerline_core.lua   %cmder_root%\config\
+    copy /y powerline_git.lua    %cmder_root%\config\
+    copy /y powerline_prompt.lua %cmder_root%\config\
+)
 
-:eol
+:end
 endlocal
 popd
 

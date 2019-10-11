@@ -51,3 +51,5 @@ Language=@
 Term=xterm-256color
 BellTaskbar=no
 FontWeight=400
+ThemeFile=rosipov
+BellType=0
