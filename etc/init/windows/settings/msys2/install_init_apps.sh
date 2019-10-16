@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install init apps in msys2
 # Created:     2018/06/07 09:13:38
-# Last Change: 2019/10/03 12:28:43.
+# Last Change: 2019/10/11 09:38:49.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -34,5 +34,11 @@ pacman -Sy zsh --noconfirm
 
 pacman -Syu --noconfirm
 pacman -Su --noconfirm
+
+if type pip3 --version > /dev/null 3>&1 ; then
+    pip3 install powerline-status
+else
+    echo ">> Not install Python"
+fi
 
 result_echo $? "${PROCESS}"

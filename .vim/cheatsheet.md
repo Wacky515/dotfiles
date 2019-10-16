@@ -223,11 +223,26 @@
   - diffoff: Diff モードを終了
   - diffupdate: Diff 状態をアップデート
 
+## Python
+
+- F12: デバッグを実行
+
 ## Jedi
 
+- \<C-N\>:     補完
+  - "Mac" は \<C-Space\>
 - \<Leader\>d: 定義元ジャンプ
 - \<Leader\>r: 変数リネーム
 - \<Leader\>n: 使用箇所表示
+
+## LSP
+
+- \<Leader\>d: 定義元ジャンプ
+- \<Leader\>p: カーソル下のシンボル情報表示
+- \<Leader\>r: 参照元表示
+- \<Leader\>i: 全実装と "Interface" 表示
+- \<Leader\>s: 水平分 割定義元ジャンプ
+- \<Leader\>v: 垂直分 割定義元ジャンプ
 
 ## コマンドラインモード
 

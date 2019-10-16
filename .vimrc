@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2019/10/10 09:42:51.
+" Last Change: 2019/10/15 11:52:35.
 
 " NOT_WORK:
 " " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
@@ -24,7 +24,7 @@ let g:vimproc#download_windows_dll = 1
 " "Python" のパス設定
 if hostname()     == "ProSalad133-2018.local"
     let g:python3_host_prog = "/usr/local/bin/Python3"
-elseif hostname()     == "ProSalad133.local"
+elseif hostname() == "ProSalad133.local"
     let g:python3_host_prog = "/usr/local/bin/Python3"
 elseif hostname() == "SaladBook.local"
     let g:python3_host_prog = "/usr/local/bin/Python3"
@@ -32,7 +32,7 @@ elseif hostname() == "HBAMB748"
     let g:python_host_prog  = "C:\\Python27\\python.exe"
     let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
     if !has("nvim")
-        " "HBAMB748" "vim" で未知 "Unkwown option" エラー
+        " "HBAMB748" "Vim" で "Unkwown option" エラー
         if has("gui_running")
             set pythonthreedll=C:\Python36\python36.dll
         else
@@ -82,9 +82,9 @@ elseif has("nvim")
     elseif (has("win32") || has("win64"))
         if hostname()     == "HBAMB748"
             let s:plugin_dir = expand("~\\.config\\nvim\\.cache\\dein\\")
-        elseif hostname() ==  "HBAMB748A"
+        elseif hostname() == "HBAMB748A"
             let s:plugin_dir = expand("~\\.config\\nvim\\.cache\\dein\\")
-        elseif hostname() ==  "HBAMB819"
+        elseif hostname() == "HBAMB819"
             let s:plugin_dir = expand("~\\.config\\nvim\\.cache\\dein\\")
         else
             let s:plugin_dir = expand("~\\.config\\nvim\\.cache\\dein\\")

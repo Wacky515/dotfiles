@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/04/19 09:01:59
-rem Last Change: 2019/10/10 10:55:27.
+rem Last Change: 2019/10/11 10:05:00.
 
 title Setting cmder's powerline
 
@@ -24,9 +24,10 @@ if not exist %cmder_root%\config\ (
     goto :end
 ) else (
     echo ^>^> Start setting cmder-powerline-prompt
-    copy /y powerline_core.lua   %cmder_root%\config\
-    copy /y powerline_git.lua    %cmder_root%\config\
-    copy /y powerline_prompt.lua %cmder_root%\config\
+    copy /y *.lua   %cmder_root%\config\
+    rem copy /y powerline_core.lua   %cmder_root%\config\
+    rem copy /y powerline_git.lua    %cmder_root%\config\
+    rem copy /y powerline_prompt.lua %cmder_root%\config\
 )
 
 :end
