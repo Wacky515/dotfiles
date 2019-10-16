@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2019/10/15 11:52:35.
+" Last Change: 2019/10/16 17:03:02.
 
 " NOT_WORK:
 " " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
@@ -32,11 +32,7 @@ elseif hostname() == "HBAMB748"
     let g:python_host_prog  = "C:\\Python27\\python.exe"
     let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
     if !has("nvim")
-<<<<<<< HEAD
-        " "HBAMB748" "Vim" 縺ｧ "Unkwown option" 繧ｨ繝ｩ繝ｼ
-=======
-        " "HBAMB748" "vim" で未知 "Unkwown option" エラー
->>>>>>> a4a959633a31f47eb16871ff4f74d65f4c142a7d
+        " "HBAMB748" "Vim" で "Unkwown option" エラー
         if has("gui_running")
             set pythonthreedll=C:\Python36\python36.dll
         else
