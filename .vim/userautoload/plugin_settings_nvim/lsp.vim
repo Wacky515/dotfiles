@@ -1,16 +1,16 @@
 ﻿scriptencoding utf-8
 " Created:     2019/06/24 11:32:20
-" Last Change: 2019/10/15 11:24:59.
+" Last Change: 2019/10/17 16:42:28.
 
 " ---------------------------------------------------------------------------
 " マップキー
 " ---------------------------------------------------------------------------
 nmap <silent> <Leader>d :LspDefinition<CR>
 nmap <silent> <Leader>p :LspHover<CR>
-nmap <silent> <Leader>r :LspReferences<CR>
+nmap <silent> <Leader>R :LspReferences<CR>
 nmap <silent> <Leader>i :LspImplementation<CR>
-nmap <silent> <Leader>s :split \| :LspDefinition <CR>
-nmap <silent> <Leader>v :vsplit \| :LspDefinition <CR>
+nmap <silent> <Leader>ls :split \| :LspDefinition <CR>
+nmap <silent> <Leader>lv :vsplit \| :LspDefinition <CR>
 
 " ---------------------------------------------------------------------------
 " 基本設定

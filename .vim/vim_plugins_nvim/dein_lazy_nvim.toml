@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2019/07/03 16:15:19.
+# Last Change: 2019/10/17 16:55:17.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -7,7 +7,7 @@
 repo = 'Shougo/denite.nvim'
 if = "has('python3')"
 # "E892: 文字列を浮動小数点数として扱っています" のためKILL
-# depends = ['neomru.vim']
+depends = ['neomru.vim']
 # MEMO: ↓は "*.vim" に移管できない
 hook_source = '''  " {{{
     call denite#custom#option('default', {
@@ -152,7 +152,7 @@ on_cmd = ['Denite']
 # "E892: 文字列を浮動小数点数として扱っています" のためKILL
 [[plugins]]
 repo = 'Shougo/neomru.vim'
-if = "has('mac')"
+# if = "has('mac')"
 on_source = ['dein.vim', 'unite.vim', 'denite.nvim']
 on_path = '.*'
 [[plugins]]

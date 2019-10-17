@@ -1,10 +1,10 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2019/10/07 09:20:44.
+# Last Change: 2019/10/17 17:05:02.
 
 # MEMO:
 # hook_add         プラグイン追加後
-# hook_source      プラグイン読込み前
-# hook_post_source プラグイン読込み後
+# hook_source      プラグイン読込前
+# hook_post_source プラグイン読込後
 
 # "dein.vim" 本体
 [[plugins]]
@@ -205,6 +205,10 @@ repo = 'jacquesbh/vim-showmarks'
 [[plugins]]
 repo = 'dhruvasagar/vim-table-mode'
 
+# ".vimrc" のベンチマーク
+[[plugins]]
+repo = 'mattn/benchvimrc-vim.vim'
+
 # カレンダ
 [[plugins]]
 repo = 'itchyny/calendar.vim'
@@ -226,6 +230,7 @@ hook_add = '''
     au MyAutoCmd VimEnter * nested colorscheme iceberg
     au MyAutoCmd VimEnter * highlight Visual ctermbg=216
 '''
+
 [[plugins]]
 repo = 'shinshin86/twc.vim'
 
