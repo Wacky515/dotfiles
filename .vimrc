@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2019/10/18 11:38:21.
+" Last Change: 2019/10/18 11:57:43.
 
 " NOT_WORK:
 " " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
@@ -81,10 +81,8 @@ elseif exists("g:gui_oni")
 elseif has("nvim")
     if has("unix")
         let s:plugin_dir     = expand("~/.config/nvim/dein/")
-        " let s:plugin_dir     = expand("~/.config/nvim/.cache/dein/")
     elseif (has("win32") || has("win64"))
             let s:plugin_dir = expand("~\\.config\\nvim\\dein\\")
-            " let s:plugin_dir = expand("~\\.config\\nvim\\.cache\\dein\\")
     endif
 endif
 
