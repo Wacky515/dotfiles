@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2019/10/17 18:07:55.
+" Last Change: 2019/10/18 11:38:21.
 
 " NOT_WORK:
 " " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
@@ -31,6 +31,7 @@ elseif hostname() == "SaladBook.local"
 elseif hostname() == "HBAMB748"
     let g:python_host_prog  = "C:\\Python27\\python.exe"
     let g:python3_host_prog = "C:\\Python36\\python.exe"
+    " MEMO: ↓ "Denite" でエラー
     " let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
     if !has("nvim")
         " "HBAMB748" "Vim" で "Unkwown option" エラー
@@ -72,24 +73,18 @@ augroup END
 
 " プラグインをインストールするディレクトリを指定
 if !has("nvim")
-    let s:plugin_dir = expand("~/.cache/dein/")
+    let s:plugin_dir         = expand("~/.cache/dein/")
 elseif exists("g:nyaovim_version")
-    let s:plugin_dir = expand("~/.config/nyaovim/dein")
+    let s:plugin_dir         = expand("~/.config/nyaovim/dein")
 elseif exists("g:gui_oni")
-    let s:plugin_dir = expand("~/.config/oni/dein")
+    let s:plugin_dir         = expand("~/.config/oni/dein")
 elseif has("nvim")
     if has("unix")
-        let s:plugin_dir     = expand("~/.config/nvim/.cache/dein/")
+        let s:plugin_dir     = expand("~/.config/nvim/dein/")
+        " let s:plugin_dir     = expand("~/.config/nvim/.cache/dein/")
     elseif (has("win32") || has("win64"))
-        if hostname()     == "HBAMB748"
-            let s:plugin_dir = expand("~\\.config\\nvim\\.cache\\dein\\")
-        elseif hostname() == "HBAMB748A"
-            let s:plugin_dir = expand("~\\.config\\nvim\\.cache\\dein\\")
-        elseif hostname() == "HBAMB819"
-            let s:plugin_dir = expand("~\\.config\\nvim\\.cache\\dein\\")
-        else
-            let s:plugin_dir = expand("~\\.config\\nvim\\.cache\\dein\\")
-        endif
+            let s:plugin_dir = expand("~\\.config\\nvim\\dein\\")
+            " let s:plugin_dir = expand("~\\.config\\nvim\\.cache\\dein\\")
     endif
 endif
 
