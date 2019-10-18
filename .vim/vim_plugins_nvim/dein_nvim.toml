@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2019/10/17 17:05:02.
+# Last Change: 2019/10/17 18:14:11.
 
 # MEMO:
 # hook_add         プラグイン追加後
@@ -204,10 +204,6 @@ repo = 'jacquesbh/vim-showmarks'
 # ":TableModeToggle" で開始
 [[plugins]]
 repo = 'dhruvasagar/vim-table-mode'
-
-# ".vimrc" のベンチマーク
-[[plugins]]
-repo = 'mattn/benchvimrc-vim.vim'
 
 # カレンダ
 [[plugins]]

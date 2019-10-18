@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2019/10/17 16:33:32.
+" Last Change: 2019/10/17 18:07:55.
 
 " NOT_WORK:
 " " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
@@ -30,7 +30,8 @@ elseif hostname() == "SaladBook.local"
     let g:python3_host_prog = "/usr/local/bin/Python3"
 elseif hostname() == "HBAMB748"
     let g:python_host_prog  = "C:\\Python27\\python.exe"
-    let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
+    let g:python3_host_prog = "C:\\Python36\\python.exe"
+    " let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
     if !has("nvim")
         " "HBAMB748" "Vim" で "Unkwown option" エラー
         if has("gui_running")
