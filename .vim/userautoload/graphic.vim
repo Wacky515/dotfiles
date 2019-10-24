@@ -1,45 +1,45 @@
 scriptencoding utf-8
 " Created:     2016/08/14 14:59:36
-" Last Change: 2019/07/13 10:13:59.
+" Last Change: 2019/10/24 15:02:07.
 
 " ---------------------------------------------------------------------------
 " メイン表示篇
 " ---------------------------------------------------------------------------
-" 行番号の表示
+" 行番号 表示
 set number
 
-" 補完メニューの高さ
+" 補完メニュー 高さ
 set pumheight=10
 
 " 長い行を省略表示しない
 set display=lastline
 
-" カーソル行の背景色変更
+" カーソル行 背景色変更
 set cursorline
 
-" スクロール時の上・下端行数指定
+" スクロール時 上下端行数
 set scrolloff=3
 
-" 東アジアの文字のうちA特性(Ambiguous)の文字幅を指定
-" 2バイト文字（"□" や "○"）でカーソル位置がずれる問題の対策
+" 東アジアの文字のうちA特性(Ambiguous)の文字幅 指定
+    " 2バイト文字（"□" や "○"）でカーソル位置がずれる
 set ambiwidth=double
 
-" 対になる括弧を強調
+" 対応括弧 強調
 set showmatch
 " ↑ の強調時間[msec]
 set matchtime=1
 " 対応括弧に "<" と ">" を追加
 set matchpairs& matchpairs+=<:>
 
-" 画面上で表示する1つのタブ文字の幅
+" 画面上で表示するタブ文字 幅
 set tabstop=4
-" Tab" 押下で入力されるスペースの数
+" "TAB"  スペース数
 set expandtab
 " 行頭は "shiftwidth" 分、それ以外は "tabstop" 分インデント
 set smarttab
-" smartindent" で増減する幅
+" "smartindent" 増減幅
 set shiftwidth=4
-" コマンド・改行・自動インデント時、現在行と同じインデントを挿入
+" コマンド/改行/自動インデント時、現在行と同じインデントを挿入
 set autoindent
 " 改行時に前行の構文をチェックし次行のインデントを増減
 " "{" があると次行は自動で1段深く自動インデント
@@ -47,7 +47,7 @@ set smartindent
 " "<" 、 ">" でインデントする時、"shiftwidth" の倍数に丸める
 set shiftround
 
-" ファイルを開いた時に最後のカーソル位置を復元する
+" ファイルを開いた時、最後のカーソル位置 復元
 if has("autocmd")
     autocmd BufReadPost *
                 \ if line("'\"") > 0 && line ("'\"") <= line("$") |
@@ -55,10 +55,10 @@ if has("autocmd")
                 \ endif
 endif
 
-" インサートモード時カーソル行(列)色を変更
+" インサートモード時カーソル行(列)色 変更
 augroup vimrc_change_cursorline_color
     autocmd!
-    " インサートモード時にカーソル行ブルーグリーン
+    " インサートモード時         カーソル行 ブルーグリーン
     autocmd InsertEnter
                 \ * highlight
                 \ CursorLine ctermbg=24
@@ -66,7 +66,7 @@ augroup vimrc_change_cursorline_color
                 \ | highlight
                 \ CursorColumn ctermbg=24
                 \ guibg=#005f87
-    " インサートモードを抜けた時カーソル行ダークグレー
+    " インサートモードを抜けた時 カーソル行 ダークグレー
     autocmd InsertLeave
                 \ * highlight
                 \ CursorLine ctermbg=236
@@ -76,18 +76,18 @@ augroup vimrc_change_cursorline_color
                 \ guibg=#303030
 augroup END
 
-" NVIM: カーソル形状をモード毎に変更
+" NVIM: モード毎にカーソル形状 変更
 if (has('nvim') && has('vim_starting'))
-    " 挿入モード時、非点滅縦線
+    " 挿入モード時     非点滅縦線
     let &t_SI .= "\e[6 q"
-    " ノーマルモード時、非点滅ブロック
+    " ノーマルモード時 非点滅ブロック
     let &t_EI .= "\e[2 q"
-    " 置換モード時、非点滅下線
+    " 置換モード時     非点滅下線
     let &t_SR .= "\e[4 q"
 endif
 
 " ---------------------------------------------------------------------------
-" 全角スペースをハイライト
+" 全角スペース ハイライト
 " ---------------------------------------------------------------------------
 function! ZenkakuSpace()
     highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
@@ -106,17 +106,17 @@ endif
 " ---------------------------------------------------------------------------
 " ウィンドウ表示篇
 " ---------------------------------------------------------------------------
-" ウインドウタイトルにファイルのパス情報等を表示
+" ウインドウタイトルにファイルのパス情報等 表示
 set title
 
-" ウィンドウ右下に入力中のコマンドを表示
+" ウィンドウ右下に入力中のコマンド 表示
 set showcmd
 
-"タブラベルを常に表示する
+"タブラベル 常時表示
 set showtabline=3
 
 " ---------------------------------------------------------------------------
-" 終了時にウィンドウサイズを記憶する
+" 終了時 ウィンドウサイズ 記憶
 " ---------------------------------------------------------------------------
 if !has("nvim")
     let g:save_window_file = expand("~/.vim/tmp/.vimwinpos")
@@ -148,6 +148,6 @@ set wildmenu wildmode=list:full
 " ---------------------------------------------------------------------------
 " ステータス行表示篇
 " ---------------------------------------------------------------------------
-" カーソルの行列表示
+" カーソル 行列表示
 set ruler
 

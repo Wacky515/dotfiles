@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/07/02 11:06:49.
+" Last Change: 2019/10/24 16:53:51.
 " TODO: 開いたパスに%HOMEPATH%ディレクトリが生成されてしまう
 
 " !!!: 必ず先頭に記述
@@ -24,10 +24,14 @@ if has("linux")
 elseif has("mac")
     execute "source" "~/.gvimrc"
 elseif (has("win32") || has("win64"))
-    execute "source" "~/.gvimrc"
     " MEMO: "nvim-qt" 専用のコマンド
     " TODO: 条件分岐化する
-    Guifont! Cica:h14
+    execute "source" "~/.gvimrc"
+    if hostname()     == "HBAMB748"
+        Guifont! Cica:h14
+    elseif hostname() == "HBALT071"
+        Guifont! Cica:h16
+    endif
 endif
 
 " "Vim" 毎のrcファイルパス設定
@@ -43,4 +47,3 @@ endfunction
 
 " GUI基本設定
 call s:source_rc(".gvimrc")
-

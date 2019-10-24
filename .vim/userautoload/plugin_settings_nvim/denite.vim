@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/19 09:19:36
-" Last Change: 2019/07/01 22:34:29.
+" Last Change: 2019/10/24 17:08:35.
 
 " REF: https://qiita.com/okamos/items/4e1665ecd416ef77df7c
 " ---------------------------------------------------------------------------
@@ -9,43 +9,49 @@ scriptencoding utf-8
 nmap [denite] <Nop>
 map D [denite]
 
+" MEMO:
+" Ver.3 から "-cursor-wrap=true"、"-auto_preview" は廃止
+
 " DB: 現在のバッファ一覧
 nnoremap <silent> [denite]B :<C-u>Denite
             \ -direction=topleft
-            \ -cursor-wrap=true
             \ buffer<CR>
+            " \ -cursor-wrap=true
 " DF: 現在のバッファのディレクトリ下のファイル一覧
 nnoremap <silent> [denite]F :<C-u>DeniteBufferDir
             \ -direction=topleft
-            \ -cursor-wrap=true
             \ file file:new<CR>
+            " \ -cursor-wrap=true
 " DR: レジスタ一覧
 nnoremap <silent> [denite]R :<C-u>Denite
             \ -direction=topleft
-            \ -cursor-wrap=true
             \ -buffer-name=register
             \ register<CR>
+            " \ -cursor-wrap=true
 " DG: Grep
-nnoremap <silent> [denite]G :<C-u>Denite -auto_preview grep<CR>
+nnoremap <silent> [denite]G :<C-u>Denite
+            \ grep<CR>
+            " \ -auto_preview
 " DL: "Colorscheme" プレビュー
 nnoremap <silent> [denite]L :<C-u>Denite
-            \ -auto-preview
             \ colorscheme<CR>
+            " \ -auto-preview
 " DM: 最近使用したファイル一覧
 nnoremap <silent> [denite]M :<C-u>Denite
             \ -direction=topleft
-            \ -cursor-wrap=true
             \ file_mru<CR>
-
-" " DC: カーソルのハイライト
-" nmap <silent> [denite]C :<C-u>Denite file_rec -highlight-mode-insert=Search<CR>
+            " \ -cursor-wrap=true
 
 " NOTWORK:
+" " DH: カーソルのハイライト
+" nmap <silent> [denite]H :<C-u>Denite
+"            \ file_rec
+"            \ -highlight-mode-insert=Search<CR>
 " " DC: ブックマーク一覧
 " nnoremap <silent> [denite]C :<C-u>Denite
 "             \ -direction=topleft
-"             \ -cursor-wrap=true
 "             \ bookmark<CR>
+"             " \ -cursor-wrap=true
 " " DA: ブックマークに追加
 " nnoremap <silent> [denite]A :<C-u>DeniteBookmarkAdd<CR>
 
@@ -79,12 +85,40 @@ nnoremap <silent> [denite]M :<C-u>Denite
 " ---------------------------------------------------------------------------
 " 基本設定
 " ---------------------------------------------------------------------------
-" MEMO: ↓ *.toml に移管済み
-" " プロンプトを ">" にする
-" call denite#custom#option('default', 'prompt', '>')
-
-" カーソルのハイライト
+" カーソル ハイライト
 hi CursorLine guifg=#E19972
+
+" Ver.3.* 以降 新機能用設定
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+    nnoremap <silent><buffer><expr> <CR>
+                \ denite#do_map('do_action')
+    nnoremap <silent><buffer><expr> d
+                \ denite#do_map('do_action', 'delete')
+    nnoremap <silent><buffer><expr> p
+                \ denite#do_map('do_action', 'preview')
+    " "Denite" を閉じる
+    nnoremap <silent><buffer><expr> q
+                \ denite#do_map('quit')
+    " Filtering ウィンドウを開く
+    nnoremap <silent><buffer><expr> i
+                \ denite#do_map('open_filter_buffer')
+    nnoremap <silent><buffer><expr> <Space>
+                \ denite#do_map('toggle_select').'j'
+endfunction
+
+autocmd FileType denite-filter call s:denite_filter_my_setting()
+function! s:denite_filter_my_setting() abort
+    " 一つ上のディレクトリを開き直す
+    inoremap <silent><buffer><expr> <BS>  denite#do_map('move_up_path')
+    " "Denite" を閉じる
+    inoremap <silent><buffer><expr> <C-c> denite#do_map('quit')
+    nnoremap <silent><buffer><expr> <C-c> denite#do_map('quit')
+endfunction
+
+" MEMO: ↓ *.toml に移管済み
+" プロンプト ">" にする
+" call denite#custom#option('default', 'prompt', '>')
 
 " ---------------------------------------------------------------------------
 " Diff設定
@@ -92,7 +126,7 @@ hi CursorLine guifg=#E19972
 " TODO: 設定する
 
 " ---------------------------------------------------------------------------
-"  Grep設定
+" Grep設定
 " ---------------------------------------------------------------------------
 " MEMO: ↓ *.toml に移管済み
 " " The Silver searcher  " {{{
@@ -199,4 +233,3 @@ hi CursorLine guifg=#E19972
 "                 \ 'ropeproject/'])
 " endif
 " }}}
-

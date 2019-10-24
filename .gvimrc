@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/10/10 09:43:45.
+" Last Change: 2019/10/24 15:34:18.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -150,8 +150,6 @@ elseif (has("win32") || has("win64"))
             set guifont=Cica:h11
             set printfont=Cica:h8
             set renderoptions=type:directx,renmode:5
-        else
-            Guifont! Cica:h16
         endif
     elseif hostname() == "MECSI"
         if !has("nvim")
