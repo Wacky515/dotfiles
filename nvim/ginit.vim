@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/10/24 16:53:51.
+" Last Change: 2019/10/25 16:11:48.
 " TODO: 開いたパスに%HOMEPATH%ディレクトリが生成されてしまう
 
 " !!!: 必ず先頭に記述
@@ -33,6 +33,8 @@ elseif (has("win32") || has("win64"))
         Guifont! Cica:h16
     endif
 endif
+
+set ambiwidth=single
 
 " "Vim" 毎のrcファイルパス設定
 let g:rc_dir = expand("~/dotfiles")
