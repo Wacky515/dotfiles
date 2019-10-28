@@ -1,10 +1,11 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2019/10/25 09:14:39
-rem Last Change: 2019/10/25 12:22:30.
+rem Last Change: 2019/10/28 10:35:13.
 
 set batch_title=Get installed
 title %batch_title%
+rem MEMO: 一部捕捉しきれない
 
 rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0

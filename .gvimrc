@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/10/24 15:34:18.
+" Last Change: 2019/10/28 12:28:23.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -89,130 +89,104 @@ endif
 " endif
 
 " !!!: 以下からは記述場所を順番を変えない！！！
+" !!!: "NeoVim" のフォント設定は "ginit.vim" に記述！！
 " フォントの設定
-if has("unix")
-    if !has("nvim")
+if !has("nvim")
+    if has("unix")
         set guifont=Cica\ 16
         set printfont=Cica\ 12
-        colorscheme iceberg
-    endif
+        " colorscheme iceberg
 
-elseif has("mac")
-    if hostname() == "ProSalad13-2018.local"
-        set guifont=Cica:h16
-        set printfont=Cica:h12
-    elseif hostname() == "ProSalad13.local"
-        set guifont=Cica:h16
-        set printfont=Cica:h12
-    elseif hostname() == "ProSalad133.local"
-        set guifont=Cica:h16
-        set printfont=Cica:h12
-        colorscheme iceberg
-    elseif hostname() == "saladserver.com"
-        set guifont=Cica:h24
-        set printfont=Cica:h20
-    " elseif hostname() == "SaladBook.com"
-    elseif hostname() == "SaladBook.local"
-        set guifont=Cica:h16
-        set printfont=Cica:h12
-        " colorscheme solarized
-        colorscheme iceberg
-    else
-        set guifont=Cica:h16
-        set printfont=Cica:h12
-    endif
+    elseif has("mac")
+        if hostname()     == "ProSalad13-2018.local"
+            set guifont=Cica:h16
+            set printfont=Cica:h12
+        elseif hostname() == "ProSalad13.local"
+            set guifont=Cica:h16
+            set printfont=Cica:h12
+        elseif hostname() == "ProSalad133.local"
+            set guifont=Cica:h16
+            set printfont=Cica:h12
+        elseif hostname() == "saladserver.com"
+            set guifont=Cica:h24
+            set printfont=Cica:h20
+        elseif hostname() == "SaladBook.local"
+            set guifont=Cica:h16
+            set printfont=Cica:h12
+        else
+            set guifont=Cica:h16
+            set printfont=Cica:h12
+        endif
+        " colorscheme iceberg
 
-elseif (has("win32") || has("win64"))
-    " Home setting
-    if hostname() == "SALADCARBONX1"
-        if !has("nvim")
+    elseif (has("win32") || has("win64"))
+        " Home setting
+        if hostname()     == "SALADCARBONX1"
             set guifont=Cica:h13
             set printfont=Cica:h8
             " Windows Cica 専用設定 ("NeoVim" 版設定探す）
             set renderoptions=type:directx,renmode:5
-        endif
 
-    " muRata setting
-    elseif hostname() == "HBAMB748"
-        if !has("nvim")
+            " muRata setting
+        elseif hostname() == "HBAMB748"
             set guifont=Cica:h15
             set printfont=Cica:h12
             set renderoptions=type:directx,renmode:5
-        endif
-    elseif hostname() == "HBAMB748A"
-        if !has("nvim")
+        elseif hostname() == "HBAMB748A"
             set guifont=Cica:h15
             set printfont=Cica:h13
             set renderoptions=type:directx,renmode:5
-        endif
-    elseif hostname() == "HBALT071"
-        if !has("nvim")
+        elseif hostname() == "HBALT071"
             set guifont=Cica:h11
             set printfont=Cica:h8
             set renderoptions=type:directx,renmode:5
-        endif
-    elseif hostname() == "MECSI"
-        if !has("nvim")
+        elseif hostname() == "MECSI"
             set guifont=Cica:h11
             set printfont=Cica:h8
             set renderoptions=type:directx,renmode:5
-        endif
-    elseif hostname() == "LAPTOP-DOA35GAR"
-        if !has("nvim")
+        elseif hostname() == "LAPTOP-DOA35GAR"
             set guifont=Cica:h11
             set printfont=Cica:h8
             set renderoptions=type:directx,renmode:5
-        endif
-    elseif hostname() == "HBAMB819"
-        if !has("nvim")
+        elseif hostname() == "HBAMB819"
             set guifont=Cica:h12
             set printfont=Cica:h10
             set renderoptions=type:directx,renmode:5
-        endif
-    elseif hostname() == "SMM0761"
-        if !has("nvim")
+        elseif hostname() == "SMM0761"
             set guifont=Cica:h12
             set printfont=Cica:h10
             set renderoptions=type:directx,renmode:5
-        endif
-    elseif hostname() == "SMM1319"
-        if !has("nvim")
+        elseif hostname() == "SMM1319"
             set guifont=Cica:h12
             set printfont=Cica:h10
             set renderoptions=type:directx,renmode:5
-        endif
-    elseif hostname() == "SMM1380"
-        if !has("nvim")
+        elseif hostname() == "SMM1380"
             set guifont=Cica:h12
             set printfont=Cica:h10
             set renderoptions=type:directx,renmode:5
-        endif
-    elseif hostname() == "SMM1496"
-        if !has("nvim")
+        elseif hostname() == "SMM1496"
             set guifont=Cica:h12
             set printfont=Cica:h10
             set renderoptions=type:directx,renmode:5
-        endif
-    elseif hostname() == "mmctosmm"
-        if !has("nvim")
+        elseif hostname() == "mmctosmm"
             set guifont=Cica:h14
             set printfont=Cica:h10
             set renderoptions=type:directx,renmode:5
-        endif
 
-        " Xacti setting " {{{
-    elseif hostname() == "CAD0021"
-        set guifont=Ricty_Diminished:h16
-    elseif hostname() == "PC-SA4110204580"
-        set guifont=Ricty_Diminished:h12
-    elseif hostname() == "NOT0053"
-        set guifont=Ricty_Diminished:h12
-        " }}}
+            " Xacti setting " {{{
+        elseif hostname() == "CAD0021"
+            set guifont=Ricty_Diminished:h16
+        elseif hostname() == "PC-SA4110204580"
+            set guifont=Ricty_Diminished:h12
+        elseif hostname() == "NOT0053"
+            set guifont=Ricty_Diminished:h12
+            " }}}
 
-    else
-        if !has("nvim")
-            set guifont=Meiryo_UI:h18
-            set renderoptions=type:directx,renmode:5
+        else
+            if !has("nvim")
+                set guifont=Meiryo_UI:h18
+                set renderoptions=type:directx,renmode:5
+            endif
         endif
     endif
 endif
