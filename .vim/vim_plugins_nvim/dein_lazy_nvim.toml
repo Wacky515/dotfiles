@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2019/10/29 11:20:10.
+# Last Change: 2019/10/29 13:41:52.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -159,7 +159,7 @@ repo = 'Shougo/unite.vim'
 # 最新
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-if = "has('nvim') && has('python3')"
+if = "has('python3') && has('timers')"
 on_i = 1
 hook_add = '''  " {{{
     let g:deoplete#enable_at_startup   = 1
