@@ -1,6 +1,8 @@
 #!/bin/bash
 # Created:     2019/10/02 13:51:56
-# Last Change: 2019/10/02 14:13:06.
+# Last Change: 2019/10/02 14:18:13.
+
+# TODO: OneDrive フォルダのダウンロード 自動化
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
