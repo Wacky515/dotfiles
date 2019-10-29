@@ -1,10 +1,10 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2019/07/14 15:11:26.
+# Last Change: 2019/10/29 13:42:49.
 
-# MEMO:
+# REF:
 # hook_add         プラグイン追加後
-# hook_source      プラグイン読込み前
-# hook_post_source プラグイン読込み後
+# hook_source      プラグイン読込前
+# hook_post_source プラグイン読込後
 
 # "dein.vim" 本体
 [[plugins]]
@@ -14,12 +14,12 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'LeafCage/yankround.vim'
 hook_source = '''  " {{{
-    nmap p <Plug>(yankround-p)
-    xmap p <Plug>(yankround-p)
-    nmap P <Plug>(yankround-P)
-    nmap gp <Plug>(yankround-gp)
-    xmap gp <Plug>(yankround-gp)
-    nmap gP <Plug>(yankround-gP)
+    nmap p     <Plug>(yankround-p)
+    xmap p     <Plug>(yankround-p)
+    nmap P     <Plug>(yankround-P)
+    nmap gp    <Plug>(yankround-gp)
+    xmap gp    <Plug>(yankround-gp)
+    nmap gP    <Plug>(yankround-gP)
     nmap <C-p> <Plug>(yankround-prev)
     nmap <C-n> <Plug>(yankround-next)
 '''  # }}}
@@ -109,7 +109,7 @@ repo = 'ryanoasis/vim-devicons'
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
 
-# ウィンドウリサイズ
+# ウィンドゥリサイズ
 [[plugins]]
 repo = 'simeji/winresizer'
 
@@ -196,10 +196,6 @@ repo = 'nathanaelkane/vim-indent-guides'
 [[plugins]]
 repo = 'jacquesbh/vim-showmarks'
 
-# # "NeoVim" ノーマルモード時にIME OFF
-# [[plugins]]
-# repo = 'rbtnn/winime.vim'
-
 # テーブル作成
 # ":TableModeToggle" で開始
 [[plugins]]
@@ -226,18 +222,20 @@ hook_add = '''
     au MyAutoCmd VimEnter * nested colorscheme iceberg
     au MyAutoCmd VimEnter * highlight Visual ctermbg=216
 '''
-[[plugins]]
-repo = 'shinshin86/twc.vim'
 
-# 天気予報
-[[plugins]]
-repo = 'skanehira/weather.vim'
-
-# 乗換え案内
-[[plugins]]
-repo = 'skanehira/train.vim'
+# カラースキーム ランダム設定
+# [[plugins]]
+# repo = 'shinshin86/twc.vim'
 
 # JOKE
-[[plugins]]
-repo = 'wordijp/kuririn-no-kotoka.vim'
+# [[plugins]]
+# repo = 'wordijp/kuririn-no-kotoka.vim'
 
+# DISCON:
+# # 天気予報
+# [[plugins]]
+# repo = 'skanehira/weather.vim'
+
+# # 乗換え案内
+# [[plugins]]
+# repo = 'skanehira/train.vim'

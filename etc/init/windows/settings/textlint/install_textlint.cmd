@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2019/09/30 14:26:56.
+rem Last Change: 2019/10/03 11:14:48.
 
 set batch_title=Install textlint
 title %batch_title%
@@ -20,6 +20,10 @@ set command=npm bin -g
 
 rem  スクリプトがある "Dir" に "cd"
 pushd %~dp0
+
+echo ^>^> Check installed or not
+textlint -v
+if %errorlevel% equ 0 goto end
 
 echo ^>^> Check dependencies
 for /f %%i in ('%command%') do set npm_path=%%i
@@ -74,9 +78,9 @@ cmd /c npm install -global textlint-rule-one-white-space-between-zenkaku-and-han
 rem REF:
 rem https://github.com/textlint/textlint/wiki/Collection-of-textlint-rule
 
+:end
 endlocal
 popd
 
 rem pause
 exit /b 0
-

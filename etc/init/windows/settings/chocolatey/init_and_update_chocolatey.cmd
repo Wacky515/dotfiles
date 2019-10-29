@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2017/02/17 00:54:41
-rem Last Change: 2019/10/02 12:22:01.
+rem Last Change: 2019/10/03 10:16:37.
 
 title Update Chocolatey
 
@@ -25,10 +25,10 @@ set config_files=packages_%computername%.config
 rem rem スクリプトがある "Dir" に "cd"
 rem pushd %bat_path%
 rem "dotfiles" に "cd"
-if not exist C:%homepath%\dotfiles (
-    mkdir C:%homepath%\dotfiles
+if not exist C:%homepath%\dotfiles\ (
+    mkdir C:%homepath%\dotfiles\
 )
-pushd C:%homepath%\dotfiles
+pushd C:%homepath%\dotfiles\
 
 rem "Chocolatey" インストール済みかチェック
 chocolatey -v > nul 2>&1
@@ -63,7 +63,6 @@ echo ^>^> Set desktop shortcut
 copy init_and_update_chocolatey.lnk %userprofile%\Desktop\
 
 :end
-
 endlocal
 popd
 

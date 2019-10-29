@@ -1,5 +1,5 @@
 ﻿scriptencoding utf-8
-" Last Change: 2019/07/03 14:41:30.
+" Last Change: 2019/10/28 13:50:11.
 
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示
 if has("unix")
@@ -13,7 +13,7 @@ endif
 " }}}
 
 " 設定1
-" MEMO: 設定参考
+" REF:
 " \ 'colorscheme': 'jellybeans',  " {{{
 " \ 'colorscheme': 'powerline',
 " \ 'colorscheme': 'solarized',
@@ -28,16 +28,16 @@ endif
 
 let g:lightline = {
             \ 'colorscheme': 'wombat',
-            \ 'separator':    { 'left': "\ue0cc", 'right': "\ue0b2" },
-            \ 'subseparator': { 'left': "\ue0cd", 'right': "\ue0b3" },
-            \ 'mode_map': {'c': 'NORMAL'},
+            \ 'separator':    {'left': "\ue0cc", 'right': "\ue0b2"},
+            \ 'subseparator': {'left': "\ue0cd", 'right': "\ue0b3"},
+            \ 'mode_map':     {'c':    'NORMAL'},
             \ 'active': {
             \     'left': [
             \         ['mode',     'paste'],
             \         ['fugitive', 'filename'],
             \         ['modified', 'ale']]},
             \ 'component': {
-            \   'lineinfo': ' %3l:%-2v',},
+            \     'lineinfo':     ' %3l:%-2v',},
             \ 'component_function': {
             \     'mode':         'MyMode',
             \     'fugitive':     'MyFugitive',

@@ -1,6 +1,6 @@
 ﻿scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2019/07/13 11:06:57.
+" Last Change: 2019/10/25 13:40:53.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -243,4 +243,3 @@ func! s:func_copy_cmd_output(cmd)
 endfunc
 
 command! -nargs=1 -complete=command CopyCmdOutput call <SID>func_copy_cmd_output(<q-args>)
-

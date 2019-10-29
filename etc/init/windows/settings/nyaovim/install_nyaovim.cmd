@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/12/19 11:37:29
-rem Last Change: 2019/10/01 17:14:47.
+rem Last Change: 2019/10/03 11:11:19.
 
 set batch_title=Install NyaoVim
 title %batch_title%
@@ -20,6 +20,10 @@ set command=npm bin -g
 
 rem  スクリプトがある "Dir" に "cd"
 pushd %~dp0
+
+echo ^>^> Check installed or not
+nyaovim --version >> nul
+if %errorlevel% equ 0 goto end
 
 echo ^>^> Check dependencies
 for /f %%i in ('%command%') do set npm_path=%%i
@@ -40,6 +44,7 @@ cinst -y nodejs.install
 echo ^>^> %batch_title%
 cmd /c npm install -g nyaovim
 
+:end
 endlocal
 popd
 

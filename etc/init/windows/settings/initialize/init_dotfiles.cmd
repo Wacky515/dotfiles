@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/10/02 12:24:06.
+rem Last Change: 2019/10/06 14:12:57.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -164,19 +164,21 @@ net use w: /delete > nul 2>&1
 net use v: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings
 net use w: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps
 echo ^>^> Copy "Settngs" from R drive
-robocopy v: C:%homepath%\OneDrive\仕事\Settings\ /s /e
+robocopy /s /e v: C:%homepath%\OneDrive\仕事\Settings\
 echo ^>^> Copy "InitApps" from R drive
-robocopy w: C:%homepath%\OneDrive\仕事\InitApps\ /s /e
+robocopy w: /s /e C:%homepath%\OneDrive\仕事\InitApps\
 net use v: /delete > nul 2>&1
 net use w: /delete > nul 2>&1
 goto inst_apps
 
 :cp_nas
+set nas_settings=\\LS210D68\Share\Settings\
+set nas_init_apps=\\LS210D68\Shara\InitApps\
 echo ^>^> In home network
 echo ^>^> Copy "Settngs" from NAS
-robocopy src dst /s /e
+robocopy /s /e %nas_setthing% %homepath%\OneDrive\仕事\Settings\
 echo ^>^> Copy "InitApps" from NAS
-robocopy src dst /s /e
+robocopy /s /e %nas_initapps% %homepath%\OneDrive\仕事\InitApps\
 goto inst_apps
 
 :dl_mega
@@ -190,7 +192,7 @@ pause
 
 "C:\Program Files\7-Zip\7z.exe" x -y -oC:%homepath%\OneDrive\仕事\ C:%homepath%\OneDrive\仕事\Settings.zip
 
-if exist %homepath%\OneDrive\仕事\InitApps (
+if exist %homepath%\OneDrive\仕事\InitApps\ (
     rmdir /s /q %homepath%\OneDrive\仕事\InitApps\
 )
 echo ^>^> Please download "InitApps" folder manually
@@ -265,7 +267,7 @@ if exist C:%homepath%\OneDrive\仕事\InitApps.zip (
     del C:%homepath%\OneDrive\仕事\InitApps.zip > nul 2>&1
 )
 
-call C:%homepath%\OneDrive\仕事\Batch\empty.cmd
+call C:%homepath%\OneDrive\仕事\InitApps\Batch\empty.cmd
 
 rem link.cmd 実行
 rem pushd %homepath%\dotfiles\

@@ -1,32 +1,30 @@
 # Created:     2017/**/** **:**:**
-# Last Change: 2019/07/01 22:37:35.
+# Last Change: 2019/10/05 21:45:42.
 
 export PATH="/usr/local/sbin:$PATH"
 # FIXME: "Mac" でエラーのためキル
-# export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # FIXME: "Mac" でエラーのためキル
-# # "Mac" 用の条件分岐
-# if [[ `uname` == 'Darwin' ]]; then
+# "Mac" 用の条件分岐
+if [[ `uname` == 'Darwin' ]]; then
 
-#     export PATH="/usr/local/sbin:$PATH"
+    export PATH="/usr/local/sbin:$PATH"
 
-# # "Windows" 用の条件分岐
-# elif [[ `uname` =~ ^(MSYS_NT-|MINGW32_NT-).+$ ]]; then
+# "Windows" 用の条件分岐
+elif [[ `uname` =~ ^(MSYS_NT-|MINGW32_NT-).+$ ]]; then
 
-#     # "gitk" は "Windows" 用を使う
-#     alias gitk="/c/Program\ Files/Git/cmd/gitk"
+    # "gitk" は "Windows" 用を使う
+    alias gitk="/c/Program\ Files/Git/cmd/gitk"
 
-#     # "mintty" が ."bashrc" を読込む設定
-#     if [[ -f ~/.bashrc ]]; then
-#         # . ~/.bashrc
-#         source ~/.bashrc
-#     fi
+    "mintty" が ."bashrc" を読込む設定
+    if [[ -f ~/.bashrc ]]; then
+        source ~/.bashrc
+    fi
 
-#     # # "mintty" 用色設定ファイルが存在すれば読込み
-#     # if [[ -f path/to/sol.dark ]]; then
-#     #     source path/to/sol.dark
-#     # fi
+    # # "mintty" 用色設定ファイルが存在すれば読込み
+    # if [[ -f path/to/sol.dark ]]; then
+    #     source path/to/sol.dark
+    # fi
 
-# fi
-
+fi

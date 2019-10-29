@@ -1,6 +1,6 @@
 ﻿scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/07/03 18:26:09.
+" Last Change: 2019/10/15 10:24:30.
 
 " ---------------------------------------------------------------------------
 "  マップキー
@@ -80,70 +80,3 @@ set colorcolumn=80
 " syntax enable
 " set t_Co=256
 " }}}
-
-" 以下、旧記述
-" FIXED?: "Linux" 環境下でエラー "{{{
-" if !has("unix")
-" python3 << EOF
-" import os
-" import sys
-
-" " jedi-vim" で "Anaconda3 " のライブラリを補完できるようにpathを追加
-" " FIXED?: "Linux" 環境下でエラー
-" if !has("unix")
-"     " python3 << EOF
-"     python << EOF
-"     import os
-"     import sys
-"
-"     path = "C:/tools/Anaconda3/Lib/site-packages"
-"     if not path in sys.path:
-"         sys.path.insert(0, path)
-"         EOF
-"     endif
-"
-"     " 以下の条件分けは "endif" 無しエラーが解決できないためKill
-"     " if !has("unix") "{{{
-"     "     python << EOF
-"     "         import os
-"     "         import sys
-"     "         home = os.path.expanduser("~")
-"     "         path = home + "/Anaconda2/Lib/site-packages"
-"     "         if not path in sys.path:
-"     "             sys.path.insert(0, path)
-"     "     EOF
-"     " endif
-"
-"     " if has("win32") || has("win64")
-"     "     python << EOF
-"     "     import os
-"     "     import sys
-"     "     home = os.path.expanduser("~")
-"     "     path = home + "/Anaconda2/Lib/site-packages"
-"     "     if not path in sys.path:
-"     "         sys.path.insert(0, path)
-"     "     EOF
-"     " endif "}}}
-"
-"     " if !has("unix") "{{{
-"     "     python << EOF
-"     "     import os
-"     "     import sys
-"     "     home = os.path.expanduser("~")
-"     "     path = home + "/Anaconda2/Lib/site-packages"
-"     "     if not path in sys.path:
-"     "         sys.path.insert(0, path)
-"     "     EOF
-"     " endif
-"
-"     " if has("win32") || has("win64")
-"     "     python << EOF
-"     "     import os
-"     "     import sys
-"     "     home = os.path.expanduser("~")
-"     "     path = home + "/Anaconda2/Lib/site-packages"
-"     "     if not path in sys.path:
-"     "         sys.path.insert(0, path)
-"     "     EOF
-"     " endif
-"     " }}}

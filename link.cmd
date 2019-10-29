@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/09/26 10:40:09.
+rem Last Change: 2019/10/29 15:35:39.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -29,28 +29,22 @@ if not %errorlevel% equ 0 (
     goto instnyao
 )
 
-set src_init=%homepath%\dotfiles\nvim\
-
-if "%processor_architecture%" equ "x86" (
-    set dst_init=%homepath%\AppData\Local\nvim\
-)
-if "%processor_architecture%" equ "AMD64" (
-    if %computername% == SALADCARBONX1 (
-        set dst_init=%homepath%\AppData\Local\nvim\
-    ) else (
-        if exist %xdg_config_home%\* (
-            set dst_init=%xdg_config_home%\nvim\
-        ) else (
-            if not exist %homepath%\AppData\Local\nvim\* (
-                mkdir %homepath%\AppData\Local\nvim\
-            )
-            set dst_init=%homepath%\AppData\Local\nvim\
-        )
-    )
+set src_nvim=%homepath%\dotfiles\nvim\
+if defined xdg_config_home (
+    echo ^>^> Set NeoVIm in XDG CONFIG HOME
+    rmdir /s /q %xdg_config_home%\nvim\ > nul 2>&1
+    set dst_nvim=%xdg_config_home%\nvim\
+    goto instneo
+) else (
+    echo ^>^> Set NeoVIm in Local AppData
+    rmdir /s /q %localappdata%\nvim\ > nul 2>&1
+    set dst_nvim=%localappdata%\nvim\
+    goto instneo
 )
 
-rmdir /s /q %dst_init%
-mklink /d %dst_init% %src_init% > nul 2>&1
+:instneo
+rem rmdir /s /q %dst_nvim%
+mklink /d %dst_nvim% %src_nvim% > nul 2>&1
 if %errorlevel% == 0 (
     echo ^>^> init.vimAginit.vim copy success!
 ) else (
@@ -128,4 +122,3 @@ endlocal
 
 rem pause
 exit /b 0
-

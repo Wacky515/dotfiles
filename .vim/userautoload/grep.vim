@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2017/10/27 00:00:00.
-" Last Change: 2018/12/18 07:47:53.
+" Last Change: 2019/10/17 10:35:30.
 " MEMO: 検索速度順に記述
 
 " MEMO: 日本語はマッチしない
@@ -47,4 +47,3 @@ nnoremap <expr> <Leader>g ':vimgrep /\<' . expand('<cword>') . '\>/j **/*.' . ex
 
 " ":vimgrep"、":grep"、":Ggrep" 後、自動的に "QuickFix-Window" 表示
 autocmd QuickFixCmdPost *grep* cwindow
-

@@ -1,33 +1,24 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/09/29 11:01:21.
+" Last Change: 2019/10/29 10:58:35.
 
 " ----------------------------------------------------------------------
-" å¤–è¦³ãƒ†ãƒ¼ãƒç¯‡
+" ŠOŠÏƒe[ƒ}•Ñ
 " ----------------------------------------------------------------------
-" MEMO: "Dein" ã«ç§»ç®¡æ¸ˆã¿
-" ã‚«ãƒ©ãƒ¼ã‚¹ã‚­ãƒ¼ãƒã®æŒ‡å®š
-" æš—èƒŒæ™¯ç”¨ã®é…è‰²ã«ã™ã‚‹
+" MEMO: "Dein" ‚ÉˆÚŠÇÏ‚İ
+    " ƒJƒ‰[ƒXƒL[ƒ}‚Ìw’è
+    " ˆÃ”wŒi—p‚Ì”zF‚É‚·‚é
 
-" " æ˜èƒŒæ™¯ç”¨ã®é…è‰²ã«ã™ã‚‹ " {{{
-" set background=light
-" }}}
-
-" é¸æŠè¡Œç•ªå·ã®è‰²
-highlight LineNr ctermfg=darkyellow
-
-" ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ï¼ˆ"Vim" ç”»é¢ä¸‹éƒ¨ï¼‰ã®è¡Œæ•°
+" Kaoriya GVim—p íœ‚µ‚È‚¢III
+" ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“i"Vim" ‰æ–Ê‰º•”j‚‚³
 set cmdheight=5
 
-" ã‚¿ãƒ¼ãƒŸãƒŠãƒ«256è‰²è¡¨ç¤º
-set t_Co=256
-
-" ãƒ„ãƒ¼ãƒ«ãƒãƒ¼æ¶ˆå»
+" ƒc[ƒ‹ƒo[Á‹
 set guioptions-=T
-" ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒãƒ¼éè¡¨ç¤º
+" ƒƒjƒ…[ƒo[”ñ•\¦
 set guioptions-=m
 
-" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ åŠé€æ˜åŒ–ï¼ˆ"Linux" ã¯ "Vim" ã‹ã‚‰è¨­å®šã§ããªã„ï¼‰
+" ƒEƒBƒ“ƒhƒE ”¼“§–¾‰»i"Linux" ‚Í "Vim" ‚©‚çİ’è‚Å‚«‚È‚¢j
 if has("mac")
     if !has("nvim")
         set transparency=10
@@ -37,35 +28,32 @@ if (has("win32") || ("win64"))
     :autocmd GUIEnter * set transparency=235
 endif
 
-" ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ æ–‡å­—åŒ–ã‘å¯¾ç­–
+" ƒƒbƒZ[ƒW •¶š‰»‚¯‘Îô
 if (has("win32") || ("win64"))
     source $VIMRUNTIME/delmenu.vim
     set langmenu=ja_jp.utf-8
     source $VIMRUNTIME/menu.vim
 endif
 
-" ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ãƒã‚¤ãƒ©ã‚¤ãƒˆ
-" "dein.vim" ã«é–¢ã™ã‚‹è¨­å®šã®å¾Œã«ON
-syntax on
-
-" ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—ç³»ãƒã‚¤ãƒ©ã‚¤ãƒˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’å°å…¥ã—ã¦ã„ã‚‹å ´åˆ "{{{
-" syntax on" ã¯ç¾åœ¨ã®runtimepathã«å«ã¾ã‚Œã¦ã„ã‚‹è¨­å®šã‚’ã‚‚ã¨ã«ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ã‚’ç”Ÿæˆã™ã‚‹
-" runtimepathã‚’åˆæœŸåŒ–ã™ã‚‹ã‚ˆã†ãªå‡¦ç†ã‚’ã—ãŸå¾Œã«syntax onã—ã¦ã‚‚ã‚ã¾ã‚Šæ„å‘³ã¯ãªã
-" runtimepathã‚’ã™ã¹ã¦è¨­å®šã—çµ‚ãˆãŸå¾Œã«syntax onã‚’ã™ã‚‹ã¹ã
-" æ‚ªã„ãƒ‘ã‚¿ãƒ¼ãƒ³
-" runtimepathã‚’åˆæœŸåŒ–ã™ã‚‹ã‚ˆã†ãªå‡¦ç†
+" ƒtƒ@ƒCƒ‹ƒ^ƒCƒvŒnƒnƒCƒ‰ƒCƒgƒvƒ‰ƒOƒCƒ“‚ğ“±“ü‚µ‚Ä‚¢‚éê‡ "{{{
+" syntax on" ‚ÍŒ»İ‚Ìruntimepath‚ÉŠÜ‚Ü‚ê‚Ä‚¢‚éİ’è‚ğ‚à‚Æ‚ÉƒVƒ“ƒ^ƒbƒNƒX‚ğ¶¬‚·‚é
+" runtimepath‚ğ‰Šú‰»‚·‚é‚æ‚¤‚Èˆ—‚ğ‚µ‚½Œã‚Ésyntax on‚µ‚Ä‚à‚ ‚Ü‚èˆÓ–¡‚Í‚È‚­
+" runtimepath‚ğ‚·‚×‚Äİ’è‚µI‚¦‚½Œã‚Ésyntax on‚ğ‚·‚é‚×‚«
+" ˆ«‚¢ƒpƒ^[ƒ“
+" runtimepath‚ğ‰Šú‰»‚·‚é‚æ‚¤‚Èˆ—
 " set runtimepath=$VIMRUNTIME
 " syntax on
-" ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—ç³»ãƒã‚¤ãƒ©ã‚¤ãƒˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³
+" ƒtƒ@ƒCƒ‹ƒ^ƒCƒvŒnƒnƒCƒ‰ƒCƒgƒvƒ‰ƒOƒCƒ“
 " neoBundle 'kongo2002/fsharp-vim'
-" è‰¯ã„ãƒ‘ã‚¿ãƒ¼ãƒ³
-" runtimepathã‚’åˆæœŸåŒ–ã™ã‚‹ã‚ˆã†ãªå‡¦ç†
+" —Ç‚¢ƒpƒ^[ƒ“
+" runtimepath‚ğ‰Šú‰»‚·‚é‚æ‚¤‚Èˆ—
 " set runtimepath=$VIMRUNTIME
-" ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—ç³»ãƒã‚¤ãƒ©ã‚¤ãƒˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³
+" ƒtƒ@ƒCƒ‹ƒ^ƒCƒvŒnƒnƒCƒ‰ƒCƒgƒvƒ‰ƒOƒCƒ“
 " neoBundle 'kongo2002/fsharp-vim'
 " syntax on
 "}}}
 
+" "NyaoVim" —pİ’è
 if exists("g:nyaovim_version")
     let s:plugin_dir = expand("~/.config/nyaovim/dein")
     try
@@ -83,136 +71,110 @@ if exists("g:nyaovim_version")
     endtry
 endif
 
-" MEMO: "Oni" ç”¨è¨­å®š
+" REF: "Oni" —pİ’è
 " if exists("g:gui_oni")
 "     echo Setting for Oni
 " endif
 
-" !!!: ä»¥ä¸‹ã‹ã‚‰ã¯è¨˜è¿°å ´æ‰€ã‚’é †ç•ªã‚’å¤‰ãˆãªã„ï¼ï¼ï¼
-" ãƒ•ã‚©ãƒ³ãƒˆã®è¨­å®š
-if has("unix")
-    if !has("nvim")
+" !!!: ˆÈ‰º‚©‚ç‚Í‹LqêŠ‚ğ‡”Ô‚ğ•Ï‚¦‚È‚¢III
+" !!!: "NeoVim" ‚ÌƒtƒHƒ“ƒgİ’è‚Í "ginit.vim" ‚É‹LqII
+" ƒtƒHƒ“ƒg‚Ìİ’è
+if !has("nvim")
+    if has("unix")
         set guifont=Cica\ 16
         set printfont=Cica\ 12
-        colorscheme iceberg
-    endif
+        " colorscheme iceberg
 
-elseif has("mac")
-    if hostname() == "ProSalad133.local"
-        set guifont=Cica:h16
-        set printfont=Cica:h12
-        colorscheme iceberg
-    elseif hostname() == "ProSalad13.local"
-        set guifont=Cica:h16
-        set printfont=Cica:h12
-    elseif hostname() == "saladserver.com"
-        set guifont=Cica:h24
-        set printfont=Cica:h20
-    " elseif hostname() == "SaladBook.com"
-    elseif hostname() == "SaladBook.local"
-        set guifont=Cica:h16
-        set printfont=Cica:h12
-        " colorscheme solarized
-        colorscheme iceberg
-    else
-        set guifont=Cica:h16
-        set printfont=Cica:h12
-    endif
+    elseif has("mac")
+        if hostname()     == "ProSalad13-2018.local"
+            set guifont=Cica:h16
+            set printfont=Cica:h12
+        elseif hostname() == "ProSalad13.local"
+            set guifont=Cica:h16
+            set printfont=Cica:h12
+        elseif hostname() == "ProSalad133.local"
+            set guifont=Cica:h16
+            set printfont=Cica:h12
+        elseif hostname() == "saladserver.com"
+            set guifont=Cica:h24
+            set printfont=Cica:h20
+        elseif hostname() == "SaladBook.local"
+            set guifont=Cica:h16
+            set printfont=Cica:h12
+        else
+            set guifont=Cica:h16
+            set printfont=Cica:h12
+        endif
+        " colorscheme iceberg
 
-elseif (has("win32") || has("win64"))
-    " Home setting
-    if hostname() == "SALADCARBONX1"
-        if !has("nvim")
+    elseif (has("win32") || has("win64"))
+        " Home setting
+        if hostname()     == "SALADCARBONX1"
             set guifont=Cica:h13
             set printfont=Cica:h8
-            " Windows Cica å°‚ç”¨è¨­å®š ("NeoVim" ç‰ˆè¨­å®šæ¢ã™ï¼‰
+            " Windows Cica ê—pİ’è ("NeoVim" ”Åİ’è’T‚·j
             set renderoptions=type:directx,renmode:5
-        endif
 
-    " muRata setting
-    elseif hostname() == "HBAMB748"
-        if !has("nvim")
+            " muRata setting
+        elseif hostname() == "HBAMB748"
             set guifont=Cica:h15
             set printfont=Cica:h12
             set renderoptions=type:directx,renmode:5
-        endif
-    elseif hostname() == "HBAMB748A"
-        if !has("nvim")
+        elseif hostname() == "HBAMB748A"
             set guifont=Cica:h15
             set printfont=Cica:h13
             set renderoptions=type:directx,renmode:5
-        endif
-    elseif hostname() == "HBALT071"
-        if !has("nvim")
+        elseif hostname() == "HBALT071"
             set guifont=Cica:h11
             set printfont=Cica:h8
             set renderoptions=type:directx,renmode:5
-        else
-            Guifont! Cica:h16
-        endif
-    elseif hostname() == "MECSI"
-        if !has("nvim")
+        elseif hostname() == "MECSI"
             set guifont=Cica:h11
             set printfont=Cica:h8
             set renderoptions=type:directx,renmode:5
-        endif
-    elseif hostname() == "LAPTOP-DOA35GAR"
-        if !has("nvim")
+        elseif hostname() == "LAPTOP-DOA35GAR"
             set guifont=Cica:h11
             set printfont=Cica:h8
             set renderoptions=type:directx,renmode:5
-        endif
-    elseif hostname() == "HBAMB819"
-        if !has("nvim")
+        elseif hostname() == "HBAMB819"
             set guifont=Cica:h12
             set printfont=Cica:h10
             set renderoptions=type:directx,renmode:5
-        endif
-    elseif hostname() == "SMM0761"
-        if !has("nvim")
+        elseif hostname() == "SMM0761"
             set guifont=Cica:h12
             set printfont=Cica:h10
             set renderoptions=type:directx,renmode:5
-        endif
-    elseif hostname() == "SMM1319"
-        if !has("nvim")
+        elseif hostname() == "SMM1319"
             set guifont=Cica:h12
             set printfont=Cica:h10
             set renderoptions=type:directx,renmode:5
-        endif
-    elseif hostname() == "SMM1380"
-        if !has("nvim")
+        elseif hostname() == "SMM1380"
             set guifont=Cica:h12
             set printfont=Cica:h10
             set renderoptions=type:directx,renmode:5
-        endif
-    elseif hostname() == "SMM1496"
-        if !has("nvim")
+        elseif hostname() == "SMM1496"
             set guifont=Cica:h12
             set printfont=Cica:h10
             set renderoptions=type:directx,renmode:5
-        endif
-    elseif hostname() == "mmctosmm"
-        if !has("nvim")
+        elseif hostname() == "mmctosmm"
             set guifont=Cica:h14
             set printfont=Cica:h10
             set renderoptions=type:directx,renmode:5
-        endif
 
-        " Xacti setting " {{{
-    elseif hostname() == "CAD0021"
-        set guifont=Ricty_Diminished:h16
-    elseif hostname() == "PC-SA4110204580"
-        set guifont=Ricty_Diminished:h12
-    elseif hostname() == "NOT0053"
-        set guifont=Ricty_Diminished:h12
-        " }}}
+            " Xacti setting " {{{
+        elseif hostname() == "CAD0021"
+            set guifont=Ricty_Diminished:h16
+        elseif hostname() == "PC-SA4110204580"
+            set guifont=Ricty_Diminished:h12
+        elseif hostname() == "NOT0053"
+            set guifont=Ricty_Diminished:h12
+            " }}}
 
-    else
-        if !has("nvim")
-            set guifont=Meiryo_UI:h18
-            set renderoptions=type:directx,renmode:5
+        else
+            if !has("nvim")
+                set guifont=Meiryo_UI:h18
+                set renderoptions=type:directx,renmode:5
+            endif
         endif
     endif
 endif
-
