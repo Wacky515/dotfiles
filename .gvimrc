@@ -1,26 +1,17 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/10/28 12:28:23.
+" Last Change: 2019/10/29 10:58:35.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
 " ----------------------------------------------------------------------
 " MEMO: "Dein" に移管済み
-" カラースキーマの指定
-" 暗背景用の配色にする
+    " カラースキーマの指定
+    " 暗背景用の配色にする
 
-" " 明背景用の配色にする " {{{
-" set background=light
-" }}}
-
-" 選択行番号の色
-highlight LineNr ctermfg=darkyellow
-
-" コマンドライン（"Vim" 画面下部）の行数
+" Kaoriya GVim用 削除しない！！！
+" コマンドライン（"Vim" 画面下部）高さ
 set cmdheight=5
-
-" ターミナル256色表示
-set t_Co=256
 
 " ツールバー消去
 set guioptions-=T
@@ -44,10 +35,6 @@ if (has("win32") || ("win64"))
     source $VIMRUNTIME/menu.vim
 endif
 
-" シンタックスハイライト
-" "dein.vim" に関する設定の後にON
-syntax on
-
 " ファイルタイプ系ハイライトプラグインを導入している場合 "{{{
 " syntax on" は現在のruntimepathに含まれている設定をもとにシンタックスを生成する
 " runtimepathを初期化するような処理をした後にsyntax onしてもあまり意味はなく
@@ -66,6 +53,7 @@ syntax on
 " syntax on
 "}}}
 
+" "NyaoVim" 用設定
 if exists("g:nyaovim_version")
     let s:plugin_dir = expand("~/.config/nyaovim/dein")
     try
@@ -83,7 +71,7 @@ if exists("g:nyaovim_version")
     endtry
 endif
 
-" MEMO: "Oni" 用設定
+" REF: "Oni" 用設定
 " if exists("g:gui_oni")
 "     echo Setting for Oni
 " endif

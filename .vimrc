@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2019/10/18 11:57:43.
+" Last Change: 2019/10/29 10:58:45.
 
 " NOT_WORK:
 " " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
@@ -9,8 +9,6 @@ scriptencoding utf-8
 "     endif
 " endif
 " }}}
-
-let g:deoplete#enable_at_startup = 1
 
 " MEMO: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -21,7 +19,9 @@ augroup END
 " "vimproc" 読込み時、"*.dll" 自動DL & 更新
 let g:vimproc#download_windows_dll = 1
 
-" "Python" のパス設定
+" ---------------------------------------------------------------------------
+" "Python" 設定
+" ---------------------------------------------------------------------------
 if hostname()     == "ProSalad133-2018.local"
     let g:python3_host_prog = "/usr/local/bin/Python3"
 elseif hostname() == "ProSalad133.local"
@@ -73,30 +73,23 @@ augroup END
 
 " プラグインをインストールするディレクトリを指定
 if !has("nvim")
-    let s:plugin_dir         = expand("~/.cache/dein/")
-elseif exists("g:nyaovim_version")
-    let s:plugin_dir         = expand("~/.config/nyaovim/dein")
-elseif exists("g:gui_oni")
-    let s:plugin_dir         = expand("~/.config/oni/dein")
-elseif has("nvim")
-    if has("unix")
-        let s:plugin_dir     = expand("~/.config/nvim/dein/")
-    elseif (has("win32") || has("win64"))
-            let s:plugin_dir = expand("~\\.config\\nvim\\dein\\")
+    if !has("gui_running")
+        let s:plugin_dir = expand("~/.cache/dein/")
+    else
+        let s:plugin_dir = expand("~/.config/gvim/dein/")
     endif
+elseif exists("g:nyaovim_version")
+    let s:plugin_dir     = expand("~/.config/nyaovim/dein")
+elseif exists("g:gui_oni")
+    let s:plugin_dir     = expand("~/.config/oni/dein")
+elseif has("nvim")
+    let s:plugin_dir     = expand("~/.config/nvim/dein/")
 endif
 
 " TODO: Unix系のパス設定追加
 " "dein.vim" をインストールするディレクトリをランタイムパスへ追加
-if !has("nvim")
-    let s:dein_dir     = s:plugin_dir . "repos/github.com/Shougo/dein.vim"
-elseif has("nvim")
-    if (has("win32") || has("win64"))
-        let s:dein_dir = s:plugin_dir . "repos\\github.com\\Shougo\\dein.vim"
-    else
-        let s:dein_dir = s:plugin_dir . "repos/github.com/Shougo/dein.vim"
-    endif
-endif
+let s:dein_dir = s:plugin_dir . "repos/github.com/Shougo/dein.vim"
+
 execute "set runtimepath+=" . s:dein_dir
 
 " ログ出力
@@ -115,40 +108,26 @@ if dein#load_state(s:plugin_dir)
 
     " プラグインリスト "*.toml" を指定
     if !has("nvim")
-        let g:plugin_dir           = expand("~/.vim/vim_plugins")
-        let s:toml                 = g:plugin_dir . "/dein.toml"
-        let s:lazy_toml            = g:plugin_dir . "/dein_lazy.toml"
-        let s:python_toml          = g:plugin_dir . "/dein_python.toml"
-
-        let g:plugin_dir_nvim      = expand("~/.vim/vim_plugins_nvim")
-        let s:toml_nvim            = g:plugin_dir_nvim . "/dein_nvim.toml"
-        let s:lazy_toml_nvim       = g:plugin_dir_nvim . "/dein_lazy_nvim.toml"
-        let s:python_toml_nvim     = g:plugin_dir_nvim . "/dein_python_nvim.toml"
-
-    elseif has("nvim")
-        if has("unix")
-            let g:plugin_dir_nvim  = expand("~/.vim/vim_plugins_nvim")
-            let s:toml_nvim        = g:plugin_dir_nvim . "/dein_nvim.toml"
-            let s:lazy_toml_nvim   = g:plugin_dir_nvim . "/dein_lazy_nvim.toml"
-            let s:python_toml_nvim = g:plugin_dir_nvim . "/dein_python_nvim.toml"
-        else
-            let g:plugin_dir_nvim  = expand("~\\.vim\\vim_plugins_nvim")
-            let s:toml_nvim        = g:plugin_dir_nvim . "\\dein_nvim.toml"
-            let s:lazy_toml_nvim   = g:plugin_dir_nvim . "\\dein_lazy_nvim.toml"
-            let s:python_toml_nvim = g:plugin_dir_nvim . "\\dein_python_nvim.toml"
-        endif
+        let g:plugin_dir   = expand("~/.vim/vim_plugins")
+        let s:toml         = g:plugin_dir . "/dein.toml"
+        let s:lazy_toml    = g:plugin_dir . "/dein_lazy.toml"
+        let s:python_toml  = g:plugin_dir . "/dein_python.toml"
     endif
+
+    let g:plugin_dir_nvim  = expand("~/.vim/vim_plugins_nvim")
+    let s:toml_nvim        = g:plugin_dir_nvim . "/dein_nvim.toml"
+    let s:lazy_toml_nvim   = g:plugin_dir_nvim . "/dein_lazy_nvim.toml"
+    let s:python_toml_nvim = g:plugin_dir_nvim . "/dein_python_nvim.toml"
 
     "*.toml" を読込み、キャッシュ
     if !has("nvim")
         call dein#load_toml(s:toml,             {"lazy": 0})
         call dein#load_toml(s:lazy_toml,        {"lazy": 1})
-        if has ("python3")
-            call dein#load_toml(s:python_toml,  {"lazy": 1})
-        endif
     endif
+
     call dein#load_toml(s:toml_nvim,            {"lazy": 0})
     call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
+
     if has ("python3")
         call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
     endif

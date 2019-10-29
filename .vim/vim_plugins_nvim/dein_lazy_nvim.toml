@@ -1,12 +1,11 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2019/10/17 16:55:17.
+# Last Change: 2019/10/29 11:20:10.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 if = "has('python3')"
-# "E892: 文字列を浮動小数点数として扱っています" のためKILL
 depends = ['neomru.vim']
 # MEMO: ↓は "*.vim" に移管できない
 hook_source = '''  " {{{
@@ -145,14 +144,9 @@ hook_source = '''  " {{{
 on_i = 1
 on_cmd = ['Denite']
 # "Denite|Unite" 用 "Source" 郡
-# "Colorscheme" プレビュー
-    # Ul: :Unite colorscheme でプレビュー
-    # Dl: :Denite colorscheme でプレビュー
 # "Denite|Unite" 用 "mru"
-# "E892: 文字列を浮動小数点数として扱っています" のためKILL
 [[plugins]]
 repo = 'Shougo/neomru.vim'
-# if = "has('mac')"
 on_source = ['dein.vim', 'unite.vim', 'denite.nvim']
 on_path = '.*'
 [[plugins]]
@@ -165,11 +159,10 @@ repo = 'Shougo/unite.vim'
 # 最新
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-if = "has('nvim')"
-# if = "has('python3')"
+if = "has('nvim') && has('python3')"
 on_i = 1
 hook_add = '''  " {{{
-    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#enable_at_startup   = 1
     let g:deoplete#auto_complete_delay = 0
 '''  # }}}
 on_event = ['InsertCharPre']
@@ -182,12 +175,12 @@ hook_source = '''  " {{{
                 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 
     let g:deoplete#auto_complete_start_length = 1
-    let g:deoplete#enable_camel_case = 0
-    let g:deoplete#enable_smart_case = 1
-    let g:deoplete#enable_ignore_case = 0
-    let g:deoplete#enable_refresh_always = 0
-    let g:deoplete#file#enable_buffer_path = 1
-    let g:deoplete#max_list = 10000
+    let g:deoplete#enable_camel_case          = 0
+    let g:deoplete#enable_smart_case          = 1
+    let g:deoplete#enable_ignore_case         = 0
+    let g:deoplete#enable_refresh_always      = 0
+    let g:deoplete#file#enable_buffer_path    = 1
+    let g:deoplete#max_list                   = 10000
 '''  # }}}
 [[plugins]]
 repo = 'Shougo/deoplete-rct'
@@ -224,11 +217,11 @@ if = "has('nvim')"
 # プレビュー
 [[plugins]]
 repo = 'kannokanno/previm'
-# MEMO: markdownしか対応していない
+# MEMO: "MarkDown" のみ対応
 on_ft = ['markdown','mkd']
 [[plugins]]
 repo = 'tyru/open-browser.vim'
-# MEMO: markdownしか対応していない
+# MEMO: "MarkDown" のみ対応
 on_ft = ['markdown','mkd']
 # シンタックスハイライト
 [[plugins]]
@@ -247,7 +240,7 @@ merged = '0'
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 depends = ['fzf']
-hook_add = '''
+hook_add = '''  " {{{
     command! -bang -nargs=* Ag
                 \ call fzf#vim#grep(
                 \   'ag --column --color --hidden --ignore .git '.shellescape(<q-args>), 0,
@@ -259,7 +252,7 @@ hook_add = '''
                 \   'rg --line-number --no-heading '.shellescape(<q-args>), 0,
                 \   fzf#vim#with_preview({'options': '--exact --reverse'},
                 \   'right:50%:wrap'))
-'''
+'''  # }}}
 
 # フォントのサイズ変更
 [[plugins]]

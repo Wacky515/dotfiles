@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/10/17 10:08:50.
+" Last Change: 2019/10/29 09:36:55.
 
 " 起動時メッセージ
 augroup InitialMessage

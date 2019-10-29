@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/08 09:04:26
-" Last Change: 2019/10/17 16:19:33.
+" Last Change: 2019/10/28 14:30:18.
 
 " if !(has("win32") || has("win64"))
     set encoding=utf-8
@@ -8,9 +8,11 @@ scriptencoding utf-8
 
 if (has("win32") || has("win64"))
     " 英語メニュー
-    source $VIMRUNTIME/delmenu.vim
-    set langmenu=none
-    source $VIMRUNTIME/menu.vim
+    if has("gui_running")
+        source $VIMRUNTIME/delmenu.vim
+        set langmenu=none
+        source $VIMRUNTIME/menu.vim
+    endif
 
     " 英語メッセージ
     if has("multi_lang")

@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/10/28 13:40:45.
+" Last Change: 2019/10/29 09:37:19.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -23,9 +23,7 @@ endfunction
 call s:source_rc(".vimrc")
 
 " NeoVim 専用設定
-    colorscheme iceberg
-set ambiwidth=single
-" set ambiwidth=double
+colorscheme iceberg
 
 " ee: "TComment" 起動
 nnoremap <silent> ee :<C-u>TComment<CR>
