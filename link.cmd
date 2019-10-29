@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/10/07 10:20:22.
+rem Last Change: 2019/10/29 15:35:39.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -30,25 +30,19 @@ if not %errorlevel% equ 0 (
 )
 
 set src_nvim=%homepath%\dotfiles\nvim\
-
-if "%processor_architecture%" equ "x86" (
-    set dst_nvim=%homepath%\AppData\Local\nvim\
-)
-if "%processor_architecture%" equ "AMD64" (
-    if %computername% == SALADCARBONX1 (
-        set dst_nvim=%homepath%\AppData\Local\nvim\
-    ) else (
-        if exist %xdg_config_home%\* (
-            set dst_nvim=%xdg_config_home%\nvim\
-        ) else (
-            if not exist %homepath%\AppData\Local\nvim\* (
-                mkdir %homepath%\AppData\Local\nvim\
-            )
-            set dst_nvim=%homepath%\AppData\Local\nvim\
-        )
-    )
+if defined xdg_config_home (
+    echo ^>^> Set NeoVIm in XDG CONFIG HOME
+    rmdir /s /q %xdg_config_home%\nvim\ > nul 2>&1
+    set dst_nvim=%xdg_config_home%\nvim\
+    goto instneo
+) else (
+    echo ^>^> Set NeoVIm in Local AppData
+    rmdir /s /q %localappdata%\nvim\ > nul 2>&1
+    set dst_nvim=%localappdata%\nvim\
+    goto instneo
 )
 
+:instneo
 rem rmdir /s /q %dst_nvim%
 mklink /d %dst_nvim% %src_nvim% > nul 2>&1
 if %errorlevel% == 0 (
