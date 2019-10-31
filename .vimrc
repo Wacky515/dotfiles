@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2019/10/30 16:01:13.
+" Last Change: 2019/10/31 15:50:23.
 
 " NOT_WORK:
 " " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
@@ -59,7 +59,8 @@ elseif hostname() == "SALADCARBONX1"
     \ "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
 else
     if has("unix")
-        let g:python3_host_prog = "/usr/local/bin/Python3"
+        " let g:python3_host_prog = "/usr/local/bin/Python3"
+        let g:python3_host_prog = "/usr/bin/python3"
     elseif (has("win32") || has("win64"))
         let g:python3_host_prog = "C:\\Python35\\python.exe"
     endif

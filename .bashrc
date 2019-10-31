@@ -35,3 +35,4 @@ case ${OSTYPE} in
         # exec zsh
         exec fish
 esac
+export PATH=$PATH:$HOME/.local/bin

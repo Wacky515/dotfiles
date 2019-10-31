@@ -1,7 +1,15 @@
 #!/bin/bash
 # @(#) Intall Atom
+# Created:     2019/10/31 16:02:24
+# Last Change: 2019/10/31 16:11:04.
 
-source ~/dotfiles/function/result_echo.sh
+set -ueo pipefail
+export LC_ALL=C
+
+for f in ~/dotfiles/function/*.sh
+do
+    source ${f}
+done
 
 readonly PROCESS="install Atom"
 
