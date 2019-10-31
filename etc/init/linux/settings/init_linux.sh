@@ -1,7 +1,7 @@
 #!bin/bash
 # @(#) Init Linux
 # Created:     2017/12/25 00:00:00
-# Last Change: 2019/10/31 11:26:54.
+# Last Change: 2019/10/31 11:35:46.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
@@ -36,7 +36,7 @@ do
 done
 
 # ディストリビューション、ビット数 判別
-declare -a info=($(./get_distribution.sh))
+declare -a info=($(~/dotfiles/etc/init/linux/settings/get_distribution.sh))
 # bits=$(uname -m)
 ym_echo ">> Install & setting each bit"
 if [[ ${info[1]} == "x86_64" ]]; then
@@ -65,7 +65,7 @@ cd -
 
 ym_echo ">> Install & setting each distribution"
 # ディストリビューション 判別
-declare -a info=($(./get_distribution.sh))
+# declare -a info=($(~/dotfiles/etc/init/linux/settings/get_distribution.sh))
 
 case ${info[0]} in
     ubuntu)
