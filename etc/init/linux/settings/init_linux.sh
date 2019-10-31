@@ -1,14 +1,14 @@
 #!bin/bash
-# @(#) Init Linux
+# @(#) Initialize Linux
 # Created:     2017/12/25 00:00:00
-# Last Change: 2019/10/31 12:41:18.
+# Last Change: 2019/10/31 13:52:06.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
 
 # source ~/dotfiles/etc/init/linux/settings/get_distribution.sh
 
-readonly PROCESS="init Linux"
+readonly PROCESS="initialize Linux"
 ym_echo ">> ${PROCESS^}"
 
 # Make symbolic link

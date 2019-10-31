@@ -1,12 +1,12 @@
 #!/bin/bash
-# @(#) Intall zsh
+# @(#) Intall zsh shell
 # Created:     201*/**/** **:**:**
-# Last Change: 2019/10/31 10:42:29.
+# Last Change: 2019/10/31 13:52:29.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
 
-readonly PROCESS="install zsh"
+readonly PROCESS="install zsh shell"
 
 ym_echo ">> ${PROCESS^}"
 sudo apt -y install zsh

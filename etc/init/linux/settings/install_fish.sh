@@ -1,11 +1,12 @@
 #!/bin/bash
+# @(#) Install fish shell
 # Created:     2018/05/09 06:20:09
-# Last Change: 2019/10/31 12:13:59.
+# Last Change: 2019/10/31 13:49:47.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
 
-readonly PROCESS="install fish"
+readonly PROCESS="install fish shell"
 
 ym_echo ">> ${PROCESS^}"
 
@@ -32,7 +33,7 @@ tar zxvf peco_linux_amd64.tar.gz
 sudo cp peco_linux_amd64/peco /usr/local/bin/
 sudo chmod 777 /usr/local/bin/peco
 rm -f peco_linux_amd64.tar.gz*
-rm -fr peco_linux_amd64
+rm -rf peco_linux_amd64
 
 # "fish" & "peco"
 omf install peco
