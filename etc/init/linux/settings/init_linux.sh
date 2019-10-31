@@ -1,7 +1,7 @@
 #!bin/bash
 # @(#) Init Linux
 # Created:     2017/12/25 00:00:00
-# Last Change: 2019/10/31 11:11:28.
+# Last Change: 2019/10/31 11:26:54.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
@@ -36,11 +36,11 @@ do
 done
 
 # ディストリビューション、ビット数 判別
-# declare -a info=($(./get_distribution.sh))
-bits=$(uname -m)
+declare -a info=($(./get_distribution.sh))
+# bits=$(uname -m)
 ym_echo ">> Install & setting each bit"
-# if [[ ${info[1]} == "x86_64" ]]; then
-if [[ ${bits} == "x86_64" || "amd64"]]; then
+if [[ ${info[1]} == "x86_64" ]]; then
+# if [[ ${bits} == "x86_64" || "amd64"]]; then
     echo ">> 64bit"
     os_bit=x64
 else
@@ -65,7 +65,7 @@ cd -
 
 ym_echo ">> Install & setting each distribution"
 # ディストリビューション 判別
-# declare -a info=($(./get_distribution.sh))
+declare -a info=($(./get_distribution.sh))
 
 case ${info[0]} in
     ubuntu)
@@ -78,29 +78,30 @@ case ${info[0]} in
         ;;
     *)
         rb_echo ">> Unsupported"
+        cd ./unsup
         ;;
 esac
 
-ym_echo ">> Install"
+ym_echo ">> Install for ${info[0]}"
 for h in install_*.sh
 do
     sudo bash ./${h}
 done
 
-ym_echo ">> Setting"
+ym_echo ">> Setting for ${info[0]}"
 for i in setting_*.sh
 do
     sudo bash ./${i}
 done
 
 cd ./${os_bit}
-ym_echo ">> Install for ${os_bit}"
+ym_echo ">> Install for ${info[0]} ${os_bit}"
 for j in install_*.sh
 do
     sudo bash ./${j}
 done
 
-ym_echo ">> Setting for ${os_bit}"
+ym_echo ">> Setting for ${info[0]} ${os_bit}"
 for k in setting_*.sh
 do
     sudo bash ./${k}
