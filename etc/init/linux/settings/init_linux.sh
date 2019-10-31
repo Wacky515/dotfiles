@@ -1,10 +1,12 @@
 #!bin/bash
 # @(#) Init Linux
 # Created:     2017/12/25 00:00:00
-# Last Change: 2019/10/31 12:25:36.
+# Last Change: 2019/10/31 12:41:18.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
+
+# source ~/dotfiles/etc/init/linux/settings/get_distribution.sh
 
 readonly PROCESS="init Linux"
 ym_echo ">> ${PROCESS^}"
@@ -19,7 +21,7 @@ elif type "yum" > /dev/null 2>&1; then
     sudo bash ./yum_update.sh
 fi
 
-ym_echo ">> Setting English directory name"
+# ym_echo ">> Setting English directory name"
 sudo bash ./setting_eng_dir_name.sh
 
 ym_echo ">> Init install"
@@ -36,7 +38,8 @@ do
 done
 
 # ディストリビューション、ビット数 判別
-sudo declare -a info=($(~/dotfiles/etc/init/linux/settings/get_distribution.sh))
+sudo chmod 777 ~/dotfiles/etc/init/linux/settings/get_distribution.sh
+declare -a info=($(~/dotfiles/etc/init/linux/settings/get_distribution.sh))
 # bits=$(uname -m)
 ym_echo ">> Install & setting each bit"
 if [[ ${info[1]} == "x86_64" ]]; then
