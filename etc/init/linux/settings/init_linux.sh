@@ -1,7 +1,7 @@
 #!bin/bash
 # @(#) Initialize Linux
 # Created:     2017/12/25 00:00:00
-# Last Change: 2019/10/31 13:52:06.
+# Last Change: 2019/10/31 14:01:49.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
@@ -50,7 +50,7 @@ else
     echo ">> 32bit"
     os_bit=x32
 fi
-cd ./${os_bit}
+cd ~/dotfiles/etc/init/linux/settings/${os_bit}
 
 ym_echo ">> Install for ${os_bit}"
 for l in install_*.sh
@@ -73,15 +73,15 @@ ym_echo ">> Install & setting each distribution"
 case ${info[0]} in
     ubuntu)
         ym_echo ">> Distribution is Ubuntu"
-        cd ./ubuntu
+        cd ~/dotfiles/etc/init/linux/settings/ubuntu
         ;;
     debian)
         ym_echo ">> Distribution is Debian"
-        cd ./debian
+        cd ~/dotfiles/etc/init/linux/settings/debian
         ;;
     *)
         rb_echo ">> Unsupported"
-        cd ./unsup
+        cd ~/dotfiles/etc/init/linux/settings/unsup
         ;;
 esac
 
