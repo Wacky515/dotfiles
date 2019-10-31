@@ -1,6 +1,6 @@
 #!/bin/bash
 # Created:     2018/05/09 06:20:09
-# Last Change: 2019/09/25 17:08:04.
+# Last Change: 2019/10/31 10:26:00.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
@@ -36,10 +36,13 @@ rm -f peco_linux_amd64
 
 # "fish" & "peco"
 omf install peco
-echo ">> Add setting as following"
-echo "function fish_user_key_bindings"
-echo "    bind \cr peco_select_history"
-echo "end"
+ym_echo ">> Add setting as following"
+ym_echo "function fish_user_key_bindings"
+ym_echo "    bind \cr peco_select_history"
+ym_echo "end"
+
+read -p "Hit Enter key to setting"
+
 vi -u NONE ~/.config/fish/config.fish
 
 chsh -s /usr/bin/fish

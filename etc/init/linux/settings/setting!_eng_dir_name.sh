@@ -1,7 +1,10 @@
 #!/bin/bash
 # @(#) Setting english dirctory name
+# Created:     201*/**/** **:**:**
+# Last Change: 2019/10/31 10:22:00.
 
 source ~/dotfiles/function/result_echo.sh
+source ~/dotfiles/function/color_echo.sh
 
 readonly PROCESS="setting english dirctory name"
 
