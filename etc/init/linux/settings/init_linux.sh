@@ -1,7 +1,7 @@
 #!bin/bash
 # @(#) Initialize Linux
-# Created:     2017/12/25 00:00:00
-# Last Change: 2019/10/31 14:01:49.
+# Created:     2017/12/25 **:**:**
+# Last Change: 2019/10/31 14:07:02.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
