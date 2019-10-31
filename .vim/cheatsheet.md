@@ -20,6 +20,7 @@
 
 - bk: バックアップファイル作成
 
+- ,st: Startify 表示
 - ,kg: カーソル下をGoogle検索
 - ,s:  "VimShell" 起動
 - ,uc: "Unite codic" 起動

@@ -1,11 +1,11 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2019/10/29 16:17:07.
+" Last Change: 2019/10/30 16:01:13.
 
 " NOT_WORK:
 " " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
 " if (has("mac") && has("kaoriya"))
-"     if has('python3')
+"     if has("python3")
 "     endif
 " endif
 " }}}
@@ -139,9 +139,9 @@ if dein#load_state(s:plugin_dir)
         call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
     endif
 
-    if !has('nvim')
-        call dein#add('roxma/nvim-yarp')
-        call dein#add('roxma/vim-hug-neovim-rpc')
+    if !has("nvim")
+        call dein#add("roxma/nvim-yarp")
+        call dein#add("roxma/vim-hug-neovim-rpc")
     endif
 
     if exists("g:nyaovim_version")

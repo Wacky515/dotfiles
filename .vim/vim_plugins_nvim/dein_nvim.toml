@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2019/10/29 13:42:49.
+# Last Change: 2019/10/30 16:33:13.
 
 # REF:
 # hook_add         プラグイン追加後
@@ -14,14 +14,16 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'LeafCage/yankround.vim'
 hook_source = '''  " {{{
-    nmap p     <Plug>(yankround-p)
-    xmap p     <Plug>(yankround-p)
-    nmap P     <Plug>(yankround-P)
-    nmap gp    <Plug>(yankround-gp)
-    xmap gp    <Plug>(yankround-gp)
-    nmap gP    <Plug>(yankround-gP)
-    nmap <C-p> <Plug>(yankround-prev)
-    nmap <C-n> <Plug>(yankround-next)
+    nmap p        <Plug>(yankround-p)
+    xmap p        <Plug>(yankround-p)
+    nmap P        <Plug>(yankround-P)
+    nmap gp       <Plug>(yankround-gp)
+    xmap gp       <Plug>(yankround-gp)
+    nmap gP       <Plug>(yankround-gP)
+    nmap <S-Up>   <Plug>(yankround-prev)
+    nmap <S-Down> <Plug>(yankround-next)
+	cmap <C-r>    <Plug>(yankround-insert-register)
+	cmap <C-y>    <Plug>(yankround-pop)
 '''  # }}}
 
 # Git

@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/10/29 10:58:35.
+" Last Change: 2019/10/30 15:49:22.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -60,10 +60,10 @@ if exists("g:nyaovim_version")
         if s:on_nyaovim || s:true_color_enabled
             colorscheme iceberg
             " colorscheme spring-night
-            " let g:airline_theme = 'spring_night'
+            " let g:airline_theme = "spring_night"
         else
             colorscheme wallaby
-            let g:airline_theme = 'wombat'
+            let g:airline_theme = "wombat"
         endif
     catch
         set background=dark

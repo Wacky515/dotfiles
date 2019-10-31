@@ -1,6 +1,6 @@
 ﻿scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2019/10/25 13:40:53.
+" Last Change: 2019/10/30 16:22:55.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -92,18 +92,12 @@ if !(has("win32") || has("win64"))
     nnoremap <S-Right> <C-w>><CR>
     nnoremap <S-Up>    <C-w>-<CR>
     nnoremap <S-Down>  <C-w>+<CR>
+" else
+"     nnoremap <S-Left>  <C-w>h
+"     nnoremap <S-Right> <C-w>l
+"     nnoremap <S-Up>    <C-w>k
+"     nnoremap <S-Down>  <C-w>j
 endif
-
-" <矢印>: ウィンドウ移動
-nnoremap <S-Left>  <C-w>h
-nnoremap <S-Right> <C-w>l
-nnoremap <S-Up>    <C-w>k
-nnoremap <S-Down>  <C-w>j
-
-" nnoremap <Left>  <C-w>h
-" nnoremap <Right> <C-w>l
-" nnoremap <Up>    <C-w>k
-" nnoremap <Down>  <C-w>j
 
 " TODO: LinuxのNeoVimで確認
 " w!!: スーパーユーザーとして保存（sudoが使える環境限定）
