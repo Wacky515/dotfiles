@@ -1,7 +1,7 @@
 #!bin/bash
 # @(#) Init Linux
 # Created:     2017/12/25 00:00:00
-# Last Change: 2019/10/31 10:53:46.
+# Last Change: 2019/10/31 11:11:28.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
@@ -36,9 +36,11 @@ do
 done
 
 # ディストリビューション、ビット数 判別
-sudo declare -a info=($(./get_distribution.sh))
+# declare -a info=($(./get_distribution.sh))
+bits=$(uname -m)
 ym_echo ">> Install & setting each bit"
-if [[ ${info[1]} == "x86_64" ]]; then
+# if [[ ${info[1]} == "x86_64" ]]; then
+if [[ ${bits} == "x86_64" || "amd64"]]; then
     echo ">> 64bit"
     os_bit=x64
 else
