@@ -1,7 +1,10 @@
 #!/bin/bash
 # @(#) Install Ricty for powerline
 # Created:     2018/04/12 06:23:00
-# Last Change: 2018/05/28 16:15:50.
+# Last Change: 2019/11/01 11:55:06.
+
+set -ueo pipefail
+export LC_ALL=C
 
 for f in ~/dotfiles/function/*.sh
 do
@@ -11,8 +14,9 @@ done
 readonly PROCESS="install Ricty for powerline"
 
 gm_echo ">> ${PROCESS^}"
+
 if ! has "brew"; then
-    echo info "Install brew frst"
+    echo info ">> Install brew frst"
     bash ~/dotfiles/etc/init/osx/install_homebrew.sh
 fi
 
