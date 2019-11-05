@@ -36,3 +36,5 @@ case ${OSTYPE} in
         exec fish
 esac
 export PATH=$PATH:$HOME/.local/bin
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

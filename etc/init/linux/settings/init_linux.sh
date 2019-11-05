@@ -1,24 +1,28 @@
 #!bin/bash
 # @(#) Initialize Linux
 # Created:     2017/12/25 **:**:**
-# Last Change: 2019/10/31 14:07:02.
+# Last Change: 2019/11/05 10:42:36.
 
-source ~/dotfiles/function/result_echo.sh
-source ~/dotfiles/function/color_echo.sh
+set -ueo pipefail
+export LC_ALL=C
 
-# source ~/dotfiles/etc/init/linux/settings/get_distribution.sh
+for f in ~/dotfiles/function/*.sh
+do
+    source ${f}
+done
 
 readonly PROCESS="initialize Linux"
+
 ym_echo ">> ${PROCESS^}"
 
 # Make symbolic link
 bash ~/dotfiles/link.sh
 
 ym_echo ">> Init update"
-if type "apt" > /dev/null 2>&1; then
-    sudo bash ./apt_update.sh
-elif type "yum" > /dev/null 2>&1; then
-    sudo bash ./yum_update.sh
+if has "apt"; then
+    sudo bash ./update_apt.sh
+elif has "yum"; then
+    sudo bash ./update_yum.sh
 fi
 
 # ym_echo ">> Setting English directory name"
@@ -37,7 +41,7 @@ do
     sudo bash ./${g}
 done
 
-# ディストリビューション、ビット数 判別
+# ビット数、ディストリビューション 判別
 sudo chmod 777 ~/dotfiles/etc/init/linux/settings/get_distribution.sh
 declare -a info=($(~/dotfiles/etc/init/linux/settings/get_distribution.sh))
 # bits=$(uname -m)

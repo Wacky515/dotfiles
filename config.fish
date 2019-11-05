@@ -15,7 +15,13 @@ end
 
 function fish_user_key_bindings
     bind \cr 'peco_sync_select_history (commandline -b)'
+    bind \cr peco_select_history
 end
+
+# "fzf" で古いキーバインドを使用しない
+set -U FZF_LEGACY_KEYBINDINGS 0
+# "fzf" で履歴の入力欄をターミナル上部に表示
+set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
 
 ## OS 別設定
 case ${OSTYPE} in

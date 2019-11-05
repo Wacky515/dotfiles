@@ -175,3 +175,5 @@ bindkey "^s" history-incremental-pattern-search-forward
 
 # # 親ディレクトリも作成
 # alias mkdir="mkdir -p"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
