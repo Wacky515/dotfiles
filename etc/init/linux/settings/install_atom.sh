@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Intall Atom
 # Created:     2019/10/31 16:02:24
-# Last Change: 2019/10/31 16:11:04.
+# Last Change: 2019/11/05 14:43:58.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -15,18 +15,13 @@ readonly PROCESS="install Atom"
 
 ym_echo ">> ${PROCESS^}"
 
-if ! type "snap" > /dev/null 2>&1; then
-    if type "apt" > /dev/null 2>&1; then
-        sudo apt install snapd
-    else
-        echo ">> CAN NOT INSTALL snap!"
+if ! has "atom"; then
+    if ! has "snap"; then
+        bash ~/dotfiles/etc/init/linux/settings/install_snap.sh
     fi
+    sudo snap install atom --classic
+else
+    gm_echo ">> Already install Atom"
 fi
-sudo snap install atom --classic
-
-# DEP:
-# sudo add-apt-repository ppa:webupd8team/atom
-# sudo apt update
-# sudo apt -y install atom
 
 result_echo $? "${PROCESS}"
