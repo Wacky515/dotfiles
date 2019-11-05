@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/10/30 15:49:22.
+" Last Change: 2019/11/05 15:04:38.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -96,7 +96,7 @@ if !has("nvim")
             set guifont=Cica:h16
             set printfont=Cica:h12
         elseif hostname() == "saladserver.com"
-            set guifont=Cica:h24
+            set guifont=Cica:h28
             set printfont=Cica:h20
         elseif hostname() == "SaladBook.local"
             set guifont=Cica:h16
