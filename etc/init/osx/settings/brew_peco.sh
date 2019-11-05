@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install Peco
 # Created:     2019/11/05 15:20:15
-# Last Change: 2019/11/05 15:21:00.
+# Last Change: 2019/11/05 16:33:04.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -13,7 +13,7 @@ done
 
 readonly PROCESS="install Peco"
 
-gm_echo ">> ${PROCESS^}"
+gm_echo ">> ${PROCESS}"
 
 if ! has "brew"; then
     echo info "Install Brew frst"
