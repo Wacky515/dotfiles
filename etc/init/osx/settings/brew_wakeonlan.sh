@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install Wake on LAN
 # Created:     2019/11/01 11:48:28
-# Last Change: 2019/11/01 12:10:41.
+# Last Change: 2019/11/05 15:46:12.
 
 # MEMO:
 # Keyin "wakeonlan <IP addr>"
@@ -18,7 +18,7 @@ readonly PROCESS="install Wake on LAN"
 gm_echo ">> ${PROCESS^}"
 
 if ! has "brew"; then
-    echo info "Install brew frst"
+    echo info "Install Brew frst"
     bash ~/dotfiles/etc/init/osx/install_homebrew.sh
 fi
 
