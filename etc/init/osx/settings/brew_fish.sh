@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install fish
 # Created:     2018/05/03 10:54:13
-# Last Change: 2019/11/05 15:23:53.
+# Last Change: 2019/11/06 15:35:21.
 
 set -euo pipefail
 export LC_ALL=C
@@ -45,6 +45,7 @@ if ! has "fisher"; then
 
     fish_update_completions
 fi
+fisher add oh-my-fish/theme-bobthefish
 
 if ! has "peco"; then
     bash ~/dotfhles/etc/init/osx/settings/install_peco.sh

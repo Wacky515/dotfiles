@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/14 14:59:36
-" Last Change: 2019/10/31 14:48:15.
+" Last Change: 2019/11/06 15:13:06.
 
 " ---------------------------------------------------------------------------
 " メイン表示篇
@@ -69,6 +69,8 @@ set scrolloff=3
 if has("Kaoriya")
     set ambiwidth=double
 elseif has("mac") && !has("gui_running")
+    set ambiwidth=double
+elseif has("unix") && has("gui_running")
     set ambiwidth=double
 else
     set ambiwidth=single
