@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install NeoVim
 # Created:     2019/10/31 16:02:24
-# Last Change: 2019/10/31 16:17:24.
+# Last Change: 2019/11/06 10:04:55.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -27,5 +27,7 @@ sudo apt install python3-dev python3-pip
 
 # Upgrade pip3
 pip3 install -U pip3
+# Install pynvim
+pip3 install pynvim
 
 result_echo $? "${PROCESS}"
