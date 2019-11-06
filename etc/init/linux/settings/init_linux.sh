@@ -1,7 +1,7 @@
 #!bin/bash
 # @(#) Initialize Linux
 # Created:     2017/12/25 **:**:**
-# Last Change: 2019/11/05 10:42:36.
+# Last Change: 2019/11/06 10:24:38.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -118,5 +118,13 @@ cd ~/dotfiles/etc/init/linux/settings
 
 ym_echo ">> Final update"
 sudo bash ./apt_update.sh
+
+ym_echo ">> Init setting"
+
+# TEST: "Dock" の "Amazon" 削除
+sudo apt remove ubuntu-web-launchers -y
+
+# TEST: "Mozc" 半角スペース 設定
+/usr/lib/mozc/mozc_tool -mode=config_dialog
 
 result_echo $? "${PROCESS}"
