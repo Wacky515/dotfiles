@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) ***
 # Created:     __DATE__
-# Last Change: 2019/11/06 10:48:47.
+# Last Change: 2019/11/06 11:44:02.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -17,7 +17,7 @@ readonly  ACTION_PROP="Install"
 readonly PROCESS_LOWC=${ACTION_LOWC}" "${APPS}
 readonly PROCESS_PROP=${ACTION_PROP}" "${APPS}
 
-gm_echo ">> Start ${PROCESS_LOWC^}"
+gm_echo ">> Start ${PROCESS_LOWC}"
 
 gm_echo ">> Init update"
 if has "apt"; then
