@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install Python3.*
 # Created:     2019/11/06 12:37:08
-# Last Change: 2019/11/06 12:39:00.
+# Last Change: 2019/11/06 12:42:57.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -26,9 +26,9 @@ fi
 
 gm_echo ">> Check ${APPS} installed or not"
 if ! has ${APPS}; then
-    brew cask install ${APPS}
+    brew install ${APPS}
 else
-    gm_echo ">> Already installed ${APPS}"
+    gm_echo ">> Already installed ${APPS} 3"
 fi
 
 result_echo $? "${PROCESS_LOWC}"
