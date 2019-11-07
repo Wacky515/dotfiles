@@ -1,5 +1,5 @@
 ﻿scriptencoding utf-8
-" Last Change: 2019/10/28 13:50:11.
+" Last Change: 2019/11/07 10:42:25.
 
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示
 if has("unix")
@@ -79,7 +79,7 @@ function! MyModified()
                 \ '+' : &modifiable ? '' : '-'
 endfunction
 
-if dein#tap('ale')
+if dein#tap('ale') && !(has("unix") && !has("gui_running"))
     function! MyAle()
         let l:count = ale#statusline#Count(bufnr(''))
         let l:errors = l:count.error + l:count.style_error
