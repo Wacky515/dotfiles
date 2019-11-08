@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/11/07 10:02:12.
+rem Last Change: 2019/11/08 11:17:11.
 
 set batch_title=Setting Pacman
 title %batch_title%
@@ -32,18 +32,15 @@ if exist C:\tools\msys64\etc\pacman.conf (
 mklink C:\tools\msys64\etc\pacman.conf .\pacman.conf
 
 call msys2_shell.cmd ^
-    -no-start ^
-    -defterm ^
-    -mingw64 ^
-    -here ^
-    %homepath%\dotfiles\etc\init\windows\settings\msys2\install_init_apps.sh
+     -no-start ^
+     -defterm ^
+     -mingw64 ^
+     -here ^
+     %homepath%\dotfiles\etc\init\windows\settings\msys2\EXE_FM_CMD_install_init_apps.sh
 call %homepath%\dotfiles\etc\init\windows\settings\msys2\fish\AFTER_INS_FISH_setting_fish.cmd
-
-rem rem TODO: Install check
-rem curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 
 endlocal
 popd
 
-rem pause
+pause
 exit /b 0
