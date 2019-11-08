@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/11/08 11:17:11.
+rem Last Change: 2019/11/08 11:54:45.
 
 set batch_title=Setting Pacman
 title %batch_title%
@@ -42,5 +42,5 @@ call %homepath%\dotfiles\etc\init\windows\settings\msys2\fish\AFTER_INS_FISH_set
 endlocal
 popd
 
-pause
+rem pause
 exit /b 0

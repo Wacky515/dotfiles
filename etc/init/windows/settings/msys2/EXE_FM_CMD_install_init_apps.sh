@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install init apps in msys2
 # Created:     2018/06/07 09:13:38
-# Last Change: 2019/11/08 10:29:30.
+# Last Change: 2019/11/08 11:49:55.
 
 # MEMO: 単体で動作しない、"setting_pacmanY" から実行すること！！
 
@@ -36,9 +36,14 @@ apps=(bc \
       tmux \
       zsh)
 
+for a in ${apps[@]}
 do
-    if has ${apps}; then
+    gm_echo ">> Check installed ${a} or not"
+    if ! has ${a}; then
+        gm_echo ">> Install ${a}"
         pacman -Sy ${apps} --noconfirm
+    else
+        gm_echo ">> Already installed ${a}"
     fi
 done
 
@@ -51,6 +56,7 @@ if has "fish"; then
          ‾/.config/fish/functions/fisher.fish
 fi
 
-pip3 install powerline-status
+# pip3 install powerline-status
+pip install powerline-status
 
 result_echo $? "${PROCESS}"
