@@ -2,14 +2,17 @@
 
 ## Time stamp
 
-- Last Change: 2018/11/15 09:41:54.
+- Last Change: 2019/11/06 14:54:15.
 - Written: J.Wakita
 
 ## Template files
 
-- DOS Batch: template.{cmd\bat}
-- Python: template.py
-- html: template.html
+- vim:               template.vim
+- SHELL script:      template.sh
+- SHELL script(mac): template_mac.sh
+- DOS Batch:         template.{cmd\bat}
+- Python:            template.py
+- html:              template.html
 
 ## How to add template
 

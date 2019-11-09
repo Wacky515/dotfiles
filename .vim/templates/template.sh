@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) ***
 # Created:     __DATE__
-# Last Change: 2019/11/06 11:44:02.
+# Last Change: 2019/11/06 14:59:26.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -24,18 +24,20 @@ if has "apt"; then
     bash ~/dotfiles/etc/init/linux/settings/update_apt.sh
 
     if ! has ${APPS}; then
+        gm_echo ">> ${PROCESS_PROP}"
         sudo apt install ${APPS}
     else
-        ym_echo ">> Already ${PROCESS_LOWC}"
+        gm_echo ">> Already installed ${APPS}"
     fi
 
 elif has "yum"; then
     bash ~/dotfiles/etc/init/linux/settings/update_yum.sh
 
     if ! has ${APPS}; then
+        gm_echo ">> ${PROCESS_PROP}"
         :> PASS sudo yum install ${APPS}
     else
-        ym_echo ">> Already ${PROCESS_LOWC}"
+        gm_echo ">> Already installed ${APPS}"
     fi
 fi
 

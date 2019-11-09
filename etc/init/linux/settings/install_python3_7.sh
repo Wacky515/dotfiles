@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install Python3.7
 # Created:     2017/10/31 15:38:45
-# Last Change: 2019/10/31 15:45:57.
+# Last Change: 2019/11/06 14:13:06.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -19,6 +19,7 @@ gm_echo ">> ${PROCESS^}"
 sudo apt install python3.7 python3-pip python3.7-dev python3-tk -y
 
 # "pip" の環境変数
+# TODO: 重複防止
 echo 'export PATH=$PATH:$HOME/.local/bin' >> ~/.bashrc
 
 result_echo $? "${PROCESS}"
