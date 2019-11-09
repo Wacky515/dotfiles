@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2019/11/06 12:48:31.
+" Last Change: 2019/11/06 15:21:47.
 
 " NOT_WORK:
 " " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
@@ -22,9 +22,9 @@ let g:vimproc#download_windows_dll = 1
 " ---------------------------------------------------------------------------
 " "Python" 設定
 " ---------------------------------------------------------------------------
-if hostname()     == "ProSalad133-2018.local"
-    let g:python3_host_prog = "/usr/local/bin/Python3"
-elseif hostname() == "ProSalad133.local"
+if hostname()     == "saladserver.com"
+    let g:python3_host_prog = "/usr/local/bin/python3"
+elseif hostname() == "ProSalad133-2018.local"
     let g:python3_host_prog = "/usr/local/bin/Python3"
 elseif hostname() == "SaladBook.local"
     let g:python3_host_prog = "/usr/local/bin/python3"
@@ -41,10 +41,7 @@ elseif hostname() == "HBAMB748"
             let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
         endif
     endif
-elseif hostname() ==  "HBAMB748A"
-    let g:python_host_prog  = "C:\\Python27\\python.exe"
-    let g:python3_host_prog = "C:\\Python35\\python.exe"
-elseif hostname() ==  "HBAMB819"
+elseif hostname() == "HBAMB819"
     let g:python_host_prog  = "C:\\Python27\\python.exe"
     let g:python3_host_prog = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
     if !has("nvim")
@@ -54,9 +51,14 @@ elseif hostname() ==  "HBAMB819"
             let g:python3_host_prog = "C:\\tools\\Anaconda3\\python.exe"
         endif
     endif
+elseif hostname() == "HBAMB748A"
+    let g:python_host_prog  = "C:\\Python27\\python.exe"
+    let g:python3_host_prog = "C:\\Python35\\python.exe"
 elseif hostname() == "SALADCARBONX1"
     let g:python3_host_prog =
     \ "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
+elseif hostname() == "ProSalad133.local"
+    let g:python3_host_prog = "/usr/local/bin/Python3"
 else
     if has("unix")
         " let g:python3_host_prog = "/usr/local/bin/Python3"
