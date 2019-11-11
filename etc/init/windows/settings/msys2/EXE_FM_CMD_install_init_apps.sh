@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # @(#) Install init apps in msys2
 # Created:     2018/06/07 09:13:38
-# Last Change: 2019/11/08 11:49:55.
+# Last Change: 2019/11/11 13:53:14.
 
-# MEMO: 単体で動作しない、"setting_pacmanY" から実行すること！！
+# MEMO: "setting_pacman.cmd" から実行のこと！！
 
 set -ueo pipefail
 export LC_ALL=C
@@ -49,12 +49,6 @@ done
 
 pacman -Syu --noconfirm
 pacman -Su  --noconfirm
-
-if has "fish"; then
-    curl https://git.io/fisher \
-         --create-dirs -sLo \
-         ‾/.config/fish/functions/fisher.fish
-fi
 
 # pip3 install powerline-status
 pip install powerline-status

@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/06/06 20:34:41
-rem Last Change: 2019/10/03 12:38:06.
+rem Last Change: 2019/11/11 11:50:01.
 
 set batch_title=Setting fish
 title %batch_title%
@@ -19,13 +19,16 @@ exit
 rem  スクリプトがある "Dir" に "cd"
 pushd %~dp0
 
+set msys_path=c:\tools\msys64
 set fil_min32=mingw32.ini
 set fil_min64=mingw64.ini
 set fil_msys2=msys2.ini
 
-set lnk_min32=c:\tools\msys64\%fil_min32%
-set lnk_min64=c:\tools\msys64\%fil_min64%
-set lnk_msys2=c:\tools\msys64\%fil_msys2%
+set conf_fish=%homepath%\dotfiles\config.fish
+
+set lnk_min32=%msys_path%\%fil_min32%
+set lnk_min64=%msys_path%\%fil_min64%
+set lnk_msys2=%msys_path%\%fil_msys2%
 
 set tgt_min32=%~dp0%fil_min32%
 set tgt_min64=%~dp0%fil_min64%
@@ -35,20 +38,26 @@ echo ^>^> Start %batch_title%
 
 if exist %lnk_min32% (
     echo ^>^> Backup %lnk_min32%
-    rename %lnk_min32% %fil_min32%.bak
+    rename %lnk_min32% %fil_min32%.bak > nul 2>&1
     )
 if exist %lnk_min64% (
     echo ^>^> Backup %lnk_min64%
-rename %lnk_min64% %fil_min64%.bak
+    rename %lnk_min64% %fil_min64%.bak > nul 2>&1
 )
 if exist %lnk_msys2% (
     echo ^>^> Backup %lnk_msys2%
-    rename %lnk_msys2% %fil_msys2%.bak
+    rename %lnk_msys2% %fil_msys2%.bak > nul 2>&1
     )
 
 mklink %lnk_min32% %tgt_min32%
 mklink %lnk_min64% %tgt_min64%
 mklink %lnk_msys2% %tgt_msys2%
+
+if not exist %msys_path%\usr\etc\fish (
+    echo ^>^> Backup %lnk_msys2%
+    mkdir %msys_path%\usr\etc\fish
+    mklink %msys_path%\usr\etc\fish\config.fish %conf_fish%
+    )
 
 endlocal
 popd

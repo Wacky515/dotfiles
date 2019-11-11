@@ -1,5 +1,5 @@
 # Created:     2018/**/** **:**:**
-# Last Change: 2019/06/30 16:01:13.
+# Last Change: 2019/11/11 14:45:12.
 
 # history の表示に日付を追加する
 function history
@@ -7,10 +7,9 @@ function history
 end
 
 # history を複数端末間で共有
-history を複数端末間で共有
 function peco_sync_select_history
-history-merge
-peco_select_history $argv
+    history-merge
+    peco_select_history $argv
 end
 
 function fish_user_key_bindings
@@ -24,21 +23,32 @@ set -U FZF_LEGACY_KEYBINDINGS 0
 set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
 
 ## OS 別設定
-case ${OSTYPE} in
-    darwin*)
-        # "Mac" 用設定
-        echo "Pass"
-        ;;
-
-    linux*)
+switch (uname)
+    case 'Linux*'
         # "Linux" 用設定
-        echo "Pass"
-        ;;
+        echo ">> Seting for Linux fish"
 
-    msys)
+    case 'Darwin*'
+        # "Mac" 用設定
+        echo ">> Seting for Mac fish"
+
+    case 'MSYS_NT*'
         # "Windows" 用設定
+        echo ">> Seting for Windows fish"
+
+        # エイリアスは ".bashrc" では設定できない
         alias vim="~/vim81-kaoriya-win64/vim.exe"
         alias gvim="~/vim81-kaoriya-win64/gvim.exe"
         alias nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
         alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"
-esac
+
+        # if ! has "fisher"; then
+        #     curl https://git.io/fisher \
+        #         --create-dirs -sLo \
+        #         ‾/.config/fish/functions/fisher.fish
+        # fi
+
+    case '*'
+        echo ">> OS type not found(config.fish)"
+
+end

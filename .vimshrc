@@ -1,1 +1,6 @@
-# TODO: ".bashrc" にシンボリックリンクする
+# Created:     2017/**/** **:**:**
+# Last Change: 2019/11/11 12:27:24.
+# MEMO: "VimShell" 用設定
+
+# .bashrc" 読込み
+[ -f ~/.bashrc ] && source ~/.bashrc

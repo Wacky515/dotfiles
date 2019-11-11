@@ -1,30 +1,76 @@
 # Created:     2017/**/** **:**:**
-# Last Change: 2019/10/05 21:45:42.
+# Last Change: 2019/11/11 15:55:39.
+# MEMO: ログイン時に一回だけ実行したい設定
 
-export PATH="/usr/local/sbin:$PATH"
-# FIXME: "Mac" でエラーのためキル
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+has() {
+    type "$1" > /dev/null 2>&1
+}
 
-# FIXME: "Mac" でエラーのためキル
-# "Mac" 用の条件分岐
-if [[ `uname` == 'Darwin' ]]; then
+cd ~/dotfiles
 
-    export PATH="/usr/local/sbin:$PATH"
+# 日本語を使用
+export LANG=ja_JP.UTF-8
 
-# "Windows" 用の条件分岐
-elif [[ `uname` =~ ^(MSYS_NT-|MINGW32_NT-).+$ ]]; then
+# エイリアス
+alias la="ls -la"
+alias ll="ls -l"
+alias fn="find ./ -name"
 
-    # "gitk" は "Windows" 用を使う
-    alias gitk="/c/Program\ Files/Git/cmd/gitk"
+# OS 別設定
+case ${OSTYPE} in
+    # "Linux" 用設定
+    linux*)
+        alias ls="ls -F --color=auto"
+        ;;
 
-    "mintty" が ."bashrc" を読込む設定
-    if [[ -f ~/.bashrc ]]; then
-        source ~/.bashrc
-    fi
+    # "Mac" 用設定
+    darwin*)
+        # FIXME: "Mac" でエラーのためキル
+        # ↑ 多分 "fish" をログインシェルにしているから
+        export PATH="/usr/local/sbin:$PATH"
+        export PATH=$PATH:$HOME/.local/bin
+        export PATH=$HOME/.nodebrew/current/bin:$PATH
 
-    # # "mintty" 用色設定ファイルが存在すれば読込み
-    # if [[ -f path/to/sol.dark ]]; then
-    #     source path/to/sol.dark
-    # fi
+        export CLICOLOR=1
+        alias ls="ls -G -F"
+        ;;
 
-fi
+    # "Windows" 用設定
+    msys)
+        echo ">> Seting for Bash on Windows Msys2"
+        # "ls" で日本語ファイル名文字化け防止
+        alias ls='ls --show-control-chars'
+
+        # "gitk" は "Windows" 用を使う
+        alias gitk="/c/Program\ Files/Git/cmd/gitk"
+
+        alias vim="~/vim81-kaoriya-win64/vim.exe"
+        alias gvim="~/vim81-kaoriya-win64/gvim.exe"
+        alias nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
+        alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"
+
+        # "mintty" が ."bashrc" を読込む設定
+        [ -f ~/.bashrc ] && source ~/.bashrc
+
+        # # "mintty" 用色設定ファイルが存在すれば読込み
+        # if [[ -f path/to/sol.dark ]]; then
+        #     source path/to/sol.dark
+        # fi
+        ;;
+
+    MSYS_NT*)
+        echo ">> Seting for Bash on Windows Msys NT"
+        ;;
+
+    cygwin*)
+        echo ">> Seting for Bash on Windows Cygwin"
+        if ! has "zsh" ; then
+            apt-cyg install zsh
+        fi
+        ;;
+
+    *)
+        echo ">> OS type not found(.bashrc)"
+        ;;
+esac
+
