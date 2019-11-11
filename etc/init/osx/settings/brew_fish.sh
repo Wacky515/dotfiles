@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 # @(#) Install fish
 # Created:     2018/05/03 10:54:13
+<<<<<<< HEAD
+# Last Change: 2019/11/07 12:35:04.
+=======
 # Last Change: 2019/11/06 15:35:21.
+>>>>>>> 9a8e1456786684060246a731579544f997a1b845
 
 set -euo pipefail
 export LC_ALL=C
@@ -13,7 +17,7 @@ done
 
 readonly PROCESS="install fish"
 
-gm_echo ">> ${PROCESS^}"
+gm_echo ">> Start ${PROCESS}"
 
 if ! has "brew"; then
     echo info "Install Brew frst"
@@ -31,7 +35,7 @@ if ! has "fish"; then
     chsh -s /usr/local/bin/fish
 fi
 
-fish
+# fish
 
 if ! has "fisher"; then
     sudo chmod 777 ~/.config/fish
