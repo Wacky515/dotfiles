@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install init apps in msys2
 # Created:     2018/06/07 09:13:38
-# Last Change: 2019/11/11 13:53:14.
-
+# Last Change: 2019/11/12 14:48:37.
 # MEMO: "setting_pacman.cmd" から実行のこと！！
 
 set -ueo pipefail

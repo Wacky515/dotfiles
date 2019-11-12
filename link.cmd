@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/11/12 12:23:23.
+rem Last Change: 2019/11/12 13:50:42.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -33,9 +33,9 @@ set src_nvim=%homepath%\dotfiles\nvim\
 if defined xdg_config_home (
     echo ^>^> Set NeoVim in XDG CONFIG HOME
     rmdir /s /q %xdg_config_home%\nvim\ > nul 2>&1
-    rem set dst_nvim=%xdg_config_home%\nvim\
+    set dst_nvim=%xdg_config_home%\nvim\
     rem set dst_nvim=nvim\
-    set dst_nvim=%xdg_config_home%
+    rem set dst_nvim=%xdg_config_home%
     goto instneo
 ) else (
     echo ^>^> Set NeoVim in Local AppData
@@ -52,7 +52,7 @@ if %errorlevel% == 0 (
 ) else (
     echo ^>^> init.vimAginit.vim copy failed: %errorlevel%
 )
-pause
+rem pause
 :instnyao
 rem "NyaoVim" İ’è
 set src_html=%batch_path%\nyaovimrc.html
