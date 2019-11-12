@@ -1,5 +1,5 @@
 # Created:     2018/**/** **:**:**
-# Last Change: 2019/11/12 10:00:02.
+# Last Change: 2019/11/12 11:54:24.
 
 function has
     type "$1" > /dev/null 2>&1
@@ -10,15 +10,18 @@ function history
     builtin history --show-time='%Y/%m/%d %H:%M:%S ' | sort
 end
 
-# history を複数端末間で共有
-function peco_sync_select_history
-    history-merge
-    peco_select_history $argv
-end
+if has "peco"
+    # history を複数端末間で共有
+    function peco_sync_select_history
+        history-merge
+        peco_select_history $argv
+    end
 
-function fish_user_key_bindings
-    bind \cr 'peco_sync_select_history (commandline -b)'
-    bind \cr peco_select_history
+    # キーバインド
+    function fish_user_key_bindings
+        bind \cr 'peco_sync_select_history (commandline -b)'
+        bind \cr peco_select_history
+    end
 end
 
 # "fzf" で古いキーバインドを使用しない
