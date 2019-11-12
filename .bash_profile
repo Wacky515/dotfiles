@@ -1,5 +1,5 @@
 # Created:     2017/**/** **:**:**
-# Last Change: 2019/11/12 12:03:15.
+# Last Change: 2019/11/12 15:00:50.
 # MEMO: ログイン時に一回だけ実行したい設定
 
 has() {
@@ -39,6 +39,7 @@ case ${OSTYPE} in
     # "Windows" 用設定
     msys)
         echo ">> Seting for Bash on Windows Msys2"
+        [ -f ~/.bash_profile_win ] && source ~/.bash_profile_win
 
         # "mintty" が ."bashrc" を読込む設定
         [ -f ~/.bashrc ] && source ~/.bashrc
@@ -47,16 +48,11 @@ case ${OSTYPE} in
         # if [[ -f path/to/sol.dark ]]; then
         #     source path/to/sol.dark
         # fi
-
-        [ -f ~/.bash_aliases_win ] && source ~/.bash_aliases_win
-        [ -f ~/.bash_function_win ] && source ~/.bash_function_win
-
         ;;
 
     MSYS_NT*)
         echo ">> Seting for Bash on Windows Msys NT"
-        [ -f ~/.bash_aliases_win ] && source ~/.bash_aliases_win
-        [ -f ~/.bash_function_win ] && source ~/.bash_function_win
+        [ -f ~/.bash_profile_win ] && source ~/.bash_profile_win
         ;;
 
     cygwin*)
@@ -64,8 +60,7 @@ case ${OSTYPE} in
         if ! has "zsh" ; then
             apt-cyg install zsh
         fi
-        [ -f ~/.bash_aliases_win ] && source ~/.bash_aliases_win
-        [ -f ~/.bash_function_win ] && source ~/.bash_function_win
+        [ -f ~/.bash_profile_win ] && source ~/.bash_profile_win
         ;;
 
     *)

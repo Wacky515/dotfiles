@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install init apps in msys2
 # Created:     2018/06/07 09:13:38
-# Last Change: 2019/11/12 14:48:37.
+# Last Change: 2019/11/12 15:03:50.
 # MEMO: "setting_pacman.cmd" から実行のこと！！
 
 set -ueo pipefail
@@ -22,6 +22,7 @@ pacman -Sy pacman --noconfirm
 pacman -Syu       --noconfirm
 pacman -Su        --noconfirm
 
+# 以下は、".bash_profile_win" に移管テスト中
 apps=(bc \
       fish \
       git \
@@ -45,6 +46,7 @@ do
         gm_echo ">> Already installed ${a}"
     fi
 done
+# 以上は、".bash_profile_win" に移管テスト中
 
 pacman -Syu --noconfirm
 pacman -Su  --noconfirm

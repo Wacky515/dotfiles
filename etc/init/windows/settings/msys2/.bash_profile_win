@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# @(#) Install init apps in msys2
+# Created:     2019/11/12 15:01:20
+# Last Change: 2019/11/12 15:07:50.
+
+function gm_echo {
+    printf "\e[32m$*\e[m\n"
+}
+
+[ -f ~/.bash_aliases_win ] && source ~/.bash_aliases_win
+[ -f ~/.bash_function_win ] && source ~/.bash_function_win
+
+apps=(bc \
+      fish \
+      git \
+      man \
+      mingw64/mingw-w64-x86_64-pcre2 \
+      openssh \
+      pcre \
+      pcre2 \
+      python \
+      python3-pip \
+      tmux \
+      zsh)
+
+for a in ${apps[@]}
+do
+    gm_echo ">> Check installed ${a} or not"
+    if ! has ${a}; then
+        gm_echo ">> Install ${a}"
+        pacman -Sy ${apps} --noconfirm
+    else
+        gm_echo ">> Already installed ${a}"
+    fi
+done
