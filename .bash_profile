@@ -1,5 +1,5 @@
 # Created:     2017/**/** **:**:**
-# Last Change: 2019/11/12 10:31:03.
+# Last Change: 2019/11/12 12:03:15.
 # MEMO: ログイン時に一回だけ実行したい設定
 
 has() {
@@ -48,14 +48,14 @@ case ${OSTYPE} in
         #     source path/to/sol.dark
         # fi
 
-        [ -f ~/.bash_aliases_win ] && source ~/.bash_aliase_wins
+        [ -f ~/.bash_aliases_win ] && source ~/.bash_aliases_win
         [ -f ~/.bash_function_win ] && source ~/.bash_function_win
 
         ;;
 
     MSYS_NT*)
         echo ">> Seting for Bash on Windows Msys NT"
-        [ -f ~/.bash_aliases_win ] && source ~/.bash_aliase_wins
+        [ -f ~/.bash_aliases_win ] && source ~/.bash_aliases_win
         [ -f ~/.bash_function_win ] && source ~/.bash_function_win
         ;;
 
@@ -64,7 +64,7 @@ case ${OSTYPE} in
         if ! has "zsh" ; then
             apt-cyg install zsh
         fi
-        [ -f ~/.bash_aliases_win ] && source ~/.bash_aliase_wins
+        [ -f ~/.bash_aliases_win ] && source ~/.bash_aliases_win
         [ -f ~/.bash_function_win ] && source ~/.bash_function_win
         ;;
 

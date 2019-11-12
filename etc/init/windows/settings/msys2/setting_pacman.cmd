@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/11/08 11:54:45.
+rem Last Change: 2019/11/12 12:36:15.
 
 set batch_title=Setting Pacman
 title %batch_title%
@@ -25,10 +25,11 @@ rem :setting_pacman
 echo ^>^> Start %batch_title%
 
 if exist C:\tools\msys64\etc\pacman.conf (
-    echo ^>^> Backup default file
+    echo ^>^> Backup pacman.conf
     rename C:\tools\msys64\etc\pacman.conf pacman.conf.bak
 )
 
+echo ^>^> Make link pacman.conf
 mklink C:\tools\msys64\etc\pacman.conf .\pacman.conf
 
 call msys2_shell.cmd ^
