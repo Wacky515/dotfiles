@@ -1,5 +1,9 @@
 # Created:     2018/**/** **:**:**
-# Last Change: 2019/11/11 14:45:12.
+# Last Change: 2019/11/11 17:42:45.
+
+function has
+    type "$1" > /dev/null 2>&1
+end
 
 # history の表示に日付を追加する
 function history
@@ -22,31 +26,42 @@ set -U FZF_LEGACY_KEYBINDINGS 0
 # "fzf" で履歴の入力欄をターミナル上部に表示
 set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
 
+function win_setting
+    # エイリアスは ".bashrc" では設定できない
+    alias vim="~/vim81-kaoriya-win64/vim.exe"
+    alias gvim="~/vim81-kaoriya-win64/gvim.exe"
+    alias nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
+    alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"
+
+    if ! has "fisher"
+        # curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+        curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+    end
+
+end
+
 ## OS 別設定
 switch (uname)
+    # "Linux" 用設定
     case 'Linux*'
-        # "Linux" 用設定
         echo ">> Seting for Linux fish"
 
+    # "Mac" 用設定
     case 'Darwin*'
-        # "Mac" 用設定
         echo ">> Seting for Mac fish"
 
+    # "Windows" 用設定
     case 'MSYS_NT*'
-        # "Windows" 用設定
-        echo ">> Seting for Windows fish"
+        echo ">> Seting for fish Windows Msys2"
+        win_setting
 
-        # エイリアスは ".bashrc" では設定できない
-        alias vim="~/vim81-kaoriya-win64/vim.exe"
-        alias gvim="~/vim81-kaoriya-win64/gvim.exe"
-        alias nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
-        alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"
+    case 'MINGW*'
+        echo ">> Seting for fish Windows Mingw"
+        win_setting
 
-        # if ! has "fisher"; then
-        #     curl https://git.io/fisher \
-        #         --create-dirs -sLo \
-        #         ‾/.config/fish/functions/fisher.fish
-        # fi
+    case 'windows*'
+        echo ">> Seting for fish Windows Cmder & ConEmu"
+        win_setting
 
     case '*'
         echo ">> OS type not found(config.fish)"
