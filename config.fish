@@ -1,5 +1,5 @@
 # Created:     2018/**/** **:**:**
-# Last Change: 2019/11/11 17:42:45.
+# Last Change: 2019/11/12 10:00:02.
 
 function has
     type "$1" > /dev/null 2>&1
@@ -32,12 +32,6 @@ function win_setting
     alias gvim="~/vim81-kaoriya-win64/gvim.exe"
     alias nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
     alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"
-
-    if ! has "fisher"
-        # curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
-        curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
-    end
-
 end
 
 ## OS 別設定
@@ -65,5 +59,11 @@ switch (uname)
 
     case '*'
         echo ">> OS type not found(config.fish)"
+end
 
+# FIXME: Windows10、インストール失敗する
+if ! has "fisher"
+    echo ">> Install fisher"
+    curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+    # curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 end

@@ -1,0 +1,29 @@
+# Created:     2019/11/12 10:24:18
+# Last Change: 2019/11/12 10:25:38.
+
+# "ls" で日本語ファイル名文字化け防止
+alias ls="ls --show-control-chars"
+
+# "Windows" コマンド文字化け対策
+function wincmd()
+{
+    CMD=$1
+    shift
+    $CMD $* 2>&1 | iconv -f CP932 -t UTF-8
+}
+alias cmd="winpty cmd"
+alias psh="winpty powershell"
+alias ipconfig="wincmd ipconfig"
+alias netstat="wincmd netstat"
+alias netsh="wincmd netsh"
+# "ping" のコマンド名混同を避けるため絶対パスで指定
+alias ping="wincmd /c/windows/system32/ping"
+
+# "gitk" は "Windows" 用を使う
+alias gitk="/c/Program\ Files/Git/cmd/gitk"
+
+# Vim
+alias vim="~/vim81-kaoriya-win64/vim.exe"
+alias gvim="~/vim81-kaoriya-win64/gvim.exe"
+alias nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
+alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"

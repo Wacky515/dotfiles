@@ -1,12 +1,12 @@
 scriptencoding utf-8
 " Created:     2016/08/08 22:24:35
-" Last Change: 2019/11/11 12:28:06.
+" Last Change: 2019/11/12 10:32:17.
 
 " MEMO: 詳細設定は "~/dotfiles/.vim/filetype_settings" に記述
 augroup filetypedetect
     au BufRead,BufNewFile *.{md,mdwn,mkd,mkdn,mark*} setfiletype markdown
     au BufRead,BufNewFile *.nvim setfiletype vim
-    au BufRead,BufNewFile *.{sh,bash,zsh,fish,vimshrc} setfiletype sh
+    au BufRead,BufNewFile *.{sh,bash,bash_*c,bashrc,zsh,fish,vimshrc} setfiletype sh
     au BufRead,BufNewFile *.{bat,cmd} setfiletype dosbatch
     au BufRead,BufNewFile *.py setfiletype python
     au BufRead,BufNewFile *.toml setfiletype toml
