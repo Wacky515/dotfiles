@@ -4,7 +4,7 @@ snippet if
         ) else if (
         ${3:ELIF}
         ) else (
-        ${4:FALSE}
+        ${4:ELSE}
         )
 
 snippet ifnot
@@ -13,7 +13,7 @@ snippet ifnot
         ) else if (
         ${3:ELIF}
         ) else (
-        ${4:FALSE}
+        ${4:ELSE}
         )
 
 snippet exist
@@ -22,7 +22,7 @@ snippet exist
         ) else if (
         ${3:ELIF}
         ) else (
-        ${4:FALSE}
+        ${4:ELSE}
         )
 
 snippet notexist
@@ -31,15 +31,15 @@ snippet notexist
         ) else if (
         ${3:ELIF}
         ) else (
-        ${4:FALSE}
+        ${4:ELSE}
         )
 
 snippet error
     if not errorlevel 1 (
-        echo Normal condition
+        echo ^>^> Normal condition
         ${1:NRML}
     ) else (
-        echo Error condition
+        echo ^>^> Error condition
         ${2:EROR}
 
 snippet forloop
@@ -49,17 +49,27 @@ snippet forloop
 
 snippet forfile
     for /f %%s in (${1:FILE}) do (
-        ${4:CMD}
+        ${2:CMD}
         )
 
-snippet backup
-    set FILE_${1:FILE}="${2:S_FILE}"
-    set LINK_${3:LINK}="${4:PATH}"%FILE_${1:FILE}%
-    set TRGT_${5:TRGT}=%~dp0%FILE_${1:FILE}%%
+snippet inst
+    rem "${1:SOFTNAME}" インストール済みかチェック
+    ${2:SOFTNAME} -v > nul 2>&1
+    if %errorlevel% equ 0 (
+        echo ^>^> Already installed
+    else (
+        echo ^>^> Not install
+        goto install
+    )
 
-    if exist %LINK_${3:LINK}% (
-        echo ^>^> Backup %LINK_${3:LINK}%
-        rename %LINK_${3:LINK}% %FILE_${1:FILE}%".bak"
+snippet backup
+    set file_${1:FILE}="${2:S_FILE}"
+    set link_${3:LINK}="${4:PATH}"%file_${1:FILE}%
+    set trgt_${5:TRGT}=%~dp0%file_${1:FILE}%%
+
+    if exist %link_${3:LINK}% (
+        echo ^>^> Backup %link_${3:LINK}%
+        rename %link_${3:LINK}% %file_${1:FILE}%".bak"
         )
 
 snippet admin
@@ -74,8 +84,22 @@ snippet admin
 
     :main_routine
 
-snippet inst
-    rem "${1:SOFTNAME}" インストール済みかチェック
-    ${2:SOFTNAME} -v > nul 2>&1
-    if %errorlevel% equ 0 goto update
+snippet header
+    @echo off
+    setlocal
+    rem Created:     ${1:YYMMDD} ${2:HHMMSS}
+    rem Last Change: ****/**/** **:**:**.
 
+    set batch_title=${1:TITLE}
+    title %batch_title%
+
+    whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
+
+    rem 管理者権限ならメイン処理
+    if not errorlevel 1 goto main_routine
+
+    rem 管理者権限でなければ管理者権限で再起動
+    @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
+    exit
+
+    :main_routine

@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install fish
 # Created:     2018/05/03 10:54:13
-<<<<<<< HEAD
-# Last Change: 2019/11/07 12:35:04.
-=======
-# Last Change: 2019/11/06 15:35:21.
->>>>>>> 9a8e1456786684060246a731579544f997a1b845
+# Last Change: 2019/11/13 12:35:38.
 
 set -euo pipefail
 export LC_ALL=C

@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/11/12 13:50:42.
+rem Last Change: 2019/11/13 15:11:37.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -30,22 +30,17 @@ if not %errorlevel% equ 0 (
 )
 
 set src_nvim=%homepath%\dotfiles\nvim\
+
 if defined xdg_config_home (
     echo ^>^> Set NeoVim in XDG CONFIG HOME
-    rmdir /s /q %xdg_config_home%\nvim\ > nul 2>&1
     set dst_nvim=%xdg_config_home%\nvim\
-    rem set dst_nvim=nvim\
-    rem set dst_nvim=%xdg_config_home%
-    goto instneo
 ) else (
     echo ^>^> Set NeoVim in Local AppData
-    rmdir /s /q %localappdata%\nvim\ > nul 2>&1
     set dst_nvim=%localappdata%\nvim\
-    goto instneo
 )
+goto instneo
 
 :instneo
-rem rmdir /s /q %dst_nvim%
 mklink /d %dst_nvim% %src_nvim% > nul 2>&1
 if %errorlevel% == 0 (
     echo ^>^> init.vim、ginit.vim copy success!
@@ -103,15 +98,15 @@ if %errorlevel% == 0 (
 rem "mklink" 時にスキップするドットファイル
 for %%j in (.*) do (
     if %%j == .bash_history (
-        rem PASS
+        rem PASS(消すな)
     ) else if %%j == .gitconfig (
-        rem PASS
+        rem PASS(消すな)
     ) else if %%j == .gitconfig.linux (
-        rem PASS
+        rem PASS(消すな)
     ) else if %%j == .gitconfig.windows (
-        rem PASS
+        rem PASS(消すな)
     ) else if %%j == .zsh_history (
-        rem PASS
+        rem PASS(消すな)
     ) else (
         mklink %homepath%\%%j .\dotfiles\%%j > nul 2>&1
     )
