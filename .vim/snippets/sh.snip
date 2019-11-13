@@ -120,3 +120,6 @@ snippet header
     ${4:START}
 
     result_echo $? "${PROCESS}"
+
+snippet lead
+    [ -f ${1:PATH} ] && source ${1:PATH}

@@ -1,34 +1,34 @@
-# Last Change: 2019/09/26 10:46:24.
+# Created:     201*/**/** **:**:**
+# Last Change: 2019/11/13 16:03:50.
+
 [core]
     # コミット時に改行コードを CRLF -> LF
-        # true: コミット時 CRLF -> LF、チェックアウト時 LF -> CRLF
-        # input: コミット時のみ CRLF -> LF
-            # "Windows" のみ true と同一
-        # false: 変換しない
-    # autocrlf = true
+    autoCRLF = false
+    # true:  コミット時 CRLF -> LF、チェックアウト時 LF -> CRLF
+    # input: コミット時のみ CRLF -> LF
+        # "Windows" のみ true と同一
+    # false: 変換しない
 
     # true: 改行コードが混在している場合は変換しない
-    # safecrlf = true
-
-    autocrlf = false
+    # safeCRLF = true
 
 [http]
 	sslBackend = openssl
-	sslCAInfo = C:\\Program Files\\Git\\mingw64\\ssl\\cert.pem
-	sslVerify = false
+	sslCAInfo  = C:\\Program Files\\Git\\mingw64\\ssl\\cert.pem
+	sslVerify  = false
 
 [diff]
-	tool = WinMerge
+	tool    = WinMerge
 	guitool = WinMerge
 [difftool "WinMerge"]
-	path = C:/Program Files/WinMerge/WinMergeU.exe
-	cmd = \"C:/Program Files/WinMerge/WinMergeU.exe\" -e -ub -dl \"Theirs Files\" -dr \"Mine  Files\" \"$REMOTE\" \"$LOCAL\"
+	path    = C:/Program Files/WinMerge/WinMergeU.exe
+	cmd     = \"C:/Program Files/WinMerge/WinMergeU.exe\" -e -ub -dl \"Theirs Files\" -dr \"Mine  Files\" \"$REMOTE\" \"$LOCAL\"
 
 [merge]
 	tool = WinMerge
 [mergetool "WinMerge"]
 	path = C:/Program Files/WinMerge/WinMergeU.exe
-	cmd = \"C:/Program Files/WinMerge/WinMergeU.exe\" \"$MERGED\"
+	cmd  = \"C:/Program Files/WinMerge/WinMergeU.exe\" \"$MERGED\"
 
 [includeIf "gitdir:C:/Users/mm12167/"]
     path = ~/gitconfig_hbamb748.local

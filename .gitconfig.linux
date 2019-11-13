@@ -1,17 +1,19 @@
-# Last Change: 2018/05/27 00:09:57.
+# Created:     201*/**/** **:**:**
+# Last Change: 2019/11/13 15:53:29.
+
 [core]
     # コミット時に改行コードを CRLF -> LF
-        # true: コミット時 CRLF -> LF、チェックアウト時 LF -> CRLF
-        # input: コミット時のみ CRLF -> LF
-            # "Windows" のみ true と同一
-        # false: 変換しない
-    autocrlf = input
+    autoCRLF = input
+    # true:  コミット時 CRLF -> LF、チェックアウト時 LF -> CRLF
+    # input: コミット時のみ CRLF -> LF
+        # "Windows" のみ true と同一
+    # false: 変換しない
 
     # true: 改行コードが混在している場合は変換しない
-    safecrlf = true
+    safeCRLF = true
 
 [diff]
-	tool = vimdiff
+	tool    = vimdiff
 	guitool = vimdiff
 [difftool "vimdiff"]
     # ↓ 未設定
