@@ -177,4 +177,3 @@ bindkey "^s" history-incremental-pattern-search-forward
 # bindkey "^P" history-beginning-search-backward
 # bindkey "^N" history-beginning-search-forward
 # }}}
-

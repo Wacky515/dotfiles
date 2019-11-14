@@ -1,4 +1,4 @@
-﻿scriptencoding utf-8
+scriptencoding utf-8
 " Created:     2018/03/19 09:07:48
 " Last Change: 2019/11/13 14:42:02.
 

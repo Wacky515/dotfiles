@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/09/28 10:26:44
-" Last Change: 2018/09/28 10:28:39.
+" Last Change: 2019/11/14 10:21:30.
 
 syntax keyword txtComment //
 " syntax keyword txtConstant 定数

@@ -1,6 +1,6 @@
-﻿scriptencoding utf-8
+scriptencoding utf-8
 " Created:     2016/10/09 21:28:05
-" Last Change: 2018/10/05 11:04:06.
+" Last Change: 2019/11/14 10:20:18.
 
 set fileformat=dos
 set encoding=utf-8

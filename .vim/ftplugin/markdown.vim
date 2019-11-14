@@ -1,6 +1,6 @@
-﻿scriptencoding utf-8
+scriptencoding utf-8
 " Created:     2018/11/15 14:21:18
-" Last Change: 2018/11/15 14:51:12.
+" Last Change: 2019/11/14 10:20:32.
 
 " タブの設定
 setlocal smarttab
