@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install snap
 # Created:     2019/11/05 14:37:42
-# Last Change: 2019/11/15 15:08:53.
+# Last Change: 2019/11/15 15:13:37.
 
 set -ueo pipefail
 export LC_ALL=C

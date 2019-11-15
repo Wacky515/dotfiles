@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install Chrome
 # Created:     2019/10/31 16:02:24
-# Last Change: 2019/11/15 15:11:34.
+# Last Change: 2019/11/15 15:13:45.
 
 set -ueo pipefail
 export LC_ALL=C
