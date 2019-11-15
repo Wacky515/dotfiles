@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2019/11/15 16:00:28.
+# Last Change: 2019/11/15 16:16:20.
 
 # FIXME:
     # sudo権限を終了しないと "brew" が使えない
