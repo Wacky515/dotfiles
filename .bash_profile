@@ -1,12 +1,7 @@
 # Created:     2017/**/** **:**:**
-# Last Change: 2019/11/12 15:00:50.
+# Last Change: 2019/11/15 09:43:11.
 # MEMO: ログイン時に一回だけ実行したい設定
-
-has() {
-    type "$1" > /dev/null 2>&1
-}
-
-cd ~/dotfiles
+#       主に環境変数の設定
 
 # 日本語を使用
 export LANG=ja_JP.UTF-8

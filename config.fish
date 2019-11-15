@@ -1,5 +1,5 @@
 # Created:     2018/**/** **:**:**
-# Last Change: 2019/11/12 11:54:24.
+# Last Change: 2019/11/15 09:32:04.
 
 function has
     type "$1" > /dev/null 2>&1
