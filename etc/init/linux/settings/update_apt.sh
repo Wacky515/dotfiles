@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) update apt
 # Created:     2017/12/25 **:**:**
-# Last Change: 2019/11/15 15:54:26.
+# Last Change: 2019/11/15 15:56:20.
 
 set -ueo pipefail
 export LC_ALL=C
