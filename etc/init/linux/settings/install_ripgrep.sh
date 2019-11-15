@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install RipGrep
 # Created:     2019/11/05 14:34:28
-# Last Change: 2019/11/05 14:49:14.
+# Last Change: 2019/11/15 16:14:38.
 
 set -ueo pipefail
 export LC_ALL=C
