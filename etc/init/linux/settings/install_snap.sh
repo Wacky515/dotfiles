@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install snap
 # Created:     2019/11/05 14:37:42
-# Last Change: 2019/11/15 15:13:37.
+# Last Change: 2019/11/15 15:53:18.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -16,7 +16,7 @@ readonly PROCESS="install snap"
 gm_echo ">> Check ${PROCESS} or not"
 
 if ! has "snap"; then
-    ym_echo ">> Update software information and ${PROCESS}"
+    gm_echo ">> ${PROCESS^}"
     if has "apt"; then
         bash ~/dotfiles/etc/init/linux/settings/update_apt.sh
         sudo apt install snapd -y
