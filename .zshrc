@@ -1,5 +1,7 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2019/11/11 16:29:10.
+# Last Change: 2019/11/15 09:09:25.
+
+cd ~/dotfiles
 
 # 日本語を使用
 export LANG=ja_JP.UTF-8
@@ -169,11 +171,11 @@ HISTSIZE=100000
 SAVEHIST=100000
 
 ## "Ctrl + r"でインクリメンタルサーチ、"Ctrl + s" で逆順
-## （vim風キーバインドでは動作しない）
-bindkey "^r" history-incremental-pattern-search-backward
-bindkey "^s" history-incremental-pattern-search-forward
+## MEO: （vim風キーバインドでは動作しない）
 # bindkey "^R" history-incremental-search-backward # {{{
 # bindkey "^S" history-incremental-search-forward
 # bindkey "^P" history-beginning-search-backward
 # bindkey "^N" history-beginning-search-forward
 # }}}
+bindkey "^r" history-incremental-pattern-search-backward
+bindkey "^s" history-incremental-pattern-search-forward
