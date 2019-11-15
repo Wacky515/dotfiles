@@ -1,18 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Symbolic linkig dotfiles.
 # Created:     2017/02/08 **:**:**
-# Last Change: 2019/09/26 16:42:38.
-# TODO:
-# FIXME:
-    # ${HOME} を単体起動と外部呼出しで通常動作させる
-
-# DONE:
-    # 実行結果メッセージ "result_echo.sh" にする
-    # リンクの "path" を全体的に変えたので確認
-    # "NeoVim" 設定を動作確認
-    # ".vim" ディレクトリのシンボリックリンクを "NeoVim" 用にする
-    # "Git" の "proxy" の設定は切替え用のシェルスクリプトに移管
-    # 暫定的にコマンドを決め打ちにした
+# Last Change: 2019/11/15 16:12:44.
 
 for f in ~/dotfiles/function/*.sh
 do
@@ -71,7 +60,7 @@ do
 
     [[ ${f} = "*.sh"               ]] && continue
     [[ ${f} = ".modfying"          ]] && continue
-    [[ ${f} = "README.md"          ]] && continue
+    # [[ ${f} = "README.md"          ]] && continue
 
     # シンボリックリンク 作成
     gm_echo set ${f}
@@ -83,23 +72,17 @@ do
     gm_echo set ${g}
     ln -snfv ${DOT_DIR}/${g} ~/${g}
 done
-
 echo ""
 
 # "NeoVim" 設定
 if [ ! -e ~/.config/nvim/ ]; then
     sudo -- bash -c "mkdir -m 777 ~/.config/nvim/"
 fi
-sudo ln -snfv ${DOT_DIR}/nvim/init.vim ~/.config/nvim/init.vim
+sudo ln -snfv ${DOT_DIR}/nvim/init.vim  ~/.config/nvim/init.vim
 sudo ln -snfv ${DOT_DIR}/nvim/ginit.vim ~/.config/nvim/ginit.vim
-
-gm_echo ">> Dotfiles link success"
-gm_echo ">> End make symbolic link"
-result_echo $? "${PROCESS}"
 
 # "NyaoVim" 設定
 if [ ! -e ~/.config/nyaovim/ ]; then
-    # sudo -- bash -c "mkdir ~/.config/nyaovim/"
     bash -c "mkdir -m 777 ~/.config/nyaovim/"
 fi
 sudo ln -snfv ${DOT_DIR}/nyaovimrc.html ~/.config/nyaovim/nyaovimrc.html
@@ -109,3 +92,7 @@ if [ ! -e ~/.config/oni/ ]; then
     sudo -- bash -c "mkdir -m 777 ~/.config/oni/"
 fi
 sudo ln -snfv ${DOT_DIR}/config.tsx ~/.config/oni/config.tsx
+
+# gm_echo ">> Dotfiles link success"
+# gm_echo ">> End make symbolic link"
+result_echo $? "${PROCESS}"

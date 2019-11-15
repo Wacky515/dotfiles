@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2019/10/31 10:06:14.
+# Last Change: 2019/11/15 16:00:28.
 
 # FIXME:
     # sudo権限を終了しないと "brew" が使えない
@@ -41,7 +41,7 @@ fi
 
 ### 関数群
 # info: 情報を緑色で出力
-info() {
+function info() {
     printf "${GREEN}"
     echo -n "  INFO:     "
     printf "${NORMAL}"
@@ -49,7 +49,7 @@ info() {
 }
 
 # warn: 警報を黄色で出力
-warn() {
+function warn() {
     printf "${YELLOW}"
     echo -n "  WARNING!: "
     printf "${NORMAL}"
@@ -57,7 +57,7 @@ warn() {
 }
 
 # error: エラーを赤色で出力
-error() {
+function error() {
     printf "${RED}"
     echo -n "  ERROR!!:  "
     printf "${NORMAL}"
@@ -65,7 +65,7 @@ error() {
 }
 
 # log: ログを通常の色で出力
-log() {
+function log() {
     echo "  $1"
 }
 
@@ -77,12 +77,12 @@ else
 fi
 
 # パッケージの存在確認
-has() {
+function has() {
     type "$1" > /dev/null 2>&1
 }
 
 # シンボリックリンクの追加
-symlink() {
+function symlink() {
     [ -e "$2" ] || ln -sf "$1" "$2"
 }
 
