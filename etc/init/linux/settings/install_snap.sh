@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install snap
 # Created:     2019/11/05 14:37:42
-# Last Change: 2019/11/05 14:44:11.
+# Last Change: 2019/11/15 15:08:53.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -13,21 +13,17 @@ done
 
 readonly PROCESS="install snap"
 
-gm_echo ">> ${PROCESS^}"
-# ym_echo ">> Start "
+gm_echo ">> Check ${PROCESS} or not"
 
-ym_echo ">> Init update"
-if has "apt"; then
-    bash ~/dotfiles/etc/init/linux/settings/update_apt.sh
-
-    if ! has "snap"; then
+if ! has "snap"; then
+    ym_echo ">> Update software information and ${PROCESS}"
+    if has "apt"; then
+        bash ~/dotfiles/etc/init/linux/settings/update_apt.sh
         sudo apt install snapd -y
-    else
-        gm_echo ">> Already install snap"
+    elif has "yum"; then
+        bash ~/dotfiles/etc/init/linux/settings/update_yum.sh
     fi
-
-elif has "yum"; then
-    bash ~/dotfiles/etc/init/linux/settings/update_yum.sh
+    result_echo $? "${PROCESS}"
+else
+    gm_echo ">> Already ${PROCESS}"
 fi
-
-result_echo $? "${PROCESS}"
