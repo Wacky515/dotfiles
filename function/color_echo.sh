@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Colored echo
-# Created:     2017/01/16 00:00:00
-# Last Change: 2018/05/28 09:44:27.
+# Created:     2017/01/16 **:**:**
+# Last Change: 2019/11/14 12:39:11.
 
 # 以下の31を変えることで、様々な色に変えられる。#  {{{
 # echo -e "\033[0;31mテキスト\033[0;39m"
@@ -75,7 +75,7 @@ else
 fi
 
 # info: 情報を緑色で出力
-info() {
+function info() {
     printf "${GREEN}"
     echo -n "  INFO:     "
     printf "${NORMAL}"
@@ -83,7 +83,7 @@ info() {
 }
 
 # warn: 警報を黄色で出力
-warn() {
+function warn() {
     printf "${YELLOW}"
     echo -n "  WARNING!: "
     printf "${NORMAL}"
@@ -91,7 +91,7 @@ warn() {
 }
 
 # error: エラーを赤色で出力
-error() {
+function error() {
     printf "${RED}"
     echo -n "  ERROR!!:  "
     printf "${NORMAL}"
