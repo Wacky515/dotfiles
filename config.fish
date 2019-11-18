@@ -1,5 +1,5 @@
 # Created:     2018/**/** **:**:**
-# Last Change: 2019/11/15 09:32:04.
+# Last Change: 2019/11/18 15:27:48.
 
 function has
     type "$1" > /dev/null 2>&1
@@ -65,8 +65,8 @@ switch (uname)
 end
 
 # FIXME: Windows10、インストール失敗する
-if ! has "fisher"
-    echo ">> Install fisher"
-    curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
-    # curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
-end
+# if ! has "fisher"
+#     echo ">> Install fisher"
+#     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+#     # curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+# end
