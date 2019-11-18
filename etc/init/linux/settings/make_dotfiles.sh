@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2019/11/15 16:16:20.
+# Last Change: 2019/11/18 16:53:48.
 
 # FIXME:
     # sudo権限を終了しないと "brew" が使えない
@@ -165,7 +165,7 @@ if [ ! -d ${DOT_DIR}"/.git" ]; then
     cd ~/
     git clone "${GIT_URL}"
 
-    info ">> Download dotfiles complete"
+    info ">> Clone dotfiles complete"
 else
     info ">> Aleady exist dotfiles"
 fi
