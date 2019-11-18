@@ -1,12 +1,10 @@
 @echo off
 setlocal
 rem Created:     2017/02/17 00:54:41
-rem Last Change: 2019/10/03 10:16:37.
+rem Last Change: 2019/11/18 14:10:45.
 
-title Update Chocolatey
-
-rem http://pachicoma.hateblo.jp/entry/2017/02/28/Chocolatey%E3%81%A8%E3%81%84%E3%81%86Windows10%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B
-rem DONE: 上記URL参照してリファクタリング
+set batch_title=Update Chocolatey
+title %batch_title%
 
 rem 管理者権限で起動されたかチェック
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
@@ -39,6 +37,13 @@ echo ^>^> Install Chocolatey
 
 :update
 echo ^>^> Already installed Chocolatey, Update software
+
+if not exist C:%homepath%\dotfiles\etc\init\windows\settings\chocolatey (
+    rem TODO: 自動で git clone する
+    echo ^>^> Cleone dotfiles first
+    goto end
+)
+pushd C:%homepath%\dotfiles\etc\init\windows\settings\chocolatey
 
 rem "***_packages_***.config" を読み込み、インストール
 if exist *_%config_files% (
