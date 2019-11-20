@@ -1,9 +1,12 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/10/03 10:28:53.
+rem Last Change: 2019/11/19 16:58:09.
 
-title Setting Cmder here
+set batch_title=Setting Cmder here
+title %batch_title%
+
+rem 管理者権限で起動されたかチェック
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
 rem 管理者権限ならメイン処理

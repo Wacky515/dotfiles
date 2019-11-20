@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/11/13 17:13:12.
+" Last Change: 2019/11/20 16:35:55.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -35,7 +35,7 @@ if (has("win32") || ("win64"))
     source $VIMRUNTIME/menu.vim
 endif
 
-" ファイルタイプ系ハイライトプラグインを導入している場合 "{{{
+" ファイルタイプ系ハイライトプラグインを導入している場合  " {{{
 " syntax on" は現在のruntimepathに含まれている設定をもとにシンタックスを生成する
 " runtimepathを初期化するような処理をした後にsyntax onしてもあまり意味はなく
 " runtimepathをすべて設定し終えた後にsyntax onをするべき
@@ -51,7 +51,7 @@ endif
 " ファイルタイプ系ハイライトプラグイン
 " neoBundle 'kongo2002/fsharp-vim'
 " syntax on
-"}}}
+" }}}
 
 " "NyaoVim" 用設定
 if exists("g:nyaovim_version")
@@ -81,8 +81,8 @@ endif
 " フォントの設定
 if !has("nvim")
     if has("unix")
-        set guifont=Cica\ 16
-        set printfont=Cica\ 12
+        set   guifont=Cica\ 16
+        set printfont=Cica\ 16
         " colorscheme iceberg
 
     elseif has("mac")
@@ -110,55 +110,55 @@ if !has("nvim")
     elseif (has("win32") || has("win64"))
         " Home setting
         if hostname()     == "SALADCARBONX1"
-            set guifont=Cica:h13
-            set printfont=Cica:h8
+            set   guifont=Cica:h13
+            set printfont=Cica:h13
             " Windows Cica 専用設定 ("NeoVim" 版設定探す）
             set renderoptions=type:directx,renmode:5
 
             " muRata setting
         elseif hostname() == "HBAMB748"
-            set guifont=Cica:h15
-            set printfont=Cica:h12
+            set   guifont=Cica:h15
+            set printfont=Cica:h15
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "HBAMB748A"
-            set guifont=Cica:h15
-            set printfont=Cica:h13
+            set   guifont=Cica:h15
+            set printfont=Cica:h15
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "HBALT071"
-            set guifont=Cica:h11
-            set printfont=Cica:h8
+            set   guifont=Cica:h11
+            set printfont=Cica:h11
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "MECSI"
-            set guifont=Cica:h11
-            set printfont=Cica:h8
+            set   guifont=Cica:h11
+            set printfont=Cica:h11
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "LAPTOP-DOA35GAR"
-            set guifont=Cica:h11
-            set printfont=Cica:h8
+            set   guifont=Cica:h11
+            set printfont=Cica:h11
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "HBAMB819"
-            set guifont=Cica:h12
-            set printfont=Cica:h10
+            set   guifont=Cica:h12
+            set printfont=Cica:h12
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "SMM0761"
-            set guifont=Cica:h12
-            set printfont=Cica:h10
+            set   guifont=Cica:h12
+            set printfont=Cica:h12
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "SMM1319"
-            set guifont=Cica:h12
-            set printfont=Cica:h10
+            set   guifont=Cica:h12
+            set printfont=Cica:h12
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "SMM1380"
-            set guifont=Cica:h12
-            set printfont=Cica:h10
+            set   guifont=Cica:h12
+            set printfont=Cica:h12
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "SMM1496"
-            set guifont=Cica:h12
-            set printfont=Cica:h10
+            set   guifont=Cica:h12
+            set printfont=Cica:h12
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "mmctosmm"
-            set guifont=Cica:h14
-            set printfont=Cica:h10
+            set   guifont=Cica:h14
+            set printfont=Cica:h14
             set renderoptions=type:directx,renmode:5
 
             " Xacti setting " {{{

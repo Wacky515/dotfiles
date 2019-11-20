@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2019/11/18 16:53:48.
+# Last Change: 2019/11/19 13:48:53.
 
 # FIXME:
     # sudo権限を終了しないと "brew" が使えない
@@ -16,7 +16,7 @@ readonly PROCESS="make dotfiles"
 readonly DOT_DIR="${HOME}/dotfiles"
 readonly GIT_URL="https://github.com/Wacky515/dotfiles.git"
 
-### 設定
+## 設定
 # 色付きのテキストを端末で使用する設定
 tput=$(which tput)
 if [ -n "$tput" ]; then
@@ -39,7 +39,7 @@ else
     NORMAL=""
 fi
 
-### 関数群
+## 関数群
 # info: 情報を緑色で出力
 function info() {
     printf "${GREEN}"
@@ -86,7 +86,7 @@ function symlink() {
     [ -e "$2" ] || ln -sf "$1" "$2"
 }
 
-### MAIN
+## MAIN
 dotfiles_logo='
 ██████╗  ██████╗ ████████╗███████╗██╗██╗     ███████╗███████╗
 ██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝██║██║     ██╔════╝██╔════╝

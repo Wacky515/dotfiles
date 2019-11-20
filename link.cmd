@@ -1,11 +1,12 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/11/18 15:23:01.
+rem Last Change: 2019/11/20 16:41:57.
 
 set batch_title=Make dotfiles
 title %batch_title%
 
+rem 管理者権限で起動されたかチェック
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
 rem 管理者権限ならメイン処理
@@ -29,7 +30,7 @@ if not %errorlevel% equ 0 (
     goto ins_nyao
 )
 
-set src_nvim=%homepath%\dotfiles\nvim\
+set src_nvim=%userprofile%\dotfiles\nvim\
 
 if defined xdg_config_home (
     echo ^>^> Set NeoVim in XDG CONFIG HOME
@@ -40,7 +41,7 @@ if defined xdg_config_home (
 )
 
 mklink /d %dst_nvim% %src_nvim% > nul 2>&1
-if %errorlevel% == 0 (
+if %errorlevel% equ 0 (
     echo ^>^> init.vim、ginit.vim link success!
 ) else (
     echo ^>^> init.vim、ginit.vim link failed. code: %errorlevel%
@@ -57,7 +58,7 @@ rem     goto ins_oni
 rem )
 
 set src_html=%bat_path%\nyaovimrc.html
-set dst_html=%homepath%\AppData\Roaming\NyaoVim\nyaovimrc.html
+set dst_html=%userprofile%\AppData\Roaming\NyaoVim\nyaovimrc.html
 
 if exist %dst_html% (
     del %dst_html%
@@ -66,7 +67,7 @@ if exist %dst_html% (
 rem FIXME: "mklink" だと起動しない
 rem mklink %dst_html% %src_html%
 copy %src_html% %dst_html% > nul 2>&1
-if %errorlevel% == 0 (
+if %errorlevel% equ 0 (
     echo ^>^> nyaovimrc.html copy success!
     rem echo ^>^> nyaovimrc.html link success!
 ) else (
@@ -84,14 +85,14 @@ if not %errorlevel% equ 0 (
 )
 
 set src_json=%bat_path%\config.tsx
-set dst_json=%homepath%\AppData\Roaming\Oni\config.tsx
+set dst_json=%userprofile%\AppData\Roaming\Oni\config.tsx
 
 if exist %dst_json% (
     del %dst_json%
 )
 
 mklink %dst_json% %src_json% > nul 2>&1
-if %errorlevel% == 0 (
+if %errorlevel% equ 0 (
     echo ^>^> tsconfig.json link success!
 ) else (
     echo ^>^> tsconfig.json link failed. code: %errorlevel%
@@ -99,30 +100,30 @@ if %errorlevel% == 0 (
 
 :lnk_git
 rem ".gitconfig" 設定
-mklink %homepath%\.gitconfig %bat_path%\.gitconfig > nul 2>&1
-if %errorlevel% == 0 (
+mklink %userprofile%\.gitconfig %bat_path%\.gitconfig > nul 2>&1
+if %errorlevel% equ 0 (
     echo ^>^> .gitconfig link success!
 ) else (
     echo ^>^> .gitconfig link failed. code: %errorlevel%
 )
-mklink %homepath%\.gitconfig.os %bat_path%\.gitconfig.windows > nul 2>&1
-if %errorlevel% == 0 (
+mklink %userprofile%\.gitconfig.os %bat_path%\.gitconfig.windows > nul 2>&1
+if %errorlevel% equ 0 (
     echo ^>^> .gitconfig.os link success!
 ) else (
     echo ^>^> .gitconfig.os link failed. code: %errorlevel%
 )
 
 rem ".vim" 設定
-mklink /d %homepath%\.vim %bat_path%\.vim > nul 2>&1
-if %errorlevel% == 0 (
+mklink /d %userprofile%\.vim %bat_path%\.vim > nul 2>&1
+if %errorlevel% equ 0 (
     echo ^>^> .vim link success!
 ) else (
     echo ^>^> .vim link failed. code: %errorlevel%
 )
 
 rem "config.fish" 設定
-mklink %homepath%\.config\fish\config.fish %bat_path%\config.fish > nul 2>&1
-if %errorlevel% == 0 (
+mklink %userprofile%\.config\fish\config.fish %bat_path%\config.fish > nul 2>&1
+if %errorlevel% equ 0 (
     echo ^>^> config.fish link success!
 ) else (
     echo ^>^> config.fish link failed. code: %errorlevel%
@@ -141,8 +142,10 @@ for %%j in (.*) do (
         rem PASS(消すな)
     ) else if %%j == .zsh_history (
         rem PASS(消すな)
+    ) else if %%j == .oyainputconf (
+        rem PASS(消すな)
     ) else (
-        mklink %homepath%\%%j .\dotfiles\%%j > nul 2>&1
+        mklink %userprofile%\%%j .\dotfiles\%%j > nul 2>&1
     )
 )
 

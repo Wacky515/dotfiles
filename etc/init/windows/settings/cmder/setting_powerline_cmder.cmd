@@ -1,10 +1,12 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     2018/04/19 09:01:59
-rem Last Change: 2019/10/11 10:05:00.
+rem Last Change: 2019/11/19 17:02:34.
 
-title Setting cmder's powerline
+set batch_title=Setting cmder's powerline
+title %batch_title%
 
+rem 管理者権限で起動されたかチェック
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
 rem 管理者権限ならメイン処理
@@ -15,9 +17,9 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
-pushd C:%homepath%\OneDrive\仕事\Settings\Cmder
-
 set cmder_root=C:\tools\cmder\
+
+pushd %userprofile%\OneDrive\仕事\Settings\Cmder
 
 if not exist %cmder_root%\config\ (
     echo ^>^> Not exist %cmder_root%

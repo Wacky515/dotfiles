@@ -1,10 +1,7 @@
 # Created:     2017/**/** **:**:**
-# Last Change: 2019/11/15 09:43:11.
+# Last Change: 2019/11/20 16:08:00.
 # MEMO: ログイン時に一回だけ実行したい設定
 #       主に環境変数の設定
-
-# 日本語を使用
-export LANG=ja_JP.UTF-8
 
 # エイリアス
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases

@@ -1,33 +1,14 @@
-Created:     2018/**/** **:**:**
-Last Change: 2019/11/18 17:36:15.
+# Created:     2018/**/** **:**:**
+# Last Change: 2019/11/20 16:28:18.
 
 function has
     type "$1" > /dev/null 2>&1
 end
 
-# history の表示に日付を追加する
+# "history" の表示に日付を追加する
 function history
     builtin history --show-time='%Y/%m/%d %H:%M:%S ' | sort
 end
-
-if has "peco"
-    # history を複数端末間で共有
-    function peco_sync_select_history
-        history-merge
-        peco_select_history $argv
-    end
-
-    # キーバインド
-    function fish_user_key_bindings
-        bind \cr 'peco_sync_select_history (commandline -b)'
-        bind \cr peco_select_history
-    end
-end
-
-# "fzf" で古いキーバインドを使用しない
-set -U FZF_LEGACY_KEYBINDINGS 0
-# "fzf" で履歴の入力欄をターミナル上部に表示
-set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
 
 function win_setting
     # エイリアスは ".bashrc" では設定できない
@@ -44,6 +25,27 @@ function ins_fisher
         curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
         # curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
     end
+end
+
+if has "peco"
+    # history を複数端末間で共有
+    function peco_sync_select_history
+        history-merge
+        peco_select_history $argv
+    end
+
+    # キーバインド
+    function fish_user_key_bindings
+        bind \cr 'peco_sync_select_history (commandline -b)'
+        bind \cr peco_select_history
+    end
+end
+
+if has "fzf"
+    # "fzf" で古いキーバインドを使用しない
+    set -U FZF_LEGACY_KEYBINDINGS 0
+    # "fzf" で履歴の入力欄をターミナル上部に表示
+    set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
 end
 
 # OS 別設定
