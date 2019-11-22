@@ -1,3 +1,5 @@
+include my_python.snip
+
 snippet     #!
 abbr        #!/usr/bin/env python3
 alias       shebang
@@ -151,34 +153,3 @@ abbr        import ipdb..
 snippet     ipy
 abbr        import ipython..
 	from IPython import embed; embed()
-
-# ---------------------------------------------------------------------------
-# My snippet
-# ---------------------------------------------------------------------------
-
-snippet mycls
-    class (${1:class name})
-        def __init__(self):
-            (${2:pass})
-        def (${3:method name})(self, (${4:arg})):
-            (${5:pass})
-
-snippet mymthd
-    def (${1:method name})(self, (${2:arg})):
-        (${3:pass})
-
-snippet todo
-    # TODO: (${1:todo})
-
-snippet fixme
-    # FIXME: (${1:fix})
-
-snippet !!!
-    # !!!: (${1:annotation})
-
-snippet ???
-    # ???: (${1:question})
-
-snippet comment
-alias """
-    """  """

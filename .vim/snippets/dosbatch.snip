@@ -1,4 +1,7 @@
 snippet if
+abbr    IF文
+regexp  '^\s*'
+options head
     if ${1:CONDITION} (
         ${2:TRUE}
         ) else if (
@@ -8,6 +11,8 @@ snippet if
         )
 
 snippet ifnot
+abbr    IF NOT文
+options head
     if not ${1:CONDITION} (
         ${2:TRUE}
         ) else if (
@@ -17,6 +22,8 @@ snippet ifnot
         )
 
 snippet exist
+abbr    ファイルの存在確認
+options head
     if exist ${1:FILENAME} (
         ${2:TRUE}
         ) else if (
@@ -26,6 +33,8 @@ snippet exist
         )
 
 snippet notexist
+abbr    ファイルの不在確認
+options head
     if not exist ${1:FILENAME} (
         ${2:TRUE}
         ) else if (
@@ -35,6 +44,8 @@ snippet notexist
         )
 
 snippet error
+abbr    正常終了確認
+options head
     if not errorlevel 1 (
         echo ^>^> Normal condition
         ${1:NRML}
@@ -43,36 +54,46 @@ snippet error
         ${2:EROR}
 
 snippet forloop
+abbr    FOR文
+options head
     for /l %%s in (${1:START},${2:ICER},${3:END}) do (
         ${4:CMD}
         )
 
 snippet forfile
+abbr    ファイルへのFOR文
+options head
     for /f %%s in (${1:FILE}) do (
         ${2:CMD}
         )
 
 snippet inst
+abbr    インストール済かチェック
+options head
     rem "${1:SOFTNAME}" インストール済みかチェック
-    ${2:SOFTNAME} -v > nul 2>&1
+    ${1} -v > nul 2>&1
     if %errorlevel% equ 0 (
-        echo ^>^> Already installed
+        echo ^>^> Already installed ${1}
     else (
-        echo ^>^> Not install
+        echo ^>^> Not install ${1}
         goto install
     )
 
 snippet backup
+abbr    時間管理バックアップ
+options head
     set file_${1:FILE}="${2:S_FILE}"
-    set link_${3:LINK}="${4:PATH}"%file_${1:FILE}%
-    set trgt_${5:TRGT}=%~dp0%file_${1:FILE}%%
+    set link_${3:LINK}="${4:PATH}"%file_${1}%
+    set trgt_${5:TRGT}=%~dp0%file_${1}%%
 
-    if exist %link_${3:LINK}% (
-        echo ^>^> Backup %link_${3:LINK}%
-        rename %link_${3:LINK}% %file_${1:FILE}%".bak"
+    if exist %link_${3}% (
+        echo ^>^> Backup %link_${3}%
+        rename %link_${3}% %file_${1}%".bak"
         )
 
 snippet admin
+abbr    管理者権限か確認
+options head
     whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
     rem 管理者権限ならメイン処理
@@ -85,12 +106,14 @@ snippet admin
     :main_routine
 
 snippet header
+abbr    ヘッダ
+options head
     @echo off
     setlocal
-    rem Created:     ${1:YYMMDD} ${2:HHMMSS}
+    rem Created:     ${1:TODAY} ${2:NOW}${3:SS}
     rem Last Change: ****/**/** **:**:**.
 
-    set batch_title=${1:TITLE}
+    set batch_title=${4:TITLE}
     title %batch_title%
 
     whoami /PRIV | find "SeLoadDriverPrivilege" > NUL

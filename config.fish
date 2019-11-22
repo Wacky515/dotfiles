@@ -1,5 +1,5 @@
 # Created:     2018/**/** **:**:**
-# Last Change: 2019/11/20 16:28:18.
+# Last Change: 2019/11/20 17:32:35.
 
 function has
     type "$1" > /dev/null 2>&1
@@ -10,21 +10,11 @@ function history
     builtin history --show-time='%Y/%m/%d %H:%M:%S ' | sort
 end
 
-function win_setting
-    # エイリアスは ".bashrc" では設定できない
-    alias   vim="~/vim81-kaoriya-win64/vim.exe"
-    alias  gvim="~/vim81-kaoriya-win64/gvim.exe"
-    alias  nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
-    alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"
-end
-
-# FIXME: Windows10、インストール失敗する
-function ins_fisher
-    if ! has "fisher"
-        echo ">> Install fisher"
-        curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
-        # curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
-    end
+if has "fzf"
+    # "fzf" で古いキーバインドを使用しない
+    set -U FZF_LEGACY_KEYBINDINGS 0
+    # "fzf" で履歴の入力欄をターミナル上部に表示
+    set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
 end
 
 if has "peco"
@@ -41,11 +31,21 @@ if has "peco"
     end
 end
 
-if has "fzf"
-    # "fzf" で古いキーバインドを使用しない
-    set -U FZF_LEGACY_KEYBINDINGS 0
-    # "fzf" で履歴の入力欄をターミナル上部に表示
-    set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
+# FIXME: Windows10、インストール失敗する
+function ins_fisher
+    if ! has "fisher"
+        echo ">> Install fisher"
+        curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+        # curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+    end
+end
+
+function win_setting
+    # エイリアスは ".bashrc" では設定できない
+    alias   vim="~/vim81-kaoriya-win64/vim.exe"
+    alias  gvim="~/vim81-kaoriya-win64/gvim.exe"
+    alias  nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
+    alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"
 end
 
 # OS 別設定
