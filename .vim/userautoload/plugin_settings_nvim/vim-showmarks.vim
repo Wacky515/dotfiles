@@ -1,5 +1,6 @@
 scriptencoding utf-8
-" Last Change: 2018/07/16 12:29:13.
+" Created:     201*/**/** **:**:**
+" Last Change: 2019/11/22 17:42:35.
 
 " マップキー
 nnoremap [Mark] <Nop>

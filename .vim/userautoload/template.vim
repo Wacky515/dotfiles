@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/11/06 15:04:47.
+" Last Change: 2019/11/22 11:50:23.
 
 " 新規作成時、動的にテンプレートを読込む
 augroup templateload
@@ -28,4 +28,3 @@ augroup templateload
     autocmd BufNewFile *      %substitute#__START__#\=strftime("")#ge
     autocmd BufNewFile *      %substitute#__YEAR__#\=strftime("%Y")#ge
 augroup END
-

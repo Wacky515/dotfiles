@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/19 09:07:48
-" Last Change: 2019/11/13 14:42:02.
+" Last Change: 2019/11/22 17:01:54.
 
 " ---------------------------------------------------------------------------
 " マップキー
@@ -16,7 +16,7 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 
-" <TAB>: 次の補完部分へ移動
+" <TAB>:        次の補完部分へ移動
 imap <expr><TAB> pumvisible() ?
             \ "\<C-n>" : neosnippet#jumpable() ?
             \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
@@ -38,4 +38,3 @@ endif
 let g:neosnippet#snippets_directory =
             \ "~/.cache/dein/repos/github.com/Shougo/neosnippet-snippets,
             \ ~/.vim/snippets/"
-

@@ -1,9 +1,9 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/11/21 14:27:40.
+" Last Change: 2019/11/22 11:49:13.
 
 " インクリメンタルサーチ
-" ※ 検索文字入力で即時検索開始
+" MEMO: 検索文字入力で即時検索開始
 set incsearch
 
 " 検索時に大文字・小文字を区別しない
@@ -39,44 +39,3 @@ cnoremap <expr> ? getcmdtype() == "?" ? "\?" : "?"
 
 " カーソル下の単語を入力した文字で置換
 nnoremap <Leader>re :%s;\<<C-R><C-W>\>;g<Left><Left>;
-
-" カーソル下と同じ単語 ハイライト 其一  " {{{
-" FIXME: 空白行にオンカーソルした時の挙動が変
-" autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
-
-" カーソル下と同じ単語 ハイライト 其二
-" FIXME: 動かない
-" highlight CurrentWord term=NONE ctermbg=DarkMagenta ctermfg=NONE
-"
-" function! s:EscapeText( text )
-"   return substitute( escape(a:text, '\' . '^$.*[~'), "\n", '\\n', 'ge' )
-" endfunction
-"
-" function! s:GetCurrentWord()
-"   let l:cword = expand('<cword>')
-"   if !empty(l:cword)
-"     let l:regexp = s:EscapeText(l:cword)
-"     if l:cword =~# '^\k\+$'
-"       let l:regexp = '\<' . l:regexp . '\>'
-"     endif
-"     return l:regexp
-"   else
-"     return ''
-"   endif
-" endfunction
-"
-" function! s:HighlightCurrentWord()
-"   let l:word = s:GetCurrentWord()
-"   if !empty(l:word)
-"     if exists("w:current_match")
-"       call matchdelete(w:current_match)
-"     endif
-"     let w:current_match = matchadd('CurrentWord', l:word, 0)
-"   endif
-" endfunction
-"
-" augroup cwh
-"   autocmd!
-"   autocmd CursorMoved,CursorMovedI * call s:HighlightCurrentWord()
-" augroup END
-" }}}

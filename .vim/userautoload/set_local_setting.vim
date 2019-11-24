@@ -1,6 +1,8 @@
 scriptencoding utf-8
+" Created:     201*/**/** **:**:**
+" Last Change: 2019/11/22 11:50:07.
 
-" ".vimrc.local" を読込む
+" ".vimrc.local" 読込み
 augroup vimrc-local
     autocmd!
     autocmd BufNewFile,BufReadPost * call s:vimrc_local(expand('<afile>:p:h'))

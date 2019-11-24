@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Create:      201*/**/** **:**:**
-" Last Change: 2018/12/21 15:23:53.
+" Last Change: 2019/11/22 16:03:48.
 
 " ---------------------------------------------------------------------------
 " マップキー
@@ -13,12 +13,12 @@ nnoremap <Leader>st :SyntasticToggleMode<CR>
 " ---------------------------------------------------------------------------
 " 基本設定
 " ---------------------------------------------------------------------------
-" "Python" の構文チェックを "Flake8" に指定
-let g:syntastic_python_checkers = ["flake8"]
+" "Python"   の構文チェックを "Flake8" に指定
+let g:syntastic_python_checkers   = ["flake8"]
 " "Markdown" の構文チェックを "textlint" に指定
 let g:syntastic_markdown_checkers = ["textlint"]
-" "*.txt" の構文チェックを "textlint" に指定
-let g:syntastic_text_checkers = ["textlint"]
+" "*.txt"    の構文チェックを "textlint" に指定
+let g:syntastic_text_checkers     = ["textlint"]
 
 let g:syntastic_mode_map = {"mode": "passive",
             \ "active_filetypes": ["python", "markdown", "text"] }
@@ -60,4 +60,3 @@ let g:syntastic_check_on_w = 0
 " 最大文字数を拡大
 " let g:syntastic_python_flake8_args="--max-line-length=120
 " }}}
-

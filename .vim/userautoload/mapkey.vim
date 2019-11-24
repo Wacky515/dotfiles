@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2019/11/21 11:52:51.
+" Last Change: 2019/11/22 11:46:38.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -24,10 +24,14 @@ nnoremap bk :<C-u>w %.bk
 " dl: 仕切り線を挿入
 noremap dl i---------------------------------------------------------------------------<Esc>:TComment<CR>^
 
-" " 0: 直下に空行挿入
-" nnoremap 0 :<C-u>call append(expand('.'), '')<CR>j
-" " 9: 直上に空行挿入
-" nnoremap 9 O<Esc>cc<Esc>
+" [*|#]: 検索した後に移動しない設定
+nnoremap * *N
+nnoremap # #N
+
+" vv: カーソルから行末まで選択
+vnoremap v $h
+" Y:  カーソルから行末までヤンク
+nnoremap Y y$
 
 " <Esc><Esc>: ハイライト消去
 if has("mac")
@@ -36,18 +40,10 @@ else
     nmap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 endif
 
-" [*|#]: 検索した後に移動しない設定
-nnoremap * *N
-nnoremap # #N
-
-" vv: カーソルから行末まで選択
-vnoremap v $h
-" Y: カーソルから行末までヤンク
-nnoremap Y y$
-
-" <TAB>: 対のカッコにジャンプ
-nnoremap <TAB> %
-vnoremap <TAB> %
+" ヤンクした文字列でカーソル位置の単語を置換
+nnoremap <silent> cy ce<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
+vnoremap <silent> cy c<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
+nnoremap <silent> ciy ciw<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
 
 " bo: エクスプローラで開く
 nnoremap <silent> bo :<C-u>browse open<CR>
@@ -86,7 +82,7 @@ noremap <C-p> <C-y>
 noremap <C-n> <C-e>
 
 " <Shift><矢印>: ウィンドウサイズ変更
-    " FIXME: Windows動作せず
+    " FIXME: Windows 動作せず
 if !(has("win32") || has("win64"))
     nnoremap <S-Left>  <C-w><<CR>
     nnoremap <S-Right> <C-w>><CR>
@@ -98,19 +94,6 @@ if !(has("win32") || has("win64"))
 "     nnoremap <S-Up>    <C-w>k
 "     nnoremap <S-Down>  <C-w>j
 endif
-
-" TODO: LinuxのNeoVimで確認
-" w!!: スーパーユーザーとして保存（sudoが使える環境限定）
-if has("unix")
-    cmap w!! w !sudo tee > /dev/null %
-endif
-
-" "Mac" のノーマルモードで ":" と ";" を入替え  " {{{
-" if has("mac")
-"     noremap : ;
-"     noremap ; :
-" endif
-" }}}
 
 if !has("nvim")
     " ev: vimrcを開く
@@ -137,12 +120,32 @@ if has("nvim")
   tnoremap <silent> <Esc> <C-\><C-n>
 endif
 
-" ヤンクした文字列でカーソル位置の単語を置換
-nnoremap <silent> cy ce<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
-vnoremap <silent> cy c<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
-nnoremap <silent> ciy ciw<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
+" TODO: LinuxのNeoVimで確認
+" w!!: スーパーユーザーとして保存（sudoが使える環境限定）
+if has("unix")
+    cmap w!! w !sudo tee > /dev/null %
+endif
 
-" TODO: 動作確認
+" " <TAB>: 対のカッコにジャンプ
+" nnoremap <TAB> %
+" vnoremap <TAB> %
+
+" " 0: 直下に空行挿入
+" nnoremap 0 :<C-u>call append(expand('.'), '')<CR>j
+" " 9: 直上に空行挿入
+" nnoremap 9 O<Esc>cc<Esc>
+
+" "Mac" のノーマルモードで ":" と ";" を入替え  " {{{
+" if has("mac")
+"     noremap : ;
+"     noremap ; :
+" endif
+" }}}
+
+" --------------------------------------------------------------------------------
+" 基本設定篇
+" --------------------------------------------------------------------------------
+" TEST:
 " 起動時のみカレントディレクトリを開いたファイルの親ディレクトリに指定
 function! s:ChangeCurrentDir(directory, bang)
     if a:directory == ''
@@ -168,7 +171,7 @@ if (has("unix") || has("mac"))
 endif
 
 " ---------------------------------------------------------------------------
-" Command Line篇
+" コマンドライン篇
 " ---------------------------------------------------------------------------
 " <Home>: 行頭へ移動
 cnoremap <C-a> <Home>
@@ -190,7 +193,7 @@ cnoremap <C-n> <Down>
 cnoremap <C-p> <Up>
 
 " ---------------------------------------------------------------------------
-" Leader篇
+" Leader 篇
 " ---------------------------------------------------------------------------
 " <Space> を "Leader" に割当て
 " MEMO: ".vimrc" に記述

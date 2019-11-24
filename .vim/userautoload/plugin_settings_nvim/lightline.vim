@@ -1,6 +1,10 @@
 scriptencoding utf-8
-" Last Change: 2019/11/07 10:42:25.
+" Created:     201*/**/** **:**:**
+" Last Change: 2019/11/22 16:59:03.
 
+" --------------------------------------------------------------------------------
+" 基本設定
+" --------------------------------------------------------------------------------
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示
 if has("unix")
     set laststatus=2
@@ -28,16 +32,15 @@ endif
 
 let g:lightline = {
             \ 'colorscheme': 'wombat',
-            \ 'separator':    {'left': "\ue0cc", 'right': "\ue0b2"},
-            \ 'subseparator': {'left': "\ue0cd", 'right': "\ue0b3"},
-            \ 'mode_map':     {'c':    'NORMAL'},
+            \ 'separator':        {'left': "\ue0cc", 'right': "\ue0b2"},
+            \ 'subseparator':     {'left': "\ue0cd", 'right': "\ue0b3"},
+            \ 'mode_map':         {'c':    'NORMAL'},
             \ 'active': {
             \     'left': [
-            \         ['mode',     'paste'],
-            \         ['fugitive', 'filename'],
-            \         ['modified', 'ale']]},
-            \ 'component': {
-            \     'lineinfo':     ' %3l:%-2v',},
+            \                     ['mode',     'paste'],
+            \                     ['fugitive', 'filename'],
+            \                     ['modified', 'ale']]},
+            \ 'component':        {'lineinfo': ' %3l:%-2v',},
             \ 'component_function': {
             \     'mode':         'MyMode',
             \     'fugitive':     'MyFugitive',
@@ -47,7 +50,8 @@ let g:lightline = {
             \     'fileencoding': 'MyFileencoding',
             \     'fileformat':   'MyFileformat',
             \     'filetype':     'MyFiletype',
-            \     'readonly':     'MyReadonly',}}
+            \     'readonly':     'MyReadonly',}
+            \ }
 
 function! MyMode()
     return winwidth(0) > 60 ? lightline#mode() : ''
@@ -70,8 +74,8 @@ function! MyFilename()
                 \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
                 \  &ft == 'unite' ? unite#get_status_string() :
                 \  &ft == 'vimshell' ? vimshell#get_status_string() :
-                \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-                \ ('' != MyModified() ? ' ' . MyModified() : '')
+                \   '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+                \  ('' != MyModified() ? ' ' . MyModified() : '')
 endfunction
 
 function! MyModified()
@@ -81,9 +85,9 @@ endfunction
 
 if dein#tap('ale') && !(has("unix") && !has("gui_running"))
     function! MyAle()
-        let l:count = ale#statusline#Count(bufnr(''))
-        let l:errors = l:count.error + l:count.style_error
-        let l:warnings = l:count.warning + l:count.style_warning
+        let l:count           = ale#statusline#Count(bufnr(''))
+        let l:errors          = l:count.error + l:count.style_error
+        let l:warnings        = l:count.warning + l:count.style_warning
         return l:count.total == 0 ? '' : ':' . l:errors . ' :' . l:warnings
     endfunction
 else

@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2019/11/20 14:18:52.
+# Last Change: 2019/11/22 15:59:58.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -54,25 +54,50 @@ hook_source = '''  " {{{
     call denite#custom#map('insert',
                 \ '<C-o>', '<denite:do_action:tabopen>')
 
+    " KILL: エラー解消できず
+    " " RipGrep
+    " if executable("rg")
+    "     " 検索対象から以下を除外
+    "     call denite#custom#var(
+    "                 \ 'command',
+    "                 \ 'grep',
+    "                 \ 'file_rec',
+    "                 \ ['!.git',
+    "                 \ '--files',
+    "                 \ '--glob',
+    "                 \ 'rg'
+    "                 \ ])
+    "
+    "     let g:denite_source_grep_command       = 'rg'
+    "     let g:denite_source_grep_default_opts  = '-n --no-heading --color never'
+    "     let g:unite_source_grep_recursive_opt  = ''
+    "     " Hit数制御
+    "     let g:unite_source_grep_max_candidates = 200
+    "     " "Windows" 設定
+    "     let g:unite_source_grep_encoding='utf-8'
+    " endif
+
     " The Silver searcher
-    if executable('ag')
+    if executable("ag")
         let s:ignore_globs = [
                     \ '.git',
                     \ '.svn',
-                    \ 'node_modules']
+                    \ 'node_modules'
+                    \ ]
 
         " 検索対象から以下を除外
         call denite#custom#var(
                     \ 'command',
-                    \ 'file/rec', [
-                    \ 'ag',
+                    \ 'file/rec',
+                    \ ['ag',
                     \ '--follow',]
-                    \ + map(deepcopy(s:ignore_globs),
-                    \ { k, v -> '--ignore=' . v }) + [
-                    \ '',
-                    \ '--nocolor',
+                    \  + map(deepcopy(s:ignore_globs),
+                    \ { k, v -> '--ignore=' . v }) +
+                    \ ['--nocolor',
                     \ '--nogroup',
-                    \ '-g'])
+                    \ '-g',
+                    \ ''
+                    \ ])
 
         " "file_rec" 検索時に "FuzzyMatch" を有効にし
         " 検索対象から指定のファイルを除外
@@ -81,38 +106,19 @@ hook_source = '''  " {{{
                     \ 'matchers',
                     \ ['matcher_fuzzy',
                     \ 'matcher_project_files',
-                    \ 'matcher_ignore_globs'])
+                    \ 'matcher_ignore_globs'
+                    \ ])
 
         " 他ソース向けに "ignore_globs" 初期化
         call denite#custom#filter(
-                    \ 'ignore_globs',
                     \ 'matcher/ignore_globs',
-                    \ s:ignore_globs)
-
+                    \ 'ignore_globs',
+                    \ s:ignore_globs
+                    \ )
     endif
 
-"     " RipGrep
-"     if executable('rg')
-"         " 検索対象から以下を除外
-"         call denite#custom#var(
-"                     \ 'command',
-"                     \ 'grep',
-"                     \ 'file_rec',
-"                     \ ['!.git',
-"                     \ '--files',
-"                     \ '--glob',
-"                     \ 'rg'])
-"         let g:denite_source_grep_command = 'rg'
-"         let g:denite_source_grep_default_opts = '-n --no-heading --color never'
-"         let g:unite_source_grep_recursive_opt = ''
-"         " Hit数制御
-"         let g:unite_source_grep_max_candidates = 200
-"         " "Windows" 設定
-"         let g:unite_source_grep_encoding='utf-8'
-"     endif
-
     " FuzzyMatch
-    if executable('matcher_fuzzy')
+    if executable("matcher_fuzzy")
         " "file_rec" 検索時に "FuzzyMatch" を有効にし
         " 検索対象から指定のファイルを除外
         call denite#custom#source(
@@ -141,6 +147,7 @@ hook_source = '''  " {{{
                     \ 'ropeproject/'])
     endif
 '''  # }}}
+
 on_i = 1
 on_cmd = ['Denite']
 # "Denite|Unite" 用 "Source" 郡
@@ -241,17 +248,24 @@ merged = '0'
 repo = 'junegunn/fzf.vim'
 depends = ['fzf']
 hook_add = '''  " {{{
+    command! -bang -nargs=* Rg
+                \ call fzf#vim#grep(
+                \   'rg --hidden --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+                \   <bang>0 ? fzf#vim#with_preview('up:60%')
+                \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+                \   <bang>0)
+    command! -bang -nargs=* Rgs
+                \ call fzf#vim#grep(
+                \   'rg --hidden --column --line-number --no-heading --color=always --smart-case --encoding Shift_JIS '.shellescape(<q-args>), 1,
+                \   <bang>0 ? fzf#vim#with_preview('up:60%')
+                \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+                \   <bang>0)
     command! -bang -nargs=* Ag
                 \ call fzf#vim#grep(
-                \   'ag --column --color --hidden --ignore .git '.shellescape(<q-args>), 0,
+                \   'ag --hidden --column --color --ignore .git '.shellescape(<q-args>), 0,
                 \   <bang>0 ? fzf#vim#with_preview('up:60%')
                 \           : fzf#vim#with_preview('right:50%', '?'),
                 \   <bang>0)
-    command! -bang -nargs=* Rg
-                \ call fzf#vim#grep(
-                \   'rg --line-number --no-heading '.shellescape(<q-args>), 0,
-                \   fzf#vim#with_preview({'options': '--exact --reverse'},
-                \   'right:50%:wrap'))
 '''  # }}}
 
 # フォントのサイズ変更

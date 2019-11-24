@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/09/13 22:57:48
-" Last Change: 2019/11/20 14:00:17.
+" Last Change: 2019/11/22 16:43:20.
 
 " ---------------------------------------------------------------------------
 " マップキー
@@ -43,15 +43,15 @@ scriptencoding utf-8
 " ---------------------------------------------------------------------------
 " Jedi
 " ---------------------------------------------------------------------------
-let g:deoplete#sources#jedi#server_timeout=100
+let   g:deoplete#sources#jedi#server_timeout=100
 let g:deoplete#sources#jedi#statement_length=100
 
-" "jedi" の補完はOFF
+" "jedi" の補完 OFF
     " "deoplete-jedi" で非同期処理してくれる
 let g:jedi#completions_enabled = 0
 
 " if hostname() == "ProSalad133.local"
-if hostname() == "ProSalad13-2018.local"
+if hostname()     == "ProSalad13-2018.local"
     let g:deoplete#sources#jedi#python_path = "/usr/local/bin/python3.6"
 elseif hostname() == ("HBAMB748" || "HBAMB748A" || "HBAMB819")
     let g:deoplete#sources#jedi#python_path = "C:\\Python36\\python.exe"

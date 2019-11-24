@@ -1,7 +1,6 @@
 scriptencoding utf-8
-" Created:     2016/08/11 00:00:00
-" Last Change: 2018/09/11 09:18:08.
-" < http://myenigma.hatenablog.com/entry/2016/07/10/084048 >
+" Created:     2016/08/11 **:**:**
+" Last Change: 2019/11/22 16:46:51.
 
 " USAGE:
     " ":Gstatus" のステータス画面のファイル名上で
@@ -11,11 +10,12 @@ scriptencoding utf-8
     " ステータス行に現在のgitブランチを表示
     " set statusline+=%{fugitive#statusline()}
     " set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ \[ENC=%{&fileencoding}]%P
+" < http://myenigma.hatenablog.com/entry/2016/07/10/084048 >
 
-" "Vim" 起動時のエラー回避
-set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
-
+" --------------------------------------------------------------------------------
 " マップキー
+" --------------------------------------------------------------------------------
+" プリフィクスキー
 nnoremap [fugitive]  <Nop>
 nmap mg [fugitive]
 
@@ -58,3 +58,6 @@ nnoremap <silent> [fugitive]m :Gmerge<CR>
         " U     |:Git| clean (untracked files)
         " U     |:Git| rm (unmerged files)
 " }}}
+
+" "Vim" 起動時のエラー回避
+set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}

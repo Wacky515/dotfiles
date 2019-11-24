@@ -1,3 +1,39 @@
+snippet header
+abbr    ヘッダ
+options head
+    @echo off
+    setlocal
+    rem Created:     ${1:TODAY} ${2:NOW}${3:SS}
+    rem Last Change: 2019/11/22 10:28:23.
+
+    set batch_title=${4:TITLE}
+    title %batch_title%
+
+    whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
+
+    rem 管理者権限ならメイン処理
+    if not errorlevel 1 goto main_routine
+
+    rem 管理者権限でなければ管理者権限で再起動
+    @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
+    exit
+
+    :main_routine
+
+snippet admin
+abbr    管理者権限か確認
+options head
+    whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
+
+    rem 管理者権限ならメイン処理
+    if not errorlevel 1 goto main_routine
+
+    rem 管理者権限でなければ管理者権限で再起動
+    @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
+    exit
+
+    :main_routine
+
 snippet if
 abbr    IF文
 regexp  '^\s*'
@@ -53,20 +89,6 @@ options head
         echo ^>^> Error condition
         ${2:EROR}
 
-snippet forloop
-abbr    FOR文
-options head
-    for /l %%s in (${1:START},${2:ICER},${3:END}) do (
-        ${4:CMD}
-        )
-
-snippet forfile
-abbr    ファイルへのFOR文
-options head
-    for /f %%s in (${1:FILE}) do (
-        ${2:CMD}
-        )
-
 snippet inst
 abbr    インストール済かチェック
 options head
@@ -91,38 +113,16 @@ options head
         rename %link_${3}% %file_${1}%".bak"
         )
 
-snippet admin
-abbr    管理者権限か確認
+snippet forloop
+abbr    FOR文
 options head
-    whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
+    for /l %%s in (${1:START},${2:ICER},${3:END}) do (
+        ${4:CMD}
+        )
 
-    rem 管理者権限ならメイン処理
-    if not errorlevel 1 goto main_routine
-
-    rem 管理者権限でなければ管理者権限で再起動
-    @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
-    exit
-
-    :main_routine
-
-snippet header
-abbr    ヘッダ
+snippet forfile
+abbr    ファイルへのFOR文
 options head
-    @echo off
-    setlocal
-    rem Created:     ${1:TODAY} ${2:NOW}${3:SS}
-    rem Last Change: ****/**/** **:**:**.
-
-    set batch_title=${4:TITLE}
-    title %batch_title%
-
-    whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
-
-    rem 管理者権限ならメイン処理
-    if not errorlevel 1 goto main_routine
-
-    rem 管理者権限でなければ管理者権限で再起動
-    @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
-    exit
-
-    :main_routine
+    for /f %%s in (${1:FILE}) do (
+        ${2:CMD}
+        )
