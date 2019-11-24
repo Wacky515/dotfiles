@@ -1,16 +1,17 @@
 scriptencoding utf-8
-" Created:     2016/10/09 21:28:05
-" Last Change: 2019/11/21 15:20:37.
+" Created:     201*/**/** **:**:**
+" Last Change: 2019/11/21 14:58:29.
 
 " ---------------------------------------------------------------------------
-"  マップキー
+" マップキー
 " ---------------------------------------------------------------------------
-" スクリプトを実行
-nnoremap <F5> :w <ENTER> :!% <ENTER>
+" ,t: "TagList" を開く
+" nnoremap <silent> ,t :TlistOpen<CR>
+nnoremap <leader>,t :TlistOpen<CR>
 
 " ---------------------------------------------------------------------------
-"  基本設定
+" 基本設定
 " ---------------------------------------------------------------------------
-set fileformat=dos
-set encoding=utf-8
-set fileencoding=sjis
+let Tlist_Exit_OnlyWindow  = 1
+let Tlist_Show_One_File    = 1
+let Tlist_Use_Right_Window = 1

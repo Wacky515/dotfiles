@@ -1,11 +1,12 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     2018/03/31 09:53:57
-rem Last Change: 2019/10/01 09:06:14.
+rem Last Change: 2019/11/19 17:13:42.
 
 set batch_title=Setting for Folder options
 title %batch_title%
 
+rem 管理者権限で起動されたかチェック
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
 rem 管理者権限ならメイン処理
@@ -17,7 +18,8 @@ exit
 
 :main_routine
 rem スクリプトがある "Dir" に "cd"
-pushd %~dp0
+set bat_path=%~dp0
+pushd %bat_path%
 
 echo ^>^> %batch_title%
 
@@ -74,7 +76,7 @@ for %%i in (general_setting_*.cmd) do (
         call %%i
         )
 pushd %srcdir%
-goto eof
+goto end
 
 :windows10
 echo ^>^> This OS is Windows10, general setting as Windows10
@@ -83,9 +85,9 @@ for %%j in (general_setting_*.cmd) do (
         call %%j
         )
 pushd %srcdir%
-goto eof
+goto end
 
-:eof
+:end
 endlocal
 popd
 

@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/10/10 09:32:10.
+" Last Change: 2019/11/21 14:27:40.
 
 " インクリメンタルサーチ
 " ※ 検索文字入力で即時検索開始
@@ -37,7 +37,10 @@ nnoremap /  /\v
 cnoremap <expr> / getcmdtype() == "/" ? "\/" : "/"
 cnoremap <expr> ? getcmdtype() == "?" ? "\?" : "?"
 
-" カーソル下と同じ単語 ハイライト 其一
+" カーソル下の単語を入力した文字で置換
+nnoremap <Leader>re :%s;\<<C-R><C-W>\>;g<Left><Left>;
+
+" カーソル下と同じ単語 ハイライト 其一  " {{{
 " FIXME: 空白行にオンカーソルした時の挙動が変
 " autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
@@ -76,3 +79,4 @@ cnoremap <expr> ? getcmdtype() == "?" ? "\?" : "?"
 "   autocmd!
 "   autocmd CursorMoved,CursorMovedI * call s:HighlightCurrentWord()
 " augroup END
+" }}}

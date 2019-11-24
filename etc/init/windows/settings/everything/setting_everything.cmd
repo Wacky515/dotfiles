@@ -1,11 +1,12 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2019/10/01 15:27:50.
+rem Last Change: 2019/11/19 17:10:50.
 
 set batch_title=Setting Everything
 title %batch_title%
 
+rem 管理者権限で起動されたかチェック
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
 rem 管理者権限ならメイン処理
@@ -16,11 +17,7 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
-rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
-pushd %bat_path%
-
-echo ^>^> %batch_title%
 
 rem 日付取得
 set yyyy=%date:~0,4%
@@ -34,15 +31,20 @@ set mi=%time:~3,2%
 set ss=%time:~6,2%
 
 set tstmp=%yyyy%-%mm%-%dd%_%hh%-%mi%-%ss%
+
+set ini_dir=%appdata%\Everything\
+set src_dir=%userprofile%\OneDrive\仕事\Settings\Everything\
+
+set backup=%ini_dir%\old\%tstmp%
+
+rem スクリプトがある "Dir" に "cd"
+rem pushd %bat_path%
+
+echo ^>^> %batch_title%
 echo ^>^> Time stamp: %tstmp%
 
-set inidir=C:%homepath%\AppData\Roaming\Everything\
-set backup=%inidir%\old\%tstmp%
-
-set srcdir=%homepath%\OneDrive\仕事\Settings\Everything\
-
 rem 設定ファイルがある "Dir" に "cd"
-pushd %srcdir%
+pushd %src_dir%
 
 rem "Everything" 停止
 echo ^>^> Kill Everything
@@ -52,14 +54,14 @@ rem バックアップ 作成
 mkdir %backup%
 
 rem :backup
-if exist %inidir% (
-    move %inidir%\* %backup%
+if exist %ini_dir% (
+    move %ini_dir%\* %backup%
     )
 
 rem シンボリックリンク 作成
 echo ^>^> Make symbolic link *.ini
 for %%i in (*.ini) do (
-    mklink %inidir%\%%i %srcdir%\%%i
+    mklink %ini_dir%\%%i %src_dir%\%%i
 )
 
 rem デスクトップショートカット 作成
@@ -73,8 +75,8 @@ if not exist %userprofile%\Desktop\Everything.lnk (
 :cplnk
 echo ^>^> Make shortcut in Desktop
 
-if exist "C:\Program Files (x86)\Everything\Everything.exe" goto evex64
-if exist "C:\Program Files\Everything\Everything.exe" (
+if exist %programfiles(x86)%\Everything\Everything.exe goto evex64
+if exist %programfiles%\Everything\Everything.exe (
     goto eve
 ) else (
     goto end

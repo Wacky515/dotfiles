@@ -1,10 +1,12 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/10/10 10:55:19.
+rem Last Change: 2019/11/19 16:59:39.
 
-title Change prompt
+set batch_title=Change prompt
+title %batch_title%
 
+rem 管理者権限で起動されたかチェック
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
 rem 管理者権限ならメイン処理
@@ -15,9 +17,9 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
-pushd C:%homepath%\OneDrive\仕事\Settings\Cmder
-
 set cmder_root=C:\tools\cmder\
+
+pushd %userprofile%\OneDrive\仕事\Settings\Cmder
 
 if not exist %cmder_root%\vendor\ (
     echo ^>^> Not exist %cmder_root%

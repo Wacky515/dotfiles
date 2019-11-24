@@ -15,7 +15,7 @@
 
 - See the README for documentation.
   - OS X & Linux
-    - ~/dotfiles/etc/init/linux/README.md
+    - ~/dotfiles/etc/init/linux/settings/README.md
   - Windows
-    - ~/dotfiles/etc/init/windows/README.md
+    - ~/dotfiles/etc/init/windows/settings/README.md
 - Licensed under the MIT license.

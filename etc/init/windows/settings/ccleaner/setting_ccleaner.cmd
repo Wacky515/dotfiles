@@ -1,11 +1,12 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2019/10/01 14:44:18.
+rem Last Change: 2019/11/19 16:57:13.
 
 set batch_title=Setting CCleaner
 title %batch_title%
 
+rem 管理者権限で起動されたかチェック
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
 rem 管理者権限ならメイン処理
@@ -16,11 +17,7 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
-rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
-pushd %bat_path%
-
-echo ^>^> %batch_title%
 
 rem 日付取得
 set yyyy=%date:~0,4%
@@ -34,12 +31,17 @@ set mi=%time:~3,2%
 set ss=%time:~6,2%
 
 set tstmp=%yyyy%-%mm%-%dd%_%hh%-%mi%-%ss%
-echo ^>^> Time stamp: %tstmp%
 
 set inidir="C:\Program Files\CCleaner\"
 set inifile=%inidir%\ccleaner.ini
 set backup=%inidir%\old\%tstmp%
-set srcdir=%homepath%\OneDrive\仕事\Settings\CCleaner
+set srcdir=%Unrestricted%\OneDrive\仕事\Settings\CCleaner
+
+rem スクリプトがある "Dir" に "cd"
+rem pushd %bat_path%
+
+echo ^>^> %batch_title%
+echo ^>^> Time stamp: %tstmp%
 
 rem 設定ファイルがある "Dir" に "cd"
 pushd %srcdir%
@@ -60,17 +62,14 @@ echo ^>^> Backup old *.ini
 mkdir %backup%
 move %inifile% %backup%
 
-rem シンボリックリンク 作成
 :mklink
-rem echo ^>^> Copy *.ini
-rem copy "ccleaner.ini" %inifile%
+rem シンボリックリンク 作成
 if exist %inifile% (
     del /q %inifile%
 )
 
 echo ^>^> Make symbolic link *.ini
 mklink %inifile% %srcdir%"\ccleaner.ini"
-rem copy "ccleaner.ini" %inifile%
 
 endlocal
 popd

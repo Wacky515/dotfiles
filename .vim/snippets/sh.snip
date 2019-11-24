@@ -1,3 +1,5 @@
+include my_sh.snip
+
 snippet #!
 abbr    #!/bin/sh
 alias   shebang
@@ -96,30 +98,3 @@ options     head
 	exit 1
 
 # vim: set noexpandtab :
-
-# ---------------------------------------------------------------------------
-# My snippet
-# ---------------------------------------------------------------------------
-
-snippet header
-    #!/bin/bash
-    # @(#) ${1:NAME}
-    # Created:     ${2:DATE}
-    # Last Change: 2018/06/03 12:40:21.
-
-    for f in ~/dotfiles/function/*.sh
-    do
-        source ${f}
-    done
-
-    readonly PROCESS="${3:ECHO}"
-
-    gm_echo ">> ${PROCESS^}"
-    # ym_echo ">> Start "
-
-    ${4:START}
-
-    result_echo $? "${PROCESS}"
-
-snippet lead
-    [ -f ${1:PATH} ] && source ${1:PATH}
