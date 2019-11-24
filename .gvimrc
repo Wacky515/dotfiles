@@ -1,10 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-<<<<<<< HEAD
-" Last Change: 2019/11/17 15:45:56.
-=======
-" Last Change: 2019/11/20 16:35:55.
->>>>>>> ab56cac1b5bfb4aab2195a6347dcb44edcda61c7
+" Last Change: 2019/11/24 21:02:49.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -91,20 +87,20 @@ if !has("nvim")
 
     elseif has("mac")
         if hostname()     == "ProSalad13-2018.local"
-            set guifont=Cica:h20
-            set printfont=Cica:h12
-        elseif hostname() == "ProSalad13.local"
-            set guifont=Cica:h16
-            set printfont=Cica:h12
-        elseif hostname() == "saladserver.com"
-            set guifont=Cica:h28
+            set   guifont=Cica:h20
             set printfont=Cica:h20
+        elseif hostname() == "ProSalad13.local"
+            set   guifont=Cica:h16
+            set printfont=Cica:h16
+        elseif hostname() == "saladserver.com"
+            set   guifont=Cica:h28
+            set printfont=Cica:h28
         elseif hostname() == "SaladBook.local"
-            set guifont=Cica:h16
-            set printfont=Cica:h12
+            set   guifont=Cica:h16
+            set printfont=Cica:h16
         else
-            set guifont=Cica:h16
-            set printfont=Cica:h12
+            set   guifont=Cica:h16
+            set printfont=Cica:h16
         endif
         " colorscheme iceberg
 

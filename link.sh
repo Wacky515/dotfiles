@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Symbolic linkig dotfiles.
 # Created:     2017/02/08 **:**:**
-<<<<<<< HEAD
-# Last Change: 2019/11/17 15:50:29.
-=======
-# Last Change: 2019/11/20 17:18:57.
->>>>>>> ab56cac1b5bfb4aab2195a6347dcb44edcda61c7
+# Last Change: 2019/11/24 20:56:40.
 
 for f in ~/dotfiles/function/*.sh
 do
@@ -84,14 +80,14 @@ do
     [[ ${f} = ".gitconfig.linux"   ]] && continue
     [[ ${f} = ".gitconfig.windows" ]] && continue
 
+    [[ ${f} = ".DS_Store"          ]] && continue
+    [[ ${f} = ".modfying"          ]] && continue
+
     # [[ ${f} = "*. ~"               ]] && continue
     # [[ ${f} = "*.old"              ]] && continue
     # [[ ${f} = "*.sh"               ]] && continue
     # [[ ${f} = "*.swp"              ]] && continue
     # [[ ${f} = "*.un~"              ]] && continue
-
-    [[ ${f} = ".DS_Store"          ]] && continue
-    [[ ${f} = ".modfying"          ]] && continue
 
     # シンボリックリンク 作成
     gm_echo set ${f}

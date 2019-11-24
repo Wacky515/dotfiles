@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2019/11/14 10:16:59.
+" Last Change: 2019/11/24 21:00:40.
 
 " NOT_WORK:
 " " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
@@ -24,7 +24,7 @@ let g:vimproc#download_windows_dll = 1
 " ---------------------------------------------------------------------------
 if hostname()     == "saladserver.com"
     let g:python3_host_prog = "/usr/local/bin/python3"
-elseif hostname() == "ProSalad133-2018.local"
+elseif hostname() == "ProSalad13-2018.local"
     let g:python3_host_prog = "/usr/local/bin/Python3"
 elseif hostname() == "SaladBook.local"
     let g:python3_host_prog = "/usr/local/bin/python3"
