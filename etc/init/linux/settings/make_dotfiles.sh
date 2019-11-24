@@ -1,7 +1,7 @@
 #!/bin/bash
 # @(#) Initial install dotfiles
 # Created:     2018/05/09 10:15:36
-# Last Change: 2019/10/31 10:06:14.
+# Last Change: 2019/11/19 13:48:53.
 
 # FIXME:
     # sudo権限を終了しないと "brew" が使えない
@@ -16,7 +16,7 @@ readonly PROCESS="make dotfiles"
 readonly DOT_DIR="${HOME}/dotfiles"
 readonly GIT_URL="https://github.com/Wacky515/dotfiles.git"
 
-### 設定
+## 設定
 # 色付きのテキストを端末で使用する設定
 tput=$(which tput)
 if [ -n "$tput" ]; then
@@ -39,9 +39,9 @@ else
     NORMAL=""
 fi
 
-### 関数群
+## 関数群
 # info: 情報を緑色で出力
-info() {
+function info() {
     printf "${GREEN}"
     echo -n "  INFO:     "
     printf "${NORMAL}"
@@ -49,7 +49,7 @@ info() {
 }
 
 # warn: 警報を黄色で出力
-warn() {
+function warn() {
     printf "${YELLOW}"
     echo -n "  WARNING!: "
     printf "${NORMAL}"
@@ -57,7 +57,7 @@ warn() {
 }
 
 # error: エラーを赤色で出力
-error() {
+function error() {
     printf "${RED}"
     echo -n "  ERROR!!:  "
     printf "${NORMAL}"
@@ -65,7 +65,7 @@ error() {
 }
 
 # log: ログを通常の色で出力
-log() {
+function log() {
     echo "  $1"
 }
 
@@ -77,16 +77,16 @@ else
 fi
 
 # パッケージの存在確認
-has() {
+function has() {
     type "$1" > /dev/null 2>&1
 }
 
 # シンボリックリンクの追加
-symlink() {
+function symlink() {
     [ -e "$2" ] || ln -sf "$1" "$2"
 }
 
-### MAIN
+## MAIN
 dotfiles_logo='
 ██████╗  ██████╗ ████████╗███████╗██╗██╗     ███████╗███████╗
 ██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝██║██║     ██╔════╝██╔════╝
@@ -165,7 +165,7 @@ if [ ! -d ${DOT_DIR}"/.git" ]; then
     cd ~/
     git clone "${GIT_URL}"
 
-    info ">> Download dotfiles complete"
+    info ">> Clone dotfiles complete"
 else
     info ">> Aleady exist dotfiles"
 fi

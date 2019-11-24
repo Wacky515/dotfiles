@@ -1,4 +1,6 @@
 scriptencoding utf-8
+" Created:     201*/**/** **:**:**
+" Last Change: 2019/11/21 15:21:32.
 
 " スクリプトを実行
 nnoremap <F5> :w <ENTER> :!./%;read <ENTER>

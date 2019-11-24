@@ -1,5 +1,5 @@
 # Created:     2019/11/12 10:24:18
-# Last Change: 2019/11/12 10:25:38.
+# Last Change: 2019/11/20 16:04:51.
 
 # "ls" で日本語ファイル名文字化け防止
 alias ls="ls --show-control-chars"
@@ -11,11 +11,13 @@ function wincmd()
     shift
     $CMD $* 2>&1 | iconv -f CP932 -t UTF-8
 }
+
 alias cmd="winpty cmd"
 alias psh="winpty powershell"
 alias ipconfig="wincmd ipconfig"
 alias netstat="wincmd netstat"
 alias netsh="wincmd netsh"
+
 # "ping" のコマンド名混同を避けるため絶対パスで指定
 alias ping="wincmd /c/windows/system32/ping"
 

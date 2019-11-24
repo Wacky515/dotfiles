@@ -1,4 +1,4 @@
-﻿# raspberry-pi-setup
+# raspberry-pi-setup
 
 - Raspberry pi auto setup script
 

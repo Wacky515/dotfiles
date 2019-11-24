@@ -1,38 +1,42 @@
-# Last Change: 2019/09/26 10:46:21.
+# Created:     201*/**/** **:**:**
+# Last Change: 2019/11/20 16:30:23.
+
 [user]
-	name = 脇田 純
+	name  = 脇田 純
 	email = wacky515@gmail.com
 
 [color]
-	ui = auto
-	diff = auto
-	status = auto
 	branch = auto
+	diff   = auto
+	status = auto
+	ui     = auto
 
 [alias]
-	st = status
+	br  = branch
+	ci  = commit
+	cm  = commit -m
+	co  = checkout
+	st  = status
 	sts = status --short
-	ci = commit
-	cm = commit -m
-	br = branch
-	co = checkout
-    p = !git push origin `git rev-parse --abbrev-ref HEAD`
+    p   = !git push origin `git rev-parse --abbrev-ref HEAD`
 
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    lg  = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
 [core]
-	excludesfile = /Users/wacky515/.gitignore
-	editor = vim
+	editor       = gvim
+    quotepath=false
+	# excludesfile = /Users/wacky515/.gitignore
+	excludesfile = ~/.gitignore
 
 [include]
-    path = gitconfig.os
+    path = ~/.gitconfig.os
 
 [remote "origin"]
 	proxy =
 
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	cmd  = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
 
 [mergetool "sourcetree"]
@@ -40,4 +44,5 @@
 	trustExitCode = true
 
 [commit]
-	template = /Users/wacky515/.stCommitMsg
+	# template = /Users/wacky515/.stCommitMsg
+	template = ~/.stCommitMsg

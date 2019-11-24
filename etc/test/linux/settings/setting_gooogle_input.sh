@@ -1,7 +1,6 @@
-<<<<<<< HEAD:etc/init/linux/setting/setting_gooogle_input.sh
 #!/bin/bash
 # Created:     2019/10/02 13:51:56
-# Last Change: 2019/10/02 14:18:13.
+# Last Change: 2019/11/13 12:38:15.
 
 # TODO: OneDrive フォルダのダウンロード 自動化
 
@@ -35,7 +34,7 @@ result_echo $? "${PROCESS}"
 =======
 #!/bin/bash
 # Created:     2019/10/02 13:51:56
-# Last Change: 2019/10/02 14:13:06.
+# Last Change: 2019/11/13 12:38:15.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
@@ -64,4 +63,3 @@ do
 done
 
 result_echo $? "${PROCESS}"
->>>>>>> a7925a38551f59c7c71b01902f95136707671916:etc/test/linux/settings/setting_gooogle_input.sh

@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/12/13 07:39:11
-" Last Change: 2019/11/06 13:50:03.
+" Last Change: 2019/11/20 13:44:10.
 
 " ---------------------------------------------------------------------------
 "  マップキー
@@ -18,9 +18,6 @@ if exists("g:nyaovim_version")
     autocmd VimEnter * execute "normal :tabnew\<CR>"
     autocmd VimEnter * execute "normal :Startify\<CR>"
 endif
-
-" " 最近使ったファイルの接頭アルファベットを指定
-" let g:startify_custom_indices = ['f', 'g', 'h', 'r', 'i', 'o', 'b']
 
 " 接頭記号を指定
 let g:startify_list_order = [
@@ -40,12 +37,16 @@ let g:startify_bookmarks = [
             \ "~/.gvimrc",
             \ "~/dotfiles/nvim/init.vim",
             \ "~/dotfiles/nvim/ginit.vim",
+            \ "~/dotfiles/config.tsx",
             \ "~/dotfiles/nyaovimrc.html",
             \ "~/dotfiles/.vim/vim_plugins/dein.toml",
             \ "~/dotfiles/.vim/vim_plugins/dein_lazy.toml",
             \ "~/dotfiles/.vim/vim_plugins_nvim/dein_nvim.toml",
             \ "~/dotfiles/.vim/vim_plugins_nvim/dein_lazy_nvim.toml",
             \ "~/dotfiles/.vim/userautoload/plugin_settings_nvim/vim-startify.vim",
+            \ "~/dotfiles/etc/init/linux/settings",
+            \ "~/dotfiles/etc/init/osx/settings",
+            \ "~/dotfiles/etc/init/windows/settings",
             \ "R:/E2M0/E2M-4/【秘】-E2M4-1/10.個人ファイル/Wakita/Docments/機械要素購入.md",
             \ "R:/E2M0/E2M-4/【秘】-E2M4-1/10.個人ファイル/Wakita/Docments/出張各種申請 Memo.md"
             \ ]
@@ -58,17 +59,6 @@ function! s:filter_header(lines) abort
                 \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
     return centered_lines
 endfunction
-
-" ヘッダ部分に表示する文字列を設定
-    " "date" コマンドを実行し日付を設定  " {{{
-    " MEMO: "Windows" は "date" がエラーになる
-" if (has("win32") || has("win64"))
-"     let g:startify_custom_header = 'startify#fortune#cowsay()'
-" else
-"     let g:startify_custom_header =
-"                 \ map(split(system('date'), '\n'), '"   ". v:val') + ['','']
-" endif
-"}}}
 
 if (has("Kaoriya") && has("gui_running"))
     if !has("mac")
@@ -113,7 +103,7 @@ if (has("Kaoriya") && has("gui_running"))
                     \ '                                 ▒▒▒▓██▓',
                     \ '                                   ▒█▓',
                     \ ])
-    " else
+    " else  " {{{
     "     let g:startify_custom_header = s:filter_header([
     "                 \ '                                   ....--((((.....',
     "                 \ '                             ``...(gNNNMMMMNNNNkrzuuw+..',
@@ -157,6 +147,6 @@ if (has("Kaoriya") && has("gui_running"))
     "                 \ '                       ~~~_._?<<(.,1(..-JJJJJ+JG+xZUUOrwzZ7!',
     "                 \ '                              ````(WMMMMMMMMMMM$<+?1v<!`',
     "                 \ '                                 `        ``````',
-    "                 \ ])
+    "                 \ ])  " }}}
     endif
 endif

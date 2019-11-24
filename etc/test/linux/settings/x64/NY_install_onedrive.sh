@@ -17,7 +17,7 @@ cd ~/
 # git clone git@github.com:skilion/onedrive.git
 git clone https://github.com/skilion/onedrive.git
 
-# $B0J2<$+$i$G$-$J$$(B
+# 以下からできない
 cd onedrive
 make
 sudo make install

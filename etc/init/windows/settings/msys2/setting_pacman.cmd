@@ -1,11 +1,12 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/11/12 12:36:15.
+rem Last Change: 2019/11/18 14:10:40.
 
 set batch_title=Setting Pacman
 title %batch_title%
 
+rem 管理者権限で起動されたかチェック
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
 rem 管理者権限ならメイン処理
@@ -16,8 +17,10 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
+set bat_path=%~dp0
+
 rem  スクリプトがある "Dir" に "cd"
-pushd %~dp0
+pushd %bat_path%
 
 rem TODO: Install Pacman
 

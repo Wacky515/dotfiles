@@ -1,5 +1,5 @@
 # Created:     2019/11/12 10:00:53
-# Last Change: 2019/11/12 10:25:52.
+# Last Change: 2019/11/20 16:04:11.
 
 # "cd" 強化
 alias ..="cd .."
@@ -27,7 +27,7 @@ alias cls=reset
 alias dir=ll
 alias path="echo -e ${PATH//:/\\n}"
 
-# ディスクサイズ
+# ディスクサイズ 確認
 alias df="df -h"
 alias du="du -h"
 alias du1="du -d1"

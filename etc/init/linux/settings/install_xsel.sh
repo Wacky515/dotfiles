@@ -1,6 +1,6 @@
 #!/bin/bash
 # @(#) Intall xsel
-# $B%/%j%C%W%\!<%I6&M-(B
+# クリップボード共有
 
 source ~/dotfiles/function/result_echo.sh
 

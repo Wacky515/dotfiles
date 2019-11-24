@@ -1,0 +1,40 @@
+snippet mycls
+abbr    クラス定義
+options head
+    class ${1:NAME}:
+        def __init__(self, ${2:ARGS}):
+            ${3:CONSTRUCTOR}
+        def ${4:NAME}(self, (${5:ARGS})):
+            ${6:METHOD}
+
+snippet mymthd
+abbr    メソッド定義
+options head
+    def ${1:NAME}(self, (${2:ARGS})):
+        (${3:METHOD})
+
+snippet todo
+abbr    TODO リスト
+options word
+    # TODO: (${1:TODO})
+
+snippet fixme
+abbr    FIXME リスト
+options word
+    # FIXME: (${1:FIXME})
+
+snippet !!!
+abbr    アノテーション
+options word
+    # !!!: (${1:ANNOTATION})
+
+snippet ???
+abbr    疑問点メモ
+options word
+    # ???: (${1:QUESTION})
+
+snippet comment
+alias """
+abbr    コメント
+options word
+    """  """

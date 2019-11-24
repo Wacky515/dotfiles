@@ -1,13 +1,13 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/10/06 14:12:57.
+rem Last Change: 2019/11/19 13:45:28.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
 
 rem 管理者権限で起動されたかチェック
-whoami /priv | find "SeLoadDriverPrivilege" > nul
+whoami /PRIV | find "SeLoadDriverPrivilege" > nul
 
 rem 管理者権限ならメイン処理
 if not errorlevel 1 goto main_routine
@@ -19,7 +19,7 @@ exit
 :main_routine
 set bat_path=%~dp0
 set config_files=packages_%computername%.config
-set conf_path=C:%homepath%\dotfiles\etc\init\windows\settings\chocolatey\
+set conf_path=%userprofile%\dotfiles\etc\init\windows\settings\chocolatey\
 set def_conf=%conf_path%\packages.config
 
 rem スクリプトがある "Dir" に "cd"
@@ -63,11 +63,10 @@ if /i "%input%" == "t" (
     set test=1
     goto redirect
 )
-
-exit /b 0
+goto end
 
 :redirect
-call :chk_choco > %homepath%\init_dotfile.log 2>&1
+call :chk_choco > %userprofile%\init_dotfile.log 2>&1
 exit /b
 
 :chk_choco
@@ -85,7 +84,7 @@ rem 必須パッケージのみ "cinst"
 cinst -y git 7zip onedrive megasync
 
 rem ホームディレクトリに "cd"
-pushd %homepath%
+pushd %userprofile%
 
 echo ^>^> Check installed Git or not
 git --version > nul 2>&1
@@ -101,17 +100,17 @@ exit /b 1000
 echo ^>^> Check Git clone or not
 if not exist C:%homepath%\dotfiles\.git\ (
     echo ^>^> Git clone not yet, clone first
-    if exist %homepath%\dotfiles\ (
-        rmdir /s /q %homepath%\dotfiles\
+    if exist %userprofile%\dotfiles\ (
+        rmdir /s /q %userprofile%\dotfiles\
     )
-    del %homepath%\.gitconfig > nul 2>&1
-    del %homepath%\.gitignore > nul 2>&1
+    del %userprofile%\.gitconfig > nul 2>&1
+    del %userprofile%\.gitignore > nul 2>&1
     git clone --depth 1 https://github.com/Wacky515/dotfiles.git
 ) else (
     echo ^>^> Already Git clone
 )
 rem link.cmd 実行
-pushd %homepath%\dotfiles\
+pushd %userprofile%\dotfiles\
 call link.cmd
 
 rem Proxy環境か確認
@@ -135,7 +134,7 @@ ping 10.0.1.1 /n 1 > nul 2>&1
 if %errorlevel% equ 0 goto cp_nas
 
 echo ^>^> Check exist "Settings" or not
-if exist %homepath%\OneDrive\仕事\Settings\Wallpaper\ (
+if exist %userprofile%\OneDrive\仕事\Settings\Wallpaper\ (
     echo ^>^> Already exist "Settings", Install apps
     goto chk_initapps
 )
@@ -144,7 +143,7 @@ goto dl_mega
 
 :chk_initapps
 echo ^>^> Check exist "InitApps" or not
-if exist %homepath%\OneDrive\仕事\InitApps\x64\ (
+if exist %userprofile%\OneDrive\仕事\InitApps\x64\ (
     echo ^>^> Already exist "InitApps", Install apps
     goto inst_apps
 )
@@ -153,20 +152,20 @@ echo ^>^> Not exist "InitApps"
 :cp_rd
 rem rem Rドライブコピー
 echo ^>^> In proxy
-if not exist %homepath%\OneDrive\仕事\Settings\ (
-    mkdir %homepath%\OneDrive\仕事\Settings\
+if not exist %userprofile%\OneDrive\仕事\Settings\ (
+    mkdir %userprofile%\OneDrive\仕事\Settings\
 )
-if not exist %homepath%\OneDrive\仕事\InitApps\ (
-    mkdir %homepath%\OneDrive\仕事\InitApps\
+if not exist %userprofile%\OneDrive\仕事\InitApps\ (
+    mkdir %userprofile%\OneDrive\仕事\InitApps\
 )
 net use v: /delete > nul 2>&1
 net use w: /delete > nul 2>&1
 net use v: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings
 net use w: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps
 echo ^>^> Copy "Settngs" from R drive
-robocopy /s /e v: C:%homepath%\OneDrive\仕事\Settings\
+robocopy /s /e v: %userprofile%\OneDrive\仕事\Settings\
 echo ^>^> Copy "InitApps" from R drive
-robocopy w: /s /e C:%homepath%\OneDrive\仕事\InitApps\
+robocopy w: /s /e %userprofile%\OneDrive\仕事\InitApps\
 net use v: /delete > nul 2>&1
 net use w: /delete > nul 2>&1
 goto inst_apps
@@ -176,30 +175,30 @@ set nas_settings=\\LS210D68\Share\Settings\
 set nas_init_apps=\\LS210D68\Shara\InitApps\
 echo ^>^> In home network
 echo ^>^> Copy "Settngs" from NAS
-robocopy /s /e %nas_setthing% %homepath%\OneDrive\仕事\Settings\
+robocopy /s /e %nas_setthing% %userprofile%\OneDrive\仕事\Settings\
 echo ^>^> Copy "InitApps" from NAS
-robocopy /s /e %nas_initapps% %homepath%\OneDrive\仕事\InitApps\
+robocopy /s /e %nas_initapps% %userprofile%\OneDrive\仕事\InitApps\
 goto inst_apps
 
 :dl_mega
 echo ^>^> Not in proxy
-if exist %homepath%\OneDrive\仕事\Settings\ (
-    rmdir /s /q %homepath%\OneDrive\仕事\Settings\
+if exist %userprofile%\OneDrive\仕事\Settings\ (
+    rmdir /s /q %userprofile%\OneDrive\仕事\Settings\
 )
 echo ^>^> Please download "Settings" folder manually
 start https://mega.nz/#F!ubhxia6L
 pause
 
-"C:\Program Files\7-Zip\7z.exe" x -y -oC:%homepath%\OneDrive\仕事\ C:%homepath%\OneDrive\仕事\Settings.zip
+"C:\Program Files\7-Zip\7z.exe" x -y -o%userprofile%\OneDrive\仕事\ %userprofile%\OneDrive\仕事\Settings.zip
 
-if exist %homepath%\OneDrive\仕事\InitApps\ (
-    rmdir /s /q %homepath%\OneDrive\仕事\InitApps\
+if exist %userprofile%\OneDrive\仕事\InitApps\ (
+    rmdir /s /q %userprofile%\OneDrive\仕事\InitApps\
 )
 echo ^>^> Please download "InitApps" folder manually
 start https://mega.nz/#F!yTATTABQ
 pause
 
-"C:\Program Files\7-Zip\7z.exe" x -y -oC:%homepath%\OneDrive\仕事\ C:%homepath%\OneDrive\仕事\InitApps.zip
+"C:\Program Files\7-Zip\7z.exe" x -y -o%userprofile%\OneDrive\仕事\ %userprofile%\OneDrive\仕事\InitApps.zip
 goto inst_apps
 
 :inst_apps
@@ -227,7 +226,7 @@ rem ---------------------------------------------------------------------------
 :inst_all
 rem 再度スクリプトがある "Dir" に "pushd"
 rem "init_dotfiles" で実行する場合があるので絶対Path
-pushd %homepath%\dotfiles\etc\init\windows\settings\initialize\
+pushd %userprofile%\dotfiles\etc\init\windows\settings\initialize\
 
 rem "git\init\settings" と "Mega(R:)\仕事\Settings" の "setting_*.cmd" 実行
 call sub_install_all.cmd
@@ -252,32 +251,33 @@ rem ---------------------------------------------------------------------------
 
 :erase
 echo ^>^> Erase temp data
-rem if exist C:%homepath%\init_dotfiles\ (
+rem if exist %userprofile%\init_dotfiles\ (
 rem     echo ^>^> Del init_dotfiles
-rem     rmdir /s /q C:%homepath%\init_dotfiles > nul 2>&1
+rem     rmdir /s /q %userprofile%\init_dotfiles > nul 2>&1
 rem )
 
-if exist C:%homepath%\OneDrive\仕事\Settings.zip (
+if exist %userprofile%\OneDrive\仕事\Settings.zip (
     echo ^>^> Del Settings.zip
-    del C:%homepath%\OneDrive\仕事\Settings.zip > nul 2>&1
+    del %userprofile%\OneDrive\仕事\Settings.zip > nul 2>&1
 )
 
-if exist C:%homepath%\OneDrive\仕事\InitApps.zip (
+if exist %userprofiley%\OneDrive\仕事\InitApps.zip (
     echo ^>^> Del InitApps.zip
-    del C:%homepath%\OneDrive\仕事\InitApps.zip > nul 2>&1
+    del %userprofile%\OneDrive\仕事\InitApps.zip > nul 2>&1
 )
 
-call C:%homepath%\OneDrive\仕事\InitApps\Batch\empty.cmd
+call %userprofile%\OneDrive\仕事\InitApps\Batch\empty.cmd
 
 rem link.cmd 実行
-rem pushd %homepath%\dotfiles\
+rem pushd %userprofile%\dotfiles\
 rem call link.cmd
-call C:%homepath%\dotfiles\etc\init\windows\settings\chocolatey\init_and_update_chocolatey.cmd
+call %userprofile%\dotfiles\etc\init\windows\settings\chocolatey\init_and_update_chocolatey.cmd
 
 echo *** CAUTION, AUTOMATICALLY RESTART PC KEY INPUT AFTER 60sec ***
 pause
 shutdown.exe -r -t 60
 
+:end
 endlocal
 popd
 

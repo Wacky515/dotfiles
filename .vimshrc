@@ -1,6 +1,6 @@
 # Created:     2017/**/** **:**:**
-# Last Change: 2019/11/11 12:27:24.
-# MEMO: "VimShell" —pİ’è
+# Last Change: 2019/11/14 10:17:41.
+# MEMO: "VimShell" ç”¨è¨­å®š
 
-# .bashrc" “Ç‚İ
+# .bashrc" èª­è¾¼ã¿
 [ -f ~/.bashrc ] && source ~/.bashrc

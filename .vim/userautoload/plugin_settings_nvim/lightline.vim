@@ -1,4 +1,4 @@
-﻿scriptencoding utf-8
+scriptencoding utf-8
 " Last Change: 2019/11/07 10:42:25.
 
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示

@@ -1,31 +1,31 @@
 scriptencoding utf-8
 " Created:     2017/10/27 00:00:00.
 " Last Change: 2019/10/17 10:35:30.
-" MEMO: ŒŸõ‘¬“x‡‚É‹Lq
+" MEMO: æ¤œç´¢é€Ÿåº¦é †ã«è¨˜è¿°
 
-" MEMO: “ú–{Œê‚Íƒ}ƒbƒ`‚µ‚È‚¢
-" <Leader>r: ƒJ[ƒ\ƒ‹‰º‚ğ "RipGrep" ‘ÎÛ‚É‘}“ü
-    " <Enter>‰Ÿ‰º‚ÅƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠˆÈ‰º‚ğÄ‹A“I‚ÉŒŸõ
-" "fzf" €‹’‚ÌCUI
+" MEMO: æ—¥æœ¬èªã¯ãƒãƒƒãƒã—ãªã„
+" <Leader>r: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã‚’ "RipGrep" å¯¾è±¡ã«æŒ¿å…¥
+    " <Enter>æŠ¼ä¸‹ã§ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªä»¥ä¸‹ã‚’å†å¸°çš„ã«æ¤œç´¢
+" "fzf" æº–æ‹ ã®CUI
 nnoremap <expr> <Leader>r ':Rg ' . expand('<cword>') . ''
 
-" <Leader>P: ƒJ[ƒ\ƒ‹‰º‚ğ "The Platinum Searcher" ‘ÎÛ‚É‘}“ü
-    " <Enter>‰Ÿ‰º‚ÅƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠˆÈ‰º‚ğÄ‹A“I‚ÉŒŸõ
+" <Leader>P: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã‚’ "The Platinum Searcher" å¯¾è±¡ã«æŒ¿å…¥
+    " <Enter>æŠ¼ä¸‹ã§ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªä»¥ä¸‹ã‚’å†å¸°çš„ã«æ¤œç´¢
 nnoremap <expr> <Leader>P ':Pt ' . expand('<cword>') . ''
 
-" MEMO: “ú–{Œê‚Íƒ}ƒbƒ`‚µ‚È‚¢
-" <Leader>a: ƒJ[ƒ\ƒ‹‰º‚ğ "The Sliver Searcher" ‘ÎÛ‚É‘}“ü
-    " <Enter>‰Ÿ‰º‚ÅƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠˆÈ‰º‚ğÄ‹A“I‚ÉŒŸõ
+" MEMO: æ—¥æœ¬èªã¯ãƒãƒƒãƒã—ãªã„
+" <Leader>a: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã‚’ "The Sliver Searcher" å¯¾è±¡ã«æŒ¿å…¥
+    " <Enter>æŠ¼ä¸‹ã§ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªä»¥ä¸‹ã‚’å†å¸°çš„ã«æ¤œç´¢
 nnoremap <expr> <Leader>a ':Ag ' . expand('<cword>') . ' -G \.*$$'
 
-" <Leader>G: ƒJ[ƒ\ƒ‹‰º‚ğ "ŠO•”grep" ‘ÎÛ‚É‘}“ü
-    " <Enter>‰Ÿ‰º‚ÅƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠˆÈ‰º‚ğÄ‹A“I‚ÉŒŸõ
+" <Leader>G: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã‚’ "å¤–éƒ¨grep" å¯¾è±¡ã«æŒ¿å…¥
+    " <Enter>æŠ¼ä¸‹ã§ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªä»¥ä¸‹ã‚’å†å¸°çš„ã«æ¤œç´¢
 " nnoremap <expr> <Leader>G ':silent grep! ' . expand('<cword>') . ' *'
 nnoremap <expr> <leader>G ':silent grep! ' . expand('<cword>') . ' */*'
 
-" "ŠO•”grep" ‚Ìİ’è‚ÆœŠOƒtƒ@ƒCƒ‹
+" "å¤–éƒ¨grep" ã®è¨­å®šã¨é™¤å¤–ãƒ•ã‚¡ã‚¤ãƒ«
 set grepprg=grep\ -rnIH\ --exclude-dir=.svn\ --exclude-dir=.git\ --exclude-dir=node_modules\ --exclude-dir=db\ --exclude-dir=tmp\ --exclude-dir=log\ --exclude-dir=vendor\ --exclude-dir=tags\ --exclude=tags\ --exclude="*.min.js\
-" ã‹L‚Ì—ñ‹“‚ÍˆÈ‰º‚Ì‹Lq‚É‚µ‚½‚¢ " {{{
+" ä¸Šè¨˜ã®åˆ—æŒ™ã¯ä»¥ä¸‹ã®è¨˜è¿°ã«ã—ãŸã„ " {{{
 " set grepprg=grep\
 "             ^ -rnIH\
 "             ^ --exclude-dir=.svn\
@@ -40,10 +40,10 @@ set grepprg=grep\ -rnIH\ --exclude-dir=.svn\ --exclude-dir=.git\ --exclude-dir=n
 "             ^ --exclude="*.min.js\
 " }}}
 
-" <Leader>g: ƒJ[ƒ\ƒ‹‰º‚ğ "VimGrep" ‘ÎÛ‚É‘}“ü
-    " <Enter>‰Ÿ‰º‚ÅƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠˆÈ‰º‚ğÄ‹A“I‚ÉŒŸõ
-    " ŠJ‚¢‚Ä‚¢‚é‚à‚Ì‚Æ“¯ˆê‚ÌŠg’£q‚ª‘ÎÛ
+" <Leader>g: ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã‚’ "VimGrep" å¯¾è±¡ã«æŒ¿å…¥
+    " <Enter>æŠ¼ä¸‹ã§ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªä»¥ä¸‹ã‚’å†å¸°çš„ã«æ¤œç´¢
+    " é–‹ã„ã¦ã„ã‚‹ã‚‚ã®ã¨åŒä¸€ã®æ‹¡å¼µå­ãŒå¯¾è±¡
 nnoremap <expr> <Leader>g ':vimgrep /\<' . expand('<cword>') . '\>/j **/*.' . expand('%:e')
 
-" ":vimgrep"A":grep"A":Ggrep" ŒãA©“®“I‚É "QuickFix-Window" •\¦
+" ":vimgrep"ã€":grep"ã€":Ggrep" å¾Œã€è‡ªå‹•çš„ã« "QuickFix-Window" è¡¨ç¤º
 autocmd QuickFixCmdPost *grep* cwindow

@@ -1,4 +1,4 @@
-﻿scriptencoding utf-8
+scriptencoding utf-8
 " Last Change: 2018/03/30 11:06:37.
 
 let g:surround_{char2nr("a")} = "**\r**"

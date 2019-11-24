@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/10/29 09:36:55.
+" Last Change: 2019/11/21 14:18:56.
 
 " 起動時メッセージ
 augroup InitialMessage
@@ -47,15 +47,22 @@ function! s:hint_cmd_output(prefix, cmd) abort
     return a:prefix . nr2char(getchar())
 endfunction
 
-" カーソル位置のマーク
-nnoremap <expr> m  <SID>hint_cmd_output('m', 'marks')
-" マーク位置へジャンプ
-nnoremap <expr> `  <SID>hint_cmd_output('`', 'marks')
-" マーク位置へジャンプ
-nnoremap <expr> '  <SID>hint_cmd_output("'", 'marks')
+" " カーソル位置のマーク
+" nnoremap <expr> m  <SID>hint_cmd_output('m', 'marks')
+" " マーク位置へジャンプ
+" nnoremap <expr> `  <SID>hint_cmd_output('`', 'marks')
+" " マーク位置へジャンプ
+" nnoremap <expr> '  <SID>hint_cmd_output("'", 'marks')
 " レジスタ参照（ヤンクや削除）
 nnoremap <expr> "  <SID>hint_cmd_output('"', 'registers')
-" マクロ記録
-nnoremap <expr> q  <SID>hint_cmd_output('q', 'registers')
-" マクロ再生
-nnoremap <expr> @  <SID>hint_cmd_output('@', 'registers')
+" " マクロ記録
+" nnoremap <expr> q  <SID>hint_cmd_output('q', 'registers')
+" " マクロ再生
+" nnoremap <expr> @  <SID>hint_cmd_output('@', 'registers')
+
+" Undo 永続化
+if has('persistent_undo')
+    let undo_path = expand('~/.vim/undo')
+    exe 'set undodir=' . undo_path
+    set undofile
+endif

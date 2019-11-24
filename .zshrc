@@ -1,5 +1,7 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2019/11/11 16:29:10.
+# Last Change: 2019/11/20 15:57:29.
+
+cd ~/dotfiles
 
 # 日本語を使用
 export LANG=ja_JP.UTF-8
@@ -31,36 +33,9 @@ zstyle ":completion:*" list-colors "di=34" "ln=35" "so=32" \
 # alias -g L="| less"
 # alias -g G="| grep"
 
-# OS 別設定
-case ${OSTYPE} in
-    linux*)
-        # "Linux" 用設定
-        alias ls="ls -F --color=auto"
-        [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-        export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-        export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
-        ;;
-
-    darwin*)
-        # "Mac" 用設定
-        export CLICOLOR=1
-        alias ls="ls -G -F"
-        [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-        export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-        export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
-        ;;
-
-    msys)
-        # "Windows" 用設定
-        alias vim="~/vim81-kaoriya-win64/vim.exe"
-        alias gvim="~/vim81-kaoriya-win64/gvim.exe"
-        alias nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
-        alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"
-esac
-
 # プロンプト系
 ## 色を使用
-autoload colors
+autoload -Uz colors
 colors
 
 PROMPT="%F{green}%m: %F{magenta}%n@%F{cyan}%c%F{white}%f%# "
@@ -122,7 +97,7 @@ bindkey -e
 
 # 補完系
 ## コマンド補完
-autoload -U compinit
+autoload -Uz compinit
 compinit
 
 ## "sudo" の後ろでコマンド名を補完する
@@ -148,6 +123,9 @@ fi
 ## 他の端末と "history" を共有
 setopt share_history
 
+# "history" 重複を記録しない
+setopt histignorealldups
+
 ## 全履歴の一覧を出力
 function history-all { history -E 1 }UNCTION HISTORY-ALL { HISTORY -E 1 }
 
@@ -168,13 +146,41 @@ HISTSIZE=100000
 ## ファイル保存数
 SAVEHIST=100000
 
-## "Ctrl + r"でインクリメンタルサーチ、"Ctrl + s" で逆順
-## （vim風キーバインドでは動作しない）
+## C-r: インクリメンタルサーチ
 bindkey "^r" history-incremental-pattern-search-backward
+## C-s: 上記逆順
 bindkey "^s" history-incremental-pattern-search-forward
+
+## MEMO: （vim風キーバインドでは動作しない）
 # bindkey "^R" history-incremental-search-backward # {{{
 # bindkey "^S" history-incremental-search-forward
 # bindkey "^P" history-beginning-search-backward
 # bindkey "^N" history-beginning-search-forward
 # }}}
 
+# OS 別設定
+case ${OSTYPE} in
+    linux*)
+        # "Linux" 用設定
+        alias ls="ls -F --color=auto"
+        [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+        export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+        export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+        ;;
+
+    darwin*)
+        # "Mac" 用設定
+        export CLICOLOR=1
+        alias ls="ls -G -F"
+        [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+        export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+        export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+        ;;
+
+    msys)
+        # "Windows" 用設定
+        alias vim="~/vim81-kaoriya-win64/vim.exe"
+        alias gvim="~/vim81-kaoriya-win64/gvim.exe"
+        alias nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
+        alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"
+esac

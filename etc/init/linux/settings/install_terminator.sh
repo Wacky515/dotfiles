@@ -1,6 +1,6 @@
 #!/bin/bash
 # @(#) Intall Terminator
-# $BJ,3d%?!<%_%J%k(B
+# 分割ターミナル
 
 source ~/dotfiles/function/result_echo.sh
 

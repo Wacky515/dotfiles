@@ -1,7 +1,7 @@
 #!bin/bash
 # @(#) Initialize Linux
 # Created:     2017/12/25 **:**:**
-# Last Change: 2019/11/06 10:24:38.
+# Last Change: 2019/11/18 17:12:20.
 
 set -ueo pipefail
 export LC_ALL=C
