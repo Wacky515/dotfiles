@@ -1,5 +1,5 @@
 # Created:     2018/**/** **:**:**
-# Last Change: 2019/11/15 09:32:04.
+# Last Change: 2019/11/17 15:48:31.
 
 function has
     type "$1" > /dev/null 2>&1
@@ -46,6 +46,7 @@ switch (uname)
     # "Mac" 用設定
     case 'Darwin*'
         echo ">> Seting for Mac fish"
+        set -g fish_user_path "/usr/local/sbin" $fish_user_path
 
     # "Windows" 用設定
     case 'MSYS_NT*'
