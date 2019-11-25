@@ -1,9 +1,5 @@
 # Created:     2018/**/** **:**:**
-<<<<<<< HEAD
-# Last Change: 2019/11/17 15:48:31.
-=======
-# Last Change: 2019/11/20 17:32:35.
->>>>>>> ab56cac1b5bfb4aab2195a6347dcb44edcda61c7
+# Last Change: 2019/11/25 12:25:40.
 
 function has
     type "$1" > /dev/null 2>&1
@@ -61,13 +57,8 @@ switch (uname)
 
     # "Mac" 用設定
     case 'Darwin*'
-<<<<<<< HEAD
         echo ">> Seting for Mac fish"
         set -g fish_user_path "/usr/local/sbin" $fish_user_path
-=======
-        echo ">> Setting for Mac fish"
-        ins_fisher
->>>>>>> ab56cac1b5bfb4aab2195a6347dcb44edcda61c7
 
     # "Windows" 用設定
     case 'MSYS_NT*'

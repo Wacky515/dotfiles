@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2019/06/24 11:32:20
-" Last Change: 2019/11/22 16:59:56.
+" Last Change: 2019/11/25 11:18:40.
 
 " ---------------------------------------------------------------------------
 " マップキー
@@ -18,16 +18,16 @@ nmap <silent> <Leader>lv :vsplit \| :LspDefinition <CR>
 if executable('pyls')
     " pip install python-language-server
     au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
+                \ 'name': 'pyls',
+                \ 'cmd': {server_info->['pyls']},
+                \ 'whitelist': ['python'],
+                \ })
 endif
 
 if executable('go-langserver')
     au User lsp_setup call lsp#register_server({
-        \ 'name': 'go-langserver',
-        \ 'cmd': {server_info->['go-langserver', '-mode', 'stdio']},
-        \ 'whitelist': ['go'],
-        \ })
+                \ 'name': 'go-langserver',
+                \ 'cmd': {server_info->['go-langserver', '-mode', 'stdio']},
+                \ 'whitelist': ['go'],
+                \ })
 endif

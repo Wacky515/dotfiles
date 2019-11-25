@@ -1,11 +1,11 @@
 scriptencoding utf-8
 " Created:     2018/12/13 07:39:11
-" Last Change: 2019/11/20 13:44:10.
+" Last Change: 2019/11/25 09:25:21.
 
 " ---------------------------------------------------------------------------
 "  マップキー
 " ---------------------------------------------------------------------------
-" ,st: ロゴ画面
+" ,st: "Startify" 起動
 nnoremap ,st :Startify<CR>
 
 " ---------------------------------------------------------------------------
@@ -52,7 +52,7 @@ let g:startify_bookmarks = [
             \ ]
 
 " アスキーアート 中央揃え
-    " :h startifyを参照
+    " :h startify を参照
 function! s:filter_header(lines) abort
     let longest_line   = max(map(copy(a:lines), 'len(v:val)'))
     let centered_lines = map(copy(a:lines),

@@ -61,30 +61,27 @@
 
 - \<Leader\>i:    初期配置 3 画面分割
 - \<Leader\>o:    現在開いているバッファを IDE 風に開く
-- \<Leader\>md:   編集中のファイルをブラウザで表示（Markdown 用）
 - \<Leader\>br:   編集中のファイルをブラウザで表示（汎用）
+- \<Leader\>md:   編集中のファイルをブラウザで表示（Markdown 用）
 
 - \<Leader\>zh:   全角英数字を半角にする
 
-- \<Leader\>sc:   "Syntastic" 実行
-- \<Leader\>sc:   "Syntastic" トグル
+- \<Leader\>,t:   "TagList" を開く
+- \<Leader\>re:   カーソル下の単語を入力した文字で置換
+- \<Leader\>m:    over.vim（ビジュアル強化置換） 起動
+  - sub: カーソル下の単語をハイライト付きで置換
+  - sup: ヤンクした文字列をハイライト付きで置換
 
-- \<Leader\>md:   編集中のファイルをブラウザで表示
-- \<Leader\>,m:   "atom"    起動
-- \<Leader\>,c:   "VS Code" 起動
-
-- \<Leader\>l:    スペルチェック ON/OFF をトグル
+- \<Leader\>l:    スペルチェック トグル実行
   - ]s: 次のスペルミスの箇所へ移動
   - [s: 前のスペルミスの箇所へ移動
   - z=: 正スペル候補を表示し修正
   - zg: カーソル下を正スペルとし登録
   - zw: カーソル下を誤スペルとし登録
 
-- \<Leader\>,t:   "TagList" を開く
-- \<Leader\>re:   カーソル下の単語を入力した文字で置換
-- \<Leader\>m:    over.vim（ビジュアル強化置換） 起動
-  - sub: カーソル下の単語をハイライト付きで置換
-  - sup: コピーした文字列をハイライト付きで置換
+- \<Leader\>sc:   "Syntastic" トグル実行
+- \<Leader\>,m:   "atom"    起動
+- \<Leader\>,c:   "VS Code" 起動
 
 ### Ctrl 移動
 
@@ -109,6 +106,23 @@
 
 - :AutoTranslateModeToggle: 動的に翻訳
 - :Translate : ビジュアルモードで選択した状態
+
+### SURROUND N
+
+- \<Leader\>*:   "*" で "word" を前後にスペースありで囲む
+- \<Leader\>n\*: "*" で "word" を前後にスペースなしで囲む
+- \<Leader\>f\*: "*" で "word" を前にスペースありで囲む
+- \<Leader\>b\*: "*" で "word" を後にスペースありで囲む
+- MEMO: "*=[",',\`]"
+- ds\*:          囲い文字 "\*" を削除
+- cs\*\*':       囲い文字 "\*" を "*'" に変更
+- [c|d]i\*:      "*" の中身を削除
+
+- \<Leader\>はじめカッコ: "word" を前後にスペースありで囲む
+- \<Leader\>おわりカッコ: "word" を前後にスペースなしで囲む
+  - MEMO: 不等号は設定不可の模様
+
+- [1-3]\<Leader\>*: "[1-3]*" で "word" を前後にスペースなしで囲む
 
 ## 挿入モード
 
@@ -146,6 +160,13 @@
 ## ビジュアルモード
 
 - ga: テーブル整形
+
+### SURROUND V
+
+- "word" を選択し "*": 前後にスペースなしで囲む
+  - MEMO: "\*=["、'、\`、)、]、*]"
+- "word" を選択し "*": 前後にスペースありで囲む
+  - MEMO: "*=[(,[]"
 
 ## コマンドラインモード
 
@@ -231,12 +252,12 @@
 
 ## LSP
 
-- \<Leader\>d: 定義元ジャンプ
-- \<Leader\>p: カーソル下のシンボル情報表示
-- \<Leader\>R: 参照元表示
-- \<Leader\>i: 全実装と "Interface" 表示
-- \<Leader\>ls: 水平分 割定義元ジャンプ
-- \<Leader\>lv: 垂直分 割定義元ジャンプ
+- \<Leader\>d:  定義元ジャンプ
+- \<Leader\>p:  カーソル下のシンボル情報表示
+- \<Leader\>R:  参照元表示
+- \<Leader\>i:  全実装と "Interface" 表示
+- \<Leader\>ls: 水平分割 定義元ジャンプ
+- \<Leader\>lv: 垂直分割 定義元ジャンプ
 
 ## Diff
 
