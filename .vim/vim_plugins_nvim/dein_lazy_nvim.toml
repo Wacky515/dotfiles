@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2019/11/22 15:59:58.
+# Last Change: 2019/11/26 15:31:53.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -150,8 +150,8 @@ hook_source = '''  " {{{
 
 on_i = 1
 on_cmd = ['Denite']
-# "Denite|Unite" 用 "Source" 郡
-# "Denite|Unite" 用 "mru"
+# "[De|U]nite" 用 "Source" 郡
+# "[De|U]nite" 用 "mru"
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 on_source = ['dein.vim', 'unite.vim', 'denite.nvim']
@@ -224,11 +224,11 @@ if = "has('nvim')"
 # プレビュー
 [[plugins]]
 repo = 'kannokanno/previm'
-# MEMO: "MarkDown" のみ対応
+# MEMO: "Markdown" のみ対応
 on_ft = ['markdown','mkd']
 [[plugins]]
 repo = 'tyru/open-browser.vim'
-# MEMO: "MarkDown" のみ対応
+# MEMO: "Markdown" のみ対応
 on_ft = ['markdown','mkd']
 # シンタックスハイライト
 [[plugins]]
@@ -236,7 +236,7 @@ repo = 'rcmdnk/vim-markdown'
 on_ft = ['markdown','mkd']
 hook_add = '''
     let g:vim_markdown_frontmatter = 1
-    let g:vim_markdown_math = 1
+    let g:vim_markdown_math        = 1
 '''
 
 # Fuzzy Matcher

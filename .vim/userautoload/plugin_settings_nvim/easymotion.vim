@@ -1,24 +1,25 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/11/21 15:17:34.
+" Last Change: 2019/11/26 15:23:59.
 
 " ---------------------------------------------------------------------------
 " マップキー
 " ---------------------------------------------------------------------------
-" " <Leader>: "EasyMotion" 開始
-" nnoremap <Leader> <Plug>(easymotion-prefix)
+" " <Leader>e: "EasyMotion" 開始
+nnoremap <Leader>e <Plug>(easymotion-prefix)
+" nnoremap ee <Plug>(easymotion-prefix)
 
-" " Jump to anywhere you want with minimal keystrokes, with just one key binding.
-" " `s{char}{label}`
-" " nmap s <Plug>(easymotion-overwin-f)
-" " or
-" " `s{char}{char}{label}`
-" " Need one more keystroke, but on average, it may be more comfortable.
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+" nmap s <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
 " nmap i <Plug>(easymotion-overwin-f2)
 
-" " JK motions: Line motions
-" map <Leader>j <Plug>(easymotion-j)
-" map <Leader>k <Plug>(easymotion-k)
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
 " ---------------------------------------------------------------------------
 " 基本設定
