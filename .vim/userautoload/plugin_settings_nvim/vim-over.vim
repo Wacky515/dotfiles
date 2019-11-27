@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/09/13 12:19:02
-" Last Change: 2019/11/26 15:05:54.
+" Last Change: 2019/11/26 15:43:42.
 
 " ---------------------------------------------------------------------------
 " マップキー
@@ -17,7 +17,8 @@ nnoremap <silent> <Leader>m :OverCommandLine<CR>
     " | <C-r>{0-9a-z"%#:-=.*} | 番号/名前付きレジスタの挿入
 
 " sub: カーソル下をハイライト付きで置換
-nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
+" nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
+nnoremap <C-h> :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 " sup: ヤンクした文字列をハイライト付きで置換
 nnoremap sup y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
 

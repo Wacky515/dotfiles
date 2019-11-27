@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/11/22 10:59:13.
+" Last Change: 2019/11/26 17:40:14.
 
 " --------------------------------------------------------------------------------
 " マップキー
@@ -22,6 +22,7 @@ inoremap [. []<Left><CR><Esc><S-o>
 inoremap {. {}<Left><CR><Esc><S-o>
 inoremap '. ''''''<Left><Left><Left><CR><Esc><S-o>
 inoremap ". """"""<Left><Left><Left><CR><Esc><S-o>
+inoremap `. ``````<Left><Left><Left><CR><Esc><S-o>
 
 " 挿入モードで日時を挿入
 " ,df: フルセット
@@ -39,22 +40,22 @@ inoremap <expr> ,ds strftime('%Y/%m/%d ').weeks[wday]
 " ,dy: 曜日のみ
 inoremap <expr> ,dy strftime('').weeks[wday]
 
-" 1.、2. は "vim-surround" で代替 " {{{
+" 1. "lexima.vim" で代替  " {{{
 " " 自動的に閉じ括弧を入力
 " " 1. 閉じ括弧を補完
+" inoremap " <Space>""<Space><Left><Left>
+" inoremap ' <Space>''<Space><Left><Left>
 " inoremap ( ()<Left>
 " inoremap [ []<Left>
 " inoremap { {}<Left>
-" inoremap ' <Space>''<Space><Left><Left>
-" inoremap " <Space>""<Space><Left><Left>
 
 " " 2. <Enter> 押下で閉じ括弧を補完しない
-" inoremap {<Enter> {
-" inoremap [<Enter> [
-" inoremap (<Enter> (
-" inoremap '<Enter> '
 " inoremap "<Enter> "
-"}}}
+" inoremap '<Enter> '
+" inoremap (<Enter> (
+" inoremap [<Enter> [
+" inoremap {<Enter> {
+" }}}
 
 " 保存時に行末の空白を削除
 autocmd BufWritePre * :%s/\s\+$//ge
@@ -76,8 +77,8 @@ if !has("nvim")
 endif
 
 " ヤンクしたデータをクリップボードで使用＆選択範囲自動コピー
-" ※ 使用できるか環境による
+" MEMO: 使用可否は環境による
 if !has("nvim")
     set clipboard=unnamed,autoselect
-" < http://nanasi.jp/articles/howto/editing/clipboard.html >
 endif
+" < http://nanasi.jp/articles/howto/editing/clipboard.html >
