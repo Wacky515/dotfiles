@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2019/11/26 16:14:45.
+" Last Change: 2019/11/27 17:29:21.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -40,14 +40,39 @@ else
     nmap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 endif
 
+" +/-: フォントサイズUp/Down
+" nmap + :let &guifont = substitute(&guifont, ‘\d\+$’, ‘\=submatch(0)+1’, ”)<CR>
+" nmap – :let &guifont = substitute(&guifont, ‘\d\+$’, ‘\=submatch(0)-1’, ”)<CR>
+
+nnoremap + :silent! let &guifont = substitute(
+            \ &guifont,
+            \ ':h\zs\d\+',
+            \ '\=eval(submatch(0)+1)',
+            \ '')<CR>
+nnoremap - :silent! let &guifont = substitute(
+            \ &guifont,
+            \ ':h\zs\d\+',
+            \ '\=eval(submatch(0)-1)',
+            \ '')<CR>
+
+function! LargerFont()
+  call AdjustFontSize(1)
+endfunction
+command! LargerFont call LargerFont()
+
+function! SmallerFont()
+  call AdjustFontSize(-1)
+endfunction
+command! SmallerFont call SmallerFont()
+
 " ヤンクした文字列でカーソル位置の単語を置換
 nnoremap <silent> cy ce<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
 vnoremap <silent> cy c<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
 nnoremap <silent> ciy ciw<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
 
-" bo: エクスプローラで開く
+" bo:      エクスプローラで開く
 nnoremap <silent> bo :<C-u>browse open<CR>
-" bs: エクスプローラで保存場所選択して保存
+" bs:      エクスプローラで保存場所選択して保存
 nnoremap <silent> bs :<C-u>browse sav<CR>
 " <Ctrl>s: エクスプローラで保存場所選択して保存
 nnoremap <C-s> :<C-u>browse sav<CR>
@@ -66,11 +91,11 @@ nnoremap <C-s> :<C-u>browse sav<CR>
 " endif
 " }}}
 
-" bp: 前のバッファを開く
+" bp:      前のバッファを開く
 nnoremap <silent> bp :<C-u>bprevious<CR>
-" bn: 次のバッファを開く
+" bn:      次のバッファを開く
 nnoremap <silent> bn :<C-u>bnext<CR>
-" bb: 直前のバッファを開く
+" bb:      直前のバッファを開く
 nnoremap <silent> bb :<C-u>b#<CR>
 " <Ctrl>j: 裏バッファを開く
     " MEMO: マルチカーソルに譲渡

@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2019/11/26 15:31:53.
+# Last Change: 2019/11/27 16:01:15.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -269,8 +269,8 @@ hook_add = '''  " {{{
 '''  # }}}
 
 # フォントのサイズ変更
-[[plugins]]
-repo = 'thinca/vim-fontzoom'
+# [[plugins]]
+# repo = 'thinca/vim-fontzoom'
 # on_cmd = ['Fontzoom']
 # on_map = ['<Plug>(fontzoom-']
-gui = 1
+# gui = 1

@@ -1,16 +1,16 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/11/26 15:42:30.
+" Last Change: 2019/11/27 17:09:10.
 
 " --------------------------------------------------------------------------------
 " マップキー
 " --------------------------------------------------------------------------------
 " <F6>:    "Ctags" 作成
 nnoremap <F6> :<C-u>!ctags -R<CR>
-" <Ctrl>s: 垂直分割で "Ctags" 表示
-nnoremap <C-s> :vsplit<CR> :exe("tjump ".expand('<cword>'))<CR>
-" <Ctrl>l: 水平分割で "Ctags" 表示
-nnoremap <C-l> :split<CR>  :exe("tjump ".expand('<cword>'))<CR>
+" ,c: 垂直分割で "Ctags" 表示
+nnoremap ,c :vsplit<CR> :exe("tjump ".expand('<cword>'))<CR>
+" ,v: 水平分割で "Ctags" 表示
+nnoremap ,v :split<CR>  :exe("tjump ".expand('<cword>'))<CR>
 
 " --------------------------------------------------------------------------------
 " 基本設定

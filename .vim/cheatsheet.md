@@ -9,12 +9,25 @@
 
 ---
 
-- bk: バックアップファイル作成
+- +: フォント 拡大
+- -: フォント 縮小
+
+- ,,e:                     "EasyMotion" 開始
+  - e{char}{char}:         "{char}{char}" 画面全体を検索
+    - e{char}\<CR\>:       1つの "{char}" で検索
+    - e{char}{char}:       "{char}{char}" で検索
+    - e\<CR >:             前回の検索をリピート
+- \<Leader\>\<Leader\>j/k: 拡張行移動
 
 - 囲い文字は "." を入力で関数記述モード
 - 囲い文字内で閉じ囲い文字入力で囲い文字脱出
-- <Leader>囲い文字で囲い文字はじめ単品入力
+- \<Leader\>囲い文字で囲い文字はじめ単品入力
 - 囲い文字: "/'/(/[/{
+
+- crs: "SnakeCase"  >> "snake_case"
+- crm: "mixed_case" >> "MixedCase"
+- crc: "camel_case" >> "camelCase"
+- cru: "upper_case" >> "UPPER_CASE"
 
 - Y:  カーソルから行末までヤンク
 - d$: カーソルから行末まで削除
@@ -24,6 +37,8 @@
 - Y:  カーソルから行末までヤンク
 - g;: 変更箇所へ進む
 - g,: 変更箇所へ戻る
+
+- bk: バックアップファイル作成
 
 - ,st: Startify          表示
 - ,kg: カーソル下 Google 検索
@@ -48,8 +63,8 @@
 - \<C-w\>\<C-w\>: 次のウィンドウへ移動
 - \<C-wW\>:       前のウィンドウへ移動
 
-- \<C-s\>:        垂直分割で "Ctags" 表示
-- \<C-l\>:        水平分割で "Ctags" 表示
+- ,c:             垂直分割で "Ctags" 表示
+- ,v:             水平分割で "Ctags" 表示
 
 - \<C-j\>:        マルチカーソル 選択開始
   - 複数押下で選択していく
@@ -70,6 +85,7 @@
 - \<Leader\>zh:   全角英数字を半角にする
 
 - \<Leader\>,t:   "TagList" を開く
+  - 関数、クラス、変数、構造体、列挙型、マクロ定義など 一覧表示
 - \<Leader\>re:   カーソル下の単語を入力した文字で置換
 - \<Leader\>m:    over.vim（ビジュアル強化置換） 起動
 
@@ -311,7 +327,7 @@
 
 ## Plugin キーバインド割込み対策
 
-```vimscript
+``` VimScript
 autocmd VimEnter * imap <Nul> <C-Space>
 ```
 
@@ -320,12 +336,6 @@ autocmd VimEnter * imap <Nul> <C-Space>
   - "Plugin" の上書きはある程度回避できる
 
 ## NOTWORK
-
-- +: フォント 拡大
-- -: フォント 縮小
-  - :Zoomfont してからでないと有効ではない？
-
-- ee: "EasyMotion" 開始
 
 - \<Leader\>dw: カーソル下を Wiki で検索
 - \<Leader\>da: カーソル下の単語をスペースアルクで検索
