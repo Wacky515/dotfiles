@@ -1,5 +1,5 @@
 ﻿# Create:      201*/**/** **:**:**
-# Last Change: 2019/11/13 16:39:04.
+# Last Change: 2019/11/28 14:52:47.
 
 # ------------------------------
 # 独自追記
@@ -13,6 +13,7 @@ gitconfig_hbamb748.local
 /etc/init/windows/settings/cygwin/apt-cyg/
 ~/AppData/Local/nvim/.netrwhist
 ~/AppData/Local/nvim/rplugin.vim
+~/dotfiles/.vim/undo/
 nvim/.netrwhist
 nvim/rplugin.vim
 
