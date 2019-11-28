@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2019/11/27 17:29:21.
+" Last Change: 2019/11/28 10:29:56.
 
 " ---------------------------------------------------------------------------
 " マップキー篇
@@ -41,19 +41,19 @@ else
 endif
 
 " +/-: フォントサイズUp/Down
-" nmap + :let &guifont = substitute(&guifont, ‘\d\+$’, ‘\=submatch(0)+1’, ”)<CR>
-" nmap – :let &guifont = substitute(&guifont, ‘\d\+$’, ‘\=submatch(0)-1’, ”)<CR>
 
-nnoremap + :silent! let &guifont = substitute(
-            \ &guifont,
-            \ ':h\zs\d\+',
-            \ '\=eval(submatch(0)+1)',
-            \ '')<CR>
-nnoremap - :silent! let &guifont = substitute(
-            \ &guifont,
-            \ ':h\zs\d\+',
-            \ '\=eval(submatch(0)-1)',
-            \ '')<CR>
+if !has("nvim")
+    nnoremap + :silent! let &guifont = substitute(
+                \ &guifont,
+                \ ':h\zs\d\+',
+                \ '\=eval(submatch(0)+1)',
+                \ '')<CR>
+    nnoremap - :silent! let &guifont = substitute(
+                \ &guifont,
+                \ ':h\zs\d\+',
+                \ '\=eval(submatch(0)-1)',
+                \ '')<CR>
+endif
 
 function! LargerFont()
   call AdjustFontSize(1)
