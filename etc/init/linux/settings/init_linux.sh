@@ -1,7 +1,7 @@
 #!bin/bash
 # @(#) Init Linux
 # Created:     2017/12/25 00:00:00
-# Last Change: 2019/09/25 17:10:55.
+# Last Change: 2018/05/10 18:37:11.
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
@@ -13,36 +13,33 @@ ym_echo ">> ${PROCESS^}"
 bash ~/dotfiles/link.sh
 
 ym_echo ">> Init update"
+
 if type "apt" > /dev/null 2>&1; then
     sudo bash ./apt_update.sh
 elif type "yum" > /dev/null 2>&1; then
     sudo bash ./yum_update.sh
 fi
 
-ym_echo ">> Setting English directory name"
-sudo bash ./setting_eng_dir_name.sh
-
 ym_echo ">> Init install"
 for f in install_*.sh
 do
-    sudo bash ./${f}
+sudo bash ./${f}
 done
 
 ym_echo ">> Init setting"
 for g in setting_*.sh
 do
-    [[ ${g} = "setting_eng_dir_name.sh" ]] && continue
-    sudo bash ./${g}
+sudo bash ./${g}
 done
 
 # ディストリビューション、ビット数 判別
 declare -a info=($(./get_distribution.sh))
 ym_echo ">> Install & setting each bit"
 if [[ ${info[1]} == "x86_64" ]]; then
-    echo ">> 64bit"
+    echo "64bit"
     os_bit=x64
 else
-    echo ">> 32bit"
+    echo "32bit"
     os_bit=x32
 fi
 cd ./${os_bit}
@@ -50,16 +47,16 @@ cd ./${os_bit}
 ym_echo ">> Install for ${os_bit}"
 for l in install_*.sh
 do
-    sudo bash ./${l}
+sudo bash ./${l}
 done
 
 ym_echo ">> Setting for ${os_bit}"
 for m in setting_*.sh
 do
-    sudo bash ./${m}
+sudo bash ./${m}
 done
-
 cd -
+
 
 ym_echo ">> Install & setting each distribution"
 # ディストリビューション 判別
@@ -82,28 +79,27 @@ esac
 ym_echo ">> Install"
 for h in install_*.sh
 do
-    sudo bash ./${h}
+sudo bash ./${h}
 done
 
 ym_echo ">> Setting"
 for i in setting_*.sh
 do
-    sudo bash ./${i}
+sudo bash ./${i}
 done
 
 cd ./${os_bit}
 ym_echo ">> Install for ${os_bit}"
 for j in install_*.sh
 do
-    sudo bash ./${j}
+sudo bash ./${j}
 done
 
 ym_echo ">> Setting for ${os_bit}"
 for k in setting_*.sh
 do
-    sudo bash ./${k}
+sudo bash ./${k}
 done
-
 cd ../..
 
 ym_echo ">> Final update"
