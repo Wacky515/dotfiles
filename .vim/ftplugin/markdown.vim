@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/11/15 14:21:18
-" Last Change: 2019/11/21 15:21:09.
+" Last Change: 2019/11/29 16:27:25.
 
 " ---------------------------------------------------------------------------
 "  基本設定
@@ -11,4 +11,3 @@ setlocal expandtab
 setlocal tabstop=2
 setlocal softtabstop=2
 setlocal shiftwidth=2
-

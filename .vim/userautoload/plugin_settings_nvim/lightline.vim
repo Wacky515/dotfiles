@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/11/22 16:59:03.
+" Last Change: 2019/11/29 17:24:35.
 
 " --------------------------------------------------------------------------------
 " 基本設定
@@ -16,9 +16,8 @@ endif
 " if set guifont? != "Cica*"
 " }}}
 
-" 設定1
-" REF:
-" \ 'colorscheme': 'jellybeans',  " {{{
+" REF: 設定1  " {{{
+" \ 'colorscheme': 'jellybeans',
 " \ 'colorscheme': 'powerline',
 " \ 'colorscheme': 'solarized',
 " \ 'colorscheme': 'landscape',
@@ -144,27 +143,6 @@ function! LightLineFilename()
                 \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
 endfunction
 
-" " 設定2 " {{{
-" "     \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-" "     \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
-"     " \ 'colorscheme': 'powerline',
-" let g:lightline = {
-"     \ 'colorscheme': 'jellybeans',
-"     \ 'component': {
-"     \ 'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
-"     \ 'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',}
-"     \ }
-
-" " "Fugitive" と連携
-" function! LightLineFugitive()
-"   if exists("*fugitive#head")
-"     let branch = fugitive#head()
-"     return branch !=# '' ? '⭠ '.branch : ''
-"   endif
-"   return ''
-" endfunction
-" else
-" " }}}
 
 " " 設定3 " {{{
 " let g:lightline = {

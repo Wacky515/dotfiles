@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/19 20:47:58
-" Last Change: 2018/12/26 07:30:39.
+" Last Change: 2019/11/29 16:57:56.
 
 " MEMO: "deoplete" に移管するので "dein.toml" に記述移管
 " ---------------------------------------------------------------------------
@@ -12,4 +12,3 @@ scriptencoding utf-8
 " inoremap <expr><tab> pumvisible() ? "\<C-n>" :
 "             \ neosnippet#expandable_or_jumpable() ?
 "             \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-

@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/11/22 11:22:10.
+" Last Change: 2019/11/29 16:33:03.
 
 " --------------------------------------------------------------------------------
 " マップキー
@@ -8,8 +8,9 @@ scriptencoding utf-8
 " スクリプトを実行
 nnoremap <F5> :w <ENTER> :!./%;read <ENTER>
 
-" ↓参考
+" REF:  " {{{
 " noremap <F5> <Esc>:call RUN()<ENTER>
 " function! RUN()
 "   :w|!./%;read
 " endfunction
+" }}}

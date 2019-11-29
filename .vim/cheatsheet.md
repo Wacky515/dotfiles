@@ -12,12 +12,12 @@
 - +: フォント 拡大
 - -: フォント 縮小
 
-- ,,e:                     "EasyMotion" 開始
-  - e{char}{char}:         "{char}{char}" 画面全体を検索
-    - e{char}\<CR\>:       1つの "{char}" で検索
-    - e{char}{char}:       "{char}{char}" で検索
-    - e\<CR >:             前回の検索をリピート
-- \<Leader\>\<Leader\>j/k: 拡張行移動
+- ,,e:               "EasyMotion" 開始
+  - ,,e{char}{char}: "{char}{char}" 画面全体を検索
+    - e{char}\<CR\>: 1つの "{char}" で検索
+    - e{char}{char}: "{char}{char}" で検索
+    - e\<CR >:       前回の検索をリピート
+- ,,j/k: 拡張行移動
 
 - 囲い文字は "." を入力で関数記述モード
 - 囲い文字内で閉じ囲い文字入力で囲い文字脱出

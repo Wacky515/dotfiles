@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/11/22 16:51:17.
+" Last Change: 2019/11/29 17:08:45.
 
 " --------------------------------------------------------------------------------
 " マップキー
@@ -29,13 +29,13 @@ let g:jedi#popup_select_first  = 0
 
 " "." で補完を開始
 let g:jedi#popup_on_dot        = 1
-" "." で補完を開始しない " {{{
+"o "." で補完を開始しない  " {{{
 " let g:jedi#popup_on_dot = 0
 " }}}
 
 " 関数/メソッドの定義を表示
 let g:jedi#show_call_sgnatures = 1
-" 関数・メソッドの定義を表示しない " {{{
+" 関数/メソッドの定義を表示しない  " {{{
 " (カーソルの移動が遅いと思う場合）
 " let g:jedi#show_function_definition = 0
 " }}}
@@ -44,7 +44,7 @@ let g:jedi#show_call_sgnatures = 1
 autocmd FileType python setlocal omnifunc=jedi#completions
 
 " 補完時に "docstring" を表示しない
-" 画面上部がガタガタ動くので見ずらい
+    " 画面上部がガタガタ動くので見ずらい
 autocmd FileType python setlocal completeopt-=preview
 
 " "neocomplete" と連携

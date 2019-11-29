@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/11/27 16:25:35.
+" Last Change: 2019/11/29 16:22:33.
 
 " ---------------------------------------------------------------------------
 " マップキー
@@ -23,19 +23,15 @@ map ,, <Plug>(easymotion-prefix)
     " "surround.vim" と差別化
     " omap z <Plug>(easymotion-s2)
 " }}}
-" e{char}{char}:     "{char}{char}" 画面全体を検索
-    " e{char}<CR>:   1つの "{char}" で検索
-    " e{char}{char}: "{char}{char}" で検索
-    " e<CR>:         前回の検索をリピート
-" nmap <Leader><Leader>e <plug>(easymotion-s2)
-" xmap <Leader><Leader>e <plug>(easymotion-s2)
+" ,,e{char}{char}:     "{char}{char}" 画面全体を検索
+    " ,,e{char}<CR>:   1つの "{char}" で検索
+    " ,,e{char}{char}: "{char}{char}" で検索
+    " ,,e<CR>:         前回の検索をリピート
 nmap ,,e <plug>(easymotion-s2)
 xmap ,,e <plug>(easymotion-s2)
 
 " `JK` motions: Extend line motions
-" <Leader><Leader>j/k: 拡張行移動
-" map <Leader><Leader>j <Plug>(easymotion-j)
-" map <Leader><Leader>k <Plug>(easymotion-k)
+" ,,j/k: 拡張行移動
 map ,,j <Plug>(easymotion-j)
 map ,,k <Plug>(easymotion-k)
 " Keep cursor column with `JK` motions

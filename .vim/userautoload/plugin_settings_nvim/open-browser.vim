@@ -1,10 +1,11 @@
 scriptencoding utf-8
 " Created:     2018/**/** **:**:**
-" Last Change: 2019/10/17 11:00:20.
+" Last Change: 2019/11/29 17:28:10.
 
-" ,kg: カーソル下を "Google検索"
 " disable netrw's gx mapping.
 let g:netrw_nogx = 1
+
+" ,kg: カーソル下を "Google検索"
 nmap ,kg <Plug>(openbrowser-smart-search)
 vmap ,kg <Plug>(openbrowser-smart-search)
 

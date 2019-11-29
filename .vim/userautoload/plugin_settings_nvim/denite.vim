@@ -1,13 +1,13 @@
 scriptencoding utf-8
 " Created:     2018/03/19 09:19:36
-" Last Change: 2019/11/22 16:41:41.
+" Last Change: 2019/11/29 17:16:49.
 
-" < https://qiita.com/okamos/items/4e1665ecd416ef77df7c >
+" REF: < https://qiita.com/okamos/items/4e1665ecd416ef77df7c >
 " ---------------------------------------------------------------------------
 " マップキー
 " ---------------------------------------------------------------------------
 " プリフィクスキー
-nmap [denite] <Nop>
+nmap  [denite] <Nop>
 map D [denite]
 
 " MEMO:

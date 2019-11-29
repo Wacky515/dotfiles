@@ -1,11 +1,11 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/11/27 17:09:10.
+" Last Change: 2019/11/29 17:15:20.
 
 " --------------------------------------------------------------------------------
 " マップキー
 " --------------------------------------------------------------------------------
-" <F6>:    "Ctags" 作成
+" <F6>:          "Ctags" 作成
 nnoremap <F6> :<C-u>!ctags -R<CR>
 " ,c: 垂直分割で "Ctags" 表示
 nnoremap ,c :vsplit<CR> :exe("tjump ".expand('<cword>'))<CR>
@@ -42,5 +42,5 @@ augroup ctags
 augroup END
 
 " DEP:
-" " ファイルを保存時に "Ctags" 作成
+" 保存時 "Ctags" 作成
 " autocmd BufWritePost * call system("ctags -R")

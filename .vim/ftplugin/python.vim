@@ -1,12 +1,12 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/11/22 11:21:46.
+" Last Change: 2019/11/29 16:31:10.
 
 " ---------------------------------------------------------------------------
 "  マップキー
 " ---------------------------------------------------------------------------
 " スクリプトを実行
-nnoremap <F5> :w <ENTER> :!python % <ENTER>
+nnoremap <F5>  :w <ENTER> :!python % <ENTER>
 " デバッグを実行
 nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
 
@@ -22,7 +22,7 @@ setlocal shiftwidth=4
 " 80文字目に赤いラインマーク
 set colorcolumn=80
 
-" Python用のシンタックスハイライトをON
+" "Python" 用のシンタックスハイライトをON
 let python_highlight_all =1
 
 if exists("b:did_ftplugin_python")
@@ -39,8 +39,8 @@ augroup python
 augroup end
 
 " "jedi-vim" で "Anaconda3" のライブラリを補完できるよう "path" を追加
-if has('vim_starting')
-    if has('macunix')
+if has("vim_starting")
+    if has("macunix")
         " brew install python3
         set pythonthreedll=
                     \ /usr/local/Cellar/python3/3.6.4_2/
@@ -48,7 +48,7 @@ if has('vim_starting')
         set pythonthreehome=
                     \ /usr/local/Cellar/python3/3.6.4_2/
                     \ Frameworks/Python.framework/Versions/3.6
-    elseif has('win32')
+    elseif has("win32")
         " FIXME:
         " embed 版 Python を Vim と同じフォルダに置く
         "   python35.dll
@@ -60,23 +60,10 @@ endif
     " if has("linux")
         " set pythonthreedll=$VIM/python3/python35.dll
     " elseif has("win64")
-        " let $PYTHONHOME='C:\ProgramData\chocolatey\.chocolatey\anaconda3.5.0.1'
-        " let $PYTHONHOME='C:\tools\Anaconda3\envs\TestAnacondaVEnv\python35.dll'
+        " let $PYTHONHOME="C:\ProgramData\chocolatey\.chocolatey\anaconda3.5.0.1"
+        " let $PYTHONHOME="C:\tools\Anaconda3\envs\TestAnacondaVEnv\python35.dll"
         " set pythonthreedll=C:\tools\Anaconda3\envs\TestAnacondaVEnv\python35.dll
     " endif
 
 " https://qiita.com/CutBaum/items/a8de8e3f4e32c0a3ad1e
-" }}}
-"
-" FIXME: ".gvim" の設定を記述すると "lightline" が有効にならない  "{{{
-" カラースキーマの指定
-" colorscheme molokai
-" colorscheme hybrid
-" colorscheme desert
-" colorscheme jellybeans
-" 暗背景用の配色にする
-" set background=dark
-" syntax on
-" syntax enable
-" set t_Co=256
 " }}}

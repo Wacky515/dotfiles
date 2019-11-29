@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/22 **:**:**
-" Last Change: 2019/11/22 17:09:11.
+" Last Change: 2019/11/29 17:27:18.
 
 " --------------------------------------------------------------------------------
 " マップキー
@@ -46,14 +46,14 @@ call NERDTreeHighlightFile('yml',    'yellow',  'none', 'yellow',  '#151515')
 "vim-nerdtree-syntax-highlight
 let s:rspec_red = 'FE405F'
 let s:git_orange = 'F54D27'
-let g:NERDTreeExactMatchHighlightColor = {}                            " this line is needed to avoid error
-let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange    " sets the color for .gitignore files
-let g:NERDTreePatternMatchHighlightColor = {}                          " this line is needed to avoid error
-let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets the color for files ending with _spec.rb
+let g:NERDTreeExactMatchHighlightColor                   = {}           " this line is needed to avoid error
+let g:NERDTreeExactMatchHighlightColor['.gitignore']     = s:git_orange " sets the color for .gitignore files
+let g:NERDTreePatternMatchHighlightColor                 = {}           " this line is needed to avoid error
+let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red  " sets the color for files ending with _spec.rb
 
 " vim-devicons
-let g:webdevicons_conceal_nerdtree_brackets = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding  = ' '
+let g:webdevicons_conceal_nerdtree_brackets              = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding               = ' '
 
 " dir-icons
 let g:WebDevIconsUnicodeDecorateFolderNodes              = 1

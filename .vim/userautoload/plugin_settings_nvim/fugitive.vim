@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/11 **:**:**
-" Last Change: 2019/11/22 16:46:51.
+" Last Change: 2019/11/29 17:19:04.
 
 " USAGE:
     " ":Gstatus" のステータス画面のファイル名上で
@@ -17,7 +17,7 @@ scriptencoding utf-8
 " --------------------------------------------------------------------------------
 " プリフィクスキー
 nnoremap [fugitive]  <Nop>
-nmap mg [fugitive]
+nmap mg  [fugitive]
 
 nnoremap <silent> [fugitive]s :Gstatus<CR><C-w>T
 nnoremap <silent> [fugitive]a :Gwrite<CR>
