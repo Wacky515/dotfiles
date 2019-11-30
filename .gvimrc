@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/11/30 10:04:00.
+" Last Change: 2019/11/30 21:48:42.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -80,12 +80,12 @@ endif
 " !!!: "NeoVim" のフォント設定は "ginit.vim" に記述！！
 " フォントの設定
 if !has("nvim")
-    if has("unix")
+    if (has("unix") && !has("mac"))
         set   guifont=Cica\ 16
         set printfont=Cica\ 16
         " colorscheme iceberg
 
-    elseif has("mac")
+    elseif (has("unix") && has("mac"))
         if hostname()     == "ProSalad13-2018.local"
             set   guifont=Cica:h18
             set printfont=Cica:h18
