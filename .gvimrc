@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/11/24 21:02:49.
+" Last Change: 2019/11/30 09:33:22.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -106,10 +106,14 @@ if !has("nvim")
 
     elseif (has("win32") || has("win64"))
         " Home setting
-        if hostname()     == "SALADCARBONX1"
+        if hostname()     == "SALADPRIMEMK-II"
+            set   guifont=Cica:h12
+            set printfont=Cica:h12
+            " Windows Cica 専用設定 ("NeoVim" 版設定探す）
+            set renderoptions=type:directx,renmode:5
+        elseif hostname() == "SALADCARBONX1"
             set   guifont=Cica:h13
             set printfont=Cica:h13
-            " Windows Cica 専用設定 ("NeoVim" 版設定探す）
             set renderoptions=type:directx,renmode:5
 
             " muRata setting
