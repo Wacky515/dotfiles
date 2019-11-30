@@ -1,6 +1,6 @@
 scriptencoding utf-8
-" Created:     2017/10/27 00:00:00.
-" Last Change: 2019/11/22 14:37:07.
+" Created:     2017/10/27 **:**:**.
+" Last Change: 2019/11/30 22:24:27.
 " MEMO: 検索速度順に記述
 
 " ":vimgrep"、":grep"、":Ggrep" 後、自動的に "QuickFix-Window" 表示

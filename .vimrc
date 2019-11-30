@@ -93,16 +93,16 @@ augroup END
 " プラグインをインストールするディレクトリを指定
 if !has("nvim")
     if !has("gui_running")
-        let s:plugin_dir = expand("‾/.cache/dein/")
+        let s:plugin_dir = expand("~/.cache/dein/")
     else
-        let s:plugin_dir = expand("‾/.config/gvim/dein/")
+        let s:plugin_dir = expand("~/.config/gvim/dein/")
     endif
 elseif exists("g:nyaovim_version")
-    let s:plugin_dir     = expand("‾/.config/nyaovim/dein")
+    let s:plugin_dir     = expand("~/.config/nyaovim/dein")
 elseif exists("g:gui_oni")
-    let s:plugin_dir     = expand("‾/.config/oni/dein")
+    let s:plugin_dir     = expand("~/.config/oni/dein")
 elseif has("nvim")
-    let s:plugin_dir     = expand("‾/.config/nvim/dein/")
+    let s:plugin_dir     = expand("~/.config/nvim/dein/")
 endif
 
 " TODO: Unix系のパス設定追加
@@ -127,13 +127,13 @@ if dein#load_state(s:plugin_dir)
 
     " プラグインリスト "*.toml" を指定
     if !has("nvim")
-        let g:plugin_dir   = expand("‾/.vim/vim_plugins")
+        let g:plugin_dir   = expand("~/.vim/vim_plugins")
         let s:toml         = g:plugin_dir . "/dein.toml"
         let s:lazy_toml    = g:plugin_dir . "/dein_lazy.toml"
         let s:python_toml  = g:plugin_dir . "/dein_python.toml"
     endif
 
-    let g:plugin_dir_nvim  = expand("‾/.vim/vim_plugins_nvim")
+    let g:plugin_dir_nvim  = expand("~/.vim/vim_plugins_nvim")
     let s:toml_nvim        = g:plugin_dir_nvim . "/dein_nvim.toml"
     let s:lazy_toml_nvim   = g:plugin_dir_nvim . "/dein_lazy_nvim.toml"
     let s:python_toml_nvim = g:plugin_dir_nvim . "/dein_python_nvim.toml"
