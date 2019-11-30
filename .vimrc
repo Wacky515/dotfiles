@@ -36,7 +36,7 @@ if has("unix")
 elseif (has("win32") || has("win64"))
     if hostname()     == "SALADPRIMEMK-II"
         let g:python3_host_prog =
-        \ "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
+        \ "C:\\Users\\wacky\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
     elseif hostname() == "SALADCARBONX1"
         let g:python3_host_prog =
         \ "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
