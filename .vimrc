@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2019/11/25 09:48:52.
+" Last Change: 2019/11/30 10:11:20.
 
 " NOT_WORK:
 " " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
@@ -22,50 +22,59 @@ let g:vimproc#download_windows_dll = 1
 " ---------------------------------------------------------------------------
 " "Python" 設定
 " ---------------------------------------------------------------------------
-if hostname()     == "saladserver.com"
-    let g:python3_host_prog = "/usr/local/bin/python3"
-elseif hostname() == "ProSalad13-2018.local"
-    let g:python3_host_prog = "/usr/local/bin/Python3"
-elseif hostname() == "SaladBook.local"
-    let g:python3_host_prog = "/usr/local/bin/python3"
-elseif hostname() == "HBAMB748"
-    let g:python_host_prog  = "C:\\Python27\\python.exe"
-    let g:python3_host_prog = "C:\\Python36\\python.exe"
-    " MEMO: ↓ "Denite" でエラー
-    " let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
-    if !has("nvim")
-        " "HBAMB748" "Vim" で "Unkwown option" エラー
-        if has("gui_running")
-            set pythonthreedll=C:\Python36\python36.dll
-        else
-            let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
-        endif
+if has("unix")
+    if hostname()     == "saladserver.com"
+        let g:python3_host_prog = "/usr/local/bin/python3"
+    elseif hostname() == "ProSalad13-2018.local"
+        let g:python3_host_prog = "/usr/local/bin/Python3"
+    elseif hostname() == "SaladBook.local"
+        let g:python3_host_prog = "/usr/local/bin/python3"
+    elseif hostname() == "ProSalad133.local"
+        let g:python3_host_prog = "/usr/local/bin/Python3"
     endif
-elseif hostname() == "HBAMB819"
-    let g:python_host_prog  = "C:\\Python27\\python.exe"
-    let g:python3_host_prog = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
-    if !has("nvim")
-        if has("gui_running")
-            set pythonthreedll=C:\Users\mm12167\AppData\Local\Programs\Python\Python36\python36.dll
-        else
-            let g:python3_host_prog = "C:\\tools\\Anaconda3\\python.exe"
+
+elseif (has("win32") || has("win64"))
+    if hostname()     == "SALADPRIMEMK-II"
+        let g:python3_host_prog =
+        \ "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
+    elseif hostname() == "SALADCARBONX1"
+        let g:python3_host_prog =
+        \ "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
+
+    elseif hostname() == "HBAMB748"
+        let g:python_host_prog  = "C:\\Python27\\python.exe"
+        let g:python3_host_prog = "C:\\Python36\\python.exe"
+        " MEMO: ↓ "Denite" でエラー
+        " let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
+        if !has("nvim")
+            " "HBAMB748" "Vim" で "Unkwown option" エラー
+            if has("gui_running")
+                set pythonthreedll=C:\Python36\python36.dll
+            else
+                let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
+            endif
         endif
-    endif
-elseif hostname() == "HBAMB748A"
-    let g:python_host_prog  = "C:\\Python27\\python.exe"
-    let g:python3_host_prog = "C:\\Python35\\python.exe"
-elseif hostname() == "SALADCARBONX1"
-    let g:python3_host_prog =
-    \ "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
-elseif hostname() == "ProSalad133.local"
-    let g:python3_host_prog = "/usr/local/bin/Python3"
-else
-    if has("unix")
-        " let g:python3_host_prog = "/usr/local/bin/Python3"
-        let g:python3_host_prog = "/usr/bin/python3"
-    elseif (has("win32") || has("win64"))
+    elseif hostname() == "HBAMB819"
+        let g:python_host_prog  = "C:\\Python27\\python.exe"
+        let g:python3_host_prog = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
+        if !has("nvim")
+            if has("gui_running")
+                set pythonthreedll=C:\Users\mm12167\AppData\Local\Programs\Python\Python36\python36.dll
+            else
+                let g:python3_host_prog = "C:\\tools\\Anaconda3\\python.exe"
+            endif
+        endif
+    elseif hostname() == "HBAMB748A"
+        let g:python_host_prog  = "C:\\Python27\\python.exe"
+        let g:python3_host_prog = "C:\\Python35\\python.exe"
+    else
+        let g:python_host_prog  = "C:\\Python27\\python.exe"
         let g:python3_host_prog = "C:\\Python35\\python.exe"
     endif
+
+elseif has("unix")
+    " let g:python3_host_prog = "/usr/local/bin/Python3"
+    let g:python3_host_prog = "/usr/bin/python3"
 endif
 
 " ---------------------------------------------------------------------------

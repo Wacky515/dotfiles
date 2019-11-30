@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Symbolic linkig dotfiles.
 # Created:     2017/02/08 **:**:**
-# Last Change: 2019/11/24 20:56:40.
+# Last Change: 2019/11/30 10:16:18.
 
 for f in ~/dotfiles/function/*.sh
 do
@@ -44,7 +44,7 @@ cp -nv ${DOT_DIR}/history.fish  ~/history.fish
 for g in *.fish
 do
     gm_echo set ${g}
-    ln -snfv ${DOT_DIR}/${g} ~/.config/${g}
+    ln -snfv ${DOT_DIR}/${g} ~/.config/fish/${g}
 done
 echo ""
 
