@@ -28,7 +28,7 @@ pushd %bat_path%
 
 rem "dotfiles" に "cd"
 if not exist %dot_path% (
-    echo ^>^> CLEONE DOTFILES FIRST, FINISH THIS SCRIPT.
+    echo ^>^> CLONE DOTFILES FIRST, FINISH THIS SCRIPT!
     goto end
 ) else (
     pushd %dot_path%
@@ -43,16 +43,16 @@ echo ^>^> Install Chocolatey
 
 echo ^>^> Already installed Chocolatey
 :update
-echo ^>^> Update software condition
 
+echo ^>^> Update software condition
 if not exist %cho_path% (
-    rem TODO: 自動で git clone する
-    echo ^>^> CLEONE CHOCOLATEY FIRST, FINISH THIS SCRIPT.
+    rem TODO: 自動で "git clone" する
+    echo ^>^> CLONE CHOCOLATEY DIRECTORY FIRST, FINISH THIS SCRIPT!
     goto end
 )
 pushd %cho_path%
 
-rem "***_packages_***.config" を読み込み、インストール
+rem "***_packages_***.config" を読込み、インストール
 if exist *_%config_files% (
         echo ^>^> Setting for this PC
         for %%i in (*_%config_files%) do (

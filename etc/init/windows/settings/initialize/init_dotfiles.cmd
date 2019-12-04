@@ -18,9 +18,9 @@ exit
 
 :main_routine
 set bat_path=%~dp0
-set config_files=packages_%computername%.config
+set conf_file=packages_%computername%.config
 set conf_path=%userprofile%\dotfiles\etc\init\windows\settings\chocolatey\
-set def_conf=%conf_path%\packages.config
+set conf_defa=%conf_path%\packages.config
 
 rem スクリプトがある "Dir" に "cd"
 pushd %bat_path%
@@ -67,7 +67,7 @@ goto end
 
 :redirect
 call :chk_choco > %userprofile%\init_dotfile.log 2>&1
-exit /b
+goto end
 
 :chk_choco
 rem "Chocolatey" インストール済みかチェック
@@ -81,7 +81,7 @@ echo ^>^> Install Chocolatey
 :must_inst
 echo ^>^> Already installed Chocolatey
 rem 必須パッケージのみ "cinst"
-cinst -y git 7zip onedrive megasync
+cinst -y git megasync 7zip
 
 rem ホームディレクトリに "cd"
 pushd %userprofile%
@@ -103,7 +103,6 @@ if not exist C:%homepath%\dotfiles\.git\ (
     if exist %userprofile%\dotfiles\ (
         rmdir /s /q %userprofile%\dotfiles\
     )
-    del %userprofile%\.gitconfig > nul 2>&1
     del %userprofile%\.gitignore > nul 2>&1
     git clone --depth 1 https://github.com/Wacky515/dotfiles.git
 ) else (
@@ -128,6 +127,7 @@ rem if %errorlevel% equ 0 goto cp_nas
 rem netsh wlan show profile name=*_SaladCapsule* >nul
 rem if %errorlevel% equ 0 goto cp_nas
 rem }}}
+
 ping 172.16.84.100 /n 1 > nul 2>&1
 if %errorlevel% equ 0 goto cp_rd
 ping 10.0.1.1 /n 1 > nul 2>&1
@@ -174,7 +174,7 @@ goto inst_apps
 set nas_settings=\\LS210D68\Share\Settings\
 set nas_init_apps=\\LS210D68\Shara\InitApps\
 echo ^>^> In home network
-echo ^>^> Copy "Settngs" from NAS
+echo ^>^> Copy "Settings" from NAS
 robocopy /s /e %nas_setthing% %userprofile%\OneDrive\仕事\Settings\
 echo ^>^> Copy "InitApps" from NAS
 robocopy /s /e %nas_initapps% %userprofile%\OneDrive\仕事\InitApps\
@@ -206,18 +206,19 @@ rem "*.config" のある "Dir" に "pushd"
 pushd %conf_path%
 
 echo ^>^> Install apps by Chocolatey
-rem Test時はスキップ
+rem ---------------------------------------------------------------------------
+rem Test時 スキップ
 rem ---------------------------------------------------------------------------
 if %test% equ 1 goto inst_all
 rem "***_packages_***.config" を読み込み、インストール
-if exist *_%config_files% (
+if exist *_%conf_file% (
     echo ^>^> Install apps for this PC
-    for %%i in (*_%config_files%) do (
+    for %%i in (*_%conf_file%) do (
         cinst -y %%i
         )
     ) else (
         echo ^>^> Setting default parameter
-        cinst -y %def_conf%
+        cinst -y %conf_defa%
         )
 echo ^>^> Update Chocolatey
 cup all -y
@@ -225,7 +226,7 @@ rem ---------------------------------------------------------------------------
 
 :inst_all
 rem 再度スクリプトがある "Dir" に "pushd"
-rem "init_dotfiles" で実行する場合があるので絶対Path
+rem MEMO: "init_dotfiles" で実行する場合があるので絶対パス指定
 pushd %userprofile%\dotfiles\etc\init\windows\settings\initialize\
 
 rem "git\init\settings" と "Mega(R:)\仕事\Settings" の "setting_*.cmd" 実行
@@ -243,7 +244,8 @@ echo ^>^> Chocolatey update
 cup all -y
 rem pause
 
-rem Test時はスキップ
+rem ---------------------------------------------------------------------------
+rem Test時 スキップ
 rem ---------------------------------------------------------------------------
 if %test% equ 1 goto erase
 call sub_install_font.cmd
@@ -273,7 +275,7 @@ rem pushd %userprofile%\dotfiles\
 rem call link.cmd
 call %userprofile%\dotfiles\etc\init\windows\settings\chocolatey\init_and_update_chocolatey.cmd
 
-echo *** CAUTION, AUTOMATICALLY RESTART PC KEY INPUT AFTER 60sec ***
+echo *** CAUTION: AUTOMATICALLY RESTART PC, KEY INPUT AFTER 60sec ***
 pause
 shutdown.exe -r -t 60
 
