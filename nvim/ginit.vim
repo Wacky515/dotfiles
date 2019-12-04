@@ -8,6 +8,16 @@ augroup MyAutoCmd
     autocmd!
 augroup END
 
+" TODO: ウィンドウサイズ記憶する
+" ウィンドウ幅
+set columns=360
+" ウィンドウ高
+set lines=180
+" ウィンドウ位置
+if has("gui")
+    winpos 200 10
+endif
+
 " "Vim" 毎のrcファイル パス設定
 let g:rc_dir = expand("~/dotfiles")
 
@@ -40,8 +50,9 @@ elseif (has("unix") && has("mac"))
 elseif (has("win32") || has("win64"))
     if hostname()     == "SALADPRIMEMK-II"
         Guifont! Cica:h12
-    if hostname()     == "SALADCARBONX1"
+    elseif hostname() == "SALADCARBONX1"
         Guifont! Cica:h13
+
     elseif hostname() == "HBAMB748"
         Guifont! Cica:h14
     elseif hostname() == "HBAMB819"
@@ -50,14 +61,4 @@ elseif (has("win32") || has("win64"))
         Guifont! Cica:h16
     endif
     " colorscheme iceberg
-endif
-
-" TODO: ウインドウサイズ記憶する
-" ウインドウ幅
-set columns=180
-" ウインドウ高
-set lines=57
-" ウインドウ位置
-if has("gui")
-    winpos 200 10
 endif

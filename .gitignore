@@ -5,41 +5,39 @@
 # 独自追記
 # ------------------------------
 # 無視する者共
-tags
 ctags.exe
-memo.txt
-yankring_history_v2.txt
 gitconfig_hbamb748.local
-/etc/init/windows/settings/cygwin/apt-cyg/
-~/AppData/Local/nvim/.netrwhist
-~/AppData/Local/nvim/rplugin.vim
-~/dotfiles/.vim/undo/
+memo.txt
 nvim/.netrwhist
 nvim/rplugin.vim
+tags
+yankring_history_v2.txt
+
+~/AppData/Local/nvim/.netrwhist
+~/AppData/Local/nvim/rplugin.vim
 
 # 特定の拡張子を無視する場合はどこにも/を付けない
-*.bk
-*.ok
-*.ng
-*.new
-*.pyc
 *.bak
+*.bk
 *.modifying
+*.new
+*.ng
+*.ok
+*.pyc
 *.stackdump
-
 *.tempkill*
 
 # 特定名称のディレクトリを無視する場合は先頭と末尾に/を付ける
 /old/
-/undo/
 
 # 特定のファイルを無視する場合は先頭に/を付ける
     # ルートディレクトリのファイルだけを無視し、サブディレクトリは無視しない
 # /foo
-
-/.vim/tmp/*
 /.vim/dein/*
+/.vim/tmp/*
+/.vim/undo/
 /.vim/userautoload/Users/*
+/etc/init/windows/settings/cygwin/apt-cyg/
 
 Users/
 */Users/

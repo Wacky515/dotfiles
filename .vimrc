@@ -36,40 +36,40 @@ if (has("unix") && has("mac"))
 elseif (has("win32") || has("win64"))
     if hostname()     == "SALADPRIMEMK-II"
         let g:python3_host_prog =
-        \ "C:¥¥Users¥¥wacky¥¥AppData¥¥Local¥¥Programs¥¥Python¥¥Python36¥¥python.exe"
+        \ "C:\\Users\\wacky\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
     elseif hostname() == "SALADCARBONX1"
         let g:python3_host_prog =
-        \ "C:¥¥Users¥¥SkyDog¥¥AppData¥¥Local¥¥Programs¥¥Python¥¥Python37¥¥python.exe"
+        \ "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
 
     elseif hostname() == "HBAMB748"
-        let g:python_host_prog  = "C:¥¥Python27¥¥python.exe"
-        let g:python3_host_prog = "C:¥¥Python36¥¥python.exe"
+        let g:python_host_prog  = "C:\\Python27\\python.exe"
+        let g:python3_host_prog = "C:\\Python36\\python.exe"
         " MEMO: ↓ "Denite" でエラー
-        " let g:python3_host_prog = "C:¥¥tools¥¥miniconda3¥¥python.exe"
+        " let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
         if !has("nvim")
             " "HBAMB748" "Vim" で "Unkwown option" エラー
             if has("gui_running")
-                set pythonthreedll=C:¥Python36¥python36.dll
+                set pythonthreedll=C:\Python36\python36.dll
             else
-                let g:python3_host_prog = "C:¥¥tools¥¥miniconda3¥¥python.exe"
+                let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
             endif
         endif
     elseif hostname() == "HBAMB819"
-        let g:python_host_prog  = "C:¥¥Python27¥¥python.exe"
-        let g:python3_host_prog = "C:¥¥Users¥¥mm12167¥¥AppData¥¥Local¥¥Programs¥¥Python¥¥Python36¥¥python.exe"
+        let g:python_host_prog  = "C:\\Python27\\python.exe"
+        let g:python3_host_prog = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
         if !has("nvim")
             if has("gui_running")
-                set pythonthreedll=C:¥Users¥mm12167¥AppData¥Local¥Programs¥Python¥Python36¥python36.dll
+                set pythonthreedll=C:\Users\mm12167\AppData\Local\Programs\Python\Python36\python36.dll
             else
-                let g:python3_host_prog = "C:¥¥tools¥¥Anaconda3¥¥python.exe"
+                let g:python3_host_prog = "C:\\tools\\Anaconda3\\python.exe"
             endif
         endif
     elseif hostname() == "HBAMB748A"
-        let g:python_host_prog  = "C:¥¥Python27¥¥python.exe"
-        let g:python3_host_prog = "C:¥¥Python35¥¥python.exe"
+        let g:python_host_prog  = "C:\\Python27\\python.exe"
+        let g:python3_host_prog = "C:\\Python35\\python.exe"
     else
-        let g:python_host_prog  = "C:¥¥Python27¥¥python.exe"
-        let g:python3_host_prog = "C:¥¥Python35¥¥python.exe"
+        let g:python_host_prog  = "C:\\Python27\\python.exe"
+        let g:python3_host_prog = "C:\\Python35\\python.exe"
     endif
 
 elseif has("unix")
@@ -183,7 +183,7 @@ endif
 
 " MEMO: 記述順番 変更しない！！！
 " <Space> を "Leader" に割当て
-let mapleader = "¥<Space>"
+let mapleader = "\<Space>"
 
 " "Windows" 環境の設定ファイルの場所を、"Linux/Mac" 環境にあわせる
 set runtimepath+=$HOME/.vim
