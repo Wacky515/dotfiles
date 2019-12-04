@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/11/30 22:30:42.
+" Last Change: 2019/12/03 09:30:44.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -9,22 +9,22 @@ scriptencoding utf-8
     " カラースキーマの指定
     " 暗背景用の配色にする
 
-" Kaoriya GVim用 削除しない！！！
+" "Kaoriya GVim" 用 削除しない！！！
 " コマンドライン（"Vim" 画面下部）高さ
 set cmdheight=5
 
-" ツールバー消去
+" ツールバー 消去
 set guioptions-=T
-" メニューバー非表示
+" メニューバー 非表示
 set guioptions-=m
 
 " ウィンドウ 半透明化（"Linux" は "Vim" から設定できない）
-if has("mac")
+" if has("mac")
+if has("unix")
     if !has("nvim")
         set transparency=10
     endif
-endif
-if (has("win32") || ("win64"))
+elseif (has("win32") || ("win64"))
     :autocmd GUIEnter * set transparency=235
 endif
 
@@ -116,7 +116,7 @@ if !has("nvim")
             set printfont=Cica:h13
             set renderoptions=type:directx,renmode:5
 
-            " muRata setting
+        " muRata setting
         elseif hostname() == "HBAMB748"
             set   guifont=Cica:h15
             set printfont=Cica:h15
@@ -162,20 +162,18 @@ if !has("nvim")
             set printfont=Cica:h14
             set renderoptions=type:directx,renmode:5
 
-            " Xacti setting " {{{
+        " Xacti setting  " {{{
         elseif hostname() == "CAD0021"
             set guifont=Ricty_Diminished:h16
         elseif hostname() == "PC-SA4110204580"
             set guifont=Ricty_Diminished:h12
         elseif hostname() == "NOT0053"
             set guifont=Ricty_Diminished:h12
-            " }}}
+        " }}}
 
         else
-            if !has("nvim")
-                set guifont=Meiryo_UI:h18
-                set renderoptions=type:directx,renmode:5
-            endif
+            set guifont=Meiryo_UI:h18
+            set renderoptions=type:directx,renmode:5
         endif
     endif
 endif

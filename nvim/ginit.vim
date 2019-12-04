@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/11/30 09:36:15.
+" Last Change: 2019/12/03 09:36:18.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -8,10 +8,10 @@ augroup MyAutoCmd
     autocmd!
 augroup END
 
-" "Vim" 毎のrcファイルパス設定
+" "Vim" 毎のrcファイル パス設定
 let g:rc_dir = expand("~/dotfiles")
 
-" rcファイル読込み関数
+" rcファイル 読込み関数
 function! s:source_rc(rc_file_name)
     let rc_file = expand(g:rc_dir . "/" . a:rc_file_name)
     if filereadable(rc_file)
@@ -19,22 +19,22 @@ function! s:source_rc(rc_file_name)
     endif
 endfunction
 
-" GUI基本設定
+" GUI 基本設定
 call s:source_rc(".gvimrc")
 
-" NeoVim 専用設定
-if has("unix")
+" "NeoVim" 専用設定
+if (has("unix") && !has("mac"))
     Guifont! Cica\ 16
 
-elseif has("mac")
+elseif (has("unix") && has("mac"))
     if hostname()     == "ProSalad13-2018.local"
         Guifont! Cica:h18
     elseif hostname() == "saladserver.com"
-        Guifont! Cica:h24
+        Guifont! Cica:h16
     elseif hostname() == "SaladBook.local"
-        Guifont! Cica:h16
+        Guifont! Cica:h18
     else
-        Guifont! Cica:h16
+        Guifont! Cica:h18
     endif
 
 elseif (has("win32") || has("win64"))
@@ -49,7 +49,7 @@ elseif (has("win32") || has("win64"))
     elseif hostname() == "HBALT071"
         Guifont! Cica:h16
     endif
-    colorscheme iceberg
+    " colorscheme iceberg
 endif
 
 " TODO: ウインドウサイズ記憶する
@@ -59,5 +59,5 @@ set columns=180
 set lines=57
 " ウインドウ位置
 if has("gui")
-    winpos  200  10
+    winpos 200 10
 endif
