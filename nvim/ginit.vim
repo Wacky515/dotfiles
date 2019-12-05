@@ -48,11 +48,13 @@ elseif (has("unix") && has("mac"))
     endif
 
 elseif (has("win32") || has("win64"))
+    " Home setting
     if hostname()     == "SALADPRIMEMK-II"
         Guifont! Cica:h12
     elseif hostname() == "SALADCARBONX1"
         Guifont! Cica:h13
 
+    " muRata setting
     elseif hostname() == "HBAMB748"
         Guifont! Cica:h14
     elseif hostname() == "HBAMB819"
