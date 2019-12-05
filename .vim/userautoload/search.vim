@@ -21,7 +21,7 @@ nnoremap /  /\v
 
 " カーソル下の単語を入力した文字で置換
 " nnoremap <Leader>re :%s;\<<C-R><C-W>\>;g<Left><Left>;
-nnoremap <Leader>re :%s;\<<C-R><C-W>\>;ga <Left><Left>;
+nnoremap <Leader>re :%s;\<<C-R><C-W>\>;gc<Left><Left><Left>;
 
 " 検索時に "\" や "?" のエスケープを簡素化
 " TODO: 動作確認
