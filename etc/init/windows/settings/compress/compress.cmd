@@ -37,44 +37,44 @@ echo ^>^> Current path:
 pwd
 
 for /r %%f in ( * ) do (
-    if /i %%~xi == .zip (
+    if /i "%%~xf" == .zip (
         call :recomp "%%f"
-    ) else if /i %%~xi == .rar (
+    ) else if /i "%%~xf" == .rar (
         call :recomp "%%f"
-    ) else if /i %%~xi == .lzh (
+    ) else if /i "%%~xf" == .lzh (
         call :recomp "%%f"
 
     rem 除外ファイルは以下に記述
-    ) else if %%~zi leq 500000 (
+    ) else if %%~zf leq 500000 (
         call :ignore "%%f"
-    ) else if %%~xi == .7z (
+    ) else if "%%~xf" == .7z (
         call :ignore "%%f"
-    ) else if %%~xi == .txt (
+    ) else if "%%~xf" == .txt (
         call :ignore "%%f"
-    ) else if %%~xi == .md (
+    ) else if "%%~xf" == .md (
         call :ignore "%%f"
-    ) else if %%~xi == .lnk (
+    ) else if "%%~xf" == .lnk (
         call :ignore "%%f"
-    ) else if %%~xi == .db (
+    ) else if "%%~xf" == .db (
         call :ignore "%%f"
-    ) else if %%~xi == .id (
+    ) else if "%%~xf" == .id (
         call :ignore "%%f"
-    ) else if %%~xi == .tmp (
+    ) else if "%%~xf" == .tmp (
         call :ignore "%%f"
-    ) else if %%~xi == .env (
+    ) else if "%%~xf" == .env (
         call :ignore "%%f"
-    ) else if %%~xi == .bak (
+    ) else if "%%~xf" == .bak (
         call :ignore "%%f"
     ) else if %%~ni == tags (
         call :ignore "%%f"
 
-    ) else if %%~ni%%~xi == compress.cmd (
+    ) else if %%~ni"%%~xf" == compress.cmd (
         call :ignore "%%f"
-    ) else if %%~ni%%~xi == shortcut_compress.cmd (
+    ) else if %%~ni"%%~xf" == shortcut_compress.cmd (
         call :ignore "%%f"
-    ) else if %%~ni%%~xi == %test_script% (
+    ) else if %%~ni"%%~xf" == %test_script% (
         call :ignore "%%f"
-    ) else if %%~ni%%~xi == "i" (
+    ) else if %%~ni"%%~xf" == "i" (
         call :ignore "%%f"
     ) else (
         call :comp "%%f"
