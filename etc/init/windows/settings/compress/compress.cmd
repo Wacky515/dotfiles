@@ -20,7 +20,7 @@ rem }}}
 
 set bat_path=%~dp0
 set sev_zip_exe=C:\ProgramData\chocolatey\tools\7z.exe
-set test_script=substitute_filename_test_7z_to_7z.cmd
+set test_script=test_substitute_filename.cmd
 
 rem スクリプトがある "Dir" に "cd"
 rem pushd %bat_path%
@@ -36,48 +36,48 @@ if %1 == "" (
 echo ^>^> Current path:
 pwd
 
-for /r %%i in (*) do (
+for /r %%f in ( * ) do (
     if /i %%~xi == .zip (
-        call :recomp "%%i"
+        call :recomp "%%f"
     ) else if /i %%~xi == .rar (
-        call :recomp "%%i"
+        call :recomp "%%f"
     ) else if /i %%~xi == .lzh (
-        call :recomp "%%i"
+        call :recomp "%%f"
 
     rem 除外ファイルは以下に記述
     ) else if %%~zi leq 500000 (
-        call :ignore "%%i"
+        call :ignore "%%f"
     ) else if %%~xi == .7z (
-        call :ignore "%%i"
+        call :ignore "%%f"
     ) else if %%~xi == .txt (
-        call :ignore "%%i"
+        call :ignore "%%f"
     ) else if %%~xi == .md (
-        call :ignore "%%i"
+        call :ignore "%%f"
     ) else if %%~xi == .lnk (
-        call :ignore "%%i"
+        call :ignore "%%f"
     ) else if %%~xi == .db (
-        call :ignore "%%i"
+        call :ignore "%%f"
     ) else if %%~xi == .id (
-        call :ignore "%%i"
+        call :ignore "%%f"
     ) else if %%~xi == .tmp (
-        call :ignore "%%i"
+        call :ignore "%%f"
     ) else if %%~xi == .env (
-        call :ignore "%%i"
+        call :ignore "%%f"
     ) else if %%~xi == .bak (
-        call :ignore "%%i"
+        call :ignore "%%f"
     ) else if %%~ni == tags (
-        call :ignore "%%i"
+        call :ignore "%%f"
 
     ) else if %%~ni%%~xi == compress.cmd (
-        call :ignore "%%i"
+        call :ignore "%%f"
     ) else if %%~ni%%~xi == shortcut_compress.cmd (
-        call :ignore "%%i"
+        call :ignore "%%f"
     ) else if %%~ni%%~xi == %test_script% (
-        call :ignore "%%i"
+        call :ignore "%%f"
     ) else if %%~ni%%~xi == "i" (
-        call :ignore "%%i"
+        call :ignore "%%f"
     ) else (
-        call :comp "%%i"
+        call :comp "%%f"
     )
 )
 

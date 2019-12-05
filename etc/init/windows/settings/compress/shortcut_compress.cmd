@@ -11,7 +11,6 @@ set bat_path=%~dp0
 rem スクリプトがある "Dir" に "cd"
 rem pushd %bat_path%
 
-rem set scr_path=%userprofile%\dotfiles\etc\test\windows\settings\compress\compress.cmd
 set scr_path=%userprofile%\dotfiles\etc\init\windows\settings\compress\compress.cmd
 
 pushd %bat_path%
