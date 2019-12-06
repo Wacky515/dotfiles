@@ -37,6 +37,7 @@ echo ^>^> Current path:
 pwd
 
 for /r %%f in ( * ) do (
+    rem echo "%%~xf"
     if /i "%%~xf" == .zip (
         call :recomp "%%f"
     ) else if /i "%%~xf" == .rar (
@@ -45,7 +46,7 @@ for /r %%f in ( * ) do (
         call :recomp "%%f"
 
     rem 除外ファイルは以下に記述
-    ) else if %%~zf leq 500000 (
+    ) else if "%%~zf" leq 500000 (
         call :ignore "%%f"
     ) else if "%%~xf" == .7z (
         call :ignore "%%f"
@@ -65,16 +66,18 @@ for /r %%f in ( * ) do (
         call :ignore "%%f"
     ) else if "%%~xf" == .bak (
         call :ignore "%%f"
-    ) else if %%~ni == tags (
+    ) else if "%%~nf" == tags (
         call :ignore "%%f"
 
-    ) else if %%~ni"%%~xf" == compress.cmd (
+    ) else if "%%~ni%%~xf" == Everything.db.tmp (
         call :ignore "%%f"
-    ) else if %%~ni"%%~xf" == shortcut_compress.cmd (
+    ) else if "%%~ni%%~xf" == compress.cmd (
         call :ignore "%%f"
-    ) else if %%~ni"%%~xf" == %test_script% (
+    ) else if "%%~ni%%~xf" == shortcut_compress.cmd (
         call :ignore "%%f"
-    ) else if %%~ni"%%~xf" == "i" (
+    ) else if "%%~ni%%~xf" == %test_script% (
+        call :ignore "%%f"
+    ) else if "%%~ni%%~xf" == "i" (
         call :ignore "%%f"
     ) else (
         call :comp "%%f"
@@ -110,7 +113,7 @@ set comprs_name=%~n1%~x1.7z
 set source_name=%~n1%~x1
 pushd %~p1
 
-echo ^>^> Compress %source_name% to %comprs_name%
+echo ^>^> Compress %source_name% ^>^> %comprs_name%
 
 %sev_zip_exe% a -t7z -mx=9 -m0=lzma2 "%comprs_name%" "%source_name%" >> nul
 if exist "%comprs_name%" if not "%~x1"==".7z" del /f /q %1
