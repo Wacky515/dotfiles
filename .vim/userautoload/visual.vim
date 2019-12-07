@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/14 14:59:36
-" Last Change: 2019/11/06 15:13:06.
+" Last Change: 2019/11/22 11:58:10.
 
 " ---------------------------------------------------------------------------
 " メイン表示篇
@@ -16,6 +16,68 @@ highlight LineNr ctermfg=darkyellow
 
 " 選択行 強調
 set cursorline
+
+" 選択列 強調
+set cursorcolumn
+
+" 補完メニュー 高さ
+set pumheight=10
+
+" 長行 省略しない
+set display=lastline
+
+" スクロール時 上下端行数
+set scrolloff=3
+
+" シンタックスハイライト
+" "dein.vim" に関する設定の後にON
+syntax on
+
+" 対応括弧 強調
+set showmatch
+" ↑ の強調時間[msec]
+set matchtime=1
+" 対応括弧に "<" と ">" を追加
+set matchpairs& matchpairs+=<:>
+
+" 東アジアの文字のうちA特性(Ambiguous)の文字幅 指定
+    " 2バイト文字（"□" や "○"）でカーソル位置がずれる
+    " East Asian Width Class Ambiguous の幅
+if has("Kaoriya")
+    set ambiwidth=double
+elseif has("mac") && !has("gui_running")
+    set ambiwidth=double
+elseif has("unix") && has("gui_running")
+    set ambiwidth=double
+else
+    set ambiwidth=single
+endif
+
+" NVIM: モード毎にカーソル形状 変更
+if (has('nvim') && has('vim_starting'))
+    " 挿入モード時     非点滅縦線
+    let &t_SI .= "\e[6 q"
+    " ノーマルモード時 非点滅ブロック
+    let &t_EI .= "\e[2 q"
+    " 置換モード時     非点滅下線
+    let &t_SR .= "\e[4 q"
+endif
+
+" 画面上で表示するタブ文字 幅
+set tabstop=4
+" "TAB" スペース数
+set expandtab
+" 行頭は "shiftwidth" 分、それ以外は "tabstop" 分インデント
+set smarttab
+" "smartindent" 増減幅
+set shiftwidth=4
+" コマンド/改行/自動インデント時、現在行と同じインデントを挿入
+set autoindent
+" 改行時に前行の構文をチェックし次行のインデントを増減
+" "{" があると次行は自動で1段深く自動インデント
+set smartindent
+" "<" 、 ">" でインデントする時、"shiftwidth" の倍数に丸める
+set shiftround
 
 " 挿入モード時 選択行(列)色 変更
 augroup vimrc_change_cursorline_color
@@ -38,96 +100,6 @@ augroup vimrc_change_cursorline_color
                 \ guibg=#303030
 augroup END
 
-" 選択列 強調
-set cursorcolumn
-
-" NVIM: モード毎にカーソル形状 変更
-if (has('nvim') && has('vim_starting'))
-    " 挿入モード時     非点滅縦線
-    let &t_SI .= "\e[6 q"
-    " ノーマルモード時 非点滅ブロック
-    let &t_EI .= "\e[2 q"
-    " 置換モード時     非点滅下線
-    let &t_SR .= "\e[4 q"
-endif
-
-" コマンドライン（"Vim" 画面下部）高さ
-set cmdheight=5
-
-" 補完メニュー 高さ
-set pumheight=10
-
-" 長行 省略しない
-set display=lastline
-
-" スクロール時 上下端行数
-set scrolloff=3
-
-" 東アジアの文字のうちA特性(Ambiguous)の文字幅 指定
-    " 2バイト文字（"□" や "○"）でカーソル位置がずれる
-    " East Asian Width Class Ambiguous の幅
-if has("Kaoriya")
-    set ambiwidth=double
-elseif has("mac") && !has("gui_running")
-    set ambiwidth=double
-elseif has("unix") && has("gui_running")
-    set ambiwidth=double
-else
-    set ambiwidth=single
-endif
-
-" シンタックスハイライト
-" "dein.vim" に関する設定の後にON
-syntax on
-
-" 対応括弧 強調
-set showmatch
-" ↑ の強調時間[msec]
-set matchtime=1
-" 対応括弧に "<" と ">" を追加
-set matchpairs& matchpairs+=<:>
-
-" 画面上で表示するタブ文字 幅
-set tabstop=4
-" "TAB" スペース数
-set expandtab
-" 行頭は "shiftwidth" 分、それ以外は "tabstop" 分インデント
-set smarttab
-" "smartindent" 増減幅
-set shiftwidth=4
-" コマンド/改行/自動インデント時、現在行と同じインデントを挿入
-set autoindent
-" 改行時に前行の構文をチェックし次行のインデントを増減
-" "{" があると次行は自動で1段深く自動インデント
-set smartindent
-" "<" 、 ">" でインデントする時、"shiftwidth" の倍数に丸める
-set shiftround
-
-" ファイルを開いた時、最後のカーソル位置 復元
-if has("autocmd")
-    autocmd BufReadPost *
-                \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-                \   exe "normal! g'\"" |
-                \ endif
-endif
-
-" ---------------------------------------------------------------------------
-" 全角スペース ハイライト
-" ---------------------------------------------------------------------------
-function! ZenkakuSpace()
-    highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
-endfunction
-
-if has("syntax")
-    augroup ZenkakuSpace
-        autocmd!
-        autocmd ColorScheme       * call ZenkakuSpace()
-        autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
-    augroup END
-    call ZenkakuSpace()
-endif
-" < http://inari.hatenablog.com/entry/2014/05/05/231307 >
-
 " ---------------------------------------------------------------------------
 " ウィンドウ表示篇
 " ---------------------------------------------------------------------------
@@ -141,7 +113,7 @@ set showcmd
 set showtabline=3
 
 " ---------------------------------------------------------------------------
-" 終了時 ウィンドウサイズ 記憶
+" 再開時 ウィンドウサイズ 復元
 " ---------------------------------------------------------------------------
 if !has("nvim")
     let g:save_window_file = expand("~/.vim/tmp/.vimwinpos")
@@ -164,8 +136,21 @@ if !has("nvim")
 endif
 
 " ---------------------------------------------------------------------------
+" 再開時 カーソル位置 復元
+" ---------------------------------------------------------------------------"
+if has("autocmd")
+    autocmd BufReadPost *
+                \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+                \   exe "normal! g'\"" |
+                \ endif
+endif
+
+" ---------------------------------------------------------------------------
 " コマンドラインモード表示篇
 " ---------------------------------------------------------------------------
+" コマンドライン（"Vim" 画面下部）高さ
+set cmdheight=5
+
 " コマンドラインモードの補完GUI
 " 候補をリストで表示し "TAB" でフォーカス
 set wildmenu wildmode=list:full
@@ -173,5 +158,22 @@ set wildmenu wildmode=list:full
 " ---------------------------------------------------------------------------
 " ステータス行表示篇
 " ---------------------------------------------------------------------------
-" カーソル 行列表示
+" カーソル 行列数表示
 set ruler
+
+" ---------------------------------------------------------------------------
+" 全角スペース ハイライト
+" ---------------------------------------------------------------------------
+function! ZenkakuSpace()
+    highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
+endfunction
+
+if has("syntax")
+    augroup ZenkakuSpace
+        autocmd!
+        autocmd ColorScheme       * call ZenkakuSpace()
+        autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
+    augroup END
+    call ZenkakuSpace()
+endif
+" < http://inari.hatenablog.com/entry/2014/05/05/231307 >

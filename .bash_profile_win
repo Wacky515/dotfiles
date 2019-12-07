@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Created:     2019/11/12 15:01:20
 # Last Change: 2019/11/12 15:07:50.
 
@@ -31,3 +32,42 @@ do
         gm_echo ">> Already installed ${a}"
     fi
 done
+=======
+# Created:     2019/11/12 15:01:20
+# Last Change: 2019/11/20 16:09:11.
+
+function gm_echo {
+    printf "\e[32m$*\e[m\n"
+}
+
+[ -f ~/.bash_aliases_win ]  && source ~/.bash_aliases_win
+[ -f ~/.bash_function_win ] && source ~/.bash_function_win
+
+if has "pacman" ; then
+    apps=(bc \
+        fish \
+        git \
+        man \
+        # mingw64/mingw-w64-x86_64-pcre2 \
+        # openssh \
+        # pcre \
+        # pcre2 \
+        python \
+        # python3-pip \
+        tmux \
+        zsh)
+
+    # FIXME: インストールミスする
+    for a in ${apps[@]}
+    do
+        gm_echo ">> Check installed ${a} or not"
+        if ! has ${a}; then
+            gm_echo ">> Install ${a}"
+            # pacman -Sy ${apps} --noconfirm
+            pacman -S ${apps} --noconfirm
+        else
+            gm_echo ">> Already installed ${a}"
+        fi
+    done
+fi
+>>>>>>> b4b7e5ffbd7dcbd2804a52346bc8cc05a80b6a80

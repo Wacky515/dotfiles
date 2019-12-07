@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2019/10/30 16:33:13.
+# Last Change: 2019/11/27 13:37:15.
 
 # REF:
 # hook_add         プラグイン追加後
@@ -132,7 +132,6 @@ repo = 'lokaltog/vim-easymotion'
 repo = 'tomtom/tcomment_vim'
 
 # テキスト整形
-# 対象行を選択し "ga" -> "整形対象" ->  "デリミタ" を入力
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
 
@@ -148,18 +147,17 @@ repo = 'tmhedberg/matchit'
 # 選択テキストを'""'、"()"、"[]"などで囲む
 [[plugins]]
 repo = 'tpope/vim-surround'
+# vim-surround をドットコマンドに対応させる
+[[plugins]]
+repo = 'tpope/vim-repeat'
+on_idle = 1
 
-# スネークケース、キャメルケースへ変換  # {{{
-    # ノーマルモードで
-        # crs: "SnakeCase"  → "snake_case"
-        # crm: "mixed_case" → "MixedCase"
-        # crc: "camel_case" → "camelCase"
-        # cru: "upper_case" → "UPPER_CASE"
-# }}}
+# スネークケース、キャメルケースへ変換
 [[plugins]]
 repo = 'tpope/vim-abolish'
 
-# "=" を自動的に " = " にする
+# "=" などの入力を拡張
+    # " = " にする等
 [[plugins]]
 repo = 'kana/vim-smartchr'
 
@@ -176,12 +174,10 @@ repo = 'tpope/vim-speeddating'
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = ['context_filetype.vim']
-# カーソル位置の "filetype" を自動判定
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
-# # 関数、クラス、変数、構造体、列挙型、マクロ定義など 一覧表示
-    # ":TlistOpen" で開始
+# "TagList" を開く
 [[plugins]]
 repo = 'vim-scripts/taglist.vim'
 
@@ -199,7 +195,6 @@ repo = 'nathanaelkane/vim-indent-guides'
 repo = 'jacquesbh/vim-showmarks'
 
 # テーブル作成
-# ":TableModeToggle" で開始
 [[plugins]]
 repo = 'dhruvasagar/vim-table-mode'
 
@@ -209,7 +204,6 @@ repo = 'itchyny/calendar.vim'
 
 # 計算機
     # :Calc: で計算開始
-    # "Python" 必要
 [[plugins]]
 repo = 'gregsexton/VimCalc'
 if = "!has('python')"

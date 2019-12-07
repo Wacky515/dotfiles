@@ -1,0 +1,20 @@
+snippet header
+abbr    シェバン付きヘッダ
+options head
+    #!/usr/bin/env bash
+    # @(#) ${1:NAME}
+    # Created:     ${2:TODAY} ${3:NOW}${4:SS}
+    # Last Change: 2019/11/22 10:07:31.
+
+    set -ueo pipefail
+    export LC_ALL=C
+
+    for f in ~/dotfiles/function/*.sh
+    do
+        source ${f}
+    done
+
+snippet source
+abbr    ソース読込み
+options head
+    [ -f ${1:PATH} ] && source ${1}

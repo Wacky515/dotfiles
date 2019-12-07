@@ -1,12 +1,13 @@
 scriptencoding utf-8
 " Created:     2018/08/16 15:00:46
-" Last Change: 2018/12/21 08:32:11.
+" Last Change: 2019/11/26 15:15:40.
 
 " ---------------------------------------------------------------------------
 "  マップキー
 " ---------------------------------------------------------------------------
+" KILL: "EasyMotion" に遷移
 " <Leader>e: ウインドウリサイズ
-nmap <silent> <Leader>e :WinResizerStartResize<CR>
+" nmap <silent> <Leader>e :WinResizerStartResize<CR>
 
 " ---------------------------------------------------------------------------
 "  基本設定
@@ -15,4 +16,3 @@ nmap <silent> <Leader>e :WinResizerStartResize<CR>
 let g:winresizer_vert_resize = 1
 " 水平方向に1文字単位ずつ調整
 let g:winresizer_horiz_resize = 1
-

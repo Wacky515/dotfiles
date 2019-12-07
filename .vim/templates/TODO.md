@@ -1,3 +1,3 @@
 # TODO
 
-- ym_echo ">> ${PROCESS^}" －＞ gm_echo ">> ${PROCESS^}"
+- ym_echo ">> \${PROCESS^}" >> gm\_echo ">> \${PROCESS^}"

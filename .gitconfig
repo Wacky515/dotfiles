@@ -1,23 +1,23 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2019/11/13 17:07:56.
+# Last Change: 2019/11/20 16:30:23.
 
 [user]
-	name  = 脇田 純
+	name = 脇田 純
 	email = wacky515@gmail.com
 
 [color]
-	ui     = auto
+	branch = auto
 	diff   = auto
 	status = auto
-	branch = auto
+	ui     = auto
 
 [alias]
-	st  = status
-	sts = status --short
+	br  = branch
 	ci  = commit
 	cm  = commit -m
-	br  = branch
 	co  = checkout
+	st  = status
+	sts = status --short
     p   = !git push origin `git rev-parse --abbrev-ref HEAD`
 
     lg  = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
@@ -36,7 +36,7 @@
 	proxy =
 
 [difftool "sourcetree"]
-	cmd  = opendiff \"$LOCAL\" \"$REMOTE\"
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
 
 [mergetool "sourcetree"]

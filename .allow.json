@@ -5,6 +5,7 @@
     "B○○",
     "G○○",
     "W○○",
+    "\<C-r\>\{0-9a-z"%#:-=.*}",
     "cygwin",
     "git add/reset",
     "git log",

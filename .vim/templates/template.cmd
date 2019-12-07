@@ -1,9 +1,10 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     __DATE__
-rem Last Change: 2019/06/21 12:28:00.
+rem Last Change: 2019/11/29 16:34:49.
 
-rem set batch_title=***
+rem set batch_title=__START__
+
 rem title %batch_title%
 
 rem スクリプトがある "Dir" に "cd"
@@ -13,7 +14,6 @@ pushd %bat_path%
 rem echo ^>^> %batch_title%
 echo ^>^> Start
 
-__START__
 
 popd
 endlocal

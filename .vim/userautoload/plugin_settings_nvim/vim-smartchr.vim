@@ -1,11 +1,15 @@
 scriptencoding utf-8
-" Last Change: 2018/05/03 11:09:42.
+" Created:     201*/**/** **:**:**
+" Last Change: 2019/11/25 09:22:34.
 
-inoremap <expr> = smartchr#loop("=", "==", ' = ', ' == ', ' === ', '=>')
-inoremap <expr> + smartchr#loop('+', '++', ' + ')
-inoremap <expr> - smartchr#loop('-', '--', '---', ' - ')
-inoremap <expr> / smartchr#loop('/', '// ', ' / ')
-inoremap <expr> * smartchr#loop('*', '**', '***', ' * ')
-inoremap <expr> < smartchr#loop('<', '<<', '<< ', ' << ', '<-', ' < ')
-inoremap <expr> > smartchr#loop('>', '>>', '>> ', ' >> ', '->', ' > ')
+" --------------------------------------------------------------------------------
+" マップキー
+" --------------------------------------------------------------------------------
+inoremap <expr> = smartchr#loop("=", ' = ', "==", ' == ', ' === ', '=> ')
+inoremap <expr> + smartchr#loop('+', ' + ', '++')
+inoremap <expr> - smartchr#loop('-', ' - ', '--', '---')
+inoremap <expr> * smartchr#loop('*', ' * ', '**', '***')
+inoremap <expr> / smartchr#loop('/', ' / ', '// ')
+inoremap <expr> < smartchr#loop('<', ' < ', '<<', '<< ', ' << ', '<- ')
+inoremap <expr> > smartchr#loop('>', ' > ', '>>', '>> ', ' >> ', ' ->')
 inoremap <expr> [ smartchr#loop('[', '- [ ] ')

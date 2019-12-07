@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# @(#) ***
+# @(#) __START__
 # Created:     __DATE__
-# Last Change: 2019/11/06 14:57:03.
+# Last Change: 2019/11/29 16:38:03.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -11,7 +11,7 @@ do
     source ${f}
 done
 
-readonly         APPS="__START__"
+readonly         APPS="***"
 readonly  ACTION_LOWC="install"
 readonly  ACTION_PROP="Install"
 readonly PROCESS_LOWC=${ACTION_LOWC}" "${APPS}

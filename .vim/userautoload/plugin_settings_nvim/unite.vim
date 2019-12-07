@@ -1,10 +1,11 @@
 scriptencoding utf-8
 " Created:     2018/03/19 20:47:58
-" Last Change: 2018/12/14 16:55:43.
+" Last Change: 2019/11/22 17:33:39.
 
 " ---------------------------------------------------------------------------
 " マップキー
 " ---------------------------------------------------------------------------
+" プリフィクスキー
 nnoremap [unite] <Nop>
 nmap U [unite]
 
@@ -59,11 +60,11 @@ endfunction
 " 基本設定
 " ---------------------------------------------------------------------------
 " 挿入モードで開始
-let g:unite_enable_start_insert = 1
+let g:unite_enable_start_insert     = 1
 " Uniteを縦分割で開始
 let g:unite_enable_split_vertically = 1
 " 最近開いたファイル履歴の保存数
-let g:unite_source_file_mru_limit = 1000
+let g:unite_source_file_mru_limit   = 1000
 "file_mruの表示フォーマットを指定
     "空にすると表示スピードが高速化される
 let g:unite_source_file_mru_filename_format = ""
@@ -72,7 +73,7 @@ let g:unite_source_file_mru_filename_format = ""
 " Diff設定
 " ---------------------------------------------------------------------------
 " MEMO: 使い方不明・・・
-" FIXME: E117発生のためキル
+" FIXME: E117発生のためキル  " {{{
 
 " let diff_action = {
 "             \ 'description' : 'diff',
@@ -97,15 +98,16 @@ let g:unite_source_file_mru_filename_format = ""
 " " call unite#custom_action('file', 'diff', diff_action)
 
 " unlet diff_action
+" }}}
 
 " ---------------------------------------------------------------------------
 "  RipGrep設定
 " ---------------------------------------------------------------------------
-if executable('rg')
-    let g:unite_source_grep_command = 'rg'
-    let g:unite_source_grep_default_opts = '-n --no-heading --color never'
-    let g:unite_source_grep_recursive_opt = ''
-    " Hit件数制御
+if executable("rg")
+    let g:unite_source_grep_command        = 'rg'
+    let g:unite_source_grep_default_opts   = '-n --no-heading --color never'
+    let g:unite_source_grep_recursive_opt  = ''
+    " ヒット件
     let g:unite_source_grep_max_candidates = 200
     " "Windows" 設定
     let g:unite_source_grep_encoding='utf-8'
@@ -118,4 +120,3 @@ endif
 "             \    if empty(&buftype)
 "             \ |      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
 "             \ |  endif
-

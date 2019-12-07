@@ -1,12 +1,13 @@
 scriptencoding utf-8
 " Created:     2018/03/19 09:19:36
-" Last Change: 2019/10/24 17:08:35.
+" Last Change: 2019/11/29 17:16:49.
 
-" REF: https://qiita.com/okamos/items/4e1665ecd416ef77df7c
+" REF: < https://qiita.com/okamos/items/4e1665ecd416ef77df7c >
 " ---------------------------------------------------------------------------
 " マップキー
 " ---------------------------------------------------------------------------
-nmap [denite] <Nop>
+" プリフィクスキー
+nmap  [denite] <Nop>
 map D [denite]
 
 " MEMO:
@@ -88,6 +89,10 @@ nnoremap <silent> [denite]M :<C-u>Denite
 " カーソル ハイライト
 hi CursorLine guifg=#E19972
 
+" MEMO: ↓ *.toml に移管済み
+" プロンプト ">" にする
+" call denite#custom#option('default', 'prompt', '>')
+
 " Ver.3.* 以降 新機能用設定
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
@@ -116,10 +121,6 @@ function! s:denite_filter_my_setting() abort
     nnoremap <silent><buffer><expr> <C-c> denite#do_map('quit')
 endfunction
 
-" MEMO: ↓ *.toml に移管済み
-" プロンプト ">" にする
-" call denite#custom#option('default', 'prompt', '>')
-
 " ---------------------------------------------------------------------------
 " Diff設定
 " ---------------------------------------------------------------------------
@@ -128,108 +129,4 @@ endfunction
 " ---------------------------------------------------------------------------
 " Grep設定
 " ---------------------------------------------------------------------------
-" MEMO: ↓ *.toml に移管済み
-" " The Silver searcher  " {{{
-" if executable('ag')
-"     let s:ignore_globs = [
-"                 \ '.git',
-"                 \ '.svn',
-"                 \ 'node_modules']
-"
-"     " 検索対象から以下を除外
-"     call denite#custom#var(
-"                 \ 'command',
-"                 \ 'grep',
-"                 \ 'file/rec',
-"                 \ ['ag',
-"                 \ '--follow',]
-"                 \ + map(deepcopy(s:ignore_globs),
-"                 \ { k, v -> '--ignore=' . v }) + [
-"                 \ '',
-"                 \ '--nocolor',
-"                 \ '--nogroup',
-"                 \ '-g'])
-"
-"     " "file_rec" 検索時に "FuzzyMatch" を有効にし
-"     " 検索対象から指定のファイルを除外
-"     call denite#custom#source(
-"                 \ 'file/rec',
-"                 \ 'matchers',
-"                 \ ['matcher_fuzzy',
-"                 \ 'matcher_project_files',
-"                 \ 'matcher_ignore_globs'])
-"
-"     " 他ソース向けに "ignore_globs" 初期化
-"     call denite#custom#filter(
-"                 \ 'ignore_globs',
-"                 \ 'matcher/ignore_globs',
-"                 \ s:ignore_globs,
-"                 \ ['*.make',
-"                 \ '*.min.*'
-"                 \ '*.o',
-"                 \ '.git/',
-"                 \ '.ropeproject/',
-"                 \ '__pycache__/',
-"                 \ 'build/',
-"                 \ 'fonts/',
-"                 \ 'images/',
-"                 \ 'img/',
-"                 \ 'venv/',
-"                 \ 'ropeproject/'])
-" endif
-" }}}
-
-" MEMO: ↓ *.toml に移管済み
-" RipGrep  " {{{
-" if executable('rg')
-"     " 検索対象から以下を除外
-"     call denite#custom#var(
-"                \ 'command',
-"                \ 'grep',
-"                \ 'file_rec',
-"                \ ['!.git',
-"                \ '--files',
-"                \ '--glob',
-"                \ 'rg'])
-
-"     let g:denite_source_grep_command = 'rg'
-"     let g:denite_source_grep_default_opts = '-n --no-heading --color never'
-"     let g:unite_source_grep_recursive_opt = ''
-"     " Hit数制御
-"     let g:unite_source_grep_max_candidates = 200
-"     " "Windows" 設定
-"     let g:unite_source_grep_encoding='utf-8'
-" endif
-" }}}
-
-" MEMO: ↓ *.toml に移管済み
-" FuzzyMatch "  {{{
-    " "file_rec" 検索時に "FuzzyMatch" を有効にし
-    " 検索対象から指定のファイルを除外
-" if executable('matcher_fuzzy')
-"     call denite#custom#source(
-"                 \ 'file_rec',
-"                 \ 'matchers',
-"                 \ ['matcher_fuzzy',
-"                 \ 'matcher_project_files',
-"                 \ 'matcher_ignore_globs'])
-
-      " 検索対象外のファイル指定
-"     call denite#custom#filter(
-"                 \ 'ignore_globs',
-"                 \ 'matcher/ignore_globs',
-"                 \ s:ignore_globs,
-"                 \ ['*.make',
-"                 \ '*.min.*'
-"                 \ '*.o',
-"                 \ '.git/',
-"                 \ '.ropeproject/',
-"                 \ '__pycache__/',
-"                 \ 'build/', '
-"                 \ 'fonts/',
-"                 \ 'images/',
-"                 \ 'img/',
-"                 \ 'venv/',
-"                 \ 'ropeproject/'])
-" endif
-" }}}
+" MEMO: *.toml に移管済み

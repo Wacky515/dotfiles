@@ -1,7 +1,10 @@
 scriptencoding utf-8
-" Last Change: 2018/07/16 12:29:13.
+" Created:     201*/**/** **:**:**
+" Last Change: 2019/11/25 09:09:10.
 
+" --------------------------------------------------------------------------------
 " マップキー
+" --------------------------------------------------------------------------------
 nnoremap [Mark] <Nop>
 nmap m [Mark]
 
@@ -28,24 +31,24 @@ function! s:MarkList()
     if b:mark_exist == 0
         let b:mark_exist = 1
         nnoremap <silent>[Mark]l :<C-u>1PreviewMarks<CR>
-            \:<C-u>NoShowMarks<CR> :<C-u>call <SID>MarkList()<CR>
+                    \ :<C-u>NoShowMarks<CR> :<C-u>call <SID>MarkList()<CR>
     else
         let b:mark_exist = 0
         nnoremap <silent>[Mark]l :<C-u>PreviewMarks<CR>
-            \:<C-u>DoShowMarks<CR> :<C-u>call <SID>MarkList()<CR>
+                    \ :<C-u>DoShowMarks<CR> :<C-u>call <SID>MarkList()<CR>
     endif
 endfunction
 nnoremap <silent>[Mark]l :<C-u>PreviewMarks<CR>
-            \:<C-u>DoShowMarks<CR> :<C-u>call <SID>MarkList()<CR>
+            \ :<C-u>DoShowMarks<CR> :<C-u>call <SID>MarkList()<CR>
 
 " mn: 現在位置をマーク
+nnoremap <silent>[Mark]n :<C-u>call <SID>AutoMarkrement()<CR>:DoShowMarks<CR>
 if !exists('g:markrement_char')
     let g:markrement_char = [
-        \ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-        \ 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
-        \ ]
+                \ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+                \ 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+                \ ]
 endif
-nnoremap <silent>[Mark]n :<C-u>call <SID>AutoMarkrement()<CR>:DoShowMarks<CR>
 function! s:AutoMarkrement()
     if !exists('b:markrement_pos')
         let b:markrement_pos = 0

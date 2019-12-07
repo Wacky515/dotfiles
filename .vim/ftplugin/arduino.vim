@@ -1,3 +1,7 @@
+scriptencoding utf-8
+" Created:     201*/**/** **:**:**
+" Last Change: 2019/11/21 15:20:11.
+
 " Vim syntax file
 " Language:    Arduino
 " Maintainer:  Johannes Hoff <johannes@johanneshoff.com>
