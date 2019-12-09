@@ -1,37 +1,10 @@
 ﻿# Create:      201*/**/** **:**:**
-<<<<<<< HEAD
-# Last Change: 2019/11/13 16:39:04.
-=======
 # Last Change: 2019/11/30 09:55:41.
->>>>>>> b4b7e5ffbd7dcbd2804a52346bc8cc05a80b6a80
 
 # ------------------------------
 # 独自追記
 # ------------------------------
 # 無視する者共
-<<<<<<< HEAD
-tags
-ctags.exe
-memo.txt
-yankring_history_v2.txt
-gitconfig_hbamb748.local
-/etc/init/windows/settings/cygwin/apt-cyg/
-~/AppData/Local/nvim/.netrwhist
-~/AppData/Local/nvim/rplugin.vim
-nvim/.netrwhist
-nvim/rplugin.vim
-
-# 特定の拡張子を無視する場合はどこにも/を付けない
-*.bk
-*.ok
-*.ng
-*.new
-*.pyc
-*.bak
-*.modifying
-*.stackdump
-
-=======
 ctags.exe
 gitconfig_hbamb748.local
 memo.txt
@@ -52,7 +25,6 @@ yankring_history_v2.txt
 *.ok
 *.pyc
 *.stackdump
->>>>>>> b4b7e5ffbd7dcbd2804a52346bc8cc05a80b6a80
 *.tempkill*
 
 # 特定名称のディレクトリを無視する場合は先頭と末尾に/を付ける
@@ -61,18 +33,11 @@ yankring_history_v2.txt
 # 特定のファイルを無視する場合は先頭に/を付ける
     # ルートディレクトリのファイルだけを無視し、サブディレクトリは無視しない
 # /foo
-<<<<<<< HEAD
-
-/.vim/tmp/*
-/.vim/dein/*
-/.vim/userautoload/Users/*
-=======
 /.vim/dein/*
 /.vim/tmp/*
 /.vim/undo/
 /.vim/userautoload/Users/*
 /etc/init/windows/settings/cygwin/apt-cyg/
->>>>>>> b4b7e5ffbd7dcbd2804a52346bc8cc05a80b6a80
 
 Users/
 */Users/
@@ -99,11 +64,11 @@ Session.vim
 *.old
 *.bk
 *.bak
-# yyyyMMdd
+# yyyymmdd
 *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
-# yyyyMMddHHmm
+# yyyymmddhhmm
 *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
-# yyyyMMddHHmmss
+# yyyymmddhhmmss
 *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
 
 # ------------------------------
