@@ -40,8 +40,19 @@ else
     nmap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 endif
 
-" +/-: フォントサイズUp/Down
+" <Leader>fu: 改行コードを "LF"       として開直す
+nnoremap <Leader>fu :<C-u>e ++fileformat=unix<CR>:<C-u>%s/^M//g<CR>
 
+" <Leader>fd: 改行コードを "CR/LF"    として開直す
+nnoremap <Leader>fd :<C-u>e ++fileformat=dos<CR>
+
+" <Leader>eu: 文字コードを "UTF-8"    として開直す
+nnoremap <Leader>eu :<C-u>e ++encoding=utf-8<CR>
+
+" <Leader>eu: 文字コードを "SIFT-JIS" として開直す
+nnoremap <Leader>ej :<C-u>e ++encoding=sjis<CR>
+
+" +/-: フォントサイズUp/Down
 if !has("nvim")
     nnoremap + :silent! let &guifont = substitute(
                 \ &guifont,
@@ -255,7 +266,7 @@ nnoremap <Leader>T :<C-u>tabnew <TAB>
 nmap <Leader><Leader> V
 
 " <Leader>l: スペルチェックON/OFFをトグル
-nnoremap <silent> <Leader>l :set spell!<CR>
+nnoremap <silent> <Leader>l :<C-u>set spell!<CR>
 
 " EXコマンドの出力をクリップボードへコピー
 func! s:func_copy_cmd_output(cmd)

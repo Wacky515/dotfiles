@@ -77,6 +77,11 @@
 - \<Leader\>v:    ウィンドウを横分割
 - \<Leader\>e:    ウィンドウサイズ変更開始
 
+- \<Leader\>fu:   改行コードを "LF"       として開直す
+- \<Leader\>fd:   改行コードを "CR/LF"    として開直す
+- \<Leader\>eu:   文字コードを "UTF-8"    として開直す
+- \<Leader\>eu:   文字コードを "SIFT-JIS" として開直す
+
 - \<Leader\>i:    初期配置 3 画面分割
 - \<Leader\>o:    現在開いているバッファを IDE 風に開く
 - \<Leader\>br:   編集中のファイルをブラウザで表示（汎用）
