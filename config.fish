@@ -58,7 +58,7 @@ switch (uname)
     # "Mac" 用設定
     case 'Darwin*'
         echo ">> Seting for Mac fish"
-        set -g fish_user_path "/usr/local/sbin" $fish_user_paths
+        set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 
     # "Windows" 用設定
     case 'MSYS_NT*'
