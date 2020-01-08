@@ -178,7 +178,7 @@ endif
 " endif
 " }}}
 "Surface Go" のノーマルモードで ":" と ";" を入替え
-if hostname("SALADSURFACEGO")
+if hostname() == "SALADSURFACEGO"
     noremap : ;
     noremap ; :
 endif
