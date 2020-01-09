@@ -190,4 +190,3 @@ esac
 
 # ↓ エラー？
 exec $SHELL -l
->>>>>>> b4b7e5ffbd7dcbd2804a52346bc8cc05a80b6a80
