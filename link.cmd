@@ -6,13 +6,13 @@ rem Last Change: 2019/11/20 16:41:57.
 set batch_title=Make dotfiles
 title %batch_title%
 
-rem ŠÇ—ŽÒŒ ŒÀ‚Å‹N“®‚³‚ê‚½‚©ƒ`ƒFƒbƒN
+rem ç®¡ç†è€…æ¨©é™ã§èµ·å‹•ã•ã‚ŒãŸã‹ãƒã‚§ãƒƒã‚¯
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
-rem ŠÇ—ŽÒŒ ŒÀ‚È‚çƒƒCƒ“ˆ—
+rem ç®¡ç†è€…æ¨©é™ãªã‚‰ãƒ¡ã‚¤ãƒ³å‡¦ç†
 if not errorlevel 1 goto main_routine
 
-rem ŠÇ—ŽÒŒ ŒÀ‚Å‚È‚¯‚ê‚ÎŠÇ—ŽÒŒ ŒÀ‚ÅÄ‹N“®
+rem ç®¡ç†è€…æ¨©é™ã§ãªã‘ã‚Œã°ç®¡ç†è€…æ¨©é™ã§å†èµ·å‹•
 @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
 exit
 
@@ -22,8 +22,8 @@ pushd %bat_path%
 
 echo ^>^> Start set link
 
-rem "NeoVim" Ý’è
-rem "NeoVim" ƒCƒ“ƒXƒg[ƒ‹Ï‚Ý‚©ƒ`ƒFƒbƒN
+rem "NeoVim" è¨­å®š
+rem "NeoVim" ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«æ¸ˆã¿ã‹ãƒã‚§ãƒƒã‚¯
 nvim -v > nul 2>&1
 if not %errorlevel% equ 0 (
     echo ^>^> Not install NeoVim
@@ -42,15 +42,15 @@ if defined xdg_config_home (
 
 mklink /d %dst_nvim% %src_nvim% > nul 2>&1
 if %errorlevel% equ 0 (
-    echo ^>^> init.vimAginit.vim link success!
+    echo ^>^> init.vimã€ginit.vim link success!
 ) else (
-    echo ^>^> init.vimAginit.vim link failed. code: %errorlevel%
+    echo ^>^> init.vimã€ginit.vim link failed. code: %errorlevel%
 )
 
 :ins_nyao
-rem "NyaoVim" Ý’è
-rem FIXME: NyaoVim ‚ª‹N“®‚·‚é‚½‚ßƒLƒ‹
-rem "NyaoVim" ƒCƒ“ƒXƒg[ƒ‹Ï‚Ý‚©ƒ`ƒFƒbƒN
+rem "NyaoVim" è¨­å®š
+rem FIXME: NyaoVim ãŒèµ·å‹•ã™ã‚‹ãŸã‚ã‚­ãƒ«
+rem "NyaoVim" ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«æ¸ˆã¿ã‹ãƒã‚§ãƒƒã‚¯
 rem nyaovim -v > nul 2>&1
 rem if not %errorlevel% equ 0 (
 rem     echo ^>^> Not install NyaoVim
@@ -64,7 +64,7 @@ if exist %dst_html% (
     del %dst_html%
 )
 
-rem FIXME: "mklink" ‚¾‚Æ‹N“®‚µ‚È‚¢
+rem FIXME: "mklink" ã ã¨èµ·å‹•ã—ãªã„
 rem mklink %dst_html% %src_html%
 copy %src_html% %dst_html% > nul 2>&1
 if %errorlevel% equ 0 (
@@ -76,8 +76,8 @@ if %errorlevel% equ 0 (
 )
 
 :ins_oni
-rem "OniVim" Ý’è
-rem "OniVim" ƒCƒ“ƒXƒg[ƒ‹Ï‚Ý‚©ƒ`ƒFƒbƒN
+rem "OniVim" è¨­å®š
+rem "OniVim" ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«æ¸ˆã¿ã‹ãƒã‚§ãƒƒã‚¯
 oni -h > nul 2>&1
 if not %errorlevel% equ 0 (
     echo ^>^> Not install OniVim
@@ -99,7 +99,7 @@ if %errorlevel% equ 0 (
 )
 
 :lnk_git
-rem ".gitconfig" Ý’è
+rem ".gitconfig" è¨­å®š
 mklink %userprofile%\.gitconfig %bat_path%\.gitconfig > nul 2>&1
 if %errorlevel% equ 0 (
     echo ^>^> .gitconfig link success!
@@ -113,7 +113,7 @@ if %errorlevel% equ 0 (
     echo ^>^> .gitconfig.os link failed. code: %errorlevel%
 )
 
-rem ".vim" Ý’è
+rem ".vim" è¨­å®š
 mklink /d %userprofile%\.vim %bat_path%\.vim > nul 2>&1
 if %errorlevel% equ 0 (
     echo ^>^> .vim link success!
@@ -121,7 +121,7 @@ if %errorlevel% equ 0 (
     echo ^>^> .vim link failed. code: %errorlevel%
 )
 
-rem "config.fish" Ý’è
+rem "config.fish" è¨­å®š
 mklink %userprofile%\.config\fish\config.fish %bat_path%\config.fish > nul 2>&1
 if %errorlevel% equ 0 (
     echo ^>^> config.fish link success!
@@ -130,20 +130,20 @@ if %errorlevel% equ 0 (
 )
 
 :lnk_dot
-rem "mklink" Žž‚ÉƒXƒLƒbƒv‚·‚éƒhƒbƒgƒtƒ@ƒCƒ‹
+rem "mklink" æ™‚ã«ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹ãƒ‰ãƒƒãƒˆãƒ•ã‚¡ã‚¤ãƒ«
 for %%j in (.*) do (
     if %%j == .bash_history (
-        rem PASS(Á‚·‚È)
+        rem PASS(æ¶ˆã™ãª)
     ) else if %%j == .gitconfig (
-        rem PASS(Á‚·‚È)
+        rem PASS(æ¶ˆã™ãª)
     ) else if %%j == .gitconfig.linux (
-        rem PASS(Á‚·‚È)
+        rem PASS(æ¶ˆã™ãª)
     ) else if %%j == .gitconfig.windows (
-        rem PASS(Á‚·‚È)
+        rem PASS(æ¶ˆã™ãª)
     ) else if %%j == .zsh_history (
-        rem PASS(Á‚·‚È)
+        rem PASS(æ¶ˆã™ãª)
     ) else if %%j == .oyainputconf (
-        rem PASS(Á‚·‚È)
+        rem PASS(æ¶ˆã™ãª)
     ) else (
         mklink %userprofile%\%%j .\dotfiles\%%j > nul 2>&1
     )
