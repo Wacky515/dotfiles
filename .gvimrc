@@ -116,8 +116,8 @@ if !has("nvim")
             set printfont=Cica:h13
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "SALADSURFACEGO"
-            set   guifont=Cica:h16
-            set printfont=Cica:h16
+            set   guifont=Cica:h13
+            set printfont=Cica:h13
             set renderoptions=type:directx,renmode:5
 
         " muRata setting
