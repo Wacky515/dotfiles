@@ -24,7 +24,7 @@ set fil_min32=mingw32.ini
 set fil_min64=mingw64.ini
 set fil_msys2=msys2.ini
 
-set conf_fish=%homepath%\dotfiles\config.fish
+set conf_fish=%userprofile%\dotfiles\config.fish
 
 set lnk_min32=%msys_path%\%fil_min32%
 set lnk_min64=%msys_path%\%fil_min64%

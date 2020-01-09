@@ -33,7 +33,7 @@ set tstmp=%yyyy%-%mm%-%dd%_%hh%-%mi%-%ss%
 echo ^>^> Time stamp: %tstmp%
 
 set bat_path=%~dp0
-set inidir=%homepath%\AppData\Roaming\UWSC
+set inidir=%userprofile%\AppData\Roaming\UWSC
 set inifile=%inidir%\UWSC.INI
 set backup=%inidir%\old\%tstmp%
 set srcdir=%bat_path%

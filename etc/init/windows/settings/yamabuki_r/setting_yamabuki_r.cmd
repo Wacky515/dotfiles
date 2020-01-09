@@ -23,8 +23,8 @@ pushd %bat_path%
 echo ^>^> %batch_title%
 
 rem 設定ファイル コピー
-if exist %homepath%\yamabuki_r1.11.1.w\ (
-    copy /y "yamabuki_r.ypr" %homepath%\yamabuki_r1.11.1.w\
+if exist %userprofile%\yamabuki_r1.11.1.w\ (
+    copy /y "yamabuki_r.ypr" %userprofile%\yamabuki_r1.11.1.w\
 ) else (
     echo ^>^> Not install Yamabuki R
     exit /b 1
@@ -40,16 +40,16 @@ if not errorlevel 1 goto win10
 
 :win7
 echo ^>^> This PC is Windows7
-copy .\yamabuki_r.lnk %homepath%"\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"
+copy .\yamabuki_r.lnk %userprofile%"\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"
 rem FIXME: ↑ と重複してるけど動作する、意味不明
-if errorlevel 1 copy .\yamabuki_r.lnk %homepath%"\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"
+if errorlevel 1 copy .\yamabuki_r.lnk %userprofile%"\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"
 goto eof
 
 :win10
 echo ^>^> This PC is Windows10
-copy .\yamabuki_r.lnk %homepath%"\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"
+copy .\yamabuki_r.lnk %userprofile%"\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"
 rem FIXME: ↑ と重複してるけど動作する、意味不明
-if errorlevel 1 copy .\yamabuki_r.lnk %homepath%"\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"
+if errorlevel 1 copy .\yamabuki_r.lnk %userprofile%"\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"
 goto eof
 
 :eof

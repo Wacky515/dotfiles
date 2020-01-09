@@ -10,7 +10,7 @@ Dim env
 Dim strEnvName
 
 Set shell = WScript.CreateObject("WScript.Shell")
-strEnvName = "%HOMEPATH%"
+strEnvName = "%USERPROFILE%"
 
 Set env = shell.Environment("User")
 

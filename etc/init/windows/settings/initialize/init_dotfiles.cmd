@@ -98,7 +98,7 @@ exit /b 1000
 
 :gclone
 echo ^>^> Check Git clone or not
-if not exist C:%homepath%\dotfiles\.git\ (
+if not exist %userprofile%\dotfiles\.git\ (
     echo ^>^> Git clone not yet, clone first
     if exist %userprofile%\dotfiles\ (
         rmdir /s /q %userprofile%\dotfiles\

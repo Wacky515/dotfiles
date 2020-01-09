@@ -10,7 +10,7 @@ Dim env
 Dim strEnvName
 
 Set shell = WScript.CreateObject("WScript.Shell")
-strEnvName = "C:%homepath%\Lynx_for_Win32"
+strEnvName = "%userprofile%\Lynx_for_Win32"
 
 Set env = shell.Environment("User")
 

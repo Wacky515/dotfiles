@@ -11,7 +11,7 @@ rem     set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Init
 rem ) else if %computername% == HBAMB819 (
 rem     set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps\
 rem ) else (
-    set src_dir=C:%homepath%\OneDrive\仕事\InitApps\
+    set src_dir=%userprofile%\OneDrive\仕事\InitApps\
 rem )
 pushd %src_dir%
 

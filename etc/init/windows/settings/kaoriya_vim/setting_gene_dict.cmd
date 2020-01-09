@@ -18,14 +18,14 @@ exit
 :main_routine
 rem rem  スクリプトがある "Dir" に "cd"
 rem pushd %~dp0
-pushd %homepath%\OneDrive\仕事\Settings\KaoriyaVim\
+pushd %userprofile%\OneDrive\仕事\Settings\KaoriyaVim\
 
 cd
 echo ^>^> %batch_title%
 
-if not exist %homepath%\vimfiles\dict\ (
-    mkdir %homepath%\vimfiles\dict\
-    copy .\GENE.TXT %homepath%\vimfiles\dict\
+if not exist %userprofile%\vimfiles\dict\ (
+    mkdir %userprofile%\vimfiles\dict\
+    copy .\GENE.TXT %userprofile%\vimfiles\dict\
     )
 
 endlocal

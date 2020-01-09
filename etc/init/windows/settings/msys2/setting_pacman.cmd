@@ -40,8 +40,8 @@ call msys2_shell.cmd ^
      -defterm ^
      -mingw64 ^
      -here ^
-     %homepath%\dotfiles\etc\init\windows\settings\msys2\EXE_FM_CMD_install_init_apps.sh
-call %homepath%\dotfiles\etc\init\windows\settings\msys2\fish\AFTER_INS_FISH_setting_fish.cmd
+     %userprofile%\dotfiles\etc\init\windows\settings\msys2\EXE_FM_CMD_install_init_apps.sh
+call %userprofile%\dotfiles\etc\init\windows\settings\msys2\fish\AFTER_INS_FISH_setting_fish.cmd
 
 endlocal
 popd

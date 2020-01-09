@@ -22,7 +22,7 @@ pushd %bat_path%
 pip3 --version > nul 2>&1
 if errorlevel 1 (
     echo ^>^> Install pip3 first
-    call %homepath%\OneDrive\édéñ\Settings\Python3\install_python.cmd
+    call %userprofile%\OneDrive\édéñ\Settings\Python3\install_python.cmd
     )
 
 pip3 install neovim

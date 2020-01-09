@@ -1,1 +1,1 @@
-setx PATH "%PATH%;C:%homepath%\.vim\ctags"
+setx PATH "%PATH%;%userprofile%\.vim\ctags"

@@ -42,13 +42,13 @@ cinst -y nodejs.install
 
 :install_textlint
 echo ^>^> %batch_title%
-rem if not exist %homepath%\textlintrc ( rem  {{{
+rem if not exist %userprofile%\textlintrc ( rem  {{{
 rem     echo ^>^> Make working dir
-rem     mkdir %homepath%\textlintrc
+rem     mkdir %userprofile%\textlintrc
 rem     )
-rem pushd %homepath%\textlintrc
+rem pushd %userprofile%\textlintrc
 
-rem if not exist %homepath%\textlintrc\package.json (
+rem if not exist %userprofile%\textlintrc\package.json (
 rem     echo ^>^> Make package.json
 rem     cmd /c npm init -y
 rem     )

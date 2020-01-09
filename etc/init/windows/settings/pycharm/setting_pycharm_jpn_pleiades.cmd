@@ -20,7 +20,7 @@ set bat_path=%~dp0
 
 rem rem スクリプトがある "Dir" に "cd"
 rem pushd %bat_path%
-pushd %homepath%\OneDrive\仕事\Settings\PyCharm\
+pushd %userprofile%\OneDrive\仕事\Settings\PyCharm\
 
 echo ^>^> %batch_title%
 

@@ -16,7 +16,7 @@ rem ŠÇ—ŽÒŒ ŒÀ‚Å‚È‚¯‚ê‚ÎŠÇ—ŽÒŒ ŒÀ‚ÅÄ‹N“®
 exit
 
 :main_routine
-set homedir=C:%homepath%
+set homedir=%userprofile%
 
 echo ^>^> %batch_title%
 

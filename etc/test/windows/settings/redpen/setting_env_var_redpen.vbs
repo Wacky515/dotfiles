@@ -10,12 +10,12 @@ Dim env
 Dim strEnvName
 
 Set shell = WScript.CreateObject("WScript.Shell")
-strEnvName = "C:%homepath%\redpen-distribution-1.10.1\bin\"
+strEnvName = "%userprofile%\redpen-distribution-1.10.1\bin\"
 
 Set env = shell.Environment("User")
     ' If Err.Number = 0 Then  ' {{{
     '     ' strEnvName = "TESTENV"
-    '     ' strEnvName = "C:%homepath%\redpen-distribution-1.10.1\bin"
+    '     ' strEnvName = "%userprofile%\redpen-distribution-1.10.1\bin"
     '     env.Remove(strEnvName)
     '     ' WScript.Echo "ŠÂ‹«•Ï” " & strEnvName & " ‚ğíœ‚µ‚Ü‚µ‚½B"
     '     WScript.Echo "Dell"

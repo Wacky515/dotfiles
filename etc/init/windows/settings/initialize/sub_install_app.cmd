@@ -10,7 +10,7 @@ set dir_7zip="C:\ProgramData\chocolatey\tools\7z.exe"
 rem rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 
-set src_dir=C:%homepath%\OneDrive\仕事\InitApps\
+set src_dir=%userprofile%\OneDrive\仕事\InitApps\
 pushd %src_dir%
 
 for %%i in (*.7z) do (
@@ -75,8 +75,8 @@ for %%n in (*.7z) do (
 pushd %src_dir%
 
 rem rem TODO: インストール有無 判定
-rem if not exist %homepath%\SlimDrivers-setup.exe (
-        rem         %homepath%\SlimDrivers-setup.exe
+rem if not exist %userprofile%\SlimDrivers-setup.exe (
+        rem         %userprofile%\SlimDrivers-setup.exe
         rem         )
 
 echo ^>^> Install apps
@@ -87,9 +87,9 @@ for %%o in (*.7z) do (
 goto :eof
 
 :unzip
-if not exist %homepath%\%~n1 (
+if not exist %userprofile%\%~n1 (
         echo ^>^> Set %~n1 in home dir
-        %dir_7zip% x -y -o%homepath%\%~n1 %1
+        %dir_7zip% x -y -o%userprofile%\%~n1 %1
         ) else (
             echo ^>^> SKIP: Already set %~n1
             )
