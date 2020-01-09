@@ -12,7 +12,7 @@ Dim osbits
 
 Set shell = WScript.CreateObject("WScript.Shell")
 
-' OS?r?b?g????????
+' OSƒrƒbƒg” æ“¾
 osbits = GetObject("winmgmts:root\cimv2:Win32_Processor='cpu0'").AddressWidth
 
 If osbits = 64 Then

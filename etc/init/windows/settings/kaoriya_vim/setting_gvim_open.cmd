@@ -21,21 +21,25 @@ set homedir=%userprofile%
 echo ^>^> %batch_title%
 
 rem OS 64bit”Å‚Æ32bit”Å‚Å•ªŠò
-if exist %homedir%\vim81-kaoriya-win64\ goto vim64
-if exist %homedir%\vim81-kaoriya-win32\ goto vim32
+rem if exist %homedir%\vim81-kaoriya-win64\ goto vim64
+rem if exist %homedir%\vim81-kaoriya-win32\ goto vim32
+if exist %homedir%\vim82-kaoriya-win64\ goto vim64
+if exist %homedir%\vim82-kaoriya-win32\ goto vim32
 echo ^>^> Please set GVim in home directory
 goto eof
 
 :vim64
 echo ^>^> Set Open by GVim 64bit
 reg add "HKEY_CLASSES_ROOT\*\shell\GVim open" /v "Icon" /t REG_SZ /d %homedir%"\vim81-kaoriya-win64\gvim.exe" /f
-reg add "HKEY_CLASSES_ROOT\*\shell\GVim open\command" /t REG_SZ /d "\"%homedir%\vim81-kaoriya-win64\gvim.exe\" \"%%1\"" /f
+rem reg add "HKEY_CLASSES_ROOT\*\shell\GVim open\command" /t REG_SZ /d "\"%homedir%\vim81-kaoriya-win64\gvim.exe\" \"%%1\"" /f
+reg add "HKEY_CLASSES_ROOT\*\shell\GVim open\command" /t REG_SZ /d "\"%homedir%\vim82-kaoriya-win64\gvim.exe\" \"%%1\"" /f
 goto eof
 
 :vim32
 echo ^>^> Set Open by GVim 32bit
 reg add "HKEY_CLASSES_ROOT\*\shell\GVim open" /v "Icon" /t REG_SZ /d %homedir%"\vim81-kaoriya-win32\gvim.exe" /f
-reg add "HKEY_CLASSES_ROOT\*\shell\GVim open\command" /t REG_SZ /d "\"%homedir%\vim81-kaoriya-win32\gvim.exe\" \"%%1\"" /f
+rem reg add "HKEY_CLASSES_ROOT\*\shell\GVim open\command" /t REG_SZ /d "\"%homedir%\vim81-kaoriya-win32\gvim.exe\" \"%%1\"" /f
+reg add "HKEY_CLASSES_ROOT\*\shell\GVim open\command" /t REG_SZ /d "\"%homedir%\vim82-kaoriya-win32\gvim.exe\" \"%%1\"" /f
 goto eof
 
 :eof
