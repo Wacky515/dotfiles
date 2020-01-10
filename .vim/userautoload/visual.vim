@@ -20,6 +20,9 @@ set cursorline
 " 選択列 強調
 set cursorcolumn
 
+" 改行コード 表示
+set list
+
 " 補完メニュー 高さ
 set pumheight=10
 
