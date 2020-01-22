@@ -32,18 +32,27 @@ if has "peco"
 end
 
 # FIXME: Windows10、インストール失敗する
-function ins_fisher
-    if ! has "fisher"
-        echo ">> Install fisher"
-        curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
-        # curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
-    end
+# function ins_fisher  # {{{
+#     if ! has "fisher"
+#         echo ">> Install fisher"
+#         curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+#         # curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+#     end
+# end
+# }}}
+if not functions -q fisher
+    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+    fish -c fisher
 end
+# REF: https://github.com/jorgebucaran/fisher
 
 function win_setting
     # エイリアスは ".bashrc" では設定できない
-    alias   vim="~/vim81-kaoriya-win64/vim.exe"
-    alias  gvim="~/vim81-kaoriya-win64/gvim.exe"
+    # alias   vim="~/vim81-kaoriya-win64/vim.exe"
+    # alias  gvim="~/vim81-kaoriya-win64/gvim.exe"
+    alias   vim="~/vim82-kaoriya-win64/vim.exe"
+    alias  gvim="~/vim82-kaoriya-win64/gvim.exe"
     alias  nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
     alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"
 end

@@ -25,7 +25,9 @@ alias ping="wincmd /c/windows/system32/ping"
 alias gitk="/c/Program\ Files/Git/cmd/gitk"
 
 # Vim
-alias vim="~/vim81-kaoriya-win64/vim.exe"
-alias gvim="~/vim81-kaoriya-win64/gvim.exe"
+# alias vim="~/vim81-kaoriya-win64/vim.exe"
+# alias gvim="~/vim81-kaoriya-win64/gvim.exe"
+alias vim="~/vim82-kaoriya-win64/vim.exe"
+alias gvim="~/vim82-kaoriya-win64/gvim.exe"
 alias nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
 alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"
