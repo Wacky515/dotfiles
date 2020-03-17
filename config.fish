@@ -1,5 +1,5 @@
 # Created:     2018/**/** **:**:**
-# Last Change: 2019/11/30 22:36:12.
+# Last Change: 2020/03/17 17:27:19.
 
 # 関数群
 # コマンドの存在確認
@@ -42,6 +42,7 @@ end
 #     end
 # end
 # }}}
+
 if not functions -q fisher
     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
     curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
