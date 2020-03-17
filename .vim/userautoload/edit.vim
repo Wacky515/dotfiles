@@ -1,44 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/11/26 17:40:14.
-
-" --------------------------------------------------------------------------------
-" マップキー
-" --------------------------------------------------------------------------------
-" 複数行をインデント
-    " 操作時に選択を解除しないようにする
-vnoremap > >gv
-vnoremap < <gv
-
-" <Leader>zh: 全角英数字を半角にする
-if !has("nvim")
-    nnoremap <Leader>zh :HzjaConvert han_eisu<Enter>
-    vnoremap <Leader>zh :HzjaConvert han_eisu<Enter>
-endif
-
-" 3. "." 押下で改行して閉じ括弧を補完（関数記述用）
-inoremap (. ()<Left><CR><Esc><S-o>
-inoremap [. []<Left><CR><Esc><S-o>
-inoremap {. {}<Left><CR><Esc><S-o>
-inoremap '. ''''''<Left><Left><Left><CR><Esc><S-o>
-inoremap ". """"""<Left><Left><Left><CR><Esc><S-o>
-inoremap `. ``````<Left><Left><Left><CR><Esc><S-o>
-
-" 挿入モードで日時を挿入
-" ,df: フルセット
-inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
-" ,dd: 年月日
-inoremap <expr> ,dd strftime('%Y/%m/%d')
-" ,dt: 時分
-inoremap <expr> ,dt strftime('%H:%M')
-
-" 挿入モードで曜日を挿入
-let weeks = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ]
-let wday = strftime("%w")
-" ,ds: 年月日曜日
-inoremap <expr> ,ds strftime('%Y/%m/%d ').weeks[wday]
-" ,dy: 曜日のみ
-inoremap <expr> ,dy strftime('').weeks[wday]
+" Last Change: 2020/03/16 10:34:03.
 
 " 1. "lexima.vim" で代替  " {{{
 " " 自動的に閉じ括弧を入力

@@ -1,12 +1,11 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 07-Jan-2020.
-
-" ---------------------------------------------------------------------------
-" マップキー篇
-" ---------------------------------------------------------------------------
+" Last Change: 2020/03/16 10:33:26.
 " TODO: マークにジャンプ時、画面をトップに位置にする
 
+" --------------------------------------------------------------------------------
+" マップキー
+" --------------------------------------------------------------------------------
 " キーマッピングに適しているキー " {{{
     " 1. <Space>
     " 2. ,
@@ -17,6 +16,11 @@ scriptencoding utf-8
 
 " 挿入モードで jj: <Esc>
 inoremap jj <Esc>
+
+" 複数行をインデント
+    " 操作時に選択を解除しないようにする
+vnoremap > >gv
+vnoremap < <gv
 
 " bk: バックアップファイル作成
 nnoremap bk :<C-u>w %.bk
@@ -39,6 +43,36 @@ if has("mac")
 else
     nmap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 endif
+
+" "." 押下で改行して閉じ括弧を補完（関数記述用）
+inoremap (. ()<Left><CR><Esc><S-o>
+inoremap [. []<Left><CR><Esc><S-o>
+inoremap {. {}<Left><CR><Esc><S-o>
+inoremap '. ''''''<Left><Left><Left><CR><Esc><S-o>
+inoremap ". """"""<Left><Left><Left><CR><Esc><S-o>
+inoremap `. ``````<Left><Left><Left><CR><Esc><S-o>
+
+" <Leader>zh: 全角英数字を半角にする
+if !has("nvim")
+    nnoremap <Leader>zh :HzjaConvert han_eisu<Enter>
+    vnoremap <Leader>zh :HzjaConvert han_eisu<Enter>
+endif
+
+" 挿入モードで日時を挿入
+" ,df: フルセット
+inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
+" ,dd: 年月日
+inoremap <expr> ,dd strftime('%Y/%m/%d')
+" ,dt: 時分
+inoremap <expr> ,dt strftime('%H:%M')
+
+" 挿入モードで曜日を挿入
+let weeks = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ]
+let wday = strftime("%w")
+" ,ds: 年月日曜日
+inoremap <expr> ,ds strftime('%Y/%m/%d ').weeks[wday]
+" ,dy: 曜日のみ
+inoremap <expr> ,dy strftime('').weeks[wday]
 
 " <Leader>fu: 改行コードを "LF"       として開直す
 " nnoremap <Leader>fu :<C-u>e ++fileformat=unix<CR>:<C-u>%s/^M//g<CR>

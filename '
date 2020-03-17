@@ -1,0 +1,143 @@
+etc/init/windows/settings/cmder/2019-11-12_conemu.xml:597:					<value name="Cmd1" type="string" data='-new_console:d:%HOMEPATH%\dotfiles set CHERE_INVOKING=1 &amp; C:\tools\msys64\usr\bin\bash.exe --login -i -new_console:C:"C:\tools\msys64\msys2.icoo"'/>
+etc/init/windows/settings/cmder/2019-11-12_conemu.xml:606:					<value name="Cmd1" type="string" data='-new_console:d:%HOMEPATH%\dotfiles set CHERE_INVOKING=1 &amp; C:\tools\msys64\usr\bin\zsh.exe --login -i -new_console:C:"C:\tools\msys64\msys2.icoo"'/>
+etc/init/windows/settings/cmder/2019-11-12_conemu.xml:615:					<value name="Cmd1" type="string" data='-new_console:d:%HOMEPATH%\dotfiles set CHERE_INVOKING=1 &amp; C:\tools\msys64\usr\bin\fish.exe --login -i -new_console:C:"C:\tools\msys64\msys2.icoo"'/>
+etc/init/windows/settings/cmder/2019-11-12_conemu.xml:624:					<value name="Cmd1" type="string" data='-cur_console:a -cur_console:d:%HOMEPATH%\dotfiles set "PATH=%ConEmuDrive%\Program Files\Git\usr\bin;%PATH%" &amp; "%ConEmuDrive%\Program Files\Git\git-cmd.exe" --no-cd --command=%ConEmuBaseDirShort%\conemu-msys2-64.exe /usr/bin/bash.exe -l -i'/>
+etc/init/windows/settings/cmder/2019-11-12_conemu.xml:633:					<value name="Cmd1" type="string" data='-new_console:d:%HOMEPATH%\dotfiles cmd.exe /k "%ConEmuBaseDir%\CmdInit.cmd" -new_console:a'/>
+config.fish:    builtin history --show-time='%Y/%m/%d %H:%M:%S ' | sort
+config.fish:        bind \cr 'peco_sync_select_history (commandline -b)'
+config.fish:    case 'Linux*'
+config.fish:    case 'Darwin*'
+config.fish:    case 'MSYS_NT*'
+config.fish:    case 'MINGW*'
+config.fish:    case 'windows*'
+config.fish:    case '*'
+git_find_big.sh:# Shows you the largest objects in your repo's pack file.
+git_find_big.sh:IFS=$'\n';
+git_find_big.sh:echo "All sizes are in kB's. The pack column is the size of the object, compressed, inside the pack file."
+git_find_big.sh:	size=$((`echo $y | cut -f 5 -d ' '`/1024))
+git_find_big.sh:	compressedSize=$((`echo $y | cut -f 6 -d ' '`/1024))
+git_find_big.sh:	sha=`echo $y | cut -f 1 -d ' '`
+git_find_big.sh:echo -e $output | column -t -s ', '
+nyaovimrc.html:<!-- "if exists('g:nyaovim_version')" で "Nyaovim" 固有の設定を記述 -->
+README.md:# Wacky515's dotfiles
+test_path_call.sh:path='$HOME'
+etc\init\osx\README.md:- Import color scheme setting for Terminal.app's *.terminal
+etc\init\osx\README.md:- Import setting for iTerm2.app's *.
+etc\init\osx\settings\brew_bash4.sh:if [ `bash --version | grep '2007'` ] ; then
+etc\init\linux\settings\install_chrome.sh:        sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >>
+etc\init\linux\settings\install_chrome.sh:            \ /etc/apt/sources.list.d/google.list'
+etc\init\raspberry_pi\settings\config.txt:# uncomment to force a console size. By default it will be display's size minus
+etc\init\raspberry_pi\settings\config_lite.txt:# uncomment to force a console size. By default it will be display's size minus
+etc\init\windows\batch\git_find_big.sh:# Shows you the largest objects in your repo's pack file.
+etc\init\windows\batch\git_find_big.sh:IFS=$'\n';
+etc\init\windows\batch\git_find_big.sh:echo "All sizes are in kB's. The pack column is the size of the object, compressed, inside the pack file."
+etc\init\windows\batch\git_find_big.sh:	size=$((`echo $y | cut -f 5 -d ' '`/1024))
+etc\init\windows\batch\git_find_big.sh:	compressedSize=$((`echo $y | cut -f 6 -d ' '`/1024))
+etc\init\windows\batch\git_find_big.sh:	sha=`echo $y | cut -f 1 -d ' '`
+etc\init\windows\batch\git_find_big.sh:echo -e $output | column -t -s ', '
+etc\init\linux\settings\install_python3_7.sh:echo 'export PATH=$PATH:$HOME/.local/bin' >> ~/.bashrc
+etc\init\raspberry_pi\settings\ntp.conf:# By default, exchange time with everybody, but don't allow configuration.
+etc\init\linux\settings\make_dotfiles.sh:    alias sedi='sed -i '
+etc\init\linux\settings\make_dotfiles.sh:    alias sedi='sed -i "" '
+etc\init\linux\settings\make_dotfiles.sh:dotfiles_logo='
+etc\init\linux\settings\make_dotfiles.sh:'
+etc\init\linux\settings\make_dotfiles.sh:read -p "$(warn 'Start install? [Y/N] ')" -n 1 -r
+etc\test\osx\settings\NY_brew_npm.sh:    echo 'export PATH=$HOME/.nodebrew/current/bin:$PATH' >> ~/.bash_profile
+etc\test\windows\settings\EXE_IN_MSYA2_add_echo_off.cmd:for /f %%f in ('grep -iL "@echo off" *.cmd') do (
+etc\init\windows\settings\chocolatey\init_and_update_chocolatey.cmd:@powershell -NoProfile -ExecutionPolicy unrestricted -Command "(iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))) >$null 2>&1" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+etc\init\linux\settings\ubuntu\NY_setting_nautilus.sh:gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
+etc\init\linux\settings\ubuntu\NY_setting_nautilus.sh:gsettings set org.gnome.nautilus.preferences show-hidden-files 'true'
+etc\init\linux\settings\ubuntu\NY_setting_nautilus.sh:gsettings set org.gnome.nautilus.preferences executable-text-activation 'ask'
+etc\init\linux\settings\ubuntu\user-dirs.dirs:# If you want to change or add directories, just edit the line you're
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:			<value name="FarGotoEditorPath" type="string" data='far.exe /e%1:%2 "%3"'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:				<value name="KeyMacro01.Text" type="string" data='Task("cmd")'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:				<value name="KeyMacro02.Text" type="string" data='Task("PowerShell")'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:				<value name="KeyMacro05.Text" type="string" data='Task("PowerShell as Admin")'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:					<value name="GuiArgs" type="string" data='/icon "C:\tools\msys64\msys2.ico"'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:					<value name="Cmd1" type="string" data='-new_console:d:%HOMEPATH%\dotfiles set CHERE_INVOKING=1 &amp; C:\tools\msys64\usr\bin\bash.exe --login -i -new_console:C:"C:\tools\msys64\msys2.icoo"'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:					<value name="GuiArgs" type="string" data='/icon "C:\tools\msys64\msys2.ico"'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:					<value name="Cmd1" type="string" data='-new_console:d:%HOMEPATH%\dotfiles set CHERE_INVOKING=1 &amp; C:\tools\msys64\usr\bin\zsh.exe --login -i -new_console:C:"C:\tools\msys64\msys2.icoo"'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:					<value name="GuiArgs" type="string" data='/icon "C:\tools\msys64\msys2.ico"'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:					<value name="Cmd1" type="string" data='-new_console:d:%HOMEPATH%\dotfiles set CHERE_INVOKING=1 &amp; C:\tools\msys64\usr\bin\fish.exe --login -i -new_console:C:"C:\tools\msys64\msys2.icoo"'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:					<value name="Cmd1" type="string" data='-cur_console:a -cur_console:d:%HOMEPATH%\dotfiles set "PATH=%ConEmuDrive%\Program Files\Git\usr\bin;%PATH%" &amp; "%ConEmuDrive%\Program Files\Git\git-cmd.exe" --no-cd --command=%ConEmuBaseDirShort%\conemu-msys2-64.exe /usr/bin/bash.exe -l -i'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:					<value name="Cmd1" type="string" data='-new_console:d:%HOMEPATH%\dotfiles cmd.exe /k "%ConEmuBaseDir%\CmdInit.cmd" -new_console:a'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:					<value name="GuiArgs" type="string" data='/icon "%SystemDrive%\tools\Anaconda3\Menu\Iconleak-Atrous-Console.ico"'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:					<value name="Cmd1" type="string" data='cmd /k "%ConEmuDir%\..\init.bat &amp; C:\tools\Anaconda3\Scripts\activate.bat"  -new_console:d:%USERPROFILE% C:\tools\Anaconda3'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:					<value name="Cmd1" type="string" data='C:\ProgramData\chocolatey\bin\PUTTY.EXE -new_console -load "yoursavedsession"'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:					<value name="GuiArgs" type="string" data='/icon "%CMDER_ROOT%\cmder.exe"'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:					<value name="Cmd1" type="string" data='cmd /k "%ConEmuDir%\..\init.bat"  -new_console:d:%USERPROFILE%'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:					<value name="Cmd1" type="string" data='cmd.exe /k "%ConEmuBaseDir%\CmdInit.cmd"'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:					<value name="GuiArgs" type="string" data='/icon "%CMDER_ROOT%\cmder.exe"'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:					<value name="Cmd1" type="string" data='PowerShell -ExecutionPolicy Bypass -NoLogo -NoProfile -NoExit -Command "Invoke-Expression &apos;. &apos;&apos;%ConEmuDir%\..\profile.ps1&apos;&apos;&apos;" -new_console:d:"%USERPROFILE%"'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:					<value name="GuiArgs" type="string" data='/icon "%CMDER_ROOT%\cmder.exe"'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:					<value name="Cmd1" type="string" data='*PowerShell -ExecutionPolicy Bypass -NoLogo -NoProfile -NoExit -Command "Invoke-Expression &apos;. &apos;&apos;%ConEmuDir%\..\profile.ps1&apos;&apos;&apos;" -new_console:d:"%USERPROFILE%"'/>
+etc\init\windows\settings\cmder\2019-11-12_conemu.xml:					<value name="Cmd1" type="string" data='*cmd.exe /k Title Chocolatey &amp; "%ConEmuBaseDir%\Addons\ChocolateyAbout.cmd"'/>
+etc\init\windows\settings\cmder\setting_powerline_cmder.cmd:set batch_title=Setting cmder's powerline
+etc\init\windows\settings\general\setting_general.cmd:echo ^>^> Don't make index
+etc\init\windows\settings\general\setting_general.cmd:echo ^>^> Don't make suffix
+etc\test\windows\settings\batch\get_installed.cmd:    for /f "tokens=2,*" %%i in ('reg query %%a /s ^| findstr "\<displayname" ^| findstr /v "�X�V �C�� (kb"') do (
+etc\init\windows\settings\initialize\init_dotfiles.cmd:@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+etc\init\windows\settings\initialize\sub_install_app.cmd:        echo ^>^> %computername%'s setting
+etc\init\windows\settings\kaoriya_vim\setting_env_var_ctags.vbs:' Created:     201*/**/** **:**:**
+etc\init\windows\settings\kaoriya_vim\setting_env_var_ctags.vbs:' Last Change: 2019/06/28 14:20:09.
+etc\init\windows\settings\kaoriya_vim\setting_env_var_ctags.vbs:' �ϐ��錾������
+etc\init\windows\settings\kaoriya_vim\setting_env_var_vim.vbs:' Created:     201*/**/** **:**:**
+etc\init\windows\settings\kaoriya_vim\setting_env_var_vim.vbs:' Last Change: 2018/12/04 08:07:56.
+etc\init\windows\settings\kaoriya_vim\setting_env_var_vim.vbs:' �ϐ��錾������
+etc\init\windows\settings\kaoriya_vim\setting_env_var_vim.vbs:' OS�r�b�g�� �擾
+etc\init\windows\settings\kaoriya_vim\setting_env_var_vim.vbs:osbits = GetObject("winmgmts:root\cimv2:Win32_Processor='cpu0'").AddressWidth
+etc\init\windows\settings\kaoriya_vim\setting_env_var_lynx.vbs:' Created:     201*/**/** **:**:**
+etc\init\windows\settings\kaoriya_vim\setting_env_var_lynx.vbs:' Last Change: 2019/06/28 14:21:08.
+etc\init\windows\settings\kaoriya_vim\setting_env_var_lynx.vbs:' �ϐ��錾������
+etc\init\windows\settings\msys2\pacman.conf:# Pacman won't upgrade packages listed in IgnorePkg and members of IgnoreGroup
+etc\init\windows\settings\msys2\setting_env_var_mintty.vbs:' Created:     201*/**/** **:**:**
+etc\init\windows\settings\msys2\setting_env_var_mintty.vbs:' Last Change: 2018/12/04 08:27:53.
+etc\init\windows\settings\msys2\setting_env_var_mintty.vbs:' 変数宣言を強制
+etc\init\windows\settings\nyaovim\install_nyaovim.cmd:for /f %%i in ('%command%') do set npm_path=%%i
+etc\init\windows\settings\nyaovim\install_nyaovim.cmd:@powershell -NoProfile -ExecutionPolicy unrestricted -Command "(iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))) >$null 2>&1" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+etc\init\windows\settings\neovim\setting_env_var_neovim.vbs:' Created:     201*/**/** **:**:**
+etc\init\windows\settings\neovim\setting_env_var_neovim.vbs:' Last Change: 2018/12/17 15:44:45.
+etc\init\windows\settings\neovim\setting_env_var_neovim.vbs:' �ϐ��錾������
+etc\init\windows\settings\neovim\setting_env_var_xdg_config_home.vbs:' Created:     201*/**/** **:**:**
+etc\init\windows\settings\neovim\setting_env_var_xdg_config_home.vbs:' Last Change: 2019/11/12 11:36:06.
+etc\init\windows\settings\neovim\setting_env_var_xdg_config_home.vbs:' 変数宣言を強制
+etc\init\windows\settings\neovim\setting_env_var_xdg_config_home.vbs:    ' env.item("XDG_CONFIG_HOME") = env.item("XDG_CONFIG_HOME") & ";" & strEnvName
+etc\init\windows\settings\neovim\setting_neovim_dein.cmd:title Setting NeoVim's dein
+etc\init\windows\settings\python\setting_env_var_anaconda.vbs:' Created:     201*/**/** **:**:**
+etc\init\windows\settings\python\setting_env_var_anaconda.vbs:' Last Change: 2019/10/15 15:35:26.
+etc\init\windows\settings\python\setting_env_var_anaconda.vbs:' �ϐ��錾������
+etc\init\windows\settings\python\setting_env_var_anaconda.vbs:' �Ǘ��҂Ƃ��Ď��s
+etc\init\windows\settings\python\setting_env_var_anaconda.vbs:' strEnvName = "C:\Python35" & ";" & "C:\Python35\Scripts"
+etc\init\windows\settings\python\setting_env_var_anaconda.vbs:' strEnvName = "C:\Python36" & ";" & "C:\Python36\Scripts"
+etc\init\windows\settings\python\setting_env_var_anaconda.vbs:' Set env = shell.Environment("User")
+etc\init\windows\settings\python\setting_env_var_anaconda.vbs:  ' �t���O�̎擾
+etc\test\windows\settings\NC_autohotkey\autohotkey.ahk:;ThinkPad�ALet's Note �ΏہA���������K�v
+etc\test\windows\settings\graphviz\setting_env_var_graphviz.vbs:' Created:     201*/**/** **:**:**
+etc\test\windows\settings\graphviz\setting_env_var_graphviz.vbs:' Last Change: 2018/12/18 07:08:38.
+etc\test\windows\settings\graphviz\setting_env_var_graphviz.vbs:' 変数宣言を強制
+etc\init\windows\settings\textlint\install_textlint.cmd:for /f %%i in ('%command%') do set npm_path=%%i
+etc\init\windows\settings\textlint\install_textlint.cmd:@powershell -NoProfile -ExecutionPolicy unrestricted -Command "(iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))) >$null 2>&1" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+etc\test\windows\settings\redpen\setting_env_var_java_home.vbs:' Created:     2018/10/04 12:36:13
+etc\test\windows\settings\redpen\setting_env_var_java_home.vbs:' Last Change: 2018/11/23 13:22:54.
+etc\test\windows\settings\redpen\setting_env_var_java_home.vbs:' �ϐ��錾������
+etc\test\windows\settings\redpen\setting_env_var_java_home.vbs:    ' GetOsBits = 64
+etc\test\windows\settings\redpen\setting_env_var_java_home.vbs:    ' GetOsBits = 32
+etc\test\windows\settings\redpen\setting_env_var_redpen.vbs:' Created:     2018/10/04 11:19:01
+etc\test\windows\settings\redpen\setting_env_var_redpen.vbs:' Last Change: 2019/06/28 14:22:38.
+etc\test\windows\settings\redpen\setting_env_var_redpen.vbs:' �ϐ��錾������
+etc\test\windows\settings\redpen\setting_env_var_redpen.vbs:    ' If Err.Number = 0 Then  ' {{{
+etc\test\windows\settings\redpen\setting_env_var_redpen.vbs:    '     ' strEnvName = "TESTENV"
+etc\test\windows\settings\redpen\setting_env_var_redpen.vbs:    '     ' strEnvName = "%userprofile%\redpen-distribution-1.10.1\bin"
+etc\test\windows\settings\redpen\setting_env_var_redpen.vbs:    '     env.Remove(strEnvName)
+etc\test\windows\settings\redpen\setting_env_var_redpen.vbs:    '     ' WScript.Echo "���ϐ� " & strEnvName & " ���폜���܂����B"
+etc\test\windows\settings\redpen\setting_env_var_redpen.vbs:    '     WScript.Echo "Dell"
+etc\test\windows\settings\redpen\setting_env_var_redpen.vbs:    ' ' Else
+etc\test\windows\settings\redpen\setting_env_var_redpen.vbs:    '     ' WScript.Echo "�G���[: " & Err.Description
+etc\test\windows\settings\redpen\setting_env_var_redpen.vbs:    ' End If
+etc\test\windows\settings\redpen\setting_env_var_redpen.vbs:' env.item("PATH") = env.item("PATH") & ";" & strEnvName &
+etc\test\windows\settings\redpen\setting_env_var_redpen.vbs:' env.item("PATH") = env.item("PATH") & ";" & strEnvName
+etc\test\windows\settings\redpen\setting_env_var_redpen.vbs:' MsgBox env.item("PATH")  ' }}}
+etc\test\windows\settings\DEP_sounds\old\get_setting_sounds.cmd:echo Export %COMPUTERNAME%'s sounds setting data as *.reg
+etc\test\windows\settings\DEP_sounds\old\NY_Sounds.cmd:echo Export %COMPUTERNAME%'s sounds setting data as *.reg
+etc\test\windows\settings\wsl\fish\install_fish.cmd:rem for /f %%i in ('%command%') do set npm_path=%%i
+etc\test\windows\settings\wsl\fish\install_fish.cmd:rem @powershell -NoProfile -ExecutionPolicy unrestricted -Command "(iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))) >$null 2>&1" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
