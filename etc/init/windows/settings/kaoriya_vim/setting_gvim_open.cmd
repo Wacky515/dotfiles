@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/10/01 16:06:23.
+rem Last Change: 2020/03/25 10:35:59.
 
 set batch_title=Setting GVim Open
 title %batch_title%
@@ -30,15 +30,17 @@ goto eof
 
 :vim64
 echo ^>^> Set Open by GVim 64bit
-reg add "HKEY_CLASSES_ROOT\*\shell\GVim open" /v "Icon" /t REG_SZ /d %homedir%"\vim81-kaoriya-win64\gvim.exe" /f
+rem reg add "HKEY_CLASSES_ROOT\*\shell\GVim open" /v "Icon" /t REG_SZ /d %homedir%"\vim81-kaoriya-win64\gvim.exe" /f
 rem reg add "HKEY_CLASSES_ROOT\*\shell\GVim open\command" /t REG_SZ /d "\"%homedir%\vim81-kaoriya-win64\gvim.exe\" \"%%1\"" /f
+reg add "HKEY_CLASSES_ROOT\*\shell\GVim open" /v "Icon" /t REG_SZ /d %homedir%"\vim82-kaoriya-win64\gvim.exe" /f
 reg add "HKEY_CLASSES_ROOT\*\shell\GVim open\command" /t REG_SZ /d "\"%homedir%\vim82-kaoriya-win64\gvim.exe\" \"%%1\"" /f
 goto eof
 
 :vim32
 echo ^>^> Set Open by GVim 32bit
-reg add "HKEY_CLASSES_ROOT\*\shell\GVim open" /v "Icon" /t REG_SZ /d %homedir%"\vim81-kaoriya-win32\gvim.exe" /f
+rem reg add "HKEY_CLASSES_ROOT\*\shell\GVim open" /v "Icon" /t REG_SZ /d %homedir%"\vim81-kaoriya-win32\gvim.exe" /f
 rem reg add "HKEY_CLASSES_ROOT\*\shell\GVim open\command" /t REG_SZ /d "\"%homedir%\vim81-kaoriya-win32\gvim.exe\" \"%%1\"" /f
+reg add "HKEY_CLASSES_ROOT\*\shell\GVim open" /v "Icon" /t REG_SZ /d %homedir%"\vim82-kaoriya-win32\gvim.exe" /f
 reg add "HKEY_CLASSES_ROOT\*\shell\GVim open\command" /t REG_SZ /d "\"%homedir%\vim82-kaoriya-win32\gvim.exe\" \"%%1\"" /f
 goto eof
 
