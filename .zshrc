@@ -1,5 +1,5 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2019/11/20 15:57:29.
+# Last Change: 2020/03/27 15:38:18.
 
 cd ~/dotfiles
 
@@ -90,9 +90,11 @@ setopt auto_cd
 ## sudo の後のコマンドでエイリアスを有効にする
 alias sudo="sudo "
 
-## Vim風キーバインド（インクリメンタルサーチが動作しないのでkill）
+## "Vim" 風キーバインド
+### インクリメンタルサーチが動作しないのでKILL
 # bindkey -v
-## Emacs風キーバインド
+
+## "Emacs" 風キーバインド
 bindkey -e
 
 # 補完系
@@ -146,12 +148,12 @@ HISTSIZE=100000
 ## ファイル保存数
 SAVEHIST=100000
 
-## C-r: インクリメンタルサーチ
+## C-r: インクリメンタルサーチ 正順
 bindkey "^r" history-incremental-pattern-search-backward
-## C-s: 上記逆順
+## C-s: インクリメンタルサーチ 逆順
 bindkey "^s" history-incremental-pattern-search-forward
 
-## MEMO: （vim風キーバインドでは動作しない）
+## MEMO: Vim風キーバインドでは動作しない
 # bindkey "^R" history-incremental-search-backward # {{{
 # bindkey "^S" history-incremental-search-forward
 # bindkey "^P" history-beginning-search-backward
