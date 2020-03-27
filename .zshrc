@@ -1,5 +1,5 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2020/03/27 15:38:18.
+# Last Change: 2020/03/27 17:21:40.
 
 cd ~/dotfiles
 
@@ -181,8 +181,8 @@ case ${OSTYPE} in
 
     msys)
         # "Windows" 用設定
-        alias vim="~/vim81-kaoriya-win64/vim.exe"
-        alias gvim="~/vim81-kaoriya-win64/gvim.exe"
+        alias vim="~/vim82-kaoriya-win64/vim.exe"
+        alias gvim="~/vim82-kaoriya-win64/gvim.exe"
         alias nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
         alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"
 esac
