@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2020-03-25 13:49:19" build="191012">
+		<key name=".Vanilla" modified="2020-03-25 16:00:48" build="191012">
 			<value name="Language" type="string" data="ja"/>
 			<value name="StartType" type="hex" data="02"/>
 			<value name="CmdLine" type="string" data=""/>
@@ -106,7 +106,7 @@
 			<value name="KeyboardHooks" type="hex" data="01"/>
 			<value name="FontName" type="string" data="HackGen Console for Powerline"/>
 			<value name="FontName2" type="string" data="HackGen Console for Powerline"/>
-			<value name="FontAutoSize" type="hex" data="01"/>
+			<value name="FontAutoSize" type="hex" data="00"/>
 			<value name="FontSize" type="ulong" data="18"/>
 			<value name="FontSizeX" type="ulong" data="0"/>
 			<value name="FontUseDpi" type="hex" data="01"/>
@@ -586,8 +586,8 @@
 				<value name="DndRKey" type="hex" data="A2"/>
 				<value name="WndDragKey" type="dword" data="00121101"/>
 			</key>
-			<key name="Tasks" modified="2020-03-25 11:06:04" build="191012">
-				<value name="Count" type="long" data="12"/>
+			<key name="Tasks" modified="2020-03-25 16:00:48" build="191012">
+				<value name="Count" type="long" data="13"/>
 				<key name="Task1" modified="2020-03-25 11:06:04" build="191012">
 					<value name="Name" type="string" data="{msys2-bash}"/>
 					<value name="Flags" type="dword" data="00000004"/>
@@ -615,7 +615,16 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='-new_console:d:%HOMEPATH%\dotfiles set CHERE_INVOKING=1 &amp; C:\tools\msys64\usr\bin\fish.exe --login -i -new_console:C:"C:\tools\msys64\msys2.icoo"'/>
 				</key>
-				<key name="Task4" modified="2020-03-25 11:06:04" build="191012">
+				<key name="Task4" modified="2020-03-25 16:00:48" build="191012">
+					<value name="Name" type="string" data="{msys2-fish2}"/>
+					<value name="Flags" type="dword" data="00000004"/>
+					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="GuiArgs" type="string" data='/icon "C:\tools\msys64\msys2.ico"'/>
+					<value name="Active" type="long" data="0"/>
+					<value name="Count" type="long" data="1"/>
+					<value name="Cmd1" type="string" data='-new_console:d:%HOMEPATH%\dotfiles set CHERE_INVOKING=1 &amp; C:\tools\msys64\usr\bin\fish.exe --login -i -new_console:C:"C:\tools\msys64\msys2.icoo"'/>
+				</key>
+				<key name="Task5" modified="2020-03-25 16:00:48" build="191012">
 					<value name="Name" type="string" data="{Bash::Git bash}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -624,7 +633,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='-cur_console:a -cur_console:d:%HOMEPATH%\dotfiles set "PATH=%ConEmuDrive%\Program Files\Git\usr\bin;%PATH%" &amp; "%ConEmuDrive%\Program Files\Git\git-cmd.exe" --no-cd --command=%ConEmuBaseDirShort%\conemu-msys2-64.exe /usr/bin/bash.exe -l -i'/>
 				</key>
-				<key name="Task5" modified="2020-03-25 11:06:04" build="191012">
+				<key name="Task6" modified="2020-03-25 16:00:48" build="191012">
 					<value name="Name" type="string" data="{Shells::cmd (Admin)}"/>
 					<value name="Flags" type="dword" data="00000006"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -633,7 +642,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='-new_console:d:%HOMEPATH%\dotfiles cmd.exe /k "%ConEmuBaseDir%\CmdInit.cmd" -new_console:a'/>
 				</key>
-				<key name="Task6" modified="2020-03-25 11:06:04" build="191012">
+				<key name="Task7" modified="2020-03-25 16:00:48" build="191012">
 					<value name="Name" type="string" data="{Anaconda}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -642,7 +651,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd /k "%ConEmuDir%\..\init.bat &amp; C:\tools\Anaconda3\Scripts\activate.bat"  -new_console:d:%USERPROFILE% C:\tools\Anaconda3'/>
 				</key>
-				<key name="Task7" modified="2020-03-25 11:06:04" build="191012">
+				<key name="Task8" modified="2020-03-25 16:00:48" build="191012">
 					<value name="Name" type="string" data="{putty}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -651,7 +660,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='C:\ProgramData\chocolatey\bin\PUTTY.EXE -new_console -load "yoursavedsession"'/>
 				</key>
-				<key name="Task8" modified="2020-03-25 11:06:04" build="191012">
+				<key name="Task9" modified="2020-03-25 16:00:48" build="191012">
 					<value name="Name" type="string" data="{cmd}"/>
 					<value name="Flags" type="dword" data="00000000"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -660,7 +669,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd /k "%ConEmuDir%\..\init.bat"  -new_console:d:%USERPROFILE%'/>
 				</key>
-				<key name="Task9" modified="2020-03-25 11:06:04" build="191012">
+				<key name="Task10" modified="2020-03-25 16:00:48" build="191012">
 					<value name="Name" type="string" data="{Shells::cmd}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -669,7 +678,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd.exe /k "%ConEmuBaseDir%\CmdInit.cmd"'/>
 				</key>
-				<key name="Task10" modified="2020-03-25 11:06:04" build="191012">
+				<key name="Task11" modified="2020-03-25 16:00:48" build="191012">
 					<value name="Name" type="string" data="{PowerShell}"/>
 					<value name="Flags" type="dword" data="00000000"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -678,7 +687,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='PowerShell -ExecutionPolicy Bypass -NoLogo -NoProfile -NoExit -Command "Invoke-Expression &apos;. &apos;&apos;%ConEmuDir%\..\profile.ps1&apos;&apos;&apos;" -new_console:d:"%USERPROFILE%"'/>
 				</key>
-				<key name="Task11" modified="2020-03-25 11:06:04" build="191012">
+				<key name="Task12" modified="2020-03-25 16:00:48" build="191012">
 					<value name="Name" type="string" data="{PowerShell as Admin}"/>
 					<value name="Flags" type="dword" data="00000000"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -687,7 +696,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='*PowerShell -ExecutionPolicy Bypass -NoLogo -NoProfile -NoExit -Command "Invoke-Expression &apos;. &apos;&apos;%ConEmuDir%\..\profile.ps1&apos;&apos;&apos;" -new_console:d:"%USERPROFILE%"'/>
 				</key>
-				<key name="Task12" modified="2020-03-25 11:06:04" build="191012">
+				<key name="Task13" modified="2020-03-25 16:00:48" build="191012">
 					<value name="Name" type="string" data="{Tools::Chocolatey (Admin)}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
