@@ -1,18 +1,18 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2019/11/20 16:41:57.
+rem Last Change: 2020/03/28 22:13:15.
 
 set batch_title=Make dotfiles
 title %batch_title%
 
-rem ç®¡ç†è€…æ¨©é™ã§èµ·å‹•ã•ã‚ŒãŸã‹ãƒã‚§ãƒƒã‚¯
+rem ŠÇ—ŽÒŒ ŒÀ‚Å‹N“®‚³‚ê‚½‚©ƒ`ƒFƒbƒN
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
-rem ç®¡ç†è€…æ¨©é™ãªã‚‰ãƒ¡ã‚¤ãƒ³å‡¦ç†
+rem ŠÇ—ŽÒŒ ŒÀ‚È‚çƒƒCƒ“ˆ—
 if not errorlevel 1 goto main_routine
 
-rem ç®¡ç†è€…æ¨©é™ã§ãªã‘ã‚Œã°ç®¡ç†è€…æ¨©é™ã§å†èµ·å‹•
+rem ŠÇ—ŽÒŒ ŒÀ‚Å‚È‚¯‚ê‚ÎŠÇ—ŽÒŒ ŒÀ‚ÅÄ‹N“®
 @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
 exit
 
@@ -22,8 +22,8 @@ pushd %bat_path%
 
 echo ^>^> Start set link
 
-rem "NeoVim" è¨­å®š
-rem "NeoVim" ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«æ¸ˆã¿ã‹ãƒã‚§ãƒƒã‚¯
+rem "NeoVim" Ý’è
+rem "NeoVim" ƒCƒ“ƒXƒg[ƒ‹Ï‚Ý‚©ƒ`ƒFƒbƒN
 nvim -v > nul 2>&1
 if not %errorlevel% equ 0 (
     echo ^>^> Not install NeoVim
@@ -42,15 +42,15 @@ if defined xdg_config_home (
 
 mklink /d %dst_nvim% %src_nvim% > nul 2>&1
 if %errorlevel% equ 0 (
-    echo ^>^> init.vimã€ginit.vim link success!
+    echo ^>^> init.vimAginit.vim link success!
 ) else (
-    echo ^>^> init.vimã€ginit.vim link failed. code: %errorlevel%
+    echo ^>^> init.vimAginit.vim link failed. code: %errorlevel%
 )
 
 :ins_nyao
-rem "NyaoVim" è¨­å®š
-rem FIXME: NyaoVim ãŒèµ·å‹•ã™ã‚‹ãŸã‚ã‚­ãƒ«
-rem "NyaoVim" ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«æ¸ˆã¿ã‹ãƒã‚§ãƒƒã‚¯
+rem "NyaoVim" Ý’è
+rem FIXME: NyaoVim ‚ª‹N“®‚·‚é‚½‚ßƒLƒ‹
+rem "NyaoVim" ƒCƒ“ƒXƒg[ƒ‹Ï‚Ý‚©ƒ`ƒFƒbƒN
 rem nyaovim -v > nul 2>&1
 rem if not %errorlevel% equ 0 (
 rem     echo ^>^> Not install NyaoVim
@@ -64,7 +64,7 @@ if exist %dst_html% (
     del %dst_html%
 )
 
-rem FIXME: "mklink" ã ã¨èµ·å‹•ã—ãªã„
+rem FIXME: "mklink" ‚¾‚Æ‹N“®‚µ‚È‚¢
 rem mklink %dst_html% %src_html%
 copy %src_html% %dst_html% > nul 2>&1
 if %errorlevel% equ 0 (
@@ -76,8 +76,8 @@ if %errorlevel% equ 0 (
 )
 
 :ins_oni
-rem "OniVim" è¨­å®š
-rem "OniVim" ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«æ¸ˆã¿ã‹ãƒã‚§ãƒƒã‚¯
+rem "OniVim" Ý’è
+rem "OniVim" ƒCƒ“ƒXƒg[ƒ‹Ï‚Ý‚©ƒ`ƒFƒbƒN
 oni -h > nul 2>&1
 if not %errorlevel% equ 0 (
     echo ^>^> Not install OniVim
@@ -99,7 +99,7 @@ if %errorlevel% equ 0 (
 )
 
 :lnk_git
-rem ".gitconfig" è¨­å®š
+rem ".gitconfig" Ý’è
 mklink %userprofile%\.gitconfig %bat_path%\.gitconfig > nul 2>&1
 if %errorlevel% equ 0 (
     echo ^>^> .gitconfig link success!
@@ -113,7 +113,7 @@ if %errorlevel% equ 0 (
     echo ^>^> .gitconfig.os link failed. code: %errorlevel%
 )
 
-rem ".vim" è¨­å®š
+rem ".vim" Ý’è
 mklink /d %userprofile%\.vim %bat_path%\.vim > nul 2>&1
 if %errorlevel% equ 0 (
     echo ^>^> .vim link success!
@@ -121,29 +121,36 @@ if %errorlevel% equ 0 (
     echo ^>^> .vim link failed. code: %errorlevel%
 )
 
-rem "config.fish" è¨­å®š
+rem "config.fish" Ý’è
 mklink %userprofile%\.config\fish\config.fish %bat_path%\config.fish > nul 2>&1
 if %errorlevel% equ 0 (
-    echo ^>^> config.fish link success!
+    echo ^>^> config.fish in dotfiles link success!
 ) else (
-    echo ^>^> config.fish link failed. code: %errorlevel%
+    echo ^>^> config.fish in dotfiles link failed. code: %errorlevel%
 )
 
+rem mklink C:\tools\msys64\etc\fish\config.fish %bat_path%\config.fish > nul 2>&1
+rem if %errorlevel% equ 0 (
+rem     echo ^>^> config.fish in msys link in  success!
+rem ) else (
+rem     echo ^>^> config.fish in msys link failed. code: %errorlevel%
+rem )
+
 :lnk_dot
-rem "mklink" æ™‚ã«ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹ãƒ‰ãƒƒãƒˆãƒ•ã‚¡ã‚¤ãƒ«
+rem "mklink" Žž‚ÉƒXƒLƒbƒv‚·‚éƒhƒbƒgƒtƒ@ƒCƒ‹
 for %%j in (.*) do (
     if %%j == .bash_history (
-        rem PASS(æ¶ˆã™ãª)
+        rem PASS(Á‚·‚È)
     ) else if %%j == .gitconfig (
-        rem PASS(æ¶ˆã™ãª)
+        rem PASS(Á‚·‚È)
     ) else if %%j == .gitconfig.linux (
-        rem PASS(æ¶ˆã™ãª)
+        rem PASS(Á‚·‚È)
     ) else if %%j == .gitconfig.windows (
-        rem PASS(æ¶ˆã™ãª)
+        rem PASS(Á‚·‚È)
     ) else if %%j == .zsh_history (
-        rem PASS(æ¶ˆã™ãª)
+        rem PASS(Á‚·‚È)
     ) else if %%j == .oyainputconf (
-        rem PASS(æ¶ˆã™ãª)
+        rem PASS(Á‚·‚È)
     ) else (
         mklink %userprofile%\%%j .\dotfiles\%%j > nul 2>&1
     )
