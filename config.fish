@@ -1,5 +1,5 @@
 # Created:     2018/**/** **:**:**
-# Last Change: 2020/03/17 17:27:19.
+# Last Change: 2020/03/28 14:48:03.
 
 # 関数群
 # コマンドの存在確認
@@ -30,6 +30,15 @@ if has "peco"
     function fish_user_key_bindings
         bind \cr 'peco_sync_select_history (commandline -b)'
         bind \cr peco_select_history
+    end
+end
+
+if has "fuck"
+    thefuck --alias
+    # alias fuck='eval "$(thefuck --alias)"'
+    function fish_user_key_bindings
+        # Bind EscEsc to thefuck
+        bind \e\e 'thefuck-command-line' 
     end
 end
 

@@ -1,5 +1,5 @@
 # Created:     2019/11/12 10:00:53
-# Last Change: 2019/11/20 16:04:11.
+# Last Change: 2020/03/28 14:43:12.
 
 # "cd" 強化
 alias ..="cd .."
@@ -34,3 +34,8 @@ alias du1="du -d1"
 
 # "grep" 強化
 alias grep="grep --color"
+
+# The fuck
+if has "fuck" ; then
+    alias fuck='eval "$(thefuck --alias)"'
+fi
