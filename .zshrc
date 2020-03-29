@@ -1,5 +1,5 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2020/03/27 17:21:40.
+# Last Change: 2020/03/28 22:32:36.
 
 cd ~/dotfiles
 
@@ -38,7 +38,10 @@ zstyle ":completion:*" list-colors "di=34" "ln=35" "so=32" \
 autoload -Uz colors
 colors
 
-PROMPT="%F{green}%m: %F{magenta}%n@%F{cyan}%c%F{white}%f%# "
+# PowerLine風
+PROMPT="%{${bg[blue]%}%}%{${fg[black]}%} %n %{${bg[white]}%}%{${fg[blue]}%} %{${bg[white]}%}%{${fg[black]}%} %~ %{${reset_color}%}%{${fg[white]}%}  %{${reset_color}%}"
+
+# PROMPT="%F{green}%m: %F{magenta}%n@%F{cyan}%c%F{white}%f%# "
 
 # ## 2行で時刻を表示  # {{{
 # PROMPT="%(?.%{${fg[green]}%}.%{${fg[red]}%})%n${reset_color}@ \
@@ -181,8 +184,8 @@ case ${OSTYPE} in
 
     msys)
         # "Windows" 用設定
-        alias vim="~/vim82-kaoriya-win64/vim.exe"
-        alias gvim="~/vim82-kaoriya-win64/gvim.exe"
-        alias nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
+        alias   vim="~/vim82-kaoriya-win64/vim.exe"
+        alias  gvim="~/vim82-kaoriya-win64/gvim.exe"
+        alias  nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
         alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"
 esac
