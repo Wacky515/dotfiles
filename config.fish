@@ -33,17 +33,17 @@ if has "peco"
     end
 end
 
-if has "fuck"
-    thefuck --alias
-    # alias fuck='eval "$(thefuck --alias)"'
-    function fish_user_key_bindings
-        # Bind EscEsc to thefuck
-        bind \e\e 'thefuck-command-line' 
-    end
-end
+# if has "fuck"
+#     thefuck --alias
+#     # alias fuck='eval "$(thefuck --alias)"'
+#     function fish_user_key_bindings
+#         # Bind EscEsc to thefuck
+#         bind \e\e 'thefuck-command-line' 
+#     end
+# end
 
 # FIXME: Windows10、インストール失敗する
-# function ins_fisher  # {{{
+function ins_fisher
     if fisher -v > /dev/null 2>&1
         echo ">> Installed fisher"
     else
@@ -57,15 +57,15 @@ end
         fisher add oh-my-fish/theme-bobthefish
         fisher add jethrokuan/fzf
     end
-# end
-# }}}
+end
 
-# 上記と重複
+# 上記と重複  # {{{
 # if not functions -q fisher
 #     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
 #     curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
 #     fish -c fisher
 # end
+# }}}
 # REF: https://github.com/jorgebucaran/fisher
 
 function win_setting
