@@ -1,13 +1,13 @@
 # Created:     2017/**/** **:**:**
-# Last Change: 2019/11/20 16:08:00.
+# Last Change: 2020/04/06 13:45:38.
 # MEMO: ログイン時に一回だけ実行したい設定
 #       主に環境変数の設定
 
-# エイリアス
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases
-
 # 関数
 [ -f ~/.bash_function ] && source ~/.bash_function
+
+# エイリアス
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
 # OS 別設定
 case ${OSTYPE} in

@@ -1,12 +1,12 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2019/11/20 16:06:56.
+# Last Change: 2020/04/06 14:03:26.
 # MEMO: "Shell" を起動する度に実行したい一般的な設定
 
 # 日本語を使用
 export LANG=ja_JP.UTF-8
 
-# 関数
-[ -f ~/.bash_function ] && source ~/.bash_function
+# # 関数
+# [ -f ~/.bash_function ] && source ~/.bash_function
 
 # OS 別設定
 case ${OSTYPE} in
