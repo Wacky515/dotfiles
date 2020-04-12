@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install HomeBrew
 # Created:     2018/05/03 10:58:45
-# Last Change: 2019/11/06 12:01:14.
+# Last Change: 2020/04/13 01:21:58.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -54,6 +54,17 @@ if [ ! -f ~/.config/brewfile/Brewfile ]; then
     sudo ln -s ~/Library/Mobile Documents/com~apple~CloudDocs/Settings/BrewFile/Brewfile \
         ~/.config/brewfile
 fi
+
+case "$hostname" in
+    "ProSalad13-2018.local" ) \
+        cd /Users/wacky515/Library/Mobile Documents/com~apple~CloudDocs/Settings/BrewFile/macbook_pro
+    brew tap Homebrew/bundle
+    cd - ;;
+    "SaladBook.local" ) \
+        cd /Users/skydog/Library/Mobile Documents/com~apple~CloudDocs/Settings/BrewFile/macbook
+    brew tap Homebrew/bundle
+    cd - ;;
+esac
 
 # brew file install Brewfile
 brew file install
