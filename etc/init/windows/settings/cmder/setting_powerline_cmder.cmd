@@ -36,5 +36,5 @@ if not exist %cmder_root%\config\ (
 endlocal
 popd
 
-rem pause
+:pause
 exit /b 0
