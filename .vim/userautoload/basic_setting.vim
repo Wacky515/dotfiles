@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/12/03 11:04:38.
+" Last Change: 2020/04/14 22:56:02.
 
 " 起動メッセージ
 augroup InitialMessage
@@ -19,6 +19,9 @@ set foldmethod=marker
 
 " モードライン（ファイル毎の設定） ON
 set modeline
+
+" Japanese help
+set helplang=ja
 
 " ".swp"        の保存先
 set directory=~/.vim/tmp
