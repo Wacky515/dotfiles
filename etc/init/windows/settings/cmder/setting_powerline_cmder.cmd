@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/04/19 09:01:59
-rem Last Change: 2019/11/19 17:02:34.
+rem Last Change: 2020/04/14 08:40:01.
 
 set batch_title=Setting cmder's powerline
 title %batch_title%
@@ -27,9 +27,6 @@ if not exist %cmder_root%\config\ (
 ) else (
     echo ^>^> Start setting cmder-powerline-prompt
     copy /y *.lua   %cmder_root%\config\
-    rem copy /y powerline_core.lua   %cmder_root%\config\
-    rem copy /y powerline_git.lua    %cmder_root%\config\
-    rem copy /y powerline_prompt.lua %cmder_root%\config\
 )
 
 :end
