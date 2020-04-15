@@ -1,5 +1,5 @@
 # Created:     2017/**/** **:**:**
-# Last Change: 2020/04/06 13:45:38.
+# Last Change: 2020/04/15 21:34:15.
 # MEMO: ログイン時に一回だけ実行したい設定
 #       主に環境変数の設定
 
@@ -30,7 +30,7 @@ case ${OSTYPE} in
 
     # "Windows" 用設定
     msys)
-        echo ">> Seting for Bash on Windows Msys2"
+        echo ">> Setting for Bash on Windows Msys2"
         [ -f ~/.bash_profile_win ] && source ~/.bash_profile_win
 
         # "mintty" が ."bashrc" を読込む設定
@@ -43,12 +43,12 @@ case ${OSTYPE} in
         ;;
 
     MSYS_NT*)
-        echo ">> Seting for Bash on Windows Msys NT"
+        echo ">> Setting for Bash on Windows Msys NT"
         [ -f ~/.bash_profile_win ] && source ~/.bash_profile_win
         ;;
 
     cygwin*)
-        echo ">> Seting for Bash on Windows Cygwin"
+        echo ">> Setting for Bash on Windows Cygwin"
         if ! has "zsh" ; then
             apt-cyg install zsh
         fi
