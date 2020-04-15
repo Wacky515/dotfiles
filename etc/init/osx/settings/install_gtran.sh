@@ -15,6 +15,7 @@ readonly PROCESS="install gtran"
 
 gm_echo ">> ${PROCESS^}"
 
+cd ~/
 git clone https://github.com/skanehira/gtran.git
 cd gtran
 go install
