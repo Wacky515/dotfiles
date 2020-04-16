@@ -1,7 +1,7 @@
 @echo off
 setlocal
 rem Created:     2018/07/17 10:19:01
-rem Last Change: 2019/10/01 12:40:02.
+rem Last Change: 2020/04/15 12:39:34.
 
 set batch_title=Setting GENE dictionary
 title %batch_title%
@@ -16,7 +16,7 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
-rem rem  スクリプトがある "Dir" に "cd"
+rem rem スクリプトがある "Dir" に "cd"
 rem pushd %~dp0
 pushd %userprofile%\OneDrive\仕事\Settings\KaoriyaVim\
 

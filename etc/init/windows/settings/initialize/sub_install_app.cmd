@@ -1,13 +1,13 @@
 @echo off
 setlocal
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/10/01 17:16:24.
+rem Last Change: 2020/04/15 12:33:33.
 
 title Install initialize App
 
 set dir_7zip="C:\ProgramData\chocolatey\tools\7z.exe"
 
-rem rem スクリプトがある "Dir" に "cd"
+rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 
 set src_dir=%userprofile%\OneDrive\仕事\InitApps\
@@ -74,7 +74,7 @@ for %%n in (*.7z) do (
         )
 pushd %src_dir%
 
-rem rem TODO: インストール有無 判定
+rem TODO: インストール有無 判定
 rem if not exist %userprofile%\SlimDrivers-setup.exe (
         rem         %userprofile%\SlimDrivers-setup.exe
         rem         )
