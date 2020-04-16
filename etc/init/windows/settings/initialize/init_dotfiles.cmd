@@ -1,7 +1,11 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
+<<<<<<< HEAD
 rem Last Change: 2020/04/16 16:00:37.
+=======
+rem Last Change: 2020/04/15 12:34:00.
+>>>>>>> 57c283cb6f233afe111e3b3dbd70d11ae20d65ae
 
 set batch_title=Initialize dotfiles
 
@@ -151,7 +155,7 @@ if exist %userprofile%\OneDrive\仕事\InitApps\x64\ (
 echo ^>^> Not exist "InitApps"
 
 :cp_rd
-rem rem Rドライブコピー
+rem Rドライブコピー
 echo ^>^> In proxy
 if not exist %userprofile%\OneDrive\仕事\Settings\ (
     mkdir %userprofile%\OneDrive\仕事\Settings\

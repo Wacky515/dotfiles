@@ -18,6 +18,7 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
+set bat_path=%~dp0
 
 rem rem スクリプトがある "Dir" に "cd"
 rem set bat_path=%~dp0
