@@ -1,11 +1,20 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/09/30 12:15:16.
+rem Last Change: 2020/04/16 15:34:16.
 
-title Initialize batch for install
+set batch_title=Initialize batch for install
+
+title %batch_title%
 
 set git_path=%userprofile%\dotfiles\etc\init\windows\settings\
+
+rem rem スクリプトがある "Dir" に "cd"
+rem set bat_path=%~dp0
+rem pushd %bat_path%
+
+echo ^>^> %batch_title%
+rem echo ^>^> Start
 
 rem if %computername% == HBAMB748 (
 rem     set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings\

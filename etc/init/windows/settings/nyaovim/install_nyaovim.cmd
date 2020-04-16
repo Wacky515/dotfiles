@@ -1,11 +1,13 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     2018/12/19 11:37:29
-rem Last Change: 2019/10/03 11:11:19.
+rem Last Change: 2020/04/16 16:01:20.
 
 set batch_title=Install NyaoVim
+
 title %batch_title%
 
+rem 管理者権限で起動されたかチェック
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
 rem 管理者権限ならメイン処理
@@ -16,10 +18,15 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
+
 set command=npm bin -g
 
 rem  スクリプトがある "Dir" に "cd"
-pushd %~dp0
+rem set bat_path=%~dp0
+rem pushd %bat_path%
+
+echo ^>^> %batch_title%
+rem echo ^>^> Start
 
 echo ^>^> Check installed or not
 nyaovim --version >> nul

@@ -1,18 +1,21 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/10/01 09:35:39.
+rem Last Change: 2020/04/16 15:39:09.
 
-title Initialize setting
+set batch_title=Initialize setting
+
+title %batch_title%
+
+rem rem スクリプトがある "Dir" に "cd"
+rem set bat_path=%~dp0
+rem pushd %bat_path%
+
+echo ^>^> %batch_title%
+rem echo ^>^> Start
 
 set git_path=%userprofile%\dotfiles\etc\init\windows\settings
-rem if %computername% == HBAMB748 (
-rem     set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Setting\
-rem ) else if %computername% == HBAMB819 (
-rem     set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Setting\
-rem ) else (
-    set ms_path=%userprofile%\OneDrive\仕事\Settings\
-rem )
+set meg_path=%userprofile%\OneDrive\仕事\Settings\
 
 echo ^>^> Search setting batch in Git
 pushd %git_path%
@@ -44,10 +47,8 @@ for /r %%j in (setting_*) do (
         )
     )
 
-rem echo ^>^> Search setting batch in OneDrive
-rem pushd %od_path%
 echo ^>^> Search setting batch in Mega sync
-pushd %ms_path%
+pushd %meg_path%
 
 for /r %%k in (setting_*) do (
     if %%~xk == .cmd (echo ^>^> Catch: %%~nxk)
@@ -64,19 +65,19 @@ for /r %%l in (setting_*) do (
         echo ^>^> Automatically execute %%~nxl by batch
         call %%l
         rem pushd %od_path%
-        pushd %ms_path%
+        pushd %meg_path%
         )
     if %%~xl == .vbs (
         echo ^>^> Automatically execute %%~nxl by batch
         cscript %%l
         rem pushd %od_path%
-        pushd %ms_path%
+        pushd %meg_path%
         )
     if %%~xl == .reg (
         echo ^>^> Automatically execute %%~nxl by batch
         reg import %%l
         rem pushd %od_path%
-        pushd %ms_path%
+        pushd %meg_path%
         )
     )
 

@@ -1,11 +1,13 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     201*/**/** ** **:**:**
-rem Last Change: 2019/10/01 14:29:50.
+rem Last Change: 2020/04/16 16:08:52.
 
 set batch_title=Setting PyCharm Japanese
+
 title %batch_title%
 
+rem 管理者権限で起動されたかチェック
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
 rem 管理者権限ならメイン処理
@@ -16,13 +18,14 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
-set bat_path=%~dp0
-
 rem rem スクリプトがある "Dir" に "cd"
+rem set bat_path=%~dp0
 rem pushd %bat_path%
+
 pushd %userprofile%\OneDrive\仕事\Settings\PyCharm\
 
 echo ^>^> %batch_title%
+rem echo ^>^> Start
 
 if exist "C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2018.3\" (
     if not exist "C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2018.3\jp.sourceforge.mergedoc.pleiades" (

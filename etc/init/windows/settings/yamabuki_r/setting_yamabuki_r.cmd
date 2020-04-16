@@ -1,11 +1,13 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     2017/01/18 **:**:**
-rem Last Change: 2019/10/02 11:57:54.
+rem Last Change: 2020/04/16 16:10:49.
 
 set batch_title=Setting Yamabuki R
+
 title %batch_title%
 
+rem 管理者権限で起動されたかチェック
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
 rem 管理者権限ならメイン処理
@@ -16,11 +18,13 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
+
 rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 pushd %bat_path%
 
 echo ^>^> %batch_title%
+rem echo ^>^> Start
 
 rem 設定ファイル コピー
 if exist %userprofile%\yamabuki_r1.11.1.w\ (

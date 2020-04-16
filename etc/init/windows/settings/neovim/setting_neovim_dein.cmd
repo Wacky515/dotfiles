@@ -1,10 +1,13 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/10/01 17:15:46.
+rem Last Change: 2020/04/16 16:05:31.
 
-title Setting NeoVim's dein
+set batch_titleSetting NeoVim's dein
 
+title %batch_title%
+
+rem 管理者権限で起動されたかチェック
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
 rem 管理者権限ならメイン処理
@@ -15,9 +18,13 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
+
 rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 pushd %bat_path%
+
+echo ^>^> %batch_title%
+rem echo ^>^> Start
 
 pip3 --version > nul 2>&1
 if errorlevel 1 (

@@ -1,9 +1,10 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2019/11/19 13:45:28.
+rem Last Change: 2020/04/16 16:00:37.
 
 set batch_title=Initialize dotfiles
+
 title %batch_title%
 
 rem 管理者権限で起動されたかチェック
@@ -145,7 +146,7 @@ goto dl_mega
 echo ^>^> Check exist "InitApps" or not
 if exist %userprofile%\OneDrive\仕事\InitApps\x64\ (
     echo ^>^> Already exist "InitApps", Install apps
-    goto inst_apps
+    goto install_apps
 )
 echo ^>^> Not exist "InitApps"
 
@@ -168,7 +169,7 @@ echo ^>^> Copy "InitApps" from R drive
 robocopy w: /s /e %userprofile%\OneDrive\仕事\InitApps\
 net use v: /delete > nul 2>&1
 net use w: /delete > nul 2>&1
-goto inst_apps
+goto install_apps
 
 :cp_nas
 set nas_settings=\\LS210D68\Share\Settings\
@@ -178,7 +179,7 @@ echo ^>^> Copy "Settings" from NAS
 robocopy /s /e %nas_setthing% %userprofile%\OneDrive\仕事\Settings\
 echo ^>^> Copy "InitApps" from NAS
 robocopy /s /e %nas_initapps% %userprofile%\OneDrive\仕事\InitApps\
-goto inst_apps
+goto install_apps
 
 :dl_mega
 echo ^>^> Not in proxy
@@ -199,9 +200,9 @@ start https://mega.nz/#F!yTATTABQ
 pause
 
 "C:\Program Files\7-Zip\7z.exe" x -y -o%userprofile%\OneDrive\仕事\ %userprofile%\OneDrive\仕事\InitApps.zip
-goto inst_apps
+goto install_apps
 
-:inst_apps
+:install_apps
 rem "*.config" のある "Dir" に "pushd"
 pushd %conf_path%
 
@@ -209,7 +210,7 @@ echo ^>^> Install apps by Chocolatey
 rem ---------------------------------------------------------------------------
 rem Test時 スキップ
 rem ---------------------------------------------------------------------------
-if %test% equ 1 goto inst_all
+if %test% equ 1 goto instll_all
 rem "***_packages_***.config" を読み込み、インストール
 if exist *_%conf_file% (
     echo ^>^> Install apps for this PC
@@ -224,7 +225,7 @@ echo ^>^> Update Chocolatey
 cup all -y
 rem ---------------------------------------------------------------------------
 
-:inst_all
+:install_all
 rem 再度スクリプトがある "Dir" に "pushd"
 rem MEMO: "init_dotfiles" で実行する場合があるので絶対パス指定
 pushd %userprofile%\dotfiles\etc\init\windows\settings\initialize\

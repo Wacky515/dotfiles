@@ -1,11 +1,13 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     2018/06/06 20:34:41
-rem Last Change: 2019/11/11 11:50:01.
+rem Last Change: 2020/04/16 16:12:22.
 
 set batch_title=Setting fish
+
 title %batch_title%
 
+rem 管理者権限で起動されたかチェック
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
 rem 管理者権限ならメイン処理
@@ -16,8 +18,13 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
+
 rem  スクリプトがある "Dir" に "cd"
-pushd %~dp0
+set bat_path=%~dp0
+pushd %bat_path%
+
+echo ^>^> %batch_title%
+rem echo ^>^> Start
 
 set msys_path=c:\tools\msys64
 set fil_min32=mingw32.ini
