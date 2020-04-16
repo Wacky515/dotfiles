@@ -1,19 +1,20 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/09/30 15:49:36.
+rem Last Change: 2020/04/16 16:01:00.
 
-title Install initialize font
+set batch_title=Install initialize font
 
-rem 設定ファイルがある "Dir" に "cd"
-rem if %computername% == HBAMB748 (
-rem     set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps\
-rem ) else if %computername% == HBAMB819 (
-rem     set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps\
-rem ) else (
-    set src_dir=%userprofile%\OneDrive\仕事\InitApps\
-rem )
+title %batch_title%
+
+rem rem スクリプトがある "Dir" に "cd"
+rem set bat_path=%~dp0
+rem pushd %bat_path%
+set src_dir=%userprofile%\OneDrive\仕事\InitApps\
 pushd %src_dir%
+
+echo ^>^> %batch_title%
+rem echo ^>^> Start
 
 rem 参考: http://qiita.com/masarusan24/items/d3a5ab7c37e9b6d9a51f
 reg import .\Fonts\fontlink.reg

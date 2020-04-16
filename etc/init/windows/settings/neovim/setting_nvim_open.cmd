@@ -1,11 +1,13 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     2018/12/20 15:51:47
-rem Last Change: 2018/12/24 12:29:38.
+rem Last Change: 2020/04/16 16:05:08.
 
 set batch_title=Setting NeoVim Open
+
 title %batch_title%
 
+rem 管理者権限で起動されたかチェック
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
 rem 管理者権限ならメイン処理
@@ -16,10 +18,16 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
+
 set prefix=""
 set drive="C:"
 
+rem rem スクリプトがある "Dir" に "cd"
+rem set bat_path=%~dp0
+rem pushd %bat_path%
+
 echo ^>^> %batch_title%
+rem echo ^>^> Start
 
 echo ^>^> Set Open by NeoVim
 reg add "HKEY_CLASSES_ROOT\*\shell\NeoVim open" /v "Icon" /t REG_SZ /d C:\tools\neovim\Neovim\bin\nvim-qt.exe /f

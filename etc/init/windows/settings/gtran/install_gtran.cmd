@@ -1,11 +1,13 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     2020/04/15 10:45:50
 rem Last Change: 2020/04/15 11:51:37.
 
 set batch_title=Install gtran
+
 title %batch_title%
 
+rem 管理者権限で起動されたかチェック
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
 rem 管理者権限ならメイン処理
@@ -16,13 +18,18 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
+set bat_path=%~dp0
 
-rem スクリプトがある "Dir" に "cd"
-rem pushd %~dp0
+rem rem スクリプトがある "Dir" に "cd"
+rem set bat_path=%~dp0
+rem pushd %bat_path%
 pushd %userprofile%
 
+echo ^>^> %batch_title%
+rem echo ^>^> Start
+
 echo ^>^> Check installed or not
-gtran -v
+gtran -v> nul 2>&1
 if %errorlevel% equ 0 goto end
 
 echo ^>^> Check dependencies
@@ -56,6 +63,20 @@ rem link.cmd 実行
 pushd %userprofile%\dotfiles\
 call link.cmd
 
+rem "Chocolatey" インストール済みかチェック
+chocolatey -v >> nul
+if %errorlevel% equ 0 goto install_go
+
+echo ^>^> Install Chocolatey
+@powershell -NoProfile -ExecutionPolicy unrestricted -Command "(iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))) >$null 2>&1" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+
+:install_go
+echo ^>^> Check installed Go or not
+go version > nul 2>&1
+if %errorlevel% equ 0 goto install_gtran
+cinst golang -y
+
+:install_gtran
 pushd %userprofile%
 git clone https://github.com/skanehira/gtran.git
 cd gtran
@@ -65,5 +86,5 @@ go install
 endlocal
 popd
 
-rem pause
+pause
 exit /b 0

@@ -1,10 +1,9 @@
 @echo off
 setlocal enabledelayedexpansion
-rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/04/16 15:22:27.
+rem Created:     2020/04/15 12:28:24.
+rem Last Change: 2019/11/19 09:32:11.
 
-set batch_title=Output Chocolatey list
-
+set batch_title=Check disk error
 title %batch_title%
 
 rem 管理者権限で起動されたかチェック
@@ -18,18 +17,19 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
+set bat_path=%~dp0
 
 rem スクリプトがある "Dir" に "cd"
-set bat_path=%~dp0
 pushd %bat_path%
 
-echo ^>^> %batch_title%
-rem echo ^>^> Start
+chkdsk c: /r
+rem "chkdsk": チェックディスクの実行コマンド
+rem "c:":     Cドライブをチェック
+rem "/r":     完全にチェック
 
-clist -l
-
+:end
 endlocal
 popd
 
-rem pause
+pause
 exit /b 0

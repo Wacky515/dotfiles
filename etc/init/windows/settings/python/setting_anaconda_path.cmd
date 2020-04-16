@@ -1,11 +1,13 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 rem Created:     20**/**/** **:**:**
-rem Last Change: 2019/10/01 09:33:36.
+rem Last Change: 2020/04/16 16:09:14.
 
 set batch_title=Setting Anaconda path
+
 title %batch_title%
 
+rem 管理者権限で起動されたかチェック
 whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
 
 rem 管理者権限ならメイン処理
@@ -16,10 +18,13 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
-rem  スクリプトがある "Dir" に "cd"
-pushd %~dp0
+
+rem スクリプトがある "Dir" に "cd"
+set bat_path=%~dp0
+pushd %bat_path%
 
 echo ^>^> %batch_title%
+rem echo ^>^> Start
 
 if exist "C:\Python35\Lib\site-packages\.anaconda.pth" (
     mklink "C:\Python35\Lib\site-packages\.anaconda.pth" "\.anaconda.pth"
