@@ -1,5 +1,5 @@
 # Created:     2018/**/** **:**:**
-# Last Change: 2020/03/28 22:00:44.
+# Last Change: 2020/04/15 21:33:43.
 
 # 関数群
 # コマンドの存在確認
@@ -85,7 +85,7 @@ switch (uname)
 
     # "Mac" 用設定
     case 'Darwin*'
-        echo ">> Seting for Mac fish"
+        echo ">> Setting for Mac fish"
         set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 
     # "Windows" 用設定
