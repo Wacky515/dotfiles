@@ -11,16 +11,16 @@ do
     source ${f}
 done
 
-readonly PROCESS="install gtran"
+readonly         APPS="gtran"
+readonly  ACTION_LOWC="install"
+readonly  ACTION_PROP="Install"
+readonly PROCESS_LOWC=${ACTION_LOWC}" "${APPS}
+readonly PROCESS_PROP=${ACTION_PROP}" "${APPS}
 
-gm_echo ">> ${PROCESS^}"
+gm_echo ">> Start ${PROCESS_LOWC}"
 
-cd ~/
 git clone https://github.com/skanehira/gtran.git
 cd gtran
 go install
 
-result_echo $? "${PROCESS}"
-
-# シェルの再起動
-exec $SHELL -l
+result_echo $? "${PROCESS_LOWC}"

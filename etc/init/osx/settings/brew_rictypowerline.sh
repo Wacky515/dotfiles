@@ -11,12 +11,16 @@ do
     source ${f}
 done
 
-readonly PROCESS="install Ricty for PowerLine"
+readonly         APPS="Ricty for PowerLine"
+readonly  ACTION_LOWC="install"
+readonly  ACTION_PROP="Install"
+readonly PROCESS_LOWC=${ACTION_LOWC}" "${APPS}
+readonly PROCESS_PROP=${ACTION_PROP}" "${APPS}
 
-gm_echo ">> ${PROCESS^}"
+gm_echo ">> Start ${PROCESS_LOWC}"
 
 if ! has "brew"; then
-    echo info ">> Install Brew frst"
+    ym_echo info "Install Brew frst"
     bash ~/dotfiles/etc/init/osx/settings/install_homebrew.sh
 fi
 
