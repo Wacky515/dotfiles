@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# @(#) Install Bash 4.*
-# Created:     2019/11/05 15:38:58
-# Last Change: 2020/04/16 17:24:21.
+# @(#) Install Install go
+# Created:     2020/04/16 17:19:09
+# Last Change: 2020/04/16 17:23:08.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -11,7 +11,7 @@ do
     source ${f}
 done
 
-readonly         APPS="Bash 4.*"
+readonly         APPS="go"
 readonly  ACTION_LOWC="install"
 readonly  ACTION_PROP="Install"
 readonly PROCESS_LOWC=${ACTION_LOWC}" "${APPS}
@@ -19,14 +19,14 @@ readonly PROCESS_PROP=${ACTION_PROP}" "${APPS}
 
 gm_echo ">> Start ${PROCESS_LOWC}"
 
-if [ `bash --version | grep '2007'` ] ; then
+if [ `go version` ] ; then
     if ! has "brew"; then
         echo info ">> Install Brew frst"
         bash ~/dotfiles/etc/init/osx/install_homebrew.sh
     fi
-    brew install bash
+    brew install go
 else
-    echo ">> Already Bash 4.*"
+    echo ">> Already installed go"
 fi
 
 result_echo $? "${PROCESS_LOWC}"
