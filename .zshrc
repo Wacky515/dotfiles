@@ -1,5 +1,5 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2020/03/28 22:32:36.
+# Last Change: 2020/04/17 10:33:15.
 
 cd ~/dotfiles
 
@@ -163,23 +163,29 @@ bindkey "^s" history-incremental-pattern-search-forward
 # bindkey "^N" history-beginning-search-forward
 # }}}
 
+## "RipGrep" 設定
+if [ -f ~/.ripgreprc ]; then
+    export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+fi
+
+## "fzf" 設定
+if [ -f ~/.fzf.zsh ]; then
+    source ~/.fzf.zsh
+    export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+    export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+fi
+
 # OS 別設定
 case ${OSTYPE} in
     linux*)
         # "Linux" 用設定
         alias ls="ls -F --color=auto"
-        [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-        export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-        export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
         ;;
 
     darwin*)
         # "Mac" 用設定
         export CLICOLOR=1
         alias ls="ls -G -F"
-        [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-        export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-        export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
         ;;
 
     msys)

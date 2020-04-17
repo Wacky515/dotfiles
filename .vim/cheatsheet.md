@@ -175,6 +175,15 @@
 - \<C-t\>: インデントを増やす
 - \<C-d\>: インデントを減らす
 
+### yankround
+
+- \<S-Up\>:    前の履歴
+- \<S-Down\>:  次の履歴
+- \<C-r\>:     コマンドラインで挿入
+- \<C-y\>:     コマンドラインで前のレジスタ置換え
+- \<Leader\>y: 履歴一覧(Unite)
+- g\<C-p\>:    履歴一覧(CtrlP)
+
 ### 補完
 
 - \<C-x\>\<C-l\>:   行補完
@@ -281,8 +290,8 @@
 
 ## Grep
 
-- \<Leader\>r: カーソル下を "RipGrep"               対象に挿入
-- ,r:          カーソル下を "RipGrep"（日本語対応） 対象に挿入
+- \<Leader\>r: カーソル下を "RipGrep"（UTF-8）      対象に挿入
+- ,r:          カーソル下を "RipGrep"（Shift_JIS）  対象に挿入
 - \<Leader\>P: カーソル下を "The Platinum Searcher" 対象に挿入
 - \<Leader\>a: カーソル下を "The Sliver Searcher"   対象に挿入
 - \<Leader\>G: カーソル下を "外部 grep"             対象に挿入

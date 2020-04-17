@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2017/10/27 **:**:**.
-" Last Change: 2019/11/30 22:24:27.
+" Last Change: 2020/04/17 09:31:20.
 " MEMO: 検索速度順に記述
 
 " ":vimgrep"、":grep"、":Ggrep" 後、自動的に "QuickFix-Window" 表示
@@ -15,13 +15,12 @@ endif
 " command! -nargs=* -complete=file Rg :tabnew | :silent grep --sort-files <args>
 " command! -nargs=* -complete=file Rgg :tabnew | :silent grep <args>
 
-" <Leader>r: カーソル下を "RipGrep"               対象に挿入
+" <Leader>r: カーソル下を "RipGrep" （UTF-8)      対象に挿入
     " <Enter>押下でカレントディレクトリ以下を再帰的に検索
-    " MEMO: 日本語はマッチしない
     " MEMO: "fzf" 準拠のCUI
 nnoremap <expr> <Leader>r ':Rg ' . expand('<cword>') . ''
 
-" <Leader>R: カーソル下を "RipGrep" （日本語対応) 対象に挿入
+" <Leader>R: カーソル下を "RipGrep" （Shift_JIS)  対象に挿入
 nnoremap <expr> ,r ':Rgs ' . expand('<cword>') . ''
 
 " <Leader>P: カーソル下を "The Platinum Searcher" 対象に挿入
