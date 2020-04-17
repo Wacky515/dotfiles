@@ -1,8 +1,10 @@
 # Created:     2018/**/** **:**:**
-# Last Change: 2020/04/16 01:55:37.
+# Last Change: 2020/04/17 23:17:43.
+
+cd ~/dotfiles
 
 # 関数群
-# コマンドの存在確認
+## コマンドの存在確認
 function has
     type "$1" > /dev/null 2>&1
 end
@@ -80,27 +82,32 @@ end
 switch (uname)
     # "Linux" 用設定
     case 'Linux*'
-        echo ">> Setting for Linux fish"
+        echo ">> Start setting for fish on Linux"
+        echo ">> Start setting for fish on Windows Cygwin"
         # ins_fisher
 
     # "Mac" 用設定
     case 'Darwin*'
-        echo ">> Setting for Mac fish"
+        echo ">> Start setting for fish on Mac"
         set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 
     # "Windows" 用設定
-    case 'MSYS_NT*'
-        echo ">> Setting for fish on Windows Msys2"
+    case 'msys'
+        echo ">> Start setting for fish on Windows Msys2"
         win_setting
 
-    case 'MINGW*'
-        echo ">> Setting for fish on Windows Mingw"
+    case 'MSYS_NT*'
+        echo ">> Start setting for fish on Windows Msys NT"
         win_setting
 
     case 'windows*'
-        echo ">> Setting for fish on Windows Cmder & ConEmu"
+        echo ">> Start setting for fish on Windows Cmder & ConEmu"
+        win_setting
+
+    case 'MINGW*'
+        echo ">> Start setting for fish on Windows Mingw"
         win_setting
 
     case '*'
-        echo ">> OS type not found(config.fish)"
+        echo ">> [config.fish] < OS type not found"
 end
