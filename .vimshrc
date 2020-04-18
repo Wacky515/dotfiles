@@ -1,6 +1,8 @@
 # Created:     2017/**/** **:**:**
-# Last Change: 2019/11/14 10:17:41.
+# Last Change: 2020/04/18 20:33:35.
 # MEMO: "VimShell" 用設定
 
-# .bashrc" 読込み
+# ".bashrc" 読込み
 [ -f ~/.bashrc ] && source ~/.bashrc
+# ".bash_profile" 読込み
+[ -f ~/.bash_profile ] && source ~/.bash_profile
