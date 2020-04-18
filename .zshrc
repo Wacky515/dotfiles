@@ -1,5 +1,5 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2020/04/17 23:17:49.
+# Last Change: 2020/04/18 12:25:41.
 
 cd ~/dotfiles
 
@@ -61,9 +61,9 @@ autoload -Uz compinit
 compinit
 
 ## "sudo" の後ろでコマンド名を補完する
-zstyle ":completion:*:sudo:*"
-        \ command-path /usr/local/sbin /usr/local/bin
-        \ /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+zstyle ":completion:*:sudo:*" \
+        command-path /usr/local/sbin /usr/local/bin \
+        /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
 # "history" 系
 ## 他の端末と共有
@@ -102,11 +102,7 @@ autoload -Uz colors
 colors
 
 # "PowerLine" 風
-PROMPT="%{${bg[blue]%}%}%{${fg[black]}%} %n
-        \ %{${bg[white]}%}%{${fg[blue]}%}
-        \ %{${bg[white]}%}%{${fg[black]}%} %~
-        \ %{${reset_color}%}%{${fg[white]}%} 
-        \ %{${reset_color}%}"
+PROMPT="%{${bg[blue]%}%}%{${fg[black]}%} %n %{${bg[white]}%}%{${fg[blue]}%}%{${bg[white]}%}%{${fg[black]}%} %~ %{${reset_color}%}%{${fg[white]}%}%{${reset_color}%}"
 
 # PROMPT="%F{green}%m: %F{magenta}%n@%F{cyan}%c%F{white}%f%# "
 
