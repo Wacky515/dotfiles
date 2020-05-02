@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 # @(#) Install VS Code
 # Created:     2019/11/01 11:48:28
-# Last Change: 2019/11/05 15:45:59.
+# Last Change: 2020/05/02 23:15:24
 
 set -ueo pipefail
 export LC_ALL=C
 
-for f in ~/dotfiles/function/*.sh
-do
-    source ${f}
-done
+## 関数
+[ -f ~/.bash_function ] && source ~/.bash_function
 
 readonly PROCESS="install VS Code"
 

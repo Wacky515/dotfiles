@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 # @(#) Install Bash 4.*
 # Created:     2019/11/05 15:38:58
-# Last Change: 2020/04/16 17:24:21.
+# Last Change: 2020/05/02 23:07:55.
 
 set -ueo pipefail
 export LC_ALL=C
 
-for f in ~/dotfiles/function/*.sh
-do
-    source ${f}
-done
+## 関数
+[ -f ~/.bash_function ] && source ~/.bash_function
 
 readonly         APPS="Bash 4.*"
 readonly  ACTION_LOWC="install"

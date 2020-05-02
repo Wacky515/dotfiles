@@ -1,7 +1,11 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2020/04/17 21:56:10.
+# Last Change: 2020/04/19 00:24:13.
 # MEMO: "Shell" を起動する度に実行したい一般的な設定
-# MEMO: 関数、エイリアスなどの環境変数は ".bash_profile" で設定
+# MEMO: 環境変数は ".bash_profile" で設定
+
+# 環境変数
+## 関数
+[ -f ~/.bash_function ] && source ~/.bash_function
 
 cd ~/dotfiles
 
@@ -40,7 +44,7 @@ case ${OSTYPE} in
         ;;
 esac
 
-## "fish" か "zsh" 起動設定
+# "fish" か "zsh" 起動設定
 if has "fish" && ! [[ `uname` =~ ^(CYGWIN_NT-).+$ ]] ; then
     exec fish
 elif has "zsh" ; then

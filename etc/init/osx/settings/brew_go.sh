@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
-# @(#) Install Install go
+# @(#) Install go
 # Created:     2020/04/16 17:19:09
-# Last Change: 2020/04/16 17:23:08.
+# Last Change: 2020/05/02 23:09:39.
 
 set -ueo pipefail
 export LC_ALL=C
 
-for f in ~/dotfiles/function/*.sh
-do
-    source ${f}
-done
+## 関数
+[ -f ~/.bash_function ] && source ~/.bash_function
 
 readonly         APPS="go"
 readonly  ACTION_LOWC="install"
@@ -19,7 +17,7 @@ readonly PROCESS_PROP=${ACTION_PROP}" "${APPS}
 
 gm_echo ">> Start ${PROCESS_LOWC}"
 
-if [ `go version` ] ; then
+if has "go"; then
     if ! has "brew"; then
         echo info ">> Install Brew frst"
         bash ~/dotfiles/etc/init/osx/install_homebrew.sh

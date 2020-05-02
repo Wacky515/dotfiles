@@ -1,12 +1,13 @@
-#!bin/bash
+#!/usr/bin/env bash
 # @(#) Setting Google Japanese Input
 # Created:     2019/04/21 08:57:17
-# Last Change: 2019/10/01 09:54:33.
+# Last Change: 2020/05/02 23:25:01.
 
-for f in ~/dotfiles/function/*.sh
-do
-    source ${f}
-done
+set -ueo pipefail
+export LC_ALL=C
+
+## 関数
+[ -f ~/.bash_function ] && source ~/.bash_function
 
 readonly PROCESS="setting Google Japanese Input"
 gm_echo ">> ${PROCESS^}"

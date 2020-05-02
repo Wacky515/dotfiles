@@ -1,17 +1,15 @@
 #!/usr/bin/env bash
 # @(#) Install Wake on LAN
 # Created:     2019/11/01 11:48:28
-# Last Change: 2019/11/05 15:46:12.
-
-# MEMO:
+# Last Change: 2020/05/02 23:16:38.
+# USAGE:
 # Keyin "wakeonlan <IP addr>"
+
 set -ueo pipefail
 export LC_ALL=C
 
-for f in ~/dotfiles/function/*.sh
-do
-    source ${f}
-done
+## 関数
+[ -f ~/.bash_function ] && source ~/.bash_function
 
 readonly PROCESS="install Wake on LAN"
 

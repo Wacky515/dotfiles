@@ -1,12 +1,13 @@
-#!/bin/bash
-# @(#) Setting enable install any app
+#!/usr/bin/env bash
+# @(#) Setting enable install any apps
 # Created:     2018/06/22 22:32:18
-# Last Change: 2018/06/03 18:01:18.
+# Last Change: 2020/05/02 23:23:00.
 
-for f in ~/dotfiles/function/*.sh
-do
-    source ${f}
-done
+set -ueo pipefail
+export LC_ALL=C
+
+## 関数
+[ -f ~/.bash_function ] && source ~/.bash_function
 
 readonly PROCESS="setting enable install any apps"
 

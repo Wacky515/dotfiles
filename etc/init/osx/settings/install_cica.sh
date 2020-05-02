@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
-# @(#) install Cica font
+# @(#) Install Cica font
 # Created:     201*/**/** **:**:**
-# Last Change: 2019/10/01 09:53:01.
+# Last Change: 2020/05/02 22:46:31.
 
 set -ueo pipefail
 export LC_ALL=C
 
-for f in ~/dotfiles/function/*.sh
-do
-    source ${f}
-done
+## 関数
+[ -f ~/.bash_function ] && source ~/.bash_function
 
 readonly PROCESS="install Cica"
 

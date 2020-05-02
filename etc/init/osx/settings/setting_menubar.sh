@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 # @(#) Setting Menubar
 # Created:     2018/06/03 17:59:45
-# Last Change: 2018/06/03 18:11:16.
+# Last Change: 2020/05/02 23:25:56.
 
 set -ueo pipefail
 export LC_ALL=C
 
-for f in ~/dotfiles/function/*.sh
-do
-    source ${f}
-done
+## 関数
+[ -f ~/.bash_function ] && source ~/.bash_function
 
 readonly PROCESS="setting Menubar"
 

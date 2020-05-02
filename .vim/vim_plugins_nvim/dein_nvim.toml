@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2020/04/17 10:26:48.
+# Last Change: 2020/04/18 22:00:34.
 
 # REF:
 # hook_add         プラグイン追加後
@@ -187,7 +187,7 @@ repo = 'vim-scripts/taglist.vim'
 repo  = 'cespare/vim-toml'
 on_ft = ['toml']
 
-# インデント カラー化
+# インデント 強調
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 

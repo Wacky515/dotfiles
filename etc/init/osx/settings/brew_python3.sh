@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 # @(#) Install Python3.*
 # Created:     2019/11/06 12:37:08
-# Last Change: 2019/11/06 12:42:57.
+# Last Change: 2020/05/02 23:12:14.
 
 set -ueo pipefail
 export LC_ALL=C
 
-for f in ~/dotfiles/function/*.sh
-do
-    source ${f}
-done
+## 関数
+[ -f ~/.bash_function ] && source ~/.bash_function
 
 readonly         APPS="python"
 readonly  ACTION_LOWC="install"

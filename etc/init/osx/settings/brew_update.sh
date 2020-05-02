@@ -1,15 +1,13 @@
-#!bin/bash
+#!/usr/bin/env bash
 # @(#) Update HomeBrew
-# Created:     2018/05/21 00:00:00
-# Last Change: 2019/11/06 11:53:39.
+# Created:     2018/05/21 **:**:**
+# Last Change: 2020/05/02 23:14:31
 
 set -ueo pipefail
 export LC_ALL=C
 
-for f in ~/dotfiles/function/*.sh
-do
-    source ${f}
-done
+## 関数
+[ -f ~/.bash_function ] && source ~/.bash_function
 
 readonly         APPS="HomeBrew"
 readonly  ACTION_LOWC="update"

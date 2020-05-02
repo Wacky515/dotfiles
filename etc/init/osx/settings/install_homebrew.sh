@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 # @(#) Install HomeBrew
 # Created:     2018/05/03 10:58:45
-# Last Change: 2020/04/13 01:21:58.
+# Last Change: 2020/05/02 23:23:46.
 
 set -ueo pipefail
 export LC_ALL=C
 
-for f in ~/dotfiles/function/*.sh
-do
-    source ${f}
-done
+## 関数
+[ -f ~/.bash_function ] && source ~/.bash_function
 
 readonly         APPS="HomeBrew"
 readonly     APPS_CMD="brew"

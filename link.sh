@@ -1,10 +1,13 @@
+#!/usr/bin/env bash
+# @(#) make symbolic link
 # Created:     2017/02/08 **:**:**
-# Last Change: 2019/11/30 10:16:18.
+# Last Change: 2020/05/02 22:54:36.
 
-for f in ~/dotfiles/function/*.sh
-do
-    source ${f}
-done
+set -ueo pipefail
+export LC_ALL=C
+
+## 関数
+[ -f ~/.bash_function ] && source ~/.bash_function
 
 # 実行したフォルダに "cd"
 # ↓ に "grep" 置換

@@ -1,5 +1,5 @@
 # Created:     2017/**/** **:**:**
-# Last Change: 2020/04/17 23:19:33.
+# Last Change: 2020/05/02 23:05:18.
 # MEMO: ログイン時に一回だけ実行したい設定
 #       主に環境変数の設定
 
@@ -7,6 +7,7 @@
 ## ロケール設定
 export LANG=ja_JP.UTF-8
 
+# MEMO: "Shell" 再呼出し時に読込むため ".bashrc" にも記載
 ## 関数
 [ -f ~/.bash_function ] && source ~/.bash_function
 
@@ -34,6 +35,8 @@ case ${OSTYPE} in
         export CLICOLOR=1
 
         alias ls="ls -G -F"
+
+        [ -f ~/.bashrc ] && source ~/.bashrc
         ;;
 
     # "Windows" 用設定

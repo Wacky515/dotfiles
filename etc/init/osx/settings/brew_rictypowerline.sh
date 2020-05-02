@@ -1,15 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # @(#) Install Ricty for PowerLine
 # Created:     2018/04/12 06:23:00
-# Last Change: 2019/11/05 15:18:23.
+# Last Change: 2020/05/02 23:13:36.
 
 set -ueo pipefail
 export LC_ALL=C
 
-for f in ~/dotfiles/function/*.sh
-do
-    source ${f}
-done
+## 関数
+[ -f ~/.bash_function ] && source ~/.bash_function
 
 readonly         APPS="Ricty for PowerLine"
 readonly  ACTION_LOWC="install"
@@ -42,7 +40,7 @@ git clone https://github.com/powerline/fonts.git ~/.font
 cd ~/.font
 ./install.sh
 
-result_echo $? "${PROCESS}"
+result_echo $? "${PROCESS_LOWS}"
 
 # シェルの再起動
 exec $SHELL -l

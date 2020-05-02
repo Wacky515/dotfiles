@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 # @(#) __START__
 # Created:     __DATE__
-# Last Change: 2019/11/29 16:37:22.
+# Last Change: 2020/04/19 14:16:49.
 
 set -ueo pipefail
 export LC_ALL=C
 
-for f in ~/dotfiles/function/*.sh
-do
-    source ${f}
-done
+## 関数
+[ -f ~/.bash_function ] && source ~/.bash_function
 
 readonly         APPS="***"
 readonly  ACTION_LOWC="install"

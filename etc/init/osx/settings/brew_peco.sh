@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 # @(#) Install Peco
 # Created:     2019/11/05 15:20:15
-# Last Change: 2019/11/05 16:33:04.
+# Last Change: 2020/05/02 23:10:16.
 
 set -ueo pipefail
 export LC_ALL=C
 
-for f in ~/dotfiles/function/*.sh
-do
-    source ${f}
-done
+## 関数
+[ -f ~/.bash_function ] && source ~/.bash_function
 
 readonly PROCESS="install Peco"
 

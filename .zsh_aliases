@@ -1,5 +1,5 @@
 # Created:     2020/04/17 22:25:34
-# Last Change: 2020/04/17 23:09:50.
+# Last Change: 2020/04/18 21:59:36.
 
 alias la="ls -la"
 # alias ll="ls -l"
@@ -12,7 +12,7 @@ alias ....='cd ../../..'
 # "sudo" の後のコマンドでエイリアスを有効にする
 alias sudo="sudo "
 
-# カラー "ls"
+# 色付き "ls"
 autoload -U compinit
 compinit
 export CLICOLOR=1
