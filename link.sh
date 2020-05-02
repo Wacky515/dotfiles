@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# @(#) make symbolic link
+# @(#) Make symbolic link
 # Created:     2017/02/08 **:**:**
 # Last Change: 2020/05/02 22:54:36.
 
@@ -18,7 +18,7 @@ cd $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 readonly DOT_DIR="${HOME}/dotfiles"
 readonly PROCESS="symbolic linkig dotfiles"
 
-gm_echo ">> ${PROCESS^}"
+gm_echo ">> Start ${PROCESS}"
 gm_echo ">> Start .gitconfig link"
 
 # "git" の設定
