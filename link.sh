@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # @(#) Make symbolic link
 # Created:     2017/02/08 **:**:**
-# Last Change: 2020/05/02 22:54:36.
+# Last Change: 2020/05/03 12:14:07.
 
 set -ueo pipefail
 export LC_ALL=C
 
 ## 関数
-[ -f ~/.bash_function ] && source ~/.bash_function
+[ -f ~/dotfiles/.bash_function ] && source ~/dotfiles/.bash_function
 
 # 実行したフォルダに "cd"
 # ↓ に "grep" 置換
@@ -37,9 +37,9 @@ echo ""
 
 gm_echo ">> Start dotfiles link"
 
-cp -nv ${DOT_DIR}/.bash_history ~/.bash_history
-cp -nv ${DOT_DIR}/.zsh_history  ~/.zsh_history
-cp -nv ${DOT_DIR}/history.fish  ~/history.fish
+[ ! -f ~/.bash_history ] && cp -nv ${DOT_DIR}/.bash_history ~/.bash_history
+[ ! -f ~/.zsh_history  ] && cp -nv ${DOT_DIR}/.zsh_history  ~/.zsh_history
+[ ! -f ~/history.fish  ] && cp -nv ${DOT_DIR}/history.fish  ~/history.fish
 
 # "fish" 設定
 for g in *.fish
