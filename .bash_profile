@@ -1,7 +1,8 @@
 # Created:     2017/**/** **:**:**
-# Last Change: 2020/05/02 23:05:18.
+# Last Change: 2020/05/03 13:38:39.
 # MEMO: ログイン時に一回だけ実行したい設定
 #       主に環境変数の設定
+#       標準出力や標準エラー出力に出力しない
 
 # 環境変数
 ## ロケール設定
@@ -23,12 +24,12 @@ fi
 case ${OSTYPE} in
     # "Linux" 用設定
     linux*)
-        echo ">> Login setting for Bash on Linux"
+        # echo ">> Login setting for Bash on Linux"
         ;;
 
     # "Mac" 用設定
     darwin*)
-        echo ">> Login setting for Bash on Mac"
+        # echo ">> Login setting for Bash on Mac"
         export PATH="/usr/local/sbin:$PATH"
         export PATH=$PATH:$HOME/.local/bin
         export PATH=$HOME/.nodebrew/current/bin:$PATH
@@ -41,7 +42,7 @@ case ${OSTYPE} in
 
     # "Windows" 用設定
     msys)
-        echo ">> Login setting for Bash on Windows Msys2"
+        # echo ">> Login setting for Bash on Windows Msys2"
         [ -f ~/.bash_profile_win ] && source ~/.bash_profile_win
 
         # "mintty" が ."bashrc" を読込む設定
@@ -54,16 +55,16 @@ case ${OSTYPE} in
         ;;
 
     MSYS_NT*)
-        echo ">> Login setting for Bash on Windows Msys NT"
+        # echo ">> Login setting for Bash on Windows Msys NT"
         [ -f ~/.bash_profile_win ] && source ~/.bash_profile_win
         ;;
 
     windows)
-        echo ">> Start setting for bash on Windows Cmder & ConEmu"
+        # echo ">> Start setting for bash on Windows Cmder & ConEmu"
         ;;
 
     cygwin*)
-        echo ">> Login setting for Bash on Windows Cygwin"
+        # echo ">> Login setting for Bash on Windows Cygwin"
         if ! has "zsh" ; then
             apt-cyg install zsh
         fi
@@ -71,6 +72,6 @@ case ${OSTYPE} in
         ;;
 
     *)
-        echo ">> [.bash_profile] < OS type not found"
+        # echo ">> [.bash_profile] < OS type not found"
         ;;
 esac
