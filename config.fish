@@ -90,6 +90,7 @@ switch (uname)
     case 'Darwin*'
         echo ">> Start setting for fish on Mac"
         set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+        ins_fisher
 
     # "Windows" 用設定
     case 'msys'
