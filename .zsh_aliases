@@ -1,5 +1,5 @@
 # Created:     2020/04/17 22:25:34
-# Last Change: 2020/04/18 21:59:36.
+# Last Change: 2020/05/03 22:20:54.
 
 alias la="ls -la"
 # alias ll="ls -l"
@@ -27,13 +27,7 @@ export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=46;
 
 alias gls="gls --color"
 
-zstyle ":completion:*" list-colors
-                \ "di=34"
-                \ "ln=35"
-                \ "so=32"
-                \ "ex=31"
-                \ "bd=46;34"
-                \ "cd=43;34"
+zstyle ":completion:*" list-colors "di=34" "ln=35" "so=32" "ex=31" "bd=46;34" "cd=43;34"
 
 # # 親ディレクトリも作成
 # alias mkdir="mkdir -p"
