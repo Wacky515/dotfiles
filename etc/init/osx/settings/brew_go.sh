@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install go
 # Created:     2020/04/16 17:19:09
-# Last Change: 2020/05/02 23:09:39.
+# Last Change: 2020/05/06 10:48:10.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -19,7 +19,7 @@ gm_echo ">> Start ${PROCESS_LOWC}"
 
 if has "go"; then
     if ! has "brew"; then
-        echo info ">> Install Brew frst"
+        echo info ">> Install Brew first"
         bash ~/dotfiles/etc/init/osx/install_homebrew.sh
     fi
     brew install go

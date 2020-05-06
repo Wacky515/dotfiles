@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) __START__
 # Created:     __DATE__
-# Last Change: 2020/04/19 14:16:12.
+# Last Change: 2020/05/06 10:46:17
 
 set -ueo pipefail
 export LC_ALL=C
@@ -18,7 +18,7 @@ readonly PROCESS_PROP=${ACTION_PROP}" "${APPS}
 gm_echo ">> Start ${PROCESS_LOWC}"
 
 if ! has "brew"; then
-    ym_echo info "Install Brew frst"
+    ym_echo info "Install Brew first"
     bash ~/dotfiles/etc/init/osx/settings/install_homebrew.sh
 fi
 

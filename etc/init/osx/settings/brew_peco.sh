@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install Peco
 # Created:     2019/11/05 15:20:15
-# Last Change: 2020/05/02 23:10:16.
+# Last Change: 2020/05/06 10:45:37.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -14,7 +14,7 @@ readonly PROCESS="install Peco"
 gm_echo ">> ${PROCESS}"
 
 if ! has "brew"; then
-    echo info "Install Brew frst"
+    echo info "Install Brew first"
     bash ~/dotfiles/etc/init/osx/install_homebrew.sh
 fi
 

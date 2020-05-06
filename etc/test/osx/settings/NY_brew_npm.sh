@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) install npm
 # Created:     2019/06/30 15:29:04
-# Last Change: 2019/06/30 16:03:45.
+# Last Change: 2020/05/06 10:48:47.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -15,7 +15,7 @@ readonly PROCESS="install npm"
 
 gm_echo ">> ${PROCESS^}"
 if ! has "brew"; then
-    echo info "Install brew frst"
+    echo info "Install brew first"
     bash ~/dotfiles/etc/init/osx/install_homebrew.sh
 fi
 

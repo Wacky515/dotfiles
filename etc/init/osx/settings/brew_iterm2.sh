@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# @(#) Install HackGen
-# Created:     2020/05/03 22:30:18
-# Last Change: 2020/05/06 10:56:39.
+# @(#) Install iTerm2
+# Created:     2020/05/06 11:00:11
+# Last Change: 2020/05/06 11:01:02.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -9,7 +9,7 @@ export LC_ALL=C
 ## 関数
 [ -f ~/.bash_function ] && source ~/.bash_function
 
-readonly         APPS="HackGen"
+readonly         APPS="iTerm2"
 readonly  ACTION_LOWC="install"
 readonly  ACTION_PROP="Install"
 readonly PROCESS_LOWC=${ACTION_LOWC}" "${APPS}
@@ -21,7 +21,6 @@ if ! has "brew"; then
     echo info ">> Install Brew first"
     bash ~/dotfiles/etc/init/osx/install_homebrew.sh
 fi
-brew tap homebrew/cask-fonts
-brew cask install font-hackgen
+brew cask install iterm2
 
 result_echo $? "${PROCESS_LOWC}"

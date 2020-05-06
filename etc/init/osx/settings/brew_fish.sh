@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install fish
 # Created:     2018/05/03 10:54:13
-# Last Change: 2020/05/02 23:09:04.
+# Last Change: 2020/05/06 10:46:30.
 
 set -euo pipefail
 export LC_ALL=C
@@ -14,7 +14,7 @@ readonly PROCESS="install fish"
 gm_echo ">> Start ${PROCESS}"
 
 if ! has "brew"; then
-    echo info "Install Brew frst"
+    echo info "Install Brew first"
     bash ~/dotfiles/etc/init/osx/install_homebrew.sh
 fi
 

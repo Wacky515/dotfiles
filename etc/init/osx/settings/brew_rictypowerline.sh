@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install Ricty for PowerLine
 # Created:     2018/04/12 06:23:00
-# Last Change: 2020/05/02 23:13:36.
+# Last Change: 2020/05/06 10:49:29.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -18,7 +18,7 @@ readonly PROCESS_PROP=${ACTION_PROP}" "${APPS}
 gm_echo ">> Start ${PROCESS_LOWC}"
 
 if ! has "brew"; then
-    ym_echo info "Install Brew frst"
+    ym_echo info "Install Brew first"
     bash ~/dotfiles/etc/init/osx/settings/install_homebrew.sh
 fi
 
