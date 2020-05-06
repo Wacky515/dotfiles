@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2019/12/03 09:30:44.
+" Last Change: 2020/05/06 11:19:23.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -85,17 +85,17 @@ if !has("nvim")
         set printfont=Cica\ 16
         " colorscheme iceberg
 
-    elseif (has("unix") && has("mac"))
+    elseif has("mac")
         if hostname()     == "ProSalad13-2018.local"
             set   guifont=Cica:h18
             set printfont=Cica:h18
-        elseif hostname() == "ProSalad13.local"
-            set   guifont=Cica:h16
-            set printfont=Cica:h16
         elseif hostname() == "saladserver.com"
             set   guifont=Cica:h18
             set printfont=Cica:h18
         elseif hostname() == "SaladBook.local"
+            set   guifont=HackGen\ Console\ Regular\ for\ Powerline:h24
+            set printfont=HackGen\ Console\ Regular\ for\ Powerline:h24
+        elseif hostname() == "ProSalad13.local"
             set   guifont=Cica:h16
             set printfont=Cica:h16
         else
@@ -103,6 +103,10 @@ if !has("nvim")
             set printfont=Cica:h16
         endif
         " colorscheme iceberg
+
+    elseif has("unix")
+        set   guifont=Cica\ 16
+        set printfont=Cica\ 16
 
     elseif (has("win32") || has("win64"))
         " Home setting
