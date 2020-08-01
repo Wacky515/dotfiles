@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install Bash 4.*
 # Created:     2019/11/05 15:38:58
-# Last Change: 2020/05/06 10:47:26.
+# Last Change: 2020/08/01 21:22:34.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -20,7 +20,7 @@ gm_echo ">> Start ${PROCESS_LOWC}"
 if [ `bash --version | grep '2007'` ] ; then
     if ! has "brew"; then
         echo info ">> Install Brew first"
-        bash ~/dotfiles/etc/init/osx/install_homebrew.sh
+        bash ~/dotfiles/etc/init/osx/settings/install_homebrew.sh
     fi
     brew install bash
 else

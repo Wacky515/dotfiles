@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install fish
 # Created:     2018/05/03 10:54:13
-# Last Change: 2020/05/06 10:46:30.
+# Last Change: 2020/08/01 21:17:56.
 
 set -euo pipefail
 export LC_ALL=C
@@ -15,13 +15,12 @@ gm_echo ">> Start ${PROCESS}"
 
 if ! has "brew"; then
     echo info "Install Brew first"
-    bash ~/dotfiles/etc/init/osx/install_homebrew.sh
+    bash ~/dotfiles/etc/init/osx/settings/install_homebrew.sh
 fi
 
 if ! has "fish"; then
     brew install fish
     if [ ! grep -q "/usr/local/bin/fish" /etc/shells ]; then
-        # sudo bash -c "echo /usr/local/bin/fish >> /etc/shells"
         sudo bash -c "echo /usr/local/bin/fish | sudo tee -a /etc/shells"
     else
         gm_echo ">> Already install fish"
@@ -33,13 +32,10 @@ fi
 
 if ! has "fisher"; then
     sudo chmod 777 ~/.config/fish
-    # curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
     curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 
     fisher install 0rax/fish-bd
     fisher install z
-
-    # curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
 
     fish_update_completions
 fi

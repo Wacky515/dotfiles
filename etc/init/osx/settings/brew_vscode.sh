@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install VS Code
 # Created:     2019/11/01 11:48:28
-# Last Change: 2020/05/06 10:48:59.
+# Last Change: 2020/08/01 21:26:39.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -15,7 +15,7 @@ gm_echo ">> ${PROCESS^}"
 
 if ! has "brew"; then
     echo info ">> Install Brew first"
-    bash ~/dotfiles/etc/init/osx/install_homebrew.sh
+    bash ~/dotfiles/etc/init/osx/settings/install_homebrew.sh
 fi
 
 if ! has "code"; then

@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2020/07/12 11:35:**.
+" Last Change: 2020/08/01 22:06:13.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -87,8 +87,8 @@ if !has("nvim")
 
     elseif has("mac")
         if hostname()     == "ProSalad13-2018.local"
-            set   guifont=Cica:h18
-            set printfont=Cica:h18
+            set   guifont=HackGenNerd\ Console\ Regular:h15
+            set printfont=HackGenNerd\ Console\ Regular:h15
         elseif hostname() == "saladserver.com"
             set   guifont=Cica:h18
             set printfont=Cica:h18
