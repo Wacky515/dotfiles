@@ -93,8 +93,8 @@ if !has("nvim")
             set   guifont=Cica:h18
             set printfont=Cica:h18
         elseif hostname() == "SaladBook.local"
-            set   guifont=HackGen\ Console\ Regular\ for\ Powerline:h24
-            set printfont=HackGen\ Console\ Regular\ for\ Powerline:h24
+            set   guifont=HackGenNerd\ Console\ Regular:h15
+            set printfont=HackGenNerd\ Console\ Regular:h15
         elseif hostname() == "ProSalad13.local"
             set   guifont=Cica:h16
             set printfont=Cica:h16
