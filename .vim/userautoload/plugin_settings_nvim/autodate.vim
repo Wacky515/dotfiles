@@ -5,4 +5,6 @@ scriptencoding utf-8
 " --------------------------------------------------------------------------------
 " 基本設定
 " --------------------------------------------------------------------------------
+let autodate_keyword_pre="Last Change:"
+let autodate_keyword_post="."
 let autodate_format="%Y/%m/%d %H:%M:%S"
