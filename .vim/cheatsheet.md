@@ -132,7 +132,7 @@
 
 ### 辞典/翻訳
 
-- \<Leader\>k:  カーソル下を英和辞典検索（GENE）
+- \<Leader\>k: NOTWORK: カーソル下を英和辞典検索（GENE）
 - \<Leader\>dj: カーソル下を英和辞典検索
 - \<Leader\>de: カーソル下を和英辞典検索
 
