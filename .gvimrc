@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2020/08/01 22:06:13.
+" Last Change: 2020/08/24 08:41:30.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -13,10 +13,18 @@ scriptencoding utf-8
 " コマンドライン（"Vim" 画面下部）高さ
 set cmdheight=5
 
-" ツールバー 消去
+if (has("win32") || ("win64"))
+    " メニューバー 表示
+    set guioptions+=m
+else
+    " メニューバー 非表示
+    set guioptions-=m
+endif
+" ツールバー 非表示
 set guioptions-=T
-" メニューバー 非表示
-set guioptions-=m
+" 水平スクロールバー 表示
+set guioptions+=b
+
 
 " ウィンドウ 半透明化（"Linux" は "Vim" から設定できない）
 " if has("mac")
@@ -87,8 +95,10 @@ if !has("nvim")
 
     elseif has("mac")
         if hostname()     == "ProSalad13-2018.local"
-            set   guifont=HackGenNerd\ Console\ Regular:h15
-            set printfont=HackGenNerd\ Console\ Regular:h15
+            " set   guifont=HackGenNerd\ Console\ Regular:h15
+            " set printfont=HackGenNerd\ Console\ Regular:h15
+            set   guifont=Cica:h16
+            set printfont=Cica:h16
         elseif hostname() == "saladserver.com"
             set   guifont=Cica:h18
             set printfont=Cica:h18

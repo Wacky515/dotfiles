@@ -1,12 +1,13 @@
 scriptencoding utf-8
 " Created:     2018/03/07 21:59:29
-" Last Change: 2019/11/22 16:38:07.
+" Last Change: 2020/09/03 19:49:24.
 
 " ---------------------------------------------------------------------------
 "  キーマップ
 "  ---------------------------------------------------------------------------
 " du: "Dein" アップデート
-nmap du :<C-u>call dein#check_update()<CR>
+" nmap du :<C-u>call dein#check_update()<CR>
+nmap du :<C-u>call dein#check_update(v:true)<CR>
 
 " dc: "Dein" クリア
 nmap dc :<C-u>call dein#clear_state()<CR>
