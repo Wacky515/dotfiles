@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2019/12/02 09:51:03.
+" Last Change: 2020/09/03 19:51:38.
 
 " NOT_WORK:
 " " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
@@ -170,6 +170,14 @@ endif
 " 未インストールのプラグインがあればインストール
 if has("vim_starting") && dein#check_install()
     call dein#install()
+endif
+
+" "dein.vim" の更新チェック高速化設定
+if has("mac")
+    runtime! ~/OneDrive/仕事/Settings/vim/dein/deintoken.vim
+    " runtime! ~/Library/Mobile\ Documents/com~apple~CloudDocs/Settings/vim/dein/*.vim
+elseif (has("win32") || has("win64"))
+    runtime! ~/OneDrive/仕事/Settings/vim/dein/deintoken.vim
 endif
 
 " MEMO:
