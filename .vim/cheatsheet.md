@@ -78,6 +78,7 @@
 - \<Leader\>v:    ウィンドウを横分割
 - \<Leader\>e:    ウィンドウサイズ変更開始
 
+- \<Leader\>ff:   "defx" 起動
 - \<Leader\>fu:   改行コードを "LF"       として開き直す
 - \<Leader\>fd:   改行コードを "CR/LF"    として開き直す
 - \<Leader\>eu:   文字コードを "UTF-8"    として開き直す
