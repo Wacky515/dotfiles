@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2020/09/06 00:16:21
-" Last Change: 2020/09/06 00:23:18.
+" Last Change: 2020/10/08 12:58:28.
 
 " --------------------------------------------------------------------------------
 " マップキー
@@ -74,11 +74,19 @@ function! s:defx_my_settings() abort
 endfunction
 
 " <Leader>ff: "defx" 起動
-autocmd VimEnter * execute 'Defx'
 nnoremap <silent> <Leader>ff :<C-u> Defx <CR>
+
 " ---------------------------------------------------------------------------
 "  基本設定
 " ---------------------------------------------------------------------------
+" "Vim" 起動時に "defx" 起動
+" autocmd VimEnter * execute 'Defx'
+
+" 自動更新
+autocmd BufWritePost * call defx#redraw()
+autocmd BufEnter * call defx#redraw()
+
+" 起動時のレイアウトと設定
 call defx#custom#option('_', {
             \ 'winwidth': 40,
             \ 'split': 'vertical',
@@ -87,4 +95,16 @@ call defx#custom#option('_', {
             \ 'buffer_name': 'exlorer',
             \ 'toggle': 1,
             \ 'resume': 1,
+            \ 'columns': 'indent:git:icons:filename:mark',
+            \ })
+" "git" ステータスアイコン
+call defx#custom#column('git', 'indicators', {
+            \ 'Modified'  : '✹',
+            \ 'Staged'    : '✚',
+            \ 'Untracked' : '✭',
+            \ 'Renamed'   : '➜',
+            \ 'Unmerged'  : '═',
+            \ 'Ignored'   : '☒',
+            \ 'Deleted'   : '✖',
+            \ 'Unknown'   : '?'
             \ })

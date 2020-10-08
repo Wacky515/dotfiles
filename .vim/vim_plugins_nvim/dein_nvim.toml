@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2020/09/05 23:50:16.
+# Last Change: 2020/10/08 12:58:37.
 
 # REF:
     # hook_add         プラグイン追加後
@@ -56,6 +56,11 @@ repo = 'majutsushi/tagbar'
 # ファイラ
 [[plugins]]
 repo = 'Shougo/defx.nvim'
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
+[[plugins]]
+repo = 'kristijanhusak/defx-git'
+
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 [[plugins]]
