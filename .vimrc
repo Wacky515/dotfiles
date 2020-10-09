@@ -171,14 +171,6 @@ if has("vim_starting") && dein#check_install()
     call dein#install()
 endif
 
-" "dein.vim" の更新チェック高速化設定
-if has("mac")
-    runtime! ~/OneDrive/仕事/Settings/vim/dein/deintoken.vim
-    " runtime! ~/Library/Mobile\ Documents/com~apple~CloudDocs/Settings/vim/dein/*.vim
-elseif (has("win32") || has("win64"))
-    runtime! ~/OneDrive/仕事/Settings/vim/dein/deintoken.vim
-endif
-
 " MEMO:
 " プラグインの追加・削除やtomlファイルの設定を変更した後は
 " 適宜 "du: call dein#check_update()" や "dc: call dein#clear_state()" を実行する
@@ -194,8 +186,10 @@ let mapleader = "\<Space>"
 
 " "Windows" 環境の設定ファイルの場所を、"Linux/Mac" 環境にあわせる
 set runtimepath+=$HOME/.vim
+
 " "Vim" の設定ファイル
 runtime! userautoload/*.vim
+
 " プラグインの設定ファイル
 if !has("nvim")
     runtime! userautoload/plugin_settings/*.vim
@@ -203,6 +197,8 @@ if !has("nvim")
 else
     runtime! userautoload/plugin_settings_nvim/*.vim
 endif
+" "dein.vim" の更新チェック高速化設定
+runtime! ~/OneDrive/仕事/Settings/vim/dein/dein_token.vim
 
 " 読み込んだプラグインも含め、ファイルタイプの検出
 " ファイルタイプ別プラグイン/インデントを有効化する

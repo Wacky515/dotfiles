@@ -14,8 +14,10 @@
 ## HOW TO INSTALL
 
 - See the README for documentation.
-  - OS X & Linux
-    - ~/dotfiles/etc/init/linux/settings/README.md
+  - macOS
+    - ~/dotfiles/etc/init/osx/README.md
+  - Linux
+    - ~/dotfiles/etc/init/linux/README.md
   - Windows
-    - ~/dotfiles/etc/init/windows/settings/README.md
+    - ~/dotfiles/etc/init/windows/README.md
 - Licensed under the MIT license.

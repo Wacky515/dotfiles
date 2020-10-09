@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2020/04/14 22:53:56.
+# Last Change: 2020/09/06 00:08:17.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -147,7 +147,6 @@ hook_source = '''  " {{{
                     \ 'ropeproject/'])
     endif
 '''  # }}}
-
 on_i = 1
 on_cmd = ['Denite']
 # "[De|U]nite" 用 "Source" 郡
@@ -163,7 +162,7 @@ repo = 'koron/codic-vim'
 repo = 'Shougo/unite.vim'
 
 # 入力補完
-# 最新
+    # 最新
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 if = "has('python3') && has('timers')"
@@ -221,16 +220,16 @@ repo = 'kassio/neoterm'
 if = "has('nvim')"
 
 # Markdown
-# プレビュー
+    # プレビュー
 [[plugins]]
 repo = 'kannokanno/previm'
-# MEMO: "Markdown" のみ対応
+    # MEMO: "Markdown" のみ対応
 on_ft = ['markdown','mkd']
 [[plugins]]
 repo = 'tyru/open-browser.vim'
-# MEMO: "Markdown" のみ対応
+    # MEMO: "Markdown" のみ対応
 on_ft = ['markdown','mkd']
-# シンタックスハイライト
+    # シンタックスハイライト
 [[plugins]]
 repo = 'rcmdnk/vim-markdown'
 on_ft = ['markdown','mkd']
@@ -238,10 +237,6 @@ hook_add = '''
     let g:vim_markdown_frontmatter = 1
     let g:vim_markdown_math        = 1
 '''
-
-# THIKAN highlight
-[[plugins]]
-repo = 'markonm/traces.vim'
 
 # Fuzzy Matcher
 [[plugins]]
@@ -276,7 +271,3 @@ hook_add = '''  " {{{
 [[plugins]]
 repo = 'dag/vim-fish'
 on_ft = ['fish']
-
-# Japanese help
-[[plugins]]
-repo = 'vim-jp/vimdoc-ja'

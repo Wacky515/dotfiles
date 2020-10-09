@@ -1,16 +1,91 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2020/04/18 22:00:34.
+# Last Change: 2020/10/08 12:58:37.
 
 # REF:
-# hook_add         プラグイン追加後
-# hook_source      プラグイン読込前
-# hook_post_source プラグイン読込後
+    # hook_add         プラグイン追加後
+    # hook_source      プラグイン読込前
+    # hook_post_source プラグイン読込後
 
 # "dein.vim" 本体
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# コピペ履歴保存
+# Grep
+    # The Silver Searcher
+[[plugins]]
+repo = 'rking/ag.vim'
+    # The Platinum Searcher
+[[plugins]]
+repo = 'nazo/pt.vim'
+
+# Git
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+    # 追加、削除マーカ表示
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+    # "git log" を強化
+    # :Agit 強化版 "git log" 実行
+[[plugins]]
+repo = 'cohama/agit.vim'
+    # "gitk" 機能追加
+        # :Gitv: 機能追加版 "gitk" 実行
+[[plugins]]
+repo = 'gregsexton/gitv'
+depends = ['vim-fugitive']
+    # コミットログ入力強化
+[[plugins]]
+repo = 'rhysd/committia.vim'
+
+# Diff
+    # :DirDiff A B: AとBを比較
+[[plugins]]
+repo = 'vim-scripts/DirDiff.vim'
+
+# LSP(Language Server Protocol)
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+
+# Ctags
+    # どの関数内か表示
+[[plugins]]
+repo = 'majutsushi/tagbar'
+
+# ファイラ
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
+[[plugins]]
+repo = 'kristijanhusak/defx-git'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+[[plugins]]
+repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
+depends = ['nerdtree']
+
+# ステータスライン ビジュアル強化
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+depends = ['vim-fugitive', 'tagbar']
+# < http://itchyny.hatenablog.com/entry/20130828/1377653592 >
+# アイコン表示
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
+
+# カーソル位置の "filetype" を自動切替
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+# コピペ履歴
 [[plugins]]
 repo = 'LeafCage/yankround.vim'
 hook_source = '''  " {{{
@@ -27,53 +102,6 @@ hook_source = '''  " {{{
 	  cmap <C-y>    <Plug>(yankround-pop)
 '''  # }}}
 
-# Git
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-# 追加、削除マーカ表示
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
-# "git log" を強化
-    # :Agit 強化版 "git log" 実行
-[[plugins]]
-repo = 'cohama/agit.vim'
-# "gitk" 機能追加
-    # :Gitv: 機能追加版 "gitk" 実行
-[[plugins]]
-repo = 'gregsexton/gitv'
-depends = ['vim-fugitive']
-# コミットログ入力強化
-[[plugins]]
-repo = 'rhysd/committia.vim'
-
-# Grep
-# The Silver Searcher
-[[plugins]]
-repo = 'rking/ag.vim'
-# The Platinum Searcher
-[[plugins]]
-repo = 'nazo/pt.vim'
-
-# Diff
-    # :DirDiff A B: AとBを比較
-[[plugins]]
-repo = 'vim-scripts/DirDiff.vim'
-
-# Ctags
-# どの関数内か表示
-[[plugins]]
-repo = 'majutsushi/tagbar'
-
-# LSP(Language Server Protocol)
-[[plugins]]
-repo = 'prabirshrestha/async.vim'
-[[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-
-# キーバインド衝突確認
-[[plugins]]
-repo = 'lukhio/vim-mapping-conflicts'
-
 # Undo履歴
 [[plugins]]
 repo = 'sjl/gundo.vim'
@@ -82,6 +110,14 @@ repo = 'sjl/gundo.vim'
 [[plugins]]
 repo = 'osyo-manga/vim-over'
 
+# 置換プレビュー
+[[plugins]]
+repo = 'markonm/traces.vim'
+
+# キーバインド衝突確認
+[[plugins]]
+repo = 'lukhio/vim-mapping-conflicts'
+
 # チートシート表示
 [[plugins]]
 repo = 'reireias/vim-cheatsheet'
@@ -89,36 +125,20 @@ repo = 'reireias/vim-cheatsheet'
 # 辞書
 [[plugins]]
 repo = 'thinca/vim-ref'
+
 # 翻訳
 [[plugins]]
 repo = 'daisuzu/translategoogle.vim'
 [[plugins]]
 repo = 'skanehira/translate.vim'
 
-# ファイラ
+# 起動画面機能強化
 [[plugins]]
-repo = 'scrooloose/nerdtree'
-[[plugins]]
-repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
-depends = ['nerdtree']
-# ステータスライン ビジュアル強化
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-depends = ['vim-fugitive', 'tagbar']
-# < http://itchyny.hatenablog.com/entry/20130828/1377653592 >
-# アイコン表示
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
-[[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
+repo = 'mhinz/vim-startify'
 
 # ウィンドゥリサイズ
 [[plugins]]
 repo = 'simeji/winresizer'
-
-# 起動画面機能強化
-[[plugins]]
-repo = 'mhinz/vim-startify'
 
 # マルチカーソル
 [[plugins]]
@@ -148,6 +168,7 @@ repo = 'tmhedberg/matchit'
 # 選択テキストを'""'、"()"、"[]"などで囲む
 [[plugins]]
 repo = 'tpope/vim-surround'
+
 # vim-surround をドットコマンドに対応させる
 [[plugins]]
 repo = 'tpope/vim-repeat'
@@ -170,13 +191,6 @@ repo = 'vim-scripts/autodate.vim'
     # FIXME: yyyy/mm/dd 形式は対応していない
 [[plugins]]
 repo = 'tpope/vim-speeddating'
-
-# カーソル位置の "filetype" を自動切替
-[[plugins]]
-repo = 'osyo-manga/vim-precious'
-depends = ['context_filetype.vim']
-[[plugins]]
-repo = 'Shougo/context_filetype.vim'
 
 # "TagList" を開く
 [[plugins]]
@@ -219,6 +233,10 @@ hook_add = '''
     au MyAutoCmd VimEnter * nested colorscheme iceberg
     au MyAutoCmd VimEnter * highlight Visual ctermbg=216
 '''
+
+# 日本語ヘルプ
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
 
 # カラースキーム ランダム設定
 # [[plugins]]
