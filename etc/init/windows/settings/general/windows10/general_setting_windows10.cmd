@@ -110,5 +110,5 @@ sc config XboxNetApiSvc start=disabled
 endlocal
 popd
 
-pause
+rem pause
 exit /b 0
