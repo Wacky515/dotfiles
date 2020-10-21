@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2020/10/21 16:25:51.
+rem Last Change: 2020/10/21 18:55:30.
 
 set batch_title=General setting Windows10
 
@@ -48,12 +48,11 @@ reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeli
 
 echo ^>^> Setting Strage sensor
 rem ストレージセンサ 有効
-reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v "01" /t REG_DWORD /d "1" /f
-reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v "2048" /t REG_DWORD /d "7" /f
-reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v "4" /t REG_DWORD /d "1" /f
-rem FIXME:
-rem reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v "256" /t REG_DWORD /d "1e" /f
-reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v "512" /t REG_DWORD /d "0" /f
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v "01" /t REG_DWORD /d "0x1" /f
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v "2048" /t REG_DWORD /d "0x7" /f
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v "4" /t REG_DWORD /d "0x1" /f
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v "256" /t REG_DWORD /d "0x1e" /f
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v "512" /t REG_DWORD /d "0x0" /f
 rem 設定詳述  reg {{{
 rem ストレージセンサーの有無
 rem   0=無効
@@ -101,7 +100,7 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System" /v "Enab
 rem FIXME:
 rem echo ^>^> ON Remote desktop
 rem rem リモートデスクトップ 有効
-rem reg add "HKEY_LOCAL_MACHINESYSTEMCurrentControlSetControlTerminal Server" /v "fDenyTSConnections"/t REG_DWORD /d "0" /f
+rem reg add "HKEY_LOCAL_MACHINESYSTEMCurrentControlSetControlTerminal Server" /v fDenyTSConnections/t REG_DWORD /d "1" /f
 
 echo ^>^> OFF Xbox function
 sc config XblAuthManager start=disabled
@@ -111,5 +110,5 @@ sc config XboxNetApiSvc start=disabled
 endlocal
 popd
 
-rem pause
+pause
 exit /b 0
