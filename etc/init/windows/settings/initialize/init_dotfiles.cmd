@@ -6,23 +6,23 @@ rem Last Change: 2020/10/18 22:41:57.
 set batch_title=Initialize dotfiles
 title %batch_title%
 
-rem ç®¡ç†è€…æ¨©é™ã§èµ·å‹•ã•ã‚ŒãŸã‹ãƒã‚§ãƒƒã‚¯
+rem ŠÇ—ÒŒ ŒÀ‚Å‹N“®‚³‚ê‚½‚©ƒ`ƒFƒbƒN
 whoami /PRIV | find "SeLoadDriverPrivilege" > nul
 
-rem ç®¡ç†è€…æ¨©é™ãªã‚‰ãƒ¡ã‚¤ãƒ³å‡¦ç†
+rem ŠÇ—ÒŒ ŒÀ‚È‚çƒƒCƒ“ˆ—
 if not errorlevel 1 goto main_routine
 
-rem ç®¡ç†è€…æ¨©é™ã§ãªã‘ã‚Œã°ç®¡ç†è€…æ¨©é™ã§å†èµ·å‹•
-@powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %â€¾f0 -Verb Runas"
+rem ŠÇ—ÒŒ ŒÀ‚Å‚È‚¯‚ê‚ÎŠÇ—ÒŒ ŒÀ‚ÅÄ‹N“®
+@powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
 exit
 
 :main_routine
-set bat_path=%â€¾dp0
+set bat_path=%~dp0
 set conf_file=packages_%computername%.config
-set conf_path=%userprofile%Â¥dotfilesÂ¥etcÂ¥initÂ¥windowsÂ¥settingsÂ¥chocolateyÂ¥
-set conf_defa=%conf_path%Â¥packages.config
+set conf_path=%userprofile%\dotfiles\etc\init\windows\settings\chocolatey\
+set conf_defa=%conf_path%\packages.config
 
-rem ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "cd"
+rem ƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "cd"
 pushd %bat_path%
 
 echo ^>^> %batch_title%
@@ -66,26 +66,26 @@ if /i "%input%" == "t" (
 goto end
 
 :redirect
-call :chk_choco > %userprofile%Â¥init_dotfile.log 2>&1
-type %userprofile%Â¥init_dotfile.log
+call :chk_choco > %userprofile%\init_dotfile.log 2>&1
+type %userprofile%\init_dotfile.log
 goto end
 
 :chk_choco
-rem "Chocolatey" ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«æ¸ˆã¿ã‹ãƒã‚§ãƒƒã‚¯
+rem "Chocolatey" ƒCƒ“ƒXƒg[ƒ‹Ï‚İ‚©ƒ`ƒFƒbƒN
 echo ^>^> Check installed Chocolatey or not
 chocolatey -v > nul 2>&1
 if %errorlevel% equ 0 goto inst_must_apps
 
 echo ^>^> Install Chocolatey
-@"%SystemRoot%Â¥System32Â¥WindowsPowerShellÂ¥v1.0Â¥powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%Â¥chocolateyÂ¥bin"
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 
 :inst_must_apps
 echo ^>^> Already installed Chocolatey
 echo ^>^> Install must apps
-rem å¿…é ˆãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®ã¿ "cinst"
+rem •K{ƒpƒbƒP[ƒW‚Ì‚İ "cinst"
 cinst -y 7zip git megasync
 
-rem ãƒ›ãƒ¼ãƒ ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã« "cd"
+rem ƒz[ƒ€ƒfƒBƒŒƒNƒgƒŠ‚É "cd"
 pushd %userprofile%
 
 echo ^>^> Check installed Git or not
@@ -103,22 +103,22 @@ exit /b 1000
 
 :git_clone
 echo ^>^> Check Git clone or not
-if not exist %userprofile%Â¥dotfilesÂ¥.gitÂ¥ (
+if not exist %userprofile%\dotfiles\.git\ (
     echo ^>^> Git clone not yet, clone first
-    if exist %userprofile%Â¥dotfilesÂ¥ (
-        rmdir /s /q %userprofile%Â¥dotfilesÂ¥
+    if exist %userprofile%\dotfiles\ (
+        rmdir /s /q %userprofile%\dotfiles\
     )
-    del %userprofile%Â¥.gitignore > nul 2>&1
+    del %userprofile%\.gitignore > nul 2>&1
     git clone --depth 1 https://github.com/Wacky515/dotfiles.git
 ) else (
     echo ^>^> Already Git clone
 )
 
-rem link.cmd å®Ÿè¡Œ
-pushd %userprofile%Â¥dotfilesÂ¥
+rem link.cmd Às
+pushd %userprofile%\dotfiles\
 call link.cmd
 
-rem Proxyç’°å¢ƒã‹ç¢ºèª
+rem ProxyŠÂ‹«‚©Šm”F
 rem if %computername% == HBAMB748  rem ({{{
 rem     goto cp_rd
 rem ) else if %computername% == HBAMB819 (
@@ -127,7 +127,7 @@ rem )
 
 rem netsh wlan show profile name=murata-dmj-peap >nul
 rem if %errorlevel% equ 0 goto cp_rd
-rem TODO: è‡ªå®…Wi-Fiã§NASã‹ã‚‰ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰
+rem TODO: ©‘îWi-Fi‚ÅNAS‚©‚çƒ_ƒEƒ“ƒ[ƒh
 rem netsh wlan show profile name=*_SaladExtreme* >nul
 rem if %errorlevel% equ 0 goto cp_nas
 rem netsh wlan show profile name=*_SaladCapsule* >nul
@@ -140,7 +140,7 @@ ping 10.0.1.1 /n 1 > nul 2>&1
 if %errorlevel% equ 0 goto cp_nas
 
 echo ^>^> Check exist "Settings" or not
-if exist %userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥SettingsÂ¥WallpaperÂ¥ (
+if exist %userprofile%\OneDrive\d–\Settings\Wallpaper\ (
     echo ^>^> Already exist "Settings", Install apps
     goto chk_init_apps
 )
@@ -149,74 +149,74 @@ goto dl_mega
 
 :chk_init_apps
 echo ^>^> Check exist "InitApps" or not
-if exist %userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥InitAppsÂ¥x64Â¥ (
+if exist %userprofile%\OneDrive\d–\InitApps\x64\ (
     echo ^>^> Already exist "InitApps", Install apps
     goto install_apps
 )
 echo ^>^> Not exist "InitApps"
 
 :cp_rd
-rem Rãƒ‰ãƒ©ã‚¤ãƒ–ã‚³ãƒ”ãƒ¼
+rem Rƒhƒ‰ƒCƒuƒRƒs[
 echo ^>^> In proxy
-if not exist %userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥SettingsÂ¥ (
-    mkdir %userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥SettingsÂ¥
+if not exist %userprofile%\OneDrive\d–\Settings\ (
+    mkdir %userprofile%\OneDrive\d–\Settings\
 )
-if not exist %userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥InitAppsÂ¥ (
-    mkdir %userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥InitAppsÂ¥
+if not exist %userprofile%\OneDrive\d–\InitApps\ (
+    mkdir %userprofile%\OneDrive\d–\InitApps\
 )
 net use v: /delete > nul 2>&1
 net use w: /delete > nul 2>&1
-net use v: Â¥Â¥M5FSV01Â¥HONSHABÂ¥E2M0Â¥E2M-4Â¥ã€ç§˜ã€‘-E2M4-1Â¥10.å€‹äººãƒ•ã‚¡ã‚¤ãƒ«Â¥WakitaÂ¥ä»•äº‹Â¥Settings
-net use w: Â¥Â¥M5FSV01Â¥HONSHABÂ¥E2M0Â¥E2M-4Â¥ã€ç§˜ã€‘-E2M4-1Â¥10.å€‹äººãƒ•ã‚¡ã‚¤ãƒ«Â¥WakitaÂ¥ä»•äº‹Â¥InitApps
+net use v: \\M5FSV01\HONSHAB\E2M0\E2M-4\y”éz-E2M4-1\10.ŒÂlƒtƒ@ƒCƒ‹\Wakita\d–\Settings
+net use w: \\M5FSV01\HONSHAB\E2M0\E2M-4\y”éz-E2M4-1\10.ŒÂlƒtƒ@ƒCƒ‹\Wakita\d–\InitApps
 echo ^>^> Copy "Settngs" from R drive
-robocopy /s /e v: %userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥SettingsÂ¥
+robocopy /s /e v: %userprofile%\OneDrive\d–\Settings\
 echo ^>^> Copy "InitApps" from R drive
-robocopy w: /s /e %userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥InitAppsÂ¥
+robocopy w: /s /e %userprofile%\OneDrive\d–\InitApps\
 net use v: /delete > nul 2>&1
 net use w: /delete > nul 2>&1
 goto install_apps
 
 :cp_nas
-set nas_settings=Â¥Â¥LS210D68Â¥ShareÂ¥SettingsÂ¥
-set nas_init_apps=Â¥Â¥LS210D68Â¥SharaÂ¥InitAppsÂ¥
+set nas_settings=\\LS210D68\Share\Settings\
+set nas_init_apps=\\LS210D68\Shara\InitApps\
 echo ^>^> In home network
 echo ^>^> Copy "Settings" from NAS
-robocopy /s /e %nas_setthing% %userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥SettingsÂ¥
+robocopy /s /e %nas_setthing% %userprofile%\OneDrive\d–\Settings\
 echo ^>^> Copy "InitApps" from NAS
-robocopy /s /e %nas_initapps% %userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥InitAppsÂ¥
+robocopy /s /e %nas_initapps% %userprofile%\OneDrive\d–\InitApps\
 goto install_apps
 
 :dl_mega
 echo ^>^> Not in proxy
-if exist %userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥SettingsÂ¥ (
-    rmdir /s /q %userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥SettingsÂ¥
+if exist %userprofile%\OneDrive\d–\Settings\ (
+    rmdir /s /q %userprofile%\OneDrive\d–\Settings\
 )
 echo ^>^> Please download "Settings" folder manually
 start https://mega.nz/#F!ubhxia6L
 pause
 
-"C:Â¥Program FilesÂ¥7-ZipÂ¥7z.exe" x -y -o%userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥ %userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥Settings.zip
+"C:\Program Files\7-Zip\7z.exe" x -y -o%userprofile%\OneDrive\d–\ %userprofile%\OneDrive\d–\Settings.zip
 
-if exist %userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥InitAppsÂ¥ (
-    rmdir /s /q %userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥InitAppsÂ¥
+if exist %userprofile%\OneDrive\d–\InitApps\ (
+    rmdir /s /q %userprofile%\OneDrive\d–\InitApps\
 )
 echo ^>^> Please download "InitApps" folder manually
 start https://mega.nz/#F!yTATTABQ
 pause
 
-"C:Â¥Program FilesÂ¥7-ZipÂ¥7z.exe" x -y -o%userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥ %userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥InitApps.zip
+"C:\Program Files\7-Zip\7z.exe" x -y -o%userprofile%\OneDrive\d–\ %userprofile%\OneDrive\d–\InitApps.zip
 goto install_apps
 
 :install_apps
-rem "*.config" ã®ã‚ã‚‹ "Dir" ã« "pushd"
+rem "*.config" ‚Ì‚ ‚é "Dir" ‚É "pushd"
 pushd %conf_path%
 
 echo ^>^> Install apps by Chocolatey
 rem ---------------------------------------------------------------------------
-rem Testæ™‚ ã‚¹ã‚­ãƒƒãƒ—
+rem Test ƒXƒLƒbƒv
 rem ---------------------------------------------------------------------------
 if %test% equ 1 goto instll_all
-rem "*_packages_*.config" ã‚’èª­ã¿è¾¼ã¿ã€ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
+rem "*_packages_*.config" ‚ğ“Ç‚İ‚İAƒCƒ“ƒXƒg[ƒ‹
 if exist *_%conf_file% (
     echo ^>^> Install apps for this PC
     for %%i in (*_%conf_file%) do (
@@ -231,15 +231,15 @@ cup all -y
 rem ---------------------------------------------------------------------------
 
 :install_all
-rem å†åº¦ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "pushd"
-rem MEMO: "init_dotfiles" ã§å®Ÿè¡Œã™ã‚‹å ´åˆãŒã‚ã‚‹ã®ã§çµ¶å¯¾ãƒ‘ã‚¹æŒ‡å®š
-pushd %userprofile%Â¥dotfilesÂ¥etcÂ¥initÂ¥windowsÂ¥settingsÂ¥initializeÂ¥
+rem Ä“xƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "pushd"
+rem MEMO: "init_dotfiles" ‚ÅÀs‚·‚éê‡‚ª‚ ‚é‚Ì‚Åâ‘ÎƒpƒXw’è
+pushd %userprofile%\dotfiles\etc\init\windows\settings\initialize\
 
-rem "gitÂ¥initÂ¥settings" ã¨ "Mega(R:)Â¥ä»•äº‹Â¥Settings" ã® "setting_*.cmd" å®Ÿè¡Œ
+rem "git\init\settings" ‚Æ "Mega(R:)\d–\Settings" ‚Ì "setting_*.cmd" Às
 call sub_install_all.cmd
 rem pause
 
-rem ãƒ›ãƒ¼ãƒ ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã« *.7z ã§åœ§ç¸®ã—ãŸã‚¢ãƒ—ãƒªã‚’å±•é–‹
+rem ƒz[ƒ€ƒfƒBƒŒƒNƒgƒŠ‚É *.7z ‚Åˆ³k‚µ‚½ƒAƒvƒŠ‚ğ“WŠJ
 call sub_install_app.cmd
 rem pause
 
@@ -251,7 +251,7 @@ cup all -y
 rem pause
 
 rem ---------------------------------------------------------------------------
-rem Testæ™‚ ã‚¹ã‚­ãƒƒãƒ—
+rem Test ƒXƒLƒbƒv
 rem ---------------------------------------------------------------------------
 if %test% equ 1 goto erase
 call sub_install_font.cmd
@@ -259,27 +259,27 @@ rem ---------------------------------------------------------------------------
 
 :erase
 echo ^>^> Erase temp data
-rem if exist %userprofile%Â¥init_dotfilesÂ¥ (
+rem if exist %userprofile%\init_dotfiles\ (
 rem     echo ^>^> Del init_dotfiles
-rem     rmdir /s /q %userprofile%Â¥init_dotfiles > nul 2>&1
+rem     rmdir /s /q %userprofile%\init_dotfiles > nul 2>&1
 rem )
 
-if exist %userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥Settings.zip (
+if exist %userprofile%\OneDrive\d–\Settings.zip (
     echo ^>^> Del Settings.zip
-    del %userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥Settings.zip > nul 2>&1
+    del %userprofile%\OneDrive\d–\Settings.zip > nul 2>&1
 )
 
-if exist %userprofiley%Â¥OneDriveÂ¥ä»•äº‹Â¥InitApps.zip (
+if exist %userprofiley%\OneDrive\d–\InitApps.zip (
     echo ^>^> Del InitApps.zip
-    del %userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥InitApps.zip > nul 2>&1
+    del %userprofile%\OneDrive\d–\InitApps.zip > nul 2>&1
 )
 
-call %userprofile%Â¥OneDriveÂ¥ä»•äº‹Â¥InitAppsÂ¥BatchÂ¥empty.cmd
+call %userprofile%\OneDrive\d–\InitApps\Batch\empty.cmd
 
-rem link.cmd å®Ÿè¡Œ
-rem pushd %userprofile%Â¥dotfilesÂ¥
+rem link.cmd Às
+rem pushd %userprofile%\dotfiles\
 rem call link.cmd
-call %userprofile%Â¥dotfilesÂ¥etcÂ¥initÂ¥windowsÂ¥settingsÂ¥chocolateyÂ¥init_and_update_chocolatey.cmd
+call %userprofile%\dotfiles\etc\init\windows\settings\chocolatey\init_and_update_chocolatey.cmd
 
 echo *** CAUTION: AUTOMATICALLY RESTART PC, KEY INPUT AFTER 60sec ***
 pause
