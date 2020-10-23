@@ -1,31 +1,21 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/04/16 15:34:16.
+rem Last Change: 2020/10/23 15:38:21.
 
-set batch_title=Initialize batch for install
-
+set batch_title=Initialize batch scripts for install
 title %batch_title%
 
 set git_path=%userprofile%\dotfiles\etc\init\windows\settings\
+set meg_path=%userprofile%\OneDrive\仕事\Settings\
+rem set bat_path=%~dp0
 
 rem rem スクリプトがある "Dir" に "cd"
-rem set bat_path=%~dp0
 rem pushd %bat_path%
+pushd %git_path%
 
 echo ^>^> %batch_title%
-rem echo ^>^> Start
-
-rem if %computername% == HBAMB748 (
-rem     set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings\
-rem ) else if %computername% == HBAMB819 (
-rem     set ms_path=R:\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings\
-rem ) else (
-    set ms_path=%userprofile%\OneDrive\仕事\Settings\
-rem )
-
-echo ^>^> Search install batch in Git
-pushd %git_path%
+echo ^>^> Search install batch scripts in Git settings folder
 
 for /r %%i in (install_*) do (
     if %%~xi == .cmd (echo ^>^> Catch: %%~nxi)
@@ -39,26 +29,24 @@ echo ^>^> Done
 
 for /r %%j in (install_*) do (
     if %%~xj == .cmd (
-        echo ^>^> Automatically execute %%~nxj by batch
+        echo ^>^> Automatically execute %%~nxj by batch scripts
         call %%j
         pushd %git_path%
         )
     if %%~xj == .vbs (
-        echo ^>^> Automatically execute %%~nxj by batch
+        echo ^>^> Automatically execute %%~nxj by batch scripts
         cscript %%j
         pushd %git_path%
         )
     if %%~xj == .reg (
-        echo ^>^> Automatically execute %%~nxj by batch
+        echo ^>^> Automatically execute %%~nxj by batch scripts
         reg import %%j
         pushd %git_path%
         )
     )
 
-rem echo ^>^> Search install batch in OneDrive
-echo ^>^> Search install batch in Mega sync
-rem pushd %od_path%
-pushd %ms_path%
+echo ^>^> Search install batch scripts in Mega sync Settings folder
+pushd %meg_path%
 
 for /r %%k in (install_*) do (
     if %%~xk == .cmd (echo ^>^> Catch: %%~nxk)
@@ -72,22 +60,19 @@ echo ^>^> Done
 
 for /r %%l in (install_*) do (
     if %%~xl == .cmd (
-        echo ^>^> Automatically execute %%~nxl by batch
+        echo ^>^> Automatically execute %%~nxl by batch scripts
         call %%l
-        rem pushd %od_path%
-        pushd %ms_path%
+        pushd %meg_path%
         )
     if %%~xl == .vbs (
-        echo ^>^> Automatically execute %%~nxl by batch
+        echo ^>^> Automatically execute %%~nxl by batch scripts
         cscript %%l
-        rem pushd %od_path%
-        pushd %ms_path%
+        pushd %meg_path%
         )
     if %%~xl == .reg (
-        echo ^>^> Automatically execute %%~nxl by batch
+        echo ^>^> Automatically execute %%~nxl by batch scripts
         reg import %%l
-        rem pushd %od_path%
-        pushd %ms_path%
+        pushd %meg_path%
         )
     )
 

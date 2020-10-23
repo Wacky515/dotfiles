@@ -1,23 +1,21 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/04/16 15:34:39.
+rem Last Change: 2020/10/23 15:29:54.
 
 set batch_title=Install initialize App
-
 title %batch_title%
 
 set dir_7zip="C:\ProgramData\chocolatey\tools\7z.exe"
 set src_dir=%userprofile%\OneDrive\仕事\InitApps\
+rem set bat_path=%~dp0
 
 rem rem スクリプトがある "Dir" に "cd"
-rem set bat_path=%~dp0
 rem pushd %bat_path%
-set src_dir=%userprofile%\OneDrive\仕事\InitApps\
 pushd %src_dir%
 
 echo ^>^> %batch_title%
-rem echo ^>^> Start
+echo ^>^> Search %computername%'s setting
 
 for %%i in (*.7z) do (
         call :unzip %%i
@@ -80,10 +78,10 @@ for %%n in (*.7z) do (
         )
 pushd %src_dir%
 
-rem TODO: インストール有無 判定
+rem rem TODO: インストール有無 判定
 rem if not exist %userprofile%\SlimDrivers-setup.exe (
-        rem         %userprofile%\SlimDrivers-setup.exe
-        rem         )
+rem     %userprofile%\SlimDrivers-setup.exe
+rem )
 
 echo ^>^> Install apps
 pushd %src_dir%\Install

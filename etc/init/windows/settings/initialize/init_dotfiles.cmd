@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/10/18 22:41:57.
+rem Last Change: 2020/10/23 14:07:47.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -22,8 +22,10 @@ set conf_file=packages_%computername%.config
 set conf_path=%userprofile%\dotfiles\etc\init\windows\settings\chocolatey\
 set conf_defa=%conf_path%\packages.config
 
-rem スクリプトがある "Dir" に "cd"
-pushd %bat_path%
+rem rem スクリプトがある "Dir" に "cd"
+rem pushd %bat_path%
+rem ホームディレクトリに "cd"
+pushd %userprofile%
 
 echo ^>^> %batch_title%
 echo.
@@ -47,7 +49,11 @@ echo Standard and Standard errer output in ~/init_dotfile.log.
 echo This script can change your entire setup.
 echo I recommend to read first. You can even copy commands one by one.
 echo.
-echo Start install [Y/N], or test[t]?
+echo *** NOTE ***
+echo.
+echo test: Not Chocolatey install from *.config
+echo.
+echo Start install [Y/N], or [t]est?
 
 set /p input=
 if defined input set input=%input:"=%
@@ -66,8 +72,8 @@ if /i "%input%" == "t" (
 goto end
 
 :redirect
-call :chk_choco > %userprofile%\init_dotfile.log 2>&1
-type %userprofile%\init_dotfile.log
+call :chk_choco > %userprofile%\init_dotfile_%date%_%time%.log 2>&1
+rem type %userprofile%\init_dotfile_%date%_%time%.log
 goto end
 
 :chk_choco
@@ -83,26 +89,50 @@ echo ^>^> Install Chocolatey
 echo ^>^> Already installed Chocolatey
 echo ^>^> Install must apps
 rem 必須パッケージのみ "cinst"
-cinst -y 7zip git megasync
+rem cinst -y 7zip git megasync
 
-rem ホームディレクトリに "cd"
-pushd %userprofile%
+echo ^>^> Check installed 7zip or not
+7z.exe > nul 2>&1
+if not %errorlevel% equ 0 cinst -y 7aip
 
 echo ^>^> Check installed Git or not
 git --version > nul 2>&1
-if %errorlevel% equ 0 goto git_clone
+if not %errorlevel% equ 0 cinst -y git
 
+echo ^>^> Check installed MEGAsync or not
+megasync --version > nul 2>&1
+if %errorlevel% equ 0 goto chk_inst_git
+
+ping 172.16.84.100 /n 1 > nul 2>&1
+if %errorlevel% equ 0 goto chk_inst_megasync_in_proxy 
+cinst -y megasync
+goto chk_inst_git
+
+:chk_inst_megasync_in_proxy
+if not exist %homepath%\OneDeive\仕事\ cinst -y megasync
+echo ^>^> FIELD INSTALL MEGASYNC AUTOMATICALLY, CONNECT WITHOUT PROXY
+pause 
+exit /b 0013
+
+:inst_megasync
+cinst megasync
+
+:chk_inst_git
+echo ^>^> Check installed Git or not 2nd time
+git --version > nul 2>&1
+if %errorlevel% equ 0 goto git_clone
 echo ^>^> Try install git
 cinst -y git
 
+echo ^>^> Check installed Git or not 3rd time
 git --version > nul 2>&1
 if %errorlevel% equ 0 goto git_clone
-
-echo ^>^> Field install Git automatically
-exit /b 1000
+echo ^>^> FIELD INSTALL GIT AUTOMATICALLY, EXIT THIS SCRIPT
+pause 
+exit /b 0015
 
 :git_clone
-echo ^>^> Check Git clone or not
+echo ^>^> Installed Git, Check Git clone or not
 if not exist %userprofile%\dotfiles\.git\ (
     echo ^>^> Git clone not yet, clone first
     if exist %userprofile%\dotfiles\ (
@@ -110,6 +140,11 @@ if not exist %userprofile%\dotfiles\.git\ (
     )
     del %userprofile%\.gitignore > nul 2>&1
     git clone --depth 1 https://github.com/Wacky515/dotfiles.git
+    if %errorlevel% equ 1 (
+        echo ^>^> FIELD GIT CLONE, EXIT THIS SCRIPT
+        pause 
+        exit /b 0020
+    )
 ) else (
     echo ^>^> Already Git clone
 )
@@ -119,21 +154,6 @@ pushd %userprofile%\dotfiles\
 call link.cmd
 
 rem Proxy環境か確認
-rem if %computername% == HBAMB748  rem ({{{
-rem     goto cp_rd
-rem ) else if %computername% == HBAMB819 (
-rem     goto cp_rd
-rem )
-
-rem netsh wlan show profile name=murata-dmj-peap >nul
-rem if %errorlevel% equ 0 goto cp_rd
-rem TODO: 自宅Wi-FiでNASからダウンロード
-rem netsh wlan show profile name=*_SaladExtreme* >nul
-rem if %errorlevel% equ 0 goto cp_nas
-rem netsh wlan show profile name=*_SaladCapsule* >nul
-rem if %errorlevel% equ 0 goto cp_nas
-rem }}}
-
 ping 172.16.84.100 /n 1 > nul 2>&1
 if %errorlevel% equ 0 goto cp_rd
 ping 10.0.1.1 /n 1 > nul 2>&1
@@ -156,30 +176,31 @@ if exist %userprofile%\OneDrive\仕事\InitApps\x64\ (
 echo ^>^> Not exist "InitApps"
 
 :cp_rd
-rem Rドライブコピー
+rem Rドライブをコピー
 echo ^>^> In proxy
 if not exist %userprofile%\OneDrive\仕事\Settings\ (
+    echo ^>^> Copy "Settngs" from R Drive
     mkdir %userprofile%\OneDrive\仕事\Settings\
+    net use v: /delete > nul 2>&1
+    net use v: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings
+    robocopy /s /e v: %userprofile%\OneDrive\仕事\Settings\
+    net use v: /delete > nul 2>&1
 )
+
 if not exist %userprofile%\OneDrive\仕事\InitApps\ (
+    echo ^>^> Copy "InitApps" from R Drive
     mkdir %userprofile%\OneDrive\仕事\InitApps\
+    net use w: /delete > nul 2>&1
+    net use w: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps
+    robocopy /s /e w: %userprofile%\OneDrive\仕事\InitApps\
+    net use w: /delete > nul 2>&1
 )
-net use v: /delete > nul 2>&1
-net use w: /delete > nul 2>&1
-net use v: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings
-net use w: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps
-echo ^>^> Copy "Settngs" from R drive
-robocopy /s /e v: %userprofile%\OneDrive\仕事\Settings\
-echo ^>^> Copy "InitApps" from R drive
-robocopy w: /s /e %userprofile%\OneDrive\仕事\InitApps\
-net use v: /delete > nul 2>&1
-net use w: /delete > nul 2>&1
 goto install_apps
 
 :cp_nas
+echo ^>^> In home network
 set nas_settings=\\LS210D68\Share\Settings\
 set nas_init_apps=\\LS210D68\Shara\InitApps\
-echo ^>^> In home network
 echo ^>^> Copy "Settings" from NAS
 robocopy /s /e %nas_setthing% %userprofile%\OneDrive\仕事\Settings\
 echo ^>^> Copy "InitApps" from NAS
