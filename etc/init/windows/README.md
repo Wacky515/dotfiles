@@ -1,5 +1,9 @@
 # Initial setting scripts for Windows
 
+## NOTE
+
+- DO NOT EXECUTE WITH SYNLINKED, VANISH DOTFILES 
+
 ## Usage
 
 - Run command below
