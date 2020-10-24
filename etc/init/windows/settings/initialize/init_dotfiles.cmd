@@ -1,10 +1,21 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/10/23 14:07:47.
+rem Last Change: 2020/10/24 20:28:08.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
+
+set yyyy=%date:~0,4%
+set mm=%date:~5,2%
+set dd=%date:~8,2%
+ 
+set time_zero_suppress=%time: =0%
+set hh=%time_zero_suppress:~0,2%
+set mn=%time_zero_suppress:~3,2%
+set ss=%time_zero_suppress:~6,2%
+
+set maketime=%yyyy%%mm%%dd%_%hh%%mn%%ss%
 
 rem 管理者権限で起動されたかチェック
 whoami /PRIV | find "SeLoadDriverPrivilege" > nul
@@ -45,7 +56,7 @@ echo Licensed under the MIT license.
 echo.
 echo *** ATTENTION ***
 echo.
-echo Standard and Standard errer output in ~/init_dotfile.log.
+echo Standard and Standard errer output in ~/init_dotfile_DATE_TIME.log.
 echo This script can change your entire setup.
 echo I recommend to read first. You can even copy commands one by one.
 echo.
@@ -72,8 +83,8 @@ if /i "%input%" == "t" (
 goto end
 
 :redirect
-call :chk_choco > %userprofile%\init_dotfile_%date%_%time%.log 2>&1
-rem type %userprofile%\init_dotfile_%date%_%time%.log
+call :chk_choco > %userprofile%\init_dotfile_%maketime%.log 2>&1
+rem type %userprofile%\init_dotfile_%maketime%.log
 goto end
 
 :chk_choco
