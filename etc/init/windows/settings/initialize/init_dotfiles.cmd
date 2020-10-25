@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/10/25 12:57:08.
+rem Last Change: 2020/10/25 18:04:36.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -225,11 +225,11 @@ goto install_apps
 :cp_nas
 echo ^>^> In home network, connect NAS
 set nas_settings=\\LS210D68\Share\Settings\
-set nas_init_apps=\\LS210D68\Shara\InitApps\
+set nas_initapps=\\LS210D68\Shara\InitApps\
 set result_nas_copy=0
 
 echo ^>^> Copy "Settings" from NAS
-robocopy /s /e %nas_setthing% %userprofile%\OneDrive\ŽdŽ–\Settings\
+robocopy /s /e %nas_settings% %userprofile%\OneDrive\ŽdŽ–\Settings\
 if %errorlevel% equ 0 (
     echo ^>^> Success copy "Settings"
 ) else (
