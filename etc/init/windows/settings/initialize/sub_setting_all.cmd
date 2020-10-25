@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/10/24 22:58:16.
+rem Last Change: 2020/10/25 21:44:09.
 
 set batch_title=Initialize batch scripts for setting
 title %batch_title%
@@ -16,8 +16,8 @@ rem pushd %bat_path%
 echo ^>^> %batch_title%
 
 pushd %git_path%
-if errorlevel equ 1 (
-    echo ^>^> Git settings folder not found
+if %errorlevel% equ 1 (
+    ECHO ^>^> GIT SETTINGS FOLDER NOT FOUND
     goto setting_meg
 )
 echo ^>^> Search setting batch script in Git settings folder
@@ -50,8 +50,8 @@ echo ^>^> Done setting batch script in Git settings folder
 
 :setting_meg
 pushd %meg_path%
-if errorlevel equ 1 (
-    echo ^>^> Mega sync Settings folder not found
+if %errorlevel% equ 1 (
+    ECHO ^>^> MEGA SYNC SETTINGS FOLDER NOT FOUND
     goto end
 )
 echo ^>^> Search setting batch in Mega sync Settings folder

@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/10/25 21:37:25.
+rem Last Change: 2020/10/25 21:50:16.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -227,32 +227,33 @@ goto install_apps
 echo ^>^> In home network, connect NAS
 rem set nas_settings=\\LS210D68\Share\Settings\
 rem set nas_initapps=\\LS210D68\Shara\InitApps\
-set nas_settings=\\10.0.1.55\Share\Settings\
-set nas_initapps=\\10.0.1.55\Shara\InitApps\
+rem set nas_settings=\\10.0.1.55\share\settings\
+rem set nas_initapps=\\10.0.1.55\Shara\InitApps\
 set result_nas_copy=0
 
 echo ^>^> Copy "Settings" from NAS
 net use t: /delete > nul 2>&1
-net use t: %nas_settings% /user:admin
+net use t: \\10.0.1.55\share\settings\ /user:admin
 robocopy /s /e /njh /njs t: %userprofile%\OneDrive\ŽdŽ–\Settings\
 if %errorlevel% equ 0 (
     echo ^>^> Success copy "Settings"
-    net use t: /delete > nul 2>&1
 ) else (
-    echo ^>^> Failed copy "Settings"
+    echo ^>^> FAILED COPY "SETTINGS"
     set result_nas_copy=1
 )
+net use t: /delete > nul 2>&1
 
 echo ^>^> Copy "InitApps" from NAS
 net use u: /delete > nul 2>&1
-net use u: %nas_initapps% /user:admin
+net use u: \\10.0.1.55\Shara\InitApps\ /user:admin
 robocopy /s /e /njh /njs u: %userprofile%\OneDrive\ŽdŽ–\InitApps\
 if %errorlevel% equ 0 (
     echo ^>^> Success copy "InitApps"
     net use u: /delete > nul 2>&1
     goto install_apps
 ) else (
-    echo ^>^> Failed copy "InitApps"
+    echo ^>^> FAILED COPY "INITAPPS"
+    net use u: /delete > nul 2>&1
     set result_nas_copy=2
 )
 if %errorlevel% neq 0 goto dl_mega

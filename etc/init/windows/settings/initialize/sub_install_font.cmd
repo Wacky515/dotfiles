@@ -13,7 +13,7 @@ rem rem スクリプトがある "Dir" に "cd"
 rem pushd %bat_path%
 pushd %src_dir%
 if %errorlevel% equ 1 (
-    echo ^>^> Font folder not found
+    echo ^>^> INSTALL FONT FOLDER NOT FOUND
     goto end
 )
 

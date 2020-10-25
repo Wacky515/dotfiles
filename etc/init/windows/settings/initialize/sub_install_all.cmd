@@ -17,7 +17,7 @@ echo ^>^> %batch_title%
 
 pushd %git_path%
 if %errorlevel% equ 1 (
-    echo ^>^> Git settings folder not found
+    echo ^>^> GIT SETTINGS FOLDER NOT FOUND
     goto inst_meg
 )
 
@@ -53,7 +53,7 @@ echo ^>^> Done install batch scripts in Git settings folder
 :inst_meg
 pushd %meg_path%
 if %errorlevel% equ 1 (
-    echo ^>^> Mega sync Settings folder not found
+    echo ^>^> MEGA SYNC SETTINGS FOLDER NOT FOUND
     goto end
 )
 echo ^>^> Search install batch scripts in Mega sync Settings folder

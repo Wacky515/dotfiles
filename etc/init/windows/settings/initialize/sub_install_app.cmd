@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/10/25 19:08:17.
+rem Last Change: 2020/10/25 21:46:58.
 
 set batch_title=Install initialize App
 title %batch_title%
@@ -37,7 +37,7 @@ if "%processor_architecture%" equ "AMD64" goto x64
 echo ^>^> This OS is 32 bit
 pushd %src_dir%\x32
 if %errorlevel% equ 1 (
-    echo ^>^> OS settings folder not found
+    ECHO ^>^> OS SETTING FOLDER NOT FOUND
     goto OSver
 )
 
@@ -51,7 +51,7 @@ goto OSver
 echo ^>^> This OS is 64 bit
 pushd %src_dir%\x64
 if %errorlevel% equ 1 (
-    echo ^>^> OS settings folder not found
+    echo ^>^> OS SETTING FOLDER NOT FOUND
     goto OSver
 )
 
@@ -75,7 +75,7 @@ goto end
 echo ^>^> This OS is Windows7
 pushd %src_dir%\Windows7
 if %errorlevel% equ 1 (
-    echo ^>^> OS settings folder not found
+    echo ^>^> WINDOWS7 SETTING FOLDER NOT FOUND
     goto end
 )
 
@@ -89,7 +89,7 @@ goto :end
 echo ^>^> This OS is Windows10
 pushd %src_dir%\Windows10
 if %errorlevel% equ 1 (
-    echo ^>^> OS settings folder not found
+    echo ^>^> WINDWOS10 SETTING FOLDER NOT FOUND
     goto end
 )
 
@@ -106,7 +106,7 @@ rem )
 echo ^>^> Install apps
 pushd %src_dir%\Install
 if %errorlevel% equ 1 (
-    echo ^>^> Install folder not found
+    echo ^>^> INSTALL FOLDER NOT FOUND
     goto end
 )
 
