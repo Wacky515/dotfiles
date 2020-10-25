@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/06/07 10:30:32
-rem Last Change: 2020/04/16 16:15:18.
+rem Last Change: 2020/10/25 08:55:09.
 
 set batch_title=Setting zsh
 
@@ -21,12 +21,15 @@ exit
 
 set nssw=C:\cygwin64\etc\nsswitch.conf
 
+echo ^>^> %batch_title%
+
 rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 pushd %bat_path%
-
-echo ^>^> %batch_title%
-rem echo ^>^> Start
+if errorlevel equ 1 (
+    echo ^>^> setting folder not found
+    goto end
+)
 
 if exist %nssw% (
     echo ^>^> Backup %nssw%
@@ -35,8 +38,9 @@ if exist %nssw% (
 
 mklink %nssw% %~dp0%nsswitch.conf
 
+:end
 endlocal
 popd
 
-pause
+rem pause
 exit /b 0

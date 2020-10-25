@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2020/04/15 10:45:50
-rem Last Change: 2020/04/15 11:51:37.
+rem Last Change: 2020/10/24 22:23:59.
 
 set batch_title=Install gtran
 
@@ -56,12 +56,12 @@ if not exist %userprofile%\dotfiles\.git\ (
     )
     del %userprofile%\.gitignore > nul 2>&1
     git clone --depth 1 https://github.com/Wacky515/dotfiles.git
+    rem link.cmd 実行
+    pushd %userprofile%\dotfiles\
+    call link.cmd
 ) else (
     echo ^>^> Already Git clone
 )
-rem link.cmd 実行
-pushd %userprofile%\dotfiles\
-call link.cmd
 
 rem "Chocolatey" インストール済みかチェック
 chocolatey -v >> nul
@@ -86,5 +86,5 @@ go install
 endlocal
 popd
 
-pause
+rem pause
 exit /b 0

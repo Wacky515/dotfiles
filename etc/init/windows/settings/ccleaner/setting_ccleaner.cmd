@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2019/11/19 16:57:13.
+rem Last Change: 2020/10/25 08:05:18.
 
 set batch_title=Setting CCleaner
 title %batch_title%
@@ -45,6 +45,10 @@ echo ^>^> Time stamp: %tstmp%
 
 rem Ý’èƒtƒ@ƒCƒ‹‚ª‚ ‚é "Dir" ‚É "cd"
 pushd %srcdir%
+if errorlevel equ 1 (
+    echo ^>^> Setting folder not found
+    goto end
+)
 
 rem "CCleaner" ’âŽ~
 echo ^>^> Kill CCleaner
@@ -71,6 +75,7 @@ if exist %inifile% (
 echo ^>^> Make symbolic link *.ini
 mklink %inifile% %srcdir%"\ccleaner.ini"
 
+:end
 endlocal
 popd
 

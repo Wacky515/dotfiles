@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/10/23 15:38:21.
+rem Last Change: 2020/10/24 22:47:14
 
 set batch_title=Initialize batch scripts for install
 title %batch_title%
@@ -12,11 +12,16 @@ rem set bat_path=%~dp0
 
 rem rem スクリプトがある "Dir" に "cd"
 rem pushd %bat_path%
-pushd %git_path%
 
 echo ^>^> %batch_title%
-echo ^>^> Search install batch scripts in Git settings folder
 
+pushd %git_path%
+if errorlevel equ 1 (
+    echo ^>^> Git settings folder not found
+    goto inst_meg
+)
+
+echo ^>^> Search install batch scripts in Git settings folder
 for /r %%i in (install_*) do (
     if %%~xi == .cmd (echo ^>^> Catch: %%~nxi)
     if %%~xi == .vbs (echo ^>^> Catch: %%~nxi)
@@ -25,7 +30,6 @@ for /r %%i in (install_*) do (
             rem pass
         )
     )
-echo ^>^> Done
 
 for /r %%j in (install_*) do (
     if %%~xj == .cmd (
@@ -44,10 +48,15 @@ for /r %%j in (install_*) do (
         pushd %git_path%
         )
     )
+echo ^>^> Done install batch scripts in Git settings folder
 
-echo ^>^> Search install batch scripts in Mega sync Settings folder
+:inst_meg
 pushd %meg_path%
-
+if errorlevel equ 1 (
+    echo ^>^> Mega sync Settings folder not found
+    goto end
+)
+echo ^>^> Search install batch scripts in Mega sync Settings folder
 for /r %%k in (install_*) do (
     if %%~xk == .cmd (echo ^>^> Catch: %%~nxk)
     if %%~xk == .vbs (echo ^>^> Catch: %%~nxk)
@@ -56,7 +65,6 @@ for /r %%k in (install_*) do (
             rem pass
         )
     )
-echo ^>^> Done
 
 for /r %%l in (install_*) do (
     if %%~xl == .cmd (
@@ -75,7 +83,9 @@ for /r %%l in (install_*) do (
         pushd %meg_path%
         )
     )
+echo ^>^> Done install batch scripts in Mega sync Settings folder
 
+:end
 popd
 endlocal
 

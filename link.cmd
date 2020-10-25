@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2020/03/28 22:13:15.
+rem Last Change: 2020/10/24 22:26:56.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -49,16 +49,17 @@ if %errorlevel% equ 0 (
 
 :ins_nyao
 rem "NyaoVim" 設定
-rem FIXME: NyaoVim が起動するためキル
 rem "NyaoVim" インストール済みかチェック
-rem nyaovim -v > nul 2>&1
-rem if not %errorlevel% equ 0 (
-rem     echo ^>^> Not install NyaoVim
-rem     goto ins_oni
-rem )
-
-set src_html=%bat_path%\nyaovimrc.html
-set dst_html=%userprofile%\AppData\Roaming\NyaoVim\nyaovimrc.html
+echo ^>^> Check install NyaoVim
+nyaovim  --version > nul 2>&1
+if not %errorlevel% equ 0 (
+    echo ^>^> Not install NyaoVim
+    goto ins_oni
+) else(
+    echo ^>^> Installed NyaoVim
+    set src_html=%bat_path%\nyaovimrc.html
+    set dst_html=%userprofile%\AppData\Roaming\NyaoVim\nyaovimrc.html
+)
 
 if exist %dst_html% (
     del %dst_html%
@@ -140,17 +141,23 @@ rem )
 rem "mklink" 時にスキップするドットファイル
 for %%j in (.*) do (
     if %%j == .bash_history (
-        rem PASS(消すな)
+        rem 消すな
+        rem pass
     ) else if %%j == .gitconfig (
-        rem PASS(消すな)
+        rem 消すな
+        rem pass
     ) else if %%j == .gitconfig.linux (
-        rem PASS(消すな)
+        rem 消すな
+        rem pass
     ) else if %%j == .gitconfig.windows (
-        rem PASS(消すな)
+        rem 消すな
+        rem pass
     ) else if %%j == .zsh_history (
-        rem PASS(消すな)
+        rem 消すな
+        rem pass
     ) else if %%j == .oyainputconf (
-        rem PASS(消すな)
+        rem 消すな
+        rem pass
     ) else (
         mklink %userprofile%\%%j .\dotfiles\%%j > nul 2>&1
     )

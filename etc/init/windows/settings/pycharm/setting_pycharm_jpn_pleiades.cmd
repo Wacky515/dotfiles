@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** ** **:**:**
-rem Last Change: 2020/04/16 16:08:52.
+rem Last Change: 2020/10/25 09:00:22.
 
 set batch_title=Setting PyCharm Japanese
 
@@ -23,6 +23,10 @@ rem set bat_path=%~dp0
 rem pushd %bat_path%
 
 pushd %userprofile%\OneDrive\ŽdŽ–\Settings\PyCharm\
+if errorlevel equ 1 (
+    echo ^>^> setting folder not found
+    goto end
+)
 
 echo ^>^> %batch_title%
 rem echo ^>^> Start
@@ -48,6 +52,7 @@ echo Details on ^< http://shimizu3.webcrow.jp/tawa/pro-cont/pa03.html ^>
 echo ----------------------------------------------------------------------------------------------------------------------------------
 pause
 
+:end
 endlocal
 popd
 

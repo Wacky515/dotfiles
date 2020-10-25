@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/04/16 15:51:53.
+rem Last Change: 2020/10/25 08:45:44.
 
 set batch_title=Setting Pacman
 
@@ -19,6 +19,17 @@ exit
 
 :main_routine
 
+set yyyy=%date:~0,4%
+set mm=%date:~5,2%
+set dd=%date:~8,2%
+ 
+set time_zero_suppress=%time: =0%
+set hh=%time_zero_suppress:~0,2%
+set mn=%time_zero_suppress:~3,2%
+set ss=%time_zero_suppress:~6,2%
+
+set maketime=%yyyy%-%mm%-%dd%_%hh%-%mn%-%ss%
+
 rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 pushd %bat_path%
@@ -31,13 +42,13 @@ rem echo ^>^> Start
 
 if exist C:\tools\msys64\etc\pacman.conf (
     echo ^>^> Backup pacman.conf
-    rename C:\tools\msys64\etc\pacman.conf pacman.conf.bak
+    rename C:\tools\msys64\etc\pacman.conf pacman.conf_%maketime%.bak
 )
 
 echo ^>^> Make link pacman.conf
 mklink C:\tools\msys64\etc\pacman.conf .\pacman.conf
 
-call msys2_shell.cmd ^
+call C:\tools\msys64\msys2_shell.cmd ^
      -no-start ^
      -defterm ^
      -mingw64 ^

@@ -1,9 +1,9 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/10/23 15:38:34.
+rem Last Change: 2020/10/24 22:58:16.
 
-set batch_title=Initialize setting
+set batch_title=Initialize batch scripts for setting
 title %batch_title%
 
 set git_path=%userprofile%\dotfiles\etc\init\windows\settings
@@ -12,11 +12,15 @@ rem set bat_path=%~dp0
 
 rem rem スクリプトがある "Dir" に "cd"
 rem pushd %bat_path%
-pushd %git_path%
 
 echo ^>^> %batch_title%
-echo ^>^> Search setting batch script in Git settings folder
 
+pushd %git_path%
+if errorlevel equ 1 (
+    echo ^>^> Git settings folder not found
+    goto setting_meg
+)
+echo ^>^> Search setting batch script in Git settings folder
 for /r %%i in (setting_*) do (
     if %%~xi == .cmd (echo ^>^> Catch: %%~nxi)
     if %%~xi == .vbs (echo ^>^> Catch: %%~nxi)
@@ -25,7 +29,6 @@ for /r %%i in (setting_*) do (
             rem pass
         )
     )
-echo ^>^> Done
 
 for /r %%j in (setting_*) do (
     pushd %git_path%
@@ -43,9 +46,15 @@ for /r %%j in (setting_*) do (
         reg import %%j
         )
     )
+echo ^>^> Done setting batch script in Git settings folder
 
-echo ^>^> Search setting batch in Mega sync Settings folder
+:setting_meg
 pushd %meg_path%
+if errorlevel equ 1 (
+    echo ^>^> Mega sync Settings folder not found
+    goto end
+)
+echo ^>^> Search setting batch in Mega sync Settings folder
 
 for /r %%k in (setting_*) do (
     if %%~xk == .cmd (echo ^>^> Catch: %%~nxk)
@@ -55,7 +64,6 @@ for /r %%k in (setting_*) do (
             rem pass
         )
     )
-echo ^>^> Done
 
 for /r %%l in (setting_*) do (
     if %%~xl == .cmd (
@@ -77,7 +85,9 @@ for /r %%l in (setting_*) do (
         pushd %meg_path%
         )
     )
+echo ^>^> Done setting batch in Mega sync Settings folder
 
+:end
 popd
 endlocal
 

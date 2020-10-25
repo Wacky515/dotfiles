@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/10/24 20:28:08.
+rem Last Change: 2020/10/24 21:05:25.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -15,7 +15,7 @@ set hh=%time_zero_suppress:~0,2%
 set mn=%time_zero_suppress:~3,2%
 set ss=%time_zero_suppress:~6,2%
 
-set maketime=%yyyy%%mm%%dd%_%hh%%mn%%ss%
+set maketime=%yyyy%-%mm%-%dd%_%hh%-%mn%-%ss%
 
 rem 管理者権限で起動されたかチェック
 whoami /PRIV | find "SeLoadDriverPrivilege" > nul
@@ -104,36 +104,51 @@ rem cinst -y 7zip git megasync
 
 echo ^>^> Check installed 7zip or not
 7z.exe > nul 2>&1
-if not %errorlevel% equ 0 cinst -y 7aip
+if not %errorlevel% equ 0 (
+    echo ^>^> Install 7zip
+    cinst -y -r 7zip
+) else(
+    echo ^>^> Already nstalled 7zip
+)
 
 echo ^>^> Check installed Git or not
 git --version > nul 2>&1
-if not %errorlevel% equ 0 cinst -y git
+if not %errorlevel% equ 0 (
+    echo ^>^> Install Git
+    cinst -y -r git
+) else(
+    echo ^>^> Already nstalled Git
+)
 
 echo ^>^> Check installed MEGAsync or not
 megasync --version > nul 2>&1
-if %errorlevel% equ 0 goto chk_inst_git
+if %errorlevel% equ 0 (
+    echo ^>^> Already nstalled MEGAsync
+    goto chk_inst_git
+) else(
+    echo ^>^> Install MEGAsync
 
 ping 172.16.84.100 /n 1 > nul 2>&1
 if %errorlevel% equ 0 goto chk_inst_megasync_in_proxy 
-cinst -y megasync
+cinst -y -r megasync
 goto chk_inst_git
 
 :chk_inst_megasync_in_proxy
-if not exist %homepath%\OneDeive\仕事\ cinst -y megasync
+if not exist %homepath%\OneDeive\仕事\ cinst -y -r megasync
 echo ^>^> FIELD INSTALL MEGASYNC AUTOMATICALLY, CONNECT WITHOUT PROXY
 pause 
 exit /b 0013
 
 :inst_megasync
-cinst megasync
+cinst -y -r megasync
+)
 
 :chk_inst_git
 echo ^>^> Check installed Git or not 2nd time
 git --version > nul 2>&1
 if %errorlevel% equ 0 goto git_clone
 echo ^>^> Try install git
-cinst -y git
+cinst -y -r git
 
 echo ^>^> Check installed Git or not 3rd time
 git --version > nul 2>&1
@@ -209,17 +224,32 @@ if not exist %userprofile%\OneDrive\仕事\InitApps\ (
 goto install_apps
 
 :cp_nas
-echo ^>^> In home network
+echo ^>^> In home network, connect NAS
 set nas_settings=\\LS210D68\Share\Settings\
 set nas_init_apps=\\LS210D68\Shara\InitApps\
+set result_nas_copy=0
+
 echo ^>^> Copy "Settings" from NAS
 robocopy /s /e %nas_setthing% %userprofile%\OneDrive\仕事\Settings\
+if %errorlevel% equ 0 (
+    echo ^>^> Success copy "Settings"
+) else(
+    echo ^>^> Feil copy "Settings"
+    set result_nas_copy=1
+)
 echo ^>^> Copy "InitApps" from NAS
 robocopy /s /e %nas_initapps% %userprofile%\OneDrive\仕事\InitApps\
-goto install_apps
+if %errorlevel% equ 0 (
+    echo ^>^> Success copy "InitApps"
+    goto install_apps
+) else(
+    echo ^>^> Feil copy "InitApps"
+    set result_nas_copy=2
+)
+if %errorlevel% neq 0 goto dl_mega
 
 :dl_mega
-echo ^>^> Not in proxy
+echo ^>^> Not in proxy, download MEGAsync
 if exist %userprofile%\OneDrive\仕事\Settings\ (
     rmdir /s /q %userprofile%\OneDrive\仕事\Settings\
 )
@@ -252,11 +282,11 @@ rem "*_packages_*.config" を読み込み、インストール
 if exist *_%conf_file% (
     echo ^>^> Install apps for this PC
     for %%i in (*_%conf_file%) do (
-        cinst -y %%i
+        cinst -y -r %%i
         )
     ) else (
         echo ^>^> Setting default parameter
-        cinst -y %conf_defa%
+        cinst -y -r %conf_defa%
         )
 echo ^>^> Update Chocolatey
 cup all -y
@@ -267,7 +297,7 @@ rem 再度スクリプトがある "Dir" に "pushd"
 rem MEMO: "init_dotfiles" で実行する場合があるので絶対パス指定
 pushd %userprofile%\dotfiles\etc\init\windows\settings\initialize\
 
-rem "git\init\settings" と "Mega(R:)\仕事\Settings" の "setting_*.cmd" 実行
+rem "git\init\settings" と "(~|R:*)\仕事\Settings" の "setting_*.cmd" 実行
 call sub_install_all.cmd
 rem pause
 
@@ -290,7 +320,7 @@ call sub_install_font.cmd
 rem ---------------------------------------------------------------------------
 
 :erase
-echo ^>^> Erase temp data
+rem echo ^>^> Erase temp data
 rem if exist %userprofile%\init_dotfiles\ (
 rem     echo ^>^> Del init_dotfiles
 rem     rmdir /s /q %userprofile%\init_dotfiles > nul 2>&1

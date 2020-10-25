@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/12/19 11:37:29
-rem Last Change: 2020/04/16 16:01:20.
+rem Last Change: 2020/10/24 22:26:48.
 
 set batch_title=Install NyaoVim
 
@@ -29,7 +29,7 @@ echo ^>^> %batch_title%
 rem echo ^>^> Start
 
 echo ^>^> Check installed or not
-nyaovim --version >> nul
+nyaovim --version > nul 2>&1
 if %errorlevel% equ 0 goto end
 
 echo ^>^> Check dependencies

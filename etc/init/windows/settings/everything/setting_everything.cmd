@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2019/11/19 17:10:50.
+rem Last Change: 2020/10/25 08:23:12.
 
 set batch_title=Setting Everything
 title %batch_title%
@@ -34,7 +34,6 @@ set tstmp=%yyyy%-%mm%-%dd%_%hh%-%mi%-%ss%
 
 set ini_dir=%appdata%\Everything\
 set src_dir=%userprofile%\OneDrive\仕事\Settings\Everything\
-
 set backup=%ini_dir%\old\%tstmp%
 
 rem スクリプトがある "Dir" に "cd"
@@ -45,14 +44,18 @@ echo ^>^> Time stamp: %tstmp%
 
 rem 設定ファイルがある "Dir" に "cd"
 pushd %src_dir%
+if errorlevel equ 1 (
+    echo ^>^> Setting folder not found
+    goto end
+)
 
 rem "Everything" 停止
 echo ^>^> Kill Everything
 taskkill /f /im Everything.exe > nul 2>&1
 
 rem バックアップ 作成
+echo ^>^> Make backup
 mkdir %backup%
-
 rem :backup
 if exist %ini_dir% (
     move %ini_dir%\* %backup%
@@ -91,7 +94,6 @@ copy .\shortcut\Everything.lnk %userprofile%\Desktop\
 goto end
 
 :end
-
 endlocal
 popd
 

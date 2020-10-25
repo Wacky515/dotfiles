@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2019/11/19 17:30:39.
+rem Last Change: 2020/10/25 08:35:32.
 
 set batch_title=Setting Google Japanese input
 title %batch_title%
@@ -38,6 +38,10 @@ set backup=%deb_dir%\old
 
 rem スクリプトがある "Dir" に "cd"
 rem pushd %bat_path%
+if errorlevel equ 1 (
+    echo ^>^> setting folder not found
+    goto end
+)
 
 echo ^>^> %batch_title%
 echo ^>^> Time stamp: %tstmp%
@@ -49,6 +53,7 @@ rem "Google日本語入力の関連サービス" 停止
 echo ^>^> Kill Google Japanese input
 taskkill /f /im GoogleIMEJa* > nul 2>&1
 
+echo ^>^> Make backup
 rem バックアップ 作成
 if exist %backup% (
     goto bkup
@@ -68,11 +73,12 @@ if exist %deb_dir%\Google Japanese Input (
 mkdir %deb_dir%\Google Japanese Input
 
 rem シンボリックリンク 作成
-rem echo ^>^> Make symbolic link *.db
+echo ^>^> Make symbolic link *.db
 for %%i in (*.db) do (
     mklink %deb_dir%\Google Japanese Input\%%i %src_dir%\%%i
 )
 
+:end
 endlocal
 popd
 

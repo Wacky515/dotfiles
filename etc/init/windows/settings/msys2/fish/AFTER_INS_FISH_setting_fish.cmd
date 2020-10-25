@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/06/06 20:34:41
-rem Last Change: 2020/04/16 16:12:22.
+rem Last Change: 2020/10/25 08:53:13.
 
 set batch_title=Setting fish
 
@@ -18,6 +18,17 @@ rem 管理者権限でなければ管理者権限で再起動
 exit
 
 :main_routine
+
+set yyyy=%date:~0,4%
+set mm=%date:~5,2%
+set dd=%date:~8,2%
+ 
+set time_zero_suppress=%time: =0%
+set hh=%time_zero_suppress:~0,2%
+set mn=%time_zero_suppress:~3,2%
+set ss=%time_zero_suppress:~6,2%
+
+set maketime=%yyyy%-%mm%-%dd%_%hh%-%mn%-%ss%
 
 rem  スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
@@ -41,19 +52,17 @@ set tgt_min32=%~dp0%fil_min32%
 set tgt_min64=%~dp0%fil_min64%
 set tgt_msys2=%~dp0%fil_msys2%
 
-echo ^>^> Start %batch_title%
-
 if exist %lnk_min32% (
     echo ^>^> Backup %lnk_min32%
-    rename %lnk_min32% %fil_min32%.bak > nul 2>&1
+    rename %lnk_min32% %fil_min32%_%maketime%.bak
     )
 if exist %lnk_min64% (
     echo ^>^> Backup %lnk_min64%
-    rename %lnk_min64% %fil_min64%.bak > nul 2>&1
+    rename %lnk_min64% %fil_min64%_%maketime%.bak
 )
 if exist %lnk_msys2% (
     echo ^>^> Backup %lnk_msys2%
-    rename %lnk_msys2% %fil_msys2%.bak > nul 2>&1
+    rename %lnk_msys2% %fil_msys2%_%maketime%.bak
     )
 
 mklink %lnk_min32% %tgt_min32%

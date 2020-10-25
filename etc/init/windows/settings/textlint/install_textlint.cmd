@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2020/04/16 16:07:09.
+rem Last Change: 2020/10/24 22:31:03.
 
 set batch_title=Install textlint
 
@@ -29,7 +29,7 @@ echo ^>^> %batch_title%
 rem echo ^>^> Start
 
 echo ^>^> Check installed or not
-textlint -v
+textlint --version > nul 2>&1-version 
 if %errorlevel% equ 0 goto end
 
 echo ^>^> Check dependencies

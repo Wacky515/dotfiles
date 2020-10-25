@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/**/** **:**:**
-rem Last Change: 2020/04/16 16:13:17.
+rem Last Change: 2020/10/25 09:02:43.
 
 set batch_title=Setting UWSC
 
@@ -19,12 +19,15 @@ exit
 
 :main_routine
 
+echo ^>^> %batch_title%
+
 rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 pushd %bat_path%
-
-echo ^>^> %batch_title%
-rem echo ^>^> Start
+if errorlevel equ 1 (
+    echo ^>^> setting folder not found
+    goto end
+)
 
 rem 日付取得
 set yyyy=%date:~0,4%
@@ -74,6 +77,7 @@ if exist %inifile% (
 echo ^>^> Make symbolic link *.ini
 mklink %inifile% %srcdir%\UWSC.INI
 
+:end
 endlocal
 popd
 

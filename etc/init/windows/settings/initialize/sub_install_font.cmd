@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/10/23 15:31:59.
+rem Last Change: 2020/10/25 09:06:13.
 
 set batch_title=Install initialize font
 title %batch_title%
@@ -12,6 +12,10 @@ rem set bat_path=%~dp0
 rem rem スクリプトがある "Dir" に "cd"
 rem pushd %bat_path%
 pushd %src_dir%
+if errorlevel equ 1 (
+    echo ^>^> Setting folder not found
+    goto end
+)
 
 echo ^>^> %batch_title%
 echo ^>^> Search fonts setting
@@ -34,6 +38,7 @@ for %%k in (.\Fonts\*.otf) do (
     )
 rem 参考: http://qiita.com/masarusan24/items/d3a5ab7c37e9b6d9a51f
 
+:end
 popd
 endlocal
 

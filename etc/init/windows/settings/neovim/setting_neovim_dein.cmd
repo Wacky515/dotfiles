@@ -1,9 +1,9 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/04/16 16:05:31.
+rem Last Change: 2020/10/25 08:58:24.
 
-set batch_titleSetting NeoVim's dein
+set batch_title=batch_titleSetting NeoVim's dein
 
 title %batch_title%
 
@@ -30,11 +30,12 @@ pip3 --version > nul 2>&1
 if errorlevel 1 (
     echo ^>^> Install pip3 first
     call %userprofile%\OneDrive\édéñ\Settings\Python3\install_python.cmd
-    )
+    if errorlevel 1 goto end
+)
 
 pip3 install neovim
 
-:eof
+:end
 endlocal
 popd
 
