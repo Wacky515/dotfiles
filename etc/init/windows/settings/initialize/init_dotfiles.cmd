@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/10/25 21:50:16.
+rem Last Change: 2020/10/25 22:38:40.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -164,7 +164,7 @@ if not exist %userprofile%\dotfiles\.git\ (
     if exist %userprofile%\dotfiles\ (
         rmdir /s /q %userprofile%\dotfiles\
     )
-    rem del %userprofile%\.gitignore > nul 2>&1
+    rem FIXME: シンボリックリンク削除できない
     rmdir %userprofile%\.gitconfig > nul 2>&1
     git clone --depth 1 https://github.com/Wacky515/dotfiles.git
     if %errorlevel% equ 1 (
@@ -226,16 +226,15 @@ goto install_apps
 
 :cp_nas
 echo ^>^> In home network, connect NAS
-rem set nas_settings=\\SaladStationII\share\仕事\Settings\
-rem set nas_initapps=\\SaladStationII\shara\仕事\InitApps\
-rem set nas_settings=\\10.0.1.55\share\仕事\Settings\
-rem set nas_initapps=\\10.0.1.55\shara\仕事\InitApps\
+set nas_settings=\\SaladStationII\share\仕事\Settings
+set nas_initapps=\\SaladStationII\shara\仕事\InitApps
+rem set nas_settings=\\10.0.1.55\share\仕事\Settings
+rem set nas_initapps=\\10.0.1.55\shara\仕事\InitApps
 set result_nas_copy=0
 
 echo ^>^> Copy "Settings" from NAS
 net use t: /delete > nul 2>&1
-rem net use t: %nas_settings% /user:admin
-net use t: \\SaladStationII\share\仕事\Settings\ /user:admin
+net use t: %nas_settings% /user:admin
 robocopy /s /e /njh /njs t: %userprofile%\OneDrive\仕事\Settings\
 if %errorlevel% equ 0 (
     echo ^>^> Success copy "Settings"
@@ -247,8 +246,7 @@ net use t: /delete > nul 2>&1
 
 echo ^>^> Copy "InitApps" from NAS
 net use u: /delete > nul 2>&1
-rem net use u: %nas_initapps% /user:admin
-net use u: \\SaladStationII\share\仕事\InitApps\ /user:admin
+net use u: %nas_initapps% /user:admin
 robocopy /s /e /njh /njs u: %userprofile%\OneDrive\仕事\InitApps\
 if %errorlevel% equ 0 (
     echo ^>^> Success copy "InitApps"
