@@ -55,7 +55,7 @@ nyaovim  --version > nul 2>&1
 if not %errorlevel% equ 0 (
     echo ^>^> Not install NyaoVim
     goto ins_oni
-) else(
+) else (
     echo ^>^> Installed NyaoVim
     set src_html=%bat_path%\nyaovimrc.html
     set dst_html=%userprofile%\AppData\Roaming\NyaoVim\nyaovimrc.html
