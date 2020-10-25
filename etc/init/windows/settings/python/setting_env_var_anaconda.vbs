@@ -25,8 +25,8 @@ Else
     strEnvName = "C:\Python36" & ";" & "C:\Python36\Scripts"
 End if
 
-' Set env = shell.Environment("User")
-Set env = shell.Environment("System")
+' Set env = shell.Environment("USER")
+Set env = shell.Environment("SYSTEM")
 
 If instr(env.item("PATH"), strEnvName) = 0 Then
     env.item("PATH") = env.item("PATH") & ";" & strEnvName

@@ -12,7 +12,7 @@ Dim strEnvName
 Set shell = WScript.CreateObject("WScript.Shell")
 strEnvName = "C:\tools\neovim\Neovim\bin\nvim-qt.exe"
 
-Set env = shell.Environment("User")
+Set env = shell.Environment("USER")
 
 If instr(env.item("PATH"), strEnvName) = 0 Then
     env.item("PATH") = env.item("PATH") & ";" & strEnvName

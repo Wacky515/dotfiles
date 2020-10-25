@@ -97,10 +97,9 @@ echo ^>^> Install Chocolatey
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 
 :inst_must_apps
+rem 必須パッケージ "cinst"
 echo ^>^> Already installed Chocolatey
 echo ^>^> Install must apps
-rem 必須パッケージのみ "cinst"
-rem cinst -y 7zip git megasync
 
 echo ^>^> Check installed 7zip or not
 7z.exe > nul 2>&1
@@ -108,7 +107,7 @@ if not %errorlevel% equ 0 (
     echo ^>^> Install 7zip
     cinst -y -r 7zip
 ) else (
-    echo ^>^> Already nstalled 7zip
+    echo ^>^> Already installed 7zip
 )
 
 echo ^>^> Check installed Git or not
@@ -117,13 +116,13 @@ if not %errorlevel% equ 0 (
     echo ^>^> Install Git
     cinst -y -r git
 ) else (
-    echo ^>^> Already nstalled Git
+    echo ^>^> Already installed Git
 )
 
 echo ^>^> Check installed MEGAsync or not
 megasync --version > nul 2>&1
 if %errorlevel% equ 0 (
-    echo ^>^> Already nstalled MEGAsync
+    echo ^>^> Already installed MEGAsync
     goto chk_inst_git
 ) else (
     echo ^>^> Install MEGAsync

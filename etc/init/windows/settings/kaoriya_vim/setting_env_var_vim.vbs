@@ -16,15 +16,15 @@ Set shell = WScript.CreateObject("WScript.Shell")
 osbits = GetObject("winmgmts:root\cimv2:Win32_Processor='cpu0'").AddressWidth
 
 If osbits = 64 Then
-    strEnvName = "%userprofile%\vim81-kaoriya-win64"
+    strEnvName = "%USERPROFILE%\vim82-kaoriya-win64"
 
 ElseIf osbits = 32 Then
-    strEnvName = "%userprofile%\vim81-kaoriya-win32"
+    strEnvName = "%USERPROFILE%\vim81-kaoriya-win32"
 Else
     MsgBox "Invalid OS bit"
 End If
 
-Set env = shell.Environment("User")
+Set env = shell.Environment("USER")
 
 If instr(env.item("PATH"), strEnvName) = 0 Then
     env.item("PATH") = env.item("PATH") & ";" & strEnvName

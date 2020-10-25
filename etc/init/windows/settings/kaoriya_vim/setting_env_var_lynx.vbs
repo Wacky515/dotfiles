@@ -10,9 +10,9 @@ Dim env
 Dim strEnvName
 
 Set shell = WScript.CreateObject("WScript.Shell")
-strEnvName = "%userprofile%\Lynx_for_Win32"
+strEnvName = "%USERPROFILE%\Lynx_for_Win32"
 
-Set env = shell.Environment("User")
+Set env = shell.Environment("USER")
 
 If instr(env.item("PATH"), strEnvName) = 0 Then
     env.item("PATH") = env.item("PATH") & ";" & strEnvName

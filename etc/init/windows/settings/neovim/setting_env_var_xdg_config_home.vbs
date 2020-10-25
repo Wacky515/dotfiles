@@ -12,7 +12,7 @@ Dim strEnvName
 Set shell = WScript.CreateObject("WScript.Shell")
 strEnvName = "%USERPROFILE%"
 
-Set env = shell.Environment("User")
+Set env = shell.Environment("USER")
 
 If instr(env.item("XDG_CONFIG_HOME"), strEnvName) = 0 Then
     ' env.item("XDG_CONFIG_HOME") = env.item("XDG_CONFIG_HOME") & ";" & strEnvName
