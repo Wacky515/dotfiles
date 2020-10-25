@@ -164,7 +164,8 @@ if not exist %userprofile%\dotfiles\.git\ (
     if exist %userprofile%\dotfiles\ (
         rmdir /s /q %userprofile%\dotfiles\
     )
-    del %userprofile%\.gitignore > nul 2>&1
+    rem del %userprofile%\.gitignore > nul 2>&1
+    rmdir %userprofile%\.gitignore > nul 2>&1
     git clone --depth 1 https://github.com/Wacky515/dotfiles.git
     if %errorlevel% equ 1 (
         echo ^>^> FAIELD GIT CLONE, ABORT THIS SCRIPT!
