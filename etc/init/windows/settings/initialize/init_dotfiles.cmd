@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/10/25 18:55:40. 
+rem Last Change: 2020/10/25 21:37:25.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -152,11 +152,12 @@ cinst -y -r --no-progress git
 echo ^>^> Check installed Git or not 3rd time
 git --version > nul 2>&1
 if %errorlevel% equ 0 goto git_clone
-echo ^>^> FIELD INSTALL GIT AUTOMATICALLY, EXIT THIS SCRIPT
+echo ^>^> FAIELD INSTALL GIT AUTOMATICALLY, ABORT THIS SCRIPT!
 pause 
 exit /b 0015
 
 :git_clone
+pushd %userprofile%
 echo ^>^> Installed Git, Check Git clone or not
 if not exist %userprofile%\dotfiles\.git\ (
     echo ^>^> Git clone not yet, clone first
@@ -166,7 +167,7 @@ if not exist %userprofile%\dotfiles\.git\ (
     del %userprofile%\.gitignore > nul 2>&1
     git clone --depth 1 https://github.com/Wacky515/dotfiles.git
     if %errorlevel% equ 1 (
-        echo ^>^> FIELD GIT CLONE, EXIT THIS SCRIPT
+        echo ^>^> FAIELD GIT CLONE, ABORT THIS SCRIPT!
         pause 
         exit /b 0020
     )
@@ -232,7 +233,7 @@ set result_nas_copy=0
 
 echo ^>^> Copy "Settings" from NAS
 net use t: /delete > nul 2>&1
-net use t: %nas_settings% passworddynamite /user:admin
+net use t: %nas_settings% /user:admin
 robocopy /s /e /njh /njs t: %userprofile%\OneDrive\ŽdŽ–\Settings\
 if %errorlevel% equ 0 (
     echo ^>^> Success copy "Settings"
@@ -244,7 +245,7 @@ if %errorlevel% equ 0 (
 
 echo ^>^> Copy "InitApps" from NAS
 net use u: /delete > nul 2>&1
-net use u: %nas_initapps% passworddynamite /user:admin
+net use u: %nas_initapps% /user:admin
 robocopy /s /e /njh /njs u: %userprofile%\OneDrive\ŽdŽ–\InitApps\
 if %errorlevel% equ 0 (
     echo ^>^> Success copy "InitApps"
@@ -269,7 +270,7 @@ pause
 if %errorlevel% equ 0 (
     echo ^>^> Success copy "Settings" manually
 ) else (
-    echo ^>^> FAILED COPY "SETTINGS" MANUALLY, ABORT THIS SCRIPT
+    echo ^>^> FAILED COPY "SETTINGS" MANUALLY, ABORT THIS SCRIPT!
     goto end
 )
 
@@ -285,7 +286,7 @@ pause
 if %errorlevel% equ 0 (
     echo ^>^> Success copy "InitApps" manually
 ) else (
-    echo ^>^> FAILED COPY "INITAPPS" MANUALLY, ABORT THIS SCRIPT
+    echo ^>^> FAILED COPY "INITAPPS" MANUALLY, ABORT THIS SCRIPT!
     goto end
 )
 goto install_apps
