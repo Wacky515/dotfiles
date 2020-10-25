@@ -23,12 +23,14 @@ set cho_path=%dot_path%\etc\init\windows\settings\chocolatey\
 
 set config_files=packages_%computername%.config
 
-rem スクリプトがある "Dir" に "cd"
-pushd %bat_path%
+rem rem スクリプトがある "Dir" に "cd"
+rem pushd %bat_path%
+
+echo ^>^> %batch_title%
 
 rem "dotfiles" に "cd"
 if not exist %dot_path% (
-    echo ^>^> CLONE DOTFILES FIRST, FINISH THIS SCRIPT!
+    echo ^>^> CLONE DOTFILES FIRST, ABORT THIS SCRIPT!
     goto end
 ) else (
     pushd %dot_path%
@@ -42,8 +44,8 @@ echo ^>^> Install Chocolatey
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "(iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))) >$null 2>&1" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
 
 echo ^>^> Already installed Chocolatey
-:update
 
+:update
 echo ^>^> Update software condition
 if not exist %cho_path% (
     rem TODO: 自動で "git clone" する

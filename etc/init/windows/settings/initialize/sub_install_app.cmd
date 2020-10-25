@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/10/23 15:29:54.
+rem Last Change: 2020/10/25 19:08:17.
 
 set batch_title=Install initialize App
 title %batch_title%
@@ -36,6 +36,11 @@ if "%processor_architecture%" equ "AMD64" goto x64
 :x32
 echo ^>^> This OS is 32 bit
 pushd %src_dir%\x32
+if %errorlevel% equ 1 (
+    echo ^>^> OS settings folder not found
+    goto OSver
+)
+
 for %%k in (*.7z) do (
         call :unzip %%k
         )
@@ -45,6 +50,11 @@ goto OSver
 :x64
 echo ^>^> This OS is 64 bit
 pushd %src_dir%\x64
+if %errorlevel% equ 1 (
+    echo ^>^> OS settings folder not found
+    goto OSver
+)
+
 for %%l in (*.7z) do (
         call :unzip %%l
         )
@@ -59,20 +69,30 @@ ver | find /i "Version 10.0." > nul
 if %errorlevel% equ 0 goto windows10
 
 echo ^>^> Invalid OS
-goto eof
+goto end
 
 :windows7
 echo ^>^> This OS is Windows7
 pushd %src_dir%\Windows7
+if %errorlevel% equ 1 (
+    echo ^>^> OS settings folder not found
+    goto end
+)
+
 for %%m in (*.7z) do (
         call :unzip %%m
         )
 pushd %src_dir%
-goto :eof
+goto :end
 
 :windows10
 echo ^>^> This OS is Windows10
 pushd %src_dir%\Windows10
+if %errorlevel% equ 1 (
+    echo ^>^> OS settings folder not found
+    goto end
+)
+
 for %%n in (*.7z) do (
         call :unzip %%n
         )
@@ -85,10 +105,15 @@ rem )
 
 echo ^>^> Install apps
 pushd %src_dir%\Install
+if %errorlevel% equ 1 (
+    echo ^>^> Install folder not found
+    goto end
+)
+
 for %%o in (*.7z) do (
         call :inst %%o
         )
-goto :eof
+goto :end
 
 :unzip
 if not exist %userprofile%\%~n1 (
@@ -107,7 +132,7 @@ call %~n1"\"%~n1".exe"
 rmdir /s /q %~n1
 exit /b 0
 
-:eof
+:end
 popd
 endlocal
 

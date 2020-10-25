@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/10/25 18:16:51.
+rem Last Change: 2020/10/25 18:55:40. 
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -105,7 +105,7 @@ echo ^>^> Check installed 7zip or not
 7z.exe > nul 2>&1
 if not %errorlevel% equ 0 (
     echo ^>^> Install 7zip
-    cinst -y -r 7zip
+    cinst -y -r --no-progress 7zip
 ) else (
     echo ^>^> Already installed 7zip
 )
@@ -114,7 +114,7 @@ echo ^>^> Check installed Git or not
 git --version > nul 2>&1
 if not %errorlevel% equ 0 (
     echo ^>^> Install Git
-    cinst -y -r git
+    cinst -y -r --no-progress git
 ) else (
     echo ^>^> Already installed Git
 )
@@ -129,17 +129,17 @@ if %errorlevel% equ 0 (
 
     ping 172.16.84.100 /n 1 > nul 2>&1
     if %errorlevel% equ 0 goto chk_inst_megasync_in_proxy 
-    cinst -y -r megasync
+    cinst -y -r --no-progress megasync
     goto chk_inst_git
 
     :chk_inst_megasync_in_proxy
-    if not exist %homepath%\OneDeive\仕事\ cinst -y -r megasync
+    if not exist %homepath%\OneDeive\仕事\ cinst -y -r --no-progress megasync
     echo ^>^> FIELD INSTALL MEGASYNC AUTOMATICALLY, CONNECT WITHOUT PROXY
     pause 
     exit /b 0013
 
     :inst_megasync
-    cinst -y -r megasync
+    cinst -y -r --no-progress megasync
 )
 
 :chk_inst_git
@@ -147,7 +147,7 @@ echo ^>^> Check installed Git or not 2nd time
 git --version > nul 2>&1
 if %errorlevel% equ 0 goto git_clone
 echo ^>^> Try install git
-cinst -y -r git
+cinst -y -r --no-progress git
 
 echo ^>^> Check installed Git or not 3rd time
 git --version > nul 2>&1
@@ -208,7 +208,7 @@ if not exist %userprofile%\OneDrive\仕事\Settings\ (
     mkdir %userprofile%\OneDrive\仕事\Settings\
     net use v: /delete > nul 2>&1
     net use v: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings
-    robocopy /s /e v: %userprofile%\OneDrive\仕事\Settings\
+    robocopy /s /e /njh /njs v: %userprofile%\OneDrive\仕事\Settings\
     net use v: /delete > nul 2>&1
 )
 
@@ -217,7 +217,7 @@ if not exist %userprofile%\OneDrive\仕事\InitApps\ (
     mkdir %userprofile%\OneDrive\仕事\InitApps\
     net use w: /delete > nul 2>&1
     net use w: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps
-    robocopy /s /e w: %userprofile%\OneDrive\仕事\InitApps\
+    robocopy /s /e /njh /njs w: %userprofile%\OneDrive\仕事\InitApps\
     net use w: /delete > nul 2>&1
 )
 goto install_apps
@@ -233,26 +233,25 @@ set result_nas_copy=0
 echo ^>^> Copy "Settings" from NAS
 net use t: /delete > nul 2>&1
 net use t: %nas_settings% passworddynamite /user:admin
-robocopy /s /e t: %userprofile%\OneDrive\仕事\Settings\
+robocopy /s /e /njh /njs t: %userprofile%\OneDrive\仕事\Settings\
 if %errorlevel% equ 0 (
     echo ^>^> Success copy "Settings"
     net use t: /delete > nul 2>&1
 ) else (
-    echo ^>^> Feil copy "Settings"
+    echo ^>^> Failed copy "Settings"
     set result_nas_copy=1
 )
 
 echo ^>^> Copy "InitApps" from NAS
 net use u: /delete > nul 2>&1
 net use u: %nas_initapps% passworddynamite /user:admin
-robocopy /s /e u: %userprofile%\OneDrive\仕事\InitApps\
+robocopy /s /e /njh /njs u: %userprofile%\OneDrive\仕事\InitApps\
 if %errorlevel% equ 0 (
     echo ^>^> Success copy "InitApps"
     net use u: /delete > nul 2>&1
-net use u: %nas_initapps% passworddynamite /user:admin
     goto install_apps
 ) else (
-    echo ^>^> Feil copy "InitApps"
+    echo ^>^> Failed copy "InitApps"
     set result_nas_copy=2
 )
 if %errorlevel% neq 0 goto dl_mega
@@ -262,20 +261,33 @@ echo ^>^> Not in proxy, download MEGAsync
 if exist %userprofile%\OneDrive\仕事\Settings\ (
     rmdir /s /q %userprofile%\OneDrive\仕事\Settings\
 )
-echo ^>^> Please download "Settings" folder manually
+echo ^>^> Please download "Settings" folder manually, then any key in
 start https://mega.nz/#F!ubhxia6L
 pause
 
 "C:\Program Files\7-Zip\7z.exe" x -y -o%userprofile%\OneDrive\仕事\ %userprofile%\OneDrive\仕事\Settings.zip
+if %errorlevel% equ 0 (
+    echo ^>^> Success copy "Settings" manually
+) else (
+    echo ^>^> FAILED COPY "SETTINGS" MANUALLY, ABORT THIS SCRIPT
+    goto end
+)
 
 if exist %userprofile%\OneDrive\仕事\InitApps\ (
     rmdir /s /q %userprofile%\OneDrive\仕事\InitApps\
 )
-echo ^>^> Please download "InitApps" folder manually
+
+echo ^>^> Please download "InitApps" folder manually, then any key in
 start https://mega.nz/#F!yTATTABQ
 pause
 
 "C:\Program Files\7-Zip\7z.exe" x -y -o%userprofile%\OneDrive\仕事\ %userprofile%\OneDrive\仕事\InitApps.zip
+if %errorlevel% equ 0 (
+    echo ^>^> Success copy "InitApps" manually
+) else (
+    echo ^>^> FAILED COPY "INITAPPS" MANUALLY, ABORT THIS SCRIPT
+    goto end
+)
 goto install_apps
 
 :install_apps
@@ -291,11 +303,11 @@ rem "*_packages_*.config" を読み込み、インストール
 if exist *_%conf_file% (
     echo ^>^> Install apps for this PC
     for %%i in (*_%conf_file%) do (
-        cinst -y -r %%i
+        cinst -y -r --no-progress %%i
     )
 ) else (
     echo ^>^> Setting default parameter
-    cinst -y -r %conf_defa%
+    cinst -y -r --no-progress %conf_defa%
 )
 echo ^>^> Update Chocolatey
 cup all -y
@@ -303,7 +315,7 @@ rem ---------------------------------------------------------------------------
 
 :install_all
 rem 再度スクリプトがある "Dir" に "pushd"
-rem MEMO: "init_dotfiles" で実行する場合があるので絶対パス指定
+rem MEMO: "init_dotfiles" で実行されている場合があるので絶対パス指定
 pushd %userprofile%\dotfiles\etc\init\windows\settings\initialize\
 
 rem "git\init\settings" と "(~|R:*)\仕事\Settings" の "setting_*.cmd" 実行
@@ -329,7 +341,7 @@ call sub_install_font.cmd
 rem ---------------------------------------------------------------------------
 
 :erase
-rem echo ^>^> Erase temp data
+echo ^>^> Erase temp data
 rem if exist %userprofile%\init_dotfiles\ (
 rem     echo ^>^> Del init_dotfiles
 rem     rmdir /s /q %userprofile%\init_dotfiles > nul 2>&1
@@ -345,11 +357,13 @@ if exist %userprofiley%\OneDrive\仕事\InitApps.zip (
     del %userprofile%\OneDrive\仕事\InitApps.zip > nul 2>&1
 )
 
-call %userprofile%\OneDrive\仕事\InitApps\Batch\empty.cmd
+call %userprofile%\OneDrive\仕事\InitApps\Batch\empty.cmd > nul 2>&1
 
 rem link.cmd 実行
 rem pushd %userprofile%\dotfiles\
 rem call link.cmd
+
+rem Chocolatey update
 call %userprofile%\dotfiles\etc\init\windows\settings\chocolatey\init_and_update_chocolatey.cmd
 
 echo *** CAUTION: AUTOMATICALLY RESTART PC, KEY INPUT AFTER 60sec ***

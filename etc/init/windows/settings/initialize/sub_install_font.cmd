@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/10/25 09:06:13.
+rem Last Change: 2020/10/25 19:21:09.
 
 set batch_title=Install initialize font
 title %batch_title%
@@ -12,8 +12,8 @@ rem set bat_path=%~dp0
 rem rem スクリプトがある "Dir" に "cd"
 rem pushd %bat_path%
 pushd %src_dir%
-if errorlevel equ 1 (
-    echo ^>^> Setting folder not found
+if %errorlevel% equ 1 (
+    echo ^>^> Font folder not found
     goto end
 )
 
