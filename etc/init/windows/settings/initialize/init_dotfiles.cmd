@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/10/24 21:05:25.
+rem Last Change: 2020/10/25 12:57:08.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -107,7 +107,7 @@ echo ^>^> Check installed 7zip or not
 if not %errorlevel% equ 0 (
     echo ^>^> Install 7zip
     cinst -y -r 7zip
-) else(
+) else (
     echo ^>^> Already nstalled 7zip
 )
 
@@ -116,7 +116,7 @@ git --version > nul 2>&1
 if not %errorlevel% equ 0 (
     echo ^>^> Install Git
     cinst -y -r git
-) else(
+) else (
     echo ^>^> Already nstalled Git
 )
 
@@ -125,22 +125,22 @@ megasync --version > nul 2>&1
 if %errorlevel% equ 0 (
     echo ^>^> Already nstalled MEGAsync
     goto chk_inst_git
-) else(
+) else (
     echo ^>^> Install MEGAsync
 
-ping 172.16.84.100 /n 1 > nul 2>&1
-if %errorlevel% equ 0 goto chk_inst_megasync_in_proxy 
-cinst -y -r megasync
-goto chk_inst_git
+    ping 172.16.84.100 /n 1 > nul 2>&1
+    if %errorlevel% equ 0 goto chk_inst_megasync_in_proxy 
+    cinst -y -r megasync
+    goto chk_inst_git
 
-:chk_inst_megasync_in_proxy
-if not exist %homepath%\OneDeive\仕事\ cinst -y -r megasync
-echo ^>^> FIELD INSTALL MEGASYNC AUTOMATICALLY, CONNECT WITHOUT PROXY
-pause 
-exit /b 0013
+    :chk_inst_megasync_in_proxy
+    if not exist %homepath%\OneDeive\仕事\ cinst -y -r megasync
+    echo ^>^> FIELD INSTALL MEGASYNC AUTOMATICALLY, CONNECT WITHOUT PROXY
+    pause 
+    exit /b 0013
 
-:inst_megasync
-cinst -y -r megasync
+    :inst_megasync
+    cinst -y -r megasync
 )
 
 :chk_inst_git
@@ -233,7 +233,7 @@ echo ^>^> Copy "Settings" from NAS
 robocopy /s /e %nas_setthing% %userprofile%\OneDrive\仕事\Settings\
 if %errorlevel% equ 0 (
     echo ^>^> Success copy "Settings"
-) else(
+) else (
     echo ^>^> Feil copy "Settings"
     set result_nas_copy=1
 )
@@ -242,7 +242,7 @@ robocopy /s /e %nas_initapps% %userprofile%\OneDrive\仕事\InitApps\
 if %errorlevel% equ 0 (
     echo ^>^> Success copy "InitApps"
     goto install_apps
-) else(
+) else (
     echo ^>^> Feil copy "InitApps"
     set result_nas_copy=2
 )
@@ -283,11 +283,11 @@ if exist *_%conf_file% (
     echo ^>^> Install apps for this PC
     for %%i in (*_%conf_file%) do (
         cinst -y -r %%i
-        )
-    ) else (
-        echo ^>^> Setting default parameter
-        cinst -y -r %conf_defa%
-        )
+    )
+) else (
+    echo ^>^> Setting default parameter
+    cinst -y -r %conf_defa%
+)
 echo ^>^> Update Chocolatey
 cup all -y
 rem ---------------------------------------------------------------------------
