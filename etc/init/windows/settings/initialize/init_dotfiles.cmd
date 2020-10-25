@@ -225,15 +225,15 @@ goto install_apps
 
 :cp_nas
 echo ^>^> In home network, connect NAS
-rem set nas_settings=\\LS210D68\Share\Settings\
-rem set nas_initapps=\\LS210D68\Shara\InitApps\
-rem set nas_settings=\\10.0.1.55\share\settings\
-rem set nas_initapps=\\10.0.1.55\Shara\InitApps\
+set nas_settings=\\SaladStationII\share\仕事\Settings\
+set nas_initapps=\\SaladStationII\shara\仕事\InitApps\
+rem set nas_settings=\\10.0.1.55\share\仕事\Settings\
+rem set nas_initapps=\\10.0.1.55\shara\仕事\InitApps\
 set result_nas_copy=0
 
 echo ^>^> Copy "Settings" from NAS
 net use t: /delete > nul 2>&1
-net use t: \\10.0.1.55\share\settings\ /user:admin
+net use t: %nas_settings% /user:admin
 robocopy /s /e /njh /njs t: %userprofile%\OneDrive\仕事\Settings\
 if %errorlevel% equ 0 (
     echo ^>^> Success copy "Settings"
@@ -245,7 +245,7 @@ net use t: /delete > nul 2>&1
 
 echo ^>^> Copy "InitApps" from NAS
 net use u: /delete > nul 2>&1
-net use u: \\10.0.1.55\Shara\InitApps\ /user:admin
+net use u: %nas_initapps% /user:admin
 robocopy /s /e /njh /njs u: %userprofile%\OneDrive\仕事\InitApps\
 if %errorlevel% equ 0 (
     echo ^>^> Success copy "InitApps"
