@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/10/25 18:04:36.
+rem Last Change: 2020/10/25 18:16:51.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -224,22 +224,32 @@ goto install_apps
 
 :cp_nas
 echo ^>^> In home network, connect NAS
-set nas_settings=\\LS210D68\Share\Settings\
-set nas_initapps=\\LS210D68\Shara\InitApps\
+rem set nas_settings=\\LS210D68\Share\Settings\
+rem set nas_initapps=\\LS210D68\Shara\InitApps\
+set nas_settings=\\10.0.1.55\Share\Settings\
+set nas_initapps=\\10.0.1.55\Shara\InitApps\
 set result_nas_copy=0
 
 echo ^>^> Copy "Settings" from NAS
-robocopy /s /e %nas_settings% %userprofile%\OneDrive\仕事\Settings\
+net use t: /delete > nul 2>&1
+net use t: %nas_settings% passworddynamite /user:admin
+robocopy /s /e t: %userprofile%\OneDrive\仕事\Settings\
 if %errorlevel% equ 0 (
     echo ^>^> Success copy "Settings"
+    net use t: /delete > nul 2>&1
 ) else (
     echo ^>^> Feil copy "Settings"
     set result_nas_copy=1
 )
+
 echo ^>^> Copy "InitApps" from NAS
-robocopy /s /e %nas_initapps% %userprofile%\OneDrive\仕事\InitApps\
+net use u: /delete > nul 2>&1
+net use u: %nas_initapps% passworddynamite /user:admin
+robocopy /s /e u: %userprofile%\OneDrive\仕事\InitApps\
 if %errorlevel% equ 0 (
     echo ^>^> Success copy "InitApps"
+    net use u: /delete > nul 2>&1
+net use u: %nas_initapps% passworddynamite /user:admin
     goto install_apps
 ) else (
     echo ^>^> Feil copy "InitApps"
