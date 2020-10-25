@@ -1,8 +1,8 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2019/11/20 16:30:23.
+# Last Change: 2020/10/25 09:28:05.
 
 [user]
-	name = 脇田 純
+	name  = 脇田 純
 	email = wacky515@gmail.com
 
 [color]
@@ -36,8 +36,8 @@
 	proxy =
 
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	cmd  = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
