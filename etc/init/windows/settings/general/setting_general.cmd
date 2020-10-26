@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/03/31 09:53:57
-rem Last Change: 2020/10/22 10:45:34
+rem Last Change: 2020/10/26 10:29:43.
 
 set batch_title=Setting for Folder options
 title %batch_title%
@@ -29,9 +29,9 @@ reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Ad
 rem "保護されたオペレーティング システム ファイルを表示しない" 無効
 echo ^>^> Show operating system
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowSuperHidden" /t REG_DWORD /d "1" /f
-rem "すべてのフォルダーを表示" 有効
-echo ^>^> Show all folder
-reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "NavPaneShowAllFolders" /t REG_DWORD /d "1" /f
+rem "すべてのフォルダーを表示" 無効
+echo ^>^> Hide all folder
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "NavPaneShowAllFolders" /t REG_DWORD /d "0" /f
 rem "ステータスバーを表示する" 有効
 echo ^>^> Show status bar
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowStatusBar" /t REG_DWORD /d "1" /f

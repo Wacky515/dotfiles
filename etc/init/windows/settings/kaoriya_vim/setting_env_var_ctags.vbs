@@ -10,7 +10,7 @@ Dim env
 Dim strEnvName
 
 Set shell = WScript.CreateObject("WScript.Shell")
-strEnvName = "%userprofile%\dotfiles\.vim\ctags\"
+strEnvName = "%USERPROFILE%\dotfiles\.vim\ctags\"
 
 Set env = shell.Environment("User")
 

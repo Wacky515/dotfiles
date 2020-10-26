@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2020/10/21 18:55:30.
+rem Last Change: 2020/10/26 10:28:43.
 
 set batch_title=General setting Windows10
 
@@ -97,7 +97,7 @@ rem タイムライン 無効
 echo ^>^> OFF Time line
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System" /v "EnableActivityFeed" /t REG_DWORD /d "0" /f
 
-rem FIXME:
+rem NOTWORK:
 rem echo ^>^> ON Remote desktop
 rem rem リモートデスクトップ 有効
 rem reg add "HKEY_LOCAL_MACHINESYSTEMCurrentControlSetControlTerminal Server" /v fDenyTSConnections/t REG_DWORD /d "1" /f
