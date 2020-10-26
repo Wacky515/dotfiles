@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/03/31 09:53:57
-rem Last Change: 2020/10/26 10:29:43.
+rem Last Change: 2020/10/26 14:42:03.
 
 set batch_title=Setting for Folder options
 title %batch_title%
@@ -55,8 +55,8 @@ reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v 
 rem "ファイル システムのファイル フォルダーの検索時にインデックスを使用しない" 有効
 echo ^>^> Don't use index
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Search\Preferences" /v "WholeFileSystem" /t REG_DWORD /d "0" /f
-rem "Windows search" 無効
-sc config WSearch start= disabled
+rem rem "Windows search" 無効
+rem sc config WSearch start= disabled
 
 rem “* - ショートカット" を追加しない
 echo ^>^> Don't make shortcut name's suffix
