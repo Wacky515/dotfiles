@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/10/26 17:05:27.
+rem Last Change: 2020/10/27 10:08:52.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -9,7 +9,7 @@ title %batch_title%
 set yyyy=%date:~0,4%
 set mm=%date:~5,2%
 set dd=%date:~8,2%
- 
+
 set time_zero_suppress=%time: =0%
 set hh=%time_zero_suppress:~0,2%
 set mn=%time_zero_suppress:~3,2%
@@ -56,12 +56,13 @@ echo Licensed under the MIT license.
 echo.
 echo *** ATTENTION ***
 echo.
-echo Standard and Standard errer output in ~/init_dotfile_DATE_TIME.log.
 echo This script can change your entire setup.
 echo I recommend to read first. You can even copy commands one by one.
 echo.
 echo *** NOTE ***
 echo.
+echo y:    Standard and Standard error output in display
+echo Y:    Standard and Standard error output in ~/init_dotfile_DATE_TIME.log.
 echo test: Not Chocolatey install from *.config
 echo.
 echo Start install [Y/N], or [t]est?
@@ -119,23 +120,23 @@ if not %errorlevel% equ 0 (
     echo ^>^> Already installed Git
 )
 
-echo ^>^> Check installed MEGAsync or not
+echo ^>^> Check installed MEGA sync or not
 megasync --version > nul 2>&1
 if %errorlevel% equ 0 (
-    echo ^>^> Already installed MEGAsync
+    echo ^>^> Already installed MEGA sync
     goto chk_inst_git
 ) else (
-    echo ^>^> Install MEGAsync
+    echo ^>^> Install MEGA sync
 
     ping 172.16.84.100 /n 1 > nul 2>&1
-    if %errorlevel% equ 0 goto chk_inst_megasync_in_proxy 
+    if %errorlevel% equ 0 goto chk_inst_megasync_in_proxy
     cinst -y -r --no-progress megasync
     goto chk_inst_git
 
     :chk_inst_megasync_in_proxy
     if not exist %homepath%\OneDeive\ŽdŽ–\ cinst -y -r --no-progress megasync
     echo ^>^> FIELD INSTALL MEGASYNC AUTOMATICALLY, CONNECT WITHOUT PROXY
-    pause 
+    pause
     exit /b 0013
 
     :inst_megasync
@@ -154,8 +155,8 @@ cinst -y -r --no-progress git
 echo ^>^> Check installed Git or not 3rd time
 git --version > nul 2>&1
 if %errorlevel% equ 0 goto git_clone
-echo ^>^> FAIELD INSTALL GIT AUTOMATICALLY, ABORT THIS SCRIPT!
-pause 
+echo ^>^> FAILED INSTALL GIT AUTOMATICALLY, ABORT THIS SCRIPT!
+pause
 exit /b 0015
 
 :git_clone
@@ -170,8 +171,8 @@ if not exist %userprofile%\dotfiles\.git\ (
     rmdir %userprofile%\.gitconfig > nul 2>&1
     git clone --quiet --depth 1 https://github.com/Wacky515/dotfiles.git
     if %errorlevel% equ 1 (
-        echo ^>^> FAIELD GIT CLONE, ABORT THIS SCRIPT!
-        pause 
+        echo ^>^> FAILED GIT CLONE, ABORT THIS SCRIPT!
+        pause
         exit /b 0020
     )
 ) else (
@@ -262,7 +263,7 @@ if %errorlevel% equ 0 (
 if %errorlevel% neq 0 goto dl_mega
 
 :dl_mega
-echo ^>^> Not in proxy, download MEGAsync
+echo ^>^> Not in proxy, download MEGA sync
 if exist %userprofile%\OneDrive\ŽdŽ–\Settings\ (
     rmdir /s /q %userprofile%\OneDrive\ŽdŽ–\Settings\
 )
@@ -315,7 +316,7 @@ if exist *_%conf_file% (
     cinst -y -r --no-progress %conf_defa%
 )
 echo ^>^> Update Chocolatey
-cup all -y
+cup all -y -r --no-progress
 rem ---------------------------------------------------------------------------
 
 :install_all
