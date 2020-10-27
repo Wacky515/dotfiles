@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/06/07 10:30:32
-rem Last Change: 2020/10/27 10:54:37.
+rem Last Change: 2020/10/27 11:06:08.
 
 set batch_title=Setting zsh
 
@@ -27,7 +27,7 @@ rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 pushd %bat_path%
 if %errorlevel% equ 1 (
-    echo ^>^> setting folder not found
+    echo ^>^> Setting folder not found
     goto end
 )
 
