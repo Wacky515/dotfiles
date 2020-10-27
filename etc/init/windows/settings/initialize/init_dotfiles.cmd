@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/10/27 10:08:52.
+rem Last Change: 2020/10/27 11:33:33.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -71,22 +71,26 @@ set /p input=
 if defined input set input=%input:"=%
 if /i "%input%" == "y" (
     set test=0
+    set std_disp=0
     goto redirect
 )
 if /i "%input%" == "Y" (
     set test=0
+    set std_disp=1
     goto redirect
 )
 if /i "%input%" == "t" (
     set test=1
+    set std_disp=0
     goto redirect
 )
 goto end
 
 :redirect
-call :chk_choco > %userprofile%\init_dotfile_%maketime%.log 2>&1
-rem type %userprofile%\init_dotfile_%maketime%.log
-goto end
+if %std_disp% equ 1 (
+    call :chk_choco > %userprofile%\init_dotfile_%maketime%.log 2>&1
+    goto end
+)
 
 :chk_choco
 rem "Chocolatey" インストール済みかチェック
