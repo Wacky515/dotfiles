@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/10/27 11:33:33.
+rem Last Change: 2020/10/27 11:41:27.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -64,6 +64,7 @@ echo.
 echo y:    Standard and Standard error output in display
 echo Y:    Standard and Standard error output in ~/init_dotfile_DATE_TIME.log.
 echo test: Not Chocolatey install from *.config
+echo       Not install font
 echo.
 echo Start install [Y/N], or [t]est?
 
