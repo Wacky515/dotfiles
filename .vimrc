@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2020/09/12 22:43:55.
+" Last Change: 2020/10/27 16:12:07.
 
 " NOT_WORK:
 " " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
@@ -44,6 +44,15 @@ elseif (has("win32") || has("win64"))
         let g:python3_host_prog =
         \ "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
 
+    elseif hostname() == "HBAMB1448"
+        let g:python3_host_prog  = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
+        if !has("nvim")
+            if has("gui_running")
+                set pythonthreedll=C:\Users\mm12167\AppData\Local\Programs\Python\Python36\python36.dll
+            else
+                let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
+            endif
+        endif
     elseif hostname() == "HBAMB748"
         let g:python_host_prog  = "C:\\Python27\\python.exe"
         let g:python3_host_prog = "C:\\Python36\\python.exe"
