@@ -1,5 +1,5 @@
 ' Created:     201*/**/** **:**:**
-' Last Change: 2018/12/04 08:27:53.
+' Last Change: 2020/10/26 17:42:51.
 
 ' 変数宣言を強制
 Option Explicit
@@ -15,7 +15,7 @@ strEnvName = "%USERPROFILE%"
 Set env = shell.Environment("USER")
 
 If instr(env.item("HOME"), strEnvName) = 0 Then
-    env.item("HOME") = env.item("HOME") & ";" & strEnvName
+    env.item("HOME") = env.item("HOME") & strEnvName
     MsgBox env.item("HOME")
 Else
     WScript.Echo "Already exist"

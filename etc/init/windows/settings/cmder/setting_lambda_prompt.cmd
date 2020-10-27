@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/10/25 08:08:30.
+rem Last Change: 2020/10/26 17:28:48.
 
 set batch_title=Change prompt
 title %batch_title%
@@ -20,7 +20,7 @@ exit
 set cmder_root=C:\tools\cmder\
 
 pushd %userprofile%\OneDrive\ŽdŽ–\Settings\Cmder
-if errorlevel equ 1 (
+if %errorlevel% equ 1 (
     echo ^>^> Setting folder not found
     goto end
 )

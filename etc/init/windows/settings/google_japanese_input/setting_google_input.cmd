@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/10/25 08:35:32.
+rem Last Change: 2020/10/26 17:26:57.
 
 set batch_title=Setting Google Japanese input
 title %batch_title%
@@ -38,7 +38,7 @@ set backup=%deb_dir%\old
 
 rem スクリプトがある "Dir" に "cd"
 rem pushd %bat_path%
-if errorlevel equ 1 (
+if %errorlevel% equ 1 (
     echo ^>^> setting folder not found
     goto end
 )

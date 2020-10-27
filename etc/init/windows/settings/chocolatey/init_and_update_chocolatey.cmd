@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2017/02/17 00:54:41
-rem Last Change: 2019/11/19 13:35:42.
+rem Last Change: 2020/10/26 16:52:28.
 
 set batch_title=Update Chocolatey
 title %batch_title%
@@ -58,7 +58,7 @@ rem "***_packages_***.config" を読込み、インストール
 if exist *_%config_files% (
         echo ^>^> Setting for this PC
         for %%i in (*_%config_files%) do (
-            cinst -y %%i
+            cinst -y  - no-progress %%i
             )
         )
 

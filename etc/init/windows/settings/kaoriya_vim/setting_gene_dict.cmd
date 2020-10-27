@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/07/17 10:19:01
-rem Last Change: 2020/10/25 08:37:28.
+rem Last Change: 2020/10/26 17:26:02.
 
 set batch_title=Setting GENE dictionary
 
@@ -24,7 +24,7 @@ rem rem スクリプトがある "Dir" に "cd"
 rem set bat_path=%~dp0
 rem pushd %bat_path%
 pushd %userprofile%\OneDrive\仕事\Settings\KaoriyaVim\
-if errorlevel equ 1 (
+if %errorlevel% equ 1 (
     echo ^>^> setting folder not found
     goto end
 )

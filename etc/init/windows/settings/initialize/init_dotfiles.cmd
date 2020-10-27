@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/10/25 22:38:40.
+rem Last Change: 2020/10/26 17:05:27.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -144,6 +144,8 @@ if %errorlevel% equ 0 (
 
 :chk_inst_git
 echo ^>^> Check installed Git or not 2nd time
+
+REM FIXME: 最初回は判別不可能な模様、コマンドプロンプト再起動する
 git --version > nul 2>&1
 if %errorlevel% equ 0 goto git_clone
 echo ^>^> Try install git
@@ -166,7 +168,7 @@ if not exist %userprofile%\dotfiles\.git\ (
     )
     rem FIXME: シンボリックリンク削除できない
     rmdir %userprofile%\.gitconfig > nul 2>&1
-    git clone --depth 1 https://github.com/Wacky515/dotfiles.git
+    git clone --quiet --depth 1 https://github.com/Wacky515/dotfiles.git
     if %errorlevel% equ 1 (
         echo ^>^> FAIELD GIT CLONE, ABORT THIS SCRIPT!
         pause 
@@ -210,7 +212,7 @@ if not exist %userprofile%\OneDrive\仕事\Settings\ (
     mkdir %userprofile%\OneDrive\仕事\Settings\
     net use v: /delete > nul 2>&1
     net use v: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings
-    robocopy /s /e /njh /njs v: %userprofile%\OneDrive\仕事\Settings\
+    robocopy /s /e /np /njh /njs v: %userprofile%\OneDrive\仕事\Settings\
     net use v: /delete > nul 2>&1
 )
 
@@ -219,7 +221,7 @@ if not exist %userprofile%\OneDrive\仕事\InitApps\ (
     mkdir %userprofile%\OneDrive\仕事\InitApps\
     net use w: /delete > nul 2>&1
     net use w: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps
-    robocopy /s /e /njh /njs w: %userprofile%\OneDrive\仕事\InitApps\
+    robocopy /s /e /np /njh /njs w: %userprofile%\OneDrive\仕事\InitApps\
     net use w: /delete > nul 2>&1
 )
 goto install_apps
@@ -235,7 +237,7 @@ set result_nas_copy=0
 echo ^>^> Copy "Settings" from NAS
 net use t: /delete > nul 2>&1
 net use t: %nas_settings% /user:admin
-robocopy /s /e /njh /njs t: %userprofile%\OneDrive\仕事\Settings\
+robocopy /s /e /np /njh /njs t: %userprofile%\OneDrive\仕事\Settings\
 if %errorlevel% equ 0 (
     echo ^>^> Success copy "Settings"
 ) else (
@@ -247,7 +249,7 @@ net use t: /delete > nul 2>&1
 echo ^>^> Copy "InitApps" from NAS
 net use u: /delete > nul 2>&1
 net use u: %nas_initapps% /user:admin
-robocopy /s /e /njh /njs u: %userprofile%\OneDrive\仕事\InitApps\
+robocopy /s /e /np /njh /njs u: %userprofile%\OneDrive\仕事\InitApps\
 if %errorlevel% equ 0 (
     echo ^>^> Success copy "InitApps"
     net use u: /delete > nul 2>&1
