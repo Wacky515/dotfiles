@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/10/27 17:08:17.
+rem Last Change: 2020/10/27 17:11:47.
 
 set batch_title=Setting Google Japanese input
 title %batch_title%
@@ -34,7 +34,7 @@ set tstmp=%yyyy%-%mm%-%dd%_%hh%-%mi%-%ss%
 
 set deb_dir=%userprofile%\AppData\LocalLow\Google\
 set src_dir=%userprofile%\OneDrive\仕事\Settings\GoogleJapaneseInput\
-set backup=%deb_dir%\old
+set backup=%deb_dir%\old\
 
 rem スクリプトがある "Dir" に "cd"
 rem pushd %bat_path%
