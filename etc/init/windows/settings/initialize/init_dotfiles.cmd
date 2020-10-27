@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/10/27 11:51:58.
+rem Last Change: 2020/10/27 12:31:10.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -62,11 +62,12 @@ echo.
 echo *** NOTE ***
 echo.
 echo y:    Standard and Standard error output in display
-echo Y:    Standard and Standard error output in ~/init_dotfile_DATE_TIME.log.
+echo l:    Standard and Standard error output in ~/init_dotfile_DATE_TIME.log.
 echo test: Not Chocolatey install from *.config
 echo       Not install font
+echo n:    Abort
 echo.
-echo Start install [Y/N], or [t]est?
+echo Start install [y/n], or [t]est?
 
 set /p input=
 if defined input set input=%input:"=%
@@ -75,7 +76,7 @@ if /i "%input%" == "y" (
     set std_disp=0
     goto redirect
 )
-if /i "%input%" == "Y" (
+if /i "%input%" == "l" (
     set test=0
     set std_disp=1
     goto redirect
