@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2020/10/24 22:26:56.
+rem Last Change: 2020/10/27 12:23:01.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -20,122 +20,118 @@ exit
 set bat_path=%~dp0
 pushd %bat_path%
 
-echo ^>^> Start set link
+echo ^>^> Start set links dotfiles to homepath
 
 rem "NeoVim" 設定
 rem "NeoVim" インストール済みかチェック
+echo ^>^> Check install NeoVim or not
 nvim -v > nul 2>&1
 if not %errorlevel% equ 0 (
-    echo ^>^> Not install NeoVim
+    echo ^>^> NOT INSTALLED NEOVIM, SKIP LINK
     goto ins_nyao
-)
-
-set src_nvim=%userprofile%\dotfiles\nvim\
-
-if defined xdg_config_home (
-    echo ^>^> Set NeoVim in XDG CONFIG HOME
-    set dst_nvim=%xdg_config_home%\nvim\
 ) else (
-    echo ^>^> Set NeoVim in Local AppData
-    set dst_nvim=%localappdata%\nvim\
-)
+    echo ^>^> Installed NeoVim
+    set src_nvim=%userprofile%\dotfiles\nvim\
+    if defined xdg_config_home (
+        echo ^>^> Set NeoVim in XDG CONFIG HOME
+        set dst_nvim=%xdg_config_home%\nvim\
+    ) else (
+        echo ^>^> Set NeoVim in Local AppData
+        set dst_nvim=%localappdata%\nvim\
+    )
 
-mklink /d %dst_nvim% %src_nvim% > nul 2>&1
-if %errorlevel% equ 0 (
-    echo ^>^> init.vim、ginit.vim link success!
-) else (
-    echo ^>^> init.vim、ginit.vim link failed. code: %errorlevel%
+    mklink /d %dst_nvim% %src_nvim% > nul 2>&1
+    if %errorlevel% equ 0 (
+        echo ^>^> init.vim、ginit.vim link success!
+    ) else (
+        echo ^>^> FAILED LINK INIT.VIM、GINIT.VIM, ERROR CODE: %errorlevel%
+    )
 )
 
 :ins_nyao
 rem "NyaoVim" 設定
 rem "NyaoVim" インストール済みかチェック
-echo ^>^> Check install NyaoVim
-nyaovim  --version > nul 2>&1
+echo ^>^> Check install NyaoVim or not
+nyaovim --version > nul 2>&1
 if not %errorlevel% equ 0 (
-    echo ^>^> Not install NyaoVim
+    echo ^>^> NOT INSTALLED NYAOVIM, SKIP LINK
     goto ins_oni
 ) else (
     echo ^>^> Installed NyaoVim
     set src_html=%bat_path%\nyaovimrc.html
     set dst_html=%userprofile%\AppData\Roaming\NyaoVim\nyaovimrc.html
-)
 
-if exist %dst_html% (
-    del %dst_html%
-)
+    if exist %dst_html% (
+        del %dst_html%
+    )
 
-rem FIXME: "mklink" だと起動しない
-rem mklink %dst_html% %src_html%
-copy %src_html% %dst_html% > nul 2>&1
-if %errorlevel% equ 0 (
-    echo ^>^> nyaovimrc.html copy success!
-    rem echo ^>^> nyaovimrc.html link success!
-) else (
-    echo ^>^> nyaovimrc.html copy failed. code: %errorlevel%
-    rem echo ^>^> nyaovimrc.html link failed. code: %errorlevel%
+    rem FIXME: "mklink" だと起動しない
+    rem mklink %dst_html% %src_html%
+    copy %src_html% %dst_html% > nul 2>&1
+    if %errorlevel% equ 0 (
+        rem echo ^>^> Success nyaovimrc.html link
+        echo ^>^> Success nyaovimrc.html copy
+    ) else (
+        rem echo ^>^> FAILED LINK NYAOVIMRC.HTML, ERROR CODE: %errorlevel%
+        echo ^>^> FAILED COPY NYAOVIMRC.HTML, ERROR CODE: %errorlevel%
+    )
 )
 
 :ins_oni
 rem "OniVim" 設定
 rem "OniVim" インストール済みかチェック
+echo ^>^> Check install OniVim or not
 oni -h > nul 2>&1
 if not %errorlevel% equ 0 (
-    echo ^>^> Not install OniVim
+    echo ^>^> NOT INSTALLED ONIVIM, SKIP LINK
     goto lnk_git
-)
-
-set src_json=%bat_path%\config.tsx
-set dst_json=%userprofile%\AppData\Roaming\Oni\config.tsx
-
-if exist %dst_json% (
-    del %dst_json%
-)
-
-mklink %dst_json% %src_json% > nul 2>&1
-if %errorlevel% equ 0 (
-    echo ^>^> tsconfig.json link success!
 ) else (
-    echo ^>^> tsconfig.json link failed. code: %errorlevel%
+    echo ^>^> Installed OniVim
+    set src_json=%bat_path%\config.tsx
+    set dst_json=%userprofile%\AppData\Roaming\Oni\config.tsx
+
+    if exist %dst_json% (
+        del %dst_json%
+    )
+
+    mklink %dst_json% %src_json% > nul 2>&1
+    if %errorlevel% equ 0 (
+        echo ^>^> success link tsconfig.json
+    ) else (
+        echo ^>^> FAILED LINK TSCONFIG.JSON, ERROR CODE: %errorlevel%
+    )
 )
 
 :lnk_git
 rem ".gitconfig" 設定
 mklink %userprofile%\.gitconfig %bat_path%\.gitconfig > nul 2>&1
 if %errorlevel% equ 0 (
-    echo ^>^> .gitconfig link success!
+    echo ^>^> Success .gitconfig link
 ) else (
-    echo ^>^> .gitconfig link failed. code: %errorlevel%
+    echo ^>^> FAILED LINK .GITCONFIG, ERROR CODE: %errorlevel%
 )
 mklink %userprofile%\.gitconfig.os %bat_path%\.gitconfig.windows > nul 2>&1
 if %errorlevel% equ 0 (
-    echo ^>^> .gitconfig.os link success!
+    echo ^>^> Success .gitconfig.os link
 ) else (
-    echo ^>^> .gitconfig.os link failed. code: %errorlevel%
+    echo ^>^> FAILED LINK .GITCONFIG.OS, ERROR CODE: %errorlevel%
 )
 
 rem ".vim" 設定
 mklink /d %userprofile%\.vim %bat_path%\.vim > nul 2>&1
 if %errorlevel% equ 0 (
-    echo ^>^> .vim link success!
+    echo ^>^> Success .vim link
 ) else (
-    echo ^>^> .vim link failed. code: %errorlevel%
+    echo ^>^> FAILED LINK .VIM, ERROR CODE: %errorlevel%
 )
 
 rem "config.fish" 設定
 mklink %userprofile%\.config\fish\config.fish %bat_path%\config.fish > nul 2>&1
 if %errorlevel% equ 0 (
-    echo ^>^> config.fish in dotfiles link success!
+    echo ^>^> Success config.fish in dotfiles link
 ) else (
-    echo ^>^> config.fish in dotfiles link failed. code: %errorlevel%
+    echo ^>^> FAILED LINK CONFIG.FISH IN DOTFILES, ERROR CODE: %errorlevel%
 )
-
-rem mklink C:\tools\msys64\etc\fish\config.fish %bat_path%\config.fish > nul 2>&1
-rem if %errorlevel% equ 0 (
-rem     echo ^>^> config.fish in msys link in  success!
-rem ) else (
-rem     echo ^>^> config.fish in msys link failed. code: %errorlevel%
-rem )
 
 :lnk_dot
 rem "mklink" 時にスキップするドットファイル
