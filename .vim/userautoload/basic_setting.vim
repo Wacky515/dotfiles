@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2020/04/14 22:56:02.
+" Last Change: 2020/10/26 23:25:56.
 
 " 起動メッセージ
 augroup InitialMessage
@@ -57,17 +57,18 @@ if has('persistent_undo')
     set undofile
 endif
 
-" "*.bin" 設定
-augroup BinaryXXD
-    autocmd!
-    autocmd BufReadPre  *.bin let &binary =1
-    autocmd BufReadPost * if &binary | silent %!xxd -g 1
-    autocmd BufReadPost * set ft=xxd | endif
-    autocmd BufWritePre * if &binary | %!xxd -r | endif
-    autocmd BufWritePost * if &binary | silent %!xxd -g 1
-    autocmd BufWritePost * set nomod | endif
-augroup END
-
+" KILL: "autodate.vim" 動作不良のため
+"" "*.bin" 設定  " {{{
+"augroup BinaryXXD
+"    autocmd!
+"    autocmd BufReadPre  *.bin let &binary =1
+"    autocmd BufReadPost * if &binary | silent %!xxd -g 1
+"    autocmd BufReadPost * set ft=xxd | endif
+"    autocmd BufWritePre * if &binary | %!xxd -r | endif
+"    autocmd BufWritePost * if &binary | silent %!xxd -g 1
+"    autocmd BufWritePost * set nomod | endif
+"augroup END
+" }}}
 " " カーソル位置のマーク " {{{
 " nnoremap <expr> m  <SID>hint_cmd_output('m', 'marks')
 " " マーク位置へジャンプ

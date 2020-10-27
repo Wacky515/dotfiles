@@ -183,9 +183,9 @@ repo = 'tpope/vim-abolish'
 [[plugins]]
 repo = 'kana/vim-smartchr'
 
-# タイムスタンプ 挿入
-[[plugins]]
-repo = 'vim-scripts/autodate.vim'
+# # タイムスタンプ 挿入
+# [[plugins]]
+# repo = 'vim-scripts/autodate.vim'
 
 # 日付のインクリメント・デクリメント
     # FIXME: yyyy/mm/dd 形式は対応していない
