@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2020/10/27 16:15:53.
+" Last Change: 2020/10/29 22:14:48.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -130,8 +130,8 @@ if !has("nvim")
             set printfont=Cica:h13
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "SALADSURFACEGO"
-            set   guifont=HackGen\ Console\ Regular\ for\ Powerline:h13
-            set printfont=HackGen\ Console\ Regular\ for\ Powerline:h13
+            set   guifont=Cica:h13
+            set printfont=Cica:h13
             set renderoptions=type:directx,renmode:5
 
         " muRata setting
