@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2020/10/27 12:23:01.
+rem Last Change: 2020/10/29 13:29:01.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -26,7 +26,6 @@ rem "NeoVim" 設定
 rem "NeoVim" インストール済みかチェック
 echo ^>^> Check install NeoVim or not
 nvim -v > nul 2>&1
-if not %errorlevel% equ 0 (
     echo ^>^> NOT INSTALLED NEOVIM, SKIP LINK
     goto ins_nyao
 ) else (
@@ -50,14 +49,15 @@ if not %errorlevel% equ 0 (
 
 :ins_nyao
 rem "NyaoVim" 設定
-rem "NyaoVim" インストール済みかチェック
-echo ^>^> Check install NyaoVim or not
-nyaovim --version > nul 2>&1
-if not %errorlevel% equ 0 (
-    echo ^>^> NOT INSTALLED NYAOVIM, SKIP LINK
-    goto ins_oni
-) else (
-    echo ^>^> Installed NyaoVim
+rem rem "NyaoVim" インストール済みかチェック
+rem echo ^>^> Check install NyaoVim or not
+rem nyaovim --version > nul 2>&1
+rem if not %errorlevel% equ 0 (
+rem     echo ^>^> NOT INSTALLED NYAOVIM, SKIP LINK
+rem     goto ins_oni
+rem ) else (
+    rem echo ^>^> Installed NyaoVim
+    echo ^>^> Set link NyaoVim
     set src_html=%bat_path%\nyaovimrc.html
     set dst_html=%userprofile%\AppData\Roaming\NyaoVim\nyaovimrc.html
 
@@ -75,18 +75,19 @@ if not %errorlevel% equ 0 (
         rem echo ^>^> FAILED LINK NYAOVIMRC.HTML, ERROR CODE: %errorlevel%
         echo ^>^> FAILED COPY NYAOVIMRC.HTML, ERROR CODE: %errorlevel%
     )
-)
+rem )
 
 :ins_oni
 rem "OniVim" 設定
-rem "OniVim" インストール済みかチェック
-echo ^>^> Check install OniVim or not
-oni -h > nul 2>&1
-if not %errorlevel% equ 0 (
-    echo ^>^> NOT INSTALLED ONIVIM, SKIP LINK
-    goto lnk_git
-) else (
-    echo ^>^> Installed OniVim
+rem rem "OniVim" インストール済みかチェック
+rem echo ^>^> Check install OniVim or not
+rem oni -h > nul 2>&1
+rem if not %errorlevel% equ 0 (
+rem     echo ^>^> NOT INSTALLED ONIVIM, SKIP LINK
+rem     goto lnk_git
+rem ) else (
+    rem echo ^>^> Installed OniVim
+    echo ^>^> Set link OniVim
     set src_json=%bat_path%\config.tsx
     set dst_json=%userprofile%\AppData\Roaming\Oni\config.tsx
 
@@ -100,7 +101,7 @@ if not %errorlevel% equ 0 (
     ) else (
         echo ^>^> FAILED LINK TSCONFIG.JSON, ERROR CODE: %errorlevel%
     )
-)
+rem )
 
 :lnk_git
 rem ".gitconfig" 設定
@@ -161,8 +162,8 @@ for %%j in (.*) do (
 
 echo ^>^> End set link
 
-popd
+rem popd
 endlocal
 
-rem pause
+pause
 exit /b 0
