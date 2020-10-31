@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/11/01 01:24:58.
+rem Last Change: 2020/11/01 01:34:32.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -174,8 +174,7 @@ if not exist %userprofile%\dotfiles\.git\ (
             rmdir /s /q %userprofile%\dotfiles\
             )
         rem FIXME: シンボリックリンク削除できない
-        rem MEMO: /s /q ついかした
-        rmdir /s /q %userprofile%\.gitconfig > nul 2>&1
+        del /f /q %userprofile%\.gitconfig* > nul 2>&1
         git clone --quiet --depth 1 https://github.com/Wacky515/dotfiles.git
         if %errorlevel% equ 1 (
             echo ^>^> FAILED GIT CLONE, ABORT THIS SCRIPT!
