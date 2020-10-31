@@ -1,4 +1,7 @@
 # Created:     2020/04/17 09:44:30
-# Last Change: 2020/04/17 09:44:35.
+# Last Change: 2020/10/30 12:44:23.
 
-~\dotfiles\.vim\dictionaries\GENE.txt
+# NOTWORK:
+~\dotfiles\.git\*
+~\dotfiles\.vim\dictionaries\GENE.TXT
+~\dotfiles\.vim\lynx.chg

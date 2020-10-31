@@ -1,5 +1,5 @@
 # Created:     2020/04/17 09:40:08
-# Last Change: 2020/04/17 09:40:02.
+# Last Change: 2020/10/30 12:39:31.
 
 # 隠しファイルを無視しない
 --hidden
@@ -9,3 +9,11 @@
 
 # 常に列番号を表示
 --column
+
+# ファイルごとにマッチした件数を表示
+-c
+
+# 除外ファイルは以下
+# ~/dotfiles/.rgignore
+# ~/dotfiles/.ignore
+# ~/dotfiles/.gitignore
