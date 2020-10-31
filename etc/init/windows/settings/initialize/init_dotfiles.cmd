@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/10/27 12:31:10.
+rem Last Change: 2020/10/31 23:32:05.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -67,7 +67,7 @@ echo test: Not Chocolatey install from *.config
 echo       Not install font
 echo n:    Abort
 echo.
-echo Start install [y/n], or [t]est?
+echo Start install [y/n], install with [l]og, or [t]est?
 
 set /p input=
 if defined input set input=%input:"=%
