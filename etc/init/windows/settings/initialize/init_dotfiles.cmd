@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/11/01 02:18:06.
+rem Last Change: 2020/11/01 02:23:28.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -173,7 +173,6 @@ if not exist %userprofile%\dotfiles\.git\ (
         if exist %userprofile%\dotfiles\ (
             rmdir /s /q %userprofile%\dotfiles\
             )
-        rem FIXME: シンボリックリンク削除できない
         del /f /q %userprofile%\.gitconfig* > nul 2>&1
         git clone --quiet --depth 1 https://github.com/Wacky515/dotfiles.git
         if %errorlevel% equ 1 (
@@ -384,11 +383,11 @@ echo *** CAUTION: AUTOMATICALLY RESTART PC, KEY INPUT AFTER 60sec ***
 pause
 shutdown.exe -r -t 60
 
+:end
 if %std_disp% equ 0 (
     pause
 )
 
-:end
 endlocal
 popd
 
