@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/11/01 01:20:45.
+rem Last Change: 2020/11/01 01:24:58.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -239,15 +239,15 @@ goto install_apps
 :cp_nas
 echo ^>^> In home network, connect NAS
 set nas_settings=\\SaladStationII\share\仕事\Settings
-set nas_initapps=\\SaladStationII\share\仕事\InitApps
+set nas_initapps=\\SaladStationII\shara\仕事\InitApps
 rem set nas_settings=\\10.0.1.55\share\仕事\Settings
-rem set nas_initapps=\\10.0.1.55\share\仕事\InitApps
+rem set nas_initapps=\\10.0.1.55\shara\仕事\InitApps
 set result_nas_copy=0
 
 echo ^>^> Copy "Settings" from NAS
 net use t: /delete > nul 2>&1
 net use t: %nas_settings% /user:admin
-robocopy /s /e /ns /nc /nfl /ndl /np /njs t: %userprofile%\OneDrive\仕事\Settings\
+robocopy /s /e /ns /nc /nfl /ndl /np /njh t: %userprofile%\OneDrive\仕事\Settings\
 if %errorlevel% equ 1 (
     echo ^>^> Success copy "Settings"
 ) else (
@@ -259,7 +259,7 @@ net use t: /delete > nul 2>&1
 echo ^>^> Copy "InitApps" from NAS
 net use u: /delete > nul 2>&1
 net use u: %nas_initapps% /user:admin
-robocopy /s /e /ns /nc /nfl /ndl /np /njs u: %userprofile%\OneDrive\仕事\InitApps\
+robocopy /s /e /ns /nc /nfl /ndl /np /njh u: %userprofile%\OneDrive\仕事\InitApps\
 if %errorlevel% equ 1 (
     echo ^>^> Success copy "InitApps"
     net use u: /delete > nul 2>&1
