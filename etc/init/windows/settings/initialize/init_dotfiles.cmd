@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/10/27 12:31:10.
+rem Last Change: 2020/11/01 02:23:28.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -67,7 +67,7 @@ echo test: Not Chocolatey install from *.config
 echo       Not install font
 echo n:    Abort
 echo.
-echo Start install [y/n], or [t]est?
+echo Start install [y/n], install with [l]og, or [t]est?
 
 set /p input=
 if defined input set input=%input:"=%
@@ -169,21 +169,22 @@ exit /b 0015
 pushd %userprofile%
 echo ^>^> Installed Git, Check Git clone or not
 if not exist %userprofile%\dotfiles\.git\ (
-    echo ^>^> Git clone not yet, clone first
-    if exist %userprofile%\dotfiles\ (
-        rmdir /s /q %userprofile%\dotfiles\
-    )
-    rem FIXME: シンボリックリンク削除できない
-    rmdir %userprofile%\.gitconfig > nul 2>&1
-    git clone --quiet --depth 1 https://github.com/Wacky515/dotfiles.git
-    if %errorlevel% equ 1 (
-        echo ^>^> FAILED GIT CLONE, ABORT THIS SCRIPT!
-        pause
-        exit /b 0020
-    )
-) else (
-    echo ^>^> Already Git clone
-)
+        echo ^>^> Git clone not yet, clone first
+        if exist %userprofile%\dotfiles\ (
+            rmdir /s /q %userprofile%\dotfiles\
+            )
+        del /f /q %userprofile%\.gitconfig* > nul 2>&1
+        git clone --quiet --depth 1 https://github.com/Wacky515/dotfiles.git
+        if %errorlevel% equ 1 (
+            echo ^>^> FAILED GIT CLONE, ABORT THIS SCRIPT!
+            pause
+            exit /b 0020
+            ) else (
+                echo ^>^> Success Git clone
+                )
+        ) else (
+            echo ^>^> Already Git clone
+            )
 
 rem link.cmd 実行
 pushd %userprofile%\dotfiles\
@@ -236,16 +237,16 @@ goto install_apps
 :cp_nas
 echo ^>^> In home network, connect NAS
 set nas_settings=\\SaladStationII\share\仕事\Settings
-set nas_initapps=\\SaladStationII\shara\仕事\InitApps
+set nas_initapps=\\SaladStationII\share\仕事\InitApps
 rem set nas_settings=\\10.0.1.55\share\仕事\Settings
-rem set nas_initapps=\\10.0.1.55\shara\仕事\InitApps
+rem set nas_initapps=\\10.0.1.55\share\仕事\InitApps
 set result_nas_copy=0
 
 echo ^>^> Copy "Settings" from NAS
 net use t: /delete > nul 2>&1
 net use t: %nas_settings% /user:admin
-robocopy /s /e /np /njh /njs t: %userprofile%\OneDrive\仕事\Settings\
-if %errorlevel% equ 0 (
+robocopy /s /e /ns /nc /nfl /ndl /np /njh t: %userprofile%\OneDrive\仕事\Settings\
+if %errorlevel% equ 1 (
     echo ^>^> Success copy "Settings"
 ) else (
     echo ^>^> FAILED COPY "SETTINGS"
@@ -256,8 +257,8 @@ net use t: /delete > nul 2>&1
 echo ^>^> Copy "InitApps" from NAS
 net use u: /delete > nul 2>&1
 net use u: %nas_initapps% /user:admin
-robocopy /s /e /np /njh /njs u: %userprofile%\OneDrive\仕事\InitApps\
-if %errorlevel% equ 0 (
+robocopy /s /e /ns /nc /nfl /ndl /np /njh u: %userprofile%\OneDrive\仕事\InitApps\
+if %errorlevel% equ 1 (
     echo ^>^> Success copy "InitApps"
     net use u: /delete > nul 2>&1
     goto install_apps
@@ -382,11 +383,11 @@ echo *** CAUTION: AUTOMATICALLY RESTART PC, KEY INPUT AFTER 60sec ***
 pause
 shutdown.exe -r -t 60
 
+:end
 if %std_disp% equ 0 (
     pause
 )
 
-:end
 endlocal
 popd
 
