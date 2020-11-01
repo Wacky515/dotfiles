@@ -1,11 +1,13 @@
 # TODO
 
-- .gitignore 削除
-- Git 最初回のインストール済み 判定
+- net use パスワード間違え時 3回繰返し
+- フォントインストール済 スキップ
+- Git 最初回のインストール時 判定処理未完成
 
 - cmder
 - conemu
   - 設定ファイル copy が無い？
 
+- [x] .gitignore 削除
 - [x] Git clone 進捗非表示
 - [x] Rドライブ 進捗非表示
