@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/11/01 16:48:08.
+rem Last Change: 2020/11/01 16:54:30.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -259,7 +259,7 @@ if %errorlevel% neq 0 goto com_settings
 
 robocopy /s /e /ns /nc /nfl /ndl /np /njh t: %userprofile%\OneDrive\ŽdŽ–\Settings\
 echo ^>^> Robocopy exit code: %errorlevel%
-if %errorlevel% geq 1 (
+if %errorlevel% leq 1 (
     echo ^>^> Success copy "Settings"
 ) else (
     echo ^>^> FAILED COPY "SETTINGS"
@@ -284,7 +284,7 @@ if %errorlevel% neq 0 goto com_initapps
 
 robocopy /s /e /ns /nc /nfl /ndl /np /njh u: %userprofile%\OneDrive\ŽdŽ–\InitApps\
 echo ^>^> Robocopy exit code: %errorlevel%
-if %errorlevel% geq 1 (
+if %errorlevel% leq 1 (
     echo ^>^> Success copy "InitApps"
     net use u: /delete > nul 2>&1
     goto install_apps
