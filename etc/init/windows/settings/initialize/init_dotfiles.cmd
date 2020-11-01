@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/11/01 02:23:28.
+rem Last Change: 2020/11/01 16:30:50.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -241,23 +241,49 @@ set nas_initapps=\\SaladStationII\share\仕事\InitApps
 rem set nas_settings=\\10.0.1.55\share\仕事\Settings
 rem set nas_initapps=\\10.0.1.55\share\仕事\InitApps
 set result_nas_copy=0
+set /a con_stg_time=0
 
 echo ^>^> Copy "Settings" from NAS
 net use t: /delete > nul 2>&1
+
+:com_settings
+set /a con_stg_time+=1
 net use t: %nas_settings% /user:admin
+echo ^>^> Con times: %con_stg_time%
+echo ^>^> Com exit code: %errorlevel%
+if %con_stg_time% geq 3 (
+    echo ^>^> FAIL INPUT PASSWORD OVER 3 TIMES, ABORT THIS SCRIPT!
+    goto end
+)
+if %errorlevel% neq 0 goto com_settings
+
 robocopy /s /e /ns /nc /nfl /ndl /np /njh t: %userprofile%\OneDrive\仕事\Settings\
+echo ^>^> Robocopy exit code: %errorlevel%
 if %errorlevel% equ 1 (
     echo ^>^> Success copy "Settings"
 ) else (
     echo ^>^> FAILED COPY "SETTINGS"
-    set result_nas_copy=1
+    set /a %result_nas_copy%+=1
 )
 net use t: /delete > nul 2>&1
 
+set /a con_ita_time=0
 echo ^>^> Copy "InitApps" from NAS
 net use u: /delete > nul 2>&1
+
+:com_initapps
+set /a con_ita_time+=1
 net use u: %nas_initapps% /user:admin
+echo ^>^> Con times: %con_ita_time%
+echo ^>^> Com exit code: %errorlevel%
+if %con_ita_time% geq 3 (
+    echo ^>^> FAIL INPUT PASSWORD OVER 3 TIMES, ABORT THIS SCRIPT!
+    goto end
+)
+if %errorlevel% neq 0 goto com_initapps
+
 robocopy /s /e /ns /nc /nfl /ndl /np /njh u: %userprofile%\OneDrive\仕事\InitApps\
+echo ^>^> Robocopy exit code: %errorlevel%
 if %errorlevel% equ 1 (
     echo ^>^> Success copy "InitApps"
     net use u: /delete > nul 2>&1
@@ -265,14 +291,14 @@ if %errorlevel% equ 1 (
 ) else (
     echo ^>^> FAILED COPY "INITAPPS"
     net use u: /delete > nul 2>&1
-    set result_nas_copy=2
+    set result_nas_copy=result_nas_copy+2
 )
 if %errorlevel% neq 0 goto dl_mega
 
 :dl_mega
 echo ^>^> Not in proxy, download MEGA sync
 if exist %userprofile%\OneDrive\仕事\Settings\ (
-    rmdir /s /q %userprofile%\OneDrive\仕事\Settings\
+    rmdir /s %userprofile%\OneDrive\仕事\Settings\
 )
 echo ^>^> Please download "Settings" folder manually, then any key in
 start https://mega.nz/#F!ubhxia6L
@@ -287,7 +313,7 @@ if %errorlevel% equ 0 (
 )
 
 if exist %userprofile%\OneDrive\仕事\InitApps\ (
-    rmdir /s /q %userprofile%\OneDrive\仕事\InitApps\
+    rmdir /s %userprofile%\OneDrive\仕事\InitApps\
 )
 
 echo ^>^> Please download "InitApps" folder manually, then any key in

@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2020/10/31 23:32:25.
+rem Last Change: 2020/11/01 10:35:46.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -26,6 +26,7 @@ rem "NeoVim" 設定
 rem "NeoVim" インストール済みかチェック
 echo ^>^> Check install NeoVim or not
 nvim -v > nul 2>&1
+if not %errorlevel% equ 0 (
     echo ^>^> NOT INSTALLED NEOVIM, SKIP LINK
     goto ins_nyao
 ) else (
