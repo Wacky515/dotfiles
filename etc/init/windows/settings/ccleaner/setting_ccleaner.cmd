@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2020/11/01 10:18:36.
+rem Last Change: 2020/11/01 17:13:35.
 
 set batch_title=Setting CCleaner
 title %batch_title%
@@ -35,7 +35,7 @@ set tstmp=%yyyy%-%mm%-%dd%_%hh%-%mi%-%ss%
 set inidir="C:\Program Files\CCleaner\"
 set inifile=%inidir%\ccleaner.ini
 set backup=%inidir%\old\%tstmp%
-set srcdir=%Unrestricted%\OneDrive\仕事\Settings\CCleaner
+set srcdir=%userprofile%\OneDrive\仕事\Settings\CCleaner
 
 rem スクリプトがある "Dir" に "cd"
 rem pushd %bat_path%
