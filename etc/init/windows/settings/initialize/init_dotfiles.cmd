@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/11/01 16:54:30.
+rem Last Change: 2020/11/01 16:59:07.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -240,7 +240,7 @@ set nas_settings=\\SaladStationII\share\仕事\Settings
 set nas_initapps=\\SaladStationII\share\仕事\InitApps
 rem set nas_settings=\\10.0.1.55\share\仕事\Settings
 rem set nas_initapps=\\10.0.1.55\share\仕事\InitApps
-set result_nas_copy=0
+set /a result_nas_copy=0
 set /a con_stg_time=0
 
 echo ^>^> Copy "Settings" from NAS
@@ -263,7 +263,7 @@ if %errorlevel% leq 1 (
     echo ^>^> Success copy "Settings"
 ) else (
     echo ^>^> FAILED COPY "SETTINGS"
-    set /a %result_nas_copy%+=1
+    set /a result_nas_copy+=1
 )
 net use t: /delete > nul 2>&1
 
@@ -290,7 +290,7 @@ if %errorlevel% leq 1 (
     goto install_apps
 ) else (
     echo ^>^> FAILED COPY "INITAPPS"
-    set /a %result_nas_copy%+=2
+    set /a result_nas_copy+=2
     net use u: /delete > nul 2>&1
 )
 if %result_nas_copy% neq 0 (
