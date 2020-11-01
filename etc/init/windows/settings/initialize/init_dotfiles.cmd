@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/11/01 16:42:14.
+rem Last Change: 2020/11/01 16:48:08.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -290,10 +290,14 @@ if %errorlevel% geq 1 (
     goto install_apps
 ) else (
     echo ^>^> FAILED COPY "INITAPPS"
+    set /a %result_nas_copy%+=2
     net use u: /delete > nul 2>&1
-    set result_nas_copy=result_nas_copy+2
 )
-if %errorlevel% neq 0 goto dl_mega
+if %result_nas_copy% neq 0 (
+goto dl_mega
+) else (
+    goto install_apps
+)
 
 :dl_mega
 echo ^>^> Not in proxy, download MEGA sync
