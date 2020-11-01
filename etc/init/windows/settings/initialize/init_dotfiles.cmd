@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/11/01 16:59:07.
+rem Last Change: 2020/11/01 18:00:56.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -412,6 +412,10 @@ call %userprofile%\dotfiles\etc\init\windows\settings\chocolatey\init_and_update
 echo *** CAUTION: AUTOMATICALLY RESTART PC, KEY INPUT AFTER 60sec ***
 pause
 shutdown.exe -r -t 60
+endlocal
+popd
+
+exit /b 0
 
 :end
 if %std_disp% equ 0 (
