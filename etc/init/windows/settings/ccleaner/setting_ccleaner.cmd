@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2020/10/26 17:27:53.
+rem Last Change: 2020/11/01 10:18:36.
 
 set batch_title=Setting CCleaner
 title %batch_title%
@@ -46,7 +46,7 @@ echo ^>^> Time stamp: %tstmp%
 rem Ý’èƒtƒ@ƒCƒ‹‚ª‚ ‚é "Dir" ‚É "cd"
 pushd %srcdir%
 if %errorlevel% equ 1 (
-    echo ^>^> Setting folder not found
+    echo ^>^> SETTING FOLDER NOT FOUND
     goto end
 )
 

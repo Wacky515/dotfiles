@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/10/25 19:21:09.
+rem Last Change: 2020/11/01 10:12:34.
 
 set batch_title=Install initialize font
 title %batch_title%
@@ -24,17 +24,17 @@ reg import .\Fonts\fontlink.reg
 
 for %%i in (.\Fonts\*.ttf) do (
     echo ^>^> Install %%~nxi
-    if not exist "%windir%\%%~nxi" (cscript .\setting_font.vbs %%~nxi)
+    if not exist "%windir%\Fonts\%%~nxi" (cscript .\setting_font.vbs %%~nxi)
     )
 
 for %%j in (.\Fonts\*.ttc) do (
     echo ^>^> Install %%~nxj
-    if not exist "%windir%\%%~nxj" (cscript .\setting_font.vbs %%~nxj)
+    if not exist "%windir%\Fonts\%%~nxj" (cscript .\setting_font.vbs %%~nxj)
     )
 
 for %%k in (.\Fonts\*.otf) do (
     echo ^>^> Install %%~nxk
-    if not exist "%windir%\%%~nxk" (cscript .\setting_font.vbs %%~nxk)
+    if not exist "%windir%\Fonts\%%~nxk" (cscript .\setting_font.vbs %%~nxk)
     )
 rem éQçl: http://qiita.com/masarusan24/items/d3a5ab7c37e9b6d9a51f
 

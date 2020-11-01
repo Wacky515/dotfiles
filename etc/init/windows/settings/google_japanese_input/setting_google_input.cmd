@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/10/27 17:11:47.
+rem Last Change: 2020/11/01 10:20:34.
 
 set batch_title=Setting Google Japanese input
 title %batch_title%
@@ -45,7 +45,7 @@ echo ^>^> Time stamp: %tstmp%
 rem Ý’èƒtƒ@ƒCƒ‹‚ª‚ ‚é "Dir" ‚É "cd"
 pushd %src_dir%
 if %errorlevel% equ 1 (
-    echo ^>^> Setting folder not found
+    echo ^>^> SETTING FOLDER NOT FOUND
     goto end
 )
 
