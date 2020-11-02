@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/12/19 11:37:29
-rem Last Change: 2020/11/02 00:57:00.
+rem Last Change: 2020/11/02 16:20:19.
 
 set batch_title=Install NyaoVim
 
@@ -29,9 +29,6 @@ echo ^>^> %batch_title%
 rem echo ^>^> Start
 
 echo ^>^> Check installed or not
-rem nyaovim --version > nul 2>&1
-rem npm ls -g nyaovim > nul 2>&1
-rem if %errorlevel% equ 0 goto end
 if exist %userprofile%\AppData\Roaming\NyaoVim\nyaovimrc.html (
     echo ^>^> Already installed, skip this script
     goto end
@@ -60,5 +57,5 @@ cmd /c npm install -g nyaovim
 endlocal
 popd
 
-pause
+rem pause
 exit /b 0
