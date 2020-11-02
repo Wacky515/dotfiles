@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/10/25 08:45:44.
+rem Last Change: 2020/11/02 00:01:40.
 
 set batch_title=Setting Pacman
 
@@ -22,7 +22,7 @@ exit
 set yyyy=%date:~0,4%
 set mm=%date:~5,2%
 set dd=%date:~8,2%
- 
+
 set time_zero_suppress=%time: =0%
 set hh=%time_zero_suppress:~0,2%
 set mn=%time_zero_suppress:~3,2%
@@ -46,7 +46,7 @@ if exist C:\tools\msys64\etc\pacman.conf (
 )
 
 echo ^>^> Make link pacman.conf
-mklink C:\tools\msys64\etc\pacman.conf .\pacman.conf
+mklink C:\tools\msys64\etc\pacman.conf %userprofile%\dotfiles\etc\init\windows\settings\msys2\pacman.conf
 
 call C:\tools\msys64\msys2_shell.cmd ^
      -no-start ^
