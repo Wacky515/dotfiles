@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2020/11/02 16:20:50.
+rem Last Change: 2020/11/04 17:40:47.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -38,7 +38,10 @@ if exist C:\tools\neovim\Neovim\bin\nvim-qt.exe (
         set dst_nvim=%localappdata%\nvim\
     )
 
-    mklink /d %dst_nvim% %src_nvim% > nul 2>&1
+    rem mklink /d %dst_nvim% %src_nvim% > nul 2>&1
+    mklink /d %dst_nvim% %src_nvim%
+    mklink /d %userprofile%\.vim %bat_path%\.vim > nul 2>&1
+
     if %errorlevel% equ 0 (
         echo ^>^> init.vimAginit.vim link success!
     ) else (
@@ -163,5 +166,5 @@ echo ^>^> End set link
 popd
 endlocal
 
-rem pause
+pause
 exit /b 0
