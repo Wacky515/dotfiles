@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2020/11/02 16:20:50.
+rem Last Change: 2020/11/04 22:51:04.
 
 set batch_title=Make dotfiles
 title %batch_title%
@@ -25,25 +25,26 @@ echo ^>^> Start set links dotfiles to homepath
 rem "NeoVim" 設定
 rem "NeoVim" インストール済みかチェック
 echo ^>^> Check install NeoVim or not
-rem nvim -v > nul 2>&1
-rem if %errorlevel% equ 0 (
-if exist C:\tools\neovim\Neovim\bin\nvim-qt.exe (
+nvim -v > nul 2>&1
+if %errorlevel% equ 0 (
+rem if exist C:\tools\neovim\Neovim\bin\nvim-qt.exe (
     echo ^>^> Installed NeoVim
-    set src_nvim=%userprofile%\dotfiles\nvim\
-    if defined xdg_config_home (
-        echo ^>^> Set NeoVim in XDG CONFIG HOME
-        set dst_nvim=%xdg_config_home%\nvim\
-    ) else (
-        echo ^>^> Set NeoVim in Local AppData
-        set dst_nvim=%localappdata%\nvim\
-    )
-
-    mklink /d %dst_nvim% %src_nvim% > nul 2>&1
-    if %errorlevel% equ 0 (
-        echo ^>^> init.vim、ginit.vim link success!
-    ) else (
-        echo ^>^> FAILED LINK INIT.VIM、GINIT.VIM, ERROR CODE: %errorlevel%
-    )
+    goto end
+    rem set src_nvim=%userprofile%\dotfiles\nvim\
+    rem if defined xdg_config_home (
+    rem     echo ^>^> Set NeoVim in XDG CONFIG HOME
+    rem     set dst_nvim=%xdg_config_home%\nvim\
+    rem ) else (
+    rem     echo ^>^> Set NeoVim in Local AppData
+    rem     set dst_nvim=%localappdata%\nvim\
+    rem )
+    rem
+    rem mklink /d %dst_nvim% %src_nvim% > nul 2>&1
+    rem if %errorlevel% equ 0 (
+    rem     echo ^>^> init.vim、ginit.vim link success!
+    rem ) else (
+    rem     echo ^>^> FAILED LINK INIT.VIM、GINIT.VIM, ERROR CODE: %errorlevel%
+    rem )
 ) else (
     echo ^>^> NOT INSTALLED NEOVIM, SKIP LINK
 )
@@ -158,10 +159,11 @@ for %%j in (.*) do (
     )
 )
 
+:end
 echo ^>^> End set link
 
 popd
 endlocal
 
-rem pause
+pause
 exit /b 0
