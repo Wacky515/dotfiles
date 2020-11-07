@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2020/10/27 16:12:07.
+" Last Change: 2020/11/06 11:51:44.
 
 " NOT_WORK:
 " " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
@@ -207,7 +207,7 @@ else
     runtime! userautoload/plugin_settings_nvim/*.vim
 endif
 " "dein.vim" の更新チェック高速化設定
-runtime! ~/OneDrive/仕事/Settings/vim/dein/dein_token.vim
+runtime! ~/OneDrive/仕事/Settings/Vim/dein/dein_token.vim
 
 " 読み込んだプラグインも含め、ファイルタイプの検出
 " ファイルタイプ別プラグイン/インデントを有効化する
