@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2020/11/08 21:25:24.
+# Last Change: 2020/11/08 21:44:34.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -171,8 +171,8 @@ hook_add = '''  " {{{
     " "hook_source" に移動
     " let g:deoplete#auto_complete_delay = 0
     let g:deoplete#enable_at_startup   = 1
-
 '''  # }}}
+
 on_event = ['InsertCharPre']
 hook_source = '''  " {{{
     inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
