@@ -1,12 +1,17 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2020/10/31 21:59:10.
+" Last Change: 2020/11/08 21:40:08.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
 " ----------------------------------------------------------------------
 " カラースキーマの指定
-    " MEMO: "Dein" に移管済み
+" MEMO: "Dein" に移管済み
+" MEMO: 不具合のためこちらの記述に戻した
+set termguicolors
+set background=dark
+au MyAutoCmd VimEnter * nested colorscheme iceberg
+au MyAutoCmd VimEnter * highlight Visual ctermbg=216
 
 " "Kaoriya GVim" 用 削除しない！！！
 " コマンドライン（"Vim" 画面下部）高さ

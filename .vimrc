@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2020/10/27 16:12:07.
+" Last Change: 2020/11/08 20:55:22.
 
 " NOT_WORK:
 " " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
@@ -194,7 +194,9 @@ endif
 let mapleader = "\<Space>"
 
 " "Windows" 環境の設定ファイルの場所を、"Linux/Mac" 環境にあわせる
-set runtimepath+=$HOME/.vim
+if (has("win32") || has("win64"))
+    set runtimepath+=$HOME/.vim
+endif
 
 " "Vim" の設定ファイル
 runtime! userautoload/*.vim
@@ -207,7 +209,11 @@ else
     runtime! userautoload/plugin_settings_nvim/*.vim
 endif
 " "dein.vim" の更新チェック高速化設定
-runtime! ~/OneDrive/仕事/Settings/vim/dein/dein_token.vim
+if (has("win32") || has("win64"))
+    " set runtimepath+=~/OneDrive/仕事/Settings/Vim/dein
+    set runtimepath+=~/OneDrive/Vim/dein
+    runtime! dein_token.vim
+endif
 
 " 読み込んだプラグインも含め、ファイルタイプの検出
 " ファイルタイプ別プラグイン/インデントを有効化する
