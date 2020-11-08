@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/10/27 12:31:10.
+rem Last Change: 2020/11/01 18:00:56.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -67,7 +67,7 @@ echo test: Not Chocolatey install from *.config
 echo       Not install font
 echo n:    Abort
 echo.
-echo Start install [y/n], or [t]est?
+echo Start install [y/n], install with [l]og, or [t]est?
 
 set /p input=
 if defined input set input=%input:"=%
@@ -169,21 +169,22 @@ exit /b 0015
 pushd %userprofile%
 echo ^>^> Installed Git, Check Git clone or not
 if not exist %userprofile%\dotfiles\.git\ (
-    echo ^>^> Git clone not yet, clone first
-    if exist %userprofile%\dotfiles\ (
-        rmdir /s /q %userprofile%\dotfiles\
-    )
-    rem FIXME: シンボリックリンク削除できない
-    rmdir %userprofile%\.gitconfig > nul 2>&1
-    git clone --quiet --depth 1 https://github.com/Wacky515/dotfiles.git
-    if %errorlevel% equ 1 (
-        echo ^>^> FAILED GIT CLONE, ABORT THIS SCRIPT!
-        pause
-        exit /b 0020
-    )
-) else (
-    echo ^>^> Already Git clone
-)
+        echo ^>^> Git clone not yet, clone first
+        if exist %userprofile%\dotfiles\ (
+            rmdir /s /q %userprofile%\dotfiles\
+            )
+        del /f /q %userprofile%\.gitconfig* > nul 2>&1
+        git clone --quiet --depth 1 https://github.com/Wacky515/dotfiles.git
+        if %errorlevel% equ 1 (
+            echo ^>^> FAILED GIT CLONE, ABORT THIS SCRIPT!
+            pause
+            exit /b 0020
+            ) else (
+                echo ^>^> Success Git clone
+                )
+        ) else (
+            echo ^>^> Already Git clone
+            )
 
 rem link.cmd 実行
 pushd %userprofile%\dotfiles\
@@ -236,42 +237,72 @@ goto install_apps
 :cp_nas
 echo ^>^> In home network, connect NAS
 set nas_settings=\\SaladStationII\share\仕事\Settings
-set nas_initapps=\\SaladStationII\shara\仕事\InitApps
+set nas_initapps=\\SaladStationII\share\仕事\InitApps
 rem set nas_settings=\\10.0.1.55\share\仕事\Settings
-rem set nas_initapps=\\10.0.1.55\shara\仕事\InitApps
-set result_nas_copy=0
+rem set nas_initapps=\\10.0.1.55\share\仕事\InitApps
+set /a result_nas_copy=0
+set /a con_stg_time=0
 
 echo ^>^> Copy "Settings" from NAS
 net use t: /delete > nul 2>&1
+
+:com_settings
+set /a con_stg_time+=1
 net use t: %nas_settings% /user:admin
-robocopy /s /e /np /njh /njs t: %userprofile%\OneDrive\仕事\Settings\
-if %errorlevel% equ 0 (
+echo ^>^> Con times: %con_stg_time%
+echo ^>^> Com exit code: %errorlevel%
+if %con_stg_time% geq 3 (
+    echo ^>^> FAIL INPUT PASSWORD OVER 3 TIMES, ABORT THIS SCRIPT!
+    goto end
+)
+if %errorlevel% neq 0 goto com_settings
+
+robocopy /s /e /ns /nc /nfl /ndl /np /njh t: %userprofile%\OneDrive\仕事\Settings\
+echo ^>^> Robocopy exit code: %errorlevel%
+if %errorlevel% leq 1 (
     echo ^>^> Success copy "Settings"
 ) else (
     echo ^>^> FAILED COPY "SETTINGS"
-    set result_nas_copy=1
+    set /a result_nas_copy+=1
 )
 net use t: /delete > nul 2>&1
 
+set /a con_ita_time=0
 echo ^>^> Copy "InitApps" from NAS
 net use u: /delete > nul 2>&1
+
+:com_initapps
+set /a con_ita_time+=1
 net use u: %nas_initapps% /user:admin
-robocopy /s /e /np /njh /njs u: %userprofile%\OneDrive\仕事\InitApps\
-if %errorlevel% equ 0 (
+echo ^>^> Con times: %con_ita_time%
+echo ^>^> Com exit code: %errorlevel%
+if %con_ita_time% geq 3 (
+    echo ^>^> FAIL INPUT PASSWORD OVER 3 TIMES, ABORT THIS SCRIPT!
+    goto end
+)
+if %errorlevel% neq 0 goto com_initapps
+
+robocopy /s /e /ns /nc /nfl /ndl /np /njh u: %userprofile%\OneDrive\仕事\InitApps\
+echo ^>^> Robocopy exit code: %errorlevel%
+if %errorlevel% leq 1 (
     echo ^>^> Success copy "InitApps"
     net use u: /delete > nul 2>&1
     goto install_apps
 ) else (
     echo ^>^> FAILED COPY "INITAPPS"
+    set /a result_nas_copy+=2
     net use u: /delete > nul 2>&1
-    set result_nas_copy=2
 )
-if %errorlevel% neq 0 goto dl_mega
+if %result_nas_copy% neq 0 (
+goto dl_mega
+) else (
+    goto install_apps
+)
 
 :dl_mega
 echo ^>^> Not in proxy, download MEGA sync
 if exist %userprofile%\OneDrive\仕事\Settings\ (
-    rmdir /s /q %userprofile%\OneDrive\仕事\Settings\
+    rmdir /s %userprofile%\OneDrive\仕事\Settings\
 )
 echo ^>^> Please download "Settings" folder manually, then any key in
 start https://mega.nz/#F!ubhxia6L
@@ -286,7 +317,7 @@ if %errorlevel% equ 0 (
 )
 
 if exist %userprofile%\OneDrive\仕事\InitApps\ (
-    rmdir /s /q %userprofile%\OneDrive\仕事\InitApps\
+    rmdir /s %userprofile%\OneDrive\仕事\InitApps\
 )
 
 echo ^>^> Please download "InitApps" folder manually, then any key in
@@ -381,12 +412,16 @@ call %userprofile%\dotfiles\etc\init\windows\settings\chocolatey\init_and_update
 echo *** CAUTION: AUTOMATICALLY RESTART PC, KEY INPUT AFTER 60sec ***
 pause
 shutdown.exe -r -t 60
+endlocal
+popd
 
+exit /b 0
+
+:end
 if %std_disp% equ 0 (
     pause
 )
 
-:end
 endlocal
 popd
 

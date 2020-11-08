@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/**/** **:**:**
-rem Last Change: 2020/10/27 11:05:14.
+rem Last Change: 2020/11/01 10:23:20.
 
 set batch_title=Setting UWSC
 
@@ -25,7 +25,7 @@ rem スクリプトがある "Dir" に "cd"
 set bat_path=%~dp0
 pushd %bat_path%
 if %errorlevel% equ 1 (
-    echo ^>^> Setting folder not found
+    echo ^>^> SETTING FOLDER NOT FOUND
     goto end
 )
 

@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2020/10/24 22:31:03.
+rem Last Change: 2020/11/03 17:14:27.
 
 set batch_title=Install textlint
 
@@ -29,8 +29,12 @@ echo ^>^> %batch_title%
 rem echo ^>^> Start
 
 echo ^>^> Check installed or not
-textlint --version > nul 2>&1-version 
-if %errorlevel% equ 0 goto end
+rem textlint --version > nul 2>&1-version
+rem if %errorlevel% equ 0 goto end
+if exist %appdata%\npm\node_modules\textlint (
+    echo ^>^> Already installed, skip this script
+    goto end
+)
 
 echo ^>^> Check dependencies
 for /f %%i in ('%command%') do set npm_path=%%i
@@ -87,7 +91,7 @@ rem https://github.com/textlint/textlint/wiki/Collection-of-textlint-rule
 
 :end
 endlocal
-popd
+rem popd
 
 rem pause
 exit /b 0

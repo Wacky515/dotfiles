@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2020/10/08 12:58:37.
+# Last Change: 2020/11/08 21:39:05.
 
 # REF:
     # hook_add         プラグイン追加後
@@ -227,12 +227,13 @@ if = "!has('python')"
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
 if = "has('gui_running')"
-hook_add = '''
-    set termguicolors
-    set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme iceberg
-    au MyAutoCmd VimEnter * highlight Visual ctermbg=216
-'''
+# "iceberg" が適応されなくなったのでキル
+# hook_add = '''
+#    set termguicolors
+#    set background=dark
+#    au MyAutoCmd VimEnter * nested colorscheme iceberg
+#    au MyAutoCmd VimEnter * highlight Visual ctermbg=216
+# '''
 
 # 日本語ヘルプ
 [[plugins]]

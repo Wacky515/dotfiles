@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/12/19 11:37:29
-rem Last Change: 2020/10/24 22:26:48.
+rem Last Change: 2020/11/02 16:20:19.
 
 set batch_title=Install NyaoVim
 
@@ -29,8 +29,10 @@ echo ^>^> %batch_title%
 rem echo ^>^> Start
 
 echo ^>^> Check installed or not
-nyaovim --version > nul 2>&1
-if %errorlevel% equ 0 goto end
+if exist %userprofile%\AppData\Roaming\NyaoVim\nyaovimrc.html (
+    echo ^>^> Already installed, skip this script
+    goto end
+)
 
 echo ^>^> Check dependencies
 for /f %%i in ('%command%') do set npm_path=%%i

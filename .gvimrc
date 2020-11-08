@@ -1,13 +1,17 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2020/10/27 16:15:53.
+" Last Change: 2020/11/08 21:40:08.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
 " ----------------------------------------------------------------------
+" カラースキーマの指定
 " MEMO: "Dein" に移管済み
-    " カラースキーマの指定
-    " 暗背景用の配色にする
+" MEMO: 不具合のためこちらの記述に戻した
+set termguicolors
+set background=dark
+au MyAutoCmd VimEnter * nested colorscheme iceberg
+au MyAutoCmd VimEnter * highlight Visual ctermbg=216
 
 " "Kaoriya GVim" 用 削除しない！！！
 " コマンドライン（"Vim" 画面下部）高さ
@@ -130,8 +134,8 @@ if !has("nvim")
             set printfont=Cica:h13
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "SALADSURFACEGO"
-            set   guifont=HackGen\ Console\ Regular\ for\ Powerline:h13
-            set printfont=HackGen\ Console\ Regular\ for\ Powerline:h13
+            set   guifont=Cica:h13
+            set printfont=Cica:h13
             set renderoptions=type:directx,renmode:5
 
         " muRata setting

@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/09/13 22:57:48
-" Last Change: 2019/11/22 16:43:20.
+" Last Change: 2020/11/08 22:17:28.
 
 " ---------------------------------------------------------------------------
 " マップキー
@@ -40,6 +40,14 @@ scriptencoding utf-8
 " let g:deoplete#max_list                   = 10000
 " }}}
 
+" call deoplete#custom#option({
+" \ 'auto_complete_delay' : 0,
+" \ 'refresh_always'      : v:true,
+" \ 'smart_case'          : v:true,
+" \ 'max_list'            : 10000,
+" \ })
+" \ 'auto_complete_start_length' : 1,
+
 " ---------------------------------------------------------------------------
 " Jedi
 " ---------------------------------------------------------------------------
@@ -50,7 +58,6 @@ let g:deoplete#sources#jedi#statement_length=100
     " "deoplete-jedi" で非同期処理してくれる
 let g:jedi#completions_enabled = 0
 
-" if hostname() == "ProSalad133.local"
 if hostname()     == "ProSalad13-2018.local"
     let g:deoplete#sources#jedi#python_path = "/usr/local/bin/python3.6"
 elseif hostname() == ("HBAMB748" || "HBAMB748A" || "HBAMB819")

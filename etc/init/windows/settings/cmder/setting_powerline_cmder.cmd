@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/04/19 09:01:59
-rem Last Change: 2020/10/27 11:06:35.
+rem Last Change: 2020/11/01 10:18:08.
 
 set batch_title=Setting cmder's powerline
 title %batch_title%
@@ -21,12 +21,12 @@ set cmder_root=C:\tools\cmder\
 
 pushd %userprofile%\OneDrive\ŽdŽ–\Settings\Cmder
 if %errorlevel% equ 1 (
-    echo ^>^> Setting folder not found
+    echo ^>^> SETTING FOLDER NOT FOUND
     goto end
 )
 
 if not exist %cmder_root%\config\ (
-    echo ^>^> Not exist %cmder_root%
+    echo ^>^> NOT EXIST %cmder_root%
     goto :end
 ) else (
     echo ^>^> Start setting cmder-powerline-prompt

@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2020/09/06 00:08:17.
+# Last Change: 2020/11/08 21:44:34.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -168,9 +168,11 @@ repo = 'Shougo/deoplete.nvim'
 if = "has('python3') && has('timers')"
 on_i = 1
 hook_add = '''  " {{{
-    let g:deoplete#auto_complete_delay = 0
+    " "hook_source" に移動
+    " let g:deoplete#auto_complete_delay = 0
     let g:deoplete#enable_at_startup   = 1
 '''  # }}}
+
 on_event = ['InsertCharPre']
 hook_source = '''  " {{{
     inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
@@ -180,14 +182,27 @@ hook_source = '''  " {{{
                 \ neosnippet#expandable_or_jumpable() ?
                 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 
-    let g:deoplete#auto_complete_start_length = 1
+    " let g:deoplete#auto_complete_start_length = 1
     let g:deoplete#enable_camel_case          = 0
     let g:deoplete#enable_ignore_case         = 0
-    let g:deoplete#enable_refresh_always      = 0
-    let g:deoplete#enable_smart_case          = 1
-    let g:deoplete#file#enable_buffer_path    = 1
-    let g:deoplete#max_list                   = 10000
+    " let g:deoplete#enable_refresh_always      = 0
+    " let g:deoplete#enable_smart_case          = 1
+    " let g:deoplete#file#enable_buffer_path    = 1
+    " let g:deoplete#max_list                   = 10000
+
+    call deoplete#custom#option({
+    \ 'auto_complete_delay': 0,
+    \ 'auto_complete_start_length': 1,
+    \ 'refresh_always': v:false,
+    \ 'smart_case': v:true,
+    \ 'max_list': 10000,
+    " \ 'profile': v:true,
+    \ })
+    " call deoplete#custom#source(
+    call deoplete#custom#var(
+    \ 'file', 'enable_buffer_path', v:true)
 '''  # }}}
+
 [[plugins]]
 repo = 'Shougo/deoplete-rct'
 [[plugins]]
