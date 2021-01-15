@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2020/11/01 18:00:56.
+rem Last Change: 2021/01/15 09:54:17.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -150,15 +150,21 @@ if %errorlevel% equ 0 (
 )
 
 :chk_inst_git
+echo ^>^> Check first init or not
+if %~0==init_dotfiles_crlf (
+    if exist C:\Program Files\Git\bin\git.exe goto git_clone
+) else (
+    echo ^>^> Not first init
+)
 echo ^>^> Check installed Git or not 2nd time
-
-REM FIXME: 最初回は判別不可能な模様、コマンドプロンプト再起動する
+REM FIXME: 最初回は判別不可能なご様子、当バッチの再実行必要
 git --version > nul 2>&1
 if %errorlevel% equ 0 goto git_clone
 echo ^>^> Try install git
 cinst -y -r --no-progress git
 
 echo ^>^> Check installed Git or not 3rd time
+REM FIXME: 最初回は判別不可能なご様子、当バッチの再実行必要
 git --version > nul 2>&1
 if %errorlevel% equ 0 goto git_clone
 echo ^>^> FAILED INSTALL GIT AUTOMATICALLY, ABORT THIS SCRIPT!
