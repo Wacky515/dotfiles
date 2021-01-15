@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2020/11/08 21:40:08.
+" Last Change: 2021/01/15 15:58:03.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -140,6 +140,10 @@ if !has("nvim")
 
         " muRata setting
         elseif hostname() == "HBAMB1448"
+            set   guifont=Cica:h15
+            set printfont=Cica:h15
+            set renderoptions=type:directx,renmode:5
+        elseif hostname() == "HBAPC511"
             set   guifont=Cica:h15
             set printfont=Cica:h15
             set renderoptions=type:directx,renmode:5
