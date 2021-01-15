@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2020/11/06 09:25:25.
+rem Last Change: 2021/01/15 12:23:07.
 
 set batch_title=Make link dotfiles
 title %batch_title%
@@ -87,6 +87,7 @@ if %errorlevel% equ 0 (
     echo ^>^> FAILED COPY NYAOVIMRC.HTML, ERROR CODE: %errorlevel%
 )
 
+:jdg_oni
 rem "OniVim" 設定
 rem "OniVim" インストール済みかチェック
 echo ^>^> Check install OniVim or not
