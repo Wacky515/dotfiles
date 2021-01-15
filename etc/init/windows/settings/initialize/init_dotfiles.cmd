@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2021/01/15 11:34:17.
+rem Last Change: 2021/01/15 14:48:42.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -152,7 +152,7 @@ if %errorlevel% equ 0 (
 :chk_inst_git
 echo ^>^> Check first init or not
 echo %~n0
-if %~n0==init_dotfiles_crlf (
+if "%~n0" == "init_dotfiles_crlf" (
     if exist C:\Program Files\Git\bin\git.exe goto git_clone
 ) else (
     echo ^>^> Not first init

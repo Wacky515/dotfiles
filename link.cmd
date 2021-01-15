@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2021/01/15 12:23:07.
+rem Last Change: 2021/01/15 13:26:02.
 
 set batch_title=Make link dotfiles
 title %batch_title%
@@ -178,5 +178,5 @@ echo ^>^> End set link
 popd
 endlocal
 
-pause
+rem pause
 exit /b 0
