@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2021/01/15 15:41:39.
+rem Last Change: 2021/01/20 14:05:40.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -317,10 +317,11 @@ start https://mega.nz/#F!ubhxia6L
 pause
 
 "C:\Program Files\7-Zip\7z.exe" x -y -o%userprofile%\OneDrive\ŽdŽ–\ %userprofile%\OneDrive\ŽdŽ–\Settings.zip
-if %errorlevel% equ 0 (
-    echo ^>^> Success copy "Settings" manually
+if exist %userprofile%\OneDrive\ŽdŽ–\Settings\ (
+    echo ^>^> Success set "Settings" manually
 ) else (
-    echo ^>^> FAILED COPY "SETTINGS" MANUALLY, ABORT THIS SCRIPT!
+    echo ^>^> FAILED SET "SETTINGS" MANUALLY, ABORT THIS SCRIPT!
+    pause
     goto end
 )
 
