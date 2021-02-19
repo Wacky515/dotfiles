@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2020/11/08 22:14:19.
+" Last Change: 2021/02/19 15:31:32.
 
 " NOT_WORK:
 " " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
@@ -55,7 +55,8 @@ elseif (has("win32") || has("win64"))
         endif
     elseif hostname() == "HBAMB748"
         let g:python_host_prog  = "C:\\Python27\\python.exe"
-        let g:python3_host_prog = "C:\\Python36\\python.exe"
+        let g:python3_host_prog = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
+        " let g:python3_host_prog = "C:\\Python36\\python.exe"
         " MEMO: ↓ "Denite" でエラー
         " let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
         if !has("nvim")
@@ -68,7 +69,8 @@ elseif (has("win32") || has("win64"))
         endif
     elseif hostname() == "HBAMB819"
         let g:python_host_prog  = "C:\\Python27\\python.exe"
-        let g:python3_host_prog = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
+        let g:python3_host_prog = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
+        " let g:python3_host_prog = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
         if !has("nvim")
             if has("gui_running")
                 set pythonthreedll=C:\Users\mm12167\AppData\Local\Programs\Python\Python36\python36.dll
@@ -79,9 +81,16 @@ elseif (has("win32") || has("win64"))
     elseif hostname() == "HBAMB748A"
         let g:python_host_prog  = "C:\\Python27\\python.exe"
         let g:python3_host_prog = "C:\\Python35\\python.exe"
+    elseif hostname() == "HBAPC511"
+        let g:python3_host_prog = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
+
     else
-        let g:python_host_prog  = "C:\\Python27\\python.exe"
-        let g:python3_host_prog = "C:\\Python35\\python.exe"
+        " let g:python_host_prog  = "C:\\Python27\\python.exe"
+        let g:python3_host_prog = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
+        " let g:python3_host_prog = expand("~/AppData/Programs/Python/Python39/python.exe")
+        " let g:python3_host_prog = $HOME"\\AppData\\Programs\\Python\\Python39\\python.exe"
+        " let g:python3_host_prog = "%localappdata%\\Programs\\Python\\Python39\\python.exe"
+        " let g:python3_host_prog = "C:\\Python35\\python.exe"
     endif
 endif
 
