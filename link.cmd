@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2021/01/15 13:26:02.
+rem Last Change: 2021/02/19 11:56:56.
 
 set batch_title=Make link dotfiles
 title %batch_title%
@@ -50,9 +50,9 @@ if defined xdg_config_home (
 
 mklink /d %dst_nvim% %src_nvim% > nul 2>&1
 if %errorlevel% equ 0 (
-    echo ^>^> init.vim、ginit.vim link success!
+    echo ^>^> init.vim、ginit.vim for NeoVim link success!
 ) else (
-    echo ^>^> FAILED LINK INIT.VIM、GINIT.VIM, ERROR CODE: %errorlevel%
+    echo ^>^> FAILED LINK INIT.VIM, GINIT.VIM, FOR NEOVIM ERROR CODE: %errorlevel%
 )
 
 :jdg_nyao
@@ -113,6 +113,20 @@ if %errorlevel% equ 0 (
     echo ^>^> success link tsconfig.json
 ) else (
     echo ^>^> FAILED LINK TSCONFIG.JSON, ERROR CODE: %errorlevel%
+)
+
+set src_oni=%userprofile%\dotfiles\nvim\
+set dst_oni=%localappdata%\nvim\
+
+if exist %dist_oni% (
+    del /f /q %dst_oni%
+)
+
+mklink /d %dst_oni% %src_oni% > nul 2>&1
+if %errorlevel% equ 0 (
+    echo ^>^> init.vim、ginit.vim for Oni link success!
+) else (
+    echo ^>^> FAILED LINK INIT.VIM, GINIT.VIM, FOR ONI ERROR CODE: %errorlevel%
 )
 
 :lnk_git
