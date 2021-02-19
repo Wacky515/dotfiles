@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2021/02/19 15:31:32.
+" Last Change: 2021/02/19 15:47:20.
 
 " NOT_WORK:
 " " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
@@ -54,7 +54,7 @@ elseif (has("win32") || has("win64"))
             endif
         endif
     elseif hostname() == "HBAMB748"
-        let g:python_host_prog  = "C:\\Python27\\python.exe"
+        " let g:python_host_prog  = "C:\\Python27\\python.exe"
         let g:python3_host_prog = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
         " let g:python3_host_prog = "C:\\Python36\\python.exe"
         " MEMO: ↓ "Denite" でエラー
