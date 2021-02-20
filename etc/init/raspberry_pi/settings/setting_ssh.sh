@@ -7,9 +7,9 @@ readonly PROCESS="enable SSH"
 
 ym_echo ">> ${PROCESS^}"
 
-## æœ‰åŠ¹åŒ–
+## —LŒø‰»
 # update-rc.d ssh enable && invoke-rc.d ssh start
-## ç„¡åŠ¹åŒ–
+## –³Œø‰»
 # update-rc.d ssh disable && invoke-rc.d ssh stop
 sudo touch /boot/ssh
 result_echo $? "${PROCESS}"

@@ -55,13 +55,13 @@
 # Enable audio (loads snd_bcm2835)
 dtparam=audio=on
 
-## 縺薙％縺九ｉ 繝�繝輔か繝ｫ繝郁ｨｭ螳壹°繧洩ill
+## ここから デフォルト設定からkill
 
 # # NOOBS Auto-generated Settings:
 # hdmi_force_hotplug=1
-## 縺薙％縺ｾ縺ｧ 繝�繝輔か繝ｫ繝郁ｨｭ螳壹°繧洩ill
+## ここまで デフォルト設定からkill
 
-## 縺薙％縺九ｉ 險ｭ螳壼､画峩
+## ここから 設定変更
 start_x=1
 gpu_mem=128
 
@@ -74,4 +74,4 @@ max_usb_current=1
 
 # for serial communication of rpi3
 core_freq=250
-## 縺薙％縺ｾ縺ｧ 險ｭ螳壼､画峩
+## ここまで 設定変更

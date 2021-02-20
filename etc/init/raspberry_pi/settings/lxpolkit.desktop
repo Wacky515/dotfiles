@@ -2,10 +2,10 @@
 Type=Application
 Name=LXPolKit
 Comment=Policykit Authentication Agent
-Comment[uk]=ĞĞ³ĞµĞ½Ñ‚ Ğ°Ğ²Ñ‚Ğ¾Ñ€Ğ¸Ğ·Ğ°Ñ†Ñ–Ñ— Policykit
+Comment[uk]=„@„s„u„~„„ „p„r„„„€„‚„y„x„p„ˆ Policykit
 Exec=lxpolkit
 TryExec=lxpolkit
 Icon=gtk-dialog-authentication
-# "LXDE" ã‚’è¿½åŠ 
+# "LXDE" ‚ğ’Ç‰Á
 NotShowIn=GNOME;KDE;LXDE
 Hidden=true
