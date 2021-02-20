@@ -4,7 +4,7 @@
 - Caps -> Control
 - Drag by single tap
 
-- [x] 繝｡繝九Η繝ｼ繝舌�ｼ縺ｫVPN縺ｮ迥ｶ豕√ｒ陦ｨ遉ｺ
+- [x] メニューバーにVPNの状況を表示
 
 ## OS X install list
 

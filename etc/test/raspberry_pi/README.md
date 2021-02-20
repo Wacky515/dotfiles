@@ -45,10 +45,10 @@ j
 
 ## Raspbian Jessie
 
-- JAPANESE environment(fonts-vlgothic, ibus-mozc) âœ”OK
-- VNC Server(tightvncserver) âœ”OK
+- JAPANESE environment(fonts-vlgothic, ibus-mozc) OK
+- VNC Server(tightvncserver) OK
 
-- (Default) Chromium âœ”OK(added)
+- (Default) Chromium OK(added)
 
 ### Ignored
 
@@ -69,7 +69,7 @@ j
 - Set Keyboard # Not yet
 - SSH Enable
 
-- ç„¡ç·šLAN è¨­å®š âœ”
+- –³üLAN İ’è 
 - Auto start VNC # Not yet
 
 - Custom `/boot/config.txt` # Not yet
@@ -78,8 +78,8 @@ j
 - Change password
 - Change host name
 
-- NotYet Camera Enable # è¨­å®šæ–¹æ³•ä¸æ˜
-- NotYet Set Locale # è¨­å®šä¸è¦
+- NotYet Camera Enable # İ’è•û–@•s–¾
+- NotYet Set Locale # İ’è•s—v
 
 ## Raspbian Jessie LITE
 
@@ -87,7 +87,7 @@ j
 - Set Keyboard # Not yet
 - SSH Enable
 
-- ç„¡ç·šLAN è¨­å®š âœ”
+- –³üLAN İ’è 
 
 - Custom `/boot/config.txt`
 
