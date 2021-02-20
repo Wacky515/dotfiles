@@ -9,10 +9,10 @@ alias ..='cd ../'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-# "sudo" ã®å¾Œã®ã‚³ãƒžãƒ³ãƒ‰ã§ã‚¨ã‚¤ãƒªã‚¢ã‚¹ã‚’æœ‰åŠ¹ã«ã™ã‚‹
+# "sudo" ‚ÌŒã‚ÌƒRƒ}ƒ“ƒh‚ÅƒGƒCƒŠƒAƒX‚ð—LŒø‚É‚·‚é
 alias sudo="sudo "
 
-# è‰²ä»˜ã "ls"
+# F•t‚« "ls"
 autoload -U compinit
 compinit
 export CLICOLOR=1
@@ -29,9 +29,9 @@ alias gls="gls --color"
 
 zstyle ":completion:*" list-colors "di=34" "ln=35" "so=32" "ex=31" "bd=46;34" "cd=43;34"
 
-# # è¦ªãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚‚ä½œæˆ
+# # eƒfƒBƒŒƒNƒgƒŠ‚àì¬
 # alias mkdir="mkdir -p"
 
-# # ã‚°ãƒ­ãƒ¼ãƒãƒ«ã‚¨ã‚¤ãƒªã‚¢ã‚¹
+# # ƒOƒ[ƒoƒ‹ƒGƒCƒŠƒAƒX
 # alias -g L="| less"
 # alias -g G="| grep"

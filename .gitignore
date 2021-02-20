@@ -1,10 +1,10 @@
-﻿# Create:      201*/**/** **:**:**
+# Create:      201*/**/** **:**:**
 # Last Change: 2019/11/30 09:55:41.
 
 # ------------------------------
-# 独自追記
+# �Ǝ��ǋL
 # ------------------------------
-# 無視する者共
+# ��������ҋ�
 ctags.exe
 gitconfig_hbamb748.local
 memo.txt
@@ -16,7 +16,7 @@ yankring_history_v2.txt
 ~/AppData/Local/nvim/.netrwhist
 ~/AppData/Local/nvim/rplugin.vim
 
-# 特定の拡張子を無視する場合はどこにも/を付けない
+# ����̊g���q�𖳎�����ꍇ�͂ǂ��ɂ�/��t���Ȃ�
 *.bak
 *.bk
 *.modifying
@@ -27,11 +27,11 @@ yankring_history_v2.txt
 *.stackdump
 *.tempkill*
 
-# 特定名称のディレクトリを無視する場合は先頭と末尾に/を付ける
+# ���薼�̂̃f�B���N�g���𖳎�����ꍇ�͐擪�Ɩ�����/��t����
 /old/
 
-# 特定のファイルを無視する場合は先頭に/を付ける
-    # ルートディレクトリのファイルだけを無視し、サブディレクトリは無視しない
+# ����̃t�@�C���𖳎�����ꍇ�͐擪��/��t����
+    # ���[�g�f�B���N�g���̃t�@�C�������𖳎����A�T�u�f�B���N�g���͖������Ȃ�
 # /foo
 /.vim/dein/*
 /.vim/tmp/*
@@ -42,7 +42,7 @@ yankring_history_v2.txt
 Users/
 */Users/
 
-# 無視しない者共
+# �������Ȃ��ҋ�
 !/.vim/tmp/README.md
 
 # Temporary Files

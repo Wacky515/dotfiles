@@ -3,32 +3,32 @@
 
 cd ~/dotfiles
 
-# é–¢æ•°ç¾¤
-## ã‚³ãƒžãƒ³ãƒ‰ã®å­˜åœ¨ç¢ºèª
+# ŠÖ”ŒQ
+## ƒRƒ}ƒ“ƒh‚Ì‘¶ÝŠm”F
 function has
     type "$1" > /dev/null 2>&1
 end
 
-# "history" æ—¥ä»˜è¿½åŠ 
+# "history" “ú•t’Ç‰Á
 function history
     builtin history --show-time='%Y/%m/%d %H:%M:%S ' | sort
 end
 
 if has "fzf"
-    # "fzf" ã®å¤ã„ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰ ä¸ä½¿ç”¨
+    # "fzf" ‚ÌŒÃ‚¢ƒL[ƒoƒCƒ“ƒh •sŽg—p
     set -U FZF_LEGACY_KEYBINDINGS 0
-    # "fzf" ã§å±¥æ­´ã®å…¥åŠ›æ¬„ã‚’ã‚¿ãƒ¼ãƒŸãƒŠãƒ«ä¸Šéƒ¨ã«è¡¨ç¤º
+    # "fzf" ‚Å—š—ð‚Ì“ü—Í—“‚ðƒ^[ƒ~ƒiƒ‹ã•”‚É•\Ž¦
     set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
 end
 
 if has "peco"
-    # "history" ç«¯æœ«é–“å…±æœ‰
+    # "history" ’[––ŠÔ‹¤—L
     function peco_sync_select_history
         history-merge
         peco_select_history $argv
     end
 
-    # ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰
+    # ƒL[ƒoƒCƒ“ƒh
     function fish_user_key_bindings
         bind \cr 'peco_sync_select_history (commandline -b)'
         bind \cr peco_select_history
@@ -44,7 +44,7 @@ end
 #     end
 # end
 
-# FIXME: Windows10ã€ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«å¤±æ•—ã™ã‚‹
+# FIXME: Windows10AƒCƒ“ƒXƒg[ƒ‹Ž¸”s‚·‚é
 function ins_fisher
     if fisher -v > /dev/null 2>&1
         echo ">> Installed fisher"
@@ -61,7 +61,7 @@ function ins_fisher
     end
 end
 
-# ä¸Šè¨˜ã¨é‡è¤‡  # {{{
+# ã‹L‚Æd•¡  # {{{
 # if not functions -q fisher
 #     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
 #     curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
@@ -71,28 +71,28 @@ end
 # REF: https://github.com/jorgebucaran/fisher
 
 function win_setting
-    # ".bashrc" ã¯ã‚¨ã‚¤ãƒªã‚¢ã‚¹è¨­å®šä¸å¯
+    # ".bashrc" ‚ÍƒGƒCƒŠƒAƒXÝ’è•s‰Â
     alias   vim="~/vim82-kaoriya-win64/vim.exe"
     alias  gvim="~/vim82-kaoriya-win64/gvim.exe"
     alias  nvim="C:/tools/neovim/Neovim/bin/nvim.exe"
     alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"
 end
 
-# OS åˆ¥è¨­å®š
+# OS •ÊÝ’è
 switch (uname)
-    # "Linux" ç”¨è¨­å®š
+    # "Linux" —pÝ’è
     case 'Linux*'
         echo ">> Start setting for fish on Linux"
         echo ">> Start setting for fish on Windows Cygwin"
         # ins_fisher
 
-    # "Mac" ç”¨è¨­å®š
+    # "Mac" —pÝ’è
     case 'Darwin*'
         echo ">> Start setting for fish on Mac"
         set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
         ins_fisher
 
-    # "Windows" ç”¨è¨­å®š
+    # "Windows" —pÝ’è
     case 'msys'
         echo ">> Start setting for fish on Windows Msys2"
         win_setting

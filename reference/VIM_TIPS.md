@@ -1,24 +1,24 @@
-# ã‚°ãƒ«ãƒ¼ãƒ—ã«å±ã—ã¦ã„ãªã„ "autocmd"
+# ƒOƒ‹[ƒv‚É‘®‚µ‚Ä‚¢‚È‚¢ "autocmd"
 
-- "autocmd" ã‚³ãƒãƒ³ãƒ‰ã¯ [group] ã‚’çœç•¥ã§ãã‚‹
-  - ãŒã€".vimrc" å†…ã§ [group] ã‚’çœç•¥ã™ã‚‹ã¨å„ä»‹
+- "autocmd" ƒRƒ}ƒ“ƒh‚Í [group] ‚ğÈ—ª‚Å‚«‚é
+  - ‚ªA".vimrc" “à‚Å [group] ‚ğÈ—ª‚·‚é‚Æ–ï‰î
 
 ```vimscript
 :au[tocmd] [group] {event} {pat} [nested] {cmd}
 ```
 
-- [group] æœªæŒ‡å®š "autocmd" ã‚’ ".vimrc" ã«è¨˜è¿°ã—ã¦ã„ã‚‹ã¨ã€".vimrc" ã‚’èª­è¾¼ã‚€åº¦ã«ç™»éŒ²å‡¦ç†
-  - ".vimrc" èª­è¾¼ã¿å›æ•° "autocmd" å®Ÿè¡Œ
-    - æ®µã€… "Vim" ãŒé‡ããªã‚‹
+- [group] –¢w’è "autocmd" ‚ğ ".vimrc" ‚É‹Lq‚µ‚Ä‚¢‚é‚ÆA".vimrc" ‚ğ“Ç‚Ş“x‚É“o˜^ˆ—
+  - ".vimrc" “Ç‚İ‰ñ” "autocmd" Às
+    - ’iX "Vim" ‚ªd‚­‚È‚é
 
-- æ‚ªã„ãƒ‘ã‚¿ãƒ¼ãƒ³
+- ˆ«‚¢ƒpƒ^[ƒ“
 
 ```vimscript
 autocmd FileType cpp setlocal expandtab
 autocmd FileType make setlocal noexpandtab
 ```
 
-- è‰¯ã„ãƒ‘ã‚¿ãƒ¼ãƒ³
+- —Ç‚¢ƒpƒ^[ƒ“
 
 ```vimscript
 augroup vimrc
@@ -29,7 +29,7 @@ autocmd vimrc FileType cpp setlocal expandtab
 autocmd vimrc FileType make setlocal noexpandtab
 ```
 
-- vimrcã®å…ˆé ­ã®æ–¹ã§ãƒ»ãƒ»ãƒ»
+- vimrc‚Ìæ“ª‚Ì•û‚ÅEEE
 
 ```vimscript
 augroup vimrc
@@ -37,12 +37,12 @@ augroup vimrc
 augroup END
 ```
 
-- ã‚’å®£è¨€ã™ã‚‹ã“ã¨ã§ã‚°ãƒ«ãƒ¼ãƒ— ".vimrc" ã«å±ã™ã‚‹ "autocmd" åˆæœŸåŒ–
-  - "autocmd!" ãŒç¾åœ¨ã®ã‚°ãƒ«ãƒ¼ãƒ—ã«å±ã—ã¦ã„ã‚‹ "autocmd" ã‚’ã™ã¹ã¦ç™»éŒ²è§£é™¤
-  - ãã®å¾Œã€ã‚°ãƒ«ãƒ¼ãƒ— ".vimrc" ã«å±ã—ãŸ "autocmd" ã‚’ä½¿ãˆã°OK
-  - ã“ã‚Œã§ ".vimrc" ã‚’å†èª­è¾¼ã¿ã—ã¦ã‚‚ "Vim" ãŒé‡ããªã‚‰ãªã„
+- ‚ğéŒ¾‚·‚é‚±‚Æ‚ÅƒOƒ‹[ƒv ".vimrc" ‚É‘®‚·‚é "autocmd" ‰Šú‰»
+  - "autocmd!" ‚ªŒ»İ‚ÌƒOƒ‹[ƒv‚É‘®‚µ‚Ä‚¢‚é "autocmd" ‚ğ‚·‚×‚Ä“o˜^‰ğœ
+  - ‚»‚ÌŒãAƒOƒ‹[ƒv ".vimrc" ‚É‘®‚µ‚½ "autocmd" ‚ğg‚¦‚ÎOK
+  - ‚±‚ê‚Å ".vimrc" ‚ğÄ“Ç‚İ‚µ‚Ä‚à "Vim" ‚ªd‚­‚È‚ç‚È‚¢
 
-- ä¸Šè¨˜ã®æ–¹æ³•ä»¥å¤–ã®è¨˜è¿°æ³•
+- ã‹L‚Ì•û–@ˆÈŠO‚Ì‹Lq–@
 
 ```vimscript
 augroup vimrc
@@ -53,8 +53,8 @@ augroup vimrc
 augroup END
 ```
 
-- åˆæœŸåŒ–ã¨ç™»éŒ²ã‚’åŒæ™‚ã«å®Ÿè¡Œ
-- æ¯å› "autocmd" ã®å¾Œã«ã‚°ãƒ«ãƒ¼ãƒ—åã‚’æ›¸ã‹ãªãã¦ã„ã„
-  - è‹¥å¹²ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ãŒæ¥½
-  - ã‚°ãƒ«ãƒ¼ãƒ—åã¯ä»»æ„
-  - ".vimrc" ã®å¿…è¦ã¯ãªã„
+- ‰Šú‰»‚Æ“o˜^‚ğ“¯‚ÉÀs
+- –ˆ‰ñ "autocmd" ‚ÌŒã‚ÉƒOƒ‹[ƒv–¼‚ğ‘‚©‚È‚­‚Ä‚¢‚¢
+  - áŠ±ƒR[ƒfƒBƒ“ƒO‚ªŠy
+  - ƒOƒ‹[ƒv–¼‚Í”CˆÓ
+  - ".vimrc" ‚Ì•K—v‚Í‚È‚¢

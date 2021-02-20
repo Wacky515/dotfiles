@@ -2,27 +2,27 @@
 # Last Change: 2019/11/13 17:26:21.
 
 [core]
-    # ã‚³ãƒŸãƒƒãƒˆæ™‚ã«æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã‚’ CRLF -> LF
+    # ƒRƒ~ƒbƒg‚É‰üsƒR[ƒh‚ğ CRLF -> LF
     autoCRLF = input
-    # true:  ã‚³ãƒŸãƒƒãƒˆæ™‚ CRLF -> LFã€ãƒã‚§ãƒƒã‚¯ã‚¢ã‚¦ãƒˆæ™‚ LF -> CRLF
-    # input: ã‚³ãƒŸãƒƒãƒˆæ™‚ã®ã¿ CRLF -> LF
-        # "Windows" ã®ã¿ true ã¨åŒä¸€
-    # false: å¤‰æ›ã—ãªã„
+    # true:  ƒRƒ~ƒbƒg CRLF -> LFAƒ`ƒFƒbƒNƒAƒEƒg LF -> CRLF
+    # input: ƒRƒ~ƒbƒg‚Ì‚İ CRLF -> LF
+        # "Windows" ‚Ì‚İ true ‚Æ“¯ˆê
+    # false: •ÏŠ·‚µ‚È‚¢
 
-    # true: æ”¹è¡Œã‚³ãƒ¼ãƒ‰ãŒæ··åœ¨ã—ã¦ã„ã‚‹å ´åˆã¯å¤‰æ›ã—ãªã„
+    # true: ‰üsƒR[ƒh‚ª¬İ‚µ‚Ä‚¢‚éê‡‚Í•ÏŠ·‚µ‚È‚¢
     safeCRLF = true
 
 [diff]
 	tool    = vimdiff
 	guitool = vimdiff
 [difftool "vimdiff"]
-    # â†“ æœªè¨­å®š
+    # « –¢İ’è
 	# cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
 
 [merge]
 	tool = vimdiff
 [mergetool "vimdiff"]
-    # â†“ æœªè¨­å®š
+    # « –¢İ’è
 	# cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

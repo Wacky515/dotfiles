@@ -3,34 +3,34 @@ scriptencoding utf-8
 " Last Change: 2021/01/15 15:58:03.
 
 " ----------------------------------------------------------------------
-" å¤–è¦³ãƒ†ãƒ¼ãƒç¯‡
+" ŠOŠÏƒe[ƒ}•Ñ
 " ----------------------------------------------------------------------
-" ã‚«ãƒ©ãƒ¼ã‚¹ã‚­ãƒ¼ãƒã®æŒ‡å®š
-" MEMO: "Dein" ã«ç§»ç®¡æ¸ˆã¿
-" MEMO: ä¸å…·åˆã®ãŸã‚ã“ã¡ã‚‰ã®è¨˜è¿°ã«æˆ»ã—ãŸ
+" ƒJƒ‰[ƒXƒL[ƒ}‚Ìw’è
+" MEMO: "Dein" ‚ÉˆÚŠÇÏ‚İ
+" MEMO: •s‹ï‡‚Ì‚½‚ß‚±‚¿‚ç‚Ì‹Lq‚É–ß‚µ‚½
 set termguicolors
 set background=dark
 au MyAutoCmd VimEnter * nested colorscheme iceberg
 au MyAutoCmd VimEnter * highlight Visual ctermbg=216
 
-" "Kaoriya GVim" ç”¨ å‰Šé™¤ã—ãªã„ï¼ï¼ï¼
-" ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ï¼ˆ"Vim" ç”»é¢ä¸‹éƒ¨ï¼‰é«˜ã•
+" "Kaoriya GVim" —p íœ‚µ‚È‚¢III
+" ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“i"Vim" ‰æ–Ê‰º•”j‚‚³
 set cmdheight=5
 
 if (has("win32") || ("win64"))
-    " ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒãƒ¼ è¡¨ç¤º
+    " ƒƒjƒ…[ƒo[ •\¦
     set guioptions+=m
 else
-    " ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒãƒ¼ éè¡¨ç¤º
+    " ƒƒjƒ…[ƒo[ ”ñ•\¦
     set guioptions-=m
 endif
-" ãƒ„ãƒ¼ãƒ«ãƒãƒ¼ éè¡¨ç¤º
+" ƒc[ƒ‹ƒo[ ”ñ•\¦
 set guioptions-=T
-" æ°´å¹³ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ è¡¨ç¤º
+" …•½ƒXƒNƒ[ƒ‹ƒo[ •\¦
 set guioptions+=b
 
 
-" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ åŠé€æ˜åŒ–ï¼ˆ"Linux" ã¯ "Vim" ã‹ã‚‰è¨­å®šã§ããªã„ï¼‰
+" ƒEƒBƒ“ƒhƒE ”¼“§–¾‰»i"Linux" ‚Í "Vim" ‚©‚çİ’è‚Å‚«‚È‚¢j
 " if has("mac")
 if has("unix")
     if !has("nvim")
@@ -40,32 +40,32 @@ elseif (has("win32") || ("win64"))
     :autocmd GUIEnter * set transparency=235
 endif
 
-" ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ æ–‡å­—åŒ–ã‘å¯¾ç­–
+" ƒƒbƒZ[ƒW •¶š‰»‚¯‘Îô
 if (has("win32") || ("win64"))
     source $VIMRUNTIME/delmenu.vim
     set langmenu=ja_jp.utf-8
     source $VIMRUNTIME/menu.vim
 endif
 
-" ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—ç³»ãƒã‚¤ãƒ©ã‚¤ãƒˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’å°å…¥ã—ã¦ã„ã‚‹å ´åˆ  " {{{
-" syntax on" ã¯ç¾åœ¨ã®runtimepathã«å«ã¾ã‚Œã¦ã„ã‚‹è¨­å®šã‚’ã‚‚ã¨ã«ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ã‚’ç”Ÿæˆã™ã‚‹
-" runtimepathã‚’åˆæœŸåŒ–ã™ã‚‹ã‚ˆã†ãªå‡¦ç†ã‚’ã—ãŸå¾Œã«syntax onã—ã¦ã‚‚ã‚ã¾ã‚Šæ„å‘³ã¯ãªã
-" runtimepathã‚’ã™ã¹ã¦è¨­å®šã—çµ‚ãˆãŸå¾Œã«syntax onã‚’ã™ã‚‹ã¹ã
-" æ‚ªã„ãƒ‘ã‚¿ãƒ¼ãƒ³
-" runtimepathã‚’åˆæœŸåŒ–ã™ã‚‹ã‚ˆã†ãªå‡¦ç†
+" ƒtƒ@ƒCƒ‹ƒ^ƒCƒvŒnƒnƒCƒ‰ƒCƒgƒvƒ‰ƒOƒCƒ“‚ğ“±“ü‚µ‚Ä‚¢‚éê‡  " {{{
+" syntax on" ‚ÍŒ»İ‚Ìruntimepath‚ÉŠÜ‚Ü‚ê‚Ä‚¢‚éİ’è‚ğ‚à‚Æ‚ÉƒVƒ“ƒ^ƒbƒNƒX‚ğ¶¬‚·‚é
+" runtimepath‚ğ‰Šú‰»‚·‚é‚æ‚¤‚Èˆ—‚ğ‚µ‚½Œã‚Ésyntax on‚µ‚Ä‚à‚ ‚Ü‚èˆÓ–¡‚Í‚È‚­
+" runtimepath‚ğ‚·‚×‚Äİ’è‚µI‚¦‚½Œã‚Ésyntax on‚ğ‚·‚é‚×‚«
+" ˆ«‚¢ƒpƒ^[ƒ“
+" runtimepath‚ğ‰Šú‰»‚·‚é‚æ‚¤‚Èˆ—
 " set runtimepath=$VIMRUNTIME
 " syntax on
-" ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—ç³»ãƒã‚¤ãƒ©ã‚¤ãƒˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³
+" ƒtƒ@ƒCƒ‹ƒ^ƒCƒvŒnƒnƒCƒ‰ƒCƒgƒvƒ‰ƒOƒCƒ“
 " neoBundle 'kongo2002/fsharp-vim'
-" è‰¯ã„ãƒ‘ã‚¿ãƒ¼ãƒ³
-" runtimepathã‚’åˆæœŸåŒ–ã™ã‚‹ã‚ˆã†ãªå‡¦ç†
+" —Ç‚¢ƒpƒ^[ƒ“
+" runtimepath‚ğ‰Šú‰»‚·‚é‚æ‚¤‚Èˆ—
 " set runtimepath=$VIMRUNTIME
-" ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—ç³»ãƒã‚¤ãƒ©ã‚¤ãƒˆãƒ—ãƒ©ã‚°ã‚¤ãƒ³
+" ƒtƒ@ƒCƒ‹ƒ^ƒCƒvŒnƒnƒCƒ‰ƒCƒgƒvƒ‰ƒOƒCƒ“
 " neoBundle 'kongo2002/fsharp-vim'
 " syntax on
 " }}}
 
-" "NyaoVim" ç”¨è¨­å®š
+" "NyaoVim" —pİ’è
 if exists("g:nyaovim_version")
     let s:plugin_dir = expand("~/.config/nyaovim/dein")
     try
@@ -83,14 +83,14 @@ if exists("g:nyaovim_version")
     endtry
 endif
 
-" REF: "Oni" ç”¨è¨­å®š
+" REF: "Oni" —pİ’è
 " if exists("g:gui_oni")
 "     echo Setting for Oni
 " endif
 
-" !!!: ä»¥ä¸‹ã‹ã‚‰ã¯è¨˜è¿°å ´æ‰€ã‚’é †ç•ªã‚’å¤‰ãˆãªã„ï¼ï¼ï¼
-" !!!: "NeoVim" ã®ãƒ•ã‚©ãƒ³ãƒˆè¨­å®šã¯ "ginit.vim" ã«è¨˜è¿°ï¼ï¼
-" ãƒ•ã‚©ãƒ³ãƒˆã®è¨­å®š
+" !!!: ˆÈ‰º‚©‚ç‚Í‹LqêŠ‚ğ‡”Ô‚ğ•Ï‚¦‚È‚¢III
+" !!!: "NeoVim" ‚ÌƒtƒHƒ“ƒgİ’è‚Í "ginit.vim" ‚É‹LqII
+" ƒtƒHƒ“ƒg‚Ìİ’è
 if !has("nvim")
     if (has("unix") && !has("mac"))
         set   guifont=Cica\ 16
@@ -127,7 +127,7 @@ if !has("nvim")
         if hostname()     == "SALADPRIMEMK-II"
             set   guifont=Cica:h12
             set printfont=Cica:h12
-            " Windows Cica å°‚ç”¨è¨­å®š ("NeoVim" ç‰ˆè¨­å®šæ¢ã™ï¼‰
+            " Windows Cica ê—pİ’è ("NeoVim" ”Åİ’è’T‚·j
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "SALADCARBONX1"
             set   guifont=Cica:h13

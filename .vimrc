@@ -3,24 +3,24 @@ scriptencoding utf-8
 " Last Change: 2021/02/20 10:39:23.
 
 " NOT_WORK:
-" " "Macvim" ã§ "Python3" ã‚’å‘¼å‡ºã™ï¼ˆPython2ã¨ä½µç”¨ä¸å¯ã®ãŸã‚ï¼‰ " {{{
+" " "Macvim" ‚Å "Python3" ‚ğŒÄo‚·iPython2‚Æ•¹—p•s‰Â‚Ì‚½‚ßj " {{{
 " if (has("mac") && has("kaoriya"))
 "     if has("python3")
 "     endif
 " endif
 " }}}
 
-" MEMO: å¿…ãšå…ˆé ­ã«è¨˜è¿°
-" "autocmd" ï¼ˆãƒã‚¯ãƒ­ï¼‰ã®åˆæœŸåŒ–
+" MEMO: •K‚¸æ“ª‚É‹Lq
+" "autocmd" iƒ}ƒNƒj‚Ì‰Šú‰»
 augroup MyAutoCmd
     autocmd!
 augroup END
 
-" "vimproc" èª­è¾¼ã¿æ™‚ã€"*.dll" è‡ªå‹•DL & æ›´æ–°
+" "vimproc" “Ç‚İA"*.dll" ©“®DL & XV
 let g:vimproc#download_windows_dll = 1
 
 " ---------------------------------------------------------------------------
-" "Python" è¨­å®š
+" "Python" İ’è
 " ---------------------------------------------------------------------------
 if (has("unix") && has("mac"))
     if hostname()     == "saladserver.com"
@@ -41,7 +41,7 @@ elseif has("unix")
     let g:python3_host_prog = "/usr/bin/python3"
 
 elseif (has("win32") || has("win64"))
-" MEMO: Python3.6ç³»ã§ãªã„ã¨ Dark powed ã§ããªã„
+" MEMO: Python3.6Œn‚Å‚È‚¢‚Æ Dark powed ‚Å‚«‚È‚¢
     if hostname()     == "SALADPRIMEMK-II"
         let g:python3_host_prog =
         \ "C:\\Users\\wacky\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
@@ -61,10 +61,10 @@ elseif (has("win32") || has("win64"))
     elseif hostname() == "HBAMB748"
         " let g:python_host_prog  = "C:\\Python27\\python.exe"
         let g:python3_host_prog = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
-        " MEMO: â†“ "Denite" ã§ã‚¨ãƒ©ãƒ¼
+        " MEMO: « "Denite" ‚ÅƒGƒ‰[
         " let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
         if !has("nvim")
-            " "HBAMB748" "Vim" ã§ "Unkwown option" ã‚¨ãƒ©ãƒ¼
+            " "HBAMB748" "Vim" ‚Å "Unkwown option" ƒGƒ‰[
             if has("gui_running")
                 set pythonthreedll=C:\Python36\python36.dll
             else
@@ -100,19 +100,19 @@ elseif (has("win32") || has("win64"))
 endif
 
 " ---------------------------------------------------------------------------
-" dein.vimã®è¨­å®š
+" dein.vim‚Ìİ’è
 " ---------------------------------------------------------------------------
 if !&compatible
     set nocompatible
 endif
 
-" "Vim" èµ·å‹•å®Œäº†æ™‚ã«ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
+" "Vim" ‹N“®Š®—¹‚ÉƒCƒ“ƒXƒg[ƒ‹
 augroup PluginInstall
     autocmd!
     autocmd VimEnter * if dein#check_install() | call dein#install() | endif
 augroup END
 
-" ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’æŒ‡å®š
+" ƒvƒ‰ƒOƒCƒ“‚ğƒCƒ“ƒXƒg[ƒ‹‚·‚éƒfƒBƒŒƒNƒgƒŠ‚ğw’è
 if !has("nvim")
     if !has("gui_running")
         let s:plugin_dir = expand("~/.cache/dein/")
@@ -127,27 +127,27 @@ elseif has("nvim")
     let s:plugin_dir     = expand("~/.config/nvim/dein/")
 endif
 
-" TODO: Unixç³»ã®ãƒ‘ã‚¹è¨­å®šè¿½åŠ 
-" "dein.vim" ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ãƒ‘ã‚¹ã¸è¿½åŠ 
+" TODO: UnixŒn‚ÌƒpƒXİ’è’Ç‰Á
+" "dein.vim" ‚ğƒCƒ“ƒXƒg[ƒ‹‚·‚éƒfƒBƒŒƒNƒgƒŠ‚ğƒ‰ƒ“ƒ^ƒCƒ€ƒpƒX‚Ö’Ç‰Á
 let s:dein_dir = s:plugin_dir . "repos/github.com/Shougo/dein.vim"
 
 execute "set runtimepath+=" . s:dein_dir
 
-" ãƒ­ã‚°å‡ºåŠ›
+" ƒƒOo—Í
 let g:dein#install_log_filename = s:dein_dir . "/dein.log"
 
-" "dein.vim" ãŒãªã‘ã‚Œã° "git clone"
+" "dein.vim" ‚ª‚È‚¯‚ê‚Î "git clone"
 if !isdirectory(s:dein_dir)
     call mkdir(s:dein_dir, "p")
     silent execute printf("!git clone %s %s", "https://github.com/Shougo/dein.vim", s:dein_dir)
 endif
 " REF: < http://yuheikagaya.hatenablog.jp/entry/2016/03/20/171907 >
 
-" è¨­å®šé–‹å§‹
+" İ’èŠJn
 if dein#load_state(s:plugin_dir)
     call dein#begin(s:plugin_dir)
 
-    " ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ãƒªã‚¹ãƒˆ "*.toml" ã‚’æŒ‡å®š
+    " ƒvƒ‰ƒOƒCƒ“ƒŠƒXƒg "*.toml" ‚ğw’è
     if !has("nvim")
         let g:plugin_dir   = expand("~/.vim/vim_plugins")
         let s:toml         = g:plugin_dir . "/dein.toml"
@@ -160,7 +160,7 @@ if dein#load_state(s:plugin_dir)
     let s:lazy_toml_nvim   = g:plugin_dir_nvim . "/dein_lazy_nvim.toml"
     let s:python_toml_nvim = g:plugin_dir_nvim . "/dein_python_nvim.toml"
 
-    "*.toml" ã‚’èª­è¾¼ã¿ã€ã‚­ãƒ£ãƒƒã‚·ãƒ¥
+    "*.toml" ‚ğ“Ç‚İAƒLƒƒƒbƒVƒ…
     if !has("nvim")
         call dein#load_toml(s:toml,             {"lazy": 0})
         call dein#load_toml(s:lazy_toml,        {"lazy": 1})
@@ -184,38 +184,38 @@ if dein#load_state(s:plugin_dir)
         call dein#add("rhysd/nyaovim-mini-browser")
     endif
 
-    " è¨­å®šçµ‚äº†
+    " İ’èI—¹
     call dein#end()
     call dein#save_state()
 endif
 
-" æœªã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã®ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ãŒã‚ã‚Œã°ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
+" –¢ƒCƒ“ƒXƒg[ƒ‹‚Ìƒvƒ‰ƒOƒCƒ“‚ª‚ ‚ê‚ÎƒCƒ“ƒXƒg[ƒ‹
 if has("vim_starting") && dein#check_install()
     call dein#install()
 endif
 
 " MEMO:
-" ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®è¿½åŠ ãƒ»å‰Šé™¤ã‚„tomlãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šã‚’å¤‰æ›´ã—ãŸå¾Œã¯
-" é©å®œ "du: call dein#check_update()" ã‚„ "dc: call dein#clear_state()" ã‚’å®Ÿè¡Œã™ã‚‹
+" ƒvƒ‰ƒOƒCƒ“‚Ì’Ç‰ÁEíœ‚âtomlƒtƒ@ƒCƒ‹‚Ìİ’è‚ğ•ÏX‚µ‚½Œã‚Í
+" “K‹X "du: call dein#check_update()" ‚â "dc: call dein#clear_state()" ‚ğÀs‚·‚é
 " --------------------------------------------------------------------------------
 
 " ---------------------------------------------------------------------------
-" Initå‡¦ç†
+" Initˆ—
 " ---------------------------------------------------------------------------
 
-" MEMO: è¨˜è¿°é †ç•ª å¤‰æ›´ã—ãªã„ï¼ï¼ï¼
-" <Space> ã‚’ "Leader" ã«å‰²å½“ã¦
+" MEMO: ‹Lq‡”Ô •ÏX‚µ‚È‚¢III
+" <Space> ‚ğ "Leader" ‚ÉŠ„“–‚Ä
 let mapleader = "\<Space>"
 
-" "Windows" ç’°å¢ƒã®è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®å ´æ‰€ã‚’ã€"Linux/Mac" ç’°å¢ƒã«ã‚ã‚ã›ã‚‹
+" "Windows" ŠÂ‹«‚Ìİ’èƒtƒ@ƒCƒ‹‚ÌêŠ‚ğA"Linux/Mac" ŠÂ‹«‚É‚ ‚í‚¹‚é
 if (has("win32") || has("win64"))
     set runtimepath+=$HOME/.vim
 endif
 
-" "Vim" ã®è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«
+" "Vim" ‚Ìİ’èƒtƒ@ƒCƒ‹
 runtime! userautoload/*.vim
 
-" ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«
+" ƒvƒ‰ƒOƒCƒ“‚Ìİ’èƒtƒ@ƒCƒ‹
 if !has("nvim")
     runtime! userautoload/plugin_settings/*.vim
     runtime! userautoload/plugin_settings_nvim/*.vim
@@ -223,10 +223,10 @@ else
     runtime! userautoload/plugin_settings_nvim/*.vim
 endif
 
-" "dein.vim" ã®æ›´æ–°ãƒã‚§ãƒƒã‚¯é«˜é€ŸåŒ–è¨­å®š
+" "dein.vim" ‚ÌXVƒ`ƒFƒbƒN‚‘¬‰»İ’è
 set runtimepath+=~/OneDrive/Vim/dein
 runtime! dein_token.vim
 
-" èª­ã¿è¾¼ã‚“ã ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚‚å«ã‚ã€ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—ã®æ¤œå‡º
-" ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—åˆ¥ãƒ—ãƒ©ã‚°ã‚¤ãƒ³/ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’æœ‰åŠ¹åŒ–ã™ã‚‹
+" “Ç‚İ‚ñ‚¾ƒvƒ‰ƒOƒCƒ“‚àŠÜ‚ßAƒtƒ@ƒCƒ‹ƒ^ƒCƒv‚ÌŒŸo
+" ƒtƒ@ƒCƒ‹ƒ^ƒCƒv•Êƒvƒ‰ƒOƒCƒ“/ƒCƒ“ƒfƒ“ƒg‚ğ—LŒø‰»‚·‚é
 filetype plugin indent on
