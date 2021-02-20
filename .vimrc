@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2021/02/19 16:03:21.
+" Last Change: 2021/02/19 17:46:25.
 
 " NOT_WORK:
 " " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
@@ -25,11 +25,15 @@ let g:vimproc#download_windows_dll = 1
 if (has("unix") && has("mac"))
     if hostname()     == "saladserver.com"
         let g:python3_host_prog = "/usr/local/bin/python3"
-    elseif hostname() == "ProSalad13-2018.local"
-        let g:python3_host_prog = "/usr/local/bin/Python3"
     elseif hostname() == "SaladBook.local"
         let g:python3_host_prog = "/usr/local/bin/python3"
-    elseif hostname() == "ProSalad133.local"
+    " elseif hostname() == "ProSalad133.local"  " {{{
+    "     let g:python3_host_prog = "/usr/local/bin/Python3"
+    " elseif hostname() == "ProSalad13-2018.local"
+    "     let g:python3_host_prog = "/usr/local/bin/Python3"
+    " }}}
+
+    else
         let g:python3_host_prog = "/usr/local/bin/Python3"
     endif
 
@@ -37,12 +41,13 @@ elseif has("unix")
     let g:python3_host_prog = "/usr/bin/python3"
 
 elseif (has("win32") || has("win64"))
+" MEMO: Python3.6系でないと Dark powed できない
     if hostname()     == "SALADPRIMEMK-II"
         let g:python3_host_prog =
         \ "C:\\Users\\wacky\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
     elseif hostname() == "SALADCARBONX1"
         let g:python3_host_prog =
-        \ "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
+        \ "C:\\Users\\SkyDog\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
 
     elseif hostname() == "HBAMB1448"
         let g:python3_host_prog  = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
@@ -55,8 +60,7 @@ elseif (has("win32") || has("win64"))
         endif
     elseif hostname() == "HBAMB748"
         " let g:python_host_prog  = "C:\\Python27\\python.exe"
-        let g:python3_host_prog = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
-        " let g:python3_host_prog = "C:\\Python36\\python.exe"
+        let g:python3_host_prog = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
         " MEMO: ↓ "Denite" でエラー
         " let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
         if !has("nvim")
@@ -69,9 +73,9 @@ elseif (has("win32") || has("win64"))
         endif
     elseif hostname() == "HBAMB819"
         let g:python_host_prog  = "C:\\Python27\\python.exe"
+        " REF:
+        " let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim3/bin/python'
         let g:python3_host_prog = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
-        " MEMO: ↓ "Defx" でエラー
-        " let g:python3_host_prog = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
         if !has("nvim")
             if has("gui_running")
                 set pythonthreedll=C:\Users\mm12167\AppData\Local\Programs\Python\Python36\python36.dll
@@ -83,15 +87,15 @@ elseif (has("win32") || has("win64"))
         let g:python_host_prog  = "C:\\Python27\\python.exe"
         let g:python3_host_prog = "C:\\Python35\\python.exe"
     elseif hostname() == "HBAPC511"
-        let g:python3_host_prog = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
+        let g:python3_host_prog = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
 
     else
         " let g:python_host_prog  = "C:\\Python27\\python.exe"
-        let g:python3_host_prog = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
-        " let g:python3_host_prog = expand("~/AppData/Programs/Python/Python39/python.exe")
-        " let g:python3_host_prog = $HOME"\\AppData\\Programs\\Python\\Python39\\python.exe"
-        " let g:python3_host_prog = "%localappdata%\\Programs\\Python\\Python39\\python.exe"
-        " let g:python3_host_prog = "C:\\Python35\\python.exe"
+        let g:python3_host_prog = "C:\\Users\\mm12167\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
+        " let g:python3_host_prog = expand("~/AppData/Programs/Python/Python36/python.exe")
+        " let g:python3_host_prog = $HOME"\\AppData\\Programs\\Python\\Python36\\python.exe"
+        " let g:python3_host_prog = "%localappdata%\\Programs\\Python\\Python36\\python.exe"
+        " let g:python3_host_prog = "C:\\Python36\\python.exe"
     endif
 endif
 
