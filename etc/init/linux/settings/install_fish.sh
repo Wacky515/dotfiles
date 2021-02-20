@@ -24,7 +24,7 @@ if ! has "fish"; then
         sudo apt install fish -y
         rm_echo ">> Please restart terminal"
 
-        # Install "powerline ãƒ•ã‚©ãƒ³ãƒˆ"
+        # Install "powerline ƒtƒHƒ“ƒg"
         sudo apt install fonts-powerline
 
     elif has "yum"; then

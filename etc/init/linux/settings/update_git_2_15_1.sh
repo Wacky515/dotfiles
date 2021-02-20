@@ -3,8 +3,8 @@
 # Created:     2018/05/10 18:12:30
 # Last Change: 2018/05/10 18:16:30.
 
-# TODO: "Git" ใฎ "ver" ใ’ๅคๆ•ฐๅ–
-#       ไปใฏ "2.15.1 " ๅบๅฎ
+# TODO: "Git" ฬ "ver" ๐•ฯ”ป
+#       กอ "2.15.1 " ล’่
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh

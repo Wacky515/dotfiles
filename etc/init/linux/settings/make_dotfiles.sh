@@ -4,7 +4,7 @@
 # Last Change: 2019/11/19 13:48:53.
 
 # FIXME:
-    # sudo権限を終了しないと "brew" が使えない
+    # sudo�������I�����Ȃ��� "brew" ���g���Ȃ�
 
 # DONE:
 
@@ -16,8 +16,8 @@ readonly PROCESS="make dotfiles"
 readonly DOT_DIR="${HOME}/dotfiles"
 readonly GIT_URL="https://github.com/Wacky515/dotfiles.git"
 
-## 設定
-# 色付きのテキストを端末で使用する設定
+## �ݒ�
+# �F�t���̃e�L�X�g��[���Ŏg�p����ݒ�
 tput=$(which tput)
 if [ -n "$tput" ]; then
     ncolors=$($tput colors)
@@ -39,8 +39,8 @@ else
     NORMAL=""
 fi
 
-## 関数群
-# info: 情報を緑色で出力
+## �֐��Q
+# info: ����ΐF�ŏo��
 function info() {
     printf "${GREEN}"
     echo -n "  INFO:     "
@@ -48,7 +48,7 @@ function info() {
     echo "$1"
 }
 
-# warn: 警報を黄色で出力
+# warn: �x������F�ŏo��
 function warn() {
     printf "${YELLOW}"
     echo -n "  WARNING!: "
@@ -56,7 +56,7 @@ function warn() {
     echo "$1"
 }
 
-# error: エラーを赤色で出力
+# error: �G���[��ԐF�ŏo��
 function error() {
     printf "${RED}"
     echo -n "  ERROR!!:  "
@@ -64,36 +64,36 @@ function error() {
     echo "$1"
 }
 
-# log: ログを通常の色で出力
+# log: ���O��ʏ�̐F�ŏo��
 function log() {
     echo "  $1"
 }
 
-# "sed" の差異吸収
+# "sed" �̍��ًz��
 if sed --version 2>/dev/null | grep -q GNU; then
     alias sedi='sed -i '
 else
     alias sedi='sed -i "" '
 fi
 
-# パッケージの存在確認
+# �p�b�P�[�W�̑��݊m�F
 function has() {
     type "$1" > /dev/null 2>&1
 }
 
-# シンボリックリンクの追加
+# �V���{���b�N�����N�̒ǉ�
 function symlink() {
     [ -e "$2" ] || ln -sf "$1" "$2"
 }
 
 ## MAIN
 dotfiles_logo='
-██████╗  ██████╗ ████████╗███████╗██╗██╗     ███████╗███████╗
-██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝██║██║     ██╔════╝██╔════╝
-██║  ██║██║   ██║   ██║   █████╗  ██║██║     █████╗  ███████╗
-██║  ██║██║   ██║   ██║   ██╔══╝  ██║██║     ██╔══╝  ╚════██║
-██████╔╝╚██████╔╝   ██║   ██║     ██║███████╗███████╗███████║
-╚═════╝  ╚═════╝    ╚═╝   ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝
+        
+     
+                    
+                    
+           
+              
 
 *** HOW TO INSTALL? ***
 
@@ -138,7 +138,7 @@ brew update
 fi
 
 info ">> Start setting dotfiles"
-# "dotfiles/.git" がなければ "git clone" かダウンロード
+# "dotfiles/.git" ���Ȃ���� "git clone" ���_�E�����[�h
 if [ ! -d ${DOT_DIR}"/.git" ]; then
     if [ -d ${DOT_DIR} ]; then
         rm -r ${DOT_DIR}
@@ -171,22 +171,22 @@ else
 fi
 echo ""
 
-# OS毎の設定
+# OS���̐ݒ�
 case ${OSTYPE} in
 darwin*)
-    # "OS X" 用設定
+    # "OS X" �p�ݒ�
     info ">> Call setting OS X"
     cd ~/dotfiles/etc/init/osx/settings/
     bash ./init_osx.sh
     ;;
 
 linux*)
-    # "Linux" 用設定
+    # "Linux" �p�ݒ�
     info ">> Call setting Linux"
     cd ~/dotfiles/etc/init/linux/settings/
     bash ./init_linux.sh
     ;;
 esac
 
-# ↓ エラー？
+# �� �G���[�H
 exec $SHELL -l

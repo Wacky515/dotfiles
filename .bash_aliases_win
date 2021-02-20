@@ -1,10 +1,10 @@
 # Created:     2019/11/12 10:24:18
 # Last Change: 2019/11/20 16:04:51.
 
-# "ls" ã§æ—¥æœ¬èªãƒ•ã‚¡ã‚¤ãƒ«åæ–‡å­—åŒ–ã‘é˜²æ­¢
+# "ls" ‚Å“ú–{Œêƒtƒ@ƒCƒ‹–¼•¶š‰»‚¯–h~
 alias ls="ls --show-control-chars"
 
-# "Windows" ã‚³ãƒãƒ³ãƒ‰æ–‡å­—åŒ–ã‘å¯¾ç­–
+# "Windows" ƒRƒ}ƒ“ƒh•¶š‰»‚¯‘Îô
 function wincmd()
 {
     CMD=$1
@@ -18,10 +18,10 @@ alias ipconfig="wincmd ipconfig"
 alias netstat="wincmd netstat"
 alias netsh="wincmd netsh"
 
-# "ping" ã®ã‚³ãƒãƒ³ãƒ‰åæ··åŒã‚’é¿ã‘ã‚‹ãŸã‚çµ¶å¯¾ãƒ‘ã‚¹ã§æŒ‡å®š
+# "ping" ‚ÌƒRƒ}ƒ“ƒh–¼¬“¯‚ğ”ğ‚¯‚é‚½‚ßâ‘ÎƒpƒX‚Åw’è
 alias ping="wincmd /c/windows/system32/ping"
 
-# "gitk" ã¯ "Windows" ç”¨ã‚’ä½¿ã†
+# "gitk" ‚Í "Windows" —p‚ğg‚¤
 alias gitk="/c/Program\ Files/Git/cmd/gitk"
 
 # Vim

@@ -10,5 +10,5 @@ gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
 gsettings set org.gnome.nautilus.preferences show-hidden-files 'true'
 gsettings set org.gnome.nautilus.preferences executable-text-activation 'ask'
 # TODO
-# 險ｭ螳壹◎縺ｮ繧ゅ�ｮ縺ｮ繝舌ャ繧ｯ繧｢繝�繝励→繝ｪ繧ｹ繝医い
+# 設定そのもののバックアップとリストア
 result_echo $? "${PROCESS}"

@@ -22,7 +22,7 @@ if has "pacman" ; then
         tmux \
         zsh)
 
-    # FIXME: 繧､繝ｳ繧ｹ繝医�ｼ繝ｫ繝溘せ縺吶ｋ
+    # FIXME: インストールミスする
     for a in ${apps[@]}
     do
         gm_echo ">> Check installed ${a} or not"

@@ -41,7 +41,7 @@ do
     sudo bash ./${g}
 done
 
-# ãƒ“ãƒƒãƒˆæ•°ã€ãƒ‡ã‚£ã‚¹ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ã‚·ãƒ§ãƒ³ åˆ¤åˆ¥
+# ƒrƒbƒg”AƒfƒBƒXƒgƒŠƒrƒ…[ƒVƒ‡ƒ“ ”»•Ê
 sudo chmod 777 ~/dotfiles/etc/init/linux/settings/get_distribution.sh
 declare -a info=($(~/dotfiles/etc/init/linux/settings/get_distribution.sh))
 # bits=$(uname -m)
@@ -71,7 +71,7 @@ done
 cd -
 
 ym_echo ">> Install & setting each distribution"
-# ãƒ‡ã‚£ã‚¹ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ã‚·ãƒ§ãƒ³ åˆ¤åˆ¥
+# ƒfƒBƒXƒgƒŠƒrƒ…[ƒVƒ‡ƒ“ ”»•Ê
 # declare -a info=($(~/dotfiles/etc/init/linux/settings/get_distribution.sh))
 
 case ${info[0]} in
@@ -121,10 +121,10 @@ sudo bash ./apt_update.sh
 
 ym_echo ">> Init setting"
 
-# TEST: "Dock" ã® "Amazon" å‰Šé™¤
+# TEST: "Dock" ‚Ì "Amazon" íœ
 sudo apt remove ubuntu-web-launchers -y
 
-# TEST: "Mozc" åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ è¨­å®š
+# TEST: "Mozc" ”¼ŠpƒXƒy[ƒX İ’è
 /usr/lib/mozc/mozc_tool -mode=config_dialog
 
 result_echo $? "${PROCESS}"

@@ -1,6 +1,6 @@
 #!/bin/bash
 # @(#) Intall xsel
-# ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰å…±æœ‰
+# ƒNƒŠƒbƒvƒ{[ƒh‹¤—L
 
 source ~/dotfiles/function/result_echo.sh
 
