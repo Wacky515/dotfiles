@@ -1,4 +1,4 @@
-﻿{
+{
     "filters": {
         "whitelist": {
             "whitelistConfigPaths": [
@@ -8,106 +8,106 @@
     },
 
     "rules": {
-        // 技術文書向けの textlint ルールプリセット
+        // �Z�p���������� textlint ���[���v���Z�b�g
         "preset-ja-technical-writing": {
-        // 1文の長さ
+        // 1���̒���
         "sentence-length": {
             max: 90
         },
-        // 1文中のカンマ
+        // 1�����̃J���}
         "max-comma": {
             max: 3
         },
-        // 1文中の読点
+        // 1�����̓Ǔ_
         "max-ten": {
             max: 3
         },
-        // 連続できる最大の漢字長: 固有名詞は allow オプションに記述して回避できる
+        // �A���ł���ő�̊�����: �ŗL������ allow �I�v�V�����ɋL�q���ĉ���ł���
         "max-kanji-continuous-len": {
             max: 6
         },
-        // 「ですます調」、「である調」を統一する
+        // �u�ł��܂����v�A�u�ł��钲�v�𓝈ꂷ��
         "no-mix-dearu-desumasu": {
-            // 見出しは自動
+            // ���o���͎���
             "preferInHeader": "",
-            // 本文はですます調を強制
-            "preferInBody": "ですます",
-            // 箇条書きはである調を強制
-            "preferInList": "である",
-            // 文末以外のチェックをしない
+            // �{���͂ł��܂���������
+            "preferInBody": "�ł��܂�",
+            // �ӏ������͂ł��钲������
+            "preferInList": "�ł���",
+            // �����ȊO�̃`�F�b�N�����Ȃ�
             "strict": false
         },
-        // 文末の句点記号に「。」を使う
+        // �����̋�_�L���Ɂu�B�v���g��
         "ja-no-mixed-period": {
-            "periodMark": "。"
+            "periodMark": "�B"
         },
-        // 二重否定の使用禁止
+        // ��d�ے�̎g�p�֎~
         "no-double-negative-ja": true,
-        // ら抜き言葉の使用禁止
+        // �甲�����t�̎g�p�֎~
         "no-dropping-the-ra": true,
-        // 逆接の接続助詞「が」の連続使用禁止
+        // �t�ڂ̐ڑ������u���v�̘A���g�p�֎~
         "no-doubled-conjunctive-particle-ga": true,
-        // 同じ接続詞の連続使用禁止
+        // �����ڑ����̘A���g�p�֎~
         "no-doubled-conjunction": true,
-        // 同じ助詞の連続使用禁止
+        // ���������̘A���g�p�֎~
         "no-doubled-joshi": {
             "min_interval": 1
         },
-        // UTF8-MAC 濁点の使用禁止
+        // UTF8-MAC ���_�̎g�p�֎~
         "no-nfd": true,
-        // 感嘆符「!！?？」の使用禁止しない
+        // ���Q���u!�I?�H�v�̎g�p�֎~���Ȃ�
         "no-exclamation-question-mark": false,
-        // 半角カナの使用禁止
+        // ���p�J�i�̎g�p�֎~
         "no-hankaku-kana": true,
-        // 弱い日本語表現の使用禁止
+        // �ア���{��\���̎g�p�֎~
         "ja-no-weak-phrase": true,
-        // 同一の単語を間違えて連続しているか検知
+        // ����̒P����ԈႦ�ĘA�����Ă��邩���m
         "ja-no-successive-word": true,
-        // よくある日本語の誤用を検知
+        // �悭������{��̌�p�����m
         "ja-no-abusage": true
         },
 
-        // 日本語周りにおけるスペースの有無を決定する textlint ルールプリセット
+        // ���{�����ɂ�����X�y�[�X�̗L�������肷�� textlint ���[���v���Z�b�g
         "preset-ja-spacing": false,
         // "preset-ja-spacing": {
-        // // カタカナ語間は中黒または半角スペースを用いて区切る
+        // // �J�^�J�i��Ԃ͒����܂��͔��p�X�y�[�X��p���ċ�؂�
         // "ja-nakaguro-or-halfwidth-space-between-katakana": true,
-        // // かっこの外内側にスペースを入れない
+        // // �������̊O�����ɃX�y�[�X�����Ȃ�
         // "ja-no-space-around-parentheses": true,
-        // // 全角文字どうしの間にスペースを入れない
+        // // �S�p�����ǂ����̊ԂɃX�y�[�X�����Ȃ�
         // "ja-no-space-between-full-width": false,
-        // // 半角文字と全角文字の間にスペースを入れない
+        // // ���p�����ƑS�p�����̊ԂɃX�y�[�X�����Ȃ�
         // "ja-space-between-half-and-full-width": {
         //     // "space": "always"
         //     "space": "never"
         // },
-        // // 文末に感嘆符を使用し、後に別の文が続く場合は、直後に全角スペースを挿入
+        // // �����Ɋ��Q�����g�p���A��ɕʂ̕��������ꍇ�́A����ɑS�p�X�y�[�X��}��
         // "ja-space-after-exclamation": false,
-        // // 文末に疑問符を使用し、後に別の文が続く場合は、直後に全角スペースを挿入
+        // // �����ɋ^�╄���g�p���A��ɕʂ̕��������ꍇ�́A����ɑS�p�X�y�[�X��}��
         // "ja-space-after-question": false,
-        // // インラインコードの前後が日本語である場合に半角スペースを入れない
+        // // �C�����C���R�[�h�̑O�オ���{��ł���ꍇ�ɔ��p�X�y�[�X�����Ȃ�
         // "ja-space-around-code": false
         // },
 
-        // Webエンジニア用の技術的な単語チェック
+        // Web�G���W�j�A�p�̋Z�p�I�ȒP��`�F�b�N
         "spellcheck-tech-word": true,
 
-        // サ抜き、サ入れ表現の誤用を検知
+        // �T�����A�T����\���̌�p�����m
         "@textlint-ja/textlint-rule-no-insert-dropping-sa": true,
-        // 漢字よりもひらがなで表記したほうが読みやすい副詞を指摘
+        // ���������Ђ炪�Ȃŕ\�L�����ق����ǂ݂₷���������w�E
         "ja-hiragana-fukushi": true,
-        // 漢字よりひらがなで表記したほうが読みやすい補助動詞を指摘
+        // �������Ђ炪�Ȃŕ\�L�����ق����ǂ݂₷���⏕�������w�E
         "ja-hiragana-hojodoushi": true,
-        // 冗長な表現を禁止
+        // �璷�ȕ\�����֎~
         "ja-no-redundant-expression": true,
-        // 不自然なアルファベットを検知
+        // �s���R�ȃA���t�@�x�b�g�����m
         "ja-unnatural-alphabet": true,
-        // 常用漢字使用を強制
+        // ��p�����g�p������
         "joyo-kanji": true,
-        // 連用中止法を検知
+        // �A�p���~�@�����m
         "no-renyo-chushi": true,
-        // 全角文字と半角英字の間に半角スペースを入れる
-        // ただし次の全角文字 [、。「 」（）｛｝【】『』] の前後には不要
+        // �S�p�����Ɣ��p�p���̊Ԃɔ��p�X�y�[�X������
+        // ���������̑S�p���� [�A�B�u �v�i�j�o�p�y�z�w�x] �̑O��ɂ͕s�v
         "one-white-space-between-zenkaku-and-hankaku-eiji": false
     }
 }
