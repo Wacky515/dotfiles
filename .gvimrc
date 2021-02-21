@@ -98,18 +98,10 @@ if !has("nvim")
         " colorscheme iceberg
 
     elseif has("mac")
-        if hostname()     == "ProSalad13-2018.local"
-            " set   guifont=HackGenNerd\ Console\ Regular:h15
-            " set printfont=HackGenNerd\ Console\ Regular:h15
-            set   guifont=Cica:h16
-            set printfont=Cica:h16
-        elseif hostname() == "saladserver.com"
+        if hostname() == "saladserver.com"
             set   guifont=Cica:h18
             set printfont=Cica:h18
         elseif hostname() == "SaladBook.local"
-            set   guifont=Cica:h16
-            set printfont=Cica:h16
-        elseif hostname() == "ProSalad13.local"
             set   guifont=Cica:h16
             set printfont=Cica:h16
         else
