@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2021/02/21 21:39:21.
+" Last Change: 2021/02/21 22:11:54.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -91,13 +91,11 @@ endif
 " !!!: "NeoVim" のフォント設定は "ginit.vim" に記述！！
 " フォントの設定
 if !has("nvim")
-    if (has("unix") && !has("mac"))
-        set   guifont=Cica\ 16
-        set printfont=Cica\ 16
-        " colorscheme iceberg
-
-    elseif has("mac")
-        if hostname() == "saladserver.com"
+    if (has("unix") && has("mac"))
+        if hostname()     == "SaladBookAirM1"
+            set   guifont=Cica:h16
+            set printfont=Cica:h16
+        elseif hostname() == "saladserver.com"
             set   guifont=Cica:h18
             set printfont=Cica:h18
         elseif hostname() == "SaladBook.local"
@@ -134,11 +132,15 @@ if !has("nvim")
             set   guifont=Cica:h15
             set printfont=Cica:h15
             set renderoptions=type:directx,renmode:5
-        elseif hostname() == "HBAPC511"
+        elseif hostname() == "HBAMB748"
             set   guifont=Cica:h15
             set printfont=Cica:h15
             set renderoptions=type:directx,renmode:5
-        elseif hostname() == "HBAMB748"
+        elseif hostname() == "HBAMB819"
+            set   guifont=Cica:h12
+            set printfont=Cica:h12
+            set renderoptions=type:directx,renmode:5
+        elseif hostname() == "HBAPC511"
             set   guifont=Cica:h15
             set printfont=Cica:h15
             set renderoptions=type:directx,renmode:5
@@ -157,10 +159,6 @@ if !has("nvim")
         elseif hostname() == "LAPTOP-DOA35GAR"
             set   guifont=Cica:h11
             set printfont=Cica:h11
-            set renderoptions=type:directx,renmode:5
-        elseif hostname() == "HBAMB819"
-            set   guifont=Cica:h12
-            set printfont=Cica:h12
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "SMM0761"
             set   guifont=Cica:h12
@@ -193,7 +191,8 @@ if !has("nvim")
         " }}}
 
         else
-            set guifont=Meiryo_UI:h18
+            set   guifont=Cica:h14
+            set printfont=Cica:h14
             set renderoptions=type:directx,renmode:5
         endif
     endif

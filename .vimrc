@@ -1,14 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2021/02/21 21:26:55.
-
-" NOT_WORK:
-" " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
-" if (has("mac") && has("kaoriya"))
-"     if has("python3")
-"     endif
-" endif
-" }}}
+" Last Change: 2021/02/21 22:10:54.
 
 " MEMO: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -28,11 +20,6 @@ if (has("unix") && has("mac"))
         let g:python3_host_prog = "/usr/local/bin/python3"
     elseif hostname() == "SaladBook.local"
         let g:python3_host_prog = "/usr/local/bin/python3"
-    " elseif hostname() == "ProSalad133.local"  " {{{
-    "     let g:python3_host_prog = "/usr/local/bin/Python3"
-    " elseif hostname() == "ProSalad13-2018.local"
-    "     let g:python3_host_prog = "/usr/local/bin/Python3"
-    " }}}
 
     else
         let g:python3_host_prog = "/usr/local/bin/Python3"
@@ -54,9 +41,6 @@ elseif (has("win32") || has("win64"))
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
         let g:python_host_prog  =
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
-        " if !has("nvim") && has("gui_running")
-        "     set pythonthreedll=C:\tools\miniconda3\envs\vim_mcon_env_py36\python36.dll
-        " endif
 
     elseif hostname() == "HBAMB1448"
         let g:python3_host_prog =

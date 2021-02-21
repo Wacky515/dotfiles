@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2020/11/08 21:39:05.
+# Last Change: 2021/02/21 22:12:35.
 
 # REF:
     # hook_add         プラグイン追加後
@@ -183,9 +183,9 @@ repo = 'tpope/vim-abolish'
 [[plugins]]
 repo = 'kana/vim-smartchr'
 
-# # タイムスタンプ 挿入
-# [[plugins]]
-# repo = 'vim-scripts/autodate.vim'
+# タイムスタンプ 挿入
+[[plugins]]
+repo = 'vim-scripts/autodate.vim'
 
 # 日付のインクリメント・デクリメント
     # FIXME: yyyy/mm/dd 形式は対応していない
