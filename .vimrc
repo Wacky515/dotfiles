@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2021/02/21 11:23:18.
+" Last Change: 2021/02/21 12:28:36.
 
 " NOT_WORK:
 " " "Macvim" で "Python3" を呼出す（Python2と併用不可のため） " {{{
@@ -45,7 +45,11 @@ elseif (has("win32") || has("win64"))
 " MEMO: Python3.6系でないと Dark powed できない 2021/02/21
     if hostname()     == "SALADPRIMEMK-II"
         let g:python3_host_prog =
-            \ $HOME."/AppData/Local/Programs/Python/Python36/python.exe"
+            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
+        let g:python_host_prog  =
+            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
+        " let g:python3_host_prog =
+        "     \ $HOME."/AppData/Local/Programs/Python/Python36/python.exe"
     elseif hostname() == "SALADCARBONX1"
         let g:python3_host_prog =
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
