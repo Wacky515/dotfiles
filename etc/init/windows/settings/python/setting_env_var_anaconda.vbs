@@ -1,5 +1,5 @@
 ' Created:     201*/**/** **:**:**
-' Last Change: 2019/10/15 15:35:26.
+' Last Change: 2021/02/20 22:42:05.
 
 ' ïœêîêÈåæÇã≠êß
 Option Explicit
@@ -11,22 +11,19 @@ call runasCheck()
 Dim env
 Dim shell
 Dim strEnvName
-Dim pcName
+' Dim pcName
 
 Set shell = WScript.CreateObject("WScript.Shell")
-Set pcName = WScript.CreateObject("WScript.Network")
+' Set pcName = WScript.CreateObject("WScript.Network")
 
-' strEnvName = "C:\Python35" & ";" & "C:\Python35\Scripts"
-' strEnvName = "C:\Python36" & ";" & "C:\Python36\Scripts"
+' If pcName = "HBAMB748" Then
+    strEnvName = "C:\tools\miniconda3" & ";" & "C:\tools\miniconda3\Scripts" & ";" & "C:\tools\miniconda3\Library\bin"
+' Else
+    ' strEnvName = "C:\Python36" & ";" & "C:\Python36\Scripts"
+' End if
 
-If pcName = "HBAMB748" Then
-    strEnvName = "C:\tools\miniconda3" & ";" & "C:\tools\miniconda3\Scripts"
-Else
-    strEnvName = "C:\Python36" & ";" & "C:\Python36\Scripts"
-End if
-
-' Set env = shell.Environment("USER")
-Set env = shell.Environment("SYSTEM")
+Set env = shell.Environment("USER")
+' Set env = shell.Environment("SYSTEM")
 
 If instr(env.item("PATH"), strEnvName) = 0 Then
     env.item("PATH") = env.item("PATH") & ";" & strEnvName
