@@ -69,7 +69,7 @@ j
 - Set Keyboard # Not yet
 - SSH Enable
 
-- –³üLAN İ’è 
+- ç„¡ç·šLAN è¨­å®š 
 - Auto start VNC # Not yet
 
 - Custom `/boot/config.txt` # Not yet
@@ -78,8 +78,8 @@ j
 - Change password
 - Change host name
 
-- NotYet Camera Enable # İ’è•û–@•s–¾
-- NotYet Set Locale # İ’è•s—v
+- NotYet Camera Enable # è¨­å®šæ–¹æ³•ä¸æ˜
+- NotYet Set Locale # è¨­å®šä¸è¦
 
 ## Raspbian Jessie LITE
 
@@ -87,7 +87,7 @@ j
 - Set Keyboard # Not yet
 - SSH Enable
 
-- –³üLAN İ’è 
+- ç„¡ç·šLAN è¨­å®š 
 
 - Custom `/boot/config.txt`
 

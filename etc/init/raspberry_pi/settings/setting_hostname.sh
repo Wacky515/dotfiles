@@ -7,7 +7,7 @@ readonly PROCESS="setting hostname"
 
 ym_echo ">> ${PROCESS^}"
 
-# ƒfƒtƒHƒ‹ƒgİ’è ƒoƒbƒNƒAƒbƒv
+# ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆè¨­å®š ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—
 sudo cp /etc/hostname /etc/hostname~
 sudo cp /etc/hosts /etc/hosts~
 

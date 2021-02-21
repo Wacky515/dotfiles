@@ -6,29 +6,29 @@
 - Oh My Fish
 
 - [x] Atom
-  - \*.sh ‚ªXV‚³‚ê‚Ä‚È‚©‚Á‚½‚©‚çH
+  - \*.sh ãŒæ›´æ–°ã•ã‚Œã¦ãªã‹ã£ãŸã‹ã‚‰ï¼Ÿ
     - YES
 - [x] Cica
 
 ## Failed setting
 
-- ì¬‚µ‚½ƒfƒBƒŒƒNƒgƒŠ‚ÌŒ ŒÀ‚ª root ‚É‚È‚Á‚Ä‚é
+- ä½œæˆã—ãŸãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®æ¨©é™ãŒ root ã«ãªã£ã¦ã‚‹
 
-  - GVim dein ‚ÌƒtƒHƒ‹ƒ_‚àI
+  - GVim dein ã®ãƒ•ã‚©ãƒ«ãƒ€ã‚‚ï¼
 
-- [x] synlink ‚Ì .gitconfig SSL ƒGƒ‰[
-  - SSL Ý’è‚ð .gitconfig.windows ‚ÉˆÚŠÇ
+- [x] synlink ã® .gitconfig SSL ã‚¨ãƒ©ãƒ¼
+  - SSL è¨­å®šã‚’ .gitconfig.windows ã«ç§»ç®¡
 
 ## Memo
 
 - install guake, byoubu
-- [ ] Vim fugitive E117, E15 ”­¶
+- [ ] Vim fugitive E117, E15 ç™ºç”Ÿ
 
-  - ‰ïŽÐ PC ‚¾‚¯”­¶
+  - ä¼šç¤¾ PC ã ã‘ç™ºç”Ÿ
 
-- make_dotfiles.sh ‚Ì has() ‚ðØo‚·
-- type -> has() ‚É’uŠ·
-- Å‰‚É curl ƒCƒ“ƒXƒg[ƒ‹
+- make_dotfiles.sh ã® has() ã‚’åˆ‡å‡ºã™
+- type -> has() ã«ç½®æ›
+- æœ€åˆã« curl ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
 
-- [x] 2 –{Žw‚ÅƒXƒNƒ[ƒ‹
-  - ƒGƒbƒWƒXƒNƒ[ƒ‹
+- [x] 2 æœ¬æŒ‡ã§ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«
+  - ã‚¨ãƒƒã‚¸ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«

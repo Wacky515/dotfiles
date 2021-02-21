@@ -3,19 +3,19 @@
 
 source ~/dotfiles/function/result_echo.sh
 
-# ÉtÉ@ÉCÉãé©êgÇÃê‚ëŒÉpÉX éÊìæ
+# „Éï„Ç°„Ç§„É´Ëá™Ë∫´„ÅÆÁµ∂ÂØæ„Éë„Çπ ÂèñÂæó
 # readonly PATH=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 
 readonly SETTING=./setting
 
-# "Jessie Lite" îªï èàóù
+# "Jessie Lite" Âà§Âà•Âá¶ÁêÜ
 readonly VER=$(dpkg -l | grep xinit)
 if [ "$VER" != "" ]
 then
-    # "Jessie Lite" Ç≈ÇÕÇ»Ç¢éûÇÃèàóù
+    # "Jessie Lite" „Åß„ÅØ„Å™„ÅÑÊôÇ„ÅÆÂá¶ÁêÜ
     ym_echo ">> Setting for GUI"
 
-    # âºëzÉfÉXÉNÉgÉbÉvä¬ã´ ê›íË
+    # ‰ªÆÊÉ≥„Éá„Çπ„ÇØ„Éà„ÉÉ„ÉóÁí∞Â¢É Ë®≠ÂÆö
     sudo cp -b ${SETTING}/lxpolkit.desktop \
         /etc/xdg/autostart/lxpolkit.desktop
 
@@ -25,15 +25,15 @@ then
     sudo update-rc.d -f lightdm remove
     sudo update-rc.d vncboot defaults
 
-    # "config.txt" ê›íË
+    # "config.txt" Ë®≠ÂÆö
     sudo cp -b ${SETTING}/config.txt \
         /boot/config.txt
 else
-    # "Jessie Lite" éûÇÃèàóù
+    # "Jessie Lite" ÊôÇ„ÅÆÂá¶ÁêÜ
     rb_echo ">> This is Raspbian Jessie Lite"
     ym_echo "-> Skip GUI setting"
 
-    # "config.txt" ê›íË
+    # "config.txt" Ë®≠ÂÆö
     sudo cp -b ${SETTING}/config_lite.txt \
         /boot/config.txt
 fi

@@ -1,33 +1,33 @@
 # Created:     2017/**/** **:**:**
 # Last Change: 2020/05/03 13:38:39.
-# MEMO: ƒƒOƒCƒ“‚Éˆê‰ñ‚¾‚¯Às‚µ‚½‚¢İ’è
-#       å‚ÉŠÂ‹«•Ï”‚Ìİ’è
-#       •W€o—Í‚â•W€ƒGƒ‰[o—Í‚Éo—Í‚µ‚È‚¢
+# MEMO: ãƒ­ã‚°ã‚¤ãƒ³æ™‚ã«ä¸€å›ã ã‘å®Ÿè¡Œã—ãŸã„è¨­å®š
+#       ä¸»ã«ç’°å¢ƒå¤‰æ•°ã®è¨­å®š
+#       æ¨™æº–å‡ºåŠ›ã‚„æ¨™æº–ã‚¨ãƒ©ãƒ¼å‡ºåŠ›ã«å‡ºåŠ›ã—ãªã„
 
-# ŠÂ‹«•Ï”
-## ƒƒP[ƒ‹İ’è
+# ç’°å¢ƒå¤‰æ•°
+## ãƒ­ã‚±ãƒ¼ãƒ«è¨­å®š
 export LANG=ja_JP.UTF-8
 
-# MEMO: "Shell" ÄŒÄo‚µ‚É“Ç‚Ş‚½‚ß ".bashrc" ‚É‚à‹LÚ
-## ŠÖ”
+# MEMO: "Shell" å†å‘¼å‡ºã—æ™‚ã«èª­è¾¼ã‚€ãŸã‚ ".bashrc" ã«ã‚‚è¨˜è¼‰
+## é–¢æ•°
 [ -f ~/.bash_function ] && source ~/.bash_function
 
-## ƒGƒCƒŠƒAƒX
+## ã‚¨ã‚¤ãƒªã‚¢ã‚¹
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
-## "RipGrep" İ’è
+## "RipGrep" è¨­å®š
 if [ -f ~/.ripgreprc ]; then
     export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 fi
 
-# OS •Êİ’è
+# OS åˆ¥è¨­å®š
 case ${OSTYPE} in
-    # "Linux" —pİ’è
+    # "Linux" ç”¨è¨­å®š
     linux*)
         # echo ">> Login setting for Bash on Linux"
         ;;
 
-    # "Mac" —pİ’è
+    # "Mac" ç”¨è¨­å®š
     darwin*)
         # echo ">> Login setting for Bash on Mac"
         export PATH="/usr/local/sbin:$PATH"
@@ -40,15 +40,15 @@ case ${OSTYPE} in
         [ -f ~/.bashrc ] && source ~/.bashrc
         ;;
 
-    # "Windows" —pİ’è
+    # "Windows" ç”¨è¨­å®š
     msys)
         # echo ">> Login setting for Bash on Windows Msys2"
         [ -f ~/.bash_profile_win ] && source ~/.bash_profile_win
 
-        # "mintty" ‚ª ."bashrc" ‚ğ“Ç‚Şİ’è
+        # "mintty" ãŒ ."bashrc" ã‚’èª­è¾¼ã‚€è¨­å®š
         [ -f ~/.bashrc ] && source ~/.bashrc
 
-        # # "mintty" —pFİ’èƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚ê‚Î“Ç‚İ
+        # # "mintty" ç”¨è‰²è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚Œã°èª­è¾¼ã¿
         # if [[ -f path/to/sol.dark ]]; then
         #     source path/to/sol.dark
         # fi

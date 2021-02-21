@@ -21,7 +21,7 @@ fi
 
 if ! has "npm"; then
     brew install nodebrew
-    # Warning: Failed to create the file‚ª•\¦‚³‚ê‚½ê‡‚ÍˆÈ‰º‚ğÀs
+    # Warning: Failed to create the fileãŒè¡¨ç¤ºã•ã‚ŒãŸå ´åˆã¯ä»¥ä¸‹ã‚’å®Ÿè¡Œ
     mkdir -p ~/nodebrew/src
     nodebrew install-binary stable
     nodebrew use stable

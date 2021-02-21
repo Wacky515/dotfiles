@@ -17,7 +17,7 @@ cd ~/
 # git clone git@github.com:skilion/onedrive.git
 git clone https://github.com/skilion/onedrive.git
 
-# ˆÈ‰º‚©‚ç‚Å‚«‚È‚¢
+# ä»¥ä¸‹ã‹ã‚‰ã§ããªã„
 cd onedrive
 make
 sudo make install

@@ -6,14 +6,14 @@
 set -ueo pipefail
 export LC_ALL=C
 
-## 関数
+## 髢「謨ー
 [ -f ~/.bash_function ] && source ~/.bash_function
 
 readonly PROCESS="setting enable install any apps"
 
 gm_echo ">> ${PROCESS^}"
 
-# "すべてのアプリケーションを許可" を復活
-sudo spctl –master-disable
+# "縺吶∋縺ヲ縺ョ繧「繝励Μ繧ア繝シ繧キ繝ァ繝ウ繧定ィア蜿ッ" 繧貞セゥ豢サ
+sudo spctl 窶杜aster-disable
 
 result_echo $? "${PROCESS}"

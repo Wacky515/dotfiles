@@ -15,7 +15,7 @@
 
 " MAINTAINER:            Alessandro Yorba       https://github.com/AlessandroYorba
 " Arch Linux Package:    George Angelopoulos    https://github.com/lathan
-" Design Inspiration:    Karolis Koncevičius    https://github.com/KKPMW
+" Design Inspiration:    Karolis Konceviト絞us    https://github.com/KKPMW
 " Design Inspiration:    Romain Lafourcade      https://github.com/romainl
 " UI Contributions:      jiyyti                 https://github.com/jiyyt
 "

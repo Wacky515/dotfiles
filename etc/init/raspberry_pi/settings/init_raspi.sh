@@ -4,45 +4,45 @@
 # FIXME:
 
 # TODO:
-    # Wi-Fi Ž©“®Ý’è
+    # Wi-Fi è‡ªå‹•è¨­å®š
 
 # DONE  :#{{{
-    # "source" ‚ÌŽQÆæ "/home/pi" ‚ð“®“I‚É‚·‚é
-    # -> –³‘Ê‚È "sudo" ‚ðC³‚µ‚Ä‰ðŒˆ
-    # TightVNCServerVNC Ž©“®‹N“®
-    # ƒCƒ“ƒXƒg[ƒ‹—pƒXƒNƒŠƒvƒg‚Ì‹¤’ÊEGUIELiteƒtƒHƒ‹ƒ_•ª‚¯
-    # "Jessie" ‚Æ "Jessie Lite" ‚Ìˆ— •ª‚¯‚é
-    # Ø‚èo‚µ‚½ŠÖ” ƒtƒHƒ‹ƒ_ì‚é
-    # ŽÀsŒ‹‰Ê "echo" ŠÖ” Ø‚èo‚µ
-    # F•t‚« "echo" ŠÖ” Ø‚èo‚µ
-    # IP Addr ŒÅ’èiƒAƒhƒŒƒX‚ð•W€“ü—Í‚·‚éj
-    # Wi-FiiŽ©‘îE‰ïŽÐProxyj SSID Pass Ý’è
-    # ŽžŒv‡‚í‚¹
+    # "source" ã®å‚ç…§å…ˆ "/home/pi" ã‚’å‹•çš„ã«ã™ã‚‹
+    # -> ç„¡é§„ãª "sudo" ã‚’ä¿®æ­£ã—ã¦è§£æ±º
+    # TightVNCServerVNC è‡ªå‹•èµ·å‹•
+    # ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ç”¨ã‚¹ã‚¯ãƒªãƒ—ãƒˆã®å…±é€šãƒ»GUIãƒ»Liteãƒ•ã‚©ãƒ«ãƒ€åˆ†ã‘
+    # "Jessie" ã¨ "Jessie Lite" ã®å‡¦ç† åˆ†ã‘ã‚‹
+    # åˆ‡ã‚Šå‡ºã—ãŸé–¢æ•° ãƒ•ã‚©ãƒ«ãƒ€ä½œã‚‹
+    # å®Ÿè¡Œçµæžœ "echo" é–¢æ•° åˆ‡ã‚Šå‡ºã—
+    # è‰²ä»˜ã "echo" é–¢æ•° åˆ‡ã‚Šå‡ºã—
+    # IP Addr å›ºå®šï¼ˆã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’æ¨™æº–å…¥åŠ›ã™ã‚‹ï¼‰
+    # Wi-Fiï¼ˆè‡ªå®…ãƒ»ä¼šç¤¾Proxyï¼‰ SSID Pass è¨­å®š
+    # æ™‚è¨ˆåˆã‚ã›
 #}}}
 
 source ~/dotfiles/function/result_echo.sh
 
-# ƒtƒ@[ƒ€‚ÆƒpƒbƒP[ƒW ƒAƒbƒvƒf[ƒg
+# ãƒ•ã‚¡ãƒ¼ãƒ ã¨ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆ
 update_package(){
-	# ƒpƒbƒP[ƒW ƒAƒbƒvƒf[ƒg
+	# ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆ
     ym_echo ">> Init package update"
     echo ""
 	sudo apt update && \
 	sudo apt -y upgrade && \
 	sudo apt -y dist-upgrade && \
 
-    # "Jessie Lite" ‚Å‚Í‚È‚¢Žž‚Ìˆ—
+    # "Jessie Lite" ã§ã¯ãªã„æ™‚ã®å‡¦ç†
     readonly VER=$(dpkg -l | grep xinit)
     if [ "$VER" != "" ]
     then
-        # ƒtƒ@[ƒ€ ƒAƒbƒvƒf[ƒg
+        # ãƒ•ã‚¡ãƒ¼ãƒ  ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆ
         ym_echo ">> Execute \"rpi-update\""
         sudo rpi-update || \
         rb_echo ">> Fail \"rpi-update\""
     fi
 
-    # ƒAƒbƒvƒf[ƒg Œãˆ—
-    # MEMO: "autoremove" ‚¾‚¯‚Í "apt-get" ‚Ì‚Ü‚Ü
+    # ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆ å¾Œå‡¦ç†
+    # MEMO: "autoremove" ã ã‘ã¯ "apt-get" ã®ã¾ã¾
 	sudo apt-get -y autoremove && \
 
     ym_echo ">> Success init package update" || \
@@ -50,59 +50,59 @@ update_package(){
     echo ""
 }
 
-# ŠeƒpƒbƒP[ƒW ƒCƒ“ƒXƒg[ƒ‹
+# å„ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
 install_package(){
     ym_echo ">> Init install packages"
     echo ""
 
-    # "zsh" ƒCƒ“ƒXƒg[ƒ‹
+    # "zsh" ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
     ym_echo ">> Install \"zsh\""
     sudo apt install -y zsh
     result_echo $? "install \"zsh\""
 
-	# "Vim" ƒCƒ“ƒXƒg[ƒ‹
+	# "Vim" ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
     ym_echo ">> Install \"Vim\""
 	sudo apt install -y vim && \
 	sudo apt install -y vim-gtk
     result_echo $? "install \"Vim\""
 
-	# ‰¼‘z’[–– ƒCƒ“ƒXƒg[ƒ‹
+	# ä»®æƒ³ç«¯æœ« ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
 	# sudo apt install -y byobu
 
-    # "Jessie Lite" ‚Å‚Í‚È‚¢Žž‚Ìˆ—
+    # "Jessie Lite" ã§ã¯ãªã„æ™‚ã®å‡¦ç†
     sudo bash ./gui_packages.sh
 }
 
-# “ÆŽ©Ý’è
+# ç‹¬è‡ªè¨­å®š
 setup_dotfiles(){
     ym_echo ">> Init setting"
     echo ""
 
-    # "link.sh" ŽÀŽ{
+    # "link.sh" å®Ÿæ–½
     bash /home/pi/dotfiles/link.sh
 
-    # ŽžŒv "JST" ‚ÉÝ’è
+    # æ™‚è¨ˆ "JST" ã«è¨­å®š
     bash ./setting_jst.sh
 
-    # ƒL[ƒ{[ƒh”z—ñ •ÏX
+    # ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰é…åˆ— å¤‰æ›´
     bash ./setting_keyboard.sh
 
-    # Wi-Fi Ý’è
+    # Wi-Fi è¨­å®š
     bash ./setting_wifi.sh
 
-    # SSH —LŒø‰»
+    # SSH æœ‰åŠ¹åŒ–
     bash ./setting_ssh.sh
 
-    # zsh Ý’è
+    # zsh è¨­å®š
     bash ./fix_zsh.sh
 
-    # "Jessie Lite" ‚Å‚Í‚È‚¢Žž‚Ìˆ—
+    # "Jessie Lite" ã§ã¯ãªã„æ™‚ã®å‡¦ç†
     bash ./gui_setting.sh
 
-    # IPƒAƒhƒŒƒX ŒÅ’è
+    # IPã‚¢ãƒ‰ãƒ¬ã‚¹ å›ºå®š
     bash ./fix_ipaddr.sh
 
-    # ƒpƒXƒ[ƒh •ÏX
+    # ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ å¤‰æ›´
     ym_echo ">> Change password for root"
     sudo passwd root
 
@@ -113,7 +113,7 @@ setup_dotfiles(){
 # Main routine
 readonly START_TIME=`date +%s`
 
-# # ŽÀs‚µ‚½ƒtƒHƒ‹ƒ_‚É "cd"
+# # å®Ÿè¡Œã—ãŸãƒ•ã‚©ãƒ«ãƒ€ã« "cd"
 # cd `dirname $0`
 
 update_package
@@ -130,7 +130,7 @@ readonly SS=`expr ${SS} % 60`
 
 ym_echo ">> Total time: ${HH}:${MM}:${SS}"
 
-# "Jessie Lite" ‚Å‚Í‚È‚¢Žž‚Ìˆ—
+# "Jessie Lite" ã§ã¯ãªã„æ™‚ã®å‡¦ç†
 readonly VER=$(dpkg -l | grep xinit)
 if [ "$VER" != "" ]
 then
@@ -138,7 +138,7 @@ then
     sudo /etc/init.d/vncboot start
 fi
 
-# ƒzƒXƒg–¼ •ÏXi•K‚¸ÅŒã‚ÉŽÀŽ{j
+# ãƒ›ã‚¹ãƒˆå å¤‰æ›´ï¼ˆå¿…ãšæœ€å¾Œã«å®Ÿæ–½ï¼‰
 bash ./setting_hostname.sh
 
 ym_echo ">> Please reboot(yes/no)"

@@ -4,7 +4,7 @@
 # Last Change: 2019/11/19 13:48:53.
 
 # FIXME:
-    # sudoŒ ŒÀ‚ğI—¹‚µ‚È‚¢‚Æ "brew" ‚ªg‚¦‚È‚¢
+    # sudoæ¨©é™ã‚’çµ‚äº†ã—ãªã„ã¨ "brew" ãŒä½¿ãˆãªã„
 
 # DONE:
 
@@ -16,8 +16,8 @@ readonly PROCESS="make dotfiles"
 readonly DOT_DIR="${HOME}/dotfiles"
 readonly GIT_URL="https://github.com/Wacky515/dotfiles.git"
 
-## İ’è
-# F•t‚«‚ÌƒeƒLƒXƒg‚ğ’[––‚Åg—p‚·‚éİ’è
+## è¨­å®š
+# è‰²ä»˜ãã®ãƒ†ã‚­ã‚¹ãƒˆã‚’ç«¯æœ«ã§ä½¿ç”¨ã™ã‚‹è¨­å®š
 tput=$(which tput)
 if [ -n "$tput" ]; then
     ncolors=$($tput colors)
@@ -39,8 +39,8 @@ else
     NORMAL=""
 fi
 
-## ŠÖ”ŒQ
-# info: î•ñ‚ğ—ÎF‚Åo—Í
+## é–¢æ•°ç¾¤
+# info: æƒ…å ±ã‚’ç·‘è‰²ã§å‡ºåŠ›
 function info() {
     printf "${GREEN}"
     echo -n "  INFO:     "
@@ -48,7 +48,7 @@ function info() {
     echo "$1"
 }
 
-# warn: Œx•ñ‚ğ‰©F‚Åo—Í
+# warn: è­¦å ±ã‚’é»„è‰²ã§å‡ºåŠ›
 function warn() {
     printf "${YELLOW}"
     echo -n "  WARNING!: "
@@ -56,7 +56,7 @@ function warn() {
     echo "$1"
 }
 
-# error: ƒGƒ‰[‚ğÔF‚Åo—Í
+# error: ã‚¨ãƒ©ãƒ¼ã‚’èµ¤è‰²ã§å‡ºåŠ›
 function error() {
     printf "${RED}"
     echo -n "  ERROR!!:  "
@@ -64,24 +64,24 @@ function error() {
     echo "$1"
 }
 
-# log: ƒƒO‚ğ’Êí‚ÌF‚Åo—Í
+# log: ãƒ­ã‚°ã‚’é€šå¸¸ã®è‰²ã§å‡ºåŠ›
 function log() {
     echo "  $1"
 }
 
-# "sed" ‚Ì·ˆÙ‹zû
+# "sed" ã®å·®ç•°å¸å
 if sed --version 2>/dev/null | grep -q GNU; then
     alias sedi='sed -i '
 else
     alias sedi='sed -i "" '
 fi
 
-# ƒpƒbƒP[ƒW‚Ì‘¶İŠm”F
+# ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®å­˜åœ¨ç¢ºèª
 function has() {
     type "$1" > /dev/null 2>&1
 }
 
-# ƒVƒ“ƒ{ƒŠƒbƒNƒŠƒ“ƒN‚Ì’Ç‰Á
+# ã‚·ãƒ³ãƒœãƒªãƒƒã‚¯ãƒªãƒ³ã‚¯ã®è¿½åŠ 
 function symlink() {
     [ -e "$2" ] || ln -sf "$1" "$2"
 }
@@ -138,7 +138,7 @@ brew update
 fi
 
 info ">> Start setting dotfiles"
-# "dotfiles/.git" ‚ª‚È‚¯‚ê‚Î "git clone" ‚©ƒ_ƒEƒ“ƒ[ƒh
+# "dotfiles/.git" ãŒãªã‘ã‚Œã° "git clone" ã‹ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰
 if [ ! -d ${DOT_DIR}"/.git" ]; then
     if [ -d ${DOT_DIR} ]; then
         rm -r ${DOT_DIR}
@@ -171,22 +171,22 @@ else
 fi
 echo ""
 
-# OS–ˆ‚Ìİ’è
+# OSæ¯ã®è¨­å®š
 case ${OSTYPE} in
 darwin*)
-    # "OS X" —pİ’è
+    # "OS X" ç”¨è¨­å®š
     info ">> Call setting OS X"
     cd ~/dotfiles/etc/init/osx/settings/
     bash ./init_osx.sh
     ;;
 
 linux*)
-    # "Linux" —pİ’è
+    # "Linux" ç”¨è¨­å®š
     info ">> Call setting Linux"
     cd ~/dotfiles/etc/init/linux/settings/
     bash ./init_linux.sh
     ;;
 esac
 
-# « ƒGƒ‰[H
+# â†“ ã‚¨ãƒ©ãƒ¼ï¼Ÿ
 exec $SHELL -l

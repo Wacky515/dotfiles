@@ -18,8 +18,8 @@ gm_echo ">> ${PROCESS^}"
 
 sudo apt install python3.7 python3-pip python3.7-dev python3-tk -y
 
-# "pip" ‚ÌŠÂ‹«•Ï”
-# TODO: d•¡–hŽ~
+# "pip" ã®ç’°å¢ƒå¤‰æ•°
+# TODO: é‡è¤‡é˜²æ­¢
 echo 'export PATH=$PATH:$HOME/.local/bin' >> ~/.bashrc
 
 result_echo $? "${PROCESS}"

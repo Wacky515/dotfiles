@@ -1,6 +1,6 @@
 #!/bin/bash
 # @(#) Intall Terminator
-# 分割ターミナル
+# 蛻�蜑ｲ繧ｿ繝ｼ繝溘リ繝ｫ
 
 source ~/dotfiles/function/result_echo.sh
 

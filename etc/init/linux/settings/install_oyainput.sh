@@ -3,7 +3,7 @@
 # Created:     201*/**/** **:**:**
 # Last Change: 2019/10/01 11:54:28.
 
-# TODO: ©“®‹N“®‚³‚¹‚é
+# TODO: è‡ªå‹•èµ·å‹•ã•ã›ã‚‹
 
 set -ueo pipefail
 export LC_ALL=C

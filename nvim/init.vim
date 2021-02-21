@@ -2,16 +2,16 @@ scriptencoding utf-8
 " Created:     201*/**/** **:**:**
 " Last Change: 2019/10/29 09:37:19.
 
-" !!!: •K‚¸æ“ª‚É‹Lq
-" "autocmd"iƒ}ƒNƒj ‚Ì‰Šú‰»
+" !!!: å¿…ãšå…ˆé ­ã«è¨˜è¿°
+" "autocmd"ï¼ˆãƒã‚¯ãƒ­ï¼‰ ã®åˆæœŸåŒ–
 augroup MyAutoCmd
     autocmd!
 augroup END
 
-" "Vim" –ˆ‚Ìrcƒtƒ@ƒCƒ‹ƒpƒXİ’è
+" "Vim" æ¯ã®rcãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹è¨­å®š
 let g:rc_dir = expand("~/dotfiles")
 
-" rcƒtƒ@ƒCƒ‹“Ç‚İŠÖ”
+" rcãƒ•ã‚¡ã‚¤ãƒ«èª­è¾¼ã¿é–¢æ•°
 function! s:source_rc(rc_file_name)
     let rc_file = expand(g:rc_dir . "/" . a:rc_file_name)
     if filereadable(rc_file)
@@ -19,11 +19,11 @@ function! s:source_rc(rc_file_name)
     endif
 endfunction
 
-" Šî–{İ’è
+" åŸºæœ¬è¨­å®š
 call s:source_rc(".vimrc")
 
-" NeoVim ê—pİ’è
+" NeoVim å°‚ç”¨è¨­å®š
 colorscheme iceberg
 
-" ee: "TComment" ‹N“®
+" ee: "TComment" èµ·å‹•
 nnoremap <silent> ee :<C-u>TComment<CR>

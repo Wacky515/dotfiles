@@ -2,7 +2,7 @@
 # @(#) Intall Guake
 # Created:     201*/**/** **:**:**
 # Last Change: 2019/10/31 13:49:18.
-# "F12" で画面上部から呼出すターミナル
+# "F12" 縺ｧ逕ｻ髱｢荳企Κ縺九ｉ蜻ｼ蜃ｺ縺吶ち繝ｼ繝溘リ繝ｫ
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh

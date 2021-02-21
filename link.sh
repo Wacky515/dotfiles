@@ -6,12 +6,12 @@
 set -ueo pipefail
 export LC_ALL=C
 
-## ŠÖ”
+## é–¢æ•°
 [ -f ~/dotfiles/.bash_function ] && source ~/dotfiles/.bash_function
 
-# Às‚µ‚½ƒtƒHƒ‹ƒ_‚É "cd"
-# « ‚É "grep" ’uŠ·
-# Às‚µ‚½ƒtƒ@ƒCƒ‹‚ÌƒfƒBƒŒƒNƒgƒŠ‚É "cd"
+# å®Ÿè¡Œã—ãŸãƒ•ã‚©ãƒ«ãƒ€ã« "cd"
+# â†“ ã« "grep" ç½®æ›
+# å®Ÿè¡Œã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã« "cd"
 # cd $(dirname $0)
 cd $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 
@@ -21,7 +21,7 @@ readonly PROCESS="symbolic linkig dotfiles"
 gm_echo ">> Start ${PROCESS}"
 gm_echo ">> Start .gitconfig link"
 
-# "git" ‚Ìİ’è
+# "git" ã®è¨­å®š
 ln -snfv ${DOT_DIR}/.gitconfig ~/.gitconfig
 if [ $? = 0 ]
 then
@@ -41,7 +41,7 @@ gm_echo ">> Start dotfiles link"
 [ ! -f ~/.zsh_history  ] && cp -nv ${DOT_DIR}/.zsh_history  ~/.zsh_history
 [ ! -f ~/history.fish  ] && cp -nv ${DOT_DIR}/history.fish  ~/history.fish
 
-# "fish" İ’è
+# "fish" è¨­å®š
 for g in *.fish
 do
     gm_echo set ${g}
@@ -49,20 +49,20 @@ do
 done
 echo ""
 
-# "NeoVim" İ’è
+# "NeoVim" è¨­å®š
 if [ ! -e ~/.config/nvim/ ]; then
     sudo -- bash -c "mkdir -m 777 ~/.config/nvim/"
 fi
 sudo ln -snfv ${DOT_DIR}/nvim/init.vim  ~/.config/nvim/init.vim
 sudo ln -snfv ${DOT_DIR}/nvim/ginit.vim ~/.config/nvim/ginit.vim
 
-# "NyaoVim" İ’è
+# "NyaoVim" è¨­å®š
 if [ ! -e ~/.config/nyaovim/ ]; then
     bash -c "mkdir -m 777 ~/.config/nyaovim/"
 fi
 sudo ln -snfv ${DOT_DIR}/nyaovimrc.html ~/.config/nyaovim/nyaovimrc.html
 
-# "OniVim" İ’è
+# "OniVim" è¨­å®š
 if [ ! -e ~/.config/oni/ ]; then
     sudo -- bash -c "mkdir -m 777 ~/.config/oni/"
 fi
@@ -70,7 +70,7 @@ sudo ln -snfv ${DOT_DIR}/config.tsx ~/.config/oni/config.tsx
 
 for f in .??*
 do
-    # –³‹‚µ‚½‚¢ƒtƒ@ƒCƒ‹‚âƒfƒBƒŒƒNƒgƒŠ‚ÍˆÈ‰º‚É’Ç‹L
+    # ç„¡è¦–ã—ãŸã„ãƒ•ã‚¡ã‚¤ãƒ«ã‚„ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã¯ä»¥ä¸‹ã«è¿½è¨˜
 
     [[ ${f} = ".bash_history"      ]] && continue
     [[ ${f} = ".zsh_history"       ]] && continue
@@ -90,7 +90,7 @@ do
     # [[ ${f} = "*.swp"              ]] && continue
     # [[ ${f} = "*.un~"              ]] && continue
 
-    # ƒVƒ“ƒ{ƒŠƒbƒNƒŠƒ“ƒN ì¬
+    # ã‚·ãƒ³ãƒœãƒªãƒƒã‚¯ãƒªãƒ³ã‚¯ ä½œæˆ
     gm_echo set ${f}
     ln -snfv ${DOT_DIR}/${f} ~/${f}
 done

@@ -3,26 +3,26 @@
 
 cd ~/dotfiles
 
-# ŠÂ‹«•Ï”
-## ƒƒP[ƒ‹Ý’è
+# ç’°å¢ƒå¤‰æ•°
+## ãƒ­ã‚±ãƒ¼ãƒ«è¨­å®š
 export LANG=ja_JP.UTF-8
 
-## ƒGƒCƒŠƒAƒX
+## ã‚¨ã‚¤ãƒªã‚¢ã‚¹
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
 
-## "RipGrep" Ý’è
+## "RipGrep" è¨­å®š
 if [ -f ~/.ripgreprc ]; then
     export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 fi
 
-## "fzf" Ý’è
+## "fzf" è¨­å®š
 if [ -f ~/.fzf.zsh ]; then
     source ~/.fzf.zsh
     export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
     export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 fi
 
-## "pyenv" Ý’è
+## "pyenv" è¨­å®š
 if [ -d ${HOME}/.pyenv ]; then
     export PATH="$PYENV_ROOT/bin:$PATH"
     export PYENV_ROOT="$HOME/.pyenv"
@@ -31,92 +31,92 @@ if [ -d ${HOME}/.pyenv ]; then
     alias brew="env PATH=${PATH~\/\.pyenv\/shims:/} brew"
 fi
 
-## "HomeBrew" Error‘Îô #  {{{
-# MEMO: ã‚É‚ ‚é‚Ì‚ÅKILL
+## "HomeBrew" Errorå¯¾ç­– #  {{{
+# MEMO: ä¸Šã«ã‚ã‚‹ã®ã§KILL
 # alias brew="env PATH=${PATH/\/Users\/wacky515\/\.pyenv\/shims:/} brew"
 # }}}
 
-# ƒIƒvƒVƒ‡ƒ“Œn
-## "beep" –³Œø
+# ã‚ªãƒ—ã‚·ãƒ§ãƒ³ç³»
+## "beep" ç„¡åŠ¹
 setopt no_beep
-## ƒRƒ}ƒ“ƒhƒ~ƒX‚ðC³
+## ã‚³ãƒžãƒ³ãƒ‰ãƒŸã‚¹ã‚’ä¿®æ­£
 setopt correct
-## “ú–{Œêƒtƒ@ƒCƒ‹–¼‚ð•\Ž¦
+## æ—¥æœ¬èªžãƒ•ã‚¡ã‚¤ãƒ«åã‚’è¡¨ç¤º
 setopt print_eight_bit
-## ƒfƒBƒŒƒNƒgƒŠ–¼‚¾‚¯‚Å hcd"
+## ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªåã ã‘ã§ â€cd"
 setopt auto_cd
 
-# ƒL[ƒoƒCƒ“ƒh
-## "Emacs" •—
+# ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰
+## "Emacs" é¢¨
 bindkey -e
 
-# ## "Vim" •— #  {{{
-# ## MEMO: ƒCƒ“ƒNƒŠƒƒ“ƒ^ƒ‹ƒT[ƒ`‚ª“®ì‚µ‚È‚¢‚Ì‚ÅKILL
+# ## "Vim" é¢¨ #  {{{
+# ## MEMO: ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒãŒå‹•ä½œã—ãªã„ã®ã§KILL
 # bindkey -v
 # }}}
 
-# •âŠ®Œn
-## ƒRƒ}ƒ“ƒh•âŠ®
+# è£œå®Œç³»
+## ã‚³ãƒžãƒ³ãƒ‰è£œå®Œ
 autoload -Uz compinit
 compinit
 
-## "sudo" ‚ÌŒã‚ë‚ÅƒRƒ}ƒ“ƒh–¼‚ð•âŠ®‚·‚é
+## "sudo" ã®å¾Œã‚ã§ã‚³ãƒžãƒ³ãƒ‰åã‚’è£œå®Œã™ã‚‹
 zstyle ":completion:*:sudo:*" \
         command-path /usr/local/sbin /usr/local/bin \
         /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
-# "history" Œn
-## ‘¼‚Ì’[––‚Æ‹¤—L
+# "history" ç³»
+## ä»–ã®ç«¯æœ«ã¨å…±æœ‰
 setopt share_history
-##  d•¡‚ð‹L˜^‚µ‚È‚¢
+##  é‡è¤‡ã‚’è¨˜éŒ²ã—ãªã„
 setopt histignorealldups
-## ŠJŽn‚ÆI—¹Žž‚ð‹L˜^
+## é–‹å§‹ã¨çµ‚äº†æ™‚åˆ»ã‚’è¨˜éŒ²
 setopt extended_history
-## •Û‘¶Žž‚É—]•ª‚ÈƒXƒy[ƒX‚ðíœ
+## ä¿å­˜æ™‚ã«ä½™åˆ†ãªã‚¹ãƒšãƒ¼ã‚¹ã‚’å‰Šé™¤
 setopt hist_reduce_blanks
-## ’Ç‰ÁƒRƒ}ƒ“ƒh‚ªŒÃ‚¢‚à‚Ì‚Æ“¯‚¶‚È‚çŒÃ‚¢‚à‚Ì‚ðíœ
+## è¿½åŠ ã‚³ãƒžãƒ³ãƒ‰ãŒå¤ã„ã‚‚ã®ã¨åŒã˜ãªã‚‰å¤ã„ã‚‚ã®ã‚’å‰Šé™¤
 setopt hist_ignore_all_dups
 
-## —š—ð‚ðƒtƒ@ƒCƒ‹‚É•Û‘¶
+## å±¥æ­´ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«ä¿å­˜
 HISTFILE=$HOME/.zsh_history
-## ƒƒ‚ƒŠ•Û‘¶”
+## ãƒ¡ãƒ¢ãƒªä¿å­˜æ•°
 HISTSIZE=100000
-## ƒtƒ@ƒCƒ‹•Û‘¶”
+## ãƒ•ã‚¡ã‚¤ãƒ«ä¿å­˜æ•°
 SAVEHIST=100000
 
-## C-r: ƒCƒ“ƒNƒŠƒƒ“ƒ^ƒ‹ƒT[ƒ` ³‡
+## C-r: ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒ æ­£é †
 bindkey "^r" history-incremental-pattern-search-backward
-## C-s: ƒCƒ“ƒNƒŠƒƒ“ƒ^ƒ‹ƒT[ƒ` ‹t‡
+## C-s: ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒ é€†é †
 bindkey "^s" history-incremental-pattern-search-forward
-## C-p: “ü—Í“r’†‚ÅƒT[ƒ` ³‡
+## C-p: å…¥åŠ›é€”ä¸­ã§ã‚µãƒ¼ãƒ æ­£é †
 bindkey "^p" history-beginning-search-backward
-## C-p: “ü—Í“r’†‚ÅƒT[ƒ` ‹t‡
+## C-p: å…¥åŠ›é€”ä¸­ã§ã‚µãƒ¼ãƒ é€†é †
 bindkey "^n" history-beginning-search-forward
 
-## ˆê——‚ðo—Í
+## ä¸€è¦§ã‚’å‡ºåŠ›
 function history-all { history -E 1 }UNCTION HISTORY-ALL { HISTORY -E 1 }
 
-# ƒvƒƒ“ƒvƒgŒn
-## F‚ðŽg—p
+# ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆç³»
+## è‰²ã‚’ä½¿ç”¨
 autoload -Uz colors
 colors
 
-# "PowerLine" •—
-PROMPT="%{${bg[blue]%}%}%{${fg[black]}%} %n %{${bg[white]}%}%{${fg[blue]}%}ðñ%{${bg[white]}%}%{${fg[black]}%} %~ %{${reset_color}%}%{${fg[white]}%}ðñ%{${reset_color}%}"
+# "PowerLine" é¢¨
+PROMPT="%{${bg[blue]%}%}%{${fg[black]}%} %n %{${bg[white]}%}%{${fg[blue]}%}î‚°%{${bg[white]}%}%{${fg[black]}%} %~ %{${reset_color}%}%{${fg[white]}%}î‚°%{${reset_color}%}"
 
 # PROMPT="%F{green}%m: %F{magenta}%n@%F{cyan}%c%F{white}%f%# "
 
-# ## …F  # {{{
+# ## æ°´è‰²  # {{{
 # PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | \
 #   tr "[a-z]" "[A-Z]") %B%{${fg[red]}%}%/#%{${reset_color}%}%b "
 # }}}
 
-# ## 2s‚ÅŽž‚ð•\Ž¦  # {{{
+# ## 2è¡Œã§æ™‚åˆ»ã‚’è¡¨ç¤º  # {{{
 # PROMPT="%(?.%{${fg[green]}%}.%{${fg[red]}%})%n${reset_color}@ \
 #         ${fg[blue]}%m${reset_color}(%*%) %~ %# "
 # }}}
 
-# ## "Š¿‚Ìzsh" „§ƒvƒƒ“ƒvƒg  # {{{
+# ## "æ¼¢ã®zsh" æŽ¨å¥¨ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆ  # {{{
 # case ${UID} in
 # 0)
 #     PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | \
@@ -137,8 +137,8 @@ PROMPT="%{${bg[blue]%}%}%{${fg[black]}%} %n %{${bg[white]}%}%{${fg[blue]}%}ðñ%{$
 # esac
 # }}}
 
-# ‚»‚Ì‘¼
-## "zsh" ‹N“®Error‘Îô
+# ãã®ä»–
+## "zsh" èµ·å‹•Errorå¯¾ç­–
 compinit -u
 
 function win_setting() {
@@ -148,22 +148,22 @@ function win_setting() {
     alias gnvim="C:/tools/neovim/Neovim/bin/nvim-qt.exe"
 }
 
-# OS •ÊÝ’è
+# OS åˆ¥è¨­å®š
 case ${OSTYPE} in
-    # "Linux" —pÝ’è
+    # "Linux" ç”¨è¨­å®š
     linux*)
         echo ">> Start setting for zsh on Linux"
         alias ls="ls -F --color=auto"
         ;;
 
-    # "Mac" —pÝ’è
+    # "Mac" ç”¨è¨­å®š
     darwin*)
         echo ">> Start setting for zsh on Mac"
         export CLICOLOR=1
         alias ls="ls -G -F"
         ;;
 
-    # "Windows" —pÝ’è
+    # "Windows" ç”¨è¨­å®š
     msys)
         echo ">> Start setting for zsh on Windows Msys2"
         win_setting

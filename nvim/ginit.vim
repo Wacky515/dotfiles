@@ -2,26 +2,26 @@ scriptencoding utf-8
 " Created:     201*/**/** **:**:**
 " Last Change: 2019/12/03 09:36:18.
 
-" !!!: •K‚¸æ“ª‚É‹Lq
-" "autocmd"iƒ}ƒNƒj ‚Ì‰Šú‰»
+" !!!: å¿…ãšå…ˆé ­ã«è¨˜è¿°
+" "autocmd"ï¼ˆãƒã‚¯ãƒ­ï¼‰ ã®åˆæœŸåŒ–
 augroup MyAutoCmd
     autocmd!
 augroup END
 
-" TODO: ƒEƒBƒ“ƒhƒEƒTƒCƒY‹L‰¯‚·‚é
-" ƒEƒBƒ“ƒhƒE•
+" TODO: ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚ºè¨˜æ†¶ã™ã‚‹
+" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦å¹…
 set columns=360
-" ƒEƒBƒ“ƒhƒE‚
+" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦é«˜
 set lines=180
-" ƒEƒBƒ“ƒhƒEˆÊ’u
+" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ä½ç½®
 if has("gui")
     winpos 200 10
 endif
 
-" "Vim" –ˆ‚Ìrcƒtƒ@ƒCƒ‹ ƒpƒXİ’è
+" "Vim" æ¯ã®rcãƒ•ã‚¡ã‚¤ãƒ« ãƒ‘ã‚¹è¨­å®š
 let g:rc_dir = expand("~/dotfiles")
 
-" rcƒtƒ@ƒCƒ‹ “Ç‚İŠÖ”
+" rcãƒ•ã‚¡ã‚¤ãƒ« èª­è¾¼ã¿é–¢æ•°
 function! s:source_rc(rc_file_name)
     let rc_file = expand(g:rc_dir . "/" . a:rc_file_name)
     if filereadable(rc_file)
@@ -29,10 +29,10 @@ function! s:source_rc(rc_file_name)
     endif
 endfunction
 
-" GUI Šî–{İ’è
+" GUI åŸºæœ¬è¨­å®š
 call s:source_rc(".gvimrc")
 
-" "NeoVim" ê—pİ’è
+" "NeoVim" å°‚ç”¨è¨­å®š
 if (has("unix") && !has("mac"))
     Guifont! Cica\ 16
 

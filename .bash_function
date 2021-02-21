@@ -1,56 +1,56 @@
 # Created:     2019/11/12 10:27:49
 # Last Change: 2020/05/02 23:05:44.
 
-# ƒpƒbƒP[ƒW‚Ì‘¶ÝŠm”F
+# ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®å­˜åœ¨ç¢ºèª
 function has() {
     type "$1" > /dev/null 2>&1
 }
 
-# F•t‚« "echo"
-# ˆÈ‰º‚Ì31‚ð•Ï‚¦‚é‚±‚Æ‚ÅA—lX‚ÈF‚É•Ï‚¦‚ç‚ê‚éB#  {{{
-# echo -e "\033[0;31mƒeƒLƒXƒg\033[0;39m"
-    # •¶ŽšF‚ÌƒJƒ‰[ƒoƒŠƒG[ƒVƒ‡ƒ“
-        # 30 => • : Black
-        # 31 => Ô : Red
-        # 32 => —Î : Green
-        # 33 => ‰©F : Yellow
-        # 34 => Â : Blue
-        # 35 => ƒ}ƒ[ƒ“ƒ_ : Magenta
-        # 36 => ƒVƒAƒ“ : Cyan
-        # 37 => ”’ : White
-    # •¶Žš”wŒi‚ÌƒJƒ‰[ƒoƒŠƒG[ƒVƒ‡ƒ“
-        # 40 => • : Black
-        # 41 => Ô : Red
-        # 42 => —Î : Green
-        # 43 => ‰©F : Yellow
-        # 44 => Â : Blue
-        # 45 => ƒ}ƒ[ƒ“ƒ_ : Magenta
-        # 46 => ƒVƒAƒ“ : Cyan
-        # 47 => ”’ : White
-    # ˆÈ‰º‚Ì‘¾Žš•”•ª‚ð•Ï‚¦‚ê‚ÎA‘¾Žš‚â‰ºü‚à“K—p‰Â”\B
-        # echo -e "\033[0;31mƒeƒLƒXƒg\033[0;39m"
-        # 0 => ƒm[ƒ}ƒ‹ : All attributs off
-        # 1 => ‘¾Žš : Bold on
-        # 4 => ‰ºü : Underscore (on monochrome display adapter only)
-        # 5 => “_–Å : Blink on
-        # 7 => F”½“] Reverse video on
+# è‰²ä»˜ã "echo"
+# ä»¥ä¸‹ã®31ã‚’å¤‰ãˆã‚‹ã“ã¨ã§ã€æ§˜ã€…ãªè‰²ã«å¤‰ãˆã‚‰ã‚Œã‚‹ã€‚#  {{{
+# echo -e "\033[0;31mãƒ†ã‚­ã‚¹ãƒˆ\033[0;39m"
+    # æ–‡å­—è‰²ã®ã‚«ãƒ©ãƒ¼ãƒãƒªã‚¨ãƒ¼ã‚·ãƒ§ãƒ³
+        # 30 => é»’ : Black
+        # 31 => èµ¤ : Red
+        # 32 => ç·‘ : Green
+        # 33 => é»„è‰² : Yellow
+        # 34 => é’ : Blue
+        # 35 => ãƒžã‚¼ãƒ³ãƒ€ : Magenta
+        # 36 => ã‚·ã‚¢ãƒ³ : Cyan
+        # 37 => ç™½ : White
+    # æ–‡å­—èƒŒæ™¯ã®ã‚«ãƒ©ãƒ¼ãƒãƒªã‚¨ãƒ¼ã‚·ãƒ§ãƒ³
+        # 40 => é»’ : Black
+        # 41 => èµ¤ : Red
+        # 42 => ç·‘ : Green
+        # 43 => é»„è‰² : Yellow
+        # 44 => é’ : Blue
+        # 45 => ãƒžã‚¼ãƒ³ãƒ€ : Magenta
+        # 46 => ã‚·ã‚¢ãƒ³ : Cyan
+        # 47 => ç™½ : White
+    # ä»¥ä¸‹ã®å¤ªå­—éƒ¨åˆ†ã‚’å¤‰ãˆã‚Œã°ã€å¤ªå­—ã‚„ä¸‹ç·šã‚‚é©ç”¨å¯èƒ½ã€‚
+        # echo -e "\033[0;31mãƒ†ã‚­ã‚¹ãƒˆ\033[0;39m"
+        # 0 => ãƒŽãƒ¼ãƒžãƒ« : All attributs off
+        # 1 => å¤ªå­— : Bold on
+        # 4 => ä¸‹ç·š : Underscore (on monochrome display adapter only)
+        # 5 => ç‚¹æ»… : Blink on
+        # 7 => è‰²åè»¢ Reverse video on
         # 8 => Concealed on
     # }}}
 
-## "echo" ‹­’²iî•ñƒƒbƒZ[ƒW—p: —ÎFj
-## MEMO: "Mac" ‚Å‰»‚¯‚é‚Ì‚Å "printf" ‚É‚µ‚½
-## TODO: "Linux" ‚Å“®ìŠm”F
+## "echo" å¼·èª¿ï¼ˆæƒ…å ±ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ç”¨: ç·‘è‰²ï¼‰
+## MEMO: "Mac" ã§åŒ–ã‘ã‚‹ã®ã§ "printf" ã«ã—ãŸ
+## TODO: "Linux" ã§å‹•ä½œç¢ºèª
 function gm_echo() {
     printf "\e[32m$*\e[m\n"
 }
 
-## "echo" ‹­’²iŒxƒƒbƒZ[ƒW—p: ‰©Fj
+## "echo" å¼·èª¿ï¼ˆè­¦å‘Šãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ç”¨: é»„è‰²ï¼‰
 function ym_echo() {
     # echo -e "\e[33m$*\e[m"
     printf "\e[33m$*\e[m\n"
 }
 
-## "echo" ‹­’²iˆÙíƒƒbƒZ[ƒW—p: ÔF ‘¾Žš ‰ºüj
+## "echo" å¼·èª¿ï¼ˆç•°å¸¸ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ç”¨: èµ¤è‰² å¤ªå­— ä¸‹ç·šï¼‰
 function rb_echo() {
     # echo -e "\e[31;4m$*\e[m"
     printf "\e[31;4m$*\e[m\n"
@@ -66,7 +66,7 @@ function result_echo(){
     echo ""
 }
 
-## F•t‚«ƒeƒLƒXƒg‚ð’[––‚ÅŽg—p‚·‚éÝ’è
+## è‰²ä»˜ããƒ†ã‚­ã‚¹ãƒˆã‚’ç«¯æœ«ã§ä½¿ç”¨ã™ã‚‹è¨­å®š
 tput=$(which tput)
 if [ -n "$tput" ]; then
     ncolors=$($tput colors)
@@ -88,7 +88,7 @@ else
     NORMAL=""
 fi
 
-## info: î•ñ‚ð—ÎF‚Åo—Í
+## info: æƒ…å ±ã‚’ç·‘è‰²ã§å‡ºåŠ›
 function info() {
     printf "${GREEN}"
     echo -n "  INFO:     "
@@ -96,7 +96,7 @@ function info() {
     echo "$1"
 }
 
-## warn: Œx•ñ‚ð‰©F‚Åo—Í
+## warn: è­¦å ±ã‚’é»„è‰²ã§å‡ºåŠ›
 function warn() {
     printf "${YELLOW}"
     echo -n "  WARNING!: "
@@ -104,7 +104,7 @@ function warn() {
     echo "$1"
 }
 
-## error: ƒGƒ‰[‚ðÔF‚Åo—Í
+## error: ã‚¨ãƒ©ãƒ¼ã‚’èµ¤è‰²ã§å‡ºåŠ›
 function error() {
     printf "${RED}"
     echo -n "  ERROR!!:  "

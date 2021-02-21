@@ -55,9 +55,9 @@
 # Enable audio (loads snd_bcm2835)
 dtparam=audio=on
 
-## ここから デフォルト設定からkill
+## 縺薙％縺九ｉ 繝�繝輔か繝ｫ繝郁ｨｭ螳壹°繧洩ill
 
 # disable camera module LED
 # disable_camera_led=1
 
-## ここまで 設定変更
+## 縺薙％縺ｾ縺ｧ 險ｭ螳壼､画峩

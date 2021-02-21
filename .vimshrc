@@ -1,8 +1,8 @@
 # Created:     2017/**/** **:**:**
 # Last Change: 2020/04/18 20:33:35.
-# MEMO: "VimShell" —pİ’è
+# MEMO: "VimShell" ç”¨è¨­å®š
 
-# ".bashrc" “Ç‚İ
+# ".bashrc" èª­è¾¼ã¿
 [ -f ~/.bashrc ] && source ~/.bashrc
-# ".bash_profile" “Ç‚İ
+# ".bash_profile" èª­è¾¼ã¿
 [ -f ~/.bash_profile ] && source ~/.bash_profile

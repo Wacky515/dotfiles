@@ -1,30 +1,30 @@
 # Created:     201*/**/** **:**:**
 # Last Change: 2020/05/03 13:43:47.
-# MEMO: "Shell" ‚ğ‹N“®‚·‚é“x‚ÉÀs‚µ‚½‚¢ˆê”Ê“I‚Èİ’è
-#       ŠÂ‹«•Ï”‚Í ".bash_profile" ‚Åİ’è
-#       •W€o—Í‚â•W€ƒGƒ‰[o—Í‚Éo—Í‚µ‚È‚¢
+# MEMO: "Shell" ã‚’èµ·å‹•ã™ã‚‹åº¦ã«å®Ÿè¡Œã—ãŸã„ä¸€èˆ¬çš„ãªè¨­å®š
+#       ç’°å¢ƒå¤‰æ•°ã¯ ".bash_profile" ã§è¨­å®š
+#       æ¨™æº–å‡ºåŠ›ã‚„æ¨™æº–ã‚¨ãƒ©ãƒ¼å‡ºåŠ›ã«å‡ºåŠ›ã—ãªã„
 
-# ŠÂ‹«•Ï”
-## ŠÖ”
+# ç’°å¢ƒå¤‰æ•°
+## é–¢æ•°
 [ -f ~/.bash_function ] && source ~/.bash_function
 
 cd ~/dotfiles
 
-# OS •Êİ’è
+# OS åˆ¥è¨­å®š
 # case ${OSTYPE} in
-#     # "Linux" —pİ’è
+#     # "Linux" ç”¨è¨­å®š
 #     linux*)
 #         echo ">> Start setting for Bash on Linux"
 #         echo ">> NO SETTING"
 #         ;;
 #
-#     # "Mac" —pİ’è
+#     # "Mac" ç”¨è¨­å®š
 #     darwin*)
 #         echo ">> Start setting for Bash on Mac"
 #         echo ">> NO SETTING"
 #         ;;
 #         
-#     # "Windows" —pİ’è
+#     # "Windows" ç”¨è¨­å®š
 #     msys)
 #         echo ">> Start setting for Bash on Windows Msys2"
 #         echo ">> NO SETTING"
@@ -45,7 +45,7 @@ cd ~/dotfiles
 #         ;;
 # esac
 
-# "fish" ‚© "zsh" ‹N“®İ’è
+# "fish" ã‹ "zsh" èµ·å‹•è¨­å®š
 if has "fish" && ! [[ `uname` =~ ^(CYGWIN_NT-).+$ ]] ; then
     exec fish
 elif has "zsh" ; then

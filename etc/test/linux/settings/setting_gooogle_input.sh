@@ -2,7 +2,7 @@
 # Created:     2019/10/02 13:51:56
 # Last Change: 2019/11/13 12:38:15.
 
-# TODO: OneDrive ƒtƒHƒ‹ƒ_‚Ìƒ_ƒEƒ“ƒ[ƒh ©“®‰»
+# TODO: OneDrive ãƒ•ã‚©ãƒ«ãƒ€ã®ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ è‡ªå‹•åŒ–
 
 source ~/dotfiles/function/result_echo.sh
 source ~/dotfiles/function/color_echo.sh
@@ -11,9 +11,9 @@ readonly PROCESS="install mozc"
 
 ym_echo ">> ${PROCESS^}"
 
-# ƒT[ƒrƒX’â~ •K—vH
+# ã‚µãƒ¼ãƒ“ã‚¹åœæ­¢ å¿…è¦ï¼Ÿ
 
-# ƒoƒbƒNƒAƒbƒv
+# ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—
 db=(boundary.db \
     cform.db \
     config1.db \
@@ -24,10 +24,10 @@ do
     mv --suffix=_`date +%Y%m%d` -f ${i} ${i}
 done
 
-# ƒVƒ“ƒ{ƒŠƒbƒNƒŠƒ“ƒN
+# ã‚·ãƒ³ãƒœãƒªãƒƒã‚¯ãƒªãƒ³ã‚¯
 for j in db
 do
-    ln -snfv ~/OneDrive/d–/Settings/GoogleJanaeseinput/${j} ${j}
+    ln -snfv ~/OneDrive/ä»•äº‹/Settings/GoogleJanaeseinput/${j} ${j}
 done
 
 result_echo $? "${PROCESS}"
@@ -43,9 +43,9 @@ readonly PROCESS="install mozc"
 
 ym_echo ">> ${PROCESS^}"
 
-# ƒT[ƒrƒX’â~ •K—vH
+# ã‚µãƒ¼ãƒ“ã‚¹åœæ­¢ å¿…è¦ï¼Ÿ
 
-# ƒoƒbƒNƒAƒbƒv
+# ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—
 db=(boundary.db \
     cform.db \
     config1.db \
@@ -56,10 +56,10 @@ do
     mv --suffix=_`date +%Y%m%d` -f ${i} ${i}
 done
 
-# ƒVƒ“ƒ{ƒŠƒbƒNƒŠƒ“ƒN
+# ã‚·ãƒ³ãƒœãƒªãƒƒã‚¯ãƒªãƒ³ã‚¯
 for j in db
 do
-    ln -snfv ~/OneDrive/d–/Settings/GoogleJanaeseinput/${j} ${j}
+    ln -snfv ~/OneDrive/ä»•äº‹/Settings/GoogleJanaeseinput/${j} ${j}
 done
 
 result_echo $? "${PROCESS}"

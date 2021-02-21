@@ -2,9 +2,9 @@
 # Last Change: 2019/11/30 09:55:41.
 
 # ------------------------------
-# �Ǝ��ǋL
+# 独自追記
 # ------------------------------
-# ��������ҋ�
+# 無視する者共
 ctags.exe
 gitconfig_hbamb748.local
 memo.txt
@@ -16,7 +16,7 @@ yankring_history_v2.txt
 ~/AppData/Local/nvim/.netrwhist
 ~/AppData/Local/nvim/rplugin.vim
 
-# ����̊g���q�𖳎�����ꍇ�͂ǂ��ɂ�/��t���Ȃ�
+# 特定の拡張子を無視する場合はどこにも/を付けない
 *.bak
 *.bk
 *.modifying
@@ -27,11 +27,11 @@ yankring_history_v2.txt
 *.stackdump
 *.tempkill*
 
-# ���薼�̂̃f�B���N�g���𖳎�����ꍇ�͐擪�Ɩ�����/��t����
+# 特定名称のディレクトリを無視する場合は先頭と末尾に/を付ける
 /old/
 
-# ����̃t�@�C���𖳎�����ꍇ�͐擪��/��t����
-    # ���[�g�f�B���N�g���̃t�@�C�������𖳎����A�T�u�f�B���N�g���͖������Ȃ�
+# 特定のファイルを無視する場合は先頭に/を付ける
+    # ルートディレクトリのファイルだけを無視し、サブディレクトリは無視しない
 # /foo
 /.vim/dein/*
 /.vim/tmp/*
@@ -42,7 +42,7 @@ yankring_history_v2.txt
 Users/
 */Users/
 
-# �������Ȃ��ҋ�
+# 無視しない者共
 !/.vim/tmp/README.md
 
 # Temporary Files

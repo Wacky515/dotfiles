@@ -4,18 +4,18 @@
 # TODO:
 
 # DONE:
-    # "TightVNCServer" Ž©“®‹N“® ‚Å‚«‚Ä‚¢‚È‚¢
+    # "TightVNCServer" è‡ªå‹•èµ·å‹• ã§ãã¦ã„ãªã„
 
 source ~/dotfiles/function/result_echo.sh
 
-# "Jessie Lite" ”»•Êˆ—
+# "Jessie Lite" åˆ¤åˆ¥å‡¦ç†
 readonly VER=$(dpkg -l | grep xinit)
 if [ "$VER" != "" ]
 then
-    # "Jessie Lite" ‚Å‚Í‚È‚¢Žž‚Ìˆ—
+    # "Jessie Lite" ã§ã¯ãªã„æ™‚ã®å‡¦ç†
     ym_echo ">> Install packages for GUI"
 
-    # “ú–{ŒêŠÂ‹« ƒCƒ“ƒXƒg[ƒ‹
+    # æ—¥æœ¬èªžç’°å¢ƒ ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
     ym_echo ">> Install Japanese environment"
     # sudo apt install -y fonts-ipafont && \
     # sudo apt install -y fonts-ipaexfont && \
@@ -23,26 +23,26 @@ then
     sudo apt install -y ibus-mozc
     result_echo $? "install Japanese environment"
 
-    # TightVNCViewer ƒCƒ“ƒXƒg[ƒ‹
+    # TightVNCViewer ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
     ym_echo ">> Install \"TightVNCViewer\""
     sudo apt install -y tightvncserver
     result_echo $? "install TightVNCViewer"
 
-    # "man" ƒRƒ}ƒ“ƒh“ú–{Œê‰»
+    # "man" ã‚³ãƒžãƒ³ãƒ‰æ—¥æœ¬èªžåŒ–
     ym_echo ">> Install Japanese \"man\""
     sudo apt install manpages-ja manpages-ja-dev
     result_echo $? "install Japanese \"man\""
 
-    # # ’[–– ƒCƒ“ƒXƒg[ƒ‹  #{{{
+    # # ç«¯æœ« ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«  #{{{
     # sudo apt-get install -y gnome-terminal
 #}}}
 
-    # # ƒp[ƒeƒBƒVƒ‡ƒ“ƒc[ƒ‹ ƒCƒ“ƒXƒg[ƒ‹  #{{{
+    # # ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ãƒ„ãƒ¼ãƒ« ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«  #{{{
     # sudo apt-get install -y gparted
 #}}}
 
 else
-    # "Jessie Lite" Žž‚Ìˆ—
+    # "Jessie Lite" æ™‚ã®å‡¦ç†
     rb_echo ">> This is Raspbian Jessie Lite"
     ym_echo "-> Skip Install packages for GUI"
 fi

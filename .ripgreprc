@@ -1,17 +1,17 @@
 # Created:     2020/04/17 09:40:08
-# �B���t�@�C���𖳎����Ȃ�
+# 隠しファイルを無視しない
 --hidden
 
-# ��ɍs�ԍ���\��
+# 常に行番号を表示
 -n
 
-# ��ɗ�ԍ���\��
+# 常に列番号を表示
 --column
 
-# �t�@�C�����ƂɃ}�b�`����������\��
+# ファイルごとにマッチした件数を表示
 -c
 
-# ���O�t�@�C���͈ȉ�
+# 除外ファイルは以下
 # ~/dotfiles/.rgignore
 # ~/dotfiles/.ignore
 # ~/dotfiles/.gitignore

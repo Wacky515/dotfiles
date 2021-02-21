@@ -1,12 +1,12 @@
 # Created:     2019/11/12 10:00:53
 # Last Change: 2020/03/28 14:43:12.
 
-# "cd" ‹­‰»
+# "cd" å¼·åŒ–
 alias ..="cd .."
 alias ...="cd ../.."
 alias -- -="cd -"
 
-# "ls" ‹­‰»
+# "ls" å¼·åŒ–
 alias ls="ls --color=auto --show-control-chars --time-style=long-iso -FH"
 alias la="ls -la"
 # alias la="ls -A"
@@ -15,24 +15,24 @@ alias ll="ls -lA"
 alias fn="find ./ -name"
 alias sl=ls
 
-# İ’è Ä“Ç‚İ
+# è¨­å®š å†èª­è¾¼ã¿
 alias relogin="exec $SHELL -l"
 alias re=relogin
 
-# ‰æ–ÊÁ‹
+# ç”»é¢æ¶ˆå»
 alias c=clear
 alias cls=reset
 
-# "Windows" ƒ‰ƒCƒN‚È‹““®
+# "Windows" ãƒ©ã‚¤ã‚¯ãªæŒ™å‹•
 alias dir=ll
 alias path="echo -e ${PATH//:/\\n}"
 
-# ƒfƒBƒXƒNƒTƒCƒY Šm”F
+# ãƒ‡ã‚£ã‚¹ã‚¯ã‚µã‚¤ã‚º ç¢ºèª
 alias df="df -h"
 alias du="du -h"
 alias du1="du -d1"
 
-# "grep" ‹­‰»
+# "grep" å¼·åŒ–
 alias grep="grep --color"
 
 # The fuck
