@@ -36,6 +36,7 @@ if (has("unix") && has("mac"))
 
     else
         let g:python3_host_prog = "/usr/local/bin/Python3"
+        let g:python_host_prog  = "/usr/bin/Python"
     endif
 
 elseif has("unix")

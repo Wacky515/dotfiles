@@ -24,17 +24,15 @@ fi
 
 ## "pyenv" 設定
 if [ -d ${HOME}/.pyenv ]; then
-    export PATH="$PYENV_ROOT/bin:$PATH"
     export PYENV_ROOT="$HOME/.pyenv"
-    eval "$(pyenv init -)"
-    # alias brew="env PATH=${PATH/\/Users\/wacky515\/\.pyenv\/shims:/} brew"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    # 自動補完 活性化
+    if command -v pyenv 1>/dev/null 2>&1; then
+        eval "$(pyenv init -)"
+    fi
+    # "HomeBrew" エラー対策
     alias brew="env PATH=${PATH~\/\.pyenv\/shims:/} brew"
 fi
-
-## "HomeBrew" Error対策 #  {{{
-# MEMO: 上にあるのでKILL
-# alias brew="env PATH=${PATH/\/Users\/wacky515\/\.pyenv\/shims:/} brew"
-# }}}
 
 # オプション系
 ## "beep" 無効
@@ -92,9 +90,6 @@ bindkey "^s" history-incremental-pattern-search-forward
 bindkey "^p" history-beginning-search-backward
 ## C-p: 入力途中でサーチ 逆順
 bindkey "^n" history-beginning-search-forward
-
-## 一覧を出力
-function history-all { history -E 1 }UNCTION HISTORY-ALL { HISTORY -E 1 }
 
 # プロンプト系
 ## 色を使用
@@ -187,3 +182,7 @@ case ${OSTYPE} in
         echo ">> [.zshrc] < OS type not found"
         ;;
 esac
+
+# MEMO: eofエラーになるのでKILL
+# ## 一覧を出力
+# function history-all { history -E 1 }UNCTION HISTORY-ALL { HISTORY -E 1 }

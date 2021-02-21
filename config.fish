@@ -35,12 +35,23 @@ if has "peco"
     end
 end
 
+if has "pyenv"
+    set PATH ~/.pyenv $PYENV_ROOT
+    set PATH $PYENV_ROOT/bin $PATH
+    # export PYENV_ROOT="$HOME/.pyenv"
+    # export PATH="$PYENV_ROOT/bin:$PATH"
+    # # 自動補完 活性化
+    # eval "$(pyenv init -)"
+    # # "HomeBrew" エラー対策
+    # alias brew="env PATH=${PATH~\/\.pyenv\/shims:/} brew"
+end
+
 # if has "fuck"
 #     thefuck --alias
 #     # alias fuck='eval "$(thefuck --alias)"'
 #     function fish_user_key_bindings
 #         # Bind EscEsc to thefuck
-#         bind \e\e 'thefuck-command-line' 
+#         bind \e\e 'thefuck-command-line'
 #     end
 # end
 

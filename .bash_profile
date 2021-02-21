@@ -20,6 +20,18 @@ if [ -f ~/.ripgreprc ]; then
     export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 fi
 
+## "pyenv" 設定
+if [ -d ${HOME}/.pyenv ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    # 自動補完 活性化
+    if command -v pyenv 1>/dev/null 2>&1; then
+        eval "$(pyenv init -)"
+    fi
+    # "HomeBrew" エラー対策
+    alias brew="env PATH=${PATH~\/\.pyenv\/shims:/} brew"
+fi
+
 # OS 別設定
 case ${OSTYPE} in
     # "Linux" 用設定
