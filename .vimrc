@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2021/02/21 22:10:54.
+" Last Change: 21-Feb-2021.
 
 " MEMO: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -233,6 +233,11 @@ endif
 " "dein.vim" の更新チェック高速化設定
 set runtimepath+=~/OneDrive/Vim/dein
 runtime! dein_token.vim
+
+" Mac の Vim の colorscheme 設定
+if (has("unix") && has("mac") && !has("nvim") && !has("gui_running"))
+    colorscheme iceberg
+endif
 
 " 読み込んだプラグインも含め、ファイルタイプの検出
 " ファイルタイプ別プラグイン/インデントを有効化する

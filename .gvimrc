@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2021/02/21 22:11:54.
+" Last Change: 2021/02/21 22:55:35.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -105,7 +105,6 @@ if !has("nvim")
             set   guifont=Cica:h16
             set printfont=Cica:h16
         endif
-        " colorscheme iceberg
 
     elseif has("unix")
         set   guifont=Cica\ 16
