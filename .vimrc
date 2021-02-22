@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2021/02/22 10:01:03.
+" Last Change: 2021/02/22 15:45:45.
 
 " MEMO: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -55,16 +55,25 @@ elseif (has("win32") || has("win64"))
     elseif hostname() == "HBAMB748"
         let g:python3_host_prog =
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
+        if !has("nvim")
+            set pythonthreedll=C:\Users\mm12167\AppData\Local\Programs\Python\Python36\python36.dll
+        endif
         let g:python_host_prog  =
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
     elseif hostname() == "HBAMB819"
         let g:python3_host_prog =
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
+        if !has("nvim")
+            set pythonthreedll=C:\Users\mm12167\AppData\Local\Programs\Python\Python36\python36.dll
+        endif
         let g:python_host_prog  =
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
     elseif hostname() == "HBAPC511"
         let g:python3_host_prog =
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
+        if !has("nvim")
+            set pythonthreedll=C:\Users\mm12167\AppData\Local\Programs\Python\Python36\python36.dll
+        endif
         let g:python_host_prog  =
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
     " elseif hostname() == "HBAMB748A"
@@ -74,6 +83,9 @@ elseif (has("win32") || has("win64"))
     else
         let g:python3_host_prog =
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
+        if !has("nvim")
+            set pythonthreedll=C:\Users\mm12167\AppData\Local\Programs\Python\Python36\python36.dll
+        endif
         let g:python_host_prog  =
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
         " REF:
