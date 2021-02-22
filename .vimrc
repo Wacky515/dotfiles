@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 21-Feb-2021.
+" Last Change: 2021/02/22 10:01:03.
 
 " MEMO: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -54,37 +54,28 @@ elseif (has("win32") || has("win64"))
         endif
     elseif hostname() == "HBAMB748"
         let g:python3_host_prog =
-            \ $HOME."/AppData/Local/Programs/Python/Python36/python.exe"
-        if !has("nvim")
-            " "HBAMB748" "Vim" で "Unkwown option" エラー
-            if has("gui_running")
-                set pythonthreedll=C:\Python36\python36.dll
-            else
-                let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
-            endif
-        endif
-        " let g:python_host_prog  = "C:\\Python27\\python.exe"
+            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
+        let g:python_host_prog  =
+            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
     elseif hostname() == "HBAMB819"
         let g:python3_host_prog =
-            \ $HOME."/AppData/Local/Programs/Python/Python36/python.exe"
-        if !has("nvim")
-            if has("gui_running")
-                set pythonthreedll=C:\Users\mm12167\AppData\Local\Programs\Python\Python36\python36.dll
-            else
-                let g:python3_host_prog = "C:\\tools\\Anaconda3\\python.exe"
-            endif
-        endif
-        let g:python_host_prog  = "C:\\Python27\\python.exe"
+            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
+        let g:python_host_prog  =
+            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
     elseif hostname() == "HBAPC511"
         let g:python3_host_prog =
-            \ $HOME."/AppData/Local/Programs/Python/Python36/python.exe"
-    elseif hostname() == "HBAMB748A"
-        let g:python3_host_prog = "C:\\Python35\\python.exe"
-        let g:python_host_prog  = "C:\\Python27\\python.exe"
+            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
+        let g:python_host_prog  =
+            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
+    " elseif hostname() == "HBAMB748A"
+    "     let g:python3_host_prog = "C:\\Python35\\python.exe"
+    "     let g:python_host_prog  = "C:\\Python27\\python.exe"
 
     else
         let g:python3_host_prog =
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
+        let g:python_host_prog  =
+            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
         " REF:
         " " MEMO: "~/.vim_no_python" が存在した場合はスキップ " {{{
         " if !filereadable(expand('~/.vim_no_python'))
