@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2021/02/23 11:00:24.
+" Last Change: 2021/02/23 14:25:34.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -13,7 +13,7 @@ set background=dark
 au MyAutoCmd VimEnter * nested colorscheme iceberg
 au MyAutoCmd VimEnter * highlight Visual ctermbg=216
 
-" "Kaoriya GVim" 用 削除しない！！！
+" "KaoriYa GVim" 用 削除しない！！！
 " コマンドライン（"Vim" 画面下部）高さ
 set cmdheight=5
 
@@ -30,11 +30,8 @@ set guioptions-=T
 set guioptions+=b
 
 " ウィンドウ 半透明化（"Linux" は "Vim" から設定できない）
-" if has("mac")
-if has("unix")
-    if !has("nvim")
-        set transparency=10
-    endif
+if has("unix") && !has("nvim")
+    set transparency=10
 elseif (has("win32") || ("win64"))
     :autocmd GUIEnter * set transparency=235
 endif
@@ -82,7 +79,8 @@ if exists("g:nyaovim_version")
     endtry
 endif
 
-" REF: "Oni" 用設定
+" REF:
+" "Oni" 用設定
 " if exists("g:gui_oni")
 "     echo Setting for Oni
 " endif

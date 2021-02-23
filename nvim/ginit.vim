@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2021/02/22 10:51:32.
+" Last Change: 2021/02/23 14:28:52.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -33,11 +33,8 @@ endfunction
 call s:source_rc(".gvimrc")
 
 " "NeoVim" 専用設定
-if (has("unix") && !has("mac"))
-    Guifont! Cica\ 16
-
-elseif (has("unix") && has("mac"))
-    if hostname()     == "ProSalad13-2018.local"
+if (has("unix") && has("mac"))
+    if hostname()     == "SaladBookAirM1.local"
         Guifont! Cica:h18
     elseif hostname() == "saladserver.com"
         Guifont! Cica:h16
@@ -47,6 +44,9 @@ elseif (has("unix") && has("mac"))
         Guifont! Cica:h18
     endif
 
+elseif (has("unix") && !has("mac"))
+    Guifont! Cica\ 16
+
 elseif (has("win32") || has("win64"))
     " Home setting
     if hostname()     == "SALADPRIMEMK-II"
@@ -55,6 +55,8 @@ elseif (has("win32") || has("win64"))
         Guifont! Cica:h13
 
     " muRata setting
+    elseif hostname() == "HBAMB1448"
+        Guifont! Cica:h14
     elseif hostname() == "HBAMB748"
         Guifont! Cica:h14
     elseif hostname() == "HBAMB819"
