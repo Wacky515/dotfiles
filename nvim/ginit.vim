@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/12/03 09:36:18.
+" Last Change: 2021/02/22 10:51:32.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -59,6 +59,8 @@ elseif (has("win32") || has("win64"))
         Guifont! Cica:h14
     elseif hostname() == "HBAMB819"
         Guifont! Cica:h12
+    elseif hostname() == "HBAPC511"
+        Guifont! Cica:h16
     elseif hostname() == "HBALT071"
         Guifont! Cica:h16
     endif
