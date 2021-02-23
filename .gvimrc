@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2021/02/21 22:55:35.
+" Last Change: 2021/02/23 11:00:24.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -140,8 +140,8 @@ if !has("nvim")
             set printfont=Cica:h12
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "HBAPC511"
-            set   guifont=Cica:h15
-            set printfont=Cica:h15
+            set   guifont=Cica:h13
+            set printfont=Cica:h13
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "HBAMB748A"
             set   guifont=Cica:h15
