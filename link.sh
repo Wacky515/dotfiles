@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Make symbolic link
 # Created:     2017/02/08 **:**:**
-# Last Change: 2020/05/03 12:14:07.
+# Last Change: 2021/02/21 23:38:11.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -55,8 +55,8 @@ if [ ! -e ~/.config/nvim/ ]; then
 fi
 sudo ln -snfv ${DOT_DIR}/nvim/init.vim  ~/.config/nvim/init.vim
 sudo ln -snfv ${DOT_DIR}/nvim/ginit.vim ~/.config/nvim/ginit.vim
+sudo ln -snfv ${DOT_DIR}/.vim/colors ~/.config/nvim/colors
 
-# "NyaoVim" 設定
 if [ ! -e ~/.config/nyaovim/ ]; then
     bash -c "mkdir -m 777 ~/.config/nyaovim/"
 fi

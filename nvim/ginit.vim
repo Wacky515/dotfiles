@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/12/03 09:36:18.
+" Last Change: 2021/02/22 00:12:26.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -33,11 +33,9 @@ endfunction
 call s:source_rc(".gvimrc")
 
 " "NeoVim" 専用設定
-if (has("unix") && !has("mac"))
-    Guifont! Cica\ 16
-
-elseif (has("unix") && has("mac"))
-    if hostname()     == "ProSalad13-2018.local"
+" FIXME: Mac で ginit.vim 読込むとエラー
+if (has("unix") && has("mac"))
+    if hostname()     == "SaladBookAirM1"
         Guifont! Cica:h18
     elseif hostname() == "saladserver.com"
         Guifont! Cica:h16
@@ -46,6 +44,9 @@ elseif (has("unix") && has("mac"))
     else
         Guifont! Cica:h18
     endif
+
+elseif (has("unix") && !has("mac"))
+    Guifont! Cica\ 16
 
 elseif (has("win32") || has("win64"))
     " Home setting

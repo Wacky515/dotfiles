@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 21-Feb-2021.
+" Last Change: 2021/02/21 23:31:20.
 
 " MEMO: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -26,7 +26,7 @@ if (has("unix") && has("mac"))
         let g:python_host_prog  = "/usr/bin/Python"
     endif
 
-elseif has("unix")
+elseif (has("unix") && !has("mac"))
     let g:python3_host_prog = "/usr/bin/python3"
 
 elseif (has("win32") || has("win64"))

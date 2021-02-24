@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/10/29 09:37:19.
+" Last Change: 2021/02/22 00:11:13.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -21,6 +21,11 @@ endfunction
 
 " 基本設定
 call s:source_rc(".vimrc")
+if (has("unix") && has("mac"))
+    " FIXME: 読込むとエラー
+    " call s:source_rc("nvim/ginit.vim")
+    set cmdheight=5
+endif
 
 " NeoVim 専用設定
 colorscheme iceberg
