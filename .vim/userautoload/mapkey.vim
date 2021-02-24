@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2020/03/16 10:33:26.
+" Last Change: 2021/02/24 00:08:45.
 " TODO: マークにジャンプ時、画面をトップに位置にする
 
 " --------------------------------------------------------------------------------
@@ -143,8 +143,8 @@ nnoremap <silent> bp :<C-u>bprevious<CR>
 nnoremap <silent> bn :<C-u>bnext<CR>
 " bb:      直前のバッファを開く
 nnoremap <silent> bb :<C-u>b#<CR>
+" MEMO: マルチカーソルに譲渡
 " <Ctrl>j: 裏バッファを開く
-    " MEMO: マルチカーソルに譲渡
 " nnoremap <C-j> <C-^>
 
 " <Ctrl>p: 上方向に1行分スクロール
@@ -172,7 +172,8 @@ if !has("nvim")
     " eg: gvimrcを開く
     nmap eg :<C-u>edit $MYGVIMRC<CR>
     " ,v: vimrcを反映
-    nnoremap <silent> ,v :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
+    nnoremap <silent> ,v :<C-u>source $MYVIMRC<CR>
+    " nnoremap <silent> ,v :<C-u>source $MYVIMRC \| if has("gui_running") \| source $MYGVIMRC \| endif <CR>
     " ,g: gvimrcを反映
     nnoremap <silent> ,g :<C-u>source $MYGVIMRC<CR>
 elseif has("nvim")
@@ -181,7 +182,8 @@ elseif has("nvim")
     " eg: gvimrcを開く
     nmap eg :<C-u>edit ~/dotfiles/.gvimrc<CR>
     " ,v: vimrcを反映
-    nnoremap <silent> ,v :<C-u>source ~/dotfiles/.vimrc \| if has("gui_running") \| source ~/dotfiles/.vimrc \| endif <CR>
+    nnoremap <silent> ,v :<C-u>source ~/dotfiles/.vimrc<CR>
+    " nnoremap <silent> ,v :<C-u>source ~/dotfiles/.vimrc \| if has("gui_running") \| source ~/dotfiles/.vimrc \| endif <CR>
     " ,g: gvimrcを反映
     nnoremap <silent> ,g :<C-u>source ~/dotfiles/.gvimrc<CR>
 endif
@@ -192,7 +194,8 @@ if has("nvim")
 endif
 
 " TODO: LinuxのNeoVimで確認
-" w!!: スーパーユーザーとして保存（sudoが使える環境限定）
+" w!!: スーパーユーザーとして保存
+    " "sudo" が使える環境限定
 if has("unix")
     cmap w!! w !sudo tee > /dev/null %
 endif
@@ -249,23 +252,23 @@ endif
 " ---------------------------------------------------------------------------
 " コマンドライン篇
 " ---------------------------------------------------------------------------
-" <Home>: 行頭へ移動
+" <Home>:         行頭へ移動
 cnoremap <C-a> <Home>
-" <End>: 行末へ移動
+" <End>:          行末へ移動
 cnoremap <C-e> <End>
-" <Left>: 一文字戻る
+" <Left>:         一文字戻る
 cnoremap <C-b> <Left>
-" <Right>: 一文字進む
+" <Right>:        一文字進む
 cnoremap <C-f> <Right>
-" <Shift><Left>: 前の単語へ移動
+" <Shift><Left>:  前の単語へ移動
 cnoremap <M-b> <S-Left>
 " <Shift><Right>: 次の単語へ移動
 cnoremap <M-f> <S-Right>
-" <Del>: カーソルの下の文字を削除
+" <Del>:          カーソルの下の文字を削除
 cnoremap <C-d> <Del>
-" <Down>: 履歴を一つ進む
+" <Down>:         履歴を一つ進む
 cnoremap <C-n> <Down>
-" <Up>: 履歴を一つ戻る
+" <Up>:           履歴を一つ戻る
 cnoremap <C-p> <Up>
 
 " ---------------------------------------------------------------------------
@@ -278,7 +281,7 @@ cnoremap <C-p> <Up>
 " <Leader>w: ファイルを保存
 autocmd VimEnter * nnoremap <Leader>w :<C-u>w<CR>
 
-" <C-i>: 前のカーソル位置
+" <C-i>:     前のカーソル位置
 autocmd VimEnter * nnoremap <C-i> <C-i>
 
 " <Leader>q: ファイルを閉じる

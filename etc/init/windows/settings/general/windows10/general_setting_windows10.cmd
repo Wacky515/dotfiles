@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2020/10/26 10:28:43.
+rem Last Change: 2021/02/23 14:39:28.
 
 set batch_title=General setting Windows10
 
@@ -30,7 +30,7 @@ echo ^>^> OFF Fast startup
 rem "高速スタートアップを有効にする" 無効
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Session Manager\Power" /v "HiberbootEnabled" /t REG_DWORD /d "0" /f
 
-rem "タスク バーからの People バーを削除する" 無効
+rem "タスク バーからの People バーを削除する" 有効
 echo ^>^> OFF People
 reg add "HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer" /v "HidePeopleBar" /t REG_DWORD /d "1" /f
 
@@ -81,7 +81,8 @@ rem   1e=30日
 rem   0e=14日
 rem   1=1日
 rem   0=許可しない
-rem "512"=dword:0000000e}}}
+rem "512"=dword:0000000e
+rem }}}
 
 rem "ウィンドウをスナップしたときに横に配置できるものを表示する" 無効
 echo ^>^> OFF Snap assist

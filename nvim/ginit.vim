@@ -1,6 +1,10 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
+<<<<<<< HEAD
 " Last Change: 2021/02/22 00:12:26.
+=======
+" Last Change: 2021/02/23 14:28:52.
+>>>>>>> b79cf33351ec8bfea9ed8d4b2b0a55ebb60f80c6
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -33,9 +37,14 @@ endfunction
 call s:source_rc(".gvimrc")
 
 " "NeoVim" 専用設定
+<<<<<<< HEAD
 " FIXME: Mac で ginit.vim 読込むとエラー
 if (has("unix") && has("mac"))
     if hostname()     == "SaladBookAirM1"
+=======
+if (has("unix") && has("mac"))
+    if hostname()     == "SaladBookAirM1.local"
+>>>>>>> b79cf33351ec8bfea9ed8d4b2b0a55ebb60f80c6
         Guifont! Cica:h18
     elseif hostname() == "saladserver.com"
         Guifont! Cica:h16
@@ -56,10 +65,14 @@ elseif (has("win32") || has("win64"))
         Guifont! Cica:h13
 
     " muRata setting
+    elseif hostname() == "HBAMB1448"
+        Guifont! Cica:h14
     elseif hostname() == "HBAMB748"
         Guifont! Cica:h14
     elseif hostname() == "HBAMB819"
         Guifont! Cica:h12
+    elseif hostname() == "HBAPC511"
+        Guifont! Cica:h16
     elseif hostname() == "HBALT071"
         Guifont! Cica:h16
     endif
