@@ -1,14 +1,14 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/11/29 16:31:10.
+" Last Change: 2021/02/24 13:20:48.
 
 " ---------------------------------------------------------------------------
 "  マップキー
 " ---------------------------------------------------------------------------
 " スクリプトを実行
-nnoremap <F5>  :w <ENTER> :!python % <ENTER>
+nnoremap <F5>  :w <ENTER> :!Python3 % <ENTER>
 " デバッグを実行
-nnoremap <F12> :w <ENTER> :!python -m pdb % <ENTER>
+nnoremap <F12> :w <ENTER> :!Python3 -m pdb % <ENTER>
 
 " ---------------------------------------------------------------------------
 "  基本設定
@@ -42,17 +42,8 @@ augroup end
 if has("vim_starting")
     if has("macunix")
         " brew install python3
-        set pythonthreedll=
-                    \ /usr/local/Cellar/python3/3.6.4_2/
-                    \ Frameworks/Python.framework/Versions/3.6/Python
-        set pythonthreehome=
-                    \ /usr/local/Cellar/python3/3.6.4_2/
-                    \ Frameworks/Python.framework/Versions/3.6
-    elseif has("win32")
-        " FIXME:
-        " embed 版 Python を Vim と同じフォルダに置く
-        "   python35.dll
-        "   python35.zip
+        set pythonthreedll=/usr/local/Cellar/python@3.9/3.9.2/Frameworks/Python.framework/Versions/3.9/Python
+        set pythonthreehome=/usr/local/Cellar/python@3.9/3.9.2/Frameworks/Python.framework/Versions/3.9/
     endif
 endif
 
