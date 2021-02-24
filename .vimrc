@@ -1,10 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-<<<<<<< HEAD
-" Last Change: 2021/02/21 23:31:20.
-=======
-" Last Change: 2021/02/23 23:32:04.
->>>>>>> b79cf33351ec8bfea9ed8d4b2b0a55ebb60f80c6
+" Last Change: 2021/02/24 12:49:01.
 
 " MEMO: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化

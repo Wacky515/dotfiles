@@ -1,50 +1,10 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-<<<<<<< HEAD
-" Last Change: 2021/02/22 00:12:26.
-=======
-" Last Change: 2021/02/23 14:28:52.
->>>>>>> b79cf33351ec8bfea9ed8d4b2b0a55ebb60f80c6
-
-" !!!: 必ず先頭に記述
-" "autocmd"（マクロ） の初期化
-augroup MyAutoCmd
-    autocmd!
-augroup END
-
-" TODO: ウィンドウサイズ記憶する
-" ウィンドウ幅
-set columns=360
-" ウィンドウ高
-set lines=180
-" ウィンドウ位置
-if has("gui")
-    winpos 200 10
-endif
-
-" "Vim" 毎のrcファイル パス設定
-let g:rc_dir = expand("~/dotfiles")
-
-" rcファイル 読込み関数
-function! s:source_rc(rc_file_name)
-    let rc_file = expand(g:rc_dir . "/" . a:rc_file_name)
-    if filereadable(rc_file)
-        execute "source" rc_file
-    endif
-endfunction
-
-" GUI 基本設定
-call s:source_rc(".gvimrc")
-
-" "NeoVim" 専用設定
-<<<<<<< HEAD
+" Last Change: 2021/02/24 12:51:50.
+"
 " FIXME: Mac で ginit.vim 読込むとエラー
 if (has("unix") && has("mac"))
     if hostname()     == "SaladBookAirM1"
-=======
-if (has("unix") && has("mac"))
-    if hostname()     == "SaladBookAirM1.local"
->>>>>>> b79cf33351ec8bfea9ed8d4b2b0a55ebb60f80c6
         Guifont! Cica:h18
     elseif hostname() == "saladserver.com"
         Guifont! Cica:h16

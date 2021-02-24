@@ -1,10 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-<<<<<<< HEAD
-" Last Change: 2021/02/22 00:11:13.
-=======
-" Last Change: 2021/02/23 23:04:21.
->>>>>>> b79cf33351ec8bfea9ed8d4b2b0a55ebb60f80c6
+" Last Change: 2021/02/24 12:52:13.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
