@@ -1,14 +1,23 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2021/02/25 21:44:39.
+" Last Change: 2021/02/26 08:27:24.
 
 " ---------------------------------------------------------------------------
 "  マップキー
 " ---------------------------------------------------------------------------
 " スクリプトを実行
-nnoremap <F5>  :w <ENTER> :!py -3.7 % <ENTER>
+if has("mac")
+    nnoremap <F5>  :w <ENTER> :!Python3 %:p <ENTER>
+elseif (has("win32") || has("win64"))
+    nnoremap <F5>  :w <ENTER> :!py -3.7 % <ENTER>
+endif
+
 " デバッグを実行
-nnoremap <F12> :w <ENTER> :!py -3.7 -m pdb % <ENTER>
+if has("mac")
+    nnoremap <F12> :w <ENTER> :!Python3 -m pdb %:p <ENTER>
+elseif (has("win32") || has("win64"))
+    nnoremap <F12> :w <ENTER> :!py -3.7 -m pdb % <ENTER>
+endif
 
 " ---------------------------------------------------------------------------
 "  基本設定
