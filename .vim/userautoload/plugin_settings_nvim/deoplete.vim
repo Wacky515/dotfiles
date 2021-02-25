@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/09/13 22:57:48
-" Last Change: 2021/02/25 17:27:17.
+" Last Change: 2021/02/25 22:59:07.
 
 " ---------------------------------------------------------------------------
 " マップキー
@@ -58,11 +58,8 @@ let g:deoplete#sources#jedi#statement_length=100
     " "deoplete-jedi" で非同期処理してくれる
 let g:jedi#completions_enabled = 0
 
-if (has("unix") && has("mac"))
-    let g:deoplete#sources#jedi#python_path = "/usr/local/bin/python3.6"
-" elseif hostname() == "HBAMB819"
-"     let g:deoplete#sources#jedi#python_path = "C:\\Python36"
-"     " let g:deoplete#sources#jedi#python_path = "C:\\Python36\\python.exe"
-" elseif hostname() == ("HBAMB1448" || "HBAMB748" || "HBAMB748A" || "SALADCARBONX1")
-"     let g:deoplete#sources#jedi#python_path = "~\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
+if has("mac")
+    let g:deoplete#sources#jedi#python_path = "/usr/local/bin/python3"
+elseif has("unix")
+    let g:deoplete#sources#jedi#python_path = "/usr/local/bin/python3"
 endif

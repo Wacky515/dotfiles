@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2021/02/25 21:55:28.
+" Last Change: 2021/02/25 22:55:50.
 
 " MEMO: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -19,8 +19,8 @@ let g:vimproc#download_windows_dll = 1
 " Python3.6系でないと Dark powed できない 2021/02/21
 if has("vim_starting")
     if has("mac")
-        let g:python3_host_prog = "/usr/local/bin/Python3"
-        let g:python_host_prog  = "/usr/bin/Python"
+        let g:python3_host_prog = "/usr/local/bin/python3"
+        let g:python_host_prog  = "/usr/bin/python"
 
     elseif has("unix")
         let g:python3_host_prog = "/usr/bin/python3"
