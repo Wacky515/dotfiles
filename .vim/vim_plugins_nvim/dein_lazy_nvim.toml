@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2020/11/08 21:44:34.
+# Last Change: 2021/02/25 17:34:01.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -196,8 +196,9 @@ hook_source = '''  " {{{
     \ 'refresh_always': v:false,
     \ 'smart_case': v:true,
     \ 'max_list': 10000,
-    " \ 'profile': v:true,
     \ })
+    " \ 'profile': v:true,
+    " \ })
     " call deoplete#custom#source(
     call deoplete#custom#var(
     \ 'file', 'enable_buffer_path', v:true)
