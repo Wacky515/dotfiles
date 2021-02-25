@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2021/02/24 12:49:01.
+" Last Change: 2021/02/25 16:22:49.
 
 " MEMO: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -62,9 +62,11 @@ elseif (has("win32") || has("win64"))
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
     elseif hostname() == "HBAMB819"
         let g:python3_host_prog =
-            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
+            \ "C:\\Python36\\python.exe"
+            " \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
         if !has("nvim")
-            set pythonthreedll=C:\Users\mm12167\AppData\Local\Programs\Python\Python36\python36.dll
+            set pythonthreedll=C:\Python36\python36.dll
+            " set pythonthreedll=C:\Users\mm12167\AppData\Local\Programs\Python\Python36\python36.dll
         endif
         let g:python_host_prog  =
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
