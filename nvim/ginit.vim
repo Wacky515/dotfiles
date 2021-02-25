@@ -1,9 +1,9 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2021/02/24 12:51:50.
+" Last Change: 2021/02/25 21:59:05.
 "
-" FIXME: Mac で ginit.vim 読込むとエラー
-if (has("unix") && has("mac"))
+" FIXME: "Mac" で "ginit.vim" 読込むとエラー
+if has("mac")
     if hostname()     == "SaladBookAirM1"
         Guifont! Cica:h18
     elseif hostname() == "saladserver.com"
@@ -14,7 +14,7 @@ if (has("unix") && has("mac"))
         Guifont! Cica:h18
     endif
 
-elseif (has("unix") && !has("mac"))
+elseif has("unix")
     Guifont! Cica\ 16
 
 elseif (has("win32") || has("win64"))
@@ -36,5 +36,4 @@ elseif (has("win32") || has("win64"))
     elseif hostname() == "HBALT071"
         Guifont! Cica:h16
     endif
-    " colorscheme iceberg
 endif

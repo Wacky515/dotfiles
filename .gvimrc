@@ -1,20 +1,20 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2021/02/24 12:48:35.
+" Last Change: 2021/02/25 21:57:44.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
 " ----------------------------------------------------------------------
 " カラースキーマの指定
-" MEMO: "Dein" に移管済み
 " MEMO: 不具合のためこちらの記述に戻した
+" MEMO: ~~"Dein" に移管済み~~
 set termguicolors
 set background=dark
 au MyAutoCmd VimEnter * nested colorscheme iceberg
 au MyAutoCmd VimEnter * highlight Visual ctermbg=216
 
-" "KaoriYa GVim" 用 削除しない！！！
-" コマンドライン（"Vim" 画面下部）高さ
+" "KaoriYa GVim" 用、削除しない！！！
+" コマンドライン（画面下部） 高さ
 set cmdheight=5
 
 if (has("win32") || ("win64"))
@@ -89,7 +89,7 @@ endif
 " !!!: "NeoVim" のフォント設定は "ginit.vim" に記述！！
 " フォントの設定
 if !has("nvim")
-    if (has("unix") && has("mac"))
+    if has("mac")
         if hostname()     == "SaladBookAirM1"
             set   guifont=Cica:h16
             set printfont=Cica:h16
@@ -104,7 +104,7 @@ if !has("nvim")
             set printfont=Cica:h16
         endif
 
-    elseif (has("unix") && !has("mac"))
+    elseif has("unix")
         set   guifont=Cica\ 16
         set printfont=Cica\ 16
 

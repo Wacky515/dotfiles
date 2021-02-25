@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2021/02/24 12:52:13.
+" Last Change: 2021/02/25 22:00:55.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -21,7 +21,7 @@ endfunction
 
 " 基本設定
 call s:source_rc(".vimrc")
-if (has("unix") && has("mac"))
+if has("mac")
     " FIXME: 読込むとエラー
     " call s:source_rc("nvim/ginit.vim")
     set cmdheight=5

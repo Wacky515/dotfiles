@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2021/02/25 16:22:49.
+" Last Change: 2021/02/25 21:55:28.
 
 " MEMO: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -14,100 +14,54 @@ let g:vimproc#download_windows_dll = 1
 " ---------------------------------------------------------------------------
 " "Python" 設定
 " ---------------------------------------------------------------------------
-if (has("unix") && has("mac"))
-    " MEMO: "else" 以降の記述に統合
-    if hostname()     == "saladserver.com"
-        let g:python3_host_prog = "/usr/local/bin/python3"
-    elseif hostname() == "SaladBook.local"
-        let g:python3_host_prog = "/usr/local/bin/python3"
-
-    else
+" MEMO:
+" "pythonthreedll" は "python.vim" に記述
+" Python3.6系でないと Dark powed できない 2021/02/21
+if has("vim_starting")
+    if has("mac")
         let g:python3_host_prog = "/usr/local/bin/Python3"
         let g:python_host_prog  = "/usr/bin/Python"
-    endif
 
-elseif (has("unix") && !has("mac"))
-    let g:python3_host_prog = "/usr/bin/python3"
+    elseif has("unix")
+        let g:python3_host_prog = "/usr/bin/python3"
+        let g:python_host_prog  = "/usr/bin/Python"
 
-elseif (has("win32") || has("win64"))
-" MEMO: Python3.6系でないと Dark powed できない 2021/02/21
-    if hostname()     == "SALADPRIMEMK-II"
-        let g:python3_host_prog =
-            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
-        let g:python_host_prog  =
-            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
-    elseif hostname() == "SALADCARBONX1"
-        let g:python3_host_prog =
-            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
-        let g:python_host_prog  =
-            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
+    elseif (has("win32") || has("win64"))
+        if hostname() == "HBAMB1448"
+            let g:python3_host_prog =
+                \ $HOME."/AppData/Local/Programs/Python/Python36/python.exe"
+        elseif hostname() == "HBAMB819"
+            let g:python3_host_prog =
+                \ "C:\\Python36\\python.exe"
+                " \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
+            let g:python_host_prog  =
+                \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
+            " elseif hostname() == "HBAMB748A"
+            "     let g:python3_host_prog = "C:\\Python35\\python.exe"
+            "     let g:python_host_prog  = "C:\\Python27\\python.exe"
 
-    elseif hostname() == "HBAMB1448"
-        let g:python3_host_prog =
-            \ $HOME."/AppData/Local/Programs/Python/Python36/python.exe"
-        if !has("nvim")
-            if has("gui_running")
-                set pythonthreedll=C:\Users\mm12167\AppData\Local\Programs\Python\Python36\python36.dll
-            else
-                let g:python3_host_prog = "C:\\tools\\miniconda3\\python.exe"
-            endif
+        else
+            let g:python3_host_prog =
+                \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
+            let g:python_host_prog  =
+                \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
+            " REF: 設定自動化
+            " " MEMO: "~/.vim_no_python" が存在した場合はスキップ " {{{
+            " if !filereadable(expand('~/.vim_no_python'))
+            "     " if has('nvim') && !filereadable(expand('~/.vim_no_python'))
+            "     let s:python3 = system('which python3')
+            "     if strlen(s:python3) != 0
+            "         let s:python3_dir = $HOME . '/.py3env'
+            "         if ! isdirectory(s:python3_dir)
+            "             call system('python3 -m venv ' . s:python3_dir)
+            "             call system('source ' . s:python3_dir . '/bin/activate && pip install neovim flake8 jedi')
+            "         endif
+            "         let g:python3_host_prog = s:python3_dir . '/bin/python'
+            "         let $PATH = s:python3_dir . '/bin:' . $PATH
+            "     endif
+            " endif
+            " }}}
         endif
-    elseif hostname() == "HBAMB748"
-        let g:python3_host_prog =
-            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
-        if !has("nvim")
-            set pythonthreedll=C:\Users\mm12167\AppData\Local\Programs\Python\Python36\python36.dll
-        endif
-        let g:python_host_prog  =
-            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
-    elseif hostname() == "HBAMB819"
-        let g:python3_host_prog =
-            \ "C:\\Python36\\python.exe"
-            " \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
-        if !has("nvim")
-            set pythonthreedll=C:\Python36\python36.dll
-            " set pythonthreedll=C:\Users\mm12167\AppData\Local\Programs\Python\Python36\python36.dll
-        endif
-        let g:python_host_prog  =
-            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
-    elseif hostname() == "HBAPC511"
-        let g:python3_host_prog =
-            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
-        if !has("nvim")
-            set pythonthreedll=C:\Users\mm12167\AppData\Local\Programs\Python\Python36\python36.dll
-        endif
-        let g:python_host_prog  =
-            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
-    " elseif hostname() == "HBAMB748A"
-    "     let g:python3_host_prog = "C:\\Python35\\python.exe"
-    "     let g:python_host_prog  = "C:\\Python27\\python.exe"
-
-    else
-        let g:python3_host_prog =
-            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
-        if !has("nvim")
-            set pythonthreedll=C:\Users\mm12167\AppData\Local\Programs\Python\Python36\python36.dll
-        endif
-        let g:python_host_prog  =
-            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
-        " REF:
-        " " MEMO: "~/.vim_no_python" が存在した場合はスキップ " {{{
-        " if !filereadable(expand('~/.vim_no_python'))
-        "     " if has('nvim') && !filereadable(expand('~/.vim_no_python'))
-        "     let s:python3 = system('which python3')
-        "     if strlen(s:python3) != 0
-        "         let s:python3_dir = $HOME . '/.py3env'
-        "         if ! isdirectory(s:python3_dir)
-        "             call system('python3 -m venv ' . s:python3_dir)
-        "             call system('source ' . s:python3_dir . '/bin/activate && pip install neovim flake8 jedi')
-        "         endif
-        "         let g:python3_host_prog = s:python3_dir . '/bin/python'
-        "         let $PATH = s:python3_dir . '/bin:' . $PATH
-        "     endif
-        " endif
-        " }}}
-        " let g:python3_host_prog = expand('~/nvim-python3/bin/python3')
-        " let g:python_host_prog = expand('~/nvim-python2/bin/python2')
     endif
 endif
 
@@ -238,8 +192,8 @@ endif
 set runtimepath+=~/OneDrive/Vim/dein
 runtime! dein_token.vim
 
-" Mac の Vim の colorscheme 設定
-if (has("unix") && has("mac") && !has("nvim") && !has("gui_running"))
+" "Mac" の "Vim" の "colorscheme" 設定
+if (has("mac") && !has("nvim") && !has("gui_running"))
     colorscheme iceberg
 endif
 
