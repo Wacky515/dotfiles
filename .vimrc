@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2021/02/25 22:55:50.
+" Last Change: 2021/02/26 08:06:57.
 
 " MEMO: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -81,7 +81,8 @@ augroup END
 " プラグインをインストールするディレクトリを指定
 if !has("nvim")
     if !has("gui_running")
-        let s:plugin_dir = expand("~/.cache/dein/")
+        let s:plugin_dir = expand("~/.config/vim/dein/")
+        " let s:plugin_dir = expand("~/.cache/dein/")
     else
         let s:plugin_dir = expand("~/.config/gvim/dein/")
     endif
@@ -89,14 +90,13 @@ elseif exists("g:nyaovim_version")
     let s:plugin_dir     = expand("~/.config/nyaovim/dein")
 elseif exists("g:gui_oni")
     let s:plugin_dir     = expand("~/.config/oni/dein")
-elseif has("nvim")
+else
     let s:plugin_dir     = expand("~/.config/nvim/dein/")
 endif
 
 " TODO: Unix系のパス設定追加
 " "dein.vim" をインストールするディレクトリをランタイムパスへ追加
 let s:dein_dir = s:plugin_dir . "repos/github.com/Shougo/dein.vim"
-
 execute "set runtimepath+=" . s:dein_dir
 
 " ログ出力
@@ -135,13 +135,13 @@ if dein#load_state(s:plugin_dir)
     call dein#load_toml(s:toml_nvim,            {"lazy": 0})
     call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
 
-    if has ("python3")
-        call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
-    endif
-
     if !has("nvim")
         call dein#add("roxma/nvim-yarp")
         call dein#add("roxma/vim-hug-neovim-rpc")
+    endif
+
+    if has ("python3")
+        call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
     endif
 
     if exists("g:nyaovim_version")
@@ -177,25 +177,23 @@ if (has("win32") || has("win64"))
     set runtimepath+=$HOME/.vim
 endif
 
+" "Mac" の "Vim" の "colorscheme" 設定
+if (has("mac") && !has("nvim") && !has("gui_running"))
+    colorscheme iceberg
+endif
+
 " "Vim" の設定ファイル
 runtime! userautoload/*.vim
 
 " プラグインの設定ファイル
 if !has("nvim")
     runtime! userautoload/plugin_settings/*.vim
-    runtime! userautoload/plugin_settings_nvim/*.vim
-else
-    runtime! userautoload/plugin_settings_nvim/*.vim
 endif
+runtime! userautoload/plugin_settings_nvim/*.vim
 
 " "dein.vim" の更新チェック高速化設定
 set runtimepath+=~/OneDrive/Vim/dein
 runtime! dein_token.vim
-
-" "Mac" の "Vim" の "colorscheme" 設定
-if (has("mac") && !has("nvim") && !has("gui_running"))
-    colorscheme iceberg
-endif
 
 " 読み込んだプラグインも含め、ファイルタイプの検出
 " ファイルタイプ別プラグイン/インデントを有効化する
