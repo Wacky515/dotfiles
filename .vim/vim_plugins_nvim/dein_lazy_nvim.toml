@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2021/02/25 17:34:01.
+# Last Change: 2021/02/26 19:36:26.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -170,7 +170,7 @@ on_i = 1
 hook_add = '''  " {{{
     " "hook_source" に移動
     " let g:deoplete#auto_complete_delay = 0
-    let g:deoplete#enable_at_startup   = 1
+    let g:deoplete#enable_at_startup = 1
 '''  # }}}
 
 on_event = ['InsertCharPre']
