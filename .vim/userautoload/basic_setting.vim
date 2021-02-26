@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2020/10/26 23:25:56.
+" Last Change: 2021/02/26 19:04:01.
 
 " 起動メッセージ
 augroup InitialMessage
@@ -24,7 +24,12 @@ set modeline
 set helplang=ja
 
 " ".swp"        の保存先
-set directory=~/.vim/tmp
+if !has("nvim")
+    set directory=~/.vim/tmp
+else
+    set noswapfile
+    " set directory=~/.config/nvim/tmp
+endif
 " "~"           の保存先
 set backupdir=~/.vim/tmp
 " ".un~"        の保存先

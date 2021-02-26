@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2021/02/26 08:06:57.
+" Last Change: 2021/02/26 22:11:58.
 
 " MEMO: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -128,12 +128,20 @@ if dein#load_state(s:plugin_dir)
 
     "*.toml" を読込み、キャッシュ
     if !has("nvim")
-        call dein#load_toml(s:toml,             {"lazy": 0})
-        call dein#load_toml(s:lazy_toml,        {"lazy": 1})
+        call dein#load_toml(s:toml,                 {"lazy": 0})
+        call dein#load_toml(s:lazy_toml,            {"lazy": 1})
     endif
 
-    call dein#load_toml(s:toml_nvim,            {"lazy": 0})
-    call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
+    call dein#load_toml(s:toml_nvim,                {"lazy": 0})
+    call dein#load_toml(s:lazy_toml_nvim,           {"lazy": 1})
+
+    if has("python3")
+        if !has("nvim")
+            call dein#load_toml(s:python_toml,      {"lazy": 1})
+        else
+            call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
+        endif
+    endif
 
     if !has("nvim")
         call dein#add("roxma/nvim-yarp")
