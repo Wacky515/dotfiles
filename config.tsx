@@ -1,5 +1,5 @@
 // Created:     2019/**/** **:**:**
-// Last Change: 2019/10/30 12:16:21.
+// Last Change: 2021/02/26 22:37:50.
 
 import * as React from "react"
 import * as Oni from "oni-api"
@@ -28,30 +28,30 @@ export const deactivate = (oni: Oni.Plugin.Api) => {
 
 export const configuration = {
     // add custom config here, such as
-    "ui.colorscheme": "iceberg",
+    "ui.colorscheme":             "iceberg",
 
-    "oni.bookmarks": ["~/Dotfiles"],
-    "oni.loadInitVim": true,
-    "oni.useDefaultConfig": false,
+    "oni.bookmarks":              ["~/dotfiles"],
+    "oni.loadInitVim":            true,
+    "oni.useDefaultConfig":       false,
 
-    "editor.fontSize": "18px",
-    "editor.fontFamily": "Cica, Dejavu Sans Mono, Consolas",
+    "editor.fontSize":            "18px",
+    "editor.fontFamily":          "Cica, Dejavu Sans Mono, Consolas",
 
     // UI customizations
-    "ui.animations.enabled": true,
-    "ui.fontSmoothing": "auto",
+    "ui.animations.enabled":      true,
+    "ui.fontSmoothing":           "auto",
 
     "editor.errors.slideOnForce": false,
-    "editor.fontLigatures": true,
-    "editor.fontWeight": "normal",
-    "editor.linePadding": 1,
-    "editor.quickInfo.enabled": false,
-    "editor.scrollBar.visible": false,
+    "editor.fontLigatures":       true,
+    "editor.fontWeight":          "normal",
+    "editor.linePadding":         1,
+    "editor.quickInfo.enabled":   false,
+    "editor.scrollBar.visible":   false,
 
-    "autoClosingPairs.enabled": false,
-    "commandline.mode": true,
-    "oni.hideMenu": true,
-    "sidebar.enabled": false,
-    "statusbar.enabled": true,
-    "tabs.mode": "native",
+    "autoClosingPairs.enabled":   false,
+    "commandline.mode":           true,
+    "oni.hideMenu":               true,
+    "sidebar.enabled":            false,
+    "statusbar.enabled":          true,
+    "tabs.mode":                  "native",
 }
