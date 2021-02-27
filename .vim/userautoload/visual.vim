@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/14 14:59:36
-" Last Change: 2020/01/10 08:54:**.
+" Last Change: 2021/02/27 12:19:05.
 
 " ---------------------------------------------------------------------------
 " メイン表示篇
@@ -12,7 +12,8 @@ set t_Co=256
 set number
 
 " 選択行 番号色
-highlight LineNr ctermfg=darkyellow
+"MEMO: "colorscheme" 設定後に読込まないと無効の模様
+" highlight LineNr ctermfg=darkyellow
 
 " 選択行 強調
 set cursorline
@@ -20,7 +21,7 @@ set cursorline
 " 選択列 強調
 set cursorcolumn
 
-" 改行コード 表示
+" 不可視文字 表示
 set list
 
 " 補完メニュー 高さ

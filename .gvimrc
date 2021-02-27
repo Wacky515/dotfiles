@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2021/02/25 21:57:44.
+" Last Change: 2021/02/27 12:32:59.
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -29,7 +29,7 @@ set guioptions-=T
 " 水平スクロールバー 表示
 set guioptions+=b
 
-" ウィンドウ 半透明化（"Linux" は "Vim" から設定できない）
+" ウィンドウ 半透明化（"Linux" は "NeoVim" から設定できない）
 if has("unix") && !has("nvim")
     set transparency=10
 elseif (has("win32") || ("win64"))
@@ -67,6 +67,7 @@ if exists("g:nyaovim_version")
     try
         if s:on_nyaovim || s:true_color_enabled
             colorscheme iceberg
+            let g:airline_theme = "spring_night"
             " colorscheme spring-night
             " let g:airline_theme = "spring_night"
         else
@@ -79,7 +80,6 @@ if exists("g:nyaovim_version")
     endtry
 endif
 
-" REF:
 " "Oni" 用設定
 " if exists("g:gui_oni")
 "     echo Setting for Oni

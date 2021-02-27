@@ -1,11 +1,14 @@
 # Created:     2020/04/17 09:44:30
-# Last Change: 2020/11/01 23:01:58.
+# Last Change: 2021/02/27 12:14:30.
+
+.git
+lynx.cfg
+GENE.TXT
+dictionaries
+colors
 
 # NOTWORK:
-~\dotfiles\.git\*
-~\dotfiles\.vim\lynx.chg
-
-.vim\dictionaries\*
-C:\Users\mm12167\dotfiles\.vim\dictionaries
-~\dotfiles\.vim\dictionaries\*
-~\dotfiles\.vim\dictionaries\GENE.TXT
+# ~\dotfiles\.git\*
+# ~\dotfiles\.vim\lynx.chg
+# ~\dotfiles\.vim\dictionaries\*
+# ~\dotfiles\.vim\dictionaries\GENE.TXT
