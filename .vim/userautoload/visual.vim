@@ -1,6 +1,8 @@
 scriptencoding utf-8
 " Created:     2016/08/14 14:59:36
-" Last Change: 2021/02/27 12:19:05.
+" Last Change: 2021/02/27 21:45:12.
+" MEMO: "gui_running" ではなくても設定できるもの
+    " "gui_running" 必須のものは ".gvimrc" に記述
 
 " ---------------------------------------------------------------------------
 " メイン表示篇
@@ -11,8 +13,7 @@ set t_Co=256
 " 行番号 表示
 set number
 
-" 選択行 番号色
-"MEMO: "colorscheme" 設定後に読込まないと無効の模様
+" NOTWORK: 選択行 行番号色
 " highlight LineNr ctermfg=darkyellow
 
 " 選択行 強調
@@ -23,6 +24,8 @@ set cursorcolumn
 
 " 不可視文字 表示
 set list
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
+" set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
 " 補完メニュー 高さ
 set pumheight=10
@@ -34,12 +37,12 @@ set display=lastline
 set scrolloff=3
 
 " シンタックスハイライト
-" "dein.vim" に関する設定の後にON
+" MEMO: "dein.vim" に関する設定の後にON
 syntax on
 
 " 対応括弧 強調
 set showmatch
-" ↑ の強調時間[msec]
+" 上記強調時間 [msec]
 set matchtime=1
 " 対応括弧に "<" と ">" を追加
 set matchpairs& matchpairs+=<:>
@@ -58,7 +61,7 @@ else
 endif
 
 " NVIM: モード毎にカーソル形状 変更
-if (has('nvim') && has('vim_starting'))
+if (has("nvim") && has("vim_starting"))
     " 挿入モード時     非点滅縦線
     let &t_SI .= "\e[6 q"
     " ノーマルモード時 非点滅ブロック
@@ -152,10 +155,11 @@ endif
 " ---------------------------------------------------------------------------
 " コマンドラインモード表示篇
 " ---------------------------------------------------------------------------
-" コマンドライン（"Vim" 画面下部）高さ
-set cmdheight=5
+" NOTEORK: コマンドライン（"Vim" 画面下部）高さ
+" MEMO: ".gvimrc" に移管
+" set cmdheight=5
 
-" コマンドラインモードの補完GUI
+" コマンドラインモード 補完GUI
 " 候補をリストで表示し "TAB" でフォーカス
 set wildmenu wildmode=list:full
 

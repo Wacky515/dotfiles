@@ -1,6 +1,12 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2021/02/27 12:32:59.
+" Last Change: 2021/02/27 21:20:06.
+
+" !!!: 必ず先頭に記述
+" "autocmd"（マクロ） の初期化
+augroup MyAutoCmd
+    autocmd!
+augroup END
 
 " ----------------------------------------------------------------------
 " 外観テーマ篇
@@ -8,12 +14,15 @@ scriptencoding utf-8
 " カラースキーマの指定
 " MEMO: 不具合のためこちらの記述に戻した
 " MEMO: ~~"Dein" に移管済み~~
-set termguicolors
-set background=dark
-au MyAutoCmd VimEnter * nested colorscheme iceberg
-au MyAutoCmd VimEnter * highlight Visual ctermbg=216
+if !has("nvim")
+    set termguicolors
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme iceberg
+    au MyAutoCmd VimEnter * highlight Visual ctermbg=216
+endif
 
-" "KaoriYa GVim" 用、削除しない！！！
+" MEMO: "visual.vim" 内のこの記述のみ適用されない
+    " "KaoriYa GVim" 用、削除しない！！！
 " コマンドライン（画面下部） 高さ
 set cmdheight=5
 
@@ -61,33 +70,11 @@ endif
 " syntax on
 " }}}
 
-" "NyaoVim" 用設定
-if exists("g:nyaovim_version")
-    let s:plugin_dir = expand("~/.config/nyaovim/dein")
-    try
-        if s:on_nyaovim || s:true_color_enabled
-            colorscheme iceberg
-            let g:airline_theme = "spring_night"
-            " colorscheme spring-night
-            " let g:airline_theme = "spring_night"
-        else
-            colorscheme wallaby
-            let g:airline_theme = "wombat"
-        endif
-    catch
-        set background=dark
-        colorscheme default
-    endtry
-endif
-
-" "Oni" 用設定
-" if exists("g:gui_oni")
-"     echo Setting for Oni
-" endif
-
 " !!!: 以下からは記述場所を順番を変えない！！！
-" !!!: "NeoVim" のフォント設定は "ginit.vim" に記述！！
-" フォントの設定
+" ----------------------------------------------------------------------
+" フォント設定篇
+" ----------------------------------------------------------------------
+" MEMO: "NeoVim" のフォント設定は "ginit.vim" に記述
 if !has("nvim")
     if has("mac")
         if hostname()     == "SaladBookAirM1"
