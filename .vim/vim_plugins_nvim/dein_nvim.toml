@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2021/02/21 22:12:35.
+# Last Change: 2021/02/27 22:16:48.
 
 # REF:
     # hook_add         プラグイン追加後
@@ -98,8 +98,8 @@ hook_source = '''  " {{{
     nmap <S-Up>   <Plug>(yankround-prev)
     nmap <S-Down> <Plug>(yankround-next)
     " コマンドライン内の設定
-	  cmap <C-r>    <Plug>(yankround-insert-register)
-	  cmap <C-y>    <Plug>(yankround-pop)
+    cmap <C-r>    <Plug>(yankround-insert-register)
+    cmap <C-y>    <Plug>(yankround-pop)
 '''  # }}}
 
 # Undo履歴

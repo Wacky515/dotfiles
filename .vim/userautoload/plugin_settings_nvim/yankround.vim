@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/09/13 12:32:57
-" Last Change: 2020/04/17 10:26:57.
+" Last Change: 2021/02/27 22:20:09.
 
 " ---------------------------------------------------------------------------
 "  マップキー
@@ -15,8 +15,8 @@ scriptencoding utf-8
     " nmap <S-Up>   <Plug>(yankround-prev)
     " nmap <S-Down> <Plug>(yankround-next)
     " コマンドライン内の設定
-	  " cmap <C-r>    <Plug>(yankround-insert-register)
-	  " cmap <C-y>    <Plug>(yankround-pop)
+    " cmap <C-r>    <Plug>(yankround-insert-register)
+    " cmap <C-y>    <Plug>(yankround-pop)
 " }}}
 
 " <Leader>y: 履歴一覧(Unite)

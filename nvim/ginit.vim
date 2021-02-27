@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2021/02/27 21:23:44.
+" Last Change: 2021/02/27 22:39:02.
 " FIXME: "Mac" で "ginit.vim" 読込むとエラー
 
 " !!!: 必ず先頭に記述
@@ -66,30 +66,3 @@ elseif (has("win32") || has("win64"))
     endif
 endif
 " }}}
-
-" ---------------------------------------------------------------------------
-" "NyaoVim" 設定篇
-" ---------------------------------------------------------------------------
-if exists("g:nyaovim_version")
-    let s:plugin_dir = expand("~/.config/nyaovim/dein")
-    try
-        if s:on_nyaovim || s:true_color_enabled
-            " colorscheme spring-night
-            let g:airline_theme = "spring_night"
-        else
-            colorscheme wallaby
-            let g:airline_theme = "wombat"
-        endif
-    catch
-        set background=dark
-        colorscheme default
-    endtry
-endif
-
-" ---------------------------------------------------------------------------
-" "Oni" 設定篇
-" ---------------------------------------------------------------------------
-" NOTWORK:
-" if exists("g:gui_oni")
-"     colorscheme iceberg
-" endif

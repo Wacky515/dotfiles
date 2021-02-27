@@ -1,5 +1,5 @@
 // Created:     2019/**/** **:**:**
-// Last Change: 2019/10/30 12:16:21.
+// Last Change: 2021/02/27 22:48:55.
 
 import * as React from "react"
 import * as Oni from "oni-api"
@@ -30,11 +30,11 @@ export const configuration = {
     // add custom config here, such as
     "ui.colorscheme": "iceberg",
 
-    "oni.bookmarks": ["~/Dotfiles"],
+    "oni.bookmarks": ["~/dotfiles"],
     "oni.loadInitVim": true,
     "oni.useDefaultConfig": false,
 
-    "editor.fontSize": "18px",
+    "editor.fontSize": "13px",
     "editor.fontFamily": "Cica, Dejavu Sans Mono, Consolas",
 
     // UI customizations
