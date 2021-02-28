@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Make symbolic link
 # Created:     2017/02/08 **:**:**
-# Last Change: 2021/02/21 23:38:11.
+# Last Change: 2021/02/28 13:06:42.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -66,7 +66,8 @@ sudo ln -snfv ${DOT_DIR}/nyaovimrc.html ~/.config/nyaovim/nyaovimrc.html
 if [ ! -e ~/.config/oni/ ]; then
     sudo -- bash -c "mkdir -m 777 ~/.config/oni/"
 fi
-sudo ln -snfv ${DOT_DIR}/config.tsx ~/.config/oni/config.tsx
+sudo ln -snfv ${DOT_DIR}/config.js ~/.config/oni/config.js
+# sudo ln -snfv ${DOT_DIR}/config.tsx ~/.config/oni/config.tsx
 
 for f in .??*
 do

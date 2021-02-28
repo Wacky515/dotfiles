@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2021/02/27 22:16:48.
+# Last Change: 2021/02/28 12:32:29.
 
 # REF:
     # hook_add         プラグイン追加後
@@ -136,7 +136,7 @@ repo = 'skanehira/translate.vim'
 [[plugins]]
 repo = 'mhinz/vim-startify'
 
-# ウィンドゥリサイズ
+# ウィンドウリサイズ
 [[plugins]]
 repo = 'simeji/winresizer'
 

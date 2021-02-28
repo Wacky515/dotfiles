@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2021/02/19 11:56:56.
+rem Last Change: 2021/02/28 13:08:02.
 
 set batch_title=Make link dotfiles
 title %batch_title%
@@ -101,8 +101,10 @@ if exist %programfiles(x86)%\Oni\Oni.exe (
 
 :inst_oni
 echo ^>^> Make link OniVim
-set src_json=%bat_path%\config.tsx
-set dst_json=%userprofile%\AppData\Roaming\Oni\config.tsx
+set src_json=%bat_path%\config.js
+set dst_json=%userprofile%\AppData\Roaming\Oni\config.js
+rem set src_json=%bat_path%\config.tsx
+rem set dst_json=%userprofile%\AppData\Roaming\Oni\config.tsx
 
 if exist %dst_json% (
     del /f /q %dst_json%

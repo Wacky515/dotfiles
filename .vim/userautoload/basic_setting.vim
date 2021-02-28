@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2021/02/26 19:04:01.
+" Last Change: 2021/02/28 12:45:13.
 
 " 起動メッセージ
 augroup InitialMessage
@@ -14,13 +14,13 @@ set timeout timeoutlen=1000 ttimeoutlen=50
 " コマンド履歴 保存数
 set history=1000
 
-" 折畳み設定
+" 折畳み 設定
 set foldmethod=marker
 
 " モードライン（ファイル毎の設定） ON
 set modeline
 
-" Japanese help
+" ヘルプ 日本語表記
 set helplang=ja
 
 " ".swp"        の保存先
@@ -30,19 +30,19 @@ else
     set noswapfile
     " set directory=~/.config/nvim/tmp
 endif
-" "~"           の保存先
-set backupdir=~/.vim/tmp
-" ".un~"        の保存先
-set   undodir=~/.vim/tmp
 " "viminfo.txt" の保存先
 if !has("nvim")
     set viminfo+=n~/.vim/tmp/viminfo.txt
 endif
+" "~"           の保存先
+set backupdir=~/.vim/tmp
+" ".un~"        の保存先
+set undodir=~/.vim/tmp
 
 if (has("win32") || ("win64"))
     " 編集中ディレクトリを保存ダイアログの初期ディレクトリにする
     :set browsedir=buffer
-    " カレントディレクトリを保存ダイアログの初期ディレクトリにする
+    " " カレントディレクトリを保存ダイアログの初期ディレクトリにする
     " :set browsedir=current
 endif
 
@@ -56,9 +56,9 @@ function! s:hint_cmd_output(prefix, cmd) abort
 endfunction
 
 " "Undo" 永続化
-if has('persistent_undo')
-    let undo_path = expand('~/.vim/undo')
-    exe 'set undodir=' . undo_path
+if has("persistent_undo")
+    let undo_path = expand("~/.vim/undo")
+    exe "set undodir=" . undo_path
     set undofile
 endif
 
