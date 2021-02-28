@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/12/13 07:39:11
-" Last Change: 2019/11/25 09:25:21.
+" Last Change: 2021/02/28 19:23:13.
 
 " ---------------------------------------------------------------------------
 "  マップキー
@@ -37,15 +37,15 @@ let g:startify_bookmarks = [
             \ "~/.gvimrc",
             \ "~/dotfiles/nvim/init.vim",
             \ "~/dotfiles/nvim/ginit.vim",
-            \ "~/dotfiles/config.tsx",
+            \ "~/dotfiles/config.js",
             \ "~/dotfiles/nyaovimrc.html",
             \ "~/dotfiles/.vim/vim_plugins/dein.toml",
             \ "~/dotfiles/.vim/vim_plugins/dein_lazy.toml",
             \ "~/dotfiles/.vim/vim_plugins_nvim/dein_nvim.toml",
             \ "~/dotfiles/.vim/vim_plugins_nvim/dein_lazy_nvim.toml",
             \ "~/dotfiles/.vim/userautoload/plugin_settings_nvim/vim-startify.vim",
-            \ "~/dotfiles/etc/init/linux/settings",
             \ "~/dotfiles/etc/init/osx/settings",
+            \ "~/dotfiles/etc/init/linux/settings",
             \ "~/dotfiles/etc/init/windows/settings",
             \ "R:/E2M0/E2M-4/【秘】-E2M4-1/10.個人ファイル/Wakita/Docments/機械要素購入.md",
             \ "R:/E2M0/E2M-4/【秘】-E2M4-1/10.個人ファイル/Wakita/Docments/出張各種申請 Memo.md"
