@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/12/13 07:39:11
-" Last Change: 2021/02/28 19:23:13.
+" Last Change: 2021/03/01 12:28:34.
 
 " ---------------------------------------------------------------------------
 "  マップキー
@@ -33,6 +33,7 @@ let g:startify_list_order = [
 
 " ブックマーク
 let g:startify_bookmarks = [
+            \ "~/OneDrive/仕事/Settings/Vim/README.md",
             \ "~/.vimrc",
             \ "~/.gvimrc",
             \ "~/dotfiles/nvim/init.vim",
