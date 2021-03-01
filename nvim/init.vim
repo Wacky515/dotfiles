@@ -1,6 +1,6 @@
 
 " Created:     201*/**/** **:**:**
-" Last Change: 01-Mar-2021.
+" Last Change: 2021/03/01 19:25:41.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -196,6 +196,7 @@ if exists("g:nyaovim_version")
         colorscheme iceberg
         " colorscheme default
     endtry
+    set cmdheight=5
 endif
 
 " ---------------------------------------------------------------------------
