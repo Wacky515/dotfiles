@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2021/02/24 00:08:45.
+" Last Change: 2021/03/01 12:15:55.
 " TODO: マークにジャンプ時、画面をトップに位置にする
 
 " --------------------------------------------------------------------------------
@@ -178,9 +178,9 @@ if !has("nvim")
     nnoremap <silent> ,g :<C-u>source $MYGVIMRC<CR>
 elseif has("nvim")
     " ev: vimrcを開く
-    nmap ev :<C-u>edit ~/dotfiles/.vimrc<CR>
+    nmap ev :<C-u>edit ~/dotfiles/nvim/init.vim<CR>
     " eg: gvimrcを開く
-    nmap eg :<C-u>edit ~/dotfiles/.gvimrc<CR>
+    nmap eg :<C-u>edit ~/dotfiles/nvim/ginit.vim<CR>
     " ,v: vimrcを反映
     nnoremap <silent> ,v :<C-u>source ~/dotfiles/.vimrc<CR>
     " nnoremap <silent> ,v :<C-u>source ~/dotfiles/.vimrc \| if has("gui_running") \| source ~/dotfiles/.vimrc \| endif <CR>
