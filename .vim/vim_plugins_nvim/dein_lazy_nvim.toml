@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2021/02/26 19:36:26.
+# Last Change: 2021/03/01 12:09:45.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # 統合ユーザインターフェース
@@ -234,6 +234,12 @@ repo = 'Shougo/neosnippet-snippets'
 [[plugins]]
 repo = 'kassio/neoterm'
 if = "has('nvim')"
+hook_add = '''
+  let g:neoterm_repl_python = 0
+  let g:neoterm_autoinsert  = 1
+  " opens in insert mode
+  let g:neoterm_default_mod = "botright"
+'''
 
 # Markdown
     # プレビュー
