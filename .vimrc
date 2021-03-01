@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2021/02/28 20:18:10.
+" Last Change: 2021/03/01 11:45:16.
 
 " !!!: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -13,35 +13,116 @@ let g:vimproc#download_windows_dll = 1
 
 " ---------------------------------------------------------------------------
 " 設定ファイル 読込み
-    " MEMO: "Plugin" 設定は後半に読込み
+    " MEMO:
+    " 記述順番 変更しない！！！
+    " "Plugin" 設定は後半に読込み
 " ---------------------------------------------------------------------------
 " "Windows" の設定ファイルの場所を、"Linux/Mac" 環境にあわせる
 if (has("win32") || has("win64"))
     set runtimepath+=$HOME/.vim
 endif
 
-" MEMO:
-" 記述順番 変更しない！！！
-" "Leader" の設定のみ設定ファイル読込み直前に行う
-" <Space> を "Leader" に割当て
+" ---------------------------------------------------------------------------
+" "Python" の "Path" 設定読込み
+    " MEMO:
+    " ".vimrc" から不可分
+    " PC追加時は "init.vim" も追記
+    " "Python3.6.*" でないと "Dark powed" できない 2021/02/21
+" ---------------------------------------------------------------------------
+if has("vim_starting")
+    if has("mac")
+        let g:python3_host_prog = "/usr/local/bin/python3"
+        let g:python_host_prog  = "/usr/bin/python"
+
+    elseif has("unix")
+        let g:python3_host_prog = "/usr/bin/python3"
+        let g:python_host_prog  = "/usr/bin/Python"
+
+    elseif (has("win32") || has("win64"))
+        if hostname()     == "HBAMB1448"
+            let g:python3_host_prog =
+                \ $HOME."/AppData/Local/Programs/Python/Python36/python.exe"
+        elseif hostname() == "HBAMB819"
+            let g:python3_host_prog =
+                \ "C:\\Python36\\python.exe"
+                " \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
+            let g:python_host_prog  =
+                \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
+        " elseif hostname() == "HBAMB748A"
+        "     let g:python3_host_prog = "C:\\Python35\\python.exe"
+        "     let g:python_host_prog  = "C:\\Python27\\python.exe"
+
+        else
+            let g:python3_host_prog =
+                \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
+            let g:python_host_prog  =
+                \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
+            " REF: "Path" が通っている "Python" を参照する場合は以下の記述
+            "let g:python3_host_prog = "python"
+            " REF: 設定自動化
+            " " MEMO: "~/.vim_no_python" が存在した場合はスキップ " {{{
+            " if !filereadable(expand("~/.vim_no_python"))
+            "     " if has("nvim") && !filereadable(expand("~/.vim_no_python"))
+            "     let s:python3 = system("which python3")
+            "     if strlen(s:python3) != 0
+            "         let s:python3_dir = $HOME . "/.py3env"
+            "         if ! isdirectory(s:python3_dir)
+            "             call system("python3 -m venv " . s:python3_dir)
+            "             call system("source " . s:python3_dir . "/bin/activate && pip install neovim flake8 jedi")
+            "         endif
+            "         let g:python3_host_prog = s:python3_dir . "/bin/python"
+            "         let $PATH = s:python3_dir . "/bin:" . $PATH
+            "     endif
+            " endif
+            " }}}
+        endif
+    endif
+endif
+
+" ---------------------------------------------------------------------------
+" "pythonthreedll" 設定読込み
+" ---------------------------------------------------------------------------
+" "jedi-vim" で "Anaconda3" のライブラリを補完
+if has("vim_starting")
+    if has("mac")
+        set pythonthreedll  =
+            \ "/usr/local/Cellar/python@3.9/3.9.2/Frameworks/Python.framework/Versions/3.9/Python"
+        set pythonthreehome =
+            \ "/usr/local/Cellar/python@3.9/3.9.2/Frameworks/Python.framework/Versions/3.9/"
+
+    elseif has("unix")
+        set pythonthreedll  = $VIM."/python3/python35.dll"
+        set pythonthreehome = $VIM."/python3/"
+
+    elseif (has("win32") || has("win64"))
+        if hostname() == "HBAMB819"
+            set pythonthreedll =
+                \ "C:\Python36\python36.dll"
+        else
+            set pythonthreedll=$HOME./AppData/Local/Programs/Python/Python36/python36.dll
+        endif
+    endif
+endif
+
+" ---------------------------------------------------------------------------
+" "Vim" 設定ファイルの読込み
+    " MEMO: "Leader" のみ設定ファイル読込み直前に設定
+" ---------------------------------------------------------------------------
+" <Space> を "Leader" に設定
 let mapleader = "\<Space>"
 
-" "Vim" の設定ファイル
 runtime! colors/*.vim
 runtime! userautoload/init_settings/*.vim
 " runtime! userautoload/*.vim
 
-" "Python" の "Path" の設定を読込み
-runtime! pythonpath.vim
-
 " ---------------------------------------------------------------------------
 " "dein.vim" の設定
+    " MEMO: "NeoVim" は "init.vim" に記述
 " ---------------------------------------------------------------------------
 " "dein.vim" の更新チェック高速化設定
 set runtimepath+=~/OneDrive/Vim/dein
 runtime! dein_token.vim
 
-" MEMO: "NeoVim" は "init.vim" に記述
 if !&compatible
     set nocompatible
 endif

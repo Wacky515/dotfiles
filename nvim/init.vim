@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2021/02/28 20:14:26.
+" Last Change: 2021/03/01 12:02:48.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -10,31 +10,86 @@ augroup END
 
 " ---------------------------------------------------------------------------
 " 設定ファイル 読込み
-    " MEMO: "Plugin" 設定は後半に読込み
+    " MEMO:
+    " 記述順番 変更しない！！！
+    " "Plugin" 設定は後半に読込み
 " ---------------------------------------------------------------------------
 " "Windows" の設定ファイルの場所を、"Linux/Mac" 環境にあわせる
 if (has("win32") || has("win64"))
     set runtimepath+=$HOME/.vim
 endif
 
-" MEMO:
-" 記述順番 変更しない！！！
-" "Leader" の設定のみ設定ファイル読込み直前に行う
+" ---------------------------------------------------------------------------
+" "Python" の "Path" 設定読込み
+    " MEMO:
+    " ".vimrc" から不可分
+    " PC追加時は ".vimrc" も追記
+    " "Python3.6.*" でないと "Dark powed" できない 2021/02/21
+" ---------------------------------------------------------------------------
+if has("vim_starting")
+    if has("mac")
+        let g:python3_host_prog = "/usr/local/bin/python3"
+        let g:python_host_prog  = "/usr/bin/python"
+
+    elseif has("unix")
+        let g:python3_host_prog = "/usr/bin/python3"
+        let g:python_host_prog  = "/usr/bin/Python"
+
+    elseif (has("win32") || has("win64"))
+        if hostname()     == "HBAMB1448"
+            let g:python3_host_prog =
+                \ $HOME."/AppData/Local/Programs/Python/Python36/python.exe"
+        elseif hostname() == "HBAMB819"
+            let g:python3_host_prog =
+                \ "C:\\Python36\\python.exe"
+            let g:python_host_prog  =
+                \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
+
+        else
+            let g:python3_host_prog =
+                \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
+            let g:python_host_prog  =
+                \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
+        endif
+    endif
+endif
+
+" ---------------------------------------------------------------------------
+" "pythonthreedll" 設定読込み
+" ---------------------------------------------------------------------------
+" "jedi-vim" で "Anaconda3" のライブラリを補完
+if has("vim_starting")
+    if has("mac")
+        set pythonthreedll  =
+            \ "/usr/local/Cellar/python@3.9/3.9.2/Frameworks/Python.framework/Versions/3.9/Python"
+        set pythonthreehome =
+            \ "/usr/local/Cellar/python@3.9/3.9.2/Frameworks/Python.framework/Versions/3.9/"
+
+    elseif has("unix")
+        set pythonthreedll  = $VIM."/python3/python35.dll"
+        set pythonthreehome = $VIM."/python3/"
+
+    endif
+endif
+
+" ---------------------------------------------------------------------------
+" "Vim" 設定ファイルの読込み
+    " MEMO: "Leader" のみ設定ファイル読込み直前に設定
+" ---------------------------------------------------------------------------
 " <Space> を "Leader" に割当て
 let mapleader = "\<Space>"
 
-" "Vim" の設定ファイル
 runtime! colors/*.vim
 runtime! userautoload/init_settings/*.vim
 
-" "Python" の "Path" の設定を読込み
-runtime! pythonpath.vim
-
 " ---------------------------------------------------------------------------
 " "dein.vim" の設定
-    " MEMO: "NeoVim" と統合しない
+    " !!!: ".vimrc" と統合しない
 " ---------------------------------------------------------------------------
-" FIXME:
+" "dein.vim" の更新チェック高速化設定
+set runtimepath+=~/OneDrive/Vim/dein
+runtime! dein_token.vim
+
 if !&compatible
     set nocompatible
 endif
@@ -124,13 +179,10 @@ else
     " set cmdheight=5
 endif
 
-" ee: "TComment" 起動
-nnoremap <silent> ee :<C-u>TComment<CR>
-
 " MEMO:
 " 読み込んだプラグインも含め、ファイルタイプの検出
 " ファイルタイプ別プラグイン/インデントを有効化する
-" filetype plugin indent on
+filetype plugin indent on
 
 " ---------------------------------------------------------------------------
 " "NyaoVim" 設定篇

@@ -1,12 +1,17 @@
 scriptencoding utf-8
 " Created:     2018/12/27 09:39:26
-" Last Change: 2019/10/28 10:16:05.
+" Last Change: 2021/03/01 11:58:08.
 
 " ---------------------------------------------------------------------------
 "  マップキー
 " ---------------------------------------------------------------------------
-" " <C-=><C-=>: "TComment" 起動
-" nnoremap <silent> <C-=><C-=> :<C-u>TComment<CR>
+if has("nvim")
+    " ee: "TComment" 起動
+    nnoremap <silent> ee :<C-u>TComment<CR>
+else
+    " <C-=><C-=>: "TComment" 起動
+    nnoremap <silent> <C-=><C-=> :<C-u>TComment<CR>
+endif
 
 " REF:
 " let g:tcommentMapLeader1   = '<C-_>'    (default: '<c-_>')
