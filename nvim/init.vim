@@ -1,6 +1,6 @@
-
+scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2021/03/01 19:25:41.
+" Last Change: 2021/03/01 19:37:54.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化

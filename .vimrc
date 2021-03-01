@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2021/03/01 13:53:11.
+" Last Change: 2021/03/01 20:24:57.
 
 " !!!: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -111,9 +111,15 @@ endif
 " <Space> を "Leader" に設定
 let mapleader = "\<Space>"
 
-runtime! colors/*.vim
-runtime! userautoload/init_settings/*.vim
-" runtime! userautoload/*.vim
+if (has("mac") || has("unix"))
+    runtime! ~/dotfiles/.vim/colors/*.vim
+    runtime! ~/dotfiles/.vim/userautoload/init_settings/*.vim
+
+elseif (has("win32") || has("win64"))
+    runtime! $HOME./dotfiles/.vim/colors/*.vim
+    runtime! $HOME./dotfiles/.vim/userautoload/init_settings/*.vim
+    " runtime! $HOME./dotfiles/.vim/userautoload/*.vim
+endif
 
 " ---------------------------------------------------------------------------
 " "dein.vim" の設定
