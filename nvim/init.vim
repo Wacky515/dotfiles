@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2021/03/01 21:00:36.
+" Last Change: 2021/03/01 21:35:39.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -162,6 +162,9 @@ if has("mac")
     set cmdheight=5
     " source ~/.gvimrc
     " source ~/dotfiles/nvim/ginit.vim
+elseif ((has("win32") || has("win64")) && !has("gui_runnig"))
+    colorscheme iceberg
+    set cmdheight=5
 endif
 
 " シンタックスハイライト
