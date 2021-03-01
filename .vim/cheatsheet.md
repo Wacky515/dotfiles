@@ -335,7 +335,7 @@
 - :TrainSearchRoute {出発駅} {到着駅}: 乗換え情報
 - :TrainLateInfo:   電車遅延情報
 
-## Kaoriya
+## KaoriYa
 
 - :VDsplit (ファイル名|バッファ番号)
   - [c: 前方の変更の先頭へ移動
