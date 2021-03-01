@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2021/03/01 11:45:16.
+" Last Change: 2021/03/01 13:53:11.
 
 " !!!: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -208,9 +208,14 @@ runtime! userautoload/plugin_settings_nvim/*.vim
 " Init最終処理
 " ---------------------------------------------------------------------------
 " "Mac" の "Vim" の "colorscheme" 設定
-if (has("mac") && !has("nvim") && !has("gui_running"))
+if (has("mac") && !has("gui_running"))
     colorscheme iceberg
+    set cmdheight=5
 endif
+
+" シンタックスハイライト
+" MEMO: "dein.vim" に関する設定の後にON
+syntax on
 
 " MEMO:
 " 読み込んだプラグインも含め、ファイルタイプの検出

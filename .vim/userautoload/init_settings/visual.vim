@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/14 14:59:36
-" Last Change: 2021/02/28 12:29:04.
+" Last Change: 2021/03/01 13:48:45.
 " MEMO: "gui_running" ではなくても設定できるもの
     " "gui_running" 必須のものは ".gvimrc" に記述
 
@@ -35,10 +35,6 @@ set display=lastline
 
 " スクロール時 上下端行数
 set scrolloff=3
-
-" シンタックスハイライト
-" MEMO: "dein.vim" に関する設定の後にON
-syntax on
 
 " 対応括弧 強調
 set showmatch

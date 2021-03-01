@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2021/02/27 21:20:06.
+" Last Change: 2021/03/01 13:44:58.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -14,12 +14,10 @@ augroup END
 " カラースキーマの指定
 " MEMO: 不具合のためこちらの記述に戻した
 " MEMO: ~~"Dein" に移管済み~~
-if !has("nvim")
-    set termguicolors
-    set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme iceberg
-    au MyAutoCmd VimEnter * highlight Visual ctermbg=216
-endif
+set termguicolors
+set background=dark
+au MyAutoCmd VimEnter * nested colorscheme iceberg
+au MyAutoCmd VimEnter * highlight Visual ctermbg=216
 
 " MEMO: "visual.vim" 内のこの記述のみ適用されない
     " "KaoriYa GVim" 用、削除しない！！！

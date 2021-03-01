@@ -1,6 +1,6 @@
-scriptencoding utf-8
+
 " Created:     201*/**/** **:**:**
-" Last Change: 2021/03/01 12:02:48.
+" Last Change: 01-Mar-2021.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -59,13 +59,7 @@ endif
 " ---------------------------------------------------------------------------
 " "jedi-vim" で "Anaconda3" のライブラリを補完
 if has("vim_starting")
-    if has("mac")
-        set pythonthreedll  =
-            \ "/usr/local/Cellar/python@3.9/3.9.2/Frameworks/Python.framework/Versions/3.9/Python"
-        set pythonthreehome =
-            \ "/usr/local/Cellar/python@3.9/3.9.2/Frameworks/Python.framework/Versions/3.9/"
-
-    elseif has("unix")
+    if (has("unix") && !has("mac"))
         set pythonthreedll  = $VIM."/python3/python35.dll"
         set pythonthreehome = $VIM."/python3/"
 
@@ -164,20 +158,18 @@ runtime! userautoload/plugin_settings_nvim/*.vim
 " ---------------------------------------------------------------------------
 " Init最終処理
 " ---------------------------------------------------------------------------
-if !has("mac")
-    " FIXME: "Mac" は読込むとエラー
-    " MEMO:
-    " Nvim 0.4.2 以降では、”UIEnter” autocommand があるため
-    " "ginit.vim" が不要
-    " ~~MEMO: 上記のためか自動で "ginit.vim" を読込まないため下記追加~~
-    " MEMO: "colorscheme" だけが適用されていない模様
-    " call s:source_rc("nvim/ginit.vim")
-else
+if has("mac")
+    colorscheme iceberg
     " MEMO: "visual.vim" 内のこの記述のみ適用されない
-    " TEST: 修正したので "Mac" でテスト
     " コマンドライン（"Vim" 画面下部）高さ
-    " set cmdheight=5
+    set cmdheight=5
+    " source ~/.gvimrc
+    " source ~/dotfiles/nvim/ginit.vim
 endif
+
+" シンタックスハイライト
+" MEMO: "dein.vim" に関する設定の後にON
+syntax on
 
 " MEMO:
 " 読み込んだプラグインも含め、ファイルタイプの検出
