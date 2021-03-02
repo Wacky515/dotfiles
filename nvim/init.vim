@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2021/03/01 21:35:39.
+" Last Change: 2021/03/02 12:33:18.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -36,12 +36,6 @@ if has("vim_starting")
         if hostname()     == "HBAMB1448"
             let g:python3_host_prog =
                 \ $HOME."/AppData/Local/Programs/Python/Python36/python.exe"
-        elseif hostname() == "HBAMB819"
-            let g:python3_host_prog =
-                \ "C:\\Python36\\python.exe"
-            let g:python_host_prog  =
-                \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
-
         else
             let g:python3_host_prog =
                 \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"

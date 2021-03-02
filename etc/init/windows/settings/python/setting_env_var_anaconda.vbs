@@ -1,12 +1,12 @@
 ' Created:     201*/**/** **:**:**
-' Last Change: 2021/02/20 22:42:05.
+' Last Change: 2021/03/02 11:32:10.
 
 ' •Ï”éŒ¾‚ğ‹­§
 Option Explicit
 On Error Resume Next
 
-' ŠÇ—Ò‚Æ‚µ‚ÄÀs
-call runasCheck()
+' ' ŠÇ—Ò‚Æ‚µ‚ÄÀs
+' call runasCheck()
 
 Dim env
 Dim shell
@@ -55,7 +55,6 @@ Function runasCheck()
     End If
     strArgs = strArgs & " " & args.item(0)
   End If
-
 
   Set objWMI = GetObject("winmgmts:" & "{impersonationLevel=impersonate}!\\.\root\cimv2")
   Set osInfo = objWMI.ExecQuery("SELECT * FROM Win32_OperatingSystem")

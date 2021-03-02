@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2021/03/01 21:30:23.
+" Last Change: 2021/03/02 12:30:15.
 
 " !!!: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -27,7 +27,6 @@ endif
     " MEMO:
     " ".vimrc" から不可分
     " PC追加時は "init.vim" も追記
-    " "Python3.6.*" でないと "Dark powed" できない 2021/02/21
 " ---------------------------------------------------------------------------
 if has("vim_starting")
     if has("mac")
@@ -42,15 +41,6 @@ if has("vim_starting")
         if hostname()     == "HBAMB1448"
             let g:python3_host_prog =
                 \ $HOME."/AppData/Local/Programs/Python/Python36/python.exe"
-        elseif hostname() == "HBAMB819"
-            let g:python3_host_prog =
-                \ "C:\\Python36\\python.exe"
-                " \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
-            let g:python_host_prog  =
-                \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
-        " elseif hostname() == "HBAMB748A"
-        "     let g:python3_host_prog = "C:\\Python35\\python.exe"
-        "     let g:python_host_prog  = "C:\\Python27\\python.exe"
 
         else
             let g:python3_host_prog =
@@ -81,6 +71,9 @@ endif
 
 " ---------------------------------------------------------------------------
 " "pythonthreedll" 設定読込み
+    " MEMO:
+    " "Vim" で "Dark powed" するための設定
+    " "Python3.6.*" でないと "Dark powed" できない 2021/02/21
 " ---------------------------------------------------------------------------
 " "jedi-vim" で "Anaconda3" のライブラリを補完
 if has("vim_starting")
@@ -95,12 +88,7 @@ if has("vim_starting")
         set pythonthreehome = $VIM."/python3/"
 
     elseif (has("win32") || has("win64"))
-        if hostname() == "HBAMB819"
-            set pythonthreedll =
-                \ "C:\Python36\python36.dll"
-        else
-            set pythonthreedll=$HOME./AppData/Local/Programs/Python/Python36/python36.dll
-        endif
+        set pythonthreedll=$HOME./AppData/Local/Programs/Python/Python36/python36.dll
     endif
 endif
 
