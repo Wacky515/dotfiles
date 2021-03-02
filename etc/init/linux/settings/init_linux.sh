@@ -1,13 +1,13 @@
 #!bin/bash
 # @(#) Initialize Linux
 # Created:     2017/12/25 **:**:**
-# Last Change: 2021/03/02 22:11:07.
+# Last Change: 2021/03/02 22:13:37.
 
 set -ueo pipefail
 export LC_ALL=C
 
 ## 関数
-if [ -f ~/.bash_function ];
+if [ -f ~/.bash_function ]; then
     source ~/.bash_function
 else
     source ~/dotfiles/.bash_function

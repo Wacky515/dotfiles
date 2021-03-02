@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # @(#) Initialize OS X
 # Created:     2018/05/21 16:55:15
-# Last Change: 2021/03/02 22:11:09.
+# Last Change: 2021/03/02 22:13:10.
 
 set -euo pipefail
 export LC_ALL=C
 
 ## 関数
-if [ -f ~/.bash_function ];
+if [ -f ~/.bash_function ]; then
     source ~/.bash_function
 else
     source ~/dotfiles/.bash_function
