@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2021/02/28 13:08:02.
+rem Last Change: 2021/03/02 15:15:05.
 
 set batch_title=Make link dotfiles
 title %batch_title%
@@ -50,7 +50,7 @@ if defined xdg_config_home (
 
 mklink /d %dst_nvim% %src_nvim% > nul 2>&1
 if %errorlevel% equ 0 (
-    echo ^>^> init.vimAginit.vim for NeoVim link success!
+    echo ^>^> init.vim, ginit.vim for NeoVim link success!
 ) else (
     echo ^>^> FAILED LINK INIT.VIM, GINIT.VIM, FOR NEOVIM ERROR CODE: %errorlevel%
 )
@@ -103,8 +103,6 @@ if exist %programfiles(x86)%\Oni\Oni.exe (
 echo ^>^> Make link OniVim
 set src_json=%bat_path%\config.js
 set dst_json=%userprofile%\AppData\Roaming\Oni\config.js
-rem set src_json=%bat_path%\config.tsx
-rem set dst_json=%userprofile%\AppData\Roaming\Oni\config.tsx
 
 if exist %dst_json% (
     del /f /q %dst_json%
@@ -126,7 +124,7 @@ if exist %dist_oni% (
 
 mklink /d %dst_oni% %src_oni% > nul 2>&1
 if %errorlevel% equ 0 (
-    echo ^>^> init.vimAginit.vim for Oni link success!
+    echo ^>^> init.vim, ginit.vim for Oni link success!
 ) else (
     echo ^>^> FAILED LINK INIT.VIM, GINIT.VIM, FOR ONI ERROR CODE: %errorlevel%
 )
@@ -160,6 +158,23 @@ if %errorlevel% equ 0 (
     echo ^>^> Success config.fish link
 ) else (
     echo ^>^> FAILED LINK CONFIG.FISH, ERROR CODE: %errorlevel%
+)
+
+rem "pip" Ý’è
+if not exist %appdata%\pip\ (
+    mkdir %appdata%\pip\
+)
+mklink %appdata%\pip\pip.ini %bat_path%\pip.ini > nul 2>&1
+if %errorlevel% equ 0 (
+    echo ^>^> Success pip.ini link^(Global^)
+) else (
+    echo ^>^> FAILED LINK PIP.INI ^(GLOBAL^), ERROR CODE: %errorlevel%
+)
+mklink %VIRTUAL_ENV%\pip.ini %bat_path%\pip.ini > nul 2>&1
+if %errorlevel% equ 0 (
+    echo ^>^> Success pip.ini link^(Virtual^)
+) else (
+    echo ^>^> FAILED LINK PIP.INI ^(VIRTUAL^), ERROR CODE: %errorlevel%
 )
 
 :lnk_dot
