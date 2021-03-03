@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2021/02/27 22:39:02.
+" Last Change: 2021/03/01 22:48:45.
 " FIXME: "Mac" で "ginit.vim" 読込むとエラー
 
 " !!!: 必ず先頭に記述
@@ -50,6 +50,8 @@ elseif (has("win32") || has("win64"))
     if hostname()     == "SALADPRIMEMK-II"
         Guifont! Cica:h12
     elseif hostname() == "SALADCARBONX1"
+        Guifont! Cica:h13
+    elseif hostname() == "SALASURFACEGO"
         Guifont! Cica:h13
 
     " muRata setting
