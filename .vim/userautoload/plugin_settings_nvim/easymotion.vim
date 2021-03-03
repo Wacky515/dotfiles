@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/11/29 16:22:33.
+" Last Change: 2021/03/03 20:52:57.
 
 " ---------------------------------------------------------------------------
 " マップキー
@@ -37,17 +37,18 @@ map ,,k <Plug>(easymotion-k)
 " Keep cursor column with `JK` motions
 let g:EasyMotion_startofline = 0
 
-" f,t,F,T の挙動強化
-    " カーソル行に{char}が1つならばデフォルトの挙動
-    " 2つ以上ならばラベルで移動ポイント選択
-map f <Plug>(easymotion-fl)
-map t <Plug>(easymotion-tl)
-map F <Plug>(easymotion-Fl)
-map T <Plug>(easymotion-Tl)
-
-" 対象範囲を "forward/backward" 両方向にできるモーション
-map f <Plug>(easymotion-bd-fl)
-map t <Plug>(easymotion-bd-tl)
+" KILL: 繰返しができない
+" " f,t,F,T の挙動強化
+"     " カーソル行に{char}が1つならばデフォルトの挙動
+"     " 2つ以上ならばラベルで移動ポイント選択
+" map f <Plug>(easymotion-fl)
+" map t <Plug>(easymotion-tl)
+" map F <Plug>(easymotion-Fl)
+" map T <Plug>(easymotion-Tl)
+"
+" " 対象範囲を "forward/backward" 両方向にできるモーション
+" map f <Plug>(easymotion-bd-fl)
+" map t <Plug>(easymotion-bd-tl)
 
 " ---------------------------------------------------------------------------
 " 基本設定
