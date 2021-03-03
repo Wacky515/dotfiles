@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2021/03/02 12:30:15.
+" Last Change: 2021/03/03 14:20:31.
 
 " !!!: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -25,8 +25,7 @@ endif
 " ---------------------------------------------------------------------------
 " "Python" の "Path" 設定読込み
     " MEMO:
-    " ".vimrc" から不可分
-    " PC追加時は "init.vim" も追記
+    " "init.vim" へ不可分
 " ---------------------------------------------------------------------------
 if has("vim_starting")
     if has("mac")
@@ -38,34 +37,29 @@ if has("vim_starting")
         let g:python_host_prog  = "/usr/bin/Python"
 
     elseif (has("win32") || has("win64"))
-        if hostname()     == "HBAMB1448"
-            let g:python3_host_prog =
-                \ $HOME."/AppData/Local/Programs/Python/Python36/python.exe"
-
-        else
-            let g:python3_host_prog =
-                \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
-            let g:python_host_prog  =
-                \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
-            " REF: "Path" が通っている "Python" を参照する場合は以下の記述
-            "let g:python3_host_prog = "python"
-            " REF: 設定自動化
-            " " MEMO: "~/.vim_no_python" が存在した場合はスキップ " {{{
-            " if !filereadable(expand("~/.vim_no_python"))
-            "     " if has("nvim") && !filereadable(expand("~/.vim_no_python"))
-            "     let s:python3 = system("which python3")
-            "     if strlen(s:python3) != 0
-            "         let s:python3_dir = $HOME . "/.py3env"
-            "         if ! isdirectory(s:python3_dir)
-            "             call system("python3 -m venv " . s:python3_dir)
-            "             call system("source " . s:python3_dir . "/bin/activate && pip install neovim flake8 jedi")
-            "         endif
-            "         let g:python3_host_prog = s:python3_dir . "/bin/python"
-            "         let $PATH = s:python3_dir . "/bin:" . $PATH
-            "     endif
-            " endif
-            " }}}
-        endif
+        let g:python3_host_prog =
+            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
+        let g:python_host_prog  =
+            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
+        " REF:  " {{{
+        " "Path" が通っている "Python" を参照する場合は以下の記述
+        "let g:python3_host_prog = "python"
+        " 設定自動化
+        " " MEMO: "~/.vim_no_python" が存在した場合はスキップ
+        " if !filereadable(expand("~/.vim_no_python"))
+        "     " if has("nvim") && !filereadable(expand("~/.vim_no_python"))
+        "     let s:python3 = system("which python3")
+        "     if strlen(s:python3) != 0
+        "         let s:python3_dir = $HOME . "/.py3env"
+        "         if ! isdirectory(s:python3_dir)
+        "             call system("python3 -m venv " . s:python3_dir)
+        "             call system("source " . s:python3_dir . "/bin/activate && pip install neovim flake8 jedi")
+        "         endif
+        "         let g:python3_host_prog = s:python3_dir . "/bin/python"
+        "         let $PATH = s:python3_dir . "/bin:" . $PATH
+        "     endif
+        " endif
+        " }}}
     endif
 endif
 
@@ -74,8 +68,8 @@ endif
     " MEMO:
     " "Vim" で "Dark powed" するための設定
     " "Python3.6.*" でないと "Dark powed" できない 2021/02/21
+    " "jedi-vim" で "Anaconda3" のライブラリを補完
 " ---------------------------------------------------------------------------
-" "jedi-vim" で "Anaconda3" のライブラリを補完
 if has("vim_starting")
     if has("mac")
         set pythonthreedll  =
@@ -198,14 +192,14 @@ runtime! userautoload/plugin_settings_nvim/*.vim
 " ---------------------------------------------------------------------------
 " Init最終処理
 " ---------------------------------------------------------------------------
-" "Mac" の "Vim" の "colorscheme" 設定
-if (has("mac") && !has("gui_running"))
+" "colorscheme" 設定
+if ((has("mac") && !has("gui_running"))|| ((has("win32") || has("win64")) && !has("gui_runnig")))
     colorscheme iceberg
-    set cmdheight=5
-elseif ((has("win32") || has("win64"))&& !has("gui_running"))
-    colorscheme iceberg
+    " MEMO: "visual.vim" 内のこの記述のみ適用されない
+    " コマンドライン（"Vim" 画面下部）高さ
     set cmdheight=5
 endif
+
 " シンタックスハイライト
 " MEMO: "dein.vim" に関する設定の後にON
 syntax on

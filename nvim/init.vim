@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2021/03/02 12:33:18.
+" Last Change: 2021/03/03 14:20:28.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -20,8 +20,6 @@ set runtimepath+=$HOME/.vim
 " "Python" の "Path" 設定読込み
     " MEMO:
     " ".vimrc" から不可分
-    " PC追加時は ".vimrc" も追記
-    " "Python3.6.*" でないと "Dark powed" できない 2021/02/21
 " ---------------------------------------------------------------------------
 if has("vim_starting")
     if has("mac")
@@ -33,27 +31,24 @@ if has("vim_starting")
         let g:python_host_prog  = "/usr/bin/Python"
 
     elseif (has("win32") || has("win64"))
-        if hostname()     == "HBAMB1448"
-            let g:python3_host_prog =
-                \ $HOME."/AppData/Local/Programs/Python/Python36/python.exe"
-        else
-            let g:python3_host_prog =
-                \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
-            let g:python_host_prog  =
-                \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
-        endif
+        let g:python3_host_prog =
+            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
+        let g:python_host_prog  =
+            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
     endif
 endif
 
 " ---------------------------------------------------------------------------
 " "pythonthreedll" 設定読込み
+    " MEMO:
+    " "Vim" で "Dark powed" するための設定
+    " "Python3.6.*" でないと "Dark powed" できない 2021/02/21
+    " "jedi-vim" で "Anaconda3" のライブラリを補完
 " ---------------------------------------------------------------------------
-" "jedi-vim" で "Anaconda3" のライブラリを補完
 if has("vim_starting")
     if (has("unix") && !has("mac"))
         set pythonthreedll  = $VIM."/python3/python35.dll"
         set pythonthreehome = $VIM."/python3/"
-
     endif
 endif
 
@@ -149,15 +144,11 @@ runtime! userautoload/plugin_settings_nvim/*.vim
 " ---------------------------------------------------------------------------
 " Init最終処理
 " ---------------------------------------------------------------------------
-if has("mac")
+" "colorscheme" 設定、等
+if (has("mac") || ((has("win32") || has("win64")) && !has("gui_runnig")))
     colorscheme iceberg
     " MEMO: "visual.vim" 内のこの記述のみ適用されない
     " コマンドライン（"Vim" 画面下部）高さ
-    set cmdheight=5
-    " source ~/.gvimrc
-    " source ~/dotfiles/nvim/ginit.vim
-elseif ((has("win32") || has("win64")) && !has("gui_runnig"))
-    colorscheme iceberg
     set cmdheight=5
 endif
 
@@ -173,25 +164,25 @@ filetype plugin indent on
 " ---------------------------------------------------------------------------
 " "NyaoVim" 設定篇
 " ---------------------------------------------------------------------------
-if exists("g:nyaovim_version")
-    try
-        if s:on_nyaovim || s:true_color_enabled
-            colorscheme iceberg
-            " colorscheme spring-night
-            let g:airline_theme = "spring_night"
-        else
-            colorscheme iceberg
-            " colorscheme wallaby
-            let g:airline_theme = "spring_night"
-            " let g:airline_theme = "wombat"
-        endif
-    catch
-        set background=dark
-        colorscheme iceberg
-        " colorscheme default
-    endtry
-    set cmdheight=5
-endif
+" if exists("g:nyaovim_version")
+"     try
+"         if s:on_nyaovim || s:true_color_enabled
+"             colorscheme iceberg
+"             " colorscheme spring-night
+"             let g:airline_theme = "spring_night"
+"         else
+"             colorscheme iceberg
+"             " colorscheme wallaby
+"             let g:airline_theme = "spring_night"
+"             " let g:airline_theme = "wombat"
+"         endif
+"     catch
+"         set background=dark
+"         colorscheme iceberg
+"         " colorscheme default
+"     endtry
+"     set cmdheight=5
+" endif
 
 " ---------------------------------------------------------------------------
 " "Oni" 設定篇
