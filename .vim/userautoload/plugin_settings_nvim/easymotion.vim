@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2021/03/03 20:52:57.
+" Last Change: 2021/03/05 14:13:24.
 
 " ---------------------------------------------------------------------------
 " マップキー
@@ -9,24 +9,25 @@ scriptencoding utf-8
 let g:EasyMotion_do_mapping = 1
 " ,,: "EasyMotion" 開始
 map ,, <Plug>(easymotion-prefix)
-
 " USEGE:  " {{{
-" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" Jump to anywhere you want with minimal keystrokes,
+    " with just one key binding.
 " `s{char}{label}`
 " nmap s <Plug>(easymotion-overwin-f)
 " or
 " `s{char}{char}{label}`
 " Need one more keystroke, but on average, it may be more comfortable.
 " nmap i <Plug>(easymotion-overwin-f2)
-    " nmap s <Plug>(easymotion-s2)
-    " xmap s <Plug>(easymotion-s2)
-    " "surround.vim" と差別化
-    " omap z <Plug>(easymotion-s2)
+" nmap s <Plug>(easymotion-s2)
+" xmap s <Plug>(easymotion-s2)
+" "surround.vim" と差別化
+" omap z <Plug>(easymotion-s2)
+" ,,e{char}{char}: "{char}{char}" 画面全体を検索
+" ,,e{char}<CR>:   1つの "{char}" で検索
+" ,,e{char}{char}: "{char}{char}" で検索
+" ,,e<CR>:         前回の検索をリピート
 " }}}
-" ,,e{char}{char}:     "{char}{char}" 画面全体を検索
-    " ,,e{char}<CR>:   1つの "{char}" で検索
-    " ,,e{char}{char}: "{char}{char}" で検索
-    " ,,e<CR>:         前回の検索をリピート
+
 nmap ,,e <plug>(easymotion-s2)
 xmap ,,e <plug>(easymotion-s2)
 
@@ -37,7 +38,7 @@ map ,,k <Plug>(easymotion-k)
 " Keep cursor column with `JK` motions
 let g:EasyMotion_startofline = 0
 
-" KILL: 繰返しができない
+" KILL: 繰返しができない " {{{
 " " f,t,F,T の挙動強化
 "     " カーソル行に{char}が1つならばデフォルトの挙動
 "     " 2つ以上ならばラベルで移動ポイント選択
@@ -45,10 +46,11 @@ let g:EasyMotion_startofline = 0
 " map t <Plug>(easymotion-tl)
 " map F <Plug>(easymotion-Fl)
 " map T <Plug>(easymotion-Tl)
-"
+
 " " 対象範囲を "forward/backward" 両方向にできるモーション
 " map f <Plug>(easymotion-bd-fl)
 " map t <Plug>(easymotion-bd-tl)
+" }}}
 
 " ---------------------------------------------------------------------------
 " 基本設定
