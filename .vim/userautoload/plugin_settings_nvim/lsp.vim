@@ -1,33 +1,64 @@
 scriptencoding utf-8
 " Created:     2019/06/24 11:32:20
-" Last Change: 2019/11/25 11:18:40.
+" Last Change: 2021/03/05 10:56:53.
 
 " ---------------------------------------------------------------------------
 " マップキー
 " ---------------------------------------------------------------------------
+" 定義元ジャンプ
+    " MEMO: デフォルト "ctags" の同機能を上書き
 nmap <silent> <Leader>d  :LspDefinition<CR>
-nmap <silent> <Leader>p  :LspHover<CR>
-nmap <silent> <Leader>R  :LspReferences<CR>
-nmap <silent> <Leader>i  :LspImplementation<CR>
+" nnoremap <C-]> :<C-u>LspDefinition<CR>
+" 定義元ジャンプ 水平分割
 nmap <silent> <Leader>ls :split  \| :LspDefinition <CR>
+" 定義元ジャンプ 垂直分割
 nmap <silent> <Leader>lv :vsplit \| :LspDefinition <CR>
+" カーソル下の定義情報 ホバー表示
+nmap <silent> <Leader>p  :LspHover<CR>
+" nnoremap K :<C-u>LspHover<CR>
+" 変数リネーム
+nnoremap <LocalLeader>r :<C-u>LspRename<CR>
+" 参照元ジャンプ
+nmap <silent> <Leader>R  :LspReferences<CR>
+" nnoremap <LocalLeader>n :<C-u>LspReferences<CR>
+"全実装と "Interface" 表示
+nmap <silent> <Leader>i  :LspImplementation<CR>
+" "Lint" を "QuickFix" 表示
+nnoremap <LocalLeader>f :<C-u>LspDocumentDiagnostics<CR>
+" テキスト整形
+nnoremap <LocalLeader>s :<C-u>LspDocumentFormat<CR>
 
 " ---------------------------------------------------------------------------
 " 基本設定
 " ---------------------------------------------------------------------------
-if executable('pyls')
-    " pip install python-language-server
+" "vim-lsp" オプション設定
+let g:lsp_signs_enabled           = 1
+let g:lsp_diagnostics_enabled     = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_virtual_text_enabled    = 1
+let g:lsp_signs_error             = {'text': '✗'}
+let g:lsp_signs_warning           = {'text': '‼'}
+let g:lsp_signs_information       = {'text': 'i'}
+let g:lsp_signs_hint              = {'text': '?'}
+
+" "Python" の "pyls" 起動
+" MEMO: ```pip install python-language-server```
+if executable("pyls")
     au User lsp_setup call lsp#register_server({
-                \ 'name': 'pyls',
-                \ 'cmd': {server_info->['pyls']},
-                \ 'whitelist': ['python'],
+                \ "name": "pyls",
+                \ "cmd": {server_info->["pyls"]},
+                \ "whitelist": ["python"],
                 \ })
 endif
 
-if executable('go-langserver')
+" オムニ補完を利用する場合、定義の追加
+set omnifunc=lsp#complete
+
+" "Go" の "go-langserver" 起動
+if executable("go-langserver")
     au User lsp_setup call lsp#register_server({
-                \ 'name': 'go-langserver',
-                \ 'cmd': {server_info->['go-langserver', '-mode', 'stdio']},
-                \ 'whitelist': ['go'],
+                \ "name": "go-langserver",
+                \ "cmd": {server_info->["go-langserver", "-mode", "stdio"]},
+                \ "whitelist": ["go"],
                 \ })
 endif

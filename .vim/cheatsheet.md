@@ -306,11 +306,14 @@
 
 - ***先に "F6" 押下すること***
 - \<Leader\>d:  定義元ジャンプ
-- \<Leader\>p:  カーソル下のシンボル情報表示
-- \<Leader\>R:  参照元表示
+- \<Leader\>ls: 定義元ジャンプ 水平分割
+- \<Leader\>lv: 定義元ジャンプ 垂直分割
+- \<Leader\>p:  カーソル下の定義情報 ホバー表示
+- \<Leader\>r:  変数リネーム
+- \<Leader\>R:  参照元ジャンプ
 - \<Leader\>i:  全実装と "Interface" 表示
-- \<Leader\>ls: 水平分割 定義元ジャンプ
-- \<Leader\>lv: 垂直分割 定義元ジャンプ
+- \<Leader\>f:  "Lint" を "QuickFix" 表示
+- \<Leader\>s:  テキスト整形
 
 ## Diff
 
