@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2021/03/01 12:25:14.
+# Last Change: 2021/03/10 17:30:03.
 
 # REF:
     # hook_add         プラグイン追加後
@@ -47,6 +47,10 @@ repo = 'vim-scripts/DirDiff.vim'
 repo = 'prabirshrestha/async.vim'
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+[[plugins]]
+repo = 'mattn/vim-lsp-icons'
 
 # Ctags
     # どの関数内か表示
