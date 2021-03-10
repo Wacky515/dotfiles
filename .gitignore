@@ -1,16 +1,18 @@
 # Create:      201*/**/** **:**:**
-# Last Change: 2019/11/30 09:55:41.
+# Last Change: 2021/03/10 12:21:04.
 
 # ------------------------------
 # 独自追記
 # ------------------------------
 # 無視する者共
-ctags.exe
-gitconfig_hbamb748.local
-memo.txt
-nvim/.netrwhist
-nvim/rplugin.vim
 tags
+
+ctags.exe
+nvim/.netrwhist
+gitconfig_hbamb748.local
+
+nvim/rplugin.vim
+memo.txt
 yankring_history_v2.txt
 
 ~/AppData/Local/nvim/.netrwhist
@@ -35,26 +37,28 @@ yankring_history_v2.txt
 # /foo
 /.vim/dein/*
 /.vim/tmp/*
-/.vim/undo/
+/.vim/undo/*
 /.vim/userautoload/Users/*
-/etc/init/windows/settings/cygwin/apt-cyg/
+/etc/init/windows/settings/cygwin/apt-cyg/*
 
-Users/
+Users/*
 */Users/
 
 # 無視しない者共
-!/.vim/tmp/README.md
+# !/.vim/tmp/README.md
 
 # Temporary Files
 
 # ------------------------------
-# vim
+# Vim
 # ------------------------------
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
-*.un~
 Session.vim
 .netrwhist
+*.swo
+*.swp
+*.un~
 
 # ------------------------------
 # Backup files

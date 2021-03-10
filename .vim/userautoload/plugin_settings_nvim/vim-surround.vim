@@ -1,41 +1,44 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/11/25 11:15:03.
+" Last Change: 2021/03/10 14:35:38.
 
 " --------------------------------------------------------------------------------
 " マップキー
 " --------------------------------------------------------------------------------
-" <Leader>*:  "*" で "word" を前後にスペースありで囲む
-" <Leader>n*: "*" で "word" を前後にスペースなしで囲む
-" <Leader>f*: "*" で "word" を前にスペースありで囲む
-" <Leader>b*: "*" で "word" を後にスペースありで囲む
-" MEMO: "*=[",',`]"
-" ds*:        囲い文字 "*" を削除
-" cs**':      囲い文字 "*" を "*'" に変更
-" [c|d]i*:    "*" の中身を削除
+" MEMO: [★,☆]=[",',`]
 
+" <Leader>★:  "★" で "word" を前後にスペースありで囲む
 nmap <Leader>"  ysiw"i<Space><Esc>f";a<Space><Esc>
-nmap <Leader>n" ysiw"
-nmap <Leader>f" ysiw"i<Space><Esc>
-nmap <Leader>b" ysiw"f"a<Space><Esc>
-
 nmap <Leader>'  ysiw'i<Space><Esc>f';a<Space><Esc>
-nmap <Leader>n' ysiw'
-nmap <Leader>f' ysiw'i<Space><Esc>
-nmap <Leader>b' ysiw'f'a<Space><Esc>
-
 nmap <Leader>`  ysiw`i<Space><Esc>f`;a<Space><Esc>
+
+" <Leader>n★: "★" で "word" を前後にスペースなしで囲む
+nmap <Leader>n" ysiw"
+nmap <Leader>n' ysiw'
 nmap <Leader>n` ysiw`
+
+" <Leader>f★: "★" で "word" を前側にスペースありで囲む
+nmap <Leader>f" ysiw"i<Space><Esc>
+nmap <Leader>f' ysiw'i<Space><Esc>
 nmap <Leader>f` ysiw`i<Space><Esc>
+
+" <Leader>b★: "★" で "word" を後側にスペースありで囲む
+nmap <Leader>b" ysiw"f"a<Space><Esc>
+nmap <Leader>b' ysiw'f'a<Space><Esc>
 nmap <Leader>b` ysiw`f`a<Space><Esc>
 
+" ds★:        囲い文字 "★" を削除
+" cs★☆:      囲い文字 "★" を "☆" に変更
+" [c|d]i★:    "★" の中身を削除
+
 " <Leader>はじめカッコ: "word" を前後にスペースありで囲む
-" <Leader>おわりカッコ: "word" を前後にスペースなしで囲む
 nmap <Leader>( ysiw(
-nmap <Leader>) ysiw)
 nmap <Leader>[ ysiw[
-nmap <Leader>] ysiw]
 nmap <Leader>{ ysiw{
+
+" <Leader>おわりカッコ: "word" を前後にスペースなしで囲む
+nmap <Leader>) ysiw)
+nmap <Leader>] ysiw]
 nmap <Leader>} ysiw}
 
 " KILL: 不等号は設定不可の模様
@@ -47,8 +50,8 @@ nmap <Leader>* ysiw*
 nmap <Leader><Leader>* ysiwa
 nmap <Leader><Leader><Leader>* ysiw*wysiw*wysiw*
 
-" ビジュアルモードで "word" を選択し "*": 前後にスペースなしで囲む
-" MEMO: "*=[",',`,),],*]"
+" MEMO: ★=[",',`,),],*]
+" ビジュアルモードで "word" を選択し ★: "★" で選択範囲を前後にスペースなしで囲む
 xmap " S"
 xmap ' S'
 xmap ` S`
@@ -56,8 +59,8 @@ xmap ) S)
 xmap ] S]
 xmap * S*
 
-" ビジュアルモードで "word" を選択し "*": 前後にスペースありで囲む
-" MEMO: "*=[(,[]"
+" MEMO: ★=[(,[]
+" ビジュアルモードで "word" を選択し ★: "★" で選択範囲を前後にスペースありで囲む
 xmap ( S(
 xmap [ S[
 

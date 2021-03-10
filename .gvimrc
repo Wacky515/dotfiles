@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2021/03/01 13:44:58.
+" Last Change: 2021/03/10 12:21:43.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -111,8 +111,8 @@ if !has("nvim")
 
         " muRata setting
         elseif hostname() == "HBAMB1448"
-            set   guifont=Cica:h15
-            set printfont=Cica:h15
+            set   guifont=Cica:h14
+            set printfont=Cica:h14
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "HBAMB748"
             set   guifont=Cica:h15
