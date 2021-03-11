@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     __DATE__
-rem Last Change: 2019/11/29 16:34:01.
+rem Last Change: 2021/03/11 11:10:51.
 
 rem set batch_title=__START__
 rem title %batch_title%
@@ -13,6 +13,7 @@ pushd %bat_path%
 rem echo ^>^> %batch_title%
 echo ^>^> Start
 
+echo ^>^> Check %batch_title% or not
 
 popd
 endlocal
