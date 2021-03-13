@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2021/03/01 22:48:45.
+" Last Change: 2021/03/13 10:21:03.
 " FIXME: "Mac" で "ginit.vim" 読込むとエラー
 
 " !!!: 必ず先頭に記述
@@ -29,8 +29,6 @@ call s:source_rc(".gvimrc")
 " ----------------------------------------------------------------------
 " フォント設定篇
 " ----------------------------------------------------------------------
-" MEMO: "Guifont" は使用できなくなった？
-" FIXME: Pitch metrics エラーが解消できず
 if has("mac") " {{{
     if hostname()     == "SaladBookAirM1"
         Guifont! Cica:h18
@@ -51,7 +49,7 @@ elseif (has("win32") || has("win64"))
         Guifont! Cica:h12
     elseif hostname() == "SALADCARBONX1"
         Guifont! Cica:h13
-    elseif hostname() == "SALASURFACEGO"
+    elseif hostname() == "SALADSURFACEGO"
         Guifont! Cica:h13
 
     " muRata setting
