@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2020/11/03 17:14:27.
+rem Last Change: 2021/03/21 14:45:48.
 
 set batch_title=Install textlint
 
@@ -32,8 +32,10 @@ echo ^>^> Check installed or not
 rem textlint --version > nul 2>&1-version
 rem if %errorlevel% equ 0 goto end
 if exist %appdata%\npm\node_modules\textlint (
-    echo ^>^> Already installed, skip this script
-    goto end
+    echo ^>^> Already installed, install rules
+    goto inst_rules
+    rem echo ^>^> Already installed, skip this script
+    rem goto end
 )
 
 echo ^>^> Check dependencies
@@ -65,6 +67,7 @@ rem     cmd /c npm init -y
 rem     )
 rem }}}
 
+:inst_rules
 cmd /c npm update -global npm
 
 rem cmd /c npm install -global textlint -save-dev
