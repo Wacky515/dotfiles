@@ -1,11 +1,13 @@
 # Created:     2020/04/17 09:44:30
-# Last Change: 2021/02/27 12:14:30.
+# Last Change: 2021/03/25 16:46:07.
 
 .git
-lynx.cfg
 GENE.TXT
-dictionaries
+NC_office
 colors
+dictionaries
+installed_log
+lynx.cfg
 
 # NOTWORK:
 # ~\dotfiles\.git\*
