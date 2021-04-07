@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2017/02/17 00:54:41
-rem Last Change: 2020/10/26 16:52:28.
+rem Last Change: 2021/04/07 15:38:09.
 
 set batch_title=Update Chocolatey
 title %batch_title%
@@ -20,6 +20,7 @@ exit
 set bat_path=%~dp0
 set dot_path=%userprofile%\dotfiles\
 set cho_path=%dot_path%\etc\init\windows\settings\chocolatey\
+set odr_path=%onedrive%\仕事\Settings\Chocolatey\
 
 set config_files=packages_%computername%.config
 
@@ -49,22 +50,27 @@ echo ^>^> Already installed Chocolatey
 echo ^>^> Update software condition
 if not exist %cho_path% (
     rem TODO: 自動で "git clone" する
-    echo ^>^> CLONE CHOCOLATEY DIRECTORY FIRST, FINISH THIS SCRIPT!
+    echo ^>^> CLONE CHOCOLATEY DIRECTORY FIRST, ABORT THIS SCRIPT!
     goto end
 )
-pushd %cho_path%
+pushd %odr_path%
+rem pushd %cho_path%
 
 rem "***_packages_***.config" を読込み、インストール
-if exist *_%config_files% (
-        echo ^>^> Setting for this PC
-        for %%i in (*_%config_files%) do (
-            cinst -y  - no-progress %%i
-            )
-        )
+if exist %config_files% (
+    echo ^>^> Setting for this PC
+    for %%i in (%config_files%) do (
+        cinst -y - no-progress %%i
+    )
+) else (
+    pushd %cho_path%
+    cinst -y - no-progress packages.config
+)
 
 cup all -y
 
 rem デスクトップショートカット 作成
+pushd %odr_path%
 if not exist %userprofile%\Desktop\init_and_update_chocolatey.lnk (
     goto cplnk
 ) else (

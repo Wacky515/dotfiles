@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2021/01/20 14:05:40.
+rem Last Change: 2021/04/07 15:53:35.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -30,7 +30,8 @@ exit
 :main_routine
 set bat_path=%~dp0
 set conf_file=packages_%computername%.config
-set conf_path=%userprofile%\dotfiles\etc\init\windows\settings\chocolatey\
+set conf_path=%onedrive%\仕事\Settings\Chocolatey\
+set conf_dept=%userprofile%\dotfiles\etc\init\windows\settings\chocolatey\
 set conf_defa=%conf_path%\packages.config
 
 rem rem スクリプトがある "Dir" に "cd"
@@ -246,8 +247,6 @@ goto install_apps
 echo ^>^> In home network, connect NAS
 set nas_settings=\\SaladStationII\share\仕事\Settings
 set nas_initapps=\\SaladStationII\share\仕事\InitApps
-rem set nas_settings=\\10.0.1.55\share\仕事\Settings
-rem set nas_initapps=\\10.0.1.55\share\仕事\InitApps
 set /a result_nas_copy=0
 set /a con_stg_time=0
 
@@ -352,12 +351,13 @@ rem Test時 スキップ
 rem ---------------------------------------------------------------------------
 if %test% equ 1 goto instll_all
 rem "*_packages_*.config" を読み込み、インストール
-if exist *_%conf_file% (
+if exist %conf_file% (
     echo ^>^> Install apps for this PC
-    for %%i in (*_%conf_file%) do (
+    for %%i in (%conf_file%) do (
         cinst -y -r --no-progress %%i
     )
 ) else (
+    pushd %conf_dept%
     echo ^>^> Setting default parameter
     cinst -y -r --no-progress %conf_defa%
 )

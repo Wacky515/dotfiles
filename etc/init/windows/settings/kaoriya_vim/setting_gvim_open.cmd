@@ -1,10 +1,9 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/04/16 16:01:52.
+rem Last Change: 2021/04/07 15:55:12.
 
 set batch_title=Setting GVim Open
-
 title %batch_title%
 
 rem 管理者権限で起動されたかチェック
