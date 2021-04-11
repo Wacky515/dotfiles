@@ -1,0 +1,2036 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>100</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>System Font</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>1001</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>item grid 1</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>1002</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>item grid 2</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>1005</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>item grid cell sash</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>101</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>System Font Emphasized</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>1011</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>item detail header 1</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>force-bold-if-no-semibold</key>
+		<true/>
+		<key>size</key>
+		<integer>13</integer>
+	</dict>
+	<key>1012</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>item detail header 2</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>1015</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>item detail header button</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>1016</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>item detail header alt 1</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>force-bold-if-no-semibold</key>
+		<true/>
+		<key>size</key>
+		<integer>12</integer>
+	</dict>
+	<key>1017</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>item detail header alt 2</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>102</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>System Font Small</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>1020</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>item track list disc number label</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>1021</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>item track list 1</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>1022</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>item track list 2</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>right</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>1023</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>item track list 3</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>right</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>1024</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>item track list 4</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>103</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>System Font Small Emphasized</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>1033</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>item table cell 3</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>1040</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>item header 1</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>force-bold-if-no-semibold</key>
+		<true/>
+		<key>size</key>
+		<integer>13</integer>
+	</dict>
+	<key>1041</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>item header 2</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>1042</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>item header 2</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>106</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Windows Menu Bar Default Style</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>107</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Undo Stack Item</string>
+		<key>bold</key>
+		<false/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>1073</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Action Menu Header</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>1078</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Search Popover No Results</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>16</integer>
+	</dict>
+	<key>108</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Redo Stack Item</string>
+		<key>bold</key>
+		<false/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>1083</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Source Popover Section Header</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>1084</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Source Popover Unread count</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>force-bold-if-no-semibold</key>
+		<true/>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>1090</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Action Menu Cell 3</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>1091</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Action Menu Cell 4</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>1092</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Action Menu Cell 5</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>1093</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Action Menu Cell 5</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>justification</key>
+		<string>left</string>
+		<key>size</key>
+		<integer>16</integer>
+	</dict>
+	<key>1113</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>details header bubble style</string>
+		<key>baseline-tweak</key>
+		<integer>-1</integer>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>1219</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Intro Link</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>1308</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>add to playlists overlay divider font</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>1401</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>play queue 1</string>
+		<key>bold</key>
+		<false/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>1402</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>play queue 2</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>1403</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>play queue 3</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>1404</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>play queue 4</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>1407</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>play queue count</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>1409</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>play queue header button</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>1410</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>play queue 3</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>1411</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>play queue msg</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>1516</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>radio list header</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>1543</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Radio Explicit/Clean Toggle</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>left</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>1551</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Radio Skips Left</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>16640</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Headline</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>15</integer>
+	</dict>
+	<key>17408</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Subhead</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>17920</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Label</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>18176</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>LabelEmphasized</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>18688</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>LabelMedium</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>18944</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>LabelSmall</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>19200</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>LabelSmallEmphasized</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>201</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Push Button</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>202</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Checkbox Button</string>
+		<key>baseline-tweak</key>
+		<integer>1</integer>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>203</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Radio Button</string>
+		<key>baseline-tweak</key>
+		<integer>1</integer>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>204</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Popup Button</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>210</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Flat Metal Headers</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>13</integer>
+	</dict>
+	<key>211</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Flat Metal Labels</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>212</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Flat Metal Buttons</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>213</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Flat Metal Default Buttons</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>214</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Flat Metal Default Buttons</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>22272</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>SubheadEmphasized</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>23040</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Title</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>26</integer>
+	</dict>
+	<key>23296</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>TitleEmphasized</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>26</integer>
+	</dict>
+	<key>23552</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Title2</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>18</integer>
+	</dict>
+	<key>23808</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Title2Emphasized</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>18</integer>
+	</dict>
+	<key>24064</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>HeadlineEmphasized</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>15</integer>
+	</dict>
+	<key>24320</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Headline2</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>13</integer>
+	</dict>
+	<key>24576</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Headline2Emphasized</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>size</key>
+		<integer>13</integer>
+	</dict>
+	<key>24832</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>LabelMediumEmphasized</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>25088</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>PremiumBumper</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>48</integer>
+	</dict>
+	<key>25344</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>PremiumBumperEmphasized</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>size</key>
+		<integer>48</integer>
+	</dict>
+	<key>301</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Browser Window Totals</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>302</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>LCDText</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>304</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Store Search Text</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>306</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>LCDTextLarge</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>308</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>LCDTextBold</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>309</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>LCDCounterText</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>7</integer>
+	</dict>
+	<key>310</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Nav Bar Light Controls</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>313</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Store Drag Font</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>315</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Link Buttons</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>316</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Link Over Buttons</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+		<key>underline</key>
+		<true/>
+	</dict>
+	<key>318</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Browser Window Drag Font</string>
+		<key>baseline-tweak</key>
+		<integer>-1</integer>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>320</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Description Window Text</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>351</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>LCD Buy Button</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>353</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Store Account Button</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>left</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>4000</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Track title display</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>500</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>EQ Checkbox</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>5008</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Resume Movie or Play Extras Menu</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>18</integer>
+	</dict>
+	<key>501</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>EQ Bands</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>502</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>EQ DB Level</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>right</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>503</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>EQ Popup</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>504</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Search</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>510</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>EQ</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>519</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Thumb View Small Text 1</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>520</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Thumb View Small Text 2</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>521</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Thumb View Small Text 3</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>542</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Placard Left Label - Dark</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>550</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>apps thumb view 1</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>551</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>apps thumb view divider</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>12</integer>
+	</dict>
+	<key>560</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>playlist dark theme 1</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>561</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>playlist dark theme 2</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>562</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>playlist dark theme 3</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>563</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>playlist dark theme 4</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>564</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>playlist dark theme 5</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>565</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>playlist dark theme 6</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>566</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>playlist light theme 5</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>567</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>playlist light theme 6</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>570</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>playlist light theme 1</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>571</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>playlist light theme 2</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>572</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>playlist light theme 3</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>573</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>playlist light theme 4</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>580</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>playlist wall theme 1</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>12</integer>
+	</dict>
+	<key>581</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>playlist wall theme 2</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>582</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>playlist wall theme 3</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>14</integer>
+	</dict>
+	<key>583</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>playlist wall theme 4</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>584</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>playlist wall theme 5</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>14</integer>
+	</dict>
+	<key>585</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>playlist wall theme 6</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>12</integer>
+	</dict>
+	<key>601</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Store Browse Overlay</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>610</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Chapter Menu Number</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>611</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Chapter Menu Title</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>612</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Chapter Menu Time</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>613</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Store Menu</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>614</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Contextual Menu Title</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>700</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>vod view title</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>12</integer>
+	</dict>
+	<key>701</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>vod view studio</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>702</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>vod view runtime</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>703</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>vod view description</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>704</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>vod view expire</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>right</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>705</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>vod view moreinfo</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>706</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>vod view title light</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>12</integer>
+	</dict>
+	<key>707</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>vod view studio light</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>708</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>vod view runtime light</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>709</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>vod view description light</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>710</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>vod view expire light</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>right</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>711</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>vod view moreinfo light</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>right</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>719</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Store Bar Button Text</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>730</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Gradient Window Title</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Trebuchet MS</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>731</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Gradient Utility Window Title</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Trebuchet MS</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>732</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Document Window Title</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Trebuchet MS</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>733</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Document Window Title - Lion</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Trebuchet MS</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>739</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Remote Speakers Main Volume</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Trebuchet MS</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>740</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>QuickTime Look Window Title</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Trebuchet MS</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>9000</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>About Version Text</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>9001</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>About Text</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>9002</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>List Contents (Small)</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>9003</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>List Contents (Large)</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>9004</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>List Header</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>9005</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Dialog Text Standard Bold</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>MS Shell Dlg</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>9006</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Dialog Text Small</string>
+		<key>font</key>
+		<string>Tahoma</string>
+		<key>size</key>
+		<integer>7</integer>
+	</dict>
+	<key>9007</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Dialog Text Small Bold</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Tahoma</string>
+		<key>size</key>
+		<integer>7</integer>
+	</dict>
+	<key>9011</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Dialog Text Standard</string>
+		<key>font</key>
+		<string>MS Shell Dlg</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>9018</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>device settings newsstand label/folder edit text for iPhone</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>18</integer>
+	</dict>
+	<key>9019</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>device settings newsstand label/folder edit text for iPad</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>12</integer>
+	</dict>
+	<key>9025</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Apps pane rollover button text</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>9029</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>List Contents (Small Bold)</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>9030</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>List Contents (Large Bold)</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>9031</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>AirPlay Device Name in HUD</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>14</integer>
+	</dict>
+	<key>9040</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>TouchPageListCell Hilite</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>9041</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>TouchPageListCell Normal</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>9050</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>TouchApp Sync Icon Label</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>9051</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>TouchApp Sync Tile Label for Dock</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>9052</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>TouchApp Tile Text for unifed dock/pages</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>9053</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>TouchApp sync tile label for iOS7 UI</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>9054</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>TouchApp sync tile label for iOS7 UI</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>9100</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Printing Body</string>
+		<key>font</key>
+		<string>Lucida Grande</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>9101</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Printing Column Header</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Lucida Grande</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>9102</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Printing Footer</string>
+		<key>font</key>
+		<string>Lucida Grande</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>12</integer>
+	</dict>
+	<key>9103</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Printing Header</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Lucida Grande</string>
+		<key>size</key>
+		<integer>14</integer>
+	</dict>
+	<key>9104</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Printing Insert Tracks</string>
+		<key>font</key>
+		<string>Lucida Grande</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>9105</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Printing Album List Large</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Lucida Grande</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>9106</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Printing Album List Medium</string>
+		<key>font</key>
+		<string>Lucida Grande</string>
+		<key>size</key>
+		<integer>11</integer>
+	</dict>
+	<key>9107</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Printing Album List Small</string>
+		<key>font</key>
+		<string>Lucida Grande</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>9108</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Printing Album List Header</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Lucida Grande</string>
+		<key>size</key>
+		<integer>14</integer>
+	</dict>
+	<key>9109</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Printing Album List Footer</string>
+		<key>font</key>
+		<string>Lucida Grande</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>12</integer>
+	</dict>
+	<key>9110</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Token Field</string>
+		<key>font</key>
+		<string>Tahoma</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>9111</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Printing Header Line 2</string>
+		<key>font</key>
+		<string>Arial</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>9112</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Printing Header Page Numbers</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Arial</string>
+		<key>justification</key>
+		<string>right</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>9114</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Album Details Track/Album price/but button</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>9116</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>Light queue buy button</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>center</string>
+		<key>size</key>
+		<integer>8</integer>
+	</dict>
+	<key>9119</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>media type empty details view extra information string</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>9120</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>media type empty details view explanation string</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>15</integer>
+	</dict>
+	<key>9121</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>info panel header title</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>force-bold-if-no-semibold</key>
+		<true/>
+		<key>size</key>
+		<integer>12</integer>
+	</dict>
+	<key>9122</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>info panel header subtitle</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>9124</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>info panel details button bar</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>9125</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>info panel details item title</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>justification</key>
+		<string>right</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>9126</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>info panel details item value</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>9127</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>info panel footer buttons</string>
+		<key>bold</key>
+		<true/>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+	<key>9128</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>info panel artwork details item title</string>
+		<key>font</key>
+		<string>Meiryo UI Semibold</string>
+		<key>size</key>
+		<integer>10</integer>
+	</dict>
+	<key>9129</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>info panel details lyrics</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>12</integer>
+	</dict>
+	<key>9130</key>
+	<dict>
+		<key>- loc hint -</key>
+		<string>info panel details item value</string>
+		<key>font</key>
+		<string>Meiryo UI</string>
+		<key>size</key>
+		<integer>9</integer>
+	</dict>
+</dict>
+</plist>
