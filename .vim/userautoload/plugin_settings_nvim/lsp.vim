@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2019/06/24 11:32:20
-" Last Change: 2021/03/05 14:45:00.
+" Last Change: 2021/04/30 10:23:44.
 
 " ---------------------------------------------------------------------------
 " マップキー
@@ -29,8 +29,12 @@ nnoremap <LocalLeader>f :<C-u>LspDocumentDiagnostics<CR>
 nnoremap <LocalLeader>s :<C-u>LspDocumentFormat<CR>
 " ]e: 次のエラーへジャンプ
 nnoremap <silent> ]e  :LspNextError<CR>
-" ]e: 前のエラーへジャンプ
+" [e: 前のエラーへジャンプ
 nnoremap <silent> [e  :LspPreviousError<CR>
+" ]d: 次の診断へジャンプ
+nnoremap <silent> ]d  :LspNextDiagnostic<CR>
+" [d: 前の診断へジャンプ
+nnoremap <silent> [d  :LspPreviousDiagnostic<CR>
 
 " --------------------------------------------------------------------------- " 基本設定 " ---------------------------------------------------------------------------
 " "vim-lsp" オプション設定
