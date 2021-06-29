@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2021/06/29 11:13:19
-rem Last Change: 2021/06/29 11:29:35.
+rem Last Change: 2021/06/29 12:03:39.
 
 set batch_title=Clen disk
 title %batch_title%
@@ -44,6 +44,7 @@ rem DNSレゾルバのキャッシュ 削除
 ipconfig /flushdns
 rem Windows10ストアアプリ キャッシュ削除
 wsreset
+sfc /scannow
 
 :end
 endlocal
