@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/03/31 09:53:57
-rem Last Change: 2020/10/26 14:42:03.
+rem Last Change: 2021/08/17 09:12:57.
 
 set batch_title=Setting for Folder options
 title %batch_title%
@@ -38,7 +38,7 @@ reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Ad
 rem "常にメニューを表示する" 有効
 echo ^>^> Always show menus
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "AlwaysShowMenus" /t REG_DWORD /d "1" /f
-rem "タスク ビュー ボ"タンを表示 無効
+rem "タスク ビュー ボタンを表示" 無効
 echo ^>^> Hide task view
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowTaskViewButton" /t REG_DWORD /d "0" /f
 rem "隠しファイル、隠しフォルダー、および隠しドライブを表示しない" 有効
@@ -81,7 +81,7 @@ echo ^>^> OFF Disc cache
 sc config SysMain start=disabled
 sc config UevAgentService start=demand
 
-echo ^>^> OFF Hibernate 
+echo ^>^> OFF Hibernate
 powercfg.exe /hibernate off
 
 rem エクスプローラー 再起動
