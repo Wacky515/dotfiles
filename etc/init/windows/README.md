@@ -4,7 +4,7 @@
 
 - DO NOT EXECUTE WITH SYNLINKED, VANISH DOTFILES
 
-## Usage
+## USAGE
 
 - Run command below
 
