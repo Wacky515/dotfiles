@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2021/03/03 14:20:31.
+" Last Change: 2021/12/26 15:32:44.
 
 " !!!: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -12,20 +12,30 @@ augroup END
 let g:vimproc#download_windows_dll = 1
 
 " ---------------------------------------------------------------------------
-" 設定ファイル 読込み
+" "Vim" 設定ファイルの読込み
     " MEMO:
-    " 記述順番 変更しない！！！
-    " "Plugin" 設定は後半に読込み
+        " 記述順番 変更しない！！！
+        " "Leader" のみ設定ファイル読込み直前に設定
+        " "Plugin" 設定は後半に読込み
 " ---------------------------------------------------------------------------
+" <Space> を "Leader" に設定
+let mapleader = "\<Space>"
+
 " "Windows" の設定ファイルの場所を、"Linux/Mac" 環境にあわせる
 if (has("win32") || has("win64"))
     set runtimepath+=$HOME/.vim
 endif
 
+" MEMO: MacVim のバグと思われる
+if !(has("mac") || has("gui_running"))
+    runtime! colors/*.vim
+endif
+
+runtime! userautoload/init_settings/*.vim
+
 " ---------------------------------------------------------------------------
 " "Python" の "Path" 設定読込み
-    " MEMO:
-    " "init.vim" へ不可分
+    " MEMO: "init.vim" へ不可分
 " ---------------------------------------------------------------------------
 if has("vim_starting")
     if has("mac")
@@ -66,9 +76,9 @@ endif
 " ---------------------------------------------------------------------------
 " "pythonthreedll" 設定読込み
     " MEMO:
-    " "Vim" で "Dark powed" するための設定
-    " "Python3.6.*" でないと "Dark powed" できない 2021/02/21
-    " "jedi-vim" で "Anaconda3" のライブラリを補完
+        " "Vim" で "Dark powed" するための設定
+        " "Python3.6.*" でないと "Dark powed" できない 2021/02/21
+        " "jedi-vim" で "Anaconda3" のライブラリを補完
 " ---------------------------------------------------------------------------
 if has("vim_starting")
     if has("mac")
@@ -85,20 +95,6 @@ if has("vim_starting")
         set pythonthreedll=$HOME./AppData/Local/Programs/Python/Python36/python36.dll
     endif
 endif
-
-" ---------------------------------------------------------------------------
-" "Vim" 設定ファイルの読込み
-    " MEMO: "Leader" のみ設定ファイル読込み直前に設定
-" ---------------------------------------------------------------------------
-" <Space> を "Leader" に設定
-let mapleader = "\<Space>"
-
-" MEMO: MacVim のバグと思われる
-if !(has("mac") || has("gui_running"))
-    runtime! colors/*.vim
-endif
-runtime! userautoload/init_settings/*.vim
-" runtime! userautoload/*.vim
 
 " ---------------------------------------------------------------------------
 " "dein.vim" の設定
@@ -205,6 +201,6 @@ endif
 syntax on
 
 " MEMO:
-" 読み込んだプラグインも含め、ファイルタイプの検出
-" ファイルタイプ別プラグイン/インデントを有効化する
+    " 読込んだプラグイン含めてファイルタイプの検出と
+    " ファイルタイプ別にプラグイン、インデントを有効化
 filetype plugin indent on

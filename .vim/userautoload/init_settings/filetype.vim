@@ -1,18 +1,20 @@
 scriptencoding utf-8
 " Created:     2016/08/08 22:24:35
-" Last Change: 2019/11/22 11:28:23.
+" Last Change: 2021/12/26 15:41:26.
 
-" MEMO: 詳細設定は "~/dotfiles/.vim/filetype_settings" に記述
+" MEMO: 詳細設定は "~/dotfiles/.vim/ftplugin" に記述
 augroup filetypedetect
-    au BufRead,BufNewFile *.{md,mkd,mdwn,mkdn,mark*} setfiletype markdown
-    au BufRead,BufNewFile *.{vim,nvim}               setfiletype vim
-    au BufRead,BufNewFile *.{sh,bash*,zsh*,vimshrc}  setfiletype sh
-    au BufRead,BufNewFile *.{fish}                   setfiletype fish
-    au BufRead,BufNewFile *.{bat,cmd}                setfiletype dosbatch
-    au BufRead,BufNewFile *.py                       setfiletype python
-    au BufRead,BufNewFile *.toml                     setfiletype toml
-    au BufRead,BufNewFile *.UWS                      setfiletype uwsc
-    au BufRead,BufNewFile *.{ino,pde}                setfiletype arduino
+    autocmd BufRead,BufNewFile *.{vim,nvim}               setfiletype vim
+    autocmd BufRead,BufNewFile *.{md,mkd,mdwn,mkdn,mark*} setfiletype markdown
+    autocmd BufRead,BufNewFile *.{sh,bash*,zsh*,vimshrc}  setfiletype sh
+    autocmd BufRead,BufNewFile *.{fish}                   setfiletype fish
+    autocmd BufRead,BufNewFile *.{bat,cmd}                setfiletype dosbatch
+    autocmd BufRead,BufNewFile *.py                       setfiletype python
+    autocmd BufRead,BufNewFile *.toml                     setfiletype toml
+    autocmd BufRead,BufNewFile *.UWS                      setfiletype uwsc
+    autocmd BufRead,BufNewFile *.{ino,pde}                setfiletype arduino
+    " FIXME: autocmd BufRead,BufNewFile *.prg                      setfiletype melfa-basic
+    autocmd BufRead,BufNewFile *.bas                      setfiletype basic
 augroup END
 
 " オプション名 | 補足
