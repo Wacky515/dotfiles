@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2017/01/18 **:**:**
-rem Last Change: 2020/04/16 16:10:49.
+rem Last Change: 2022/01/27 11:51:00.
 
 set batch_title=Setting Yamabuki R
 
@@ -30,7 +30,13 @@ rem 設定ファイル コピー
 if exist %userprofile%\yamabuki_r1.11.1.w\ (
     copy /y "yamabuki_r.ypr" %userprofile%\yamabuki_r1.11.1.w\
 ) else (
-    echo ^>^> Not install Yamabuki R
+    echo ^>^> Not install Yamabuki R 1.11.1w
+    exit /b 1
+)
+if exist C:\Prog\YamabukiR\ (
+    copy /y "yamabuki_r.ini" C:\Prog\YamabukiR
+) else (
+    echo ^>^> Not install Yamabuki R 1.62
     exit /b 1
 )
 
