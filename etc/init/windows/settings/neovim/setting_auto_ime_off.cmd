@@ -26,7 +26,7 @@ pushd %bat_path%
 echo ^>^> %batch_title%
 rem echo ^>^> Start
 
-rem スタートアップにショートカット 作成
+rem スタートアップにコピー 作成
 copy .\vim_auto_ime_off.ahk %userprofile%"\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"
 
 endlocal
