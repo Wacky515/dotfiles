@@ -65,6 +65,7 @@ F13 & B::Send,{Blind}{Left}
 F13 & F::Send,{Blind}{Right}
 F13 & A::Send,{Blind}{Home}
 F13 & E::Send,{Blind}{End}
+F13 & W::Send,{Blind}{Control}{Right}
 
 ; Vimライクの移動キーバインドは削除系と多重複のため不採用
 
