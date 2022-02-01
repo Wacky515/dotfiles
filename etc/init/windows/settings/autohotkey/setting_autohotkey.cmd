@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2022/01/31 20:24:47
-rem Last Change: 2022/01/31 20:25:30.
+rem Last Change: 2022/02/01 17:03:14.
 
 set batch_title=Setting AutoHotkey
 
@@ -27,7 +27,9 @@ echo ^>^> %batch_title%
 rem echo ^>^> Start
 
 rem スタートアップにコピー 作成
-copy .\autohotkey.ahk %userprofile%"\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"
+rem copy .\autohotkey.ahk %userprofile%"\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"
+rem スタートアップにシンボリックリンク 作成
+mklink %userprofile%"\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\autohotkey.ahk" .\autohotkey.ahk
 
 endlocal
 popd
