@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2021/04/07 15:53:35.
+rem Last Change: 2022/02/02 15:09:19.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -201,7 +201,8 @@ call link.cmd
 
 rem Proxy環境か確認
 ping 172.16.84.100 /n 1 > nul 2>&1
-if %errorlevel% equ 0 goto cp_rd
+rem DEPR: if %errorlevel% equ 0 goto cp_rd
+if %errorlevel% equ 0 goto inst_box
 ping 10.0.1.1 /n 1 > nul 2>&1
 if %errorlevel% equ 0 goto cp_nas
 
@@ -222,7 +223,7 @@ if exist %userprofile%\OneDrive\仕事\InitApps\x64\ (
 echo ^>^> Not exist "InitApps"
 
 :cp_rd
-rem Rドライブをコピー
+rem DEPR: Rドライブをコピー
 echo ^>^> In proxy
 if not exist %userprofile%\OneDrive\仕事\Settings\ (
     echo ^>^> Copy "Settngs" from R Drive
@@ -241,6 +242,9 @@ if not exist %userprofile%\OneDrive\仕事\InitApps\ (
     robocopy /s /e /np /njh /njs w: %userprofile%\OneDrive\仕事\InitApps\
     net use w: /delete > nul 2>&1
 )
+goto install_apps
+
+: inst_box
 goto install_apps
 
 :cp_nas
