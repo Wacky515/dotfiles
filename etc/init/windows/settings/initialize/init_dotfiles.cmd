@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2022/02/02 15:09:19.
+rem Last Change: 2022/02/03 12:47:53.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -99,14 +99,17 @@ if %std_disp% equ 1 (
 rem "Chocolatey" インストール済みかチェック
 echo ^>^> Check installed Chocolatey or not
 chocolatey -v > nul 2>&1
-if %errorlevel% equ 0 goto inst_must_apps
+if %errorlevel% equ 0 (
+    echo ^>^> Already installed Chocolatey
+    goto inst_must_apps
 
-echo ^>^> Install Chocolatey
-@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+) else(
+    echo ^>^> Install Chocolatey
+    @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+)
 
 :inst_must_apps
 rem 必須パッケージ "cinst"
-echo ^>^> Already installed Chocolatey
 echo ^>^> Install must apps
 
 echo ^>^> Check installed 7zip or not
@@ -142,7 +145,7 @@ if %errorlevel% equ 0 (
 
     :chk_inst_megasync_in_proxy
     if not exist %homepath%\OneDeive\仕事\ cinst -y -r --no-progress megasync
-    echo ^>^> FIELD INSTALL MEGASYNC AUTOMATICALLY, CONNECT WITHOUT PROXY
+    echo ^>^> FAILED INSTALL MEGASYNC AUTOMATICALLY, CONNECT WITHOUT PROXY
     pause
     exit /b 0013
 
@@ -160,14 +163,14 @@ if "%~n0" == "init_dotfiles_crlf" (
 )
 
 echo ^>^> Check installed Git or not 2nd time
-REM FIXME: 最初回は判別不可能なご様子、当バッチの再実行必要
+REM FIXME: 最初回は判別不可能なご様子、当バッチの再実行必要 < HBAWS077はできた
 git --version > nul 2>&1
 if %errorlevel% equ 0 goto git_clone
 echo ^>^> Try install git
 cinst -y -r --no-progress git
 
 echo ^>^> Check installed Git or not 3rd time
-REM FIXME: 最初回は判別不可能なご様子、当バッチの再実行必要
+REM FIXME: 最初回は判別不可能なご様子、当バッチの再実行必要 < HBAWS077はできた
 git --version > nul 2>&1
 if %errorlevel% equ 0 goto git_clone
 echo ^>^> FAILED INSTALL GIT AUTOMATICALLY, ABORT THIS SCRIPT!
@@ -178,22 +181,22 @@ exit /b 0015
 pushd %userprofile%
 echo ^>^> Installed Git, Check Git clone or not
 if not exist %userprofile%\dotfiles\.git\ (
-        echo ^>^> Git clone not yet, clone first
-        if exist %userprofile%\dotfiles\ (
-            rmdir /s /q %userprofile%\dotfiles\
-            )
-        del /f /q %userprofile%\.gitconfig* > nul 2>&1
-        git clone --quiet --depth 1 https://github.com/Wacky515/dotfiles.git
-        if %errorlevel% equ 1 (
-            echo ^>^> FAILED GIT CLONE, ABORT THIS SCRIPT!
-            pause
-            exit /b 0020
-            ) else (
-                echo ^>^> Success Git clone
-                )
-        ) else (
-            echo ^>^> Already Git clone
-            )
+    echo ^>^> Git clone not yet, clone first
+    if exist %userprofile%\dotfiles\ (
+        rmdir /s /q %userprofile%\dotfiles\
+    )
+    del /f /q %userprofile%\.gitconfig* > nul 2>&1
+    git clone --quiet --depth 1 https://github.com/Wacky515/dotfiles.git
+    if %errorlevel% equ 0 (
+        echo ^>^> Success Git clone
+    ) else (
+        echo ^>^> FAILED GIT CLONE, ABORT THIS SCRIPT!
+        pause
+        exit /b 0020
+    )
+) else (
+    echo ^>^> Already Git clone
+)
 
 rem link.cmd 実行
 pushd %userprofile%\dotfiles\
