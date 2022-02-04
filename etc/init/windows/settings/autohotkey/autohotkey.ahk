@@ -65,7 +65,7 @@ F13 & B::Send,{Blind}{Left}
 F13 & F::Send,{Blind}{Right}
 F13 & A::Send,{Blind}{Home}
 F13 & E::Send,{Blind}{End}
-; F13 & R::Send,{Blind}^{Left}
+F13 & R::Send,{Blind}^{Left}
 F13 & W::Send,{Blind}^{Right}
 
 ; Vimライクの移動キーバインドは削除系と多重複のため不採用
@@ -78,10 +78,10 @@ F13 & D::Send,{Delete}
 F13 & K::Send,c{End}{ShiftUp}^x
 F13 & U::Send,{ShiftDown}{Home}{ShiftUp}^x
 F13 & T::Send,{ShiftDown}{Left}{ShiftUp}^x{Right}^v{Left}  ; カーソル前後を入替え
-; Alt & Del::Send,{ShiftDown}^{Right}{ShiftUp}^x
+Alt & Del::Send,{ShiftDown}^{Left}{ShiftUp}^x
 
 ; -----------------------------------------------------------------------------
 ; その他
 ; -----------------------------------------------------------------------------
 F13 & M::Send,{Blind}{Enter}
-; F13 & O::Send,{Enter}{Up}{End}
+F13 & O::Send,{Enter}{Up}{End}
