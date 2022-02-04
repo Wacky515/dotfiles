@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2021/03/03 16:32:49.
+rem Last Change: 2022/02/03 13:18:32.
 
 set batch_title=Make link dotfiles
 title %batch_title%
@@ -100,6 +100,7 @@ if %errorlevel% equ 0 (
 :jdg_oni
 rem "OniVim" のリンク設定
 rem "OniVim" インストール済みかチェック
+rem FIXME: 当該 Dir 存在しなくてもチェック通る？
 echo ^>^> Check install OniVim or not
 if exist %programfiles(x86)%\Oni\Oni.exe (
     echo ^>^> Already installed OniVim
