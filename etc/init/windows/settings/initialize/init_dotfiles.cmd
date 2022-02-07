@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2022/02/03 13:22:13.
+rem Last Change: 2022/02/07 15:24:53.
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -103,7 +103,7 @@ if %errorlevel% equ 0 (
     echo ^>^> Already installed Chocolatey
     goto inst_must_apps
 
-) else(
+) else (
     echo ^>^> Install Chocolatey
     @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 )
