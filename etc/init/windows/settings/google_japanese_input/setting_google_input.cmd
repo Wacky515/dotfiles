@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/11/01 10:20:34.
+rem Last Change: 2022/02/09 17:19:30.
 
 set batch_title=Setting Google Japanese input
 title %batch_title%
@@ -75,7 +75,7 @@ mkdir %deb_dir%"Google Japanese Input"
 rem シンボリックリンク 作成
 echo ^>^> Make symbolic link *.db
 for %%i in (*.db) do (
-    mklink %deb_dir%"Google Japanese Input"%%i %src_dir%\%%i
+    mklink %deb_dir%"Google Japanese Input"\%%i %src_dir%\%%i
 )
 
 :end
