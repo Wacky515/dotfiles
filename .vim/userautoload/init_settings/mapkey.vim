@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2021/03/10 12:22:25.
+" Last Change: 2022/02/11 21:55:29.
 " TODO: マークにジャンプ時、画面をトップに位置にする
 
 " --------------------------------------------------------------------------------
@@ -20,8 +20,8 @@ inoremap jj <Esc>
 vnoremap > >gv
 vnoremap < <gv
 
-" bk: バックアップファイル作成
-nnoremap bk :<C-u>w %.bk
+" <Leader>bk: バックアップファイル作成
+nnoremap <Leader>bk :<C-u>w %.bk
 
 " dl: 仕切り線を挿入
 noremap dl i---------------------------------------------------------------------------<Esc>:TComment<CR>^
@@ -120,11 +120,11 @@ nnoremap <silent> cy ce<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
 vnoremap <silent> cy c<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
 nnoremap <silent> ciy ciw<C-r>0<Esc>:let@/=@1<CR>:noh<CR>
 
-" bo:      エクスプローラで開く
-nnoremap <silent> bo :<C-u>browse open<CR>
-" bs:      エクスプローラで保存場所選択して保存
-nnoremap <silent> bs :<C-u>browse sav<CR>
-" <Ctrl>s: エクスプローラで保存場所選択して保存
+" <Leader>bo: エクスプローラで開く
+nnoremap <silent> <Leader>bo :<C-u>browse open<CR>
+" <Leader>bs: エクスプローラで保存場所を選択して保存
+nnoremap <silent> <Leader>bs :<C-u>browse sav<CR>
+" <Ctrl>s:    エクスプローラで保存場所を選択して保存
 nnoremap <C-s> :<C-u>browse sav<CR>
 " if !has("nvim") " {{{
 "     imap <script> <C-s> <SID>(gui-save)<Esc>
@@ -141,14 +141,14 @@ nnoremap <C-s> :<C-u>browse sav<CR>
 " endif
 " }}}
 
-" bp:      前のバッファを開く
-nnoremap <silent> bp :<C-u>bprevious<CR>
-" bn:      次のバッファを開く
-nnoremap <silent> bn :<C-u>bnext<CR>
-" bb:      直前のバッファを開く
-nnoremap <silent> bb :<C-u>b#<CR>
-" MEMO: マルチカーソルに譲渡
-" <Ctrl>j: 裏バッファを開く
+" <Leader>bp: 前のバッファを開く
+nnoremap <silent> <Leader>bp :<C-u>bprevious<CR>
+" <Leader>bn: 次のバッファを開く
+nnoremap <silent> <Leader>bn :<C-u>bnext<CR>
+" <Leader>bb: 直前のバッファを開く
+nnoremap <silent> <Leader>bb :<C-u>b#<CR>
+" MEMO: マルチカーソルに以下のキーマップ割当てを譲渡
+" <Ctrl>j:      裏バッファを開く
 " nnoremap <C-j> <C-^>
 
 " <Ctrl>p: 上方向に1行分スクロール
