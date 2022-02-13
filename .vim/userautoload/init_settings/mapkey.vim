@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2022/02/11 21:55:29.
+" Last Change: 2022/02/13 22:02:49.
 " TODO: マークにジャンプ時、画面をトップに位置にする
 
 " --------------------------------------------------------------------------------
@@ -48,7 +48,7 @@ else
     nmap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 endif
 
-" "." 押下で改行して閉じ括弧を補完（関数記述用）
+" 開き括弧 + .: 改行して閉じ括弧を補完（関数記述用）
 inoremap (. ()<Left><CR><Esc><S-o>
 inoremap [. []<Left><CR><Esc><S-o>
 inoremap {. {}<Left><CR><Esc><S-o>
@@ -79,7 +79,6 @@ inoremap <expr> ,ds strftime('%Y/%m/%d ').weeks[wday]
 inoremap <expr> ,dy strftime('').weeks[wday]
 
 " <Leader>fu: 改行コードを "LF"       として開直す
-" nnoremap <Leader>fu :<C-u>e ++fileformat=unix<CR>:<C-u>%s/^M//g<CR>
 nnoremap <Leader>fu :<C-u>e ++fileformat=unix<CR>:<C-u>%s/\r//g<CR>
 
 " <Leader>fd: 改行コードを "CR/LF"    として開直す
@@ -219,11 +218,6 @@ endif
 "     noremap ; :
 " endif
 " }}}
-"Surface Go" のノーマルモードで ":" と ";" を入替え
-if hostname() == "SALADSURFACEGO"
-    noremap : ;
-    noremap ; :
-endif
 
 " --------------------------------------------------------------------------------
 " 基本設定篇
