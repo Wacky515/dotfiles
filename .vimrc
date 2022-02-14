@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2021/12/26 15:32:44.
+" Last Change: 2022/02/14 16:36:06.
 
 " !!!: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -47,6 +47,14 @@ if has("vim_starting")
         let g:python_host_prog  = "/usr/bin/Python"
 
     elseif (has("win32") || has("win64"))
+        if !(has('python3'))
+            " FIXME: 実行時に意図しないメッセージウィンドウが開く
+            !conda create -n vim_mcon_env_py36 python=3.6 anaconda
+            !conda create -n vim_mcon_env_py27 python=2.7 anaconda
+            echo "Please pip3 install --upgrade [pip | neovim] in Anaconda"
+            !activate vim_mcon_env_py36
+            echo "審議を検証する: Please delete ~/.config/, then dein update"
+        endif
         let g:python3_host_prog =
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
         let g:python_host_prog  =
