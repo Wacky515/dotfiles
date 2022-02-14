@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2022/02/13 22:02:49.
+" Last Change: 2022/02/14 14:33:15.
 " TODO: マークにジャンプ時、画面をトップに位置にする
 
 " --------------------------------------------------------------------------------
@@ -22,6 +22,9 @@ vnoremap < <gv
 
 " <Leader>bk: バックアップファイル作成
 nnoremap <Leader>bk :<C-u>w %.bk
+
+" <Leader>a: 全選択
+nnoremap <Leader>a ggVG
 
 " dl: 仕切り線を挿入
 noremap dl i---------------------------------------------------------------------------<Esc>:TComment<CR>^
@@ -48,7 +51,7 @@ else
     nmap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 endif
 
-" 開き括弧 + .: 改行して閉じ括弧を補完（関数記述用）
+" 左括弧 + .: 改行して右括弧を補完（関数記述用）
 inoremap (. ()<Left><CR><Esc><S-o>
 inoremap [. []<Left><CR><Esc><S-o>
 inoremap {. {}<Left><CR><Esc><S-o>
