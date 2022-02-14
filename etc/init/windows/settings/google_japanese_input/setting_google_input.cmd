@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2022/02/09 17:19:30.
+rem Last Change: 2022/02/10 11:12:20.
 
 set batch_title=Setting Google Japanese input
 title %batch_title%
@@ -49,7 +49,7 @@ if %errorlevel% equ 1 (
     goto end
 )
 
-rem "Google日本語入力の関連サービス" 停止
+rem Google日本語入力の関連サービス 停止
 echo ^>^> Kill Google Japanese input
 taskkill /f /im GoogleIMEJa* > nul 2>&1
 
