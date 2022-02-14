@@ -1,5 +1,5 @@
 # Create:      201*/**/** **:**:**
-# Last Change: 2021/03/15 10:17:07.
+# Last Change: 2022/02/14 16:12:41.
 
 # ------------------------------
 # 独自追記
@@ -18,7 +18,7 @@ yankring_history_v2.txt
 ~/AppData/Local/nvim/.netrwhist
 ~/AppData/Local/nvim/rplugin.vim
 
-# 特定の拡張子を無視する場合はどこにも/を付けない
+# 拡張子を無視する場合、/は記入しない
 *.bak
 *.bk
 *.modifying
