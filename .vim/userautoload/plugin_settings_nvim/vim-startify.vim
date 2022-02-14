@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/12/13 07:39:11
-" Last Change: 2021/03/01 12:28:34.
+" Last Change: 2022/02/14 11:32:15.
 
 " ---------------------------------------------------------------------------
 "  マップキー
@@ -39,7 +39,6 @@ let g:startify_bookmarks = [
             \ "~/dotfiles/nvim/init.vim",
             \ "~/dotfiles/nvim/ginit.vim",
             \ "~/dotfiles/config.js",
-            \ "~/dotfiles/nyaovimrc.html",
             \ "~/dotfiles/.vim/vim_plugins/dein.toml",
             \ "~/dotfiles/.vim/vim_plugins/dein_lazy.toml",
             \ "~/dotfiles/.vim/vim_plugins_nvim/dein_nvim.toml",
@@ -48,8 +47,8 @@ let g:startify_bookmarks = [
             \ "~/dotfiles/etc/init/osx/settings",
             \ "~/dotfiles/etc/init/linux/settings",
             \ "~/dotfiles/etc/init/windows/settings",
-            \ "R:/E2M0/E2M-4/【秘】-E2M4-1/10.個人ファイル/Wakita/Docments/機械要素購入.md",
-            \ "R:/E2M0/E2M-4/【秘】-E2M4-1/10.個人ファイル/Wakita/Docments/出張各種申請 Memo.md"
+            \ "C:/Box/000_MyFolder/Docments/工具・機械要素購入.md",
+            \ "C:/Box/000_MyFolder/Docments/出張各種申請_MEMO.md"
             \ ]
 
 " アスキーアート 中央揃え
