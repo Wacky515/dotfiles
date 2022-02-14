@@ -1,0 +1,53 @@
+@echo off
+setlocal enabledelayedexpansion
+rem Created:     2022/02/10 10:46:03
+rem Last Change: 2022/02/10 11:11:05.
+
+set batch_title=Setting Benizara
+
+title %batch_title%
+
+rem 管理者権限で起動されたかチェック
+whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
+
+rem 管理者権限ならメイン処理
+if not errorlevel 1 goto main_routine
+
+rem 管理者権限でなければ管理者権限で再起動
+@powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
+exit
+
+:main_routine
+
+rem スクリプトがある "Dir" に "cd"
+set bat_path=%~dp0
+pushd %bat_path%
+
+echo ^>^> %batch_title%
+rem echo ^>^> Start
+
+rem 紅皿の関連サービス 停止
+echo ^>^> Kill Benizara
+taskkill /f /im benizara* > nul 2>&1
+
+rem 既存の *.ini、NICOLA配列_BS.bnz を削除
+if exist %appdata%"\ayaki\benizara\benizara.ini" (
+    del %appdata%"\ayaki\benizara\benizara.ini"
+)
+if exist %appdata%"\ayaki\benizara\NICOLA配列_BS.bnz" (
+    del %appdata%"\ayaki\benizara\NICOLA配列_BS.bnz"
+)
+
+rem 実行ファイルと同一ディレクトリにシンボリックリンク 作成
+mklink %appdata%"\ayaki\benizara\benizara.ini" %bat_path%"\benizara.ini"
+mklink %appdata%"\ayaki\benizara\NICOLA配列_BS.bnz" ^
+    %onedrive%"\仕事\Settings\Benizara\NICOLA配列_BS.bnz"
+
+rem 紅皿の関連サービス 開始
+start %appdata%\ayaki\benizara\benizara.exe
+
+endlocal
+popd
+
+rem pause
+exit /b 0
