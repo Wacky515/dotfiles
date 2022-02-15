@@ -12,7 +12,7 @@ SetKeyDelay 0
 ; -----------------------------------------------------------------------------
 ; MEMO
 ; -----------------------------------------------------------------------------
-; * 修飾キーの同時押下は "Blind" を接頭する
+; * 修飾キーの同時押下は "Blind" を接頭する ;  {{{
 ; [Shiftキー]
 ; Shift   : +      Shift
 ; 左Shift : <+    LShift
@@ -55,6 +55,7 @@ SetKeyDelay 0
 ;   MButton
 
 ; F13キー = 0x0064なのでChangeKeyには 最も右上 "Scancode" に "0064" と入力
+; }}}
 
 ; -----------------------------------------------------------------------------
 ; MacOSライク カーソル移動系
@@ -75,7 +76,7 @@ F13 & W::Send,{Blind}^{Right}
 ; -----------------------------------------------------------------------------
 F13 & H::Send,{BackSpace}
 F13 & D::Send,{Delete}
-F13 & K::Send,c{End}{ShiftUp}^x
+F13 & K::Send,{ShiftDown}{End}{ShiftUp}^x
 F13 & U::Send,{ShiftDown}{Home}{ShiftUp}^x
 F13 & T::Send,{ShiftDown}{Left}{ShiftUp}^x{Right}^v{Left}  ; カーソル前後を入替え
 Alt & Del::Send,{ShiftDown}^{Left}{ShiftUp}^x
