@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2017/10/27 **:**:**.
-" Last Change: 2020/04/17 09:31:20.
+" Last Change: 2022/02/14 15:04:08.
 " MEMO: 検索速度順に記述
 
 " ":vimgrep"、":grep"、":Ggrep" 後、自動的に "QuickFix-Window" 表示
@@ -30,7 +30,7 @@ nnoremap <expr> <Leader>P ':Pt ' . expand('<cword>') . ''
 " <Leader>a: カーソル下を "The Sliver Searcher"   対象に挿入
     " <Enter>押下でカレントディレクトリ以下を再帰的に検索
     " MEMO: 日本語はマッチしない
-nnoremap <expr> <Leader>a ':Ag ' . expand('<cword>') . ' -G \.*$$'
+nnoremap <expr> <Leader>A ':Ag ' . expand('<cword>') . ' -G \.*$$'
 
 " <Leader>G: カーソル下を "外部grep" 対象に挿入
     " <Enter>押下でカレントディレクトリ以下を再帰的に検索
