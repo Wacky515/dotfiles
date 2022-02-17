@@ -3,6 +3,10 @@
 ; -----------------------------------------------------------------------------
 #InstallKeybdHook
 #UseHook
+; ; 無変換をGoogle 日本語入力で使用する設定
+; vk1D::vk1D
+; ; 変換をGoogle 日本語入力で使用する設定
+; vk1C::vk1C
 
 ; -----------------------------------------------------------------------------
 ; The following line is a contribution of NTEmacs wiki http://www49.atwiki.jp/ntemacs/pages/20.html
@@ -86,3 +90,46 @@ Alt & Del::Send,{ShiftDown}^{Left}{ShiftUp}^x
 ; -----------------------------------------------------------------------------
 F13 & M::Send,{Blind}{Enter}
 F13 & O::Send,{Enter}{Up}{End}
+
+; 打ち込んだローマ字の直後に、F13 + Space で再変換
+F13 & Space::
+    ClipSaved := ClipboardAll
+    c:=""
+    e:=0
+    while(c!=Clipboard or c==""){
+        c:=Clipboard
+        Send,+{Left}
+        Clipboard =
+        Send,^c
+        ClipWait,1
+        sl:=StrLen(Clipboard)
+        if(sl==0){
+            e:=1
+            break
+        } else if(RegExMatch(SubStr(Clipboard,1,1),"[\-\~]")){
+            Send,+^{Left}
+        } else if(RegExMatch(Clipboard,"[^0-9a-zA-Z\-\~]")){
+            if(sl==1 or (sl==2 and RegExMatch(Clipboard,"[\r\n]"))){
+                e:=1
+                Send,{Right}
+            } else {
+                Send,+{Right}
+                Clipboard =
+                Send,^c
+                ClipWait,1
+            }
+            break
+        } else {
+            Send,+{Right}+^{Left}
+        }
+        Clipboard =
+        Send,^c
+        ClipWait,1
+    }
+    if(e==0){
+        Send,{sc029}  ; IMEオン 処理
+        Send,%Clipboard%
+    }
+    Clipboard := ClipSaved
+    ClipSaved =
+return
