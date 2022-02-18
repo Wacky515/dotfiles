@@ -82,7 +82,17 @@ F13 & H::Send,{BackSpace}
 F13 & D::Send,{Delete}
 F13 & K::Send,{ShiftDown}{End}{ShiftUp}^x
 F13 & U::Send,{ShiftDown}{Home}{ShiftUp}^x
-F13 & T::Send,{ShiftDown}{Left}{ShiftUp}^x{Right}^v{Left}  ; カーソル前後を入替え
+
+F13 & T::
+    if WinActive("ahk_class VirtualConsoleClass"){
+        Return
+    } Else if WinActive("ahk_class Vim") {
+        Return
+    } else {
+        Send,{ShiftDown}{Left}{ShiftUp}^x{Right}^v{Left}  ; カーソル前後を入替え
+    }
+return
+
 Alt & Del::Send,{ShiftDown}^{Left}{ShiftUp}^x
 
 ; -----------------------------------------------------------------------------
