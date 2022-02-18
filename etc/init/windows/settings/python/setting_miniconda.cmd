@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2022/02/10 11:11:05
-rem Last Change: 2022/02/17 11:53:48.
+rem Last Change: 2022/02/18 12:12:51.
 
 set batch_title=Setting miniconda
 
@@ -30,6 +30,8 @@ rem ŠÂ‹«•Ï” Ý’è
 cscript setting_env_var_anaconda.vbs
 echo.
 
+conda -V > nul 2>&1
+if not %errorlevel% equ 0 call %userprofile%\dotfiles\etc\init\windows\settings\chocolatey\init_and_update_chocolatey.cmd
 conda update -n base -c defaults conda
 
 pip install pynvim jedi python-language-server autopep8 pylint
