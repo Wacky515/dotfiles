@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2022/02/17 11:28:28.
+" Last Change: 2022/02/18 16:02:08.
 
 " !!!: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -47,7 +47,7 @@ if has("vim_starting")
         let g:python_host_prog  = "/usr/bin/Python"
 
     elseif (has("win32") || has("win64"))
-        if !(has('pthon3'))
+        if !(has('python3'))
             let s:minicon_pth   = expand("~/dotfiles/etc/init/windows/settings/python/setting_miniconda.cmd")
             silent execute printf("!call %s", s:minicon_pth)
         endif
