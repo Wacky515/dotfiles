@@ -1,9 +1,9 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2022/02/18 19:46:14.
+" Last Change: 2022/03/06 10:14:21.
 
 " !!!: 必ず先頭に記述
-" "autocmd" （マクロ）の初期化
+" "autocmd" (マクロ)の初期化
 augroup MyAutoCmd
     autocmd!
 augroup END
