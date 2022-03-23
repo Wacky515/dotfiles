@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/10/05 09:54:50
-rem Last Change: 2021/02/23 14:39:28.
+rem Last Change: 2022/03/23 06:13:10.
 
 set batch_title=General setting Windows10
 
@@ -107,6 +107,21 @@ echo ^>^> OFF Xbox function
 sc config XblAuthManager start=disabled
 sc config XblGameSave start=disabled
 sc config XboxNetApiSvc start=disabled
+
+@(echo '> NUL
+echo off)
+NET SESSION > NUL 2>&1
+IF %ERRORLEVEL% neq 0 goto RESTART
+setlocal enableextensions
+set "THIS_PATH=%~f0"
+set "PARAM_1=%~1"
+PowerShell.exe -Command "iex -Command ((gc \"%THIS_PATH:`=``%\") -join \"`n\")"
+exit /b %errorlevel%
+:RESTART
+powershell -NoProfile -ExecutionPolicy unrestricted -Command "Start-Process %~f0 -Verb runas"
+exit
+') | sv -Name TempVar
+Get-AppxPackage -allusers Microsoft.549981C3F5F10 | Remove-AppxPackage
 
 endlocal
 popd
