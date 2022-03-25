@@ -1,9 +1,9 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2022/02/21 11:29:48.
+" Last Change: 2022/03/25 21:07:22.
 
 " !!!: 必ず先頭に記述
-" "autocmd" （マクロ）の初期化
+" "autocmd" (マクロ)の初期化
 augroup MyAutoCmd
     autocmd!
 augroup END
@@ -21,7 +21,7 @@ let g:vimproc#download_windows_dll = 1
 " <Space> を "Leader" に設定
 let mapleader = "\<Space>"
 
-" "Windows" の設定ファイルの場所を、"Linux/Mac" 環境にあわせる
+" "Windows" の設定ファイルの場所を、"Mac/Linux" 環境にあわせる
 if (has("win32") || has("win64"))
     set runtimepath+=$HOME/.vim
 endif
@@ -47,17 +47,18 @@ if has("vim_starting")
         let g:python_host_prog  = "/usr/bin/Python"
 
     elseif (has("win32") || has("win64"))
-        if !(has('python3'))
-            let s:minicon_pth   = expand("~/dotfiles/etc/init/windows/settings/python/setting_miniconda.cmd")
-            silent execute printf("!call %s", s:minicon_pth)
-        endif
+        " MEMO: "pynvim" を認識しなくなるためキル、初回起動時の参考に記述は残し手動で設定
+        " if !(has('python3'))
+        "     let s:minicon_pth   = expand("~/dotfiles/etc/init/windows/settings/python/setting_miniconda.cmd")
+        "     silent execute printf("!call %s", s:minicon_pth)
+        " endif
         let g:python3_host_prog =
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
         let g:python_host_prog  =
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
         " REF:  " {{{
         " "Path" が通っている "Python" を参照する場合は以下の記述
-        "let g:python3_host_prog = "python"
+        " let g:python3_host_prog = "python"
         " 設定自動化
         " " MEMO: "~/.vim_no_python" が存在した場合はスキップ
         " if !filereadable(expand("~/.vim_no_python"))
@@ -162,8 +163,10 @@ if dein#load_state(s:plugin_dir)
     call dein#load_toml(s:lazy_toml,            {"lazy": 1})
 
     call dein#load_toml(s:toml_nvim,            {"lazy": 0})
-    " call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
-    call dein#load_toml(s:ddc_toml_nvim,        {"lazy": 1})
+    call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
+    if (has("win32") || has("win64")) && has("Kaoriya")
+        call dein#load_toml(s:ddc_toml_nvim,    {"lazy": 1})
+    endif
 
     if has("python3")
         call dein#load_toml(s:python_toml,      {"lazy": 1})
