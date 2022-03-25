@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2022/02/18 19:46:14.
+" Last Change: 2022/02/21 11:29:48.
 
 " !!!: 必ず先頭に記述
 " "autocmd" （マクロ）の初期化
@@ -154,6 +154,7 @@ if dein#load_state(s:plugin_dir)
     let g:plugin_dir_nvim  = expand("~/.vim/vim_plugins_nvim")
     let s:toml_nvim        = g:plugin_dir_nvim . "/dein_nvim.toml"
     let s:lazy_toml_nvim   = g:plugin_dir_nvim . "/dein_lazy_nvim.toml"
+    let s:ddc_toml_nvim    = g:plugin_dir_nvim . "/dein_ddc_nvim.toml"
     let s:python_toml_nvim = g:plugin_dir_nvim . "/dein_python_nvim.toml"
 
     "*.toml" を読込み、キャッシュ
@@ -161,13 +162,15 @@ if dein#load_state(s:plugin_dir)
     call dein#load_toml(s:lazy_toml,            {"lazy": 1})
 
     call dein#load_toml(s:toml_nvim,            {"lazy": 0})
-    call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
+    " call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
+    call dein#load_toml(s:ddc_toml_nvim,        {"lazy": 1})
 
     if has("python3")
         call dein#load_toml(s:python_toml,      {"lazy": 1})
         call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
     endif
 
+    " MEMO: "ddc" 有効後に削除
     call dein#add("roxma/nvim-yarp")
     call dein#add("roxma/vim-hug-neovim-rpc")
 
