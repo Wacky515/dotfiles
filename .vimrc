@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2022/03/27 11:12:18.
+" Last Change: 2022/03/27 11:16:43.
 
 " MEMO: 必ず先頭に記述
 " "autocmd" (マクロ)の初期化
@@ -144,7 +144,7 @@ if dein#load_state(s:plugin_dir)
     call dein#load_toml(s:toml_nvim,            {"lazy": 0})
     call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
 
-    if (has("win32") || has("win64")) && has("Kaoriya")
+    if !((has("win32") || has("win64")) && has("Kaoriya"))
         call dein#load_toml(s:ddc_toml_nvim,    {"lazy": 1})
     endif
 

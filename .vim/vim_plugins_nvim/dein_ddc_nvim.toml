@@ -1,8 +1,7 @@
 # Created:     2022/02/21 11:16:34
-# Last Change: 2022/03/20 19:38:16.
+# Last Change: 2022/03/27 11:27:38.
 
 # 入力補完
-    # 最新
 [[plugins]]
  repo = 'Shougo/ddc.vim'
  on_event = 'InsertEnter'
@@ -11,8 +10,8 @@
  call ddc#custom#patch_global('sources', ['nvim-lsp', 'around', 'vsnip'])
  call ddc#custom#patch_global('sourceOptions', {
       \ '_': {
-      \ 'matchers': ['matcher_head'],
-      \ 'sorters': ['sorter_rank'],
+      \ 'matchers':   ['matcher_head'],
+      \ 'sorters':    ['sorter_rank'],
       \ 'converters': ['converter_remove_overlap'],
       \ },
       \ 'around': {'mark': 'A'},
@@ -35,6 +34,7 @@
  call ddc#enable()
 '''
 
+# 必須プラグイン
 [[plugins]]
  repo = 'vim-denops/denops.vim'
  on_source = 'ddc.vim'
@@ -42,24 +42,6 @@
 # ポップアップ 表示
 [[plugins]]
  repo = 'Shougo/pum.vim'
- on_source = 'ddc.vim'
-
-# カーソル近傍の既出単語 補完source
-[[plugins]]
- repo = 'Shougo/ddc-around'
- on_source = 'ddc.vim'
-
-[[plugins]]
- repo = 'Shougo/ddc-matcher_head'
- on_source = 'ddc.vim'
-
-# 補完候補のソート
-[[plugins]]
- repo = 'Shougo/ddc-sorter_rank'
- on_source = 'ddc.vim'
-
-[[plugins]]
- repo = 'Shougo/ddc-converter_remove_overlap'
  on_source = 'ddc.vim'
 
 [[plugins]]
@@ -180,6 +162,32 @@
 
  command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 '''
+
+# Source
+# カーソル近傍の既出単語補完
+[[plugins]]
+ repo = 'Shougo/ddc-around'
+ on_source = 'ddc.vim'
+# ファイル名補完
+[[plugins]]
+ repo = 'LumaKernel/ddc-file'
+ on_source = 'ddc.vim'
+
+# Filter
+ # 入力中の単語を補完対象にする
+[[plugins]]
+ repo = 'Shougo/ddc-matcher_head'
+ on_source = 'ddc.vim'
+
+# 補完候補のソート
+[[plugins]]
+ repo = 'Shougo/ddc-sorter_rank'
+ on_source = 'ddc.vim'
+
+# 補完候補の重複防止
+[[plugins]]
+ repo = 'Shougo/ddc-converter_remove_overlap'
+ on_source = 'ddc.vim'
 
 # [[plugins]]  " {{{
 # repo = 'Shougo/deoplete.nvim'
