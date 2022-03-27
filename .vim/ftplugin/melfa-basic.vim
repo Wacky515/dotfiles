@@ -1,15 +1,17 @@
 scriptencoding utf-8
 " Created:     2021/12/25 19:05:37
-" Last Change: 2021/12/26 15:22:16.
-echo tes1226
+" Last Change: 2022/03/26 20:54:32.
+
 " ---------------------------------------------------------------------------
 "  基本設定
 " ---------------------------------------------------------------------------
+set syntax=freebasic
+
 set encoding=utf-8
 set fileformat=dos
-set fileformats=dos,unix,mac
+set fileformats=dos,unix
 set fileencoding=sjis
-set fileencodings=sjis,iso-2022-jp,euc-jp,utf-8
+set fileencodings=utf-8,sjis,cp932,iso-2022-jp,euc-jp
 
 " タブの設定
 setlocal smarttab
@@ -30,4 +32,5 @@ highlight link txtComment Comment
 " highlight link txtIdentifier Identifier
 " highlight link txtError Error
 
- filetype=nbasic
+syntax keyword xTodo TODO contained
+syntax match xComment /%.*/ contains=xTodo
