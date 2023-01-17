@@ -1,5 +1,5 @@
 # Created:     2018/**/** **:**:**
-# Last Change: 2021/02/21 21:28:49.
+# Last Change: 2023/01/18 07:01:47.
 
 cd ~/dotfiles
 
@@ -63,23 +63,11 @@ function ins_fisher
         echo ">> Install fisher"
         set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
         curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-        # curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
-        # curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
-        # curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
         fish -c fisher
         fisher add oh-my-fish/theme-bobthefish
         fisher add jethrokuan/fzf
     end
 end
-
-# 上記と重複  # {{{
-# if not functions -q fisher
-#     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
-#     curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-#     fish -c fisher
-# end
-# }}}
-# REF: https://github.com/jorgebucaran/fisher
 
 function win_setting
     # ".bashrc" はエイリアス設定不可
@@ -102,6 +90,7 @@ switch (uname)
         echo ">> Start setting for fish on Mac"
         set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
         ins_fisher
+        # Set PATH, MANPATH, etc., for Homebrew.
         eval "$(/opt/homebrew/bin/brew shellenv)"
 
     # "Windows" 用設定
