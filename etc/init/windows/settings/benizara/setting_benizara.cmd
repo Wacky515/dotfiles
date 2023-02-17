@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2022/02/10 10:46:03
-rem Last Change: 2022/02/10 11:11:05.
+rem Last Change: 2023/02/16 11:28:07.
 
 set batch_title=Setting Benizara
 
@@ -34,17 +34,23 @@ rem 既存の *.ini、NICOLA配列_BS.bnz を削除
 if exist %appdata%"\ayaki\benizara\benizara.ini" (
     del %appdata%"\ayaki\benizara\benizara.ini"
 )
-if exist %appdata%"\ayaki\benizara\NICOLA配列_BS.bnz" (
-    del %appdata%"\ayaki\benizara\NICOLA配列_BS.bnz"
+if exist %appdata%"\ayaki\benizara\NICOLA配列_sdc.bnz" (
+    del %appdata%"\ayaki\benizara\NICOLA配列_sdc.bnz"
 )
 
 rem 実行ファイルと同一ディレクトリにシンボリックリンク 作成
 mklink %appdata%"\ayaki\benizara\benizara.ini" %bat_path%"\benizara.ini"
-mklink %appdata%"\ayaki\benizara\NICOLA配列_BS.bnz" ^
-    %onedrive%"\仕事\Settings\Benizara\NICOLA配列_BS.bnz"
+mklink %appdata%"\ayaki\benizara\NICOLA配列_sdc.bnz" ^
+    %onedrive%"\仕事\Settings\Benizara\NICOLA配列_sdc.bnz"
 
 rem 紅皿の関連サービス 開始
-start %appdata%\ayaki\benizara\benizara.exe
+if exist %appdata%"\ayaki\benizara\benizara.exe" (
+    start %appdata%"\ayaki\benizara\benizara.exe"
+)
+if exist %programfiles(x86)%"\ayaki\benizara\benizara.exe" (
+    pushd %programfiles(x86)%"\ayaki\benizara"
+    start benizara.exe
+)
 
 endlocal
 popd
