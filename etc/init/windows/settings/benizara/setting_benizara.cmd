@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2022/02/10 10:46:03
-rem Last Change: 2023/02/16 11:28:07.
+rem Last Change: 2023/02/17 15:30:59.
 
 set batch_title=Setting Benizara
 
@@ -39,7 +39,8 @@ if exist %appdata%"\ayaki\benizara\NICOLA配列_sdc.bnz" (
 )
 
 rem 実行ファイルと同一ディレクトリにシンボリックリンク 作成
-mklink %appdata%"\ayaki\benizara\benizara.ini" %bat_path%"\benizara.ini"
+mklink %appdata%"\ayaki\benizara\benizara.ini" ^
+    %onedrive%"\仕事\Settings\Benizara\benizara.ini"
 mklink %appdata%"\ayaki\benizara\NICOLA配列_sdc.bnz" ^
     %onedrive%"\仕事\Settings\Benizara\NICOLA配列_sdc.bnz"
 
