@@ -3,9 +3,9 @@
 ; -----------------------------------------------------------------------------
 #InstallKeybdHook
 #UseHook
-; ; 無変換をGoogle 日本語入力で使用する設定
+; ; 無変換 をGoogle 日本語入力で使用する設定
 ; vk1D::vk1D
-; ; 変換をGoogle 日本語入力で使用する設定
+; ; 変換   をGoogle 日本語入力で使用する設定
 ; vk1C::vk1C
 
 ; -----------------------------------------------------------------------------
@@ -83,13 +83,14 @@ F13 & D::Send,{Delete}
 F13 & K::Send,{ShiftDown}{End}{ShiftUp}^x
 F13 & U::Send,{ShiftDown}{Home}{ShiftUp}^x
 
+; カーソル前後を入替え
 F13 & T::
     if WinActive("ahk_class VirtualConsoleClass"){
         Return
     } Else if WinActive("ahk_class Vim") {
         Return
     } else {
-        Send,{ShiftDown}{Left}{ShiftUp}^x{Right}^v{Left}  ; カーソル前後を入替え
+        Send,{ShiftDown}{Left}{ShiftUp}^x{Right}^v{Left}
     }
 return
 
