@@ -1,18 +1,18 @@
 # Create:      201*/**/** **:**:**
-# Last Change: 2022/02/14 16:12:41.
+# Last Change: 2023/02/28 11:56:38.
 
 # ------------------------------
 # 独自追記
 # ------------------------------
 # 無視する者共
 tags
-
 ctags.exe
-nvim/.netrwhist
-gitconfig_hbamb748.local
 
-nvim/rplugin.vim
+gitconfig_hbamb748.local
 memo.txt
+
+nvim/.netrwhist
+nvim/rplugin.vim
 yankring_history_v2.txt
 
 ~/AppData/Local/nvim/.netrwhist
@@ -30,8 +30,9 @@ yankring_history_v2.txt
 *.tempkill*
 
 # 特定名称のディレクトリを無視する場合は先頭と末尾に/を付ける
-/old/
+/.history/
 /.idea/
+/old/
 
 # 特定のファイルを無視する場合は先頭に/を付ける
     # ルートディレクトリのファイルだけを無視し、サブディレクトリは無視しない
@@ -53,22 +54,22 @@ Users/*
 # ------------------------------
 # Vim
 # ------------------------------
-[._]*.s[a-w][a-z]
-[._]s[a-w][a-z]
-Session.vim
-.netrwhist
 *.swo
 *.swp
 *.un~
+.netrwhist
+Session.vim
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
 
 # ------------------------------
 # Backup files
 # ------------------------------
-*~
-*.orig
-*.old
-*.bk
 *.bak
+*.bk
+*.old
+*.orig
+*~
 # yyyymmdd
 *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
 # yyyymmddhhmm
@@ -85,8 +86,8 @@ Thumbs.db
 # ------------------------------
 # Bundler specific
 # ------------------------------
-/vendor/bundle/
 /.bundle/
+/vendor/bundle/
 
 # ------------------------------
 # Office specific
