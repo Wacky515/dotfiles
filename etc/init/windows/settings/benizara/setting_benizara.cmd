@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2022/02/10 10:46:03
-rem Last Change: 2023/02/17 15:30:59.
+rem Last Change: 2023/02/28 10:05:06.
 
 set batch_title=Setting Benizara
 
@@ -51,6 +51,7 @@ if exist %appdata%"\ayaki\benizara\benizara.exe" (
 if exist %programfiles(x86)%"\ayaki\benizara\benizara.exe" (
     pushd %programfiles(x86)%"\ayaki\benizara"
     start benizara.exe
+    call AddBenizaraTask.bat
 )
 
 endlocal
