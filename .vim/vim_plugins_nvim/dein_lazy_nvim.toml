@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2023/02/28 16:58:07.
+# Last Change: 2023/03/01 11:51:50.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # ---------------------------------------------------------------------------
@@ -195,6 +195,13 @@ repo = 'koron/codic-vim'
 [[plugins]]
 repo = 'Shougo/unite.vim'
 
+# ファイラ
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+[[plugins]]
+repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
+depends = ['nerdtree']
+
 # 入力補完
     # 最新
 [[plugins]]
@@ -246,6 +253,16 @@ repo = 'Shougo/neco-vim'
 repo = 'Shougo/neco-syntax'
 [[plugins]]
 repo = 'ujihisa/neco-look'
+
+# LSP(Language Server Protocol)
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+[[plugins]]
+repo = 'mattn/vim-lsp-icons'
 
 # 構文解析
 [[plugins]]

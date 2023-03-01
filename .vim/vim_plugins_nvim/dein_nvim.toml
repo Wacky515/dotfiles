@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2023/02/28 17:16:50.
+# Last Change: 2023/03/01 22:25:24.
 
 # REF:
     # hook_add         プラグイン追加後
@@ -76,16 +76,6 @@ repo = 'rhysd/committia.vim'
 [[plugins]]
 repo = 'vim-scripts/DirDiff.vim'
 
-# LSP(Language Server Protocol)
-[[plugins]]
-repo = 'prabirshrestha/async.vim'
-[[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-[[plugins]]
-repo = 'mattn/vim-lsp-settings'
-[[plugins]]
-repo = 'mattn/vim-lsp-icons'
-
 # Ctags
     # どの関数内か表示
 [[plugins]]
@@ -98,12 +88,6 @@ repo = 'Shougo/defx.nvim'
 repo = 'kristijanhusak/defx-icons'
 [[plugins]]
 repo = 'kristijanhusak/defx-git'
-
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-[[plugins]]
-repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
-depends = ['nerdtree']
 
 # ステータスライン ビジュアル強化
 [[plugins]]
@@ -265,19 +249,3 @@ repo = 'vim-jp/vimdoc-ja'
 repo = 'dstein64/vim-startuptime'
 [[plugins]]
 repo = 'mattn/benchvimrc-vim'
-# カラースキーム ランダム設定
-# [[plugins]]
-# repo = 'shinshin86/twc.vim'
-
-# JOKE
-# [[plugins]]
-# repo = 'wordijp/kuririn-no-kotoka.vim'
-
-# DISCON:
-# # 天気予報
-# [[plugins]]
-# repo = 'skanehira/weather.vim'
-
-# # 乗換え案内
-# [[plugins]]
-# repo = 'skanehira/train.vim'
