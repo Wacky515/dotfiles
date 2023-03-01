@@ -40,7 +40,6 @@
 - cru: "upper_case" >> "UPPER_CASE"
 
 - ,st: Startify 表示
-- ,kg: カーソル直下 Google検索
 - ,cd: プログラマ用ネーミング辞書 起動
 
 - VIM: ,s:  "VimShell"        起動
