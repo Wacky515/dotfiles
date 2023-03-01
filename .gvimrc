@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2021/03/10 12:21:43.
+" Last Change: 2023/02/28 13:04:14.
 
 " !!!: 必ず先頭に記述
 " "autocmd"（マクロ） の初期化
@@ -119,8 +119,8 @@ if !has("nvim")
             set printfont=Cica:h15
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "HBAMB819"
-            set   guifont=Cica:h12
-            set printfont=Cica:h12
+            set   guifont=Cica:h13
+            set printfont=Cica:h13
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "HBAPC511"
             set   guifont=Cica:h13

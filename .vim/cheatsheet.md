@@ -30,9 +30,9 @@
 - \<Leader\>bn: 次のバッファを開く
 - \<Leader\>bb: 直前のバッファを開く
 
-- dl:  仕切り線              を挿入
-- dm:  仕切り線（マップキー）を挿入
-- db:  仕切り線（基本設定）  を挿入
+- dl:  仕切り線            を挿入
+- dm:  仕切り線(マップキー)を挿入
+- db:  仕切り線(基本設定)  を挿入
 
 - crs: "SnakeCase"  >> "snake_case"
 - crm: "mixed_case" >> "MixedCase"
@@ -82,9 +82,9 @@
 
 - \<Leader\>mm:   初期配置 3 画面分割
 - \<Leader\>z:    Git Bash 起動
-- \<Leader\>o:    カレントバッファを IDE 風に開く （NERDTree）
-- \<Leader\>br:   カレントバッファをブラウザで表示（汎用）
-- \<Leader\>md:   カレントバッファをブラウザで表示（Markdown用）
+- \<Leader\>o:    カレントバッファを IDE 風に開く (NERDTree)
+- \<Leader\>br:   カレントバッファをブラウザで表示(汎用)
+- \<Leader\>md:   カレントバッファをブラウザで表示(Markdown用)
 
 - \<Leader\>zh:   カーソル直下の全角英数を半角にする
 
@@ -98,13 +98,13 @@
   - zg:           カーソル下を正スペルとし登録
   - zw:           カーソル下を誤スペルとし登録
 
-- \<Leader\>tm: テーブル（表） **作成モード**
+- \<Leader\>tm: テーブル(表) **作成モード**
   - USAGE
     - "|" を入力して内容を記述
       - | Oct | Dec | Hex | Char |
       - 改行は "||"
 
-- \<Leader\>mr: over.vim（ビジュアル強化置換） 起動
+- \<Leader\>mr: over.vim(ビジュアル強化置換) 起動
   | キー                     | 効果                         |
   | ---                      | ---                          |
   | \<Up\>/\<C-p\>           | 1つ前のコマンド履歴を挿入    |
@@ -149,12 +149,12 @@
 
 ### 辞典/翻訳
 
-- \<Leader\>k:  カーソル下を英和辞典検索（GENE）
+- \<Leader\>k:  カーソル下を英和辞典検索(GENE)
 - \<Leader\>dj: カーソル下を英和辞典検索
 - \<Leader\>de: カーソル下を和英辞典検索
 
-- ,jg: カーソル下を Google 翻訳（英和）
-- ,eg: カーソル下を Google 翻訳（和英）
+- ,jg: カーソル下を Google 翻訳(英和)
+- ,eg: カーソル下を Google 翻訳(和英)
 
 - :AutoTranslateModeToggle: 動的に翻訳
 - :Translate: ビジュアルモードで選択した部分を翻訳
@@ -162,7 +162,7 @@
 
 ## ビジュアルモード
 
-- ga: テーブル（表） **整形**
+- ga: テーブル(表) **整形**
   - USAGE
     - "\*," と入力すればテキスト整形
       - 2 文字目の "," はデリミタ
@@ -259,8 +259,8 @@
 
 ## Grep
 
-- \<Leader\>r: カーソル下を "RipGrep"（UTF-8）      対象に挿入
-- ,r:          カーソル下を "RipGrep"（Shift_JIS）  対象に挿入
+- \<Leader\>r: カーソル下を "RipGrep"(UTF-8)        対象に挿入
+- ,r:          カーソル下を "RipGrep"(Shift_JIS)    対象に挿入
 - \<Leader\>P: カーソル下を "The Platinum Searcher" 対象に挿入
 - \<Leader\>A: カーソル下を "The Sliver Searcher"   対象に挿入
 - \<Leader\>G: カーソル下を "外部 grep"             対象に挿入
