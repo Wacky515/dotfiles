@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2023/02/28 16:58:07.
+# Last Change: 2023/03/01 22:09:23.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # ---------------------------------------------------------------------------
@@ -187,13 +187,10 @@ on_cmd = ['Denite']
 # "[De|U]nite" 用 "mru"
 [[plugins]]
 repo = 'Shougo/neomru.vim'
-on_source = ['dein.vim', 'unite.vim', 'denite.nvim']
+on_source = ['dein.vim', 'denite.nvim']
 on_path = '.*'
 [[plugins]]
 repo = 'koron/codic-vim'
-# "NyaoVim" と "OniVim" で必要
-[[plugins]]
-repo = 'Shougo/unite.vim'
 
 # 入力補完
     # 最新
@@ -283,11 +280,6 @@ hook_add = '''
     # プレビュー
 [[plugins]]
 repo = 'kannokanno/previm'
-    # MEMO: "Markdown" のみ対応
-on_ft = ['markdown','mkd']
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-    # MEMO: "Markdown" のみ対応
 on_ft = ['markdown','mkd']
     # シンタックスハイライト
 [[plugins]]

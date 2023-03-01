@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2022/03/27 11:16:43.
+" Last Change: 2023/03/01 22:07:34.
 
 " MEMO: 必ず先頭に記述
 " "autocmd" (マクロ)の初期化
@@ -126,11 +126,6 @@ if dein#load_state(s:plugin_dir)
     call dein#begin(s:plugin_dir)
 
     " プラグインリスト "*.toml" を指定
-    let g:plugin_dir       = expand("~/.vim/vim_plugins")
-    let s:toml             = g:plugin_dir . "/dein.toml"
-    let s:lazy_toml        = g:plugin_dir . "/dein_lazy.toml"
-    let s:python_toml      = g:plugin_dir . "/dein_python.toml"
-
     let g:plugin_dir_nvim  = expand("~/.vim/vim_plugins_nvim")
     let s:toml_nvim        = g:plugin_dir_nvim . "/dein_nvim.toml"
     let s:lazy_toml_nvim   = g:plugin_dir_nvim . "/dein_lazy_nvim.toml"
@@ -138,9 +133,6 @@ if dein#load_state(s:plugin_dir)
     let s:python_toml_nvim = g:plugin_dir_nvim . "/dein_python_nvim.toml"
 
     "*.toml" を読込み、キャッシュ
-    call dein#load_toml(s:toml,                 {"lazy": 0})
-    call dein#load_toml(s:lazy_toml,            {"lazy": 1})
-
     call dein#load_toml(s:toml_nvim,            {"lazy": 0})
     call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
 
@@ -149,7 +141,6 @@ if dein#load_state(s:plugin_dir)
     endif
 
     if has("python3")
-        call dein#load_toml(s:python_toml,      {"lazy": 1})
         call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
     endif
 
@@ -168,7 +159,6 @@ if has("vim_starting") && dein#check_install()
 endif
 
 " "Plugin" の設定ファイル読込み
-runtime! userautoload/plugin_settings/*.vim
 runtime! userautoload/plugin_settings_nvim/*.vim
 
 " MEMO:
