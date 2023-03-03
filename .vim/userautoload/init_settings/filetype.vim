@@ -1,8 +1,8 @@
 scriptencoding utf-8
 " Created:     2016/08/08 22:24:35
-" Last Change: 2022/03/27 10:56:40.
+" Last Change: 2023/03/02 10:57:38.
 
-" MEMO: 詳細設定は "~/dotfiles/.vim/ftplugi/*.vim" に記述
+" MEMO: 詳細設定は "~/dotfiles/.vim/ftplugin/*.vim" に記述
 augroup filetypedetect
     autocmd BufRead,BufNewFile *.{vim,nvim}               setfiletype vim
     autocmd BufRead,BufNewFile *.{md,mkd,mdwn,mkdn,mark*} setfiletype markdown
