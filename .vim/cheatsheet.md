@@ -46,6 +46,7 @@
 - VIM: ,hs: ウィンドウを分割しシェルを起動
 
 - \<F2\>:    チートシート     表示
+- \<F3\>:    カーソル直下の "Syntax highlight" を調査
 - \<F4\>:    "Gundo.vim"      表示
 - \<F5\>:    カレントバッファ 実行
 - \<F6\>:    "Ctags"          作成
@@ -92,7 +93,7 @@
 
 - \<Leader\>l:    スペルチェック トグル実行
   - ]s:           次のスペルミスの箇所へ移動
-  - [s:           前のスペルミスの箇所へ移動
+  - [\s:          前のスペルミスの箇所へ移動
   - z=:           正スペル候補を表示し修正
   - zg:           カーソル下を正スペルとし登録
   - zw:           カーソル下を誤スペルとし登録
@@ -234,9 +235,9 @@
 
 ## Git
 
-- mgs :  Gstatus\<CR\>\<C-w\>T
+- mgs:   Gstatus\<CR\>\<C-w\>T \< "git st"
   - 選択ファイル上で -: "git add/reset" をトグル
-- mga:   Gwrite\<CR\>
+- mga:   Gwrite\<CR\>          \< "git add"
 - mgc:   Gcommit-v\<CR\>
 - mgb:   Gblame\<CR\>
 - mgd:   Gdiff\<CR\>
