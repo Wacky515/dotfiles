@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2023/03/01 21:57:00.
+" Last Change: 2023/03/03 09:55:55.
 " TODO: マークにジャンプ時、画面をトップに位置にする
 
 " --------------------------------------------------------------------------------
@@ -227,6 +227,9 @@ if has("win32") || has("win64")
     nmap <Leader>br :<C-u>! start chrome.exe "%:p"<CR>
     vmap <Leader>br :<C-u>! start chrome.exe "%:p"<CR>
 endif
+
+" F3: カーソル直下の "Syntax highlight" を調査
+nnoremap <F3> :<C-u>echo synIDattr(synID(line("."), col("."), 1), "name")<CR>
 
 " --------------------------------------------------------------------------------
 " 基本設定篇
