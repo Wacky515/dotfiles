@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     20**/**/** **:**:**
-rem Last Change: 2020/04/16 15:23:33.
+rem Last Change: 2023/03/04 16:23:28.
 
 set batch_title=Setting for Folder options
 
@@ -26,7 +26,7 @@ pushd %bat_path%
 echo ^>^> %batch_title%
 rem echo ^>^> Start
 
-git clone https://github.com/Wacky515/dotfiles.git
+git clone --depth 1 https://github.com/Wacky515/dotfiles.git
 
 endlocal
 popd
