@@ -1,4 +1,3 @@
-# TODO
+# USAGE
 
-- 夜間モード 常時ON
-- トラックパッド スクロール方向 反転
+- Put setting_\*.reg or add in \*setting_\*.cmd this directory
