@@ -15,7 +15,7 @@ filetype plugin indent off
 let g:vimproc#download_windows_dll = 1
 
 " ---------------------------------------------------------------------------
-" "Vim" 設定ファイルの読込み
+"  "Vim" 設定ファイルの読込み
     " MEMO:
         " 記述順番 変更しない！！！
         " "Leader" のみ設定ファイル読込み直前に設定
@@ -37,7 +37,7 @@ endif
 runtime! userautoload/init_settings/*.vim
 
 " ---------------------------------------------------------------------------
-" "Python" の "Path" 設定読込み
+"  "Python" の "Path" 設定読込み
     " MEMO: "init.vim" へ不可分
 " ---------------------------------------------------------------------------
 if has("vim_starting")
@@ -58,7 +58,7 @@ if has("vim_starting")
 endif
 
 " ---------------------------------------------------------------------------
-" "pythonthreedll" 設定読込み
+"  "pythonthreedll" 設定読込み
     " MEMO:
         " "Vim" で "Dark powed" するための設定
         " "Python3.6.*" でないと "Dark powed" できない
@@ -82,7 +82,7 @@ if has("vim_starting")
 endif
 
 " ---------------------------------------------------------------------------
-" "dein.vim" の設定
+"  "dein.vim" の設定
     " MEMO: "NeoVim" は "init.vim" に記述
 " ---------------------------------------------------------------------------
 " "dein.vim" の更新チェック高速化設定
@@ -166,7 +166,7 @@ runtime! userautoload/plugin_settings_nvim/*.vim
 " 適宜 "du: call dein#check_update()" や "dc: call dein#clear_state()" を実行
 
 " ---------------------------------------------------------------------------
-" Init最終処理
+"  Init最終処理
 " ---------------------------------------------------------------------------
 " "colorscheme" 設定
 if !has("gui_runnig") && (has("mac") || has("win32") || has("win64"))

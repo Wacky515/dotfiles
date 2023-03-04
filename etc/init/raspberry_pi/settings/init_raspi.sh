@@ -15,8 +15,8 @@
     # 切り出した関数 フォルダ作る
     # 実行結果 "echo" 関数 切り出し
     # 色付き "echo" 関数 切り出し
-    # IP Addr 固定（アドレスを標準入力する）
-    # Wi-Fi（自宅・会社Proxy） SSID Pass 設定
+    # IP Addr 固定(アドレスを標準入力する)
+    # Wi-Fi(自宅・会社Proxy) SSID Pass 設定
     # 時計合わせ
 #}}}
 
@@ -138,7 +138,7 @@ then
     sudo /etc/init.d/vncboot start
 fi
 
-# ホスト名 変更（必ず最後に実施）
+# ホスト名 変更(必ず最後に実施)
 bash ./setting_hostname.sh
 
 ym_echo ">> Please reboot(yes/no)"

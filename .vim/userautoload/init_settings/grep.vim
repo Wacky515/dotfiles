@@ -15,12 +15,12 @@ endif
 " command! -nargs=* -complete=file Rg :tabnew | :silent grep --sort-files <args>
 " command! -nargs=* -complete=file Rgg :tabnew | :silent grep <args>
 
-" <Leader>r: カーソル下を "RipGrep" （UTF-8)      対象に挿入
+" <Leader>r: カーソル下を "RipGrep" (UTF-8)      対象に挿入
     " <Enter>押下でカレントディレクトリ以下を再帰的に検索
     " MEMO: "fzf" 準拠のCUI
 nnoremap <expr> <Leader>r ':Rg ' . expand('<cword>') . ''
 
-" <Leader>R: カーソル下を "RipGrep" （Shift_JIS)  対象に挿入
+" <Leader>R: カーソル下を "RipGrep" (Shift_JIS)  対象に挿入
 nnoremap <expr> ,r ':Rgs ' . expand('<cword>') . ''
 
 " <Leader>P: カーソル下を "The Platinum Searcher" 対象に挿入

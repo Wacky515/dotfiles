@@ -14,7 +14,7 @@ IFB CHKIMG("OpenOption.bmp")
     ENDIF
 ELSE
     MSGBOX("オプションボタンが見つかりませんでした_
-    （ドックウィンドウ非表示設定時）")
+    (ドックウィンドウ非表示設定時)")
 ENDIF
 
 MMV(0, 0)
@@ -32,7 +32,7 @@ IFB CHKIMG("OpenOption.bmp")
     ENDIF
 ELSE
     MSGBOX("オプションボタンが見つかりませんでした_
-    （使用状況データ非送信設定）")
+    (使用状況データ非送信設定)")
 ENDIF
 MMV(0, 0)
 
@@ -110,5 +110,5 @@ IFB CHKIMG("OpenOption.bmp")
     ENDIF
 
 ELSE
-    MSGBOX("オプションボタンが見つかりませんでした（オプション設定）")
+    MSGBOX("オプションボタンが見つかりませんでした(オプション設定)")
 ENDIF

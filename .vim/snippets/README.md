@@ -60,7 +60,7 @@
 ### indent
 
 - snippet 展開後の文字に indent を適用
-- snippet の中身(必須）
+- snippet の中身(必須)
 
 ``` Snippet
 if ${1:condition1}

@@ -17,7 +17,7 @@ set history=1000
 " 折畳み 設定
 set foldmethod=marker
 
-" モードライン（ファイル毎の設定） ON
+" モードライン(ファイル毎の設定) ON
 set modeline
 
 " ヘルプ 日本語表記
@@ -80,7 +80,7 @@ endif
 " nnoremap <expr> `  <SID>hint_cmd_output('`', 'marks')
 " " マーク位置へジャンプ
 " nnoremap <expr> '  <SID>hint_cmd_output("'", 'marks')
-" レジスタ参照（ヤンクや削除）
+" レジスタ参照(ヤンクや削除)
 " nnoremap <expr> "  <SID>hint_cmd_output('"', 'registers')
 " " マクロ記録
 " nnoremap <expr> q  <SID>hint_cmd_output('q', 'registers')
