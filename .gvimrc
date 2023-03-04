@@ -1,9 +1,9 @@
 scriptencoding utf-8
 " Created:     2016/08/03 **:**:**
-" Last Change: 2023/02/28 13:04:14.
+" Last Change: 2023/03/04 16:58:17.
 
 " !!!: 必ず先頭に記述
-" "autocmd"（マクロ） の初期化
+" "autocmd"(マクロ) の初期化
 augroup MyAutoCmd
     autocmd!
 augroup END
@@ -21,7 +21,7 @@ au MyAutoCmd VimEnter * highlight Visual ctermbg=216
 
 " MEMO: "visual.vim" 内のこの記述のみ適用されない
     " "KaoriYa GVim" 用、削除しない！！！
-" コマンドライン（画面下部） 高さ
+" コマンドライン(画面下部) 高さ
 set cmdheight=5
 
 if (has("win32") || ("win64"))
@@ -36,7 +36,7 @@ set guioptions-=T
 " 水平スクロールバー 表示
 set guioptions+=b
 
-" ウィンドウ 半透明化（"Linux" は "NeoVim" から設定できない）
+" ウィンドウ 半透明化("Linux" は "NeoVim" から設定できない)
 if has("unix") && !has("nvim")
     set transparency=10
 elseif (has("win32") || ("win64"))
@@ -98,7 +98,7 @@ if !has("nvim")
         if hostname()     == "SALADPRIMEMK-II"
             set   guifont=Cica:h12
             set printfont=Cica:h12
-            " Windows Cica 専用設定 ("NeoVim" 版設定探す）
+            " Windows Cica 専用設定 ("NeoVim" 版設定探す)
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "SALADCARBONX1"
             set   guifont=Cica:h13
