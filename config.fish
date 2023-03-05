@@ -1,5 +1,5 @@
 # Created:     2018/**/** **:**:**
-# Last Change: 2023/01/18 07:01:47.
+# Last Change: 2023/03/05 19:12:36.
 
 cd ~/dotfiles
 
@@ -91,7 +91,12 @@ switch (uname)
         set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
         ins_fisher
         # Set PATH, MANPATH, etc., for Homebrew.
-        eval "$(/opt/homebrew/bin/brew shellenv)"
+        switch (uname -m)
+            case 'arm64'
+                eval "$(/opt/homebrew/bin/brew shellenv)"
+            case 'x86_64'
+                eval "$(/usr/local/bin/brew shellenv)"
+        end
 
     # "Windows" 用設定
     case 'msys'
