@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/11/29 17:09:50.
+" Last Change: 2023/03/06 11:59:00.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -8,5 +8,5 @@ scriptencoding utf-8
 " ,un: "Unite codic" 起動
 nnoremap <silent> ,un :<C-u>Unite codic<CR>
 
-" ,cd: カーソル下の単語を "Codic"
+" ,cd: カーソル位置の単語を "Codic"
 nnoremap <expr> ,cd ':Codic ' . expand('<cword>') . ''

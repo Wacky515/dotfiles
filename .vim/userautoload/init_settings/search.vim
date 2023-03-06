@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2023/03/04 18:42:09.
+" Last Change: 2023/03/06 11:59:00.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -19,7 +19,7 @@ nnoremap g# g#zz
 " "/" で "very magic" 検索
 nnoremap /  /\v
 
-" カーソル下の単語を入力した文字で置換
+" カーソル位置の単語を入力した文字で置換
 " nnoremap <Leader>re :%s;\<<C-R><C-W>\>;g<Left><Left>;
 nnoremap <Leader>re :%s;\<<C-R><C-W>\>;gc<Left><Left><Left>;
 

@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2019/06/24 11:32:20
-" Last Change: 2021/04/30 10:23:44.
+" Last Change: 2023/03/06 11:59:00.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -13,7 +13,7 @@ nmap <silent> <Leader>d  :LspDefinition<CR>
 nmap <silent> <Leader>ls :split  \| :LspDefinition <CR>
 " <Leader>lv: 定義元ジャンプ 垂直分割
 nmap <silent> <Leader>lv :vsplit \| :LspDefinition <CR>
-" <Leader>p: カーソル下の定義情報 ホバー表示
+" <Leader>p: カーソル位置の定義情報 ホバー表示
 nmap <silent> <Leader>p  :LspHover<CR>
 " nnoremap K :<C-u>LspHover<CR>
 " <Leader>k: 変数リネーム
