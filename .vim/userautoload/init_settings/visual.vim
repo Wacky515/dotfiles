@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/14 14:59:36
-" Last Change: 2023/03/04 18:43:09.
+" Last Change: 2023/03/07 12:48:13.
 " MEMO: "gui_running" ではなくても設定できるもの
     " "gui_running" 必須のものは ".gvimrc" に記述
 
@@ -12,25 +12,26 @@ set t_Co=256
 
 " 行番号 表示
 set number
-
 " NOTWORK: 選択行 行番号色
 " highlight LineNr ctermfg=darkyellow
 
 " 選択行 強調
 set cursorline
-
 " 選択列 強調
 set cursorcolumn
 
 " 不可視文字 表示
 set list
-set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
-" set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+" タブ文字の色設定
+highlight SpecialKey guibg=NONE guifg=Gray40
+" 改行文字の色設定
+highlight NonText    guibg=NONE guifg=DarkGreen
 
 " 補完メニュー 高さ
 set pumheight=10
 
-" 長行 省略しない
+" 長い行を省略しない
 set display=lastline
 
 " スクロール時 上下端行数
@@ -66,7 +67,7 @@ if (has("nvim") && has("vim_starting"))
     let &t_SR .= "\e[4 q"
 endif
 
-" 画面上で表示するタブ文字 幅
+" 画面上で表示するタブ文字の幅
 set tabstop=4
 " "TAB" スペース数
 set expandtab
@@ -74,7 +75,7 @@ set expandtab
 set smarttab
 " "smartindent" 増減幅
 set shiftwidth=4
-" コマンド/改行/自動インデント時、現在行と同じインデントを挿入
+" コマンド・改行・自動インデント時、現在行と同じインデントを挿入
 set autoindent
 " 改行時に前行の構文をチェックし次行のインデントを増減
 " "{" があると次行は自動で1段深く自動インデント
@@ -115,9 +116,7 @@ set showcmd
 "タブラベル 常時表示
 set showtabline=3
 
-" ------------------------------------------------------------------------------
-"  再開時 ウィンドウサイズ 復元
-" ------------------------------------------------------------------------------
+" 再開時 ウィンドウサイズ 復元
 if !has("nvim")
     let g:save_window_file = expand("~/.vim/tmp/.vimwinpos")
     augroup SaveWindow
@@ -138,9 +137,7 @@ if !has("nvim")
     endif
 endif
 
-" ------------------------------------------------------------------------------
 "  再開時 カーソル位置 復元
-" ---------------------------------------------------------------------------"
 if has("autocmd")
     autocmd BufReadPost *
                 \ if line("'\"") > 0 && line ("'\"") <= line("$") |
@@ -151,8 +148,8 @@ endif
 " ------------------------------------------------------------------------------
 "  コマンドラインモード表示篇
 " ------------------------------------------------------------------------------
-" NOTEORK: コマンドライン("Vim" 画面下部)高さ
-" MEMO: ".gvimrc" に移管
+" コマンドライン("Vim" 画面下部)高さ
+    " MEMO: ここに記述すると個動作しないため ".gvimrc" に移管
 " set cmdheight=5
 
 " コマンドラインモード 補完GUI
@@ -180,4 +177,4 @@ if has("syntax")
     augroup END
     call ZenkakuSpace()
 endif
-" < http://inari.hatenablog.com/entry/2014/05/05/231307 >
+" REF: < http://inari.hatenablog.com/entry/2014/05/05/231307 >

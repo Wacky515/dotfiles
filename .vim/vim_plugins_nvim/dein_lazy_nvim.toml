@@ -201,10 +201,10 @@ depends = ['nerdtree']
 
 # 入力補完
     # 最新
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-if = "has('python3') && has('timers')"
-on_i = 1
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# if = "has('python3') && has('timers')"
+# on_i = 1
 hook_add = '''  " {{{
     " "hook_source" に移動
     " let g:deoplete#auto_complete_delay = 0

@@ -1,10 +1,10 @@
 scriptencoding utf-8
 " Created:     2016/08/08 09:04:26
-" Last Change: 2019/11/22 11:15:05.
+" Last Change: 2023/03/07 13:17:11.
 
 " Vim内部で使われる文字エンコーディング  " {{{
-	" viminfo 内テキスト等に適用
-	" バッファ
+    " viminfo 内テキスト等に適用
+    " バッファ
     " expression 内の文字列
     " ファイル
     " レジスタ内テキスト

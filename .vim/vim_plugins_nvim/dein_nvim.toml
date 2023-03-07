@@ -144,10 +144,6 @@ repo = 'lukhio/vim-mapping-conflicts'
 [[plugins]]
 repo = 'reireias/vim-cheatsheet'
 
-# 辞書
-[[plugins]]
-repo = 'thinca/vim-ref'
-
 # 翻訳
 [[plugins]]
 repo = 'daisuzu/translategoogle.vim'

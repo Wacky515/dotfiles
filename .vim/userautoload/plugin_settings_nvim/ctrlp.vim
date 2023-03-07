@@ -1,23 +1,23 @@
 scriptencoding utf-8
 " Created:     2018/03/30 12:15:44
-" Last Change: 2019/11/29 17:16:01.
+" Last Change: 2023/03/07 12:07:00.
 
 " ------------------------------------------------------------------------------
 "  マップキー
 " ------------------------------------------------------------------------------
 " プリフィクスキー
 let g:ctrlp_map = '<nop>'
-nnoremap <C-i> <Nop>
+nnoremap <C-l> <Nop>
 
-nnoremap <C-i>p :<C-u>CtrlP<CR>
-nnoremap <C-i>a :<C-u>CtrlP<Space>
-nnoremap <C-i>b :<C-u>CtrlPBuffer<CR>
-nnoremap <C-i>d :<C-u>CtrlPDir<CR>
-nnoremap <C-i>l :<C-u>CtrlPLine<CR>
-nnoremap <C-i>m :<C-u>CtrlPMRUFiles<CR>
-nnoremap <C-i>q :<C-u>CtrlPQuickfix<CR>
-nnoremap <C-i>s :<C-u>CtrlPMixed<CR>
-nnoremap <C-i>t :<C-u>CtrlPTag<CR>
+nnoremap <C-l>p :<C-u>CtrlP<CR>
+nnoremap <C-l>a :<C-u>CtrlP<Space>
+nnoremap <C-l>b :<C-u>CtrlPBuffer<CR>
+nnoremap <C-l>d :<C-u>CtrlPDir<CR>
+nnoremap <C-l>l :<C-u>CtrlPLine<CR>
+nnoremap <C-l>m :<C-u>CtrlPMRUFiles<CR>
+nnoremap <C-l>q :<C-u>CtrlPQuickfix<CR>
+nnoremap <C-l>s :<C-u>CtrlPMixed<CR>
+nnoremap <C-l>t :<C-u>CtrlPTag<CR>
 
 " ------------------------------------------------------------------------------
 "  基本設定
