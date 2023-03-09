@@ -1,25 +1,31 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2021/03/03 14:20:28.
+" Last Change: 2023/03/09 13:03:00.
 
 " !!!: 必ず先頭に記述
-" "autocmd"(マクロ) の初期化
+" "autocmd(マクロ)" の初期化
 augroup MyAutoCmd
     autocmd!
 augroup END
 
+" <Space> を "Leader" に設定
+let mapleader = "\<Space>"
+
 " ------------------------------------------------------------------------------
-"  設定ファイル 読込み
+"  "Vim" 設定ファイルの読込み  " {{{
+    " !!!: 記述順番 変更しない
     " MEMO:
-    " 記述順番 変更しない！！！
-    " "Plugin" 設定は後半に読込み
+        " "Leader" のみ設定ファイル読込み直前に設定
+        " "Plugin" 設定は後半に読込み
+        " }}}
 " ------------------------------------------------------------------------------
+runtime! colors/*.vim
 set runtimepath+=$HOME/.vim
+runtime! userautoload/init_settings/*.vim
 
 " ------------------------------------------------------------------------------
 "  "Python" の "Path" 設定読込み
-    " MEMO:
-    " ".vimrc" から不可分
+    " MEMO: "init.vim" へ不可分
 " ------------------------------------------------------------------------------
 if has("vim_starting")
     if has("mac")
@@ -41,9 +47,9 @@ endif
 " ------------------------------------------------------------------------------
 "  "pythonthreedll" 設定読込み
     " MEMO:
-    " "Vim" で "Dark powed" するための設定
-    " "Python3.6.*" でないと "Dark powed" できない 2021/02/21
-    " "jedi-vim" で "Anaconda3" のライブラリを補完
+        " "Vim" で "Dark powed" するための設定
+        " "Python3.6.*" でないと "Dark powed" できない
+        " "jedi-vim" で "Anaconda3" のライブラリを補完
 " ------------------------------------------------------------------------------
 if has("vim_starting")
     if (has("unix") && !has("mac"))
@@ -51,16 +57,6 @@ if has("vim_starting")
         set pythonthreehome = $VIM."/python3/"
     endif
 endif
-
-" ------------------------------------------------------------------------------
-"  "Vim" 設定ファイルの読込み
-    " MEMO: "Leader" のみ設定ファイル読込み直前に設定
-" ------------------------------------------------------------------------------
-" <Space> を "Leader" に割当て
-let mapleader = "\<Space>"
-
-runtime! colors/*.vim
-runtime! userautoload/init_settings/*.vim
 
 " ------------------------------------------------------------------------------
 "  "dein.vim" の設定
@@ -142,21 +138,41 @@ endif
 runtime! userautoload/plugin_settings_nvim/*.vim
 
 " ------------------------------------------------------------------------------
-"  Init最終処理
+"  最終処理
 " ------------------------------------------------------------------------------
-" "colorscheme" 設定、等
-if (has("mac") || ((has("win32") || has("win64")) && !has("gui_runnig")))
+" "colorscheme" 設定
+if !has("gui_runnig") && (has("mac") || has("win32") || has("win64"))
+    " !!!: "visual.vim" で無く、ここに記述
     colorscheme iceberg
-    " MEMO: "visual.vim" 内のこの記述のみ適用されない
-    " コマンドライン("Vim" 画面下部)高さ
+    " コマンドライン(画面下部) 高さ
     set cmdheight=5
 endif
 
-" シンタックスハイライト
-" MEMO: "dein.vim" に関する設定の後にON
-syntax on
+" Syntax highlight 解説  " {{{
+" ファイルタイプ系ハイライトプラグインを導入している場合
+" "syntax on" は現在の "runtimepath" の設定で "Syntax"を生成
+" "runtimepath" 初期化後の "syntax on" はあまり意味が無く
+" "runtimepath" 設定後に "syntax on" すべき
+
+" # 悪いパターン
+" "runtimepath" 初期化処理
+" set runtimepath=$VIMRUNTIME
+" syntax on
+" ファイルタイプ系ハイライトプラグイン
+" neoBundle 'kongo2002/fsharp-vim'
+
+" # 良いパターン
+" "runtimepath" 初期化処理
+" set runtimepath=$VIMRUNTIME
+" ファイルタイプ系ハイライトプラグイン
+" neoBundle 'kongo2002/fsharp-vim'
+" syntax on
+" }}}
+if has("syntax")
+  syntax on
+endif
 
 " MEMO:
-" 読み込んだプラグインも含め、ファイルタイプの検出
-" ファイルタイプ別プラグイン/インデントを有効化する
+    " 読込んだプラグイン含めてファイルタイプの検出と
+    " ファイルタイプ別にプラグイン、インデントを有効化
 filetype plugin indent on

@@ -1,53 +1,53 @@
 scriptencoding utf-8
 " Created:     2023/03/04 16:27:00
-" Last Change: 2023/03/06 12:45:58.
+" Last Change: 2023/03/09 17:20:16.
 
 " ------------------------------------------------------------------------------
-"  ŠOŠÏƒe[ƒ}•Ñ
+"  å¤–è¦³ãƒ†ãƒ¼ãƒ
 " ------------------------------------------------------------------------------
-" "colorscheme" ‚Ìİ’è
+" "colorscheme" ã®è¨­å®š
 set termguicolors
 set background=dark
 au MyAutoCmd VimEnter * nested colorscheme iceberg
 au MyAutoCmd VimEnter * highlight Visual ctermbg=216
 
-" MEMO: "visual.vim" “à‚Ì‚±‚Ì‹Lq‚Ì‚İ“K—p‚³‚ê‚È‚¢
-    " !!!: "KaoriYa" —pAíœ‚µ‚È‚¢
-" ‰æ–Ê‰º•”ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ ‚‚³
+" MEMO: "visual.vim" å†…ã®ã“ã®è¨˜è¿°ã®ã¿é©ç”¨ã•ã‚Œãªã„
+    " !!!: "KaoriYa" ç”¨ã€å‰Šé™¤ã—ãªã„
+" ç”»é¢ä¸‹éƒ¨ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ é«˜ã•
 set cmdheight=5
 
 if (has("win32") || ("win64"))
-    " ƒƒjƒ…[ƒo[ •\¦
+    " ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒãƒ¼ è¡¨ç¤º
     set guioptions+=m
 else
-    " ƒƒjƒ…[ƒo[ ”ñ•\¦
+    " ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒãƒ¼ éè¡¨ç¤º
     set guioptions-=m
 endif
-" ƒc[ƒ‹ƒo[ ”ñ•\¦
+" ãƒ„ãƒ¼ãƒ«ãƒãƒ¼ éè¡¨ç¤º
 set guioptions-=T
-" …•½ƒXƒNƒ[ƒ‹ƒo[ •\¦
+" æ°´å¹³ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ è¡¨ç¤º
 set guioptions+=b
 
-" ƒEƒBƒ“ƒhƒE ”¼“§–¾‰»
-    " MEMO: "Linux" ‚Í "NeoVim" ‚©‚çİ’è‚Å‚«‚È‚¢
+" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ åŠé€æ˜åŒ–
+    " MEMO: "Linux" ã¯ "NeoVim" ã‹ã‚‰è¨­å®šã§ããªã„
 if has("unix") && !has("nvim")
     set transparency=10
 elseif (has("win32") || ("win64"))
     :autocmd GUIEnter * set transparency=235
 endif
 
-" ƒƒbƒZ[ƒW •¶š‰»‚¯‘Îô
+" ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ æ–‡å­—åŒ–ã‘å¯¾ç­–
 if (has("win32") || ("win64"))
     source $VIMRUNTIME/delmenu.vim
     set langmenu=ja_jp.utf-8
     source $VIMRUNTIME/menu.vim
 endif
 
-" !!!: ˆÈ‰º‚Í‹LqêŠE‡”Ô‚ğ•Ï‚¦‚È‚¢
+" !!!: ä»¥ä¸‹ã¯è¨˜è¿°å ´æ‰€ãƒ»é †ç•ªã‚’å¤‰ãˆãªã„
 " ------------------------------------------------------------------------------
-"  ’[–––ˆƒtƒHƒ“ƒgİ’è•Ñ
+"  ç«¯æœ«æ¯ãƒ•ã‚©ãƒ³ãƒˆè¨­å®š
 " ------------------------------------------------------------------------------
-" MEMO: "NeoVim" ‚ÌƒtƒHƒ“ƒgİ’è‚Í "ginit.vim" ‚É‹Lq
+" MEMO: "NeoVim" ã®ãƒ•ã‚©ãƒ³ãƒˆè¨­å®šã¯ "ginit.vim" ã«è¨˜è¿°
 if !has("nvim")
     if has("mac")
         if hostname()     == "SaladBookAirM1"
@@ -73,7 +73,7 @@ if !has("nvim")
         if hostname()     == "SALADPRIMEMK-II"
             set   guifont=Cica:h12
             set printfont=Cica:h12
-            " Windows Cica ê—pİ’è ("NeoVim" ”Åİ’è’T‚·)
+            " Windows Cica å°‚ç”¨è¨­å®š ("NeoVim" ç‰ˆè¨­å®šæ¢ã™)
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "SALADCARBONX1"
             set   guifont=Cica:h13

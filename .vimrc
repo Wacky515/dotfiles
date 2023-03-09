@@ -1,30 +1,32 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2023/03/05 19:11:29.
+" Last Change: 2023/03/09 13:03:00.
 
-" MEMO: 必ず先頭に記述
+" !!!: 必ず先頭に記述
 " "autocmd(マクロ)" の初期化
 augroup MyAutoCmd
     autocmd!
 augroup END
 
-" "filetype" 初期化、最終行でON
+" "filetype" 初期化
 filetype off
+" 最終行でON
 filetype plugin indent off
 
 " "vimproc" 読込み時、"*.dll" 自動DL & 更新
 let g:vimproc#download_windows_dll = 1
 
-" ------------------------------------------------------------------------------
-"  "Vim" 設定ファイルの読込み
-    " MEMO:
-        " 記述順番 変更しない！！！
-        " "Leader" のみ設定ファイル読込み直前に設定
-        " "Plugin" 設定は後半に読込み
-" ------------------------------------------------------------------------------
 " <Space> を "Leader" に設定
 let mapleader = "\<Space>"
 
+" ------------------------------------------------------------------------------
+"  "Vim" 設定ファイルの読込み  " {{{
+    " !!!: 記述順番 変更しない
+    " MEMO:
+        " "Leader" のみ設定ファイル読込み直前に設定
+        " "Plugin" 設定は後半に読込み
+        " }}}
+" ------------------------------------------------------------------------------
 " "MacVim" の "colors/*.vim" 設定
 if (!has("mac") && !has("gui_running"))
     runtime! colors/*.vim
@@ -172,32 +174,35 @@ runtime! userautoload/plugin_settings_nvim/*.vim
 " ------------------------------------------------------------------------------
 " "colorscheme" 設定
 if !has("gui_runnig") && (has("mac") || has("win32") || has("win64"))
+    " !!!: "visual.vim" で無く、ここに記述
     colorscheme iceberg
-    " MEMO: "visual.vim" 内のこの記述のみ適用されない
     " コマンドライン(画面下部) 高さ
     set cmdheight=5
 endif
 
-" シンタックスハイライト
-" ファイルタイプ系ハイライトプラグインを導入している場合  " {{{
-" syntax on" は現在のruntimepathに含まれている設定をもとにシンタックスを生成する
-" runtimepathを初期化するような処理をした後にsyntax onしてもあまり意味はなく
-" runtimepathをすべて設定し終えた後にsyntax onをするべき
-" 悪いパターン
-" runtimepathを初期化するような処理
+" Syntax highlight 解説  " {{{
+" ファイルタイプ系ハイライトプラグインを導入している場合
+" "syntax on" は現在の "runtimepath" の設定で "Syntax"を生成
+" "runtimepath" 初期化後の "syntax on" はあまり意味が無く
+" "runtimepath" 設定後に "syntax on" すべき
+
+" # 悪いパターン
+" "runtimepath" 初期化処理
 " set runtimepath=$VIMRUNTIME
 " syntax on
 " ファイルタイプ系ハイライトプラグイン
 " neoBundle 'kongo2002/fsharp-vim'
-" 良いパターン
-" runtimepathを初期化するような処理
+
+" # 良いパターン
+" "runtimepath" 初期化処理
 " set runtimepath=$VIMRUNTIME
 " ファイルタイプ系ハイライトプラグイン
 " neoBundle 'kongo2002/fsharp-vim'
 " syntax on
 " }}}
-"
-syntax on
+if has("syntax")
+  syntax on
+endif
 
 " MEMO:
     " 読込んだプラグイン含めてファイルタイプの検出と

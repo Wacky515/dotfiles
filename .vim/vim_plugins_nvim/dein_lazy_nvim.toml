@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2023/03/01 22:28:00.
+# Last Change: 2023/03/09 11:18:03.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
 
 # ---------------------------------------------------------------------------
@@ -201,10 +201,10 @@ depends = ['nerdtree']
 
 # 入力補完
     # 最新
-# [[plugins]]
-# repo = 'Shougo/deoplete.nvim'
-# if = "has('python3') && has('timers')"
-# on_i = 1
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if = "(has('nvim') || has('patch1978')) && has('python3') && has('timers')"
+on_i = 1
 hook_add = '''  " {{{
     " "hook_source" に移動
     " let g:deoplete#auto_complete_delay = 0
@@ -244,12 +244,16 @@ hook_source = '''  " {{{
 
 [[plugins]]
 repo = 'Shougo/deoplete-rct'
+if = "has('nvim') || has('patch1978')"
 [[plugins]]
 repo = 'Shougo/neco-vim'
+if = "has('nvim') || has('patch1978')"
 [[plugins]]
 repo = 'Shougo/neco-syntax'
+if = "has('nvim') || has('patch1978')"
 [[plugins]]
 repo = 'ujihisa/neco-look'
+if = "has('nvim') || has('patch1978')"
 
 # LSP(Language Server Protocol)
 [[plugins]]
@@ -303,8 +307,13 @@ on_ft = ['markdown','mkd']
 repo = 'rcmdnk/vim-markdown'
 on_ft = ['markdown','mkd']
 hook_add = '''
-    let g:vim_markdown_frontmatter = 1
-    let g:vim_markdown_math        = 1
+    let g:vim_let g:vim_markdown_folding_disabled = 1
+    let g:vim_markdown_liquid                     = 1
+    let g:vim_markdown_math                       = 0
+    let g:vim_markdown_frontmatter                = 1
+    let g:vim_markdown_toml_frontmatter           = 1
+    let g:vim_markdown_json_frontmatter           = 0
+    set nofoldenable
 '''
 
 # Fuzzy Matcher

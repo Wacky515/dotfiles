@@ -1,13 +1,7 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2021/03/13 10:21:03.
+" Last Change: 2023/03/09 17:20:16.
 " FIXME: "Mac" で "ginit.vim" 読込むとエラー
-
-" !!!: 必ず先頭に記述
-" "autocmd"(マクロ) の初期化
-augroup MyAutoCmd
-    autocmd!
-augroup END
 
 colorscheme iceberg
 
@@ -27,7 +21,7 @@ endfunction
 call s:source_rc(".gvimrc")
 
 " ----------------------------------------------------------------------
-"  フォント設定篇
+"  フォント設定
 " ----------------------------------------------------------------------
 if has("mac") " {{{
     if hostname()     == "SaladBookAirM1"
