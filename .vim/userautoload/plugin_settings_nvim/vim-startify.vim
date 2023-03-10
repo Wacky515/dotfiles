@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/12/13 07:39:11
-" Last Change: 2023/03/07 10:54:45.
+" Last Change: 2023/03/10 01:32:50.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -13,11 +13,6 @@ nnoremap ,st :Startify<CR>
 " ------------------------------------------------------------------------------
 let g:startify_files_number = 10
 let g:startify_fortune_use_unicode = 1
-
-if exists("g:nyaovim_version")
-    autocmd VimEnter * execute "normal :tabnew\<CR>"
-    autocmd VimEnter * execute "normal :Startify\<CR>"
-endif
 
 " 接頭記号を指定
 let g:startify_list_order = [
@@ -38,12 +33,8 @@ let g:startify_bookmarks = [
             \ "~/.gvimrc",
             \ "~/dotfiles/nvim/init.vim",
             \ "~/dotfiles/nvim/ginit.vim",
-            \ "~/dotfiles/config.js",
-            \ "~/dotfiles/.vim/vim_plugins/dein.toml",
-            \ "~/dotfiles/.vim/vim_plugins/dein_lazy.toml",
-            \ "~/dotfiles/.vim/vim_plugins_nvim/dein_nvim.toml",
-            \ "~/dotfiles/.vim/vim_plugins_nvim/dein_lazy_nvim.toml",
-            \ "~/dotfiles/.vim/userautoload/plugin_settings_nvim/vim-startify.vim",
+            \ "~/dotfiles/.vim/plugins/vim-jetpack.vim",
+            \ "~/dotfiles/.vim/userautoload/plugin_settings/vim-startify.vim",
             \ "~/dotfiles/etc/init/osx/settings",
             \ "~/dotfiles/etc/init/linux/settings",
             \ "~/dotfiles/etc/init/windows/settings",

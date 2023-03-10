@@ -1,32 +1,30 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2023/03/06 11:59:00.
+" Last Change: 2023/03/10 11:12:31.
 
 " ------------------------------------------------------------------------------
 "  マップキー
 " ------------------------------------------------------------------------------
-" 検索開始時 ジャンプしない
-nnoremap * *Nzz
+" [*|#]: 検索開始時 ジャンプしない
+nnoremap * *N
+nnoremap # #N
 
-" 検索ジャンプ 画面中央表示
+" 検索ジャンプを中央表示
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
-" nnoremap * *zz
 
-" "/" で "very magic" 検索
+" <Esc><Esc>: 検索ハイライト消去
+if has("mac")
+    nmap <silent> <C-[><C-[> :<C-u>nohlsearch<CR>
+else
+    nmap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
+endif
+
+" /: "very magic" 検索
 nnoremap /  /\v
-
-" カーソル位置の単語を入力した文字で置換
-" nnoremap <Leader>re :%s;\<<C-R><C-W>\>;g<Left><Left>;
-nnoremap <Leader>re :%s;\<<C-R><C-W>\>;gc<Left><Left><Left>;
-
-" 検索時に "\" や "?" のエスケープを簡素化
-" TODO: 動作確認
-cnoremap <expr> / getcmdtype() == "/" ? "\/" : "/"
-cnoremap <expr> ? getcmdtype() == "?" ? "\?" : "?"
 
 " ------------------------------------------------------------------------------
 "  基本設定

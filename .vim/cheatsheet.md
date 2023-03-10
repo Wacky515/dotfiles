@@ -240,7 +240,7 @@
 - mgb: Gblame\<CR\>
 - mgd: Gdiff\<CR\>
 - mgm: Gmerge\<CR\>
-- :Agit: 強化版"git log" 起動
+- :Agit: 強化版 "git log" 起動
 - :Gitv: "gitk" 実行
 
 ## マーク

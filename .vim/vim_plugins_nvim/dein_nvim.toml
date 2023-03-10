@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2023/03/01 22:28:50.
+# Last Change: 2023/03/10 11:20:26.
 
 # REF:
     # hook_add         プラグイン追加後
@@ -45,39 +45,44 @@
 repo = 'Shougo/dein.vim'
 
 # Grep
-    # The Silver Searcher
+# The Silver Searcher
 [[plugins]]
 repo = 'rking/ag.vim'
-    # The Platinum Searcher
+# The Platinum Searcher
 [[plugins]]
 repo = 'nazo/pt.vim'
 
 # Git
 [[plugins]]
 repo = 'tpope/vim-fugitive'
-    # 追加、削除マーカ表示
+#on_cmd = 'Git'
+hook_source = '''
+let g:fugitive_no_mappings = 1
+'''
+hook_post_source = '''
+echom 'fugitive is loaded'
+'''
+# 追加、削除マーカ表示
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
-    # "git log" を強化
-    # :Agit 強化版 "git log" 実行
+# 左端に差分を表示
 [[plugins]]
 repo = 'cohama/agit.vim'
-    # "gitk" 機能追加
-        # :Gitv: 機能追加版 "gitk" 実行
+# "gitk" 機能追加
 [[plugins]]
 repo = 'gregsexton/gitv'
 depends = ['vim-fugitive']
-    # コミットログ入力強化
+# コミットログ入力強化
 [[plugins]]
 repo = 'rhysd/committia.vim'
 
 # Diff
-    # :DirDiff A B: AとBを比較
+# :DirDiff A B: AとBを比較
 [[plugins]]
 repo = 'vim-scripts/DirDiff.vim'
 
 # Ctags
-    # どの関数内か表示
+# どの関数内か表示
 [[plugins]]
 repo = 'majutsushi/tagbar'
 
