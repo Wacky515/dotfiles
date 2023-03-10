@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2023/03/10 11:20:26.
+# Last Change: 2023/03/10 14:48:06.
 
 # REF:
     # hook_add         プラグイン追加後
@@ -68,18 +68,9 @@ repo = 'airblade/vim-gitgutter'
 # 左端に差分を表示
 [[plugins]]
 repo = 'cohama/agit.vim'
-# "gitk" 機能追加
-[[plugins]]
-repo = 'gregsexton/gitv'
-depends = ['vim-fugitive']
 # コミットログ入力強化
 [[plugins]]
 repo = 'rhysd/committia.vim'
-
-# Diff
-# :DirDiff A B: AとBを比較
-[[plugins]]
-repo = 'vim-scripts/DirDiff.vim'
 
 # Ctags
 # どの関数内か表示
@@ -93,17 +84,18 @@ repo = 'Shougo/defx.nvim'
 repo = 'kristijanhusak/defx-icons'
 [[plugins]]
 repo = 'kristijanhusak/defx-git'
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
 
 # ステータスライン ビジュアル強化
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 depends = ['vim-fugitive', 'tagbar']
-# < http://itchyny.hatenablog.com/entry/20130828/1377653592 >
+# < REF: http://itchyny.hatenablog.com/entry/20130828/1377653592 >
+
 # アイコン表示
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
-[[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
 
 # カーソル位置の "filetype" を自動切替
 [[plugins]]
@@ -141,10 +133,6 @@ repo = 'osyo-manga/vim-over'
 [[plugins]]
 repo = 'markonm/traces.vim'
 
-# キーバインド衝突確認
-[[plugins]]
-repo = 'lukhio/vim-mapping-conflicts'
-
 # チートシート表示
 [[plugins]]
 repo = 'reireias/vim-cheatsheet'
@@ -158,14 +146,6 @@ repo = 'skanehira/translate.vim'
 # 起動画面機能強化
 [[plugins]]
 repo = 'mhinz/vim-startify'
-
-# ウィンドウリサイズ
-[[plugins]]
-repo = 'simeji/winresizer'
-
-# マルチカーソル
-[[plugins]]
-repo = 'terryma/vim-multiple-cursors'
 
 # カーソル機能強化
 [[plugins]]
