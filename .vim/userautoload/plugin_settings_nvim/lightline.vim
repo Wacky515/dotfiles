@@ -69,7 +69,7 @@ scriptencoding utf-8
             let l:count           = ale#statusline#Count(bufnr(''))
             let l:errors          = l:count.error + l:count.style_error
             let l:warnings        = l:count.warning + l:count.style_warning
-            return l:count.total == 0 ? '' : ':' . l:errors . ' :' . l:warnings
+            return l:count.total == 0 ? '' : ':' . l:errors . ' :' . l:warnings
         endfunction
     else
         function! MyAle()

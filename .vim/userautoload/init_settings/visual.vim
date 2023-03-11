@@ -22,7 +22,7 @@ set cursorcolumn
 
 " 不可視文字 表示
 set list
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set listchars=tab:≫-,trail:-,eol:,extends:≫,precedes:≪,nbsp:%
 " タブ文字の色設定
 highlight SpecialKey guibg=NONE guifg=Gray40
 " 改行文字の色設定
