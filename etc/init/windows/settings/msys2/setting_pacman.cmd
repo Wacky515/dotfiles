@@ -1,7 +1,8 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/11/02 00:01:40.
+rem Last Change: 2023/03/11 21:45:15.
+rem FIXME: ’·‚¢s‚ðÜ‚è•Ô‚·
 
 set batch_title=Setting Pacman
 
@@ -46,14 +47,15 @@ if exist C:\tools\msys64\etc\pacman.conf (
 )
 
 echo ^>^> Make link pacman.conf
-mklink C:\tools\msys64\etc\pacman.conf %userprofile%\dotfiles\etc\init\windows\settings\msys2\pacman.conf
+mklink C:\tools\msys64\etc\pacman.conf ^
+    %userprofile%\dotfiles\etc\init\windows\settings\msys2\pacman.conf
 
 call C:\tools\msys64\msys2_shell.cmd ^
-     -no-start ^
-     -defterm ^
-     -mingw64 ^
-     -here ^
-     %userprofile%\dotfiles\etc\init\windows\settings\msys2\EXE_FM_CMD_install_init_apps.sh
+    -no-start ^
+    -defterm ^
+    -mingw64 ^
+    -here ^
+    %userprofile%\dotfiles\etc\init\windows\settings\msys2\EXE_FM_CMD_install_init_apps.sh
 call %userprofile%\dotfiles\etc\init\windows\settings\msys2\fish\AFTER_INS_FISH_setting_fish.cmd
 
 endlocal

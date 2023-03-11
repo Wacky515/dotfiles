@@ -123,7 +123,8 @@ snippet     autoload
 abbr        autoload func endfunc
 alias       afunction afunc
 options     head
-    function! `substitute(matchstr(neosnippet#util#expand('%:p:r'), '/autoload/\zs.*$'), '/', '#', 'g')`#${1:#:func_name}(${2:#:args}) abort
+    function! `substitute(matchstr(neosnippet#util#expand('%:p:r'),
+    \ '/autoload/\zs.*$'), '/', '#', 'g')`#${1:#:func_name}(${2:#:args}) abort
       ${0}
     endfunction
 

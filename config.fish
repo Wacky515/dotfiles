@@ -1,5 +1,5 @@
 # Created:     2018/**/** **:**:**
-# Last Change: 2023/03/05 19:12:36.
+# Last Change: 2023/03/11 21:05:57.
 
 cd ~/dotfiles
 
@@ -56,6 +56,8 @@ end
 # end
 
 # FIXME: Windows10、インストール失敗する
+# FIXME: Fisher インストールコマンドが変更になっている
+# FIXME: 長い行の折返し
 function ins_fisher
     if fisher -v > /dev/null 2>&1
         echo ">> Installed fisher"

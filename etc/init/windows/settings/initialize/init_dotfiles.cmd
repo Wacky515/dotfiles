@@ -1,7 +1,8 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2022/02/07 15:24:53.
+rem Last Change: 2023/03/11 21:42:11.
+rem FIXME: ’·‚¢s‚ğÜ‚è•Ô‚·
 
 set batch_title=Initialize dotfiles
 title %batch_title%

@@ -1,7 +1,8 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2022/02/10 11:11:05
-rem Last Change: 2022/02/18 12:12:51.
+rem Last Change: 2023/03/11 21:49:12.
+rem FIXME: ’·‚¢s‚ğÜ‚è•Ô‚·
 
 set batch_title=Setting miniconda
 
