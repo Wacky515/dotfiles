@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/14 14:59:36
-" Last Change: 2023/03/09 17:20:16.
+" Last Change: 2023/03/11 12:20:16.
 " MEMO: "gui_running" ではなくても設定できるもの
     " "gui_running" 必須のものは ".gvimrc" に記述
 
@@ -22,7 +22,7 @@ set cursorcolumn
 
 " 不可視文字 表示
 set list
-set listchars=tab:≫-,trail:-,eol:,extends:≫,precedes:≪,nbsp:%
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 " タブ文字の色設定
 highlight SpecialKey guibg=NONE guifg=Gray40
 " 改行文字の色設定

@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2023/03/10 14:48:06.
+# Last Change: 2023/03/11 12:24:55.
 
 # REF:
     # hook_add         プラグイン追加後
@@ -9,7 +9,7 @@
 # ---------------------------------------------------------------------------
 #  参考
 # ---------------------------------------------------------------------------
-# https://leico.github.io/TechnicalNote/VimR/VimR-dein-toml  # {{{
+# < REF: https://leico.github.io/TechnicalNote/VimR/VimR-dein-toml >  # {{{
 
 # on_i
 # 1: インサートモードに入った時に読込み

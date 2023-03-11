@@ -1,11 +1,16 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2023/03/09 11:18:03.
+# Last Change: 2023/03/11 12:35:41.
 # TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
+
+# REF:
+    # hook_add         プラグイン追加後
+    # hook_source      プラグイン読込前
+    # hook_post_source プラグイン読込後
 
 # ---------------------------------------------------------------------------
 #  参考
 # ---------------------------------------------------------------------------
-# https://leico.github.io/TechnicalNote/VimR/VimR-dein-toml  # {{{
+# < REF: https://leico.github.io/TechnicalNote/VimR/VimR-dein-toml >  # {{{
 
 # on_i
 # 1: インサートモードに入った時に読込み
@@ -298,23 +303,23 @@ hook_add = '''
 '''
 
 # Markdown
-    # プレビュー
+# プレビュー
 [[plugins]]
 repo = 'kannokanno/previm'
 on_ft = ['markdown','mkd']
-    # シンタックスハイライト
-[[plugins]]
-repo = 'rcmdnk/vim-markdown'
-on_ft = ['markdown','mkd']
-hook_add = '''
-    let g:vim_let g:vim_markdown_folding_disabled = 1
-    let g:vim_markdown_liquid                     = 1
-    let g:vim_markdown_math                       = 0
-    let g:vim_markdown_frontmatter                = 1
-    let g:vim_markdown_toml_frontmatter           = 1
-    let g:vim_markdown_json_frontmatter           = 0
-    set nofoldenable
-'''
+# シンタックスハイライト
+# [[plugins]]
+# repo = 'rcmdnk/vim-markdown'
+# on_ft = ['markdown','mkd']
+# hook_add = '''
+#     let g:vim_let g:vim_markdown_folding_disabled = 1
+#     let g:vim_markdown_liquid                     = 1
+#     let g:vim_markdown_math                       = 0
+#     let g:vim_markdown_frontmatter                = 1
+#     let g:vim_markdown_toml_frontmatter           = 1
+#     let g:vim_markdown_json_frontmatter           = 0
+#     set nofoldenable
+# '''
 
 # Fuzzy Matcher
 [[plugins]]
