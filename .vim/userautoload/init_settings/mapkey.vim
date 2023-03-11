@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2023/03/09 17:20:16.
+" Last Change: 2023/03/12 02:16:57.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -57,9 +57,10 @@ command! SmallerFont call SmallerFont()
 inoremap (. ()<Left><CR><Esc><S-o>
 inoremap [. []<Left><CR><Esc><S-o>
 inoremap {. {}<Left><CR><Esc><S-o>
-inoremap '. ''''''<Left><Left><Left><CR><Esc><S-o>
-inoremap ". """"""<Left><Left><Left><CR><Esc><S-o>
-inoremap `. ``````<Left><Left><Left><CR><Esc><S-o>
+" MEMO: "lexima.vim" と干渉
+" inoremap '. ''''''<Left><Left><Left><CR><Esc><S-o>
+" inoremap ". """"""<Left><Left><Left><CR><Esc><S-o>
+" inoremap `. ``````<Left><Left><Left><CR><Esc><S-o>
 
 if !has("nvim")
     " ev: vimrcを開く
@@ -82,7 +83,9 @@ elseif has("nvim")
 endif
 
 " dl: 仕切り線を挿入
-noremap dl i-------------------------------------------------------------------------------<Esc>:TComment<CR>^
+noremap dl
+\ i-----------------------------------------------------------------------------
+\ <Esc>:TComment<CR>^
 
 " dm: 仕切り線(マップキー)を挿入
 noremap dm 78i-<Esc>:TComment<CR>yypO<Space>マップキー<Esc>jo
@@ -114,11 +117,11 @@ if !(has("win32") || has("win64"))
     nnoremap <S-Right> <C-w>><CR>
     nnoremap <S-Up>    <C-w>-<CR>
     nnoremap <S-Down>  <C-w>+<CR>
-" else
+" else{{{
 "     nnoremap <S-Left>  <C-w>h  " "yankround" と重複
 "     nnoremap <S-Right> <C-w>l  " "yankround" と重複
 "     nnoremap <S-Up>    <C-w>k
-"     nnoremap <S-Down>  <C-w>j
+"     nnoremap <S-Down>  <C-w>j}}}
 endif
 
 " F3: カーソル位置の "Syntax highlight" を調査
@@ -194,8 +197,8 @@ nnoremap <Leader>s :<C-u>sp<CR>
 " <Leader>v:  ウィンドウを横分割
 nnoremap <Leader>v :<C-u>vs<CR><C-w>l
 
-" <Leader>t:  新規タブを作成
-nnoremap <Leader>t :<C-u>tabnew<CR>
+" <Leader>tn:  新規タブを作成
+nnoremap <Leader>tn :<C-u>tabnew<CR>
 
 " <Leader>bp: 前のバッファを開く
 nnoremap <silent> <Leader>bp :<C-u>bprevious<CR>
@@ -203,9 +206,8 @@ nnoremap <silent> <Leader>bp :<C-u>bprevious<CR>
 nnoremap <silent> <Leader>bn :<C-u>bnext<CR>
 " <Leader>bb: 直前のバッファを開く
 nnoremap <silent> <Leader>bb :<C-u>b#<CR>
-" MEMO: マルチカーソルに以下のキーマップ割当てを譲渡
-" <Ctrl>j:      裏バッファを開く
-" nnoremap <C-j> <C-^>
+" <Ctrl>j:    裏バッファを開く
+nnoremap <C-j> <C-^>
 
 " <Leader>bo: エクスプローラで新規ファイルを開く
 nnoremap <silent> <Leader>bo :<C-u>browse open<CR>
@@ -265,7 +267,8 @@ endfunction
 " ":e" などでファイルを開く時、フォルダが存在しない場合は自動作成
 function! s:mkdir(dir, force)
     if !isdirectory(a:dir) && (a:force ||
-            \ input(printf('"%s" does not exist. Create? [y/N]', a:dir)) =~? '^y/%[es]$')
+            \ input(printf('"%s" does not exist. Create? [y/N]', a:dir)) =~?
+            \ '^y/%[es]$')
         call mkdir(iconv(a:dir, &encoding, &termencoding), "p")
     endif
 endfunction
@@ -281,11 +284,21 @@ func! s:func_copy_cmd_output(cmd)
     redir END
 endfunc
 
-command! -nargs=1 -complete=command CopyCmdOutput call <SID>func_copy_cmd_output(<q-args>)
+command! -nargs=1 -complete=command CopyCmdOutput call
+            \ <SID>func_copy_cmd_output(<q-args>)
 
-" -------------------------------------------------------------------------------
-"  強制上書き
-" -------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
+"  キーバインド割込み対策
+" ------------------------------------------------------------------------------
+" Plugin キーバインド割込み対策
+
+" ```VimScript
+" autocmd VimEnter * imap <Nul> <C-Space>
+" ```
+"   - "autocmd" イベントで "VimEnter" を指定する
+"     - 基本的に "Plugin" より後に読込まれる
+"     - "Plugin" の上書きはある程度回避できる
+
 " <C-i><C-i>: カーソル位置 進む
 " nnoremap <C-i> <Nop>
 " autocmd VimEnter * nnoremap <C-i> <C-i>
