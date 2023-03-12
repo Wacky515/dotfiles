@@ -21,10 +21,11 @@ nnoremap [fugitive]  <Nop>
 nmap mg  [fugitive]
 
 nnoremap <silent> [fugitive]s :<C-u>Git<CR>
+
 " nnoremap <silent> [fugitive]a :Gwrite<CR>
 nnoremap <silent> [fugitive]a :<C-u>Git add<CR>
 " nnoremap <silent> [fugitive]c :Gcommit-v<CR>
-nnoremap <silent> [fugitive]c :<C-u>Git cm<CR>
+nnoremap <silent> [fugitive]c :<C-u>Git commit<CR>
 
 nnoremap <silent> [fugitive]b :<C-u>Git blame<CR>
 nnoremap <silent> [fugitive]d :<C-u>Git diff<CR>
