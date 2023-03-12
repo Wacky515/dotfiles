@@ -232,15 +232,15 @@
 
 ## Git
 
-- mgs:  Gstatus\<CR\>\<C-w\>T \< "git st"
+- mgs:  Git
   - 選択ファイル上で -: "git add/reset" をトグル
-- mga:  Gwrite\<CR\> \< "git add"
-- mgc:  Gcommit-v\<CR\>
-- mgb:  Gblame\<CR\>
-- mgd:  Gdiff\<CR\>
-- mgm:  Gmerge\<CR\>
+- mga:  Git add
+- mgc:  Git cm
+- mgb:  Git blame
+- mgd:  Git diff
+- mgm:  Git merge
 -:Agit: 強化版 "git log" 起動
--:Gitv: "gitk" 実行  クビ予定
+-:Gitv: "gitk" 実行  ◁ クビ予定
 
 - TODO: 動作確認
 ## マーク
