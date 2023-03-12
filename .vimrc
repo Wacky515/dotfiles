@@ -141,7 +141,7 @@ if dein#load_state(s:plugin_dir)
 
     " MEMO: 使用できない
     " if !((has("win32") || has("win64")) && has("Kaoriya"))
-    "     call dein#load_toml(s:ddc_toml_nvim,    {"lazy": 1})
+    "     call dein#load_toml(s:ddc_toml_nvim,    {"lazy": 0})
     " endif
 
     if has("python3")
@@ -164,10 +164,6 @@ endif
 
 " "Plugin" の設定ファイル読込み
 runtime! userautoload/plugin_settings_nvim/*.vim
-
-" MEMO:
-" プラグインの追加/削除/*.tomlを変更した後は
-" 適宜 "du: call dein#check_update()" や "dc: call dein#clear_state()" を実行
 
 " ------------------------------------------------------------------------------
 "  最終処理

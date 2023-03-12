@@ -77,13 +77,7 @@ augroup PluginInstall
 augroup END
 
 " プラグインをインストールするディレクトリを指定
-if exists("g:nyaovim_version")
-    let s:plugin_dir = expand("~/.config/nyaovim/dein")
-elseif exists("g:gui_oni")
-    let s:plugin_dir = expand("~/.config/oni/dein")
-else
-    let s:plugin_dir = expand("~/.config/nvim/dein/")
-endif
+let s:plugin_dir = expand("~/.config/nvim/dein/")
 
 " TODO: Unix系のパス設定追加
 " "dein.vim" をインストールするディレクトリをランタイムパスへ追加
@@ -108,20 +102,15 @@ if dein#load_state(s:plugin_dir)
     let g:plugin_dir_nvim  = expand("~/.vim/vim_plugins_nvim")
     let s:toml_nvim        = g:plugin_dir_nvim . "/dein_nvim.toml"
     let s:lazy_toml_nvim   = g:plugin_dir_nvim . "/dein_lazy_nvim.toml"
+    let s:ddc_toml_nvim    = g:plugin_dir_nvim . "/dein_ddc_nvim.toml"
     let s:python_toml_nvim = g:plugin_dir_nvim . "/dein_python_nvim.toml"
 
     "*.toml" を読込み、キャッシュ
     call dein#load_toml(s:toml_nvim,            {"lazy": 0})
     call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
-
+    call dein#load_toml(s:ddc_toml_nvim,        {"lazy": 0})
     if has("python3")
         call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
-    endif
-
-    if exists("g:nyaovim_version")
-        call dein#add("rhysd/nyaovim-markdown-preview")
-        call dein#add("rhysd/nyaovim-popup-tooltip")
-        call dein#add("rhysd/nyaovim-mini-browser")
     endif
 
     " 設定終了
@@ -136,6 +125,10 @@ endif
 
 " "Plugin" の設定ファイル読込み
 runtime! userautoload/plugin_settings_nvim/*.vim
+
+" MEMO:
+" プラグインの追加/削除/*.tomlを変更した後は
+" 適宜 "du: call dein#check_update()" や "dc: call dein#clear_state()" を実行
 
 " ------------------------------------------------------------------------------
 "  最終処理
