@@ -1,12 +1,12 @@
 scriptencoding utf-8
 " Created:     2018/09/12 15:02:45
-" Last Change: 2023/03/09 17:20:16.
+" Last Change: 2023/03/12 08:30:58.
 
 " ------------------------------------------------------------------------------
 "  マップキー
 " ------------------------------------------------------------------------------
 " <Leader>l: 初期配置3画面 分割
-nnoremap <silent> <Leader>mm :split<CR>:<C-u>call GitBash()<CR><C-w>j:vsplit<CR>
+nnoremap <silent> <Leader>mm :<C-u>split<CR>:call GitBash()<CR><C-w>j:vsplit<CR>
 
 " <Leader>z: Git Bash 起動
 nnoremap <Leader>z :split<CR>:<C-u>call GitBash()<CR>

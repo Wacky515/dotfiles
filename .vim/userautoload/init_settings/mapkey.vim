@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2023/03/12 02:16:57.
+" Last Change: 2023/03/12 08:34:52.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -31,12 +31,12 @@ noremap <C-n> <C-e>
 
 " +/-: フォント 拡大/縮小
 if !has("nvim")
-    nnoremap + :silent! let &guifont = substitute(
+    nnoremap + :<C-u>silent! let &guifont = substitute(
                 \ &guifont,
                 \ ':h\zs\d\+',
                 \ '\=eval(submatch(0)+1)',
                 \ '')<CR>
-    nnoremap - :silent! let &guifont = substitute(
+    nnoremap - :<C-u>silent! let &guifont = substitute(
                 \ &guifont,
                 \ ':h\zs\d\+',
                 \ '\=eval(submatch(0)-1)',
@@ -85,13 +85,13 @@ endif
 " dl: 仕切り線を挿入
 noremap dl
 \ i-----------------------------------------------------------------------------
-\ <Esc>:TComment<CR>^
+\ <Esc>:<C-u>TComment<CR>^
 
 " dm: 仕切り線(マップキー)を挿入
-noremap dm 78i-<Esc>:TComment<CR>yypO<Space>マップキー<Esc>jo
+noremap dm 78i-<Esc>:<C-u>TComment<CR>yypO<Space>マップキー<Esc>jo
 
 " db: 仕切り線(基本設定)を挿入
-noremap db 78i-<Esc>:TComment<CR>yypO<Space>基本設定<Esc>jo
+noremap db 78i-<Esc>:<C-u>TComment<CR>yypO<Space>基本設定<Esc>jo
 
 " 挿入モードで日時挿入
 " ,df: フルセット
@@ -238,8 +238,8 @@ nnoremap <Leader>ej :<C-u>e ++encoding=sjis<CR>
 
 " <Leader>zh: 全角英数字を半角英数に変換
 if !has("nvim")
-    nnoremap <Leader>zh :HzjaConvert han_eisu<Enter>
-    vnoremap <Leader>zh :HzjaConvert han_eisu<Enter>
+    nnoremap <Leader>zh :<C-u>HzjaConvert han_eisu<Enter>
+    vnoremap <Leader>zh :<C-u>HzjaConvert han_eisu<Enter>
 endif
 
 " <Leader>br: 編集中のファイルを "Chrome" で表示(汎用)

@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2023/03/11 12:24:55.
+# Last Change: 2023/03/12 09:43:25.
 
 # REF:
     # hook_add         プラグイン追加後
@@ -44,48 +44,9 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# Grep
-# The Silver Searcher
+# 起動画面機能強化
 [[plugins]]
-repo = 'rking/ag.vim'
-# The Platinum Searcher
-[[plugins]]
-repo = 'nazo/pt.vim'
-
-# Git
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-#on_cmd = 'Git'
-hook_source = '''
-let g:fugitive_no_mappings = 1
-'''
-hook_post_source = '''
-echom 'fugitive is loaded'
-'''
-# 追加、削除マーカ表示
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
-# 左端に差分を表示
-[[plugins]]
-repo = 'cohama/agit.vim'
-# コミットログ入力強化
-[[plugins]]
-repo = 'rhysd/committia.vim'
-
-# Ctags
-# どの関数内か表示
-[[plugins]]
-repo = 'majutsushi/tagbar'
-
-# ファイラ
-[[plugins]]
-repo = 'Shougo/defx.nvim'
-[[plugins]]
-repo = 'kristijanhusak/defx-icons'
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
-[[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
+repo = 'mhinz/vim-startify'
 
 # ステータスライン ビジュアル強化
 [[plugins]]
@@ -97,6 +58,39 @@ depends = ['vim-fugitive', 'tagbar']
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
 
+# インデント 強調
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+# 選択テキストを'""'、"()"、"[]"などで囲む
+[[plugins]]
+repo = 'tpope/vim-surround'
+# "vim-surround" ドットコマンド対応
+[[plugins]]
+repo = 'tpope/vim-repeat'
+on_idle = 1
+
+# "=" などの入力を拡張
+    # " = " にする等
+[[plugins]]
+repo = 'kana/vim-smartchr'
+
+# 閉じ括弧入力補完
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
+# テーブル作成
+[[plugins]]
+repo = 'dhruvasagar/vim-table-mode'
+
+# スネークケース、キャメルケースへ変換
+[[plugins]]
+repo = 'tpope/vim-abolish'
+
+# 記述の追加、削除マーカ表示
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
 # カーソル位置の "filetype" を自動切替
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
@@ -104,125 +98,18 @@ depends = ['context_filetype.vim']
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
-# コピペ履歴
+# Grep
+# The Silver Searcher
 [[plugins]]
-repo = 'LeafCage/yankround.vim'
-hook_source = '''  " {{{
-    nmap p        <Plug>(yankround-p)
-    xmap p        <Plug>(yankround-p)
-    nmap P        <Plug>(yankround-P)
-    nmap gp       <Plug>(yankround-gp)
-    xmap gp       <Plug>(yankround-gp)
-    nmap gP       <Plug>(yankround-gP)
-    nmap <S-Up>   <Plug>(yankround-prev)
-    nmap <S-Down> <Plug>(yankround-next)
-    " コマンドライン内の設定
-    cmap <C-r>    <Plug>(yankround-insert-register)
-    cmap <C-y>    <Plug>(yankround-pop)
-'''  # }}}
+repo = 'rking/ag.vim'
+# The Platinum Searcher
+[[plugins]]
+repo = 'nazo/pt.vim'
 
-# Undo履歴
+# ファイラ
 [[plugins]]
-repo = 'sjl/gundo.vim'
-
-# 置換強化
+repo = 'Shougo/defx.nvim'
 [[plugins]]
-repo = 'osyo-manga/vim-over'
-
-# 置換プレビュー
+repo = 'kristijanhusak/defx-icons'
 [[plugins]]
-repo = 'markonm/traces.vim'
-
-# チートシート表示
-[[plugins]]
-repo = 'reireias/vim-cheatsheet'
-
-# 翻訳
-[[plugins]]
-repo = 'daisuzu/translategoogle.vim'
-[[plugins]]
-repo = 'skanehira/translate.vim'
-
-# 起動画面機能強化
-[[plugins]]
-repo = 'mhinz/vim-startify'
-
-# カーソル機能強化
-[[plugins]]
-repo = 'lokaltog/vim-easymotion'
-
-# コメント ON/OFFトグル
-[[plugins]]
-repo = 'tomtom/tcomment_vim'
-
-# テキスト整形
-[[plugins]]
-repo = 'junegunn/vim-easy-align'
-
-# 閉じ括弧入力補完
-[[plugins]]
-repo = 'cohama/lexima.vim'
-
-# "%" 移動機能強化
-    # *.htmlのタグなど
-[[plugins]]
-repo = 'tmhedberg/matchit'
-
-# 選択テキストを'""'、"()"、"[]"などで囲む
-[[plugins]]
-repo = 'tpope/vim-surround'
-
-# スネークケース、キャメルケースへ変換
-[[plugins]]
-repo = 'tpope/vim-abolish'
-
-# "=" などの入力を拡張
-    # " = " にする等
-[[plugins]]
-repo = 'kana/vim-smartchr'
-
-# タイムスタンプ 挿入
-[[plugins]]
-repo = 'vim-scripts/autodate.vim'
-
-# 日付のインクリメント・デクリメント
-    # FIXME: yyyy/mm/dd 形式は対応していない
-[[plugins]]
-repo = 'tpope/vim-speeddating'
-
-# インデント 強調
-[[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
-
-# マーク ビジュアル化
-[[plugins]]
-repo = 'jacquesbh/vim-showmarks'
-
-# テーブル作成
-[[plugins]]
-repo = 'dhruvasagar/vim-table-mode'
-
-# カラースキーム
-[[plugins]]
-repo = 'cocopon/iceberg.vim'
-if = "has('gui_running')"
-# MEMO: "iceberg" が適応されなくなったのでキル
-# hook_add = '''
-#    set termguicolors
-#    set background=dark
-#    au MyAutoCmd VimEnter * nested colorscheme iceberg
-#    au MyAutoCmd VimEnter * highlight Visual ctermbg=216
-# '''
-
-[[plugins]]
-repo = 'joshdick/onedark.vim'
-
-# 日本語ヘルプ
-[[plugins]]
-repo = 'vim-jp/vimdoc-ja'
-
-# Vim 起動時間計測
-[[plugins]]
-repo = 'dstein64/vim-startuptime'
-[[plugins]]
-repo = 'mattn/benchvimrc-vim'
+repo = 'kristijanhusak/defx-git'

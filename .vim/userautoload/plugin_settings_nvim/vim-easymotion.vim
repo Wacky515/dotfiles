@@ -1,14 +1,17 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2021/03/05 14:13:24.
+" Last Change: 2023/03/11 13:19:43.
 
 " ------------------------------------------------------------------------------
 "  マップキー
 " ------------------------------------------------------------------------------
 " デフォルトのキーマッピングを有効に
 let g:EasyMotion_do_mapping = 1
-" ,,: "EasyMotion" 開始
+
+" ,,e: "EasyMotion" 開始
 map ,, <Plug>(easymotion-prefix)
+nmap ,,e <plug>(easymotion-s2)
+xmap ,,e <plug>(easymotion-s2)
 " USEGE:  " {{{
 " Jump to anywhere you want with minimal keystrokes,
     " with just one key binding.
@@ -28,15 +31,10 @@ map ,, <Plug>(easymotion-prefix)
 " ,,e<CR>:         前回の検索をリピート
 " }}}
 
-nmap ,,e <plug>(easymotion-s2)
-xmap ,,e <plug>(easymotion-s2)
-
-" `JK` motions: Extend line motions
 " ,,j/k: 拡張行移動
 map ,,j <Plug>(easymotion-j)
 map ,,k <Plug>(easymotion-k)
-" Keep cursor column with `JK` motions
-let g:EasyMotion_startofline = 0
+" 上記移動時にカーソル位置を維持
 
 " KILL: 繰返しができない " {{{
 " " f,t,F,T の挙動強化
