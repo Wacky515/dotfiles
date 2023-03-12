@@ -235,7 +235,8 @@
 - mgs:  Git
   - 選択ファイル上で -:  "git add/reset" をトグル
   - 選択ファイル上で ca: "commit"
-- mga:  Git add
+
+- mga:  Git add .
 - mgc:  Git commit
 - mgb:  Git blame
 - mgd:  Git diff

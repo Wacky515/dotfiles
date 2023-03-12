@@ -108,7 +108,7 @@ if dein#load_state(s:plugin_dir)
     "*.toml" を読込み、キャッシュ
     call dein#load_toml(s:toml_nvim,            {"lazy": 0})
     call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
-    call dein#load_toml(s:ddc_toml_nvim,        {"lazy": 0})
+    " call dein#load_toml(s:ddc_toml_nvim,        {"lazy": 0})
     if has("python3")
         call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
     endif
