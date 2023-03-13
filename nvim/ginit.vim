@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2023/03/09 17:20:16.
+" Last Change: 13-Mar-2023.
 " FIXME: "Mac" で "ginit.vim" 読込むとエラー
 
 colorscheme iceberg
@@ -20,18 +20,18 @@ function! s:source_rc(rc_file_name)
 endfunction
 call s:source_rc(".gvimrc")
 
-" ----------------------------------------------------------------------
-"  フォント設定
-" ----------------------------------------------------------------------
-if has("mac") " {{{
+" ------------------------------------------------------------------------------
+"  端末毎フォント設定
+" ------------------------------------------------------------------------------
+if has("mac")
     if hostname()     == "SaladBookAirM1"
-        Guifont! Cica:h18
-    elseif hostname() == "saladserver.com"
         Guifont! Cica:h16
+    elseif hostname() == "saladserver.com"
+        Guifont! Cica:h18
     elseif hostname() == "SaladBook.local"
-        Guifont! Cica:h18
+        Guifont! Cica:h16
     else
-        Guifont! Cica:h18
+        Guifont! Cica:h16
     endif
 
 elseif has("unix")
@@ -49,14 +49,9 @@ elseif (has("win32") || has("win64"))
     " muRata setting
     elseif hostname() == "HBAMB1448"
         Guifont! Cica:h14
-    elseif hostname() == "HBAMB748"
-        Guifont! Cica:h14
     elseif hostname() == "HBAMB819"
-        Guifont! Cica:h12
-    elseif hostname() == "HBAPC511"
-        Guifont! Cica:h16
-    elseif hostname() == "HBALT071"
-        Guifont! Cica:h16
+        Guifont! Cica:h13
+    else
+        Guifont! Cica:h14
     endif
 endif
-" }}}
