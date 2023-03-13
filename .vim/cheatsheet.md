@@ -85,7 +85,6 @@
 - \<Leader\>z:   Git Bash 起動
 - \<Leader\>o:   現在のバッファを IDE 風に開く (NERDTree)
 - \<Leader\>br:  現在のバッファをブラウザで表示(汎用)
-- \<Leader\>md:  現在のバッファをブラウザで表示(Markdown 用)  クビ候補
 
 - \<Leader\>zh:  カーソル位置の全角英数を半角にする
 
@@ -117,7 +116,7 @@
 
 - \<C-h\>: カーソル位置の単語をハイライト付きで置換
 
-- \<Leader\>sc: "Syntastic" トグル実行補  クビ候補
+- \<Leader\>sc: "Syntastic" トグル実行 ◁ クビ候補
 - \<Leader\>,c: 現在のファイルを "VS Code" で開く
 
 ### 補完
@@ -235,7 +234,7 @@
 - mgd:  Git diff
 - mgm:  Git merge
 -:Agit: 強化版 "git log" 起動
--:Gitv: "gitk" 実行  ◁ クビ予定
+-:Gitv: "gitk" 実行 ◁ クビ予定
 
 - TODO: 動作確認
 ## マーク
