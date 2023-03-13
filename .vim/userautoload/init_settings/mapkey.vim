@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2023/03/12 08:34:52.
+" Last Change: 2023/03/13 17:29:05.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -291,14 +291,18 @@ command! -nargs=1 -complete=command CopyCmdOutput call
 "  キーバインド割込み対策
 " ------------------------------------------------------------------------------
 " Plugin キーバインド割込み対策
+    " 1.
+    " ```VimScript
+    " autocmd VimEnter * imap <Nul> <C-Space>
+    " ```
+    "   - "autocmd" イベントで "VimEnter" を指定する
+    "     - 基本的に "Plugin" より後に読込まれる
+    "     - "Plugin" の上書きはある程度回避できる
 
-" ```VimScript
-" autocmd VimEnter * imap <Nul> <C-Space>
-" ```
-"   - "autocmd" イベントで "VimEnter" を指定する
-"     - 基本的に "Plugin" より後に読込まれる
-"     - "Plugin" の上書きはある程度回避できる
+    " 2.
+    " " let g:ctrlp_map = '<nop>'
+    "     nnoremap <Leader>e :CtrlP ~/<CR>
 
-" <C-i><C-i>: カーソル位置 進む
-" nnoremap <C-i> <Nop>
-" autocmd VimEnter * nnoremap <C-i> <C-i>
+    " <C-i><C-i>: カーソル位置 進む
+    " nnoremap <C-i> <Nop>
+    " autocmd VimEnter * nnoremap <C-i> <C-i>
