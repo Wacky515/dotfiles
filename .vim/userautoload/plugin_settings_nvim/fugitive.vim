@@ -20,13 +20,10 @@ nnoremap [fugitive]  <Nop>
 nmap mg  [fugitive]
 
 nnoremap <silent> [fugitive]s :<C-u>Git<CR>
-nnoremap <silent> [fugitive]a :<C-u>Git add<CR>
+nnoremap <silent> [fugitive]a :<C-u>Git add .<CR>
 nnoremap <silent> [fugitive]c :<C-u>Git commit<CR>
 nnoremap <silent> [fugitive]b :<C-u>Git blame<CR>
 nnoremap <silent> [fugitive]d :<C-u>Git diff<CR>
-
-" MEMO: コマンドが変わっている、動作確認
-" nnoremap <silent> [fugitive]m :Gmerge<CR>
 nnoremap <silent> [fugitive]m :<C-u>Git merge<CR>
 
 " ------------------------------------------------------------------------------
