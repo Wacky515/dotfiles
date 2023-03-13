@@ -102,7 +102,7 @@ if dein#load_state(s:plugin_dir)
     let g:plugin_dir_nvim  = expand("~/.vim/vim_plugins_nvim")
     let s:toml_nvim        = g:plugin_dir_nvim . "/dein_nvim.toml"
     let s:lazy_toml_nvim   = g:plugin_dir_nvim . "/dein_lazy_nvim.toml"
-    let s:ddc_toml_nvim    = g:plugin_dir_nvim . "/dein_ddc_nvim.toml"
+    " let s:ddc_toml_nvim    = g:plugin_dir_nvim . "/dein_ddc_nvim.toml"
     let s:python_toml_nvim = g:plugin_dir_nvim . "/dein_python_nvim.toml"
 
     "*.toml" を読込み、キャッシュ

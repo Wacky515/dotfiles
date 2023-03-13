@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2023/03/09 13:03:00.
+" Last Change: 2023/03/13 11:54:02.
 
 " !!!: 必ず先頭に記述
 " "autocmd(マクロ)" の初期化
