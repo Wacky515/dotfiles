@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Make symbolic link
 # Created:     2017/02/08 **:**:**
-# Last Change: 2023/03/04 16:16:23.
+# Last Change: 2023/03/14 22:29:00.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -33,7 +33,6 @@ if [ $? = 0 ]
 then
     gm_echo ">> .gitconfig.os link success!"
 fi
-echo -n -e "\n"
 
 gm_echo ">> Start dotfiles link"
 
@@ -50,7 +49,6 @@ do
     gm_echo ">> Set ${g}"
     ln -snfv ${DOT_DIR}/${g} ~/.config/fish/${g}
 done
-echo -n -e "\n"
 
 # "NeoVim" 設定
 if [ ! -e ~/.config/nvim/ ]; then
