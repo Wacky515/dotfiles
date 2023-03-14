@@ -1,6 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2023/03/13 13:09:08.
-# TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
+# Last Change: 2023/03/14 16:14:07.
 
 # ---------------------------------------------------------------------------
 #  参考
@@ -38,14 +37,14 @@
 
 # 統合ユーザインターフェース
 [[plugins]]
-repo      = 'Shougo/denite.nvim'
-if        = "has('python3')"
-depends   = ['neomru.vim']
+repo        = 'Shougo/denite.nvim'
+if          = "has('python3')"
+depends     = ['neomru.vim']
 # MEMO: ↓は "*.vim" に移管できない
 hook_source = '''  " {{{
     call denite#custom#option('default', {
-                \ 'auto_accel': v:true,
-                \ 'prompt': '>',
+                \ 'auto_accel':   v:true,
+                \ 'prompt':       '>',
                 \ 'source_names': 'short',
                 \ })
         call denite#custom#option('default', 'direction', 'top')
@@ -73,11 +72,11 @@ hook_source = '''  " {{{
     call denite#custom#map('insert',
                 \ "<C-v>", '<denite:do_action:vsplit>')
     call denite#custom#map('normal',
-                \ "v", '<denite:do_action:vsplit>')
+                \ "v",     '<denite:do_action:vsplit>')
 
     " jj :ノーマルモード
     call denite#custom#map('insert',
-                \ 'jj', '<denite:enter_mode:normal>')
+                \ 'jj',    '<denite:enter_mode:normal>')
     " <C-s>: 水平画面分割して開く
     call denite#custom#map('insert',
                 \ '<C-s>', '<denite:do_action:split>')
@@ -93,13 +92,13 @@ hook_source = '''  " {{{
     " if executable("rg")
     "     " 検索対象から以下を除外
     "     call denite#custom#var(
-    "                 \ 'command',
-    "                 \ 'grep',
-    "                 \ 'file_rec',
+    "                 \  'command',
+    "                 \  'grep',
+    "                 \  'file_rec',
     "                 \ ['!.git',
-    "                 \ '--files',
-    "                 \ '--glob',
-    "                 \ 'rg'
+    "                 \  '--files',
+    "                 \  '--glob',
+    "                 \  'rg'
     "                 \ ])
     "
     "     let g:denite_source_grep_command       = 'rg'
@@ -108,7 +107,7 @@ hook_source = '''  " {{{
     "     " Hit数制御
     "     let g:unite_source_grep_max_candidates = 200
     "     " "Windows" 設定
-    "     let g:unite_source_grep_encoding='utf-8'
+    "     let g:unite_source_grep_encoding       = 'utf-8'
     " endif
 
     " The Silver searcher
@@ -121,26 +120,26 @@ hook_source = '''  " {{{
 
         " 検索対象から以下を除外
         call denite#custom#var(
-                    \ 'command',
-                    \ 'file/rec',
+                    \  'command',
+                    \  'file/rec',
                     \ ['ag',
-                    \ '--follow',]
+                    \  '--follow',]
                     \  + map(deepcopy(s:ignore_globs),
                     \ { k, v -> '--ignore=' . v }) +
                     \ ['--nocolor',
-                    \ '--nogroup',
-                    \ '-g',
-                    \ ''
+                    \  '--nogroup',
+                    \  '-g',
+                    \  ''
                     \ ])
 
         " "file_rec" 検索時に "FuzzyMatch" を有効にし
         " 検索対象から指定のファイルを除外
         call denite#custom#source(
-                    \ 'file/rec',
-                    \ 'matchers',
+                    \  'file/rec',
+                    \  'matchers',
                     \ ['matcher_fuzzy',
-                    \ 'matcher_project_files',
-                    \ 'matcher_ignore_globs'
+                    \  'matcher_project_files',
+                    \  'matcher_ignore_globs'
                     \ ])
 
         " 他ソース向けに "ignore_globs" 初期化
@@ -156,69 +155,69 @@ hook_source = '''  " {{{
         " "file_rec" 検索時に "FuzzyMatch" を有効にし
         " 検索対象から指定のファイルを除外
         call denite#custom#source(
-                    \ 'file_rec',
-                    \ 'matchers',
+                    \  'file_rec',
+                    \  'matchers',
                     \ ['matcher_fuzzy',
-                    \ 'matcher_project_files',
-                    \ 'matcher_ignore_globs'])
+                    \  'matcher_project_files',
+                    \  'matcher_ignore_globs'])
 
         " 検索対象外のファイル指定
         call denite#custom#filter(
-                    \ 'ignore_globs',
-                    \ 'matcher_ignore_globs',
-                    \ s:ignore_globs,
+                    \  'ignore_globs',
+                    \  'matcher_ignore_globs',
+                    \  s:ignore_globs,
                     \ ['*.make',
-                    \ '*.min.*',
-                    \ '*.o',
-                    \ '.git/',
-                    \ '.ropeproject/',
-                    \ '__pycache__/',
-                    \ 'build/',
-                    \ 'fonts/',
-                    \ 'images/',
-                    \ 'img/',
-                    \ 'venv/',
-                    \ 'ropeproject/'])
+                    \  '*.min.*',
+                    \  '*.o',
+                    \  '.git/',
+                    \  '.ropeproject/',
+                    \  '__pycache__/',
+                    \  'build/',
+                    \  'fonts/',
+                    \  'images/',
+                    \  'img/',
+                    \  'venv/',
+                    \  'ropeproject/'])
     endif
 '''  # }}}
-on_i      = 1
-on_cmd    = ['Denite']
+on_i        = 1
+on_cmd      = ['Denite']
 # "[De|U]nite" 用 "Source" 群
 # "[De|U]nite" 用 "mru"
 [[plugins]]
-repo      = 'Shougo/neomru.vim'
-on_source = ['dein.vim', 'denite.nvim']
-on_path   = '.*'
+repo        = 'Shougo/neomru.vim'
+on_source   = ['dein.vim', 'denite.nvim']
+on_path     = '.*'
 [[plugins]]
-repo      = 'koron/codic-vim'
+repo        = 'koron/codic-vim'
 
 # タイムスタンプ 挿入
 [[plugins]]
-repo = 'vim-scripts/autodate.vim'
+repo        = 'vim-scripts/autodate.vim'
 
 # コメントアウト トグル
 [[plugins]]
-repo   = 'tomtom/tcomment_vim'
+repo        = 'tomtom/tcomment_vim'
 # on_map = ['<C-=>']
 
 # チートシート表示
 [[plugins]]
-repo   = 'reireias/vim-cheatsheet'
-on_cmd = ['Cheat']
+repo        = 'reireias/vim-cheatsheet'
+on_cmd      = ['Cheat']
 
 # テキスト整形
 [[plugins]]
-repo   = 'junegunn/vim-easy-align'
-on_map = ['<Plug>(EasyAlign)']
+repo        = 'junegunn/vim-easy-align'
+on_map      = ['<Plug>(EasyAlign)']
 
 # カーソル機能強化
 [[plugins]]
-repo   = 'lokaltog/vim-easymotion'
+repo        = 'lokaltog/vim-easymotion'
 # on_map = [',']
 
 # コピペ履歴
 [[plugins]]
-repo = 'LeafCage/yankround.vim'
+repo        = 'LeafCage/yankround.vim'
 hook_source = '''  " {{{
     nmap p        <Plug>(yankround-p)
     xmap p        <Plug>(yankround-p)
@@ -235,210 +234,215 @@ hook_source = '''  " {{{
 
 # Undo履歴
 [[plugins]]
-repo   = 'sjl/gundo.vim'
-on_cmd = ['GundoToggle']
+repo        = 'sjl/gundo.vim'
+on_cmd      = ['GundoToggle']
 
 # 置換強化
 [[plugins]]
-repo   = 'osyo-manga/vim-over'
-on_cmd = ['OverCommandLine']
+repo        = 'osyo-manga/vim-over'
+on_cmd      = ['OverCommandLine']
 
 # 置換プレビュー
 [[plugins]]
-repo = 'markonm/traces.vim'
+repo        = 'markonm/traces.vim'
 
 # "*.toml" シンタックスハイライト
 [[plugins]]
-repo  = 'cespare/vim-toml'
-on_ft = ['toml']
+repo        = 'cespare/vim-toml'
+on_ft       = ['toml']
 
 # "*.fish" シンタックスハイライト
 [[plugins]]
-repo  = 'dag/vim-fish'
-on_ft = ['fish']
+repo        = 'dag/vim-fish'
+on_ft       = ['fish']
 
 # Tagbar
 [[plugins]]
-repo   = 'majutsushi/tagbar'
-on_cmd = ['TagbarToggle']
+repo        = 'majutsushi/tagbar'
+on_cmd      = ['TagbarToggle']
 
 # TagList
 [[plugins]]
-repo   = 'vim-scripts/taglist.vim'
-on_cmd = ['TlistOpen']
+repo        = 'vim-scripts/taglist.vim'
+on_cmd      = ['TlistOpen']
 
 # CtrlP
 [[plugins]]
-repo   = 'ctrlpvim/ctrlp.vim'
-on_map = ['<C-l>']
+repo        = 'ctrlpvim/ctrlp.vim'
+on_map      = ['<C-l>']
 
-# # fzf
-# [[plugins]]
-# repo   = 'junegunn/fzf'
-# build  = './install --bin'
-# merged = '0'
-# # on_cmd = ['FZF']
-# [[plugins]]
-# repo     = 'junegunn/fzf.vim'
-# depends  = ['fzf']
+# fzf
+[[plugins]]
+repo   = 'junegunn/fzf'
+build  = './install --bin'
+merged = '0'
+on_cmd = ['FZF']
+[[plugins]]
+repo     = 'junegunn/fzf.vim'
+depends  = ['fzf']
 # hook_add = '''  " {{{
-#     # command! -bang -nargs=* Rg
-#                 # \ call fzf#vim#grep(
-#                 # \   'rg --hidden --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-#                 # \   <bang>0 ? fzf#vim#with_preview('up:60%')
-#                 # \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-#                 # \   <bang>0)
-#     # command! -bang -nargs=* Rgs
-#                 # \ call fzf#vim#grep(
-#                 # \   'rg --hidden --column --line-number --no-heading --color=always --smart-case --encoding Shift_JIS '.shellescape(<q-args>), 1,
-#                 # \   <bang>0 ? fzf#vim#with_preview('up:60%')
-#                 # \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-#                 # \   <bang>0)
-#     # command! -bang -nargs=* Ag
-#                 # \ call fzf#vim#grep(
-#                 # \   'ag --hidden --column --color --ignore .git '.shellescape(<q-args>), 0,
-#                 # \   <bang>0 ? fzf#vim#with_preview('up:60%')
-#                 # \           : fzf#vim#with_preview('right:50%', '?'),
-#                 # \   <bang>0)
-# # '''  # }}}
+#     command! -bang -nargs=* Rg
+#                 \ call fzf#vim#grep(
+#                 \   'rg --hidden --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+#                 \   <bang>0 ? fzf#vim#with_preview('up:60%')
+#                 \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+#                 \   <bang>0)
+#     command! -bang -nargs=* Rgs
+#                 \ call fzf#vim#grep(
+#                 \   'rg --hidden --column --line-number --no-heading --color=always --smart-case --encoding Shift_JIS '.shellescape(<q-args>), 1,
+#                 \   <bang>0 ? fzf#vim#with_preview('up:60%')
+#                 \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+#                 \   <bang>0)
+#     command! -bang -nargs=* Ag
+#                 \ call fzf#vim#grep(
+#                 \   'ag --hidden --column --color --ignore .git '.shellescape(<q-args>), 0,
+#                 \   <bang>0 ? fzf#vim#with_preview('up:60%')
+#                 \           : fzf#vim#with_preview('right:50%', '?'),
+#                 \   <bang>0)
+# '''  # }}}
 
-# # Git
+# Git
 # [[plugins]]
 # repo = 'tpope/vim-fugitive'
 # on_cmd = ['Git']
 # hook_source = '''
-# let g:fugitive_no_mappings = 1
+#     let g:fugitive_no_mappings = 1
 # '''
 # hook_post_source = '''
-# echom 'fugitive is loaded'
+#     echom 'fugitive is loaded'
 # '''
-# # 左に差分を表示
-# [[plugins]]
-# repo = 'cohama/agit.vim'
-# on_cmd = ['Agit']
-# # コミットログ入力強化
-# [[plugins]]
-# repo = 'rhysd/committia.vim'
+# 左に差分を表示
+[[plugins]]
+repo        = 'cohama/agit.vim'
+on_cmd      = ['Agit']
+# コミットログ入力強化
+[[plugins]]
+repo        = 'rhysd/committia.vim'
 
-# # ALE
-# [[plugins]]
-# repo = 'w0rp/ale'
-# if = "has('job') && has('channel') && has('timers')"
-# on_cmd = ['ALEFix']
-# [[plugins]]
-# repo = 'scrooloose/syntastic'
-# if = "!has('job') || !has('channel') || !has('timers')"
-# on_map = ['<Leader>sc']
+# ALE
+[[plugins]]
+repo        = 'w0rp/ale'
+if          = "has('job') && has('channel') && has('timers')"
+# on_cmd      = ['ALEFix']
+[[plugins]]
+repo        = 'scrooloose/syntastic'
+if          = "!has('job') || !has('channel') || !has('timers')"
+on_map      = ['<Leader>sc']
 
 # LSP(Language Server Protocol)
 [[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-on_map = ['<F6>']
+repo        = 'prabirshrestha/vim-lsp'
+on_map      = ['<F6>']
 [[plugins]]
-repo = 'mattn/vim-lsp-settings'
-on_map = ['<F6>']
+repo        = 'mattn/vim-lsp-settings'
+on_map      = ['<F6>']
 [[plugins]]
-repo = 'mattn/vim-lsp-icons'
-on_map = ['<F6>']
+repo        = 'mattn/vim-lsp-icons'
+on_map      = ['<F6>']
 
 # Vim 起動時間計測
 [[plugins]]
-repo = 'dstein64/vim-startuptime'
-on_cmd = ['StartupTime']
+repo        = 'dstein64/vim-startuptime'
+on_cmd      = ['StartupTime']
 [[plugins]]
-repo = 'mattn/benchvimrc-vim'
-on_cmd = ['BenchVimrc']
+repo        = 'mattn/benchvimrc-vim'
+on_cmd      = ['BenchVimrc']
 
 # 日本語ヘルプ
 [[plugins]]
-repo = 'vim-jp/vimdoc-ja'
+repo        = 'vim-jp/vimdoc-ja'
 
-# # 入力補完
-#   # # 最新
-# [[plugins]]
-# repo = 'Shougo/deoplete.nvim'
-# if = "(!has('nvim') || has('patch1978')) && has('python3') && has('timers')"
-# on_i = 1
-# hook_add = '''  " {{{
-#     # " "hook_source" に移動
-#     # " let g:deoplete#auto_complete_delay = 0
-#     # let g:deoplete#enable_at_startup = 1
-# '''  # }}}
-#
-# on_event = ['InsertCharPre']
-# hook_source = '''  " {{{
-#     # inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-#     # inoremap <expr><C-l> deoplete#complete_common_string()
-#     # inoremap <expr><C-i> deoplete#complete_common_string()
-#     # inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-#                 # \ neosnippet#expandable_or_jumpable() ?
-#                 # \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-#
-#     # " let g:deoplete#auto_complete_start_length = 1
-#     # let g:deoplete#enable_camel_case          = 0
-#     # let g:deoplete#enable_ignore_case         = 0
-#     # " let g:deoplete#enable_refresh_always      = 0
-#     # " let g:deoplete#enable_smart_case          = 1
-#     # " let g:deoplete#file#enable_buffer_path    = 1
-#     # " let g:deoplete#max_list                   = 10000
-#
-#     # call deoplete#custom#option({
-#     # \ 'auto_complete_delay': 0,
-#     # \ 'auto_complete_start_length': 1,
-#     # \ 'refresh_always': v:false,
-#     # \ 'smart_case': v:true,
-#     # \ 'max_list': 10000,
-#     # \ })
-#     # " \ 'profile': v:true,
-#     # " \ })
-#     # " call deoplete#custom#source(
-#     # call deoplete#custom#var(
-#     # \ 'file', 'enable_buffer_path', v:true)
-# '''  # }}}
+# 入力補完
+  # 最新
+[[plugins]]
+repo        = 'Shougo/deoplete.nvim'
+if          = "(has('nvim') || has('patch1978')) && has('python3') && has('timers')"
+on_i        = 1
+hook_add    = '''  " {{{
+    " "hook_source" に移動
+    " let g:deoplete#auto_complete_delay = 0
+    let g:deoplete#enable_at_startup = 1
+'''  # }}}
+
+on_event    = ['InsertCharPre']
+hook_source = '''  " {{{
+    inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+    inoremap <expr><C-l> deoplete#complete_common_string()
+    inoremap <expr><C-i> deoplete#complete_common_string()
+    inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+                \ neosnippet#expandable_or_jumpable() ?
+                \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+
+    " let g:deoplete#auto_complete_start_length = 1
+    let g:deoplete#enable_camel_case          = 0
+    let g:deoplete#enable_ignore_case         = 0
+    " let g:deoplete#enable_refresh_always      = 0
+    " let g:deoplete#enable_smart_case          = 1
+    " let g:deoplete#file#enable_buffer_path    = 1
+    " let g:deoplete#max_list                   = 10000
+
+    call deoplete#custom#option({
+    \ 'auto_complete_delay': 0,
+    \ 'auto_complete_start_length': 1,
+    \ 'refresh_always': v:false,
+    \ 'smart_case': v:true,
+    \ 'max_list': 10000,
+    \ })
+    " \ 'profile': v:true,
+    " \ })
+    " call deoplete#custom#source(
+    call deoplete#custom#var(
+    \ 'file', 'enable_buffer_path', v:true)
+'''  # }}}
 
 [[plugins]]
-repo = 'Shougo/deoplete-rct'
-if = "has('nvim') || has('patch1978')"
+repo        = 'Shougo/deoplete-rct'
+if          = "has('nvim') || has('patch1978')"
 [[plugins]]
-repo = 'Shougo/neco-vim'
-if = "has('nvim') || has('patch1978')"
+repo        = 'Shougo/neco-vim'
+if          = "has('nvim') || has('patch1978')"
 [[plugins]]
-repo = 'Shougo/neco-syntax'
-if = "has('nvim') || has('patch1978')"
+repo        = 'Shougo/neco-syntax'
+if          = "has('nvim') || has('patch1978')"
 [[plugins]]
-repo = 'ujihisa/neco-look'
-if = "has('nvim') || has('patch1978')"
+repo        = 'ujihisa/neco-look'
+if          = "has('nvim') || has('patch1978')"
+[[plugins]]
+repo        = 'neoclide/coc.nvim'
+source      = 'release'
+build       = 'coc#util#install()'
+if          = "(!has('nvim') && !has('patch1978'))"
 
 # スニペット
 [[plugins]]
-repo    = 'Shougo/neosnippet'
-depends = ['neosnippet-snippets', 'context_filetype.vim']
-on_i    = 1
-on_ft   = ['snippet']
+repo        = 'Shougo/neosnippet'
+depends     = ['neosnippet-snippets', 'context_filetype.vim']
+on_i        = 1
+on_ft       = ['snippet']
 [[plugins]]
-repo    = 'Shougo/neosnippet-snippets'
+repo        = 'Shougo/neosnippet-snippets'
 
 # ファイラ
 [[plugins]]
-repo    = 'scrooloose/nerdtree'
+repo        = 'scrooloose/nerdtree'
 [[plugins]]
-repo    = 'tiagofumo/vim-nerdtree-syntax-highlight'
-depends = ['nerdtree']
+repo        = 'tiagofumo/vim-nerdtree-syntax-highlight'
+depends     = ['nerdtree']
 
 # "%" 移動機能強化
   # # *.htmlのタグなど
 [[plugins]]
-repo = 'tmhedberg/matchit'
+repo        = 'tmhedberg/matchit'
 
 # ChatGPT
 [[plugins]]
-repo = 'mattn/vim-chatgpt'
+repo        = 'mattn/vim-chatgpt'
 
 # "NeoVim" の "Terminal" ラッパープラグイン
 [[plugins]]
-repo     = 'kassio/neoterm'
-if       = "has('nvim')"
-hook_add = '''
+repo        = 'kassio/neoterm'
+if          = "has('nvim')"
+hook_add    = '''
     let g:neoterm_repl_python = 0
     let g:neoterm_autoinsert  = 1
     " opens in insert mode
