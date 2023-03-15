@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2023/03/14 16:14:07.
+# Last Change: 2023/03/15 18:05:51.
 
 # ---------------------------------------------------------------------------
 #  参考
@@ -43,7 +43,7 @@ depends     = ['neomru.vim']
 # MEMO: ↓は "*.vim" に移管できない
 hook_source = '''  " {{{
     call denite#custom#option('default', {
-                \ 'auto_accel':   v:true,
+                \ 'auto_accel':    v:true,
                 \ 'prompt':       '>',
                 \ 'source_names': 'short',
                 \ })
@@ -87,29 +87,6 @@ hook_source = '''  " {{{
     call denite#custom#map('insert',
                 \ '<C-o>', '<denite:do_action:tabopen>')
 
-    " KILL: エラー解消できず
-    " " RipGrep
-    " if executable("rg")
-    "     " 検索対象から以下を除外
-    "     call denite#custom#var(
-    "                 \  'command',
-    "                 \  'grep',
-    "                 \  'file_rec',
-    "                 \ ['!.git',
-    "                 \  '--files',
-    "                 \  '--glob',
-    "                 \  'rg'
-    "                 \ ])
-    "
-    "     let g:denite_source_grep_command       = 'rg'
-    "     let g:denite_source_grep_default_opts  = '-n --no-heading --color never'
-    "     let g:unite_source_grep_recursive_opt  = ''
-    "     " Hit数制御
-    "     let g:unite_source_grep_max_candidates = 200
-    "     " "Windows" 設定
-    "     let g:unite_source_grep_encoding       = 'utf-8'
-    " endif
-
     " The Silver searcher
     if executable("ag")
         let s:ignore_globs = [
@@ -146,7 +123,7 @@ hook_source = '''  " {{{
         call denite#custom#filter(
                     \ 'matcher/ignore_globs',
                     \ 'ignore_globs',
-                    \ s:ignore_globs
+                    \  s:ignore_globs
                     \ )
     endif
 
@@ -165,7 +142,7 @@ hook_source = '''  " {{{
         call denite#custom#filter(
                     \  'ignore_globs',
                     \  'matcher_ignore_globs',
-                    \  s:ignore_globs,
+                    \   s:ignore_globs,
                     \ ['*.make',
                     \  '*.min.*',
                     \  '*.o',
@@ -302,15 +279,15 @@ depends  = ['fzf']
 # '''  # }}}
 
 # Git
-# [[plugins]]
-# repo = 'tpope/vim-fugitive'
+[[plugins]]
+repo = 'tpope/vim-fugitive'
 # on_cmd = ['Git']
 # hook_source = '''
 #     let g:fugitive_no_mappings = 1
 # '''
-# hook_post_source = '''
-#     echom 'fugitive is loaded'
-# '''
+hook_post_source = '''
+    echom 'fugitive is loaded'
+'''
 # 左に差分を表示
 [[plugins]]
 repo        = 'cohama/agit.vim'
@@ -327,7 +304,6 @@ if          = "has('job') && has('channel') && has('timers')"
 [[plugins]]
 repo        = 'scrooloose/syntastic'
 if          = "!has('job') || !has('channel') || !has('timers')"
-on_map      = ['<Leader>sc']
 
 # LSP(Language Server Protocol)
 [[plugins]]
@@ -354,64 +330,64 @@ repo        = 'vim-jp/vimdoc-ja'
 
 # 入力補完
   # 最新
-[[plugins]]
-repo        = 'Shougo/deoplete.nvim'
-if          = "(has('nvim') || has('patch1978')) && has('python3') && has('timers')"
-on_i        = 1
-hook_add    = '''  " {{{
-    " "hook_source" に移動
-    " let g:deoplete#auto_complete_delay = 0
-    let g:deoplete#enable_at_startup = 1
-'''  # }}}
+# [[plugins]]
+# repo        = 'Shougo/deoplete.nvim'
+# if          = "(has('nvim') || has('patch1978')) && has('python3') && has('timers')"
+# on_i        = 1
+# hook_add    = '''  " {{{
+#     " "hook_source" に移動
+#     " let g:deoplete#auto_complete_delay = 0
+#     let g:deoplete#enable_at_startup = 1
+# '''  # }}}
 
-on_event    = ['InsertCharPre']
-hook_source = '''  " {{{
-    inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-    inoremap <expr><C-l> deoplete#complete_common_string()
-    inoremap <expr><C-i> deoplete#complete_common_string()
-    inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-                \ neosnippet#expandable_or_jumpable() ?
-                \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+# on_event    = ['InsertCharPre']
+# hook_source = '''  " {{{
+#     inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+#     inoremap <expr><C-l> deoplete#complete_common_string()
+#     inoremap <expr><C-i> deoplete#complete_common_string()
+#     inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+#                 \ neosnippet#expandable_or_jumpable() ?
+#                 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 
-    " let g:deoplete#auto_complete_start_length = 1
-    let g:deoplete#enable_camel_case          = 0
-    let g:deoplete#enable_ignore_case         = 0
-    " let g:deoplete#enable_refresh_always      = 0
-    " let g:deoplete#enable_smart_case          = 1
-    " let g:deoplete#file#enable_buffer_path    = 1
-    " let g:deoplete#max_list                   = 10000
+#     " let g:deoplete#auto_complete_start_length = 1
+#     let g:deoplete#enable_camel_case          = 0
+#     let g:deoplete#enable_ignore_case         = 0
+#     " let g:deoplete#enable_refresh_always      = 0
+#     " let g:deoplete#enable_smart_case          = 1
+#     " let g:deoplete#file#enable_buffer_path    = 1
+#     " let g:deoplete#max_list                   = 10000
 
-    call deoplete#custom#option({
-    \ 'auto_complete_delay': 0,
-    \ 'auto_complete_start_length': 1,
-    \ 'refresh_always': v:false,
-    \ 'smart_case': v:true,
-    \ 'max_list': 10000,
-    \ })
-    " \ 'profile': v:true,
-    " \ })
-    " call deoplete#custom#source(
-    call deoplete#custom#var(
-    \ 'file', 'enable_buffer_path', v:true)
-'''  # }}}
+#     call deoplete#custom#option({
+#     \ 'auto_complete_delay': 0,
+#     \ 'auto_complete_start_length': 1,
+#     \ 'refresh_always': v:false,
+#     \ 'smart_case': v:true,
+#     \ 'max_list': 10000,
+#     \ })
+#     " \ 'profile': v:true,
+#     " \ })
+#     " call deoplete#custom#source(
+#     call deoplete#custom#var(
+#     \ 'file', 'enable_buffer_path', v:true)
+# '''  # }}}
 
-[[plugins]]
-repo        = 'Shougo/deoplete-rct'
-if          = "has('nvim') || has('patch1978')"
-[[plugins]]
-repo        = 'Shougo/neco-vim'
-if          = "has('nvim') || has('patch1978')"
-[[plugins]]
-repo        = 'Shougo/neco-syntax'
-if          = "has('nvim') || has('patch1978')"
-[[plugins]]
-repo        = 'ujihisa/neco-look'
-if          = "has('nvim') || has('patch1978')"
-[[plugins]]
-repo        = 'neoclide/coc.nvim'
-source      = 'release'
-build       = 'coc#util#install()'
-if          = "(!has('nvim') && !has('patch1978'))"
+# [[plugins]]
+# repo        = 'Shougo/deoplete-rct'
+# if          = "has('nvim') || has('patch1978')"
+# [[plugins]]
+# repo        = 'Shougo/neco-vim'
+# if          = "has('nvim') || has('patch1978')"
+# [[plugins]]
+# repo        = 'Shougo/neco-syntax'
+# if          = "has('nvim') || has('patch1978')"
+# [[plugins]]
+# repo        = 'ujihisa/neco-look'
+# if          = "has('nvim') || has('patch1978')"
+# [[plugins]]
+# repo        = 'neoclide/coc.nvim'
+# source      = 'release'
+# build       = 'coc#util#install()'
+# if          = "(!has('nvim') && !has('patch1978'))"
 
 # スニペット
 [[plugins]]
