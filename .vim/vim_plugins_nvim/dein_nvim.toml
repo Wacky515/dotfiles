@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2023/03/12 09:43:25.
+# Last Change: 2023/03/16 15:40:32.
 
 # ---------------------------------------------------------------------------
 #  参考
@@ -49,7 +49,7 @@ repo = 'itchyny/lightline.vim'
 depends = ['vim-fugitive', 'tagbar']
 # < REF: http://itchyny.hatenablog.com/entry/20130828/1377653592 >
 
-# アイコン表示
+# ステータスライン用 デビコン
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
 
@@ -82,29 +82,9 @@ repo = 'dhruvasagar/vim-table-mode'
 [[plugins]]
 repo = 'tpope/vim-abolish'
 
-# 記述の追加、削除マーカ表示
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
-
 # カーソル位置の "filetype" を自動切替
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = ['context_filetype.vim']
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
-
-# Grep
-# The Silver Searcher
-[[plugins]]
-repo = 'rking/ag.vim'
-# The Platinum Searcher
-[[plugins]]
-repo = 'nazo/pt.vim'
-
-# ファイラ
-[[plugins]]
-repo = 'Shougo/defx.nvim'
-[[plugins]]
-repo = 'kristijanhusak/defx-icons'
-[[plugins]]
-repo = 'kristijanhusak/defx-git'

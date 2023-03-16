@@ -1,26 +1,23 @@
 scriptencoding utf-8
 " Created:     2018/09/13 12:32:57
-" Last Change: 2021/02/27 22:20:09.
+" Last Change: 2023/03/11 14:34:53.
 
 " ------------------------------------------------------------------------------
 "  マップキー
 " ------------------------------------------------------------------------------
-" MEMO: "dein*.tmol" に記述移管  " {{{
-    " nmap p        <Plug>(yankround-p)
-    " xmap p        <Plug>(yankround-p)
-    " nmap P        <Plug>(yankround-P)
-    " nmap gp       <Plug>(yankround-gp)
-    " xmap gp       <Plug>(yankround-gp)
-    " nmap gP       <Plug>(yankround-gP)
-    " nmap <S-Up>   <Plug>(yankround-prev)
-    " nmap <S-Down> <Plug>(yankround-next)
-    " コマンドライン内の設定
-    " cmap <C-r>    <Plug>(yankround-insert-register)
-    " cmap <C-y>    <Plug>(yankround-pop)
-" }}}
+nmap p        <Plug>(yankround-p)
+xmap p        <Plug>(yankround-p)
+nmap P        <Plug>(yankround-P)
+nmap gp       <Plug>(yankround-gp)
+xmap gp       <Plug>(yankround-gp)
+nmap gP       <Plug>(yankround-gP)
+nmap <S-Up>   <Plug>(yankround-prev)
+nmap <S-Down> <Plug>(yankround-next)
 
-" <Leader>y: 履歴一覧(Unite)
-nnoremap <Leader>y :<C-u>Unite yankround<CR>
+" コマンドライン内の設定
+cmap <C-r>    <Plug>(yankround-insert-register)
+cmap <C-y>    <Plug>(yankround-pop)
+
 " g<C-p>:    履歴一覧(CtrlP)
 nnoremap g<C-p>    :<C-u>CtrlPYankRound<CR>
 

@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2023/03/15 18:05:51.
+# Last Change: 2023/03/16 16:04:45.
 
 # ---------------------------------------------------------------------------
 #  参考
@@ -35,139 +35,6 @@
 # hook_post_update 更新直後                OK       OK
 # }}}
 
-# 統合ユーザインターフェース
-[[plugins]]
-repo        = 'Shougo/denite.nvim'
-if          = "has('python3')"
-depends     = ['neomru.vim']
-# MEMO: ↓は "*.vim" に移管できない
-hook_source = '''  " {{{
-    call denite#custom#option('default', {
-                \ 'auto_accel':    v:true,
-                \ 'prompt':       '>',
-                \ 'source_names': 'short',
-                \ })
-        call denite#custom#option('default', 'direction', 'top')
-
-    " <C-n>/<C-p>: 上下移動
-    call denite#custom#map('normal',
-                \ '<C-n>', '<denite:move_to_next_line>')
-    call denite#custom#map('normal',
-                \ '<C-p>', '<denite:move_to_previous_line>')
-    call denite#custom#map('insert',
-                \ '<C-n>', '<denite:move_to_next_line>')
-    call denite#custom#map('insert',
-                \ '<C-p>', '<denite:move_to_previous_line>')
-
-    " <C-j>/<C-k>: 入力履歴移動
-    call denite#custom#map('insert',
-                \ '<C-j>', '<denite:assign_next_text>')
-    call denite#custom#map('insert',
-                \ '<C-k>', '<denite:assign_previous_text>')
-
-    " <C-t>: "tabopen"
-    call denite#custom#map('insert',
-                \ "<C-t>", '<denite:do_action:tabopen>')
-    " <C-v>: "vsplit"
-    call denite#custom#map('insert',
-                \ "<C-v>", '<denite:do_action:vsplit>')
-    call denite#custom#map('normal',
-                \ "v",     '<denite:do_action:vsplit>')
-
-    " jj :ノーマルモード
-    call denite#custom#map('insert',
-                \ 'jj',    '<denite:enter_mode:normal>')
-    " <C-s>: 水平画面分割して開く
-    call denite#custom#map('insert',
-                \ '<C-s>', '<denite:do_action:split>')
-    " <C-i>: 垂直画面分割して開く
-    call denite#custom#map('insert',
-                \ '<C-i>', '<denite:do_action:vsplit>')
-    " <C-o>: 新規タブで開く
-    call denite#custom#map('insert',
-                \ '<C-o>', '<denite:do_action:tabopen>')
-
-    " The Silver searcher
-    if executable("ag")
-        let s:ignore_globs = [
-                    \ '.git',
-                    \ '.svn',
-                    \ 'node_modules'
-                    \ ]
-
-        " 検索対象から以下を除外
-        call denite#custom#var(
-                    \  'command',
-                    \  'file/rec',
-                    \ ['ag',
-                    \  '--follow',]
-                    \  + map(deepcopy(s:ignore_globs),
-                    \ { k, v -> '--ignore=' . v }) +
-                    \ ['--nocolor',
-                    \  '--nogroup',
-                    \  '-g',
-                    \  ''
-                    \ ])
-
-        " "file_rec" 検索時に "FuzzyMatch" を有効にし
-        " 検索対象から指定のファイルを除外
-        call denite#custom#source(
-                    \  'file/rec',
-                    \  'matchers',
-                    \ ['matcher_fuzzy',
-                    \  'matcher_project_files',
-                    \  'matcher_ignore_globs'
-                    \ ])
-
-        " 他ソース向けに "ignore_globs" 初期化
-        call denite#custom#filter(
-                    \ 'matcher/ignore_globs',
-                    \ 'ignore_globs',
-                    \  s:ignore_globs
-                    \ )
-    endif
-
-    " FuzzyMatch
-    if executable("matcher_fuzzy")
-        " "file_rec" 検索時に "FuzzyMatch" を有効にし
-        " 検索対象から指定のファイルを除外
-        call denite#custom#source(
-                    \  'file_rec',
-                    \  'matchers',
-                    \ ['matcher_fuzzy',
-                    \  'matcher_project_files',
-                    \  'matcher_ignore_globs'])
-
-        " 検索対象外のファイル指定
-        call denite#custom#filter(
-                    \  'ignore_globs',
-                    \  'matcher_ignore_globs',
-                    \   s:ignore_globs,
-                    \ ['*.make',
-                    \  '*.min.*',
-                    \  '*.o',
-                    \  '.git/',
-                    \  '.ropeproject/',
-                    \  '__pycache__/',
-                    \  'build/',
-                    \  'fonts/',
-                    \  'images/',
-                    \  'img/',
-                    \  'venv/',
-                    \  'ropeproject/'])
-    endif
-'''  # }}}
-on_i        = 1
-on_cmd      = ['Denite']
-# "[De|U]nite" 用 "Source" 群
-# "[De|U]nite" 用 "mru"
-[[plugins]]
-repo        = 'Shougo/neomru.vim'
-on_source   = ['dein.vim', 'denite.nvim']
-on_path     = '.*'
-[[plugins]]
-repo        = 'koron/codic-vim'
-
 # タイムスタンプ 挿入
 [[plugins]]
 repo        = 'vim-scripts/autodate.vim'
@@ -195,19 +62,6 @@ repo        = 'lokaltog/vim-easymotion'
 # コピペ履歴
 [[plugins]]
 repo        = 'LeafCage/yankround.vim'
-hook_source = '''  " {{{
-    nmap p        <Plug>(yankround-p)
-    xmap p        <Plug>(yankround-p)
-    nmap P        <Plug>(yankround-P)
-    nmap gp       <Plug>(yankround-gp)
-    xmap gp       <Plug>(yankround-gp)
-    nmap gP       <Plug>(yankround-gP)
-    nmap <S-Up>   <Plug>(yankround-prev)
-    nmap <S-Down> <Plug>(yankround-next)
-    " コマンドライン内の設定
-    cmap <C-r>    <Plug>(yankround-insert-register)
-    cmap <C-y>    <Plug>(yankround-pop)
-'''  # }}}
 
 # Undo履歴
 [[plugins]]
@@ -329,65 +183,10 @@ on_cmd      = ['BenchVimrc']
 repo        = 'vim-jp/vimdoc-ja'
 
 # 入力補完
-  # 最新
-# [[plugins]]
-# repo        = 'Shougo/deoplete.nvim'
-# if          = "(has('nvim') || has('patch1978')) && has('python3') && has('timers')"
-# on_i        = 1
-# hook_add    = '''  " {{{
-#     " "hook_source" に移動
-#     " let g:deoplete#auto_complete_delay = 0
-#     let g:deoplete#enable_at_startup = 1
-# '''  # }}}
-
-# on_event    = ['InsertCharPre']
-# hook_source = '''  " {{{
-#     inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-#     inoremap <expr><C-l> deoplete#complete_common_string()
-#     inoremap <expr><C-i> deoplete#complete_common_string()
-#     inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-#                 \ neosnippet#expandable_or_jumpable() ?
-#                 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-
-#     " let g:deoplete#auto_complete_start_length = 1
-#     let g:deoplete#enable_camel_case          = 0
-#     let g:deoplete#enable_ignore_case         = 0
-#     " let g:deoplete#enable_refresh_always      = 0
-#     " let g:deoplete#enable_smart_case          = 1
-#     " let g:deoplete#file#enable_buffer_path    = 1
-#     " let g:deoplete#max_list                   = 10000
-
-#     call deoplete#custom#option({
-#     \ 'auto_complete_delay': 0,
-#     \ 'auto_complete_start_length': 1,
-#     \ 'refresh_always': v:false,
-#     \ 'smart_case': v:true,
-#     \ 'max_list': 10000,
-#     \ })
-#     " \ 'profile': v:true,
-#     " \ })
-#     " call deoplete#custom#source(
-#     call deoplete#custom#var(
-#     \ 'file', 'enable_buffer_path', v:true)
-# '''  # }}}
-
-# [[plugins]]
-# repo        = 'Shougo/deoplete-rct'
-# if          = "has('nvim') || has('patch1978')"
-# [[plugins]]
-# repo        = 'Shougo/neco-vim'
-# if          = "has('nvim') || has('patch1978')"
-# [[plugins]]
-# repo        = 'Shougo/neco-syntax'
-# if          = "has('nvim') || has('patch1978')"
-# [[plugins]]
-# repo        = 'ujihisa/neco-look'
-# if          = "has('nvim') || has('patch1978')"
-# [[plugins]]
-# repo        = 'neoclide/coc.nvim'
-# source      = 'release'
-# build       = 'coc#util#install()'
-# if          = "(!has('nvim') && !has('patch1978'))"
+[[plugins]]
+repo        = 'neoclide/coc.nvim'
+source      = 'release'
+build       = 'coc#util#install()'
 
 # スニペット
 [[plugins]]
@@ -397,30 +196,3 @@ on_i        = 1
 on_ft       = ['snippet']
 [[plugins]]
 repo        = 'Shougo/neosnippet-snippets'
-
-# ファイラ
-[[plugins]]
-repo        = 'scrooloose/nerdtree'
-[[plugins]]
-repo        = 'tiagofumo/vim-nerdtree-syntax-highlight'
-depends     = ['nerdtree']
-
-# "%" 移動機能強化
-  # # *.htmlのタグなど
-[[plugins]]
-repo        = 'tmhedberg/matchit'
-
-# ChatGPT
-[[plugins]]
-repo        = 'mattn/vim-chatgpt'
-
-# "NeoVim" の "Terminal" ラッパープラグイン
-[[plugins]]
-repo        = 'kassio/neoterm'
-if          = "has('nvim')"
-hook_add    = '''
-    let g:neoterm_repl_python = 0
-    let g:neoterm_autoinsert  = 1
-    " opens in insert mode
-    let g:neoterm_default_mod = "botright"
-'''

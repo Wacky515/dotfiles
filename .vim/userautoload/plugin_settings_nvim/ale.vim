@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/15 13:25:06
-" Last Change: 2023/03/12 08:29:38.
+" Last Change: 2023/03/16 16:18:01.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -21,9 +21,9 @@ let g:ale_lint_on_text_changed = 1
 " 左端のシンボルカラムを常に表示
 let g:ale_sign_column_always   = 1
 
-" 表示設定
-let g:ale_sign_error                           = ''
-let g:ale_sign_warning                         = ''
+" " 表示設定
+let g:ale_sign_error                           = ''
+let g:ale_sign_warning                         = ''
 let g:airline#extensions#ale#open_lnum_symbol  = '('
 let g:airline#extensions#ale#close_lnum_symbol = ')'
 let g:ale_echo_msg_format                      = '[%linter%]%code: %%s'
