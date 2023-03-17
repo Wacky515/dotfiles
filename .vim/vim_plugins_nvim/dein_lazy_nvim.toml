@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2023/03/16 16:04:45.
+# Last Change: 2023/03/17 09:15:44.
 
 # ---------------------------------------------------------------------------
 #  参考
@@ -146,9 +146,9 @@ hook_post_source = '''
 [[plugins]]
 repo        = 'cohama/agit.vim'
 on_cmd      = ['Agit']
-# コミットログ入力強化
+# 記述の追加、削除マーカ表示
 [[plugins]]
-repo        = 'rhysd/committia.vim'
+repo        = 'airblade/vim-gitgutter'
 
 # ALE
 [[plugins]]
@@ -179,20 +179,7 @@ repo        = 'mattn/benchvimrc-vim'
 on_cmd      = ['BenchVimrc']
 
 # 日本語ヘルプ
+# MEMO: "KaoriYa" 以外の環境で必要か確認
+# Windows NeoVim 必要
 [[plugins]]
 repo        = 'vim-jp/vimdoc-ja'
-
-# 入力補完
-[[plugins]]
-repo        = 'neoclide/coc.nvim'
-source      = 'release'
-build       = 'coc#util#install()'
-
-# スニペット
-[[plugins]]
-repo        = 'Shougo/neosnippet'
-depends     = ['neosnippet-snippets', 'context_filetype.vim']
-on_i        = 1
-on_ft       = ['snippet']
-[[plugins]]
-repo        = 'Shougo/neosnippet-snippets'

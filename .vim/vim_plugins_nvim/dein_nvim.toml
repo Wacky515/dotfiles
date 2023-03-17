@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2023/03/16 15:40:32.
+# Last Change: 2023/03/17 09:09:32.
 
 # ---------------------------------------------------------------------------
 #  参考
@@ -43,12 +43,26 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'mhinz/vim-startify'
 
-# ステータスライン ビジュアル強化
+# 自動補完
+[[plugins]]
+repo        = 'neoclide/coc.nvim'
+source      = 'release'
+build       = 'coc#util#install()'
+
+# スニペット入力
+[[plugins]]
+repo        = 'Shougo/neosnippet'
+depends     = ['neosnippet-snippets', 'context_filetype.vim']
+on_i        = 1
+on_ft       = ['snippet']
+[[plugins]]
+repo        = 'Shougo/neosnippet-snippets'
+
+# ステータスライン 強化
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 depends = ['vim-fugitive', 'tagbar']
 # < REF: http://itchyny.hatenablog.com/entry/20130828/1377653592 >
-
 # ステータスライン用 デビコン
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
@@ -61,6 +75,7 @@ repo = 'nathanaelkane/vim-indent-guides'
 [[plugins]]
 repo = 'tpope/vim-surround'
 # "vim-surround" ドットコマンド対応
+# MEMO: 動作せず
 [[plugins]]
 repo = 'tpope/vim-repeat'
 on_idle = 1
