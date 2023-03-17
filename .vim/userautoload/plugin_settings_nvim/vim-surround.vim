@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2023/03/11 22:07:09.
+" Last Change: 2023/03/17 08:38:40.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -27,12 +27,12 @@ nmap <Leader>b" ysiw"f"a<Space><Esc>
 nmap <Leader>b' ysiw'f'a<Space><Esc>
 nmap <Leader>b` ysiw`f`a<Space><Esc>
 
-" <Leader>開き括弧: "word" を前後にスペースありで囲む
+" <Leader>"開き括弧": "word" を前後にスペースありで囲む
 nmap <Leader>(  ysiw(
 nmap <Leader>[  ysiw[
 nmap <Leader>{  ysiw{
 
-" <Leader>閉じ括弧: "word" を前後にスペースなしで囲む
+" <Leader>"閉じ括弧": "word" を前後にスペースなしで囲む
 nmap <Leader>)  ysiw)
 nmap <Leader>]  ysiw]
 nmap <Leader>}  ysiw}
