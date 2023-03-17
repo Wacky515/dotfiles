@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2023/03/13 11:54:02.
+" Last Change: 2023/03/17 09:34:02.
 
 " !!!: 必ず先頭に記述
 " "autocmd(マクロ)" の初期化
@@ -40,8 +40,9 @@ endif
 runtime! userautoload/init_settings/*.vim
 
 " ------------------------------------------------------------------------------
-"  "Python" の "Path" 設定読込み
+"  "Python" の "Path" 設定読込み  " {{{
     " MEMO: "init.vim" へ不可分
+    " }}}
 " ------------------------------------------------------------------------------
 if has("vim_starting")
     if has("mac")
@@ -61,11 +62,12 @@ if has("vim_starting")
 endif
 
 " ------------------------------------------------------------------------------
-"  "pythonthreedll" 設定読込み
+"  "pythonthreedll" 設定読込み  " {{{
     " MEMO:
         " "Vim" で "Dark powed" するための設定
         " "Python3.6.*" でないと "Dark powed" できない
         " "jedi-vim" で "Anaconda3" のライブラリを補完
+        " }}}
 " ------------------------------------------------------------------------------
 if has("vim_starting")
     if has("mac")
@@ -85,8 +87,9 @@ if has("vim_starting")
 endif
 
 " ------------------------------------------------------------------------------
-"  "dein.vim" の設定
+"  "dein.vim" の設定  " {{{
     " MEMO: "NeoVim" は "init.vim" に記述
+    " }}}
 " ------------------------------------------------------------------------------
 " "dein.vim" の更新チェック高速化設定
 set runtimepath+=~/OneDrive/Vim/dein
@@ -132,23 +135,16 @@ if dein#load_state(s:plugin_dir)
     let g:plugin_dir_nvim  = expand("~/.vim/vim_plugins_nvim")
     let s:toml_nvim        = g:plugin_dir_nvim . "/dein_nvim.toml"
     let s:lazy_toml_nvim   = g:plugin_dir_nvim . "/dein_lazy_nvim.toml"
-    let s:ddc_toml_nvim    = g:plugin_dir_nvim . "/dein_ddc_nvim.toml"
     let s:python_toml_nvim = g:plugin_dir_nvim . "/dein_python_nvim.toml"
 
     "*.toml" を読込み、キャッシュ
     call dein#load_toml(s:toml_nvim,            {"lazy": 0})
     call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
 
-    " MEMO: 使用できない
-    " if !((has("win32") || has("win64")) && has("Kaoriya"))
-    "     call dein#load_toml(s:ddc_toml_nvim,    {"lazy": 0})
-    " endif
-
     if has("python3")
         call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
     endif
 
-    " MEMO: "ddc" 有効後に削除
     call dein#add("roxma/nvim-yarp")
     call dein#add("roxma/vim-hug-neovim-rpc")
 
@@ -176,6 +172,7 @@ if !has("gui_runnig") && (has("mac") || has("win32") || has("win64"))
     set cmdheight=5
 endif
 
+" ------------------------------------------------------------------------------
 " Syntax highlight 解説  " {{{
 " ファイルタイプ系ハイライトプラグインを導入している場合
 " "syntax on" は現在の "runtimepath" の設定で "Syntax"を生成
@@ -196,6 +193,7 @@ endif
 " neoBundle 'kongo2002/fsharp-vim'
 " syntax on
 " }}}
+" ------------------------------------------------------------------------------
 if has("syntax")
   syntax on
 endif

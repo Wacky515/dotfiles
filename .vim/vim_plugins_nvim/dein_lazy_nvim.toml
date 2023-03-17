@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2023/03/17 09:15:44.
+# Last Change: 2023/03/17 09:25:18.
 
 # ---------------------------------------------------------------------------
 #  参考
@@ -37,80 +37,80 @@
 
 # タイムスタンプ 挿入
 [[plugins]]
-repo        = 'vim-scripts/autodate.vim'
+repo             = 'vim-scripts/autodate.vim'
 
 # コメントアウト トグル
 [[plugins]]
-repo        = 'tomtom/tcomment_vim'
+repo             = 'tomtom/tcomment_vim'
 # on_map = ['<C-=>']
 
 # チートシート表示
 [[plugins]]
-repo        = 'reireias/vim-cheatsheet'
-on_cmd      = ['Cheat']
+repo             = 'reireias/vim-cheatsheet'
+on_cmd           = ['Cheat']
 
 # テキスト整形
 [[plugins]]
-repo        = 'junegunn/vim-easy-align'
-on_map      = ['<Plug>(EasyAlign)']
+repo             = 'junegunn/vim-easy-align'
+on_map           = ['<Plug>(EasyAlign)']
 
 # カーソル機能強化
 [[plugins]]
-repo        = 'lokaltog/vim-easymotion'
+repo             = 'lokaltog/vim-easymotion'
 # on_map = [',']
 
 # コピペ履歴
 [[plugins]]
-repo        = 'LeafCage/yankround.vim'
+repo             = 'LeafCage/yankround.vim'
 
 # Undo履歴
 [[plugins]]
-repo        = 'sjl/gundo.vim'
-on_cmd      = ['GundoToggle']
+repo             = 'sjl/gundo.vim'
+on_cmd           = ['GundoToggle']
 
 # 置換強化
 [[plugins]]
-repo        = 'osyo-manga/vim-over'
-on_cmd      = ['OverCommandLine']
+repo             = 'osyo-manga/vim-over'
+on_cmd           = ['OverCommandLine']
 
 # 置換プレビュー
 [[plugins]]
-repo        = 'markonm/traces.vim'
+repo             = 'markonm/traces.vim'
 
 # "*.toml" シンタックスハイライト
 [[plugins]]
-repo        = 'cespare/vim-toml'
-on_ft       = ['toml']
+repo             = 'cespare/vim-toml'
+on_ft            = ['toml']
 
 # "*.fish" シンタックスハイライト
 [[plugins]]
-repo        = 'dag/vim-fish'
-on_ft       = ['fish']
+repo             = 'dag/vim-fish'
+on_ft            = ['fish']
 
 # Tagbar
 [[plugins]]
-repo        = 'majutsushi/tagbar'
-on_cmd      = ['TagbarToggle']
+repo             = 'majutsushi/tagbar'
+on_cmd           = ['TagbarToggle']
 
 # TagList
 [[plugins]]
-repo        = 'vim-scripts/taglist.vim'
-on_cmd      = ['TlistOpen']
+repo             = 'vim-scripts/taglist.vim'
+on_cmd           = ['TlistOpen']
 
 # CtrlP
 [[plugins]]
-repo        = 'ctrlpvim/ctrlp.vim'
-on_map      = ['<C-l>']
+repo             = 'ctrlpvim/ctrlp.vim'
+on_map           = ['<C-l>']
 
 # fzf
 [[plugins]]
-repo   = 'junegunn/fzf'
-build  = './install --bin'
-merged = '0'
-on_cmd = ['FZF']
+repo             = 'junegunn/fzf'
+build            = './install --bin'
+merged           = '0'
+on_cmd           = ['FZF']
 [[plugins]]
-repo     = 'junegunn/fzf.vim'
-depends  = ['fzf']
+repo             = 'junegunn/fzf.vim'
+depends          = ['fzf']
 # hook_add = '''  " {{{
 #     command! -bang -nargs=* Rg
 #                 \ call fzf#vim#grep(
@@ -134,7 +134,7 @@ depends  = ['fzf']
 
 # Git
 [[plugins]]
-repo = 'tpope/vim-fugitive'
+repo             = 'tpope/vim-fugitive'
 # on_cmd = ['Git']
 # hook_source = '''
 #     let g:fugitive_no_mappings = 1
@@ -144,42 +144,42 @@ hook_post_source = '''
 '''
 # 左に差分を表示
 [[plugins]]
-repo        = 'cohama/agit.vim'
-on_cmd      = ['Agit']
+repo             = 'cohama/agit.vim'
+on_cmd           = ['Agit']
 # 記述の追加、削除マーカ表示
 [[plugins]]
-repo        = 'airblade/vim-gitgutter'
+repo             = 'airblade/vim-gitgutter'
 
 # ALE
 [[plugins]]
-repo        = 'w0rp/ale'
-if          = "has('job') && has('channel') && has('timers')"
+repo             = 'w0rp/ale'
+if               = "has('job') && has('channel') && has('timers')"
 # on_cmd      = ['ALEFix']
 [[plugins]]
-repo        = 'scrooloose/syntastic'
-if          = "!has('job') || !has('channel') || !has('timers')"
+repo             = 'scrooloose/syntastic'
+if               = "!has('job') || !has('channel') || !has('timers')"
 
 # LSP(Language Server Protocol)
 [[plugins]]
-repo        = 'prabirshrestha/vim-lsp'
-on_map      = ['<F6>']
+repo             = 'prabirshrestha/vim-lsp'
+on_map           = ['<F6>']
 [[plugins]]
-repo        = 'mattn/vim-lsp-settings'
-on_map      = ['<F6>']
+repo             = 'mattn/vim-lsp-settings'
+on_map           = ['<F6>']
 [[plugins]]
-repo        = 'mattn/vim-lsp-icons'
-on_map      = ['<F6>']
+repo             = 'mattn/vim-lsp-icons'
+on_map           = ['<F6>']
 
 # Vim 起動時間計測
 [[plugins]]
-repo        = 'dstein64/vim-startuptime'
-on_cmd      = ['StartupTime']
+repo             = 'dstein64/vim-startuptime'
+on_cmd           = ['StartupTime']
 [[plugins]]
-repo        = 'mattn/benchvimrc-vim'
-on_cmd      = ['BenchVimrc']
+repo             = 'mattn/benchvimrc-vim'
+on_cmd           = ['BenchVimrc']
 
 # 日本語ヘルプ
 # MEMO: "KaoriYa" 以外の環境で必要か確認
 # Windows NeoVim 必要
 [[plugins]]
-repo        = 'vim-jp/vimdoc-ja'
+repo             = 'vim-jp/vimdoc-ja'
