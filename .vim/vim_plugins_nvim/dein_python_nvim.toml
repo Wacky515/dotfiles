@@ -1,7 +1,7 @@
 # Created:     2018/12/19 08:50:47
-# Last Change: 2023/03/01 21:25:05.
+# Last Change: 2023/03/18 16:25:20.
 
-# Python用プラグイン
+# Python用"Plugin"
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
 on_ft = ['python']

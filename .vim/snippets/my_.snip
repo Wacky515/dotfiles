@@ -2,7 +2,7 @@ snippet creat
 options head
 abbr    作成・更新日
     Created:     ${1:TODAY} ${2:NOW}:${3:SS}
-    Last Change: 2023/03/04 18:35:21.
+    Last Change: .
 
 snippet title
 abbr    タイトル
@@ -10,3 +10,9 @@ options head
     ------------------------------------------------------------------------------
      ${1:TITLE}
     ------------------------------------------------------------------------------
+
+snippet chst
+options head
+abbr    変更開始箇所
+    >>> ${1:MESSAGE} ${2:TODAY} ${3:NOW}:${4:SS} WKT ***
+    *** ${1:MESSAGE} ${2:TODAY} ${3:NOW}:${4:SS} WKT <<<

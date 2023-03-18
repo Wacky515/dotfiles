@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2023/03/17 09:43:13.
+" Last Change: 2023/03/18 16:25:20.
 
 " !!!: 必ず先頭に記述
 " "autocmd(マクロ)" の初期化
@@ -79,7 +79,7 @@ augroup PluginInstall
     autocmd VimEnter * if dein#check_install() | call dein#install() | endif
 augroup END
 
-" プラグインをインストールするディレクトリを指定
+" "Plugin" をインストールするディレクトリを指定
 let s:plugin_dir = expand("~/.config/nvim/dein/")
 
 " TODO: Unix系のパス設定追加
@@ -101,7 +101,7 @@ endif
 if dein#load_state(s:plugin_dir)
     call dein#begin(s:plugin_dir)
 
-    " プラグインリスト "*.toml" を指定
+    " "Plugin" リスト "*.toml" を指定
     let g:plugin_dir_nvim  = expand("~/.vim/vim_plugins_nvim")
     let s:toml_nvim        = g:plugin_dir_nvim . "/dein_nvim.toml"
     let s:lazy_toml_nvim   = g:plugin_dir_nvim . "/dein_lazy_nvim.toml"
@@ -119,7 +119,7 @@ if dein#load_state(s:plugin_dir)
     call dein#save_state()
 endif
 
-" 未インストールのプラグインがあればインストール
+" 未インストールの"Plugin" があればインストール
 if has("vim_starting") && dein#check_install()
     call dein#install()
 endif
@@ -140,7 +140,7 @@ endif
 
 " ------------------------------------------------------------------------------
 " Syntax highlight 解説  " {{{
-" ファイルタイプ系ハイライトプラグインを導入している場合
+" ファイルタイプ系ハイライト"Plugin" を導入している場合
 " "syntax on" は現在の "runtimepath" の設定で "Syntax"を生成
 " "runtimepath" 初期化後の "syntax on" はあまり意味が無く
 " "runtimepath" 設定後に "syntax on" すべき
@@ -149,13 +149,13 @@ endif
 " "runtimepath" 初期化処理
 " set runtimepath=$VIMRUNTIME
 " syntax on
-" ファイルタイプ系ハイライトプラグイン
+" ファイルタイプ系ハイライト"Plugin"
 " neoBundle 'kongo2002/fsharp-vim'
 
 " # 良いパターン
 " "runtimepath" 初期化処理
 " set runtimepath=$VIMRUNTIME
-" ファイルタイプ系ハイライトプラグイン
+" ファイルタイプ系ハイライト"Plugin"
 " neoBundle 'kongo2002/fsharp-vim'
 " syntax on
 " }}}
@@ -165,6 +165,6 @@ if has("syntax")
 endif
 
 " MEMO:
-    " 読込んだプラグイン含めてファイルタイプの検出と
-    " ファイルタイプ別にプラグイン、インデントを有効化
+    " 読込んだ"Plugin" 含めてファイルタイプの検出と
+    " ファイルタイプ別に"Plugin" 、インデントを有効化
 filetype plugin indent on

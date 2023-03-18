@@ -29,6 +29,10 @@ noremap <C-p> <C-y>
 " <Ctrl>n: 下方向に1行分スクロール
 noremap <C-n> <C-e>
 
+if !has("nvim")
+    nnoremap gg gg^
+endif
+
 " +/-: フォント 拡大/縮小
 if !has("nvim")
     nnoremap + :<C-u>silent! let &guifont = substitute(
