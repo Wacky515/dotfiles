@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/12/13 07:39:11
-" Last Change: 2023/03/12 08:25:32.
+" Last Change: 2023/03/18 16:57:40.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -33,8 +33,9 @@ let g:startify_bookmarks = [
             \ "~/.gvimrc",
             \ "~/dotfiles/nvim/init.vim",
             \ "~/dotfiles/nvim/ginit.vim",
-            \ "~/dotfiles/.vim/plugins/vim-jetpack.vim",
-            \ "~/dotfiles/.vim/userautoload/plugin_settings/vim-startify.vim",
+            \ "~/dotfiles/.vim/vim_plugins_nvim/dein_nvim.toml",
+            \ "~/dotfiles/.vim/vim_plugins_nvim/dein_lazy_nvim.toml",
+            \ "~/dotfiles/.vim/userautoload/plugin_settings_nvim/vim-startify.vim",
             \ "~/dotfiles/etc/init/osx/settings",
             \ "~/dotfiles/etc/init/linux/settings",
             \ "~/dotfiles/etc/init/windows/settings",

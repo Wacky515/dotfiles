@@ -1,11 +1,11 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2019/11/25 11:39:25.
+" Last Change: 2023/03/18 17:11:09.
 
 " ------------------------------------------------------------------------------
 "  基本設定
 " ------------------------------------------------------------------------------
-if has("gui_running")
+if has("gui_running") || has("nvim")
     " "GVim" 起動時 自動ON
     let g:indent_guides_enable_on_vim_startup = 1
 
