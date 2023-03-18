@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2023/03/18 16:25:20.
+# Last Change: 2023/03/18 16:44:28.
 
 # ---------------------------------------------------------------------------
 #  参考
@@ -49,7 +49,7 @@ repo        = 'LeafCage/yankround.vim'
 # カーソル機能強化
 [[plugins]]
 repo        = 'lokaltog/vim-easymotion'
-# on_map      = [',']
+on_map      = [',']
 
 # コメントアウト トグル
 [[plugins]]

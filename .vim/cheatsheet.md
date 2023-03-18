@@ -14,7 +14,7 @@
 
 - zR: 折畳みを再帰的に展開
 
-- ,,e:   "EasyMotion" 開始 ◁ e 要る？
+- ,,e:   "EasyMotion" 開始
   - ,,e{char}{char}: "{char}{char}" 画面全体を検索
 - ,,j/k: 拡張行移動
 
