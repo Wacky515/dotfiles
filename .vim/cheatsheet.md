@@ -30,6 +30,8 @@
 - g,:      直前の変更   進む
 
 - \<Leader\>a:    全選択
+- \<Leader\>y:    全ヤンク
+- \<Leader\>g:    Git 変更部ハイライト トグル
 - \<Leader\>bp:   前のバッファを開く
 - \<Leader\>bn:   次のバッファを開く
 - \<Leader\>bb:   直前のバッファを開く

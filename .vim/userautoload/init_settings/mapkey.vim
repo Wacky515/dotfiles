@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2023/03/13 17:29:05.
+" Last Change: 2023/03/18 16:07:30.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -187,6 +187,9 @@ cnoremap <C-p> <Up>
 
 " <Leader>a:  全選択
 nnoremap <Leader>a ggVG
+
+" <Leader>y:  全ヤンク
+nnoremap <Leader>y ggVGy
 
 " <Leader><Leader>: ビジュアルラインモードに切替え
 nmap <Leader><Leader> V

@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2023/03/17 09:24:37.
+# Last Change: 2023/03/18 15:36:51.
 
 # ---------------------------------------------------------------------------
 #  参考
@@ -39,6 +39,28 @@
 [[plugins]]
 repo        = 'Shougo/dein.vim'
 
+# -----------------------------------------------------------------------------
+# lazy から移管
+# -----------------------------------------------------------------------------
+# コピペ履歴
+[[plugins]]
+repo        = 'LeafCage/yankround.vim'
+
+# カーソル機能強化
+[[plugins]]
+repo        = 'lokaltog/vim-easymotion'
+# on_map      = [',']
+
+# コメントアウト トグル
+[[plugins]]
+repo        = 'tomtom/tcomment_vim'
+on_map      = ['<C-=>']
+
+# 記述の追加、削除マーカ表示
+[[plugins]]
+repo        = 'airblade/vim-gitgutter'
+# -----------------------------------------------------------------------------
+
 # 起動画面機能強化
 [[plugins]]
 repo        = 'mhinz/vim-startify'
@@ -76,11 +98,6 @@ repo        = 'nathanaelkane/vim-indent-guides'
 # 選択テキストを'""'、"()"、"[]"などで囲む
 [[plugins]]
 repo        = 'tpope/vim-surround'
-# "vim-surround" ドットコマンド対応
-# MEMO: 動作せず
-[[plugins]]
-repo        = 'tpope/vim-repeat'
-on_idle     = 1
 
 # "=" などの入力を拡張
     # " = " にする等

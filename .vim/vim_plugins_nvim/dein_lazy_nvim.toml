@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2023/03/17 09:25:18.
+# Last Change: 2023/03/18 15:09:40.
 
 # ---------------------------------------------------------------------------
 #  参考
@@ -39,11 +39,6 @@
 [[plugins]]
 repo             = 'vim-scripts/autodate.vim'
 
-# コメントアウト トグル
-[[plugins]]
-repo             = 'tomtom/tcomment_vim'
-# on_map = ['<C-=>']
-
 # チートシート表示
 [[plugins]]
 repo             = 'reireias/vim-cheatsheet'
@@ -54,28 +49,15 @@ on_cmd           = ['Cheat']
 repo             = 'junegunn/vim-easy-align'
 on_map           = ['<Plug>(EasyAlign)']
 
-# カーソル機能強化
-[[plugins]]
-repo             = 'lokaltog/vim-easymotion'
-# on_map = [',']
-
-# コピペ履歴
-[[plugins]]
-repo             = 'LeafCage/yankround.vim'
-
 # Undo履歴
 [[plugins]]
 repo             = 'sjl/gundo.vim'
 on_cmd           = ['GundoToggle']
 
-# 置換強化
+# 置換プレビュー
 [[plugins]]
 repo             = 'osyo-manga/vim-over'
 on_cmd           = ['OverCommandLine']
-
-# 置換プレビュー
-[[plugins]]
-repo             = 'markonm/traces.vim'
 
 # "*.toml" シンタックスハイライト
 [[plugins]]
@@ -135,10 +117,6 @@ depends          = ['fzf']
 # Git
 [[plugins]]
 repo             = 'tpope/vim-fugitive'
-# on_cmd = ['Git']
-# hook_source = '''
-#     let g:fugitive_no_mappings = 1
-# '''
 hook_post_source = '''
     echom 'fugitive is loaded'
 '''
@@ -146,15 +124,11 @@ hook_post_source = '''
 [[plugins]]
 repo             = 'cohama/agit.vim'
 on_cmd           = ['Agit']
-# 記述の追加、削除マーカ表示
-[[plugins]]
-repo             = 'airblade/vim-gitgutter'
 
 # ALE
 [[plugins]]
 repo             = 'w0rp/ale'
 if               = "has('job') && has('channel') && has('timers')"
-# on_cmd      = ['ALEFix']
 [[plugins]]
 repo             = 'scrooloose/syntastic'
 if               = "!has('job') || !has('channel') || !has('timers')"
