@@ -84,7 +84,7 @@ ${5}
 
 #### ${number:#:text}
 
-- \# 無しとの違いは、text を変更せず Ctrl+k で 次の place holder にジャンプした際に text が消される
+- \# 無しとの違いは、text を変更せず Ctrl+k で次の place holder にジャンプした際 text が消される
 
 #### ${number:TARGET}
 
@@ -112,4 +112,4 @@ ${4}
 #### ${0}
 
 - 最後にジャンプする場所
-- number1 から順に飛んで最後に 0 に飛ぶ
+- number1 から順に飛んで最後に 0 へ飛ぶ

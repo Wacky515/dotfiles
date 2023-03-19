@@ -320,6 +320,12 @@
   - diffoff:       Diff モードを終了
   - diffupdate:    Diff 状態をアップデート
 
+## スニペット
+
+- 以下の入力を C-k で決定する
+
+- ＊
+
 ## Plugin キーバインド割込み対策
 
 - "mapkey.vim" に記載

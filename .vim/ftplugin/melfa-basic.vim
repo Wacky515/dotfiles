@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2021/12/25 19:05:37
-" Last Change: 2023/03/03 14:34:30.
+" Last Change: 2023/03/19 19:08:39.
 
 " ------------------------------------------------------------------------------
 "  基本設定
@@ -51,13 +51,16 @@ syntax match   melfaExtVarType  "C_"
 
 syntax keyword melfaRobotCtrl1  Mvs
 syntax keyword melfaRobotCtrl2  Mov
+syntax keyword melfaRobotCtrl3  Cnt
 syntax keyword melfaRobotCtrl3  HOpen
 syntax keyword melfaRobotCtrl3  HClose
 syntax keyword melfaRobotCtrl4  Ovrd
 syntax keyword melfaRobotCtrl4  Spd
 
 syntax keyword melfaExternalSig M_In
+syntax keyword melfaExternalSig M_In16
 syntax keyword melfaExternalSig M_Out
+syntax keyword melfaExternalSig M_Out16
 
 syntax keyword melfaStop        End
 syntax keyword melfaStop        Hlt
@@ -66,6 +69,7 @@ syntax keyword melfaRobotCtrl   Ovrd
 syntax keyword melfaRobotCtrl   Fine
 syntax keyword melfaRobotCtrl   Tool
 syntax keyword melfaRobotCtrl   Open
+syntax keyword melfaRobotCtrl   Close
 syntax keyword melfaRobotCtrl   Input
 syntax keyword melfaRobotCtrl   Print
 syntax keyword melfaRobotCtrl   GoTo
