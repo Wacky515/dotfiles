@@ -1,17 +1,14 @@
 scriptencoding utf-8
 " Created:     2018/03/19 09:07:48
-" Last Change: 2019/11/22 17:01:54.
+" Last Change: 2023/03/19 09:21:48.
 
 " ------------------------------------------------------------------------------
 "  マップキー
 " ------------------------------------------------------------------------------
-" TODO: 縦分割にしたい(現状は仮挙動、遅い)
-" TODO: F8 動作をトグルしたい
-" <F8>: スニペット登録/編集
-" nnoremap <F8> :NeoSnippetEdit<CR>
+" <F8>:         スニペット登録/編集
 nnoremap <F8> :vsplit <CR> :NeoSnippetEdit<CR>
 
-" <C-k>: ターゲットジャンプ
+" <C-k>:        ターゲットジャンプ
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)

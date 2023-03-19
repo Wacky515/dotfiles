@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2023/03/18 16:07:30.
+" Last Change: 2023/03/19 10:20:13.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -119,13 +119,16 @@ inoremap <expr> ,dt strftime('%H:%M')
 if !(has("win32") || has("win64"))
     nnoremap <S-Left>  <C-w><<CR>
     nnoremap <S-Right> <C-w>><CR>
-    nnoremap <S-Up>    <C-w>-<CR>
-    nnoremap <S-Down>  <C-w>+<CR>
-" else{{{
-"     nnoremap <S-Left>  <C-w>h  " "yankround" と重複
-"     nnoremap <S-Right> <C-w>l  " "yankround" と重複
-"     nnoremap <S-Up>    <C-w>k
-"     nnoremap <S-Down>  <C-w>j}}}
+    " MEMO: "yankround.vim" と重複
+    " nnoremap <S-Up>    <C-w>-<CR>
+    " nnoremap <S-Down>  <C-w>+<CR>
+" else  " {{{
+    " nnoremap <S-Left>  <C-w><<CR>
+    " nnoremap <S-Right> <C-w>><CR>
+    "  MEMO: "yankround.vim" と重複
+    " nnoremap <S-Up>    <C-w>k
+    " nnoremap <S-Down>  <C-w>j
+"     " }}}
 endif
 
 " F3: カーソル位置の "Syntax highlight" を調査
@@ -136,15 +139,15 @@ if has("nvim")
   tnoremap <silent> <Esc> <C-\><C-n>
 endif
 
-" TODO: LinuxのNeoVimで確認
+" TODO: "Linux" の "NeoVim" で確認
 " w!!: スーパーユーザーとして保存
     " "sudo" が使える環境限定
 if has("unix")
     cmap w!! w !sudo tee > /dev/null %
 endif
 
-" TODO: マークにジャンプ時、画面をトップに位置にする
 " " カーソル位置のマーク " {{{
+" TODO: マークにジャンプ時、画面をトップに位置にする
 " nnoremap <expr> m  <SID>hint_cmd_output('m', 'marks')
 " " マーク位置へジャンプ
 " nnoremap <expr> `  <SID>hint_cmd_output('`', 'marks')
@@ -295,8 +298,7 @@ command! -nargs=1 -complete=command CopyCmdOutput call
             \ <SID>func_copy_cmd_output(<q-args>)
 
 " ------------------------------------------------------------------------------
-"  キーバインド割込み対策
-" ------------------------------------------------------------------------------
+"  キーバインド割込み対策  " {{{
 " Plugin キーバインド割込み対策
     " 1.
     " ```VimScript
@@ -313,3 +315,5 @@ command! -nargs=1 -complete=command CopyCmdOutput call
     " <C-i><C-i>: カーソル位置 進む
     " nnoremap <C-i> <Nop>
     " autocmd VimEnter * nnoremap <C-i> <C-i>
+" }}}
+" ------------------------------------------------------------------------------

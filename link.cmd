@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2023/03/04 16:14:26.
+rem Last Change: 2023/03/19 08:51:55.
 
 set batch_title=Make link dotfiles
 title %batch_title%
@@ -32,9 +32,12 @@ if %errorlevel% equ 0 (
 ) else if exist C:\tools\neovim\Neovim\bin\nvim-qt.exe (
     echo ^>^> Already installed NeoVim, exist nvim-qt.exe
     goto link_nvim
+) else if exist C:\ProgramData\chocolatey\bin\nvim-qt.exe (
+    echo ^>^> Already installed NeoVim, exist nvim-qt.exe
+    goto link_nvim
 ) else (
     echo ^>^> NOT INSTALLED NEOVIM, SKIP MAKE LINK
-    goto jdg_nyao
+    goto link_git
 )
 
 :link_nvim
@@ -161,5 +164,5 @@ echo ^>^> End set link
 popd
 endlocal
 
-rem pause
+pause
 exit /b 0

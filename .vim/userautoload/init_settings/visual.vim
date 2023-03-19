@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/14 14:59:36
-" Last Change: 2023/03/11 12:20:16.
+" Last Change: 2023/03/19 09:35:04.
 " MEMO: "gui_running" ではなくても設定できるもの
     " "gui_running" 必須のものは ".gvimrc" に記述
 
@@ -13,7 +13,7 @@ set t_Co=256
 " 行番号 表示
 set number
 " NOTWORK: 選択行 行番号色
-" highlight LineNr ctermfg=darkyellow
+highlight LineNr ctermfg=darkyellow
 
 " 選択行 強調
 set cursorline

@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2023/03/04 16:27:00
-" Last Change: 2023/03/18 16:10:48.
+" Last Change: 2023/03/19 09:59:39.
 
 " ------------------------------------------------------------------------------
 "  外観テーマ
@@ -71,8 +71,8 @@ if !has("nvim")
             " Windows Cica 専用設定 ("NeoVim" 版設定探す)
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "SALADCARBONX1"
-            set   guifont=Cica:h13
-            set printfont=Cica:h13
+            set   guifont=Cica:h12
+            set printfont=Cica:h12
             set renderoptions=type:directx,renmode:5
         elseif hostname() == "SALADSURFACEGO"
             set   guifont=Cica:h13
