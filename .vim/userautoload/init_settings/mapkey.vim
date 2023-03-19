@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2023/03/19 10:20:13.
+" Last Change: 2023/03/19 12:48:12.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -184,10 +184,10 @@ nnoremap <Leader>y ggVGy
 " <Leader><Leader>: ビジュアルラインモードに切替え
 nmap <Leader><Leader> V
 
-" <Leader>s:  ウィンドウを縦分割
+" <Leader>s:  ウィンドウ 縦分割
 nnoremap <Leader>s :<C-u>sp<CR>
 
-" <Leader>v:  ウィンドウを横分割
+" <Leader>v:  ウィンドウ 横分割
 nnoremap <Leader>v :<C-u>vs<CR><C-w>l
 
 " <Leader>tn:  新規タブを作成
