@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2023/03/18 16:25:20.
+" Last Change: 2023/03/19 14:53:27.
 
 " !!!: 必ず先頭に記述
 " "autocmd(マクロ)" の初期化
@@ -30,7 +30,11 @@ runtime! userautoload/init_settings/*.vim
 " ------------------------------------------------------------------------------
 if has("vim_starting")
     if has("mac")
-        let g:python3_host_prog = "/usr/local/bin/python3"
+        if hostname() == "SaladBookAirM1"
+            let g:python3_host_prog = "/opt/homebrew/bin/python3"
+        else
+            let g:python3_host_prog = "/usr/local/bin/python3"
+        endif
         let g:python_host_prog  = "/usr/bin/python"
 
     elseif has("unix")
@@ -42,21 +46,6 @@ if has("vim_starting")
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
         let g:python_host_prog  =
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
-    endif
-endif
-
-" ------------------------------------------------------------------------------
-"  "pythonthreedll" 設定読込み  " {{{
-    " MEMO:
-        " "Vim" で "Dark powed" するための設定
-        " "Python3.6.*" でないと "Dark powed" できない
-        " "jedi-vim" で "Anaconda3" のライブラリを補完
-        " }}}
-" ------------------------------------------------------------------------------
-if has("vim_starting")
-    if (has("unix") && !has("mac"))
-        set pythonthreedll  = $VIM."/python3/python35.dll"
-        set pythonthreehome = $VIM."/python3/"
     endif
 endif
 

@@ -105,8 +105,8 @@ inoremap <expr> ,dd strftime('%Y/%m/%d')
 " ,dt: 時分
 inoremap <expr> ,dt strftime('%H:%M')
 
-" " 挿入モードで曜日挿入
-" let weeks = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ]  " {{{
+" " 挿入モードで曜日挿入  " {{{
+" let weeks = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ]
 " let wday = strftime("%w")
 " " ,ds: 年月日曜日
 " inoremap <expr> ,ds strftime('%Y/%m/%d ').weeks[wday]
