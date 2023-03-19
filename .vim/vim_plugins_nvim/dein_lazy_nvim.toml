@@ -44,6 +44,11 @@ repo             = 'vim-scripts/autodate.vim'
 repo             = 'reireias/vim-cheatsheet'
 on_cmd           = ['Cheat']
 
+# ウィンドウ リサイズ
+[[plugins]]
+repo             = 'simeji/winresizer'
+# on_cmd           = ['***']
+
 # テキスト整形
 [[plugins]]
 repo             = 'junegunn/vim-easy-align'

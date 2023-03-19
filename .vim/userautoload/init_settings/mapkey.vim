@@ -114,23 +114,6 @@ inoremap <expr> ,dt strftime('%H:%M')
 " inoremap <expr> ,dy strftime('').weeks[wday]
 " }}}
 
-" <Shift><矢印>: ウィンドウサイズ変更
-    " FIXME: Windows 動作せず
-if !(has("win32") || has("win64"))
-    nnoremap <S-Left>  <C-w><<CR>
-    nnoremap <S-Right> <C-w>><CR>
-    " MEMO: "yankround.vim" と重複
-    " nnoremap <S-Up>    <C-w>-<CR>
-    " nnoremap <S-Down>  <C-w>+<CR>
-" else  " {{{
-    " nnoremap <S-Left>  <C-w><<CR>
-    " nnoremap <S-Right> <C-w>><CR>
-    "  MEMO: "yankround.vim" と重複
-    " nnoremap <S-Up>    <C-w>k
-    " nnoremap <S-Down>  <C-w>j
-"     " }}}
-endif
-
 " F3: カーソル位置の "Syntax highlight" を調査
 nnoremap <F3> :<C-u>echo synIDattr(synID(line("."), col("."), 1), "name")<CR>
 
@@ -232,7 +215,7 @@ nnoremap <C-s> :<C-u>browse sav<CR>
 nnoremap <Leader>bk :<C-u>w %.bk
 
 " <Leader>q:  ファイルを閉じる
-nnoremap <Leader>q :<C-u>q<CR>
+nnoremap <Leader>q :<C-u>qa<CR>
 
 " <Leader>l:  スペルチェックON/OFFをトグル
 nnoremap <silent> <Leader>l :<C-u>set spell!<CR>
@@ -301,19 +284,17 @@ command! -nargs=1 -complete=command CopyCmdOutput call
 "  キーバインド割込み対策  " {{{
 " Plugin キーバインド割込み対策
     " 1.
-    " ```VimScript
     " autocmd VimEnter * imap <Nul> <C-Space>
-    " ```
     "   - "autocmd" イベントで "VimEnter" を指定する
     "     - 基本的に "Plugin" より後に読込まれる
     "     - "Plugin" の上書きはある程度回避できる
 
-    " 2.
-    " " let g:ctrlp_map = '<nop>'
-    "     nnoremap <Leader>e :CtrlP ~/<CR>
-
     " <C-i><C-i>: カーソル位置 進む
     " nnoremap <C-i> <Nop>
     " autocmd VimEnter * nnoremap <C-i> <C-i>
-" }}}
+
+    " 2.
+    " " let g:ctrlp_map = '<nop>'
+    "     nnoremap <Leader>e :CtrlP ~/<CR>
+    " }}}
 " ------------------------------------------------------------------------------
