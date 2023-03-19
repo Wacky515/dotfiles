@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Make symbolic link
 # Created:     2017/02/08 **:**:**
-# Last Change: 2023/03/14 22:29:00.
+# Last Change: 2023/03/19 18:00:00.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -42,7 +42,7 @@ gm_echo ">> Start dotfiles link"
 
 # "fish" 設定
 if [ ! -e ~/.config/fish/ ]; then
-    sudo -- bash -c "mkdir -m 777 ~/.config/fish/"
+    sudo -- bash -c "mkdir -p -m 777 ~/.config/fish/"
 fi
 for g in *.fish
 do
