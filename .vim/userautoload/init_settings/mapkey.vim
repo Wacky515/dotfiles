@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2023/03/19 10:20:13.
+" Last Change: 2023/03/19 12:48:12.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -105,31 +105,14 @@ inoremap <expr> ,dd strftime('%Y/%m/%d')
 " ,dt: 時分
 inoremap <expr> ,dt strftime('%H:%M')
 
-" " 挿入モードで曜日挿入
-" let weeks = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ]  " {{{
+" " 挿入モードで曜日挿入  " {{{
+" let weeks = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ]
 " let wday = strftime("%w")
 " " ,ds: 年月日曜日
 " inoremap <expr> ,ds strftime('%Y/%m/%d ').weeks[wday]
 " " ,dy: 曜日のみ
 " inoremap <expr> ,dy strftime('').weeks[wday]
 " }}}
-
-" <Shift><矢印>: ウィンドウサイズ変更
-    " FIXME: Windows 動作せず
-if !(has("win32") || has("win64"))
-    nnoremap <S-Left>  <C-w><<CR>
-    nnoremap <S-Right> <C-w>><CR>
-    " MEMO: "yankround.vim" と重複
-    " nnoremap <S-Up>    <C-w>-<CR>
-    " nnoremap <S-Down>  <C-w>+<CR>
-" else  " {{{
-    " nnoremap <S-Left>  <C-w><<CR>
-    " nnoremap <S-Right> <C-w>><CR>
-    "  MEMO: "yankround.vim" と重複
-    " nnoremap <S-Up>    <C-w>k
-    " nnoremap <S-Down>  <C-w>j
-"     " }}}
-endif
 
 " F3: カーソル位置の "Syntax highlight" を調査
 nnoremap <F3> :<C-u>echo synIDattr(synID(line("."), col("."), 1), "name")<CR>
@@ -201,10 +184,10 @@ nnoremap <Leader>y ggVGy
 " <Leader><Leader>: ビジュアルラインモードに切替え
 nmap <Leader><Leader> V
 
-" <Leader>s:  ウィンドウを縦分割
+" <Leader>s:  ウィンドウ 縦分割
 nnoremap <Leader>s :<C-u>sp<CR>
 
-" <Leader>v:  ウィンドウを横分割
+" <Leader>v:  ウィンドウ 横分割
 nnoremap <Leader>v :<C-u>vs<CR><C-w>l
 
 " <Leader>tn:  新規タブを作成
@@ -232,7 +215,7 @@ nnoremap <C-s> :<C-u>browse sav<CR>
 nnoremap <Leader>bk :<C-u>w %.bk
 
 " <Leader>q:  ファイルを閉じる
-nnoremap <Leader>q :<C-u>q<CR>
+nnoremap <Leader>q :<C-u>qa<CR>
 
 " <Leader>l:  スペルチェックON/OFFをトグル
 nnoremap <silent> <Leader>l :<C-u>set spell!<CR>
@@ -301,19 +284,17 @@ command! -nargs=1 -complete=command CopyCmdOutput call
 "  キーバインド割込み対策  " {{{
 " Plugin キーバインド割込み対策
     " 1.
-    " ```VimScript
     " autocmd VimEnter * imap <Nul> <C-Space>
-    " ```
     "   - "autocmd" イベントで "VimEnter" を指定する
     "     - 基本的に "Plugin" より後に読込まれる
     "     - "Plugin" の上書きはある程度回避できる
 
-    " 2.
-    " " let g:ctrlp_map = '<nop>'
-    "     nnoremap <Leader>e :CtrlP ~/<CR>
-
     " <C-i><C-i>: カーソル位置 進む
     " nnoremap <C-i> <Nop>
     " autocmd VimEnter * nnoremap <C-i> <C-i>
-" }}}
+
+    " 2.
+    " " let g:ctrlp_map = '<nop>'
+    "     nnoremap <Leader>e :CtrlP ~/<CR>
+    " }}}
 " ------------------------------------------------------------------------------

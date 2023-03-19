@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2023/03/18 16:25:20.
+" Last Change: 2023/03/19 14:52:57.
 
 " !!!: 必ず先頭に記述
 " "autocmd(マクロ)" の初期化
@@ -46,7 +46,11 @@ runtime! userautoload/init_settings/*.vim
 " ------------------------------------------------------------------------------
 if has("vim_starting")
     if has("mac")
-        let g:python3_host_prog = "/usr/local/bin/python3"
+        if hostname() == "SaladBookAirM1"
+            let g:python3_host_prog = "/opt/homebrew/bin/python3"
+        else
+            let g:python3_host_prog = "/usr/local/bin/python3"
+        endif
         let g:python_host_prog  = "/usr/bin/python"
 
     elseif has("unix")
@@ -58,31 +62,6 @@ if has("vim_starting")
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
         let g:python_host_prog  =
             \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
-    endif
-endif
-
-" ------------------------------------------------------------------------------
-"  "pythonthreedll" 設定読込み  " {{{
-    " MEMO:
-        " "Vim" で "Dark powed" するための設定
-        " "Python3.6.*" でないと "Dark powed" できない
-        " "jedi-vim" で "Anaconda3" のライブラリを補完
-        " }}}
-" ------------------------------------------------------------------------------
-if has("vim_starting")
-    if has("mac")
-        set pythonthreedll  =
-            \ "/usr/local/Cellar/python@3.9/3.9.2/Frameworks/Python.framework/Versions/3.9/Python"
-        set pythonthreehome =
-            \ "/usr/local/Cellar/python@3.9/3.9.2/Frameworks/Python.framework/Versions/3.9/"
-
-    elseif has("unix")
-        set pythonthreedll  = $VIM."/python3/python35.dll"
-        set pythonthreehome = $VIM."/python3/"
-
-    elseif (has("win32") || has("win64"))
-        " MEMO: 下記をスペース揃えしない事
-        set pythonthreedll=$HOME./AppData/Local/Programs/Python/Python36/python36.dll
     endif
 endif
 
@@ -145,8 +124,8 @@ if dein#load_state(s:plugin_dir)
         call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
     endif
 
-    call dein#add("roxma/nvim-yarp")
-    call dein#add("roxma/vim-hug-neovim-rpc")
+    " call dein#add("roxma/nvim-yarp")
+    " call dein#add("roxma/vim-hug-neovim-rpc")
 
     " 設定終了
     call dein#end()
@@ -173,26 +152,26 @@ if !has("gui_runnig") && (has("mac") || has("win32") || has("win64"))
 endif
 
 " ------------------------------------------------------------------------------
-" Syntax highlight 解説  " {{{
-" ファイルタイプ系ハイライト"Plugin" を導入している場合
-" "syntax on" は現在の "runtimepath" の設定で "Syntax"を生成
-" "runtimepath" 初期化後の "syntax on" はあまり意味が無く
-" "runtimepath" 設定後に "syntax on" すべき
+"  Syntax highlight 解説  " {{{
+    " ファイルタイプ系ハイライト"Plugin" を導入している場合
+    " "syntax on" は現在の "runtimepath" の設定で "Syntax"を生成
+    " "runtimepath" 初期化後の "syntax on" はあまり意味が無く
+    " "runtimepath" 設定後に "syntax on" すべき
 
-" # 悪いパターン
-" "runtimepath" 初期化処理
-" set runtimepath=$VIMRUNTIME
-" syntax on
-" ファイルタイプ系ハイライト"Plugin"
-" neoBundle 'kongo2002/fsharp-vim'
+    " # 悪いパターン
+    " "runtimepath" 初期化処理
+    " set runtimepath=$VIMRUNTIME
+    " syntax on
+    " ファイルタイプ系ハイライト"Plugin"
+    " neoBundle 'kongo2002/fsharp-vim'
 
-" # 良いパターン
-" "runtimepath" 初期化処理
-" set runtimepath=$VIMRUNTIME
-" ファイルタイプ系ハイライト"Plugin"
-" neoBundle 'kongo2002/fsharp-vim'
-" syntax on
-" }}}
+    " # 良いパターン
+    " "runtimepath" 初期化処理
+    " set runtimepath=$VIMRUNTIME
+    " ファイルタイプ系ハイライト"Plugin"
+    " neoBundle 'kongo2002/fsharp-vim'
+    " syntax on
+    " }}}
 " ------------------------------------------------------------------------------
 if has("syntax")
   syntax on
