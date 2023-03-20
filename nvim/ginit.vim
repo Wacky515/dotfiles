@@ -3,7 +3,7 @@ scriptencoding utf-8
 " Last Change: 2023/03/18 15:23:45.
 " FIXME: "Mac" で "ginit.vim" 読込むとエラー
 
-colorscheme iceberg
+" colorscheme iceberg
 
 " ------------------------------------------------------------------------------
 "  基本設定

@@ -93,22 +93,6 @@ if !has("nvim")
             set   guifont=Cica:h14
             set printfont=Cica:h14
             set renderoptions=type:directx,renmode:5
-        elseif hostname() == "SMM0761"
-            set   guifont=Cica:h12
-            set printfont=Cica:h12
-            set renderoptions=type:directx,renmode:5
-        elseif hostname() == "SMM1319"
-            set   guifont=Cica:h12
-            set printfont=Cica:h12
-            set renderoptions=type:directx,renmode:5
-        elseif hostname() == "SMM1380"
-            set   guifont=Cica:h12
-            set printfont=Cica:h12
-            set renderoptions=type:directx,renmode:5
-        elseif hostname() == "SMM1496"
-            set   guifont=Cica:h12
-            set printfont=Cica:h12
-            set renderoptions=type:directx,renmode:5
         else
             set   guifont=Cica:h14
             set printfont=Cica:h14

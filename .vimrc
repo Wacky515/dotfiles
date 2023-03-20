@@ -143,10 +143,10 @@ runtime! userautoload/plugin_settings_nvim/*.vim
 " ------------------------------------------------------------------------------
 "  最終処理
 " ------------------------------------------------------------------------------
-" "colorscheme" 設定
 " CHK: ".gvimrc" と統一しなくていいか？
 if !has("gui_runnig") && (has("mac") || has("win32") || has("win64"))
-    " !!!: "visual.vim" で無く、ここに記述
+    " "colorscheme" 設定
+        " !!!: "visual.vim" で無く、ここに記述
     colorscheme iceberg
     " コマンドライン(画面下部) 高さ
     set cmdheight=5

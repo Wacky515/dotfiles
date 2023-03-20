@@ -19,7 +19,6 @@ inoremap jj <Esc>
 vnoremap v $h
 " Y:  カーソルから行末までヤンク
 
-
 " 複数行をインデント
 vnoremap > >gv
 vnoremap < <gv
@@ -29,7 +28,7 @@ noremap <C-p> <C-y>
 " <Ctrl>n: 下方向に1行分スクロール
 noremap <C-n> <C-e>
 
-if !has("nvim")
+if has("nvim")
     nnoremap gg gg^
 endif
 
@@ -85,20 +84,17 @@ elseif has("nvim")
     " ,g: gvimrcを反映
     nnoremap <silent> ,g :<C-u>source ~/dotfiles/.gvimrc<CR>
 endif
-
+" ------------------------------------------------------------------------------
+"  基本設定
+" ------------------------------------------------------------------------------
 " dl: 仕切り線を挿入
-" noremap dl
-" \ i-----------------------------------------------------------------------------
-" \ <Esc>:<C-u>TComment<CR>^
 noremap dl 78i-<Esc>:<C-u>TComment<CR>o<Esc>
 
 " dm: 仕切り線(マップキー)を挿入
-" noremap db 78i-<Esc>:<C-u>TComment<CR>yypO<Space>マップキー<Esc>jo
 noremap dm 78i-<Esc>yypO<Space>マップキー<Esc>k<S-v>jj:TComment<CR>jjo<Esc>
 
 " db: 仕切り線(基本設定)を挿入
-" noremap db 78i-<Esc>:<C-u>TComment<CR>yypO<Space>基本設定<Esc>jo
-noremap dm 78i-<Esc>yypO<Space>基本設定<Esc>k<S-v>jj:TComment<CR>jjo<Esc>
+noremap db 78i-<Esc>yypO<Space>基本設定<Esc>k<S-v>jj:TComment<CR>jjo<Esc>
 
 " 挿入モードで日時挿入
 " ,df: フルセット
@@ -202,22 +198,24 @@ nnoremap <silent> <Leader>bp :<C-u>bprevious<CR>
 nnoremap <silent> <Leader>bn :<C-u>bnext<CR>
 " <Leader>bb: 直前のバッファを開く
 nnoremap <silent> <Leader>bb :<C-u>b#<CR>
-" <Ctrl>j:    裏バッファを開く
-nnoremap <C-j> <C-^>
 
 " <Leader>bo: エクスプローラで新規ファイルを開く
-nnoremap <silent> <Leader>bo :<C-u>browse open<CR>
+if !has("nvim")
+    nnoremap <silent> <Leader>bo :<C-u>browse open<CR>
+endif
 
 " <Leader>w:  ファイルを保存
 autocmd VimEnter * nnoremap <Leader>w :<C-u>w<CR>
 
 " <Ctrl>s:    エクスプローラで保存場所を選択して編集中のファイルを保存
-nnoremap <C-s> :<C-u>browse sav<CR>
+if !has("nvim")
+    nnoremap <C-s> :<C-u>browse sav<CR>
+endif
 
 " <Leader>bk: バックアップファイル(%.bk)作成
 nnoremap <Leader>bk :<C-u>w %.bk
 
-" <Leader>q:  ファイルを閉じる
+" <Leader>q:  全ファイルを閉じる
 nnoremap <Leader>q :<C-u>qa<CR>
 
 " <Leader>l:  スペルチェックON/OFFをトグル
