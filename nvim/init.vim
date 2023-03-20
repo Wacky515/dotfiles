@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2023/03/19 14:53:27.
+" Last Change: 2023/03/20 22:31:34.
 
 " !!!: 必ず先頭に記述
 " "autocmd(マクロ)" の初期化
@@ -124,16 +124,29 @@ runtime! userautoload/plugin_settings_nvim/*.vim
 " ------------------------------------------------------------------------------
 "  最終処理
 " ------------------------------------------------------------------------------
+" CHK: ".gvimrc" と統一しなくていいか？
+" ".vimrc + Mac" では動作せず
 if !has("gui_runnig") && (has("mac") || has("win32") || has("win64"))
-    " "colorscheme" 設定
-        " !!!: "visual.vim" で無く、ここに記述
+    "colorscheme" 設定
+        " !!!: "visual.vim" では無く、ここに記述
     colorscheme iceberg
     " コマンドライン(画面下部) 高さ
     set cmdheight=5
+
+    " NOTWORK: "Mac" では動作しない
     " タブ文字 色設定
     highlight SpecialKey guibg=NONE guifg=DarkGreen
     " 改行文字 色設定
     highlight NonText    guibg=NONE guifg=DarkGreen
+
+    " NOTWORK: "Mac" では動作しない
+    " "colorscheme" の設定
+    "     " !!!: "visual.vim" では無く、ここに記述
+    " set termguicolors
+    " set background=dark
+    " au MyAutoCmd VimEnter * nested colorscheme iceberg
+    " " 改行文字 色設定
+    " au MyAutoCmd VimEnter * highlight NonText guibg=NONE guifg=DarkGreen
 endif
 
 " ------------------------------------------------------------------------------

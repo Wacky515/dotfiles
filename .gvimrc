@@ -1,11 +1,12 @@
 scriptencoding utf-8
 " Created:     2023/03/04 16:27:00
-" Last Change: 2023/03/20 15:03:21.
+" Last Change: 2023/03/20 22:33:21.
 
 " ------------------------------------------------------------------------------
 "  外観テーマ
 " ------------------------------------------------------------------------------
 " "colorscheme" の設定
+"     " !!!: "visual.vim" では無く、ここに記述
 set termguicolors
 set background=dark
 au MyAutoCmd VimEnter * nested colorscheme iceberg

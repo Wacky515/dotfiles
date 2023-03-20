@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2023/03/20 14:47:38.
+" Last Change: 2023/03/20 22:31:24.
 
 " !!!: 必ず先頭に記述
 " "autocmd(マクロ)" の初期化
@@ -124,9 +124,6 @@ if dein#load_state(s:plugin_dir)
         call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
     endif
 
-    " call dein#add("roxma/nvim-yarp")
-    " call dein#add("roxma/vim-hug-neovim-rpc")
-
     " 設定終了
     call dein#end()
     call dein#save_state()
@@ -144,16 +141,28 @@ runtime! userautoload/plugin_settings_nvim/*.vim
 "  最終処理
 " ------------------------------------------------------------------------------
 " CHK: ".gvimrc" と統一しなくていいか？
+" "init.vim + Mac" では動作せず
 if !has("gui_runnig") && (has("mac") || has("win32") || has("win64"))
     " "colorscheme" 設定
         " !!!: "visual.vim" で無く、ここに記述
     colorscheme iceberg
     " コマンドライン(画面下部) 高さ
     set cmdheight=5
+
+    " NOTWORK: "Mac" では動作しない
     " タブ文字 色設定
     highlight SpecialKey guibg=NONE guifg=DarkGreen
     " 改行文字 色設定
     highlight NonText    guibg=NONE guifg=DarkGreen
+
+    " NOTWORK: "Mac" では動作しない
+    " "colorscheme" の設定
+    "     " !!!: "visual.vim" では無く、ここに記述
+    " set termguicolors
+    " set background=dark
+    " au MyAutoCmd VimEnter * nested colorscheme iceberg
+    " " 改行文字 色設定
+    " au MyAutoCmd VimEnter * highlight NonText guibg=NONE guifg=DarkGreen
 endif
 
 " ------------------------------------------------------------------------------
