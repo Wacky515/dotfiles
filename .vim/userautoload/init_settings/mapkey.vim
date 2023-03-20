@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2023/03/20 13:45:01.
+" Last Change: 2023/03/20 15:05:04.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -193,7 +193,7 @@ nnoremap <Leader>s :<C-u>sp<CR>
 " <Leader>v:  ウィンドウ 横分割
 nnoremap <Leader>v :<C-u>vs<CR><C-w>l
 
-" <Leader>tn:  新規タブを作成
+" <Leader>tn: 新規タブを作成
 nnoremap <Leader>tn :<C-u>tabnew<CR>
 
 " <Leader>bp: 前のバッファを開く
