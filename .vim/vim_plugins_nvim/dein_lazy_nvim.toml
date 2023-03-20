@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2023/03/18 16:25:20.
+# Last Change: 2023/03/20 10:37:35.
 
 # -----------------------------------------------------------------------------
 #  参考  # {{{
@@ -121,9 +121,6 @@ depends          = ['fzf']
 # Git
 [[plugins]]
 repo             = 'tpope/vim-fugitive'
-hook_post_source = '''
-    echom 'fugitive is loaded'
-'''
 # 左に差分を表示
 [[plugins]]
 repo             = 'cohama/agit.vim'

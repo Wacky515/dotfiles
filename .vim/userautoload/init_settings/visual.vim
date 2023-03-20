@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/14 14:59:36
-" Last Change: 2023/03/19 09:35:04.
+" Last Change: 2023/03/20 14:56:42.
 " MEMO: "gui_running" ではなくても設定できるもの
     " "gui_running" 必須のものは ".gvimrc" に記述
 
@@ -12,21 +12,24 @@ set t_Co=256
 
 " 行番号 表示
 set number
-" NOTWORK: 選択行 行番号色
-highlight LineNr ctermfg=darkyellow
 
 " 選択行 強調
 set cursorline
 " 選択列 強調
 set cursorcolumn
 
+" NOTWORK:
+" 選択行 行番号色
+" highlight LineNr ctermfg=darkyellow
+
 " 不可視文字 表示
+	 " < タブ見本
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
-" タブ文字の色設定
-highlight SpecialKey guibg=NONE guifg=Gray40
-" 改行文字の色設定
-highlight NonText    guibg=NONE guifg=DarkGreen
+
+" MEMO: ".vimrc"、".gvimrc" に移管
+" " タブ文字 色設定
+" " 改行文字 色設定
 
 " 補完メニュー 高さ
 set pumheight=10
@@ -148,13 +151,13 @@ endif
 " ------------------------------------------------------------------------------
 "  コマンドラインモード表示
 " ------------------------------------------------------------------------------
-" コマンドライン("Vim" 画面下部)高さ
-    " MEMO: ここに記述すると個動作しないため ".gvimrc" に移管
-" set cmdheight=5
-
 " コマンドラインモード 補完GUI
 " 候補をリストで表示し "TAB" でフォーカス
 set wildmenu wildmode=list:full
+
+" 画面下部コマンドライン 高さ
+    " MEMO: 動作しないため ".gvimrc" に移管
+" set cmdheight=5
 
 " ------------------------------------------------------------------------------
 "  ステータス行表示

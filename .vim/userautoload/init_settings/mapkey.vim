@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2023/03/19 12:48:12.
+" Last Change: 2023/03/20 13:45:01.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -9,8 +9,8 @@ scriptencoding utf-8
         " 2. ,
         " 3. s
         " 4. t
-        " m(prefixに)
-" }}}
+        " 5. m < prefixに
+    " }}}
 " ------------------------------------------------------------------------------
 " 挿入モードで jj: <Esc>
 inoremap jj <Esc>
@@ -18,7 +18,7 @@ inoremap jj <Esc>
 " vv: カーソルから行末まで選択
 vnoremap v $h
 " Y:  カーソルから行末までヤンク
-nnoremap Y y$
+
 
 " 複数行をインデント
 vnoremap > >gv
@@ -87,15 +87,18 @@ elseif has("nvim")
 endif
 
 " dl: 仕切り線を挿入
-noremap dl
-\ i-----------------------------------------------------------------------------
-\ <Esc>:<C-u>TComment<CR>^
+" noremap dl
+" \ i-----------------------------------------------------------------------------
+" \ <Esc>:<C-u>TComment<CR>^
+noremap dl 78i-<Esc>:<C-u>TComment<CR>o<Esc>
 
 " dm: 仕切り線(マップキー)を挿入
-noremap dm 78i-<Esc>:<C-u>TComment<CR>yypO<Space>マップキー<Esc>jo
+" noremap db 78i-<Esc>:<C-u>TComment<CR>yypO<Space>マップキー<Esc>jo
+noremap dm 78i-<Esc>yypO<Space>マップキー<Esc>k<S-v>jj:TComment<CR>jjo<Esc>
 
 " db: 仕切り線(基本設定)を挿入
-noremap db 78i-<Esc>:<C-u>TComment<CR>yypO<Space>基本設定<Esc>jo
+" noremap db 78i-<Esc>:<C-u>TComment<CR>yypO<Space>基本設定<Esc>jo
+noremap dm 78i-<Esc>yypO<Space>基本設定<Esc>k<S-v>jj:TComment<CR>jjo<Esc>
 
 " 挿入モードで日時挿入
 " ,df: フルセット

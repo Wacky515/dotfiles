@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/08 22:24:35
-" Last Change: 2023/03/02 10:57:38.
+" Last Change: 2023/03/20 14:26:54.
 
 " MEMO: 詳細設定は "~/dotfiles/.vim/ftplugin/*.vim" に記述
 augroup filetypedetect
@@ -19,9 +19,9 @@ augroup END
 
 " オプション名 | 補足
 " -------------+----------------------------------------------------------------
-" expandtab    | "Tab" 押下で入力されるスペースの数
+" expandtab    | "TAB" 押下で入力されるスペースの数
 " tabstop      | 画面上で表示する1つのタブ文字の幅
-" softtabstop  | 連続した空白に対して "Tab" や "BS" 押下で動くカーソル幅
+" softtabstop  | 連続した空白に対して "TAB" や "BS" 押下で動くカーソル幅
 " autoindent   | コマンド・改行・自動インデント時、現在行と同じインデントを挿入
 " smartindent  | 改行時に前行の構文をチェックし次行のインデントを増減
 "              | "{" があると次行は自動で1段深く自動インデント
