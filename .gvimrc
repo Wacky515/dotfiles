@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2023/03/04 16:27:00
-" Last Change: 2023/03/20 22:33:21.
+" Last Change: 2023/03/21 15:46:59.
 
 " ------------------------------------------------------------------------------
 "  外観テーマ
@@ -13,6 +13,8 @@ au MyAutoCmd VimEnter * nested colorscheme iceberg
 
 " 改行文字 色設定
 au MyAutoCmd VimEnter * highlight NonText guibg=NONE guifg=DarkGreen
+
+au MyAutoCmd VimEnter * highlight DiffText cterm=bold ctermbg=9
 
 " MEMO: "visual.vim" 内のこの記述のみ適用されない
     " !!!: "KaoriYa" 用、削除しない

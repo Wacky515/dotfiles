@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/14 14:59:36
-" Last Change: 2023/03/20 14:56:42.
+" Last Change: 2023/03/21 10:48:57.
 " MEMO: "gui_running" ではなくても設定できるもの
     " "gui_running" 必須のものは ".gvimrc" に記述
 
@@ -52,9 +52,9 @@ set matchpairs& matchpairs+=<:>
     " East Asian Width Class Ambiguous の幅
 if has("Kaoriya")
     set ambiwidth=double
-elseif has("mac") && !has("gui_running")
+elseif (has("mac") && !has("gui_running"))
     set ambiwidth=double
-elseif has("unix") && has("gui_running")
+elseif (has("unix") && has("gui_running"))
     set ambiwidth=double
 else
     set ambiwidth=single

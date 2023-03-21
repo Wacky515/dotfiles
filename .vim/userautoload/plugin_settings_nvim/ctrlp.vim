@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/30 12:15:44
-" Last Change: 2023/03/21 08:05:34.
+" Last Change: 2023/03/21 13:26:46.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -57,8 +57,8 @@ let g:ctrlp_lazy_update         = 200
 "  RipGrep 設定
 " ------------------------------------------------------------------------------
 if executable("rg")
-  let g:ctrlp_user_command      = 'rg --files %s'
-  let g:ctrlp_use_caching       = 0
-  let g:ctrlp_working_path_mode = 'ra'
-  let g:ctrlp_switch_buffer     = 'et'
+    let g:ctrlp_user_command      = 'rg --files %s'
+    let g:ctrlp_use_caching       = 0
+    let g:ctrlp_working_path_mode = 'ra'
+    let g:ctrlp_switch_buffer     = 'et'
 endif

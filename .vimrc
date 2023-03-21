@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2023/03/21 07:56:55.
+" Last Change: 2023/03/21 10:53:14.
 
 " !!!: 必ず先頭に記述
 " "autocmd(マクロ)" の初期化
@@ -142,7 +142,7 @@ runtime! userautoload/plugin_settings_nvim/*.vim
 " ------------------------------------------------------------------------------
 " CHK: ".gvimrc" と統一しなくていいか？
     " "init.vim + Mac" では動作せず
-if !has("gui_runnig") && (has("mac") || has("win32") || has("win64"))
+if (!has("gui_runnig") && (has("mac") || has("win32") || has("win64")))
     " "colorscheme" 設定
         " !!!: "visual.vim" で無く、ここに記述
     colorscheme iceberg

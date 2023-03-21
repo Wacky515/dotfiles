@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2023/03/20 10:37:35.
+# Last Change: 2023/03/21 13:57:55.
 
 # -----------------------------------------------------------------------------
 #  参考  # {{{
@@ -97,26 +97,6 @@ on_cmd           = ['FZF']
 [[plugins]]
 repo             = 'junegunn/fzf.vim'
 depends          = ['fzf']
-# hook_add = '''  " {{{
-#     command! -bang -nargs=* Rg
-#                 \ call fzf#vim#grep(
-#                 \   'rg --hidden --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-#                 \   <bang>0 ? fzf#vim#with_preview('up:60%')
-#                 \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-#                 \   <bang>0)
-#     command! -bang -nargs=* Rgs
-#                 \ call fzf#vim#grep(
-#                 \   'rg --hidden --column --line-number --no-heading --color=always --smart-case --encoding Shift_JIS '.shellescape(<q-args>), 1,
-#                 \   <bang>0 ? fzf#vim#with_preview('up:60%')
-#                 \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-#                 \   <bang>0)
-#     command! -bang -nargs=* Ag
-#                 \ call fzf#vim#grep(
-#                 \   'ag --hidden --column --color --ignore .git '.shellescape(<q-args>), 0,
-#                 \   <bang>0 ? fzf#vim#with_preview('up:60%')
-#                 \           : fzf#vim#with_preview('right:50%', '?'),
-#                 \   <bang>0)
-# '''  # }}}
 
 # Git
 [[plugins]]
@@ -156,5 +136,5 @@ on_cmd           = ['BenchVimrc']
 # 日本語ヘルプ
 # MEMO: "KaoriYa" 以外の環境で必要か確認
 # Windows NeoVim 必要
-[[plugins]]
-repo             = 'vim-jp/vimdoc-ja'
+# [[plugins]]
+# repo             = 'vim-jp/vimdoc-ja'

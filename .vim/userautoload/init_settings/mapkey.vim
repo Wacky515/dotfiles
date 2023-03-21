@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2023/03/21 08:50:42.
+" Last Change: 2023/03/21 15:34:43.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -227,7 +227,7 @@ if !has("nvim")
 endif
 
 " <Leader>br: 編集中のファイルを "Chrome" で表示(汎用)
-if has("win32") || has("win64")
+if (has("win32") || has("win64"))
     nmap <Leader>br :<C-u>! start chrome.exe "%:p"<CR>
     vmap <Leader>br :<C-u>! start chrome.exe "%:p"<CR>
 endif
@@ -235,14 +235,8 @@ endif
 " ------------------------------------------------------------------------------
 "  Diff
 " ------------------------------------------------------------------------------
-" 追加された行の色
-" highlight DiffAdd ctermfg=カラー番号 ctermbg=カラー番号
-"  削除された行の色
-" highlight DiffDelete ctermfg=カラー番号 ctermbg=カラー番号
-" 変更された行の色
-" highlight DiffChange ctermfg=カラー番号 ctermbg=カラー番号
-" 変更があった文字列の色
-" highlight DiffText cterm=bold ctermfg=カラー番号 ctermbg=カラー番号
+" ,d 開始
+nnoremap ,d :<C-u>vertical diffsplit<Space>
 
 " ------------------------------------------------------------------------------
 "  コマンドライン
@@ -286,9 +280,9 @@ endfunction
 
 " ":e" などでファイルを開く時、フォルダが存在しない場合は自動作成
 function! s:mkdir(dir, force)
-    if !isdirectory(a:dir) && (a:force ||
+    if (!isdirectory(a:dir) && (a:force ||
             \ input(printf('"%s" does not exist. Create? [y/N]', a:dir)) =~?
-            \ '^y/%[es]$')
+            \ '^y/%[es]$'))
         call mkdir(iconv(a:dir, &encoding, &termencoding), "p")
     endif
 endfunction

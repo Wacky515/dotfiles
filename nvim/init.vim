@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2023/03/21 07:56:00.
+" Last Change: 2023/03/21 15:39:43.
 
 " !!!: 必ず先頭に記述
 " "autocmd(マクロ)" の初期化
@@ -104,6 +104,7 @@ if dein#load_state(s:plugin_dir)
     "*.toml" を読込み、キャッシュ
     call dein#load_toml(s:toml_nvim,            {"lazy": 0})
     call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
+
     if has("python3")
         call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
     endif
@@ -126,7 +127,7 @@ runtime! userautoload/plugin_settings_nvim/*.vim
 " ------------------------------------------------------------------------------
 " CHK: ".gvimrc" と統一しなくていいか？
     " ".vimrc + Mac" では動作せず
-if !has("gui_runnig") && (has("mac") || has("win32") || has("win64"))
+if (!has("gui_runnig") && (has("mac") || has("win32") || has("win64")))
     " "colorscheme" 設定
         " !!!: "visual.vim" では無く、ここに記述
     colorscheme iceberg
@@ -151,26 +152,26 @@ if !has("gui_runnig") && (has("mac") || has("win32") || has("win64"))
 endif
 
 " ------------------------------------------------------------------------------
-" Syntax highlight 解説  " {{{
-" ファイルタイプ系ハイライト"Plugin" を導入している場合
-" "syntax on" は現在の "runtimepath" の設定で "Syntax"を生成
-" "runtimepath" 初期化後の "syntax on" はあまり意味が無く
-" "runtimepath" 設定後に "syntax on" すべき
+"  Syntax highlight 解説  " {{{
+    " ファイルタイプ系ハイライト"Plugin" を導入している場合
+    " "syntax on" は現在の "runtimepath" の設定で "Syntax"を生成
+    " "runtimepath" 初期化後の "syntax on" はあまり意味が無く
+    " "runtimepath" 設定後に "syntax on" すべき
 
-" # 悪いパターン
-" "runtimepath" 初期化処理
-" set runtimepath=$VIMRUNTIME
-" syntax on
-" ファイルタイプ系ハイライト"Plugin"
-" neoBundle 'kongo2002/fsharp-vim'
+    " # 悪いパターン
+    " "runtimepath" 初期化処理
+    " set runtimepath=$VIMRUNTIME
+    " syntax on
+    " ファイルタイプ系ハイライト"Plugin"
+    " neoBundle 'kongo2002/fsharp-vim'
 
-" # 良いパターン
-" "runtimepath" 初期化処理
-" set runtimepath=$VIMRUNTIME
-" ファイルタイプ系ハイライト"Plugin"
-" neoBundle 'kongo2002/fsharp-vim'
-" syntax on
-" }}}
+    " # 良いパターン
+    " "runtimepath" 初期化処理
+    " set runtimepath=$VIMRUNTIME
+    " ファイルタイプ系ハイライト"Plugin"
+    " neoBundle 'kongo2002/fsharp-vim'
+    " syntax on
+    " }}}
 " ------------------------------------------------------------------------------
 if has("syntax")
   syntax on

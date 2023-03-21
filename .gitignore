@@ -1,5 +1,5 @@
 # Create:      201*/**/** **:**:**
-# Last Change: 2023/02/28 11:56:38.
+# Last Change: 2023/03/21 10:39:55.
 
 # ------------------------------------------------------------------------------
 #  独自追記
@@ -18,7 +18,7 @@ yankring_history_v2.txt
 ~/AppData/Local/nvim/.netrwhist
 ~/AppData/Local/nvim/rplugin.vim
 
-# 拡張子を無視する場合、/は記入しない
+# 拡張子を無視する場合 "/" は不要
 *.bak
 *.bk
 *.modifying
@@ -29,17 +29,19 @@ yankring_history_v2.txt
 *.stackdump
 *.tempkill*
 
-# 特定名称のディレクトリを無視する場合は先頭と末尾に/を付ける
+# 特定のディレクトリを無視する場合、先頭と末尾に "/"
 /.history/
 /.idea/
 /old/
 
-# 特定のファイルを無視する場合は先頭に/を付ける
-    # ルートディレクトリのファイルだけを無視し、サブディレクトリは無視しない
+# 特定のファイルを無視する場合、先頭に "/"
+    # 再帰処理しない
 # /foo
 /.vim/dein/*
 /.vim/tmp/*
 /.vim/undo/*
+/.config/nvim/tmp/*
+/.config/nvim/undo/*
 /.vim/userautoload/Users/*
 /etc/init/windows/settings/cygwin/apt-cyg/*
 
