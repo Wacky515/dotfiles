@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/30 12:15:44
-" Last Change: 2023/03/16 17:00:43.
+" Last Change: 2023/03/21 08:05:34.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -9,7 +9,12 @@ scriptencoding utf-8
 let g:ctrlp_map = '<nop>'
 nnoremap <C-l> <Nop>
 
-nnoremap <C-l><C-l> :<C-u>CtrlPMixed<CR>
+if (has("mac") && !has("gui_running"))
+    nnoremap <C-l><C-l> :<C-u>FZF<CR>
+else
+    nnoremap <C-l><C-l> :<C-u>CtrlPMixed<CR>
+endif
+
 nnoremap <C-l>p     :<C-u>CtrlP<CR>
 nnoremap <C-l>a     :<C-u>CtrlP<Space>
 nnoremap <C-l>b     :<C-u>CtrlPBuffer<CR>

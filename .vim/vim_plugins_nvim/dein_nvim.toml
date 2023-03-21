@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2023/03/20 13:50:53.
+# Last Change: 2023/03/21 08:31:57.
 
 # ------------------------------------------------------------------------------
 #  参考  # {{{
@@ -93,6 +93,7 @@ repo        = 'ryanoasis/vim-devicons'
 # インデント 強調
 [[plugins]]
 repo        = 'nathanaelkane/vim-indent-guides'
+if          = "!(has('mac') && has('nvim'))"
 
 # 選択テキストを'""'、"()"、"[]"などで囲む
 [[plugins]]

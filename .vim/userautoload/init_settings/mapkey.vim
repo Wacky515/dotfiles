@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2023/03/20 15:05:04.
+" Last Change: 2023/03/21 08:50:42.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -33,7 +33,7 @@ if has("nvim")
 endif
 
 " +/-: フォント 拡大/縮小
-if !has("nvim")
+if (has("gui_running") && !has("nvim"))
     nnoremap + :<C-u>silent! let &guifont = substitute(
                 \ &guifont,
                 \ ':h\zs\d\+',
@@ -41,6 +41,18 @@ if !has("nvim")
                 \ '')<CR>
     nnoremap - :<C-u>silent! let &guifont = substitute(
                 \ &guifont,
+                \ ':h\zs\d\+',
+                \ '\=eval(submatch(0)-1)',
+                \ '')<CR>
+" TEST: "Gui  nvim"  で確認
+elseif (has("gui_running") && has("nvim"))
+    nnoremap + :<C-u>silent! let &Guifont! = substitute(
+                \ &Guifont!,
+                \ ':h\zs\d\+',
+                \ '\=eval(submatch(0)+1)',
+                \ '')<CR>
+    nnoremap - :<C-u>silent! let &Guifont! = substitute(
+                \ &Guifont!,
                 \ ':h\zs\d\+',
                 \ '\=eval(submatch(0)-1)',
                 \ '')<CR>
@@ -68,25 +80,27 @@ inoremap {. {}<Left><CR><Esc><S-o>
 if !has("nvim")
     " ev: vimrcを開く
     nmap ev :<C-u>edit $MYVIMRC<CR>
-    " eg: gvimrcを開く
-    nmap eg :<C-u>edit $MYGVIMRC<CR>
     " ,v: vimrcを反映
     nnoremap <silent> ,v :<C-u>source $MYVIMRC<CR>
-    " ,g: gvimrcを反映
-    nnoremap <silent> ,g :<C-u>source $MYGVIMRC<CR>
+
+    if has("gui_running")
+        " eg: gvimrcを開く
+        nmap eg :<C-u>edit $MYGVIMRC<CR>
+        " ,g: gvimrcを反映
+        nnoremap <silent> ,g :<C-u>source $MYGVIMRC<CR>
+    endif
 elseif has("nvim")
     " ev: vimrcを開く
     nmap ev :<C-u>edit ~/dotfiles/nvim/init.vim<CR>
-    " eg: gvimrcを開く
-    nmap eg :<C-u>edit ~/dotfiles/nvim/ginit.vim<CR>
     " ,v: vimrcを反映
     nnoremap <silent> ,v :<C-u>source ~/dotfiles/.vimrc<CR>
+
+    " eg: gvimrcを開く
+    nmap eg :<C-u>edit ~/dotfiles/nvim/ginit.vim<CR>
     " ,g: gvimrcを反映
     nnoremap <silent> ,g :<C-u>source ~/dotfiles/.gvimrc<CR>
 endif
-" ------------------------------------------------------------------------------
-"  基本設定
-" ------------------------------------------------------------------------------
+
 " dl: 仕切り線を挿入
 noremap dl 78i-<Esc>:<C-u>TComment<CR>o<Esc>
 
@@ -142,30 +156,6 @@ endif
 " " マクロ再生
 " nnoremap <expr> @  <SID>hint_cmd_output('@', 'registers')
 " }}}
-
-" ------------------------------------------------------------------------------
-"  コマンドライン
-" ------------------------------------------------------------------------------
-" <Ctrl>a: 行頭へ移動
-cnoremap <C-a> <Home>
-" <Ctrl>e: 行末へ移動
-cnoremap <C-e> <End>
-" <Ctrl>b: 一文字戻る
-cnoremap <C-b> <Left>
-" <Ctrl>f: 一文字進む
-cnoremap <C-f> <Right>
-" <Meta>f: 次の単語へ移動
-cnoremap <M-f> <S-Right>
-" <Meta>b: 前の単語へ移動
-cnoremap <M-b> <S-Left>
-" <Ctrl>h: カーソル左側の文字を削除
-cnoremap <C-h> <BS>
-" <Ctrl>d: カーソル位置の文字を削除
-cnoremap <C-d> <Del>
-" <Ctrl>n: コマンド履歴を一つ進む
-cnoremap <C-n> <Down>
-" <Ctrl>p:コマンド 履歴を一つ戻る
-cnoremap <C-p> <Up>
 
 " ------------------------------------------------------------------------------
 "  リーダ
@@ -241,6 +231,42 @@ if has("win32") || has("win64")
     nmap <Leader>br :<C-u>! start chrome.exe "%:p"<CR>
     vmap <Leader>br :<C-u>! start chrome.exe "%:p"<CR>
 endif
+
+" ------------------------------------------------------------------------------
+"  Diff
+" ------------------------------------------------------------------------------
+" 追加された行の色
+" highlight DiffAdd ctermfg=カラー番号 ctermbg=カラー番号
+"  削除された行の色
+" highlight DiffDelete ctermfg=カラー番号 ctermbg=カラー番号
+" 変更された行の色
+" highlight DiffChange ctermfg=カラー番号 ctermbg=カラー番号
+" 変更があった文字列の色
+" highlight DiffText cterm=bold ctermfg=カラー番号 ctermbg=カラー番号
+
+" ------------------------------------------------------------------------------
+"  コマンドライン
+" ------------------------------------------------------------------------------
+" <Ctrl>a: 行頭へ移動
+cnoremap <C-a> <Home>
+" <Ctrl>e: 行末へ移動
+cnoremap <C-e> <End>
+" <Ctrl>b: 一文字戻る
+cnoremap <C-b> <Left>
+" <Ctrl>f: 一文字進む
+cnoremap <C-f> <Right>
+" <Meta>f: 次の単語へ移動
+cnoremap <M-f> <S-Right>
+" <Meta>b: 前の単語へ移動
+cnoremap <M-b> <S-Left>
+" <Ctrl>h: カーソル左側の文字を削除
+cnoremap <C-h> <BS>
+" <Ctrl>d: カーソル位置の文字を削除
+cnoremap <C-d> <Del>
+" <Ctrl>n: コマンド履歴を一つ進む
+cnoremap <C-n> <Down>
+" <Ctrl>p:コマンド 履歴を一つ戻る
+cnoremap <C-p> <Up>
 
 " ------------------------------------------------------------------------------
 "  基本設定
