@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2023/03/21 13:57:55.
+# Last Change: 2023/03/22 08:01:02.
 
 # -----------------------------------------------------------------------------
 #  参考  # {{{
@@ -133,8 +133,9 @@ on_cmd           = ['StartupTime']
 repo             = 'mattn/benchvimrc-vim'
 on_cmd           = ['BenchVimrc']
 
-# 日本語ヘルプ
 # MEMO: "KaoriYa" 以外の環境で必要か確認
-# Windows NeoVim 必要
+# 日本語ヘルプ
 # [[plugins]]
 # repo             = 'vim-jp/vimdoc-ja'
+# Windows NeoVim 必要
+# if               = ("has('win32') || has('win64')) && has('nvim')"

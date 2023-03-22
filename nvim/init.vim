@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2023/03/21 15:39:43.
+" Last Change: 2023/03/22 09:32:17.
 
 " !!!: 必ず先頭に記述
 " "autocmd(マクロ)" の初期化
@@ -126,29 +126,32 @@ runtime! userautoload/plugin_settings_nvim/*.vim
 "  最終処理
 " ------------------------------------------------------------------------------
 " CHK: ".gvimrc" と統一しなくていいか？
-    " ".vimrc + Mac" では動作せず
-if (!has("gui_runnig") && (has("mac") || has("win32") || has("win64")))
-    " "colorscheme" 設定
-        " !!!: "visual.vim" では無く、ここに記述
-    colorscheme iceberg
+    " !!!: "visual.vim" では無く、ここに記述
+if !has("gui_runnig")
+    if has("mac")
+        " "colorscheme" 設定
+        colorscheme iceberg
+
+        " NOTWORK:
+        " " タブ文字 色設定		  " < タブ文字見本
+        " highlight SpecialKey guibg=NONE guifg=Red
+        " " 改行文字 色設定
+        " highlight NonText    guibg=NONE guifg=DarkGreen
+
+    elseif (has("win32") || has("win64"))
+        " "colorscheme" の設定
+        set termguicolors
+        set background=dark
+        au MyAutoCmd VimEnter * nested colorscheme iceberg
+        " 改行文字 色設定
+        au MyAutoCmd VimEnter * highlight NonText    guibg=NONE guifg=DarkGreen
+        " NOTWORK:
+        " " タブ文字 色設定		  " < タブ文字見本
+        " au MyAutoCmd VimEnter * highlight SpecialKey guibg=NONE guifg=Red
+    endif
 
     " コマンドライン(画面下部) 高さ
     set cmdheight=5
-
-    " NOTWORK: "Mac" では動作しない
-    " タブ文字 色設定
-    highlight SpecialKey guibg=NONE guifg=DarkGreen
-    " 改行文字 色設定
-    highlight NonText    guibg=NONE guifg=DarkGreen
-
-    " NOTWORK: "Mac" では動作しない
-    " " "colorscheme" の設定
-    "     " !!!: "visual.vim" では無く、ここに記述
-    " set termguicolors
-    " set background=dark
-    " au MyAutoCmd VimEnter * nested colorscheme iceberg
-    " " 改行文字 色設定
-    " au MyAutoCmd VimEnter * highlight NonText guibg=NONE guifg=DarkGreen
 endif
 
 " ------------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2023/03/21 08:31:57.
+# Last Change: 2023/03/22 08:01:23.
 
 # ------------------------------------------------------------------------------
 #  参考  # {{{
@@ -70,7 +70,6 @@ repo        = 'neoclide/coc.nvim'
 rev         = 'release'
 on_i        = 1
 merged      = '0'
-# hook_source = 'call coil398#init#coc#hook_source()'
 
 # スニペット入力
 [[plugins]]

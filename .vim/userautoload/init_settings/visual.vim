@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/14 14:59:36
-" Last Change: 2023/03/21 10:48:57.
+" Last Change: 2023/03/22 09:38:31.
 " MEMO: "gui_running" ではなくても設定できるもの
     " "gui_running" 必須のものは ".gvimrc" に記述
 
@@ -23,7 +23,7 @@ set cursorcolumn
 " highlight LineNr ctermfg=darkyellow
 
 " 不可視文字 表示
-	 " < タブ見本
+" タブ文字見本 >
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 

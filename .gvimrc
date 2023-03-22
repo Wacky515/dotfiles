@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2023/03/04 16:27:00
-" Last Change: 2023/03/21 15:46:59.
+" Last Change: 2023/03/22 09:31:13.
 
 " ------------------------------------------------------------------------------
 "  外観テーマ
@@ -11,10 +11,10 @@ set termguicolors
 set background=dark
 au MyAutoCmd VimEnter * nested colorscheme iceberg
 
+" タブ文字 色設定		  " < タブ文字見本
+au MyAutoCmd VimEnter * highlight SpecialKey guibg=NONE guifg=Red
 " 改行文字 色設定
-au MyAutoCmd VimEnter * highlight NonText guibg=NONE guifg=DarkGreen
-
-au MyAutoCmd VimEnter * highlight DiffText cterm=bold ctermbg=9
+au MyAutoCmd VimEnter * highlight NonText    guibg=NONE guifg=DarkGreen
 
 " MEMO: "visual.vim" 内のこの記述のみ適用されない
     " !!!: "KaoriYa" 用、削除しない
