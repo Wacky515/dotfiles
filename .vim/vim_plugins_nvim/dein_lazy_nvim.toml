@@ -137,5 +137,5 @@ on_cmd           = ['BenchVimrc']
 # 日本語ヘルプ
 # [[plugins]]
 # repo             = 'vim-jp/vimdoc-ja'
-# Windows NeoVim 必要
+# Windows CMD NeoVim 必要
 # if               = ("has('win32') || has('win64')) && has('nvim')"

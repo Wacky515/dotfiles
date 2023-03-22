@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/03/05 21:06:40
-" Last Change: 2023/03/21 15:34:43.
+" Last Change: 2023/03/22 17:16:50.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -12,25 +12,33 @@ scriptencoding utf-8
         " 5. m < prefixに
     " }}}
 " ------------------------------------------------------------------------------
-" 挿入モードで jj: <Esc>
-inoremap jj <Esc>
+if !has("nvim")
+    " ev: vimrcを開く
+    nmap ev :<C-u>edit $MYVIMRC<CR>
+    " ,v: vimrcを反映
+    nnoremap <silent> ,v :<C-u>source $MYVIMRC<CR>
+
+    if has("gui_running")
+        " eg: gvimrcを開く
+        nmap eg :<C-u>edit $MYGVIMRC<CR>
+        " ,g: gvimrcを反映
+        nnoremap <silent> ,g :<C-u>source $MYGVIMRC<CR>
+    endif
+elseif has("nvim")
+    " ev: vimrcを開く
+    nmap ev :<C-u>edit ~/dotfiles/nvim/init.vim<CR>
+    " ,v: vimrcを反映
+    nnoremap <silent> ,v :<C-u>source ~/dotfiles/.vimrc<CR>
+
+    " eg: gvimrcを開く
+    nmap eg :<C-u>edit ~/dotfiles/nvim/ginit.vim<CR>
+    " ,g: gvimrcを反映
+    nnoremap <silent> ,g :<C-u>source ~/dotfiles/.gvimrc<CR>
+endif
 
 " vv: カーソルから行末まで選択
 vnoremap v $h
 " Y:  カーソルから行末までヤンク
-
-" 複数行をインデント
-vnoremap > >gv
-vnoremap < <gv
-
-" <Ctrl>p: 上方向に1行分スクロール
-noremap <C-p> <C-y>
-" <Ctrl>n: 下方向に1行分スクロール
-noremap <C-n> <C-e>
-
-if has("nvim")
-    nnoremap gg gg^
-endif
 
 " +/-: フォント 拡大/縮小
 if (has("gui_running") && !has("nvim"))
@@ -68,39 +76,6 @@ function! SmallerFont()
 endfunction
 command! SmallerFont call SmallerFont()
 
-" 挿入モードで "開き括弧" + .: 改行して閉じ括弧を補完(関数記述用)
-inoremap (. ()<Left><CR><Esc><S-o>
-inoremap [. []<Left><CR><Esc><S-o>
-inoremap {. {}<Left><CR><Esc><S-o>
-" MEMO: "lexima.vim" と干渉
-" inoremap '. ''''''<Left><Left><Left><CR><Esc><S-o>
-" inoremap ". """"""<Left><Left><Left><CR><Esc><S-o>
-" inoremap `. ``````<Left><Left><Left><CR><Esc><S-o>
-
-if !has("nvim")
-    " ev: vimrcを開く
-    nmap ev :<C-u>edit $MYVIMRC<CR>
-    " ,v: vimrcを反映
-    nnoremap <silent> ,v :<C-u>source $MYVIMRC<CR>
-
-    if has("gui_running")
-        " eg: gvimrcを開く
-        nmap eg :<C-u>edit $MYGVIMRC<CR>
-        " ,g: gvimrcを反映
-        nnoremap <silent> ,g :<C-u>source $MYGVIMRC<CR>
-    endif
-elseif has("nvim")
-    " ev: vimrcを開く
-    nmap ev :<C-u>edit ~/dotfiles/nvim/init.vim<CR>
-    " ,v: vimrcを反映
-    nnoremap <silent> ,v :<C-u>source ~/dotfiles/.vimrc<CR>
-
-    " eg: gvimrcを開く
-    nmap eg :<C-u>edit ~/dotfiles/nvim/ginit.vim<CR>
-    " ,g: gvimrcを反映
-    nnoremap <silent> ,g :<C-u>source ~/dotfiles/.gvimrc<CR>
-endif
-
 " dl: 仕切り線を挿入
 noremap dl 78i-<Esc>:<C-u>TComment<CR>o<Esc>
 
@@ -110,25 +85,19 @@ noremap dm 78i-<Esc>yypO<Space>マップキー<Esc>k<S-v>jj:TComment<CR>jjo<Esc>
 " db: 仕切り線(基本設定)を挿入
 noremap db 78i-<Esc>yypO<Space>基本設定<Esc>k<S-v>jj:TComment<CR>jjo<Esc>
 
-" 挿入モードで日時挿入
-" ,df: フルセット
-inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
-" ,dd: 年月日
-inoremap <expr> ,dd strftime('%Y/%m/%d')
-" ,dt: 時分
-inoremap <expr> ,dt strftime('%H:%M')
+" 複数行をインデント
+vnoremap > >gv
+vnoremap < <gv
 
-" " 挿入モードで曜日挿入  " {{{
-" let weeks = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ]
-" let wday = strftime("%w")
-" " ,ds: 年月日曜日
-" inoremap <expr> ,ds strftime('%Y/%m/%d ').weeks[wday]
-" " ,dy: 曜日のみ
-" inoremap <expr> ,dy strftime('').weeks[wday]
-" }}}
+" <Ctrl>p: 上方向に1行分スクロール
+noremap <C-p> <C-y>
+" <Ctrl>n: 下方向に1行分スクロール
+noremap <C-n> <C-e>
 
-" F3: カーソル位置の "Syntax highlight" を調査
-nnoremap <F3> :<C-u>echo synIDattr(synID(line("."), col("."), 1), "name")<CR>
+" gg: 先頭行頭へ移動
+if has("nvim")
+    nnoremap gg gg^
+endif
 
 " "NeoVim" の "Terminal mode" でノーマルモードを使用する
 if has("nvim")
@@ -157,6 +126,38 @@ endif
 " nnoremap <expr> @  <SID>hint_cmd_output('@', 'registers')
 " }}}
 
+" F3: カーソル位置の "Syntax highlight" を調査
+nnoremap <F3> :<C-u>echo synIDattr(synID(line("."), col("."), 1), "name")<CR>
+
+" 挿入モードで jj: <Esc>
+inoremap jj <Esc>
+
+" 挿入モードで "開き括弧" + .: 改行して閉じ括弧を補完(関数記述用)
+inoremap (. ()<Left><CR><Esc><S-o>
+inoremap [. []<Left><CR><Esc><S-o>
+inoremap {. {}<Left><CR><Esc><S-o>
+" MEMO: "lexima.vim" と干渉
+" inoremap '. ''''''<Left><Left><Left><CR><Esc><S-o>
+" inoremap ". """"""<Left><Left><Left><CR><Esc><S-o>
+" inoremap `. ``````<Left><Left><Left><CR><Esc><S-o>
+
+" 挿入モードで日時挿入
+" ,df: フルセット
+inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
+" ,dd: 年月日
+inoremap <expr> ,dd strftime('%Y/%m/%d')
+" ,dt: 時分
+inoremap <expr> ,dt strftime('%H:%M')
+
+" " 挿入モードで曜日挿入  " {{{
+" let weeks = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ]
+" let wday = strftime("%w")
+" " ,ds: 年月日曜日
+" inoremap <expr> ,ds strftime('%Y/%m/%d ').weeks[wday]
+" " ,dy: 曜日のみ
+" inoremap <expr> ,dy strftime('').weeks[wday]
+" }}}
+
 " ------------------------------------------------------------------------------
 "  リーダ
 " ------------------------------------------------------------------------------
@@ -170,8 +171,12 @@ nnoremap <Leader>a ggVG
 " <Leader>y:  全ヤンク
 nnoremap <Leader>y ggVGy
 
-" <Leader><Leader>: ビジュアルラインモードに切替え
-nmap <Leader><Leader> V
+" <Leader>bp: 前のバッファを開く
+nnoremap <silent> <Leader>bp :<C-u>bprevious<CR>
+" <Leader>bn: 次のバッファを開く
+nnoremap <silent> <Leader>bn :<C-u>bnext<CR>
+" <Leader>bb: 直前のバッファを開く
+nnoremap <silent> <Leader>bb :<C-u>b#<CR>
 
 " <Leader>s:  ウィンドウ 縦分割
 nnoremap <Leader>s :<C-u>sp<CR>
@@ -179,15 +184,32 @@ nnoremap <Leader>s :<C-u>sp<CR>
 " <Leader>v:  ウィンドウ 横分割
 nnoremap <Leader>v :<C-u>vs<CR><C-w>l
 
+" <Leader>fu: 改行コードを "LF"       として開き直す
+nnoremap <Leader>fu :<C-u>e ++fileformat=unix<CR>:<C-u>%s/\r//g<CR>
+" <Leader>fd: 改行コードを "CR/LF"    として開き直す
+nnoremap <Leader>fd :<C-u>e ++fileformat=dos<CR>
+" <Leader>eu: 文字コードを "UTF-8"    として開き直す
+nnoremap <Leader>eu :<C-u>e ++encoding=utf-8<CR>
+" <Leader>ej: 文字コードを "SIFT-JIS" として開き直す
+nnoremap <Leader>ej :<C-u>e ++encoding=sjis<CR>
+
+" <Leader>zh: 全角英数字を半角英数に変換
+if !has("nvim")
+    nnoremap <Leader>zh :<C-u>HzjaConvert han_eisu<Enter>
+    vnoremap <Leader>zh :<C-u>HzjaConvert han_eisu<Enter>
+endif
+
+" <Leader>br: 編集中のファイルを "Chrome" で表示(汎用)
+if (has("win32") || has("win64"))
+    nmap <Leader>br :<C-u>! start chrome.exe "%:p"<CR>
+    vmap <Leader>br :<C-u>! start chrome.exe "%:p"<CR>
+endif
+
+" <Leader><Leader>: ビジュアルラインモードに切替え
+nmap <Leader><Leader> V
+
 " <Leader>tn: 新規タブを作成
 nnoremap <Leader>tn :<C-u>tabnew<CR>
-
-" <Leader>bp: 前のバッファを開く
-nnoremap <silent> <Leader>bp :<C-u>bprevious<CR>
-" <Leader>bn: 次のバッファを開く
-nnoremap <silent> <Leader>bn :<C-u>bnext<CR>
-" <Leader>bb: 直前のバッファを開く
-nnoremap <silent> <Leader>bb :<C-u>b#<CR>
 
 " <Leader>bo: エクスプローラで新規ファイルを開く
 if !has("nvim")
@@ -210,27 +232,6 @@ nnoremap <Leader>q :<C-u>qa<CR>
 
 " <Leader>l:  スペルチェックON/OFFをトグル
 nnoremap <silent> <Leader>l :<C-u>set spell!<CR>
-
-" <Leader>fu: 改行コードを "LF"       として開き直す
-nnoremap <Leader>fu :<C-u>e ++fileformat=unix<CR>:<C-u>%s/\r//g<CR>
-" <Leader>fd: 改行コードを "CR/LF"    として開き直す
-nnoremap <Leader>fd :<C-u>e ++fileformat=dos<CR>
-" <Leader>eu: 文字コードを "UTF-8"    として開き直す
-nnoremap <Leader>eu :<C-u>e ++encoding=utf-8<CR>
-" <Leader>ej: 文字コードを "SIFT-JIS" として開き直す
-nnoremap <Leader>ej :<C-u>e ++encoding=sjis<CR>
-
-" <Leader>zh: 全角英数字を半角英数に変換
-if !has("nvim")
-    nnoremap <Leader>zh :<C-u>HzjaConvert han_eisu<Enter>
-    vnoremap <Leader>zh :<C-u>HzjaConvert han_eisu<Enter>
-endif
-
-" <Leader>br: 編集中のファイルを "Chrome" で表示(汎用)
-if (has("win32") || has("win64"))
-    nmap <Leader>br :<C-u>! start chrome.exe "%:p"<CR>
-    vmap <Leader>br :<C-u>! start chrome.exe "%:p"<CR>
-endif
 
 " ------------------------------------------------------------------------------
 "  Diff

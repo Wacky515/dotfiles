@@ -7,5 +7,5 @@ scriptencoding utf-8
 " ------------------------------------------------------------------------------
 if !has("nvim")
     " <C-=><C-=>: "TComment" 実行
-    " nnoremap <silent> <C-=><C-=> :<C-u>TComment<CR>
+    nnoremap <silent> <C-=><C-=> :<C-u>TComment<CR>
 endif
