@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/14 14:59:36
-" Last Change: 2023/03/22 09:38:31.
+" Last Change: 2023/03/23 19:43:18.
 " MEMO: "gui_running" ではなくても設定できるもの
     " "gui_running" 必須のものは ".gvimrc" に記述
 
@@ -18,9 +18,8 @@ set cursorline
 " 選択列 強調
 set cursorcolumn
 
-" NOTWORK:
-" 選択行 行番号色
-" highlight LineNr ctermfg=darkyellow
+" MEMO: ".vimrc"、".gvimrc" に移管
+" 行番号 色設定
 
 " 不可視文字 表示
 " タブ文字見本 >
@@ -28,8 +27,8 @@ set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
 " MEMO: ".vimrc"、".gvimrc" に移管
-" " タブ文字 色設定
-" " 改行文字 色設定
+" タブ文字 色設定
+" 改行文字 色設定
 
 " 補完メニュー 高さ
 set pumheight=10

@@ -1,9 +1,7 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2023/03/18 15:23:45.
+" Last Change: 2023/03/23 20:04:36.
 " FIXME: "Mac" で "ginit.vim" 読込むとエラー
-
-" colorscheme iceberg
 
 " ------------------------------------------------------------------------------
 "  基本設定

@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/09/13 12:32:57
-" Last Change: 2023/03/21 09:51:43.
+" Last Change: 2023/03/23 19:59:51.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -24,10 +24,6 @@ endif
 cmap <C-r> <Plug>(yankround-insert-register)
 " コマンドラインで前のレジスタ置換え
 cmap <C-y> <Plug>(yankround-pop)
-
-" NOTWORK: "Mac" で動作しない
-" g<C-p>:    履歴一覧(CtrlP)
-nnoremap g<C-p>    :<C-u>CtrlPYankRound<CR>
 
 " ------------------------------------------------------------------------------
 "  基本設定

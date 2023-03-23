@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2023/03/23 09:51:46.
+" Last Change: 2023/03/23 19:22:54.
 
 " !!!: 必ず先頭に記述
 " ".vimrc" をリローダブルにするため
@@ -146,13 +146,11 @@ runtime! userautoload/plugin_settings_nvim/*.vim
 if (!has("gui_runnig") && (has("mac") || has("win32") || has("win64")))
     " "colorscheme" 設定
         " !!!: "visual.vim" で無く、ここに記述
-    colorscheme iceberg
-
     augroup MyAutoCmd
-        autocmd VimEnter * nested colorscheme iceberg
-        " 改行文字 色設定
-        autocmd VimEnter * highlight NonText    guibg=NONE guifg=DarkGreen
+        autocmd vimenter * nested colorscheme hybrid
         " NOTWORK:
+        " " 改行文字 色設定
+        " autocmd VimEnter * highlight NonText    guibg=NONE guifg=DarkGreen
         " " タブ文字 色設定		  " < タブ文字見本
         " autocmd VimEnter * highlight SpecialKey guibg=NONE guifg=Red
     augroup END

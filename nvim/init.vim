@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2023/03/23 09:44:02.
+" Last Change: 2023/03/23 20:36:52.
 
 " !!!: 必ず先頭に記述
 " ".vimrc" をリローダブルにするため
@@ -145,11 +145,12 @@ if !has("gui_runnig")
         set background=dark
         augroup MyAutoCmd
             autocmd VimEnter * nested colorscheme iceberg
+            " NOTWORK: Win
             " 改行文字 色設定
             autocmd VimEnter * highlight NonText    guibg=NONE guifg=DarkGreen
             " NOTWORK:
-            " " タブ文字 色設定		  " < タブ文字見本
-            " autocmd VimEnter * highlight SpecialKey guibg=NONE guifg=Red
+            " タブ文字 色設定		  " < タブ文字見本
+            autocmd VimEnter * highlight SpecialKey guibg=NONE guifg=Red
         augroup END
     endif
 

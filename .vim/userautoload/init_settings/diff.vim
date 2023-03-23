@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2023/03/21 14:10:22
-" Last Change: 2023/03/21 16:02:47.
+" Last Change: 2023/03/23 19:54:16.
 
 " ------------------------------------------------------------------------------
 "  基本設定
@@ -20,7 +20,7 @@ scriptencoding utf-8
 endfunction
 autocmd VimEnter,FilterWritePre * call SetDiffMode()
 
-" NOTWORK:
+" MEMO: ".vimrc" に記載
 " " 追加された行の色
 " highlight DiffAdd             ctermfg=カラー番号 ctermbg=カラー番号
 " " 削除された行の色

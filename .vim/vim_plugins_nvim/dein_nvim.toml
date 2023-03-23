@@ -1,5 +1,6 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2023/03/22 08:01:23.
+# Last Change: 2023/03/23 18:53:54.
+
 
 # ------------------------------------------------------------------------------
 #  参考  # {{{
@@ -36,88 +37,89 @@
 
 # "dein.vim" 本体
 [[plugins]]
-repo        = 'Shougo/dein.vim'
+repo    = 'Shougo/dein.vim'
 
 # -----------------------------------------------------------------------------
 # lazy から移管
 # -----------------------------------------------------------------------------
 # コピペ履歴
 [[plugins]]
-repo        = 'LeafCage/yankround.vim'
+repo    = 'LeafCage/yankround.vim'
 
 # カーソル機能強化
 [[plugins]]
-repo        = 'lokaltog/vim-easymotion'
-on_map      = [',']
+repo    = 'lokaltog/vim-easymotion'
+on_map  = [',']
 
 # コメントアウト トグル
 [[plugins]]
-repo        = 'tomtom/tcomment_vim'
-on_map      = ['<C-=>']
+repo    = 'tomtom/tcomment_vim'
+on_map  = ['<C-=>']
 
 # 記述の追加、削除マーカ表示
 [[plugins]]
-repo        = 'airblade/vim-gitgutter'
+repo    = 'airblade/vim-gitgutter'
+
 # -----------------------------------------------------------------------------
 
 # 起動画面機能強化
 [[plugins]]
-repo        = 'mhinz/vim-startify'
+repo    = 'mhinz/vim-startify'
 
 # 自動補完
 [[plugins]]
-repo        = 'neoclide/coc.nvim'
-rev         = 'release'
-on_i        = 1
-merged      = '0'
+repo    = 'neoclide/coc.nvim'
+rev     = 'release'
+on_i    = 1
+merged  = '0'
 
 # スニペット入力
 [[plugins]]
-repo        = 'Shougo/neosnippet'
-depends     = ['neosnippet-snippets', 'context_filetype.vim']
-on_i        = 1
-on_ft       = ['snippet']
+repo    = 'Shougo/neosnippet'
+depends = ['neosnippet-snippets', 'context_filetype.vim']
+on_i    = 1
+on_ft   = ['snippet']
 [[plugins]]
-repo        = 'Shougo/neosnippet-snippets'
+repo    = 'Shougo/neosnippet-snippets'
 
 # ステータスライン 強化
 [[plugins]]
-repo        = 'itchyny/lightline.vim'
-depends     = ['vim-fugitive', 'tagbar']
+repo    = 'itchyny/lightline.vim'
+depends = ['vim-fugitive', 'tagbar']
 # < REF: http://itchyny.hatenablog.com/entry/20130828/1377653592 >
 # ステータスライン用 デビコン
 [[plugins]]
-repo        = 'ryanoasis/vim-devicons'
+repo    = 'ryanoasis/vim-devicons'
 
 # インデント 強調
 [[plugins]]
-repo        = 'nathanaelkane/vim-indent-guides'
-if          = "!(has('mac') && has('nvim'))"
+repo    = 'nathanaelkane/vim-indent-guides'
+if      = "!(has('mac') && has('nvim'))"
 
 # 選択テキストを'""'、"()"、"[]"などで囲む
 [[plugins]]
-repo        = 'tpope/vim-surround'
+repo    = 'tpope/vim-surround'
 
 # "=" などの入力を拡張
     # " = " にする等
 [[plugins]]
-repo        = 'kana/vim-smartchr'
+repo    = 'kana/vim-smartchr'
 
 # 閉じ括弧入力補完
 [[plugins]]
-repo        = 'cohama/lexima.vim'
+repo    = 'cohama/lexima.vim'
 
 # テーブル作成
 [[plugins]]
-repo        = 'dhruvasagar/vim-table-mode'
+repo    = 'dhruvasagar/vim-table-mode'
 
 # スネークケース、キャメルケースへ変換
 [[plugins]]
-repo        = 'tpope/vim-abolish'
+repo    = 'tpope/vim-abolish'
 
 # カーソル位置の "filetype" を自動切替
 [[plugins]]
-repo        = 'osyo-manga/vim-precious'
-depends     = ['context_filetype.vim']
+repo    = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
 [[plugins]]
-repo        = 'Shougo/context_filetype.vim'
+repo    = 'Shougo/context_filetype.vim'
