@@ -1,9 +1,10 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2023/03/22 09:32:17.
+" Last Change: 2023/03/23 09:44:02.
 
 " !!!: 必ず先頭に記述
-" "autocmd(マクロ)" の初期化
+" ".vimrc" をリローダブルにするため
+" "autocmd(マクロ)" の "MyAutoCmd" グループ初期化
 augroup MyAutoCmd
     autocmd!
 augroup END
@@ -142,12 +143,14 @@ if !has("gui_runnig")
         " "colorscheme" の設定
         set termguicolors
         set background=dark
-        au MyAutoCmd VimEnter * nested colorscheme iceberg
-        " 改行文字 色設定
-        au MyAutoCmd VimEnter * highlight NonText    guibg=NONE guifg=DarkGreen
-        " NOTWORK:
-        " " タブ文字 色設定		  " < タブ文字見本
-        " au MyAutoCmd VimEnter * highlight SpecialKey guibg=NONE guifg=Red
+        augroup MyAutoCmd
+            autocmd VimEnter * nested colorscheme iceberg
+            " 改行文字 色設定
+            autocmd VimEnter * highlight NonText    guibg=NONE guifg=DarkGreen
+            " NOTWORK:
+            " " タブ文字 色設定		  " < タブ文字見本
+            " autocmd VimEnter * highlight SpecialKey guibg=NONE guifg=Red
+        augroup END
     endif
 
     " コマンドライン(画面下部) 高さ

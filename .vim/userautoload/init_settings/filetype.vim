@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2016/08/08 22:24:35
-" Last Change: 2023/03/20 14:26:54.
+" Last Change: 2023/03/23 09:48:34.
 
 " MEMO: 詳細設定は "~/dotfiles/.vim/ftplugin/*.vim" に記述
 augroup filetypedetect
@@ -34,15 +34,15 @@ augroup END
 " augroup END
 
 " augroup filetypedetect
-"     au BufRead,BufNewFile *.py setfiletype python
+"     autocmd BufRead,BufNewFile *.py setfiletype python
 " augroup END
 
 " augroup filetypedetect
-"     au BufRead,BufNewFile *.{ino,pde} setfiletype arduino
+"     autocmd BufRead,BufNewFile *.{ino,pde} setfiletype arduino
 " augroup END
 
 " augroup filetypedetect
-"     au BufRead,BufNewFile *.{md,mdwn,mkd,mkdn,mark*} setfiletype markdown
+"     autocmd BufRead,BufNewFile *.{md,mdwn,mkd,mkdn,mark*} setfiletype markdown
 " augroup END
 " autocmd MyAutoGroup BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 " }}}

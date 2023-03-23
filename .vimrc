@@ -1,9 +1,10 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2023/03/22 09:32:40.
+" Last Change: 2023/03/23 09:51:46.
 
 " !!!: 必ず先頭に記述
-" "autocmd(マクロ)" の初期化
+" ".vimrc" をリローダブルにするため
+" "autocmd(マクロ)" の "MyAutoCmd" グループ初期化
 augroup MyAutoCmd
     autocmd!
 augroup END
@@ -147,19 +148,28 @@ if (!has("gui_runnig") && (has("mac") || has("win32") || has("win64")))
         " !!!: "visual.vim" で無く、ここに記述
     colorscheme iceberg
 
+    augroup MyAutoCmd
+        autocmd VimEnter * nested colorscheme iceberg
+        " 改行文字 色設定
+        autocmd VimEnter * highlight NonText    guibg=NONE guifg=DarkGreen
+        " NOTWORK:
+        " " タブ文字 色設定		  " < タブ文字見本
+        " autocmd VimEnter * highlight SpecialKey guibg=NONE guifg=Red
+    augroup END
+
     " NOTWORK: "Mac" では動作しない
-    " タブ文字 色設定		  " < タブ文字見本
-    highlight SpecialKey guibg=NONE guifg=Red
-    " 改行文字 色設定
-    highlight NonText    guibg=NONE guifg=DarkGreen
+    " " タブ文字 色設定		  " < タブ文字見本
+    " highlight SpecialKey guibg=NONE guifg=Red
+    " " 改行文字 色設定
+    " highlight NonText    guibg=NONE guifg=DarkGreen
 
     " NOTWORK:
     " " "colorscheme" の設定
     " set termguicolors
     " set background=dark
-    " au MyAutoCmd VimEnter * nested colorscheme iceberg
+    " autocmd MyAutoCmd VimEnter * nested colorscheme iceberg
     " " 改行文字 色設定
-    " au MyAutoCmd VimEnter * highlight NonText guibg=NONE guifg=DarkGreen
+    " atocmdu MyAutoCmd VimEnter * highlight NonText guibg=NONE guifg=DarkGreen
 
     " コマンドライン(画面下部) 高さ
     set cmdheight=5

@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2019/06/24 11:32:20
-" Last Change: 2023/03/12 05:55:16.
+" Last Change: 2023/03/23 09:47:04.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -50,7 +50,7 @@ let g:lsp_signs_hint              = {'text': '?'}
 " "Python" の "pyls" 起動
 " MEMO: ```pip install python-language-server```
 if executable("pyls")
-    au User lsp_setup call lsp#register_server({
+    autocmd User lsp_setup call lsp#register_server({
                 \ "name":             "pyls",
                 \ "cmd":              {server_info->["pyls"]},
                 \ "whitelist":        ["python"],
@@ -74,7 +74,7 @@ set omnifunc=lsp#complete
 
 " "Go" の "go-langserver" 起動
 if executable("go-langserver")
-    au User lsp_setup call lsp#register_server({
+    autocmd User lsp_setup call lsp#register_server({
                 \ "name": "go-langserver",
                 \ "cmd":  {server_info->["go-langserver",
                                         \ "-mode",

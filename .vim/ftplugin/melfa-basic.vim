@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2021/12/25 19:05:37
-" Last Change: 2023/03/19 19:08:39.
+" Last Change: 2023/03/23 09:34:05.
 
 " ------------------------------------------------------------------------------
 "  基本設定
@@ -31,6 +31,7 @@ syntax match   melfaFloat       "\.\d\+\%([de][-+]\=\d*\)\=[f!#]\="
 syntax match   melfaLocalVar    "\.\d\+\%([de][-+]\=\d*\)\=[f!#]\="
 syntax match   melfaExternalVar "\.\d\+\%([de][-+]\=\d*\)\=[f!#]\="
 
+" MEMO: /b: 単語の行頭を表す正規表現 使う
 syntax keyword melfaDefine      Dim
 syntax keyword melfaDefine      FPrm
 syntax keyword melfaDefine      Plt
