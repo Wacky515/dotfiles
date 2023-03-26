@@ -1,5 +1,5 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2023/03/16 07:48:222
+# Last Change: 2023/03/27 02:30:062
 
 [user]
 	name = 脇田 純
@@ -44,3 +44,7 @@
 
 [commit]
 	template = ~/.stCommitMsg
+
+[safe]
+	# directory = C:/Users/wacky/dotfiles
+	directory = ~/dotfiles
