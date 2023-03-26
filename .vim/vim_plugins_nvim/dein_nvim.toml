@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2023/03/23 18:53:54.
+# Last Change: 2023/03/26 14:51:30.
 
 # ------------------------------------------------------------------------------
 #  参考  # {{{
@@ -122,3 +122,13 @@ repo    = 'osyo-manga/vim-precious'
 depends = ['context_filetype.vim']
 [[plugins]]
 repo    = 'Shougo/context_filetype.vim'
+
+# MEMO: この記述ではインストールできない、".vimrc" に記載
+# Chat GPT
+# チャット
+# [[Plugins]]
+# repo    = 'mattn/vim-chatgpt'
+
+# コミットメッセージ提案
+# [[plugins]]
+# repo    = 'ktakayama/gpt-commit-msg.vim'

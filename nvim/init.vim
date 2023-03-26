@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2023/03/23 20:36:52.
+" Last Change: 2023/03/26 16:25:11.
 
 " !!!: 必ず先頭に記述
 " ".vimrc" をリローダブルにするため
@@ -110,6 +110,16 @@ if dein#load_state(s:plugin_dir)
         call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
     endif
 
+    " "*.toml" でインストールできないもの
+    " Chat GPT
+    " NOTWORK: " チャット
+    call dein#add("mattn/vim-chatgpt")
+        " TODO: silent execute printf("go install github.com/mattn/chatgpt@latest")
+    " NOTWORK: " コミットメッセージ提案
+    call dein#add("ktakayama/gpt-commit-msg.vim")
+    " Git Copilot
+    call dein#add("github/copilot.vim")
+
     " 設定終了
     call dein#end()
     call dein#save_state()
@@ -122,6 +132,11 @@ endif
 
 " "Plugin" の設定ファイル読込み
 runtime! userautoload/plugin_settings_nvim/*.vim
+
+" ------------------------------------------------------------------------------
+ " "Chat GPT" の "API" 読込み
+" ------------------------------------------------------------------------------
+runtime! chat_gpt/*.vim
 
 " ------------------------------------------------------------------------------
 "  最終処理

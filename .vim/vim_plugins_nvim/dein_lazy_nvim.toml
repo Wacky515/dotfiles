@@ -35,17 +35,17 @@
 # -----------------------------------------------------------------------------
 
 # タイムスタンプ 挿入
-[[plugins]]
-repo    = 'vim-scripts/autodate.vim'
-if      = "!has('nvim')"
+# [[plugins]]
+# repo    = 'vim-scripts/autodate.vim'
+# if      = "!has('nvim')"
 
 [[plugins]]
 repo    = 'vim-denops/denops.vim'
-if      = "has('nvim')"
+# if      = "has('nvim')"
 [[plugins]]
 repo    = 'yukimemi/dps-autodate'
 depends = 'denops.vim'
-if      = "has('nvim')"
+# if      = "has('nvim')"
 
 # チートシート表示
 [[plugins]]

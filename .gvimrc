@@ -33,10 +33,10 @@ set guioptions-=T
 set guioptions+=b
 
 " ウィンドウ 半透明化
-    " MEMO: "Linux" は "NeoVim" から設定できない
+    " MEMO: "Linux" の "NeoVim" は設定できない
 if has("unix") && !has("nvim")
     set transparency=10
-elseif (has("win32") || ("win64"))
+elseif (has(("win32") || ("win64") && has("Kaoriya")))
     :autocmd GUIEnter * set transparency=235
 endif
 

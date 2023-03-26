@@ -6,7 +6,7 @@ scriptencoding utf-8
 "  基本設定
 " ------------------------------------------------------------------------------
 " 起動時 ハイライト 有効
-let g:gitgutter_highlight_lines = 1
+let g:gitgutter_highlight_lines = 0
 
 " <Leader>g: Git 変更部ハイライト トグル
 nnoremap <Leader>g :<C-u>GitGutterLineHighlightsToggle<CR>
