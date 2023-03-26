@@ -146,13 +146,16 @@ runtime! chat_gpt/*.vim
 if !has("gui_runnig")
     if has("mac")
         " "colorscheme" 設定
-        colorscheme iceberg
-
-        " NOTWORK:
-        " " タブ文字 色設定		  " < タブ文字見本
-        " highlight SpecialKey guibg=NONE guifg=Red
-        " " 改行文字 色設定
-        " highlight NonText    guibg=NONE guifg=DarkGreen
+        set background=dark
+        augroup MyAutoCmd
+            autocmd VimEnter * nested colorscheme iceberg
+            " NOTWORK:
+            " " 改行文字 色設定
+            " autocmd VimEnter * highlight NonText    guibg=NONE guifg=DarkGreen
+            " NOTWORK:
+            " " タブ文字 色設定		  " < タブ文字見本
+            " autocmd VimEnter * highlight SpecialKey guibg=NONE guifg=Red
+        augroup END
 
     elseif (has("win32") || has("win64"))
         " "colorscheme" の設定
@@ -160,7 +163,7 @@ if !has("gui_runnig")
         set background=dark
         augroup MyAutoCmd
             autocmd VimEnter * nested colorscheme iceberg
-            " NOTWORK: Win
+            " NOTWORK:
             " 改行文字 色設定
             autocmd VimEnter * highlight NonText    guibg=NONE guifg=DarkGreen
             " NOTWORK:

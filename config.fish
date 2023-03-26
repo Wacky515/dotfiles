@@ -1,5 +1,5 @@
 # Created:     2018/**/** **:**:**
-# Last Change: 2023/03/11 21:05:57.
+# Last Change: 2023/03/27 03:29:21.
 
 cd ~/dotfiles
 
@@ -9,9 +9,26 @@ function has
     type "$1" > /dev/null 2>&1
 end
 
-# "history" 日付追加
+## "history" 日付追加
 function history
     builtin history --show-time='%Y/%m/%d %H:%M:%S ' | sort
+end
+
+## キーバインド
+function fish_user_key_bindings
+        bind \cr 'peco_sync_select_history (commandline -b)'
+        bind \cr peco_select_history
+end
+
+if has "pyenv"
+    set PATH ~/.pyenv $PYENV_ROOT
+    set PATH $PYENV_ROOT/bin $PATH
+    # export PYENV_ROOT="$HOME/.pyenv"
+    # export PATH="$PYENV_ROOT/bin:$PATH"
+    # # 自動補完 活性化
+    # eval "$(pyenv init -)"
+    # # "HomeBrew" エラー対策
+    # alias brew="env PATH=${PATH~\/\.pyenv\/shims:/} brew"
 end
 
 if has "fzf"
@@ -27,26 +44,9 @@ if has "peco"
         history-merge
         peco_select_history $argv
     end
-
-    # キーバインド
-    function fish_user_key_bindings
-        bind \cr 'peco_sync_select_history (commandline -b)'
-        bind \cr peco_select_history
-    end
 end
 
-if has "pyenv"
-    set PATH ~/.pyenv $PYENV_ROOT
-    set PATH $PYENV_ROOT/bin $PATH
-    # export PYENV_ROOT="$HOME/.pyenv"
-    # export PATH="$PYENV_ROOT/bin:$PATH"
-    # # 自動補完 活性化
-    # eval "$(pyenv init -)"
-    # # "HomeBrew" エラー対策
-    # alias brew="env PATH=${PATH~\/\.pyenv\/shims:/} brew"
-end
-
-# if has "fuck"
+# if has "fuck"  # {{{
 #     thefuck --alias
 #     # alias fuck='eval "$(thefuck --alias)"'
 #     function fish_user_key_bindings
@@ -54,6 +54,7 @@ end
 #         bind \e\e 'thefuck-command-line'
 #     end
 # end
+# }}}
 
 # FIXME: Windows10、インストール失敗する
 # FIXME: Fisher インストールコマンドが変更になっている

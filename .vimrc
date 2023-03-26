@@ -161,22 +161,17 @@ runtime! chat_gpt/*.vim
 if (!has("gui_runnig") && (has("mac") || has("win32") || has("win64")))
     " "colorscheme" 設定
         " !!!: "visual.vim" で無く、ここに記述
-    set termguicolors
+    " MEMO: "Mac" では見にくい
+    " set termguicolors
     set background=dark
     augroup MyAutoCmd
         autocmd vimenter * nested colorscheme hybrid
-        " NOTWORK:
+        " NOTWORK: "Mac" では動作しない
         " " 改行文字 色設定
         " autocmd VimEnter * highlight NonText    guibg=NONE guifg=DarkGreen
         " " タブ文字 色設定		  " < タブ文字見本
         " autocmd VimEnter * highlight SpecialKey guibg=NONE guifg=Red
     augroup END
-
-    " NOTWORK: "Mac" では動作しない
-    " " タブ文字 色設定		  " < タブ文字見本
-    " highlight SpecialKey guibg=NONE guifg=Red
-    " " 改行文字 色設定
-    " highlight NonText    guibg=NONE guifg=DarkGreen
 
     " コマンドライン(画面下部) 高さ
     set cmdheight=5
