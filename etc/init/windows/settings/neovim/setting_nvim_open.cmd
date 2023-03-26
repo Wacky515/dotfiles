@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/12/20 15:51:47
-rem Last Change: 2020/04/16 16:05:08.
+rem Last Change: 2023/03/11 21:46:59.
 
 set batch_title=Setting NeoVim Open
 
@@ -30,8 +30,10 @@ echo ^>^> %batch_title%
 rem echo ^>^> Start
 
 echo ^>^> Set Open by NeoVim
-reg add "HKEY_CLASSES_ROOT\*\shell\NeoVim open" /v "Icon" /t REG_SZ /d C:\tools\neovim\Neovim\bin\nvim-qt.exe /f
-reg add "HKEY_CLASSES_ROOT\*\shell\NeoVim open\command" /t REG_SZ /d "\"%drive%\tools\neovim\Neovim\bin\nvim-qt.exe\" \"%%1\"" /f
+reg add "HKEY_CLASSES_ROOT\*\shell\NeoVim open" /v ^
+    "Icon" /t REG_SZ /d C:\tools\neovim\Neovim\bin\nvim-qt.exe /f
+reg add "HKEY_CLASSES_ROOT\*\shell\NeoVim open\command" /t ^
+    REG_SZ /d "\"%drive%\tools\neovim\Neovim\bin\nvim-qt.exe\" \"%%1\"" /f
 goto eof
 
 :eof

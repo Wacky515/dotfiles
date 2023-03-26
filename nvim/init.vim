@@ -1,29 +1,46 @@
 scriptencoding utf-8
 " Created:     201*/**/** **:**:**
-" Last Change: 2021/03/03 14:20:28.
+" Last Change: 2023/03/26 16:25:11.
 
 " !!!: 必ず先頭に記述
-" "autocmd"（マクロ） の初期化
+" ".vimrc" をリローダブルにするため
+" "autocmd(マクロ)" の "MyAutoCmd" グループ初期化
 augroup MyAutoCmd
     autocmd!
 augroup END
 
-" ---------------------------------------------------------------------------
-" 設定ファイル 読込み
-    " MEMO:
-    " 記述順番 変更しない！！！
-    " "Plugin" 設定は後半に読込み
-" ---------------------------------------------------------------------------
-set runtimepath+=$HOME/.vim
+" "filetype" 初期化
+filetype off
+" 最終行でON
+filetype plugin indent off
 
-" ---------------------------------------------------------------------------
-" "Python" の "Path" 設定読込み
+" <Space> を "Leader" に設定
+let mapleader = "\<Space>"
+
+" ------------------------------------------------------------------------------
+"  "Vim" 設定ファイルの読込み  " {{{
+    " !!!: 記述順番 変更しない
     " MEMO:
-    " ".vimrc" から不可分
-" ---------------------------------------------------------------------------
+        " "Leader" のみ設定ファイル読込み直前に設定
+        " "Plugin" 設定は後半に読込み
+        " }}}
+" ------------------------------------------------------------------------------
+runtime! colors/*.vim
+set runtimepath+=$HOME/.vim
+runtime! userautoload/init_settings/*.vim
+
+" ------------------------------------------------------------------------------
+"  "Python" の "Path" 設定読込み  " {{{
+    " MEMO: "init.vim" へ不可分
+    " }}}
+" ------------------------------------------------------------------------------
 if has("vim_starting")
     if has("mac")
-        let g:python3_host_prog = "/usr/local/bin/python3"
+        if hostname() == "SaladBookAirM1"
+            let g:python3_host_prog = "/opt/homebrew/bin/python3"
+        else
+            let g:python3_host_prog = "/usr/local/bin/python3"
+        endif
         let g:python_host_prog  = "/usr/bin/python"
 
     elseif has("unix")
@@ -38,34 +55,11 @@ if has("vim_starting")
     endif
 endif
 
-" ---------------------------------------------------------------------------
-" "pythonthreedll" 設定読込み
-    " MEMO:
-    " "Vim" で "Dark powed" するための設定
-    " "Python3.6.*" でないと "Dark powed" できない 2021/02/21
-    " "jedi-vim" で "Anaconda3" のライブラリを補完
-" ---------------------------------------------------------------------------
-if has("vim_starting")
-    if (has("unix") && !has("mac"))
-        set pythonthreedll  = $VIM."/python3/python35.dll"
-        set pythonthreehome = $VIM."/python3/"
-    endif
-endif
-
-" ---------------------------------------------------------------------------
-" "Vim" 設定ファイルの読込み
-    " MEMO: "Leader" のみ設定ファイル読込み直前に設定
-" ---------------------------------------------------------------------------
-" <Space> を "Leader" に割当て
-let mapleader = "\<Space>"
-
-runtime! colors/*.vim
-runtime! userautoload/init_settings/*.vim
-
-" ---------------------------------------------------------------------------
-" "dein.vim" の設定
+" ------------------------------------------------------------------------------
+"  "dein.vim" の設定  " {{{
     " !!!: ".vimrc" と統合しない
-" ---------------------------------------------------------------------------
+    " }}}
+" ------------------------------------------------------------------------------
 " "dein.vim" の更新チェック高速化設定
 set runtimepath+=~/OneDrive/Vim/dein
 runtime! dein_token.vim
@@ -80,14 +74,8 @@ augroup PluginInstall
     autocmd VimEnter * if dein#check_install() | call dein#install() | endif
 augroup END
 
-" プラグインをインストールするディレクトリを指定
-if exists("g:nyaovim_version")
-    let s:plugin_dir = expand("~/.config/nyaovim/dein")
-elseif exists("g:gui_oni")
-    let s:plugin_dir = expand("~/.config/oni/dein")
-else
-    let s:plugin_dir = expand("~/.config/nvim/dein/")
-endif
+" "Plugin" をインストールするディレクトリを指定
+let s:plugin_dir = expand("~/.config/nvim/dein/")
 
 " TODO: Unix系のパス設定追加
 " "dein.vim" をインストールするディレクトリをランタイムパスへ追加
@@ -108,7 +96,7 @@ endif
 if dein#load_state(s:plugin_dir)
     call dein#begin(s:plugin_dir)
 
-    " プラグインリスト "*.toml" を指定
+    " "Plugin" リスト "*.toml" を指定
     let g:plugin_dir_nvim  = expand("~/.vim/vim_plugins_nvim")
     let s:toml_nvim        = g:plugin_dir_nvim . "/dein_nvim.toml"
     let s:lazy_toml_nvim   = g:plugin_dir_nvim . "/dein_lazy_nvim.toml"
@@ -122,18 +110,22 @@ if dein#load_state(s:plugin_dir)
         call dein#load_toml(s:python_toml_nvim, {"lazy": 1})
     endif
 
-    if exists("g:nyaovim_version")
-        call dein#add("rhysd/nyaovim-markdown-preview")
-        call dein#add("rhysd/nyaovim-popup-tooltip")
-        call dein#add("rhysd/nyaovim-mini-browser")
-    endif
+    " "*.toml" でインストールできないもの
+    " Chat GPT
+    " NOTWORK: " チャット
+    call dein#add("mattn/vim-chatgpt")
+        " TODO: silent execute printf("go install github.com/mattn/chatgpt@latest")
+    " NOTWORK: " コミットメッセージ提案
+    call dein#add("ktakayama/gpt-commit-msg.vim")
+    " Git Copilot
+    call dein#add("github/copilot.vim")
 
     " 設定終了
     call dein#end()
     call dein#save_state()
 endif
 
-" 未インストールのプラグインがあればインストール
+" 未インストールの"Plugin" があればインストール
 if has("vim_starting") && dein#check_install()
     call dein#install()
 endif
@@ -141,52 +133,73 @@ endif
 " "Plugin" の設定ファイル読込み
 runtime! userautoload/plugin_settings_nvim/*.vim
 
-" ---------------------------------------------------------------------------
-" Init最終処理
-" ---------------------------------------------------------------------------
-" "colorscheme" 設定、等
-if (has("mac") || ((has("win32") || has("win64")) && !has("gui_runnig")))
-    colorscheme iceberg
-    " MEMO: "visual.vim" 内のこの記述のみ適用されない
-    " コマンドライン（"Vim" 画面下部）高さ
+" ------------------------------------------------------------------------------
+ " "Chat GPT" の "API" 読込み
+" ------------------------------------------------------------------------------
+runtime! chat_gpt/*.vim
+
+" ------------------------------------------------------------------------------
+"  最終処理
+" ------------------------------------------------------------------------------
+" CHK: ".gvimrc" と統一しなくていいか？
+    " !!!: "visual.vim" では無く、ここに記述
+if !has("gui_runnig")
+    if has("mac")
+        " "colorscheme" 設定
+        colorscheme iceberg
+
+        " NOTWORK:
+        " " タブ文字 色設定		  " < タブ文字見本
+        " highlight SpecialKey guibg=NONE guifg=Red
+        " " 改行文字 色設定
+        " highlight NonText    guibg=NONE guifg=DarkGreen
+
+    elseif (has("win32") || has("win64"))
+        " "colorscheme" の設定
+        set termguicolors
+        set background=dark
+        augroup MyAutoCmd
+            autocmd VimEnter * nested colorscheme iceberg
+            " NOTWORK: Win
+            " 改行文字 色設定
+            autocmd VimEnter * highlight NonText    guibg=NONE guifg=DarkGreen
+            " NOTWORK:
+            " タブ文字 色設定		  " < タブ文字見本
+            autocmd VimEnter * highlight SpecialKey guibg=NONE guifg=Red
+        augroup END
+    endif
+
+    " コマンドライン(画面下部) 高さ
     set cmdheight=5
 endif
 
-" シンタックスハイライト
-" MEMO: "dein.vim" に関する設定の後にON
-syntax on
+" ------------------------------------------------------------------------------
+"  Syntax highlight 解説  " {{{
+    " ファイルタイプ系ハイライト"Plugin" を導入している場合
+    " "syntax on" は現在の "runtimepath" の設定で "Syntax"を生成
+    " "runtimepath" 初期化後の "syntax on" はあまり意味が無く
+    " "runtimepath" 設定後に "syntax on" すべき
+
+    " # 悪いパターン
+    " "runtimepath" 初期化処理
+    " set runtimepath=$VIMRUNTIME
+    " syntax on
+    " ファイルタイプ系ハイライト"Plugin"
+    " neoBundle 'kongo2002/fsharp-vim'
+
+    " # 良いパターン
+    " "runtimepath" 初期化処理
+    " set runtimepath=$VIMRUNTIME
+    " ファイルタイプ系ハイライト"Plugin"
+    " neoBundle 'kongo2002/fsharp-vim'
+    " syntax on
+    " }}}
+" ------------------------------------------------------------------------------
+if has("syntax")
+  syntax on
+endif
 
 " MEMO:
-" 読み込んだプラグインも含め、ファイルタイプの検出
-" ファイルタイプ別プラグイン/インデントを有効化する
+    " 読込んだ"Plugin" 含めてファイルタイプの検出と
+    " ファイルタイプ別に"Plugin" 、インデントを有効化
 filetype plugin indent on
-
-" ---------------------------------------------------------------------------
-" "NyaoVim" 設定篇
-" ---------------------------------------------------------------------------
-" if exists("g:nyaovim_version")
-"     try
-"         if s:on_nyaovim || s:true_color_enabled
-"             colorscheme iceberg
-"             " colorscheme spring-night
-"             let g:airline_theme = "spring_night"
-"         else
-"             colorscheme iceberg
-"             " colorscheme wallaby
-"             let g:airline_theme = "spring_night"
-"             " let g:airline_theme = "wombat"
-"         endif
-"     catch
-"         set background=dark
-"         colorscheme iceberg
-"         " colorscheme default
-"     endtry
-"     set cmdheight=5
-" endif
-
-" ---------------------------------------------------------------------------
-" "Oni" 設定篇
-" ---------------------------------------------------------------------------
-" if exists("g:gui_oni")
-"     echo Setting for Oni
-" endif

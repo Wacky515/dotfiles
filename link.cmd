@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2022/02/03 13:18:32.
+rem Last Change: 2023/03/19 08:51:55.
 
 set batch_title=Make link dotfiles
 title %batch_title%
@@ -32,9 +32,12 @@ if %errorlevel% equ 0 (
 ) else if exist C:\tools\neovim\Neovim\bin\nvim-qt.exe (
     echo ^>^> Already installed NeoVim, exist nvim-qt.exe
     goto link_nvim
+) else if exist C:\ProgramData\chocolatey\bin\nvim-qt.exe (
+    echo ^>^> Already installed NeoVim, exist nvim-qt.exe
+    goto link_nvim
 ) else (
     echo ^>^> NOT INSTALLED NEOVIM, SKIP MAKE LINK
-    goto jdg_nyao
+    goto link_git
 )
 
 :link_nvim
@@ -59,95 +62,6 @@ if %errorlevel% equ 0 (
     echo ^>^> init.vim, ginit.vim for NeoVim link success
 ) else (
     echo ^>^> FAILED LINK INIT.VIM, GINIT.VIM FOR NEOVIM
-    echo ^>^> ERROR CODE: %errorlevel%
-)
-
-:jdg_nyao
-rem "NyaoVim" のリンク設定
-rem "NyaoVim" インストール済みかチェック
-echo ^>^> Check install NyaoVim or not
-if exist %appdata%\NyaoVim\nyaovimrc.html (
-    echo ^>^> Already installed NyaoVim
-    goto link_nyao
-) else (
-    echo ^>^> NOT INSTALLED NYAOVIM, SKIP MAKE LINK
-    goto jdg_oni
-)
-
-:link_nyao
-echo ^>^> Make link NyaoVim
-set src_html=%bat_path%\nyaovimrc.html
-set dst_html=%appdata%\NyaoVim\nyaovimrc.html
-
-if exist %dst_html% (
-    echo ^>^> Delete nyaovimrc.html
-    del /f /q %dst_html%
-)
-
-rem FIXME: "mklink" だと起動しない
-rem mklink %dst_html% %src_html% > nul 2>&1
-copy %src_html% %dst_html% > nul 2>&1
-if %errorlevel% equ 0 (
-    rem echo ^>^> nyaovimrc.html link success
-    echo ^>^> nyaovimrc.html copy success
-) else (
-    rem echo ^>^> FAILED LINK NYAOVIMRC.HTML
-    rem echo ^>^> ERROR CODE: %errorlevel%
-    echo ^>^> FAILED COPY NYAOVIMRC.HTML
-    echo ^>^> ERROR CODE: %errorlevel%
-)
-
-:jdg_oni
-rem "OniVim" のリンク設定
-rem "OniVim" インストール済みかチェック
-rem FIXME: 当該 Dir 存在しなくてもチェック通る？
-echo ^>^> Check install OniVim or not
-if exist %programfiles(x86)%\Oni\Oni.exe (
-    echo ^>^> Already installed OniVim
-    goto link_oni
-) else (
-    echo ^>^> NOT INSTALLED ONIVIM, SKIP MAKE LINK
-    goto link_git
-)
-
-:link_oni
-echo ^>^> Make link OniVim
-set src_json=%bat_path%\config.js
-set dst_json=%appdata%\Oni\config.js
-
-if exist %dst_json% (
-    echo ^>^> Delete config.js
-    del /f /q %dst_json%
-)
-
-mklink %dst_json% %src_json% > nul 2>&1
-if %errorlevel% equ 0 (
-    echo ^>^> config.js link success
-) else (
-    echo ^>^> FAILED LINK CONFIG.JS
-    echo ^>^> ERROR CODE: %errorlevel%
-)
-
-set src_oni=%userprofile%\dotfiles\nvim\
-if defined xdg_config_home (
-    echo ^>^> Set OniVim link in XDG CONFIG HOME
-    set dst_oni=%xdg_config_home%\nvim\
-) else (
-    echo ^>^> Set OniVim link in Local AppData
-    set dst_oni=%localappdata%\nvim\
-)
-
-if exist %dst_oni% (
-    echo ^>^> Delete nvim directory
-    rem MEMO: シンボリックリンクされたディレクトリの削除は "rmdir"
-    rmdir %dst_oni%
-)
-
-mklink /d %dst_oni% %src_oni% > nul 2>&1
-if %errorlevel% equ 0 (
-    echo ^>^> init.vim, ginit.vim for Oni link success
-) else (
-    echo ^>^> FAILED LINK INIT.VIM, GINIT.VIM FOR ONI
     echo ^>^> ERROR CODE: %errorlevel%
 )
 
@@ -250,5 +164,5 @@ echo ^>^> End set link
 popd
 endlocal
 
-rem pause
+pause
 exit /b 0

@@ -1,11 +1,11 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2019/11/13 17:26:21.
+# Last Change: 2023/03/11 21:09:09.
 
 [core]
-    # コミット時に改行コードを CRLF -> LF
+    # コミット時、改行コード CRLF > LF
     autoCRLF = input
-    # true:  コミット時 CRLF -> LF、チェックアウト時 LF -> CRLF
-    # input: コミット時のみ CRLF -> LF
+    # true:  コミット時 CRLF > LF、チェックアウト時 LF > CRLF
+    # input: コミット時のみ CRLF > LF
         # "Windows" のみ true と同一
     # false: 変換しない
 
@@ -13,16 +13,16 @@
     safeCRLF = true
 
 [diff]
-	tool    = vimdiff
-	guitool = vimdiff
+    tool    = vimdiff
+    guitool = vimdiff
 [difftool "vimdiff"]
-    # ↓ 未設定
-	# cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+    # MEMO: 未設定
+    # cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path =
 
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 [mergetool "vimdiff"]
-    # ↓ 未設定
-	# cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    # MEMO: 未設定
+    # cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true

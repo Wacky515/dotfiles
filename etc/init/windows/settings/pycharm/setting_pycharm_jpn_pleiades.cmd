@@ -1,7 +1,8 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** ** **:**:**
-rem Last Change: 2020/11/01 10:22:36.
+rem Last Change: 2023/03/11 21:48:24.
+rem FIXME: ’·‚¢s‚ğÜ‚è•Ô‚·
 
 set batch_title=Setting PyCharm Japanese
 

@@ -1,295 +1,149 @@
 # Created:     2018/12/19 08:50:01
-# Last Change: 2021/03/01 12:09:45.
-# TODO: "hook_post_source"、"hook_post_source" を "*.vim" に移管
+# Last Change: 2023/03/23 18:56:36.
 
-# 統合ユーザインターフェース
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-if = "has('python3')"
-depends = ['neomru.vim']
-# MEMO: ↓は "*.vim" に移管できない
-hook_source = '''  " {{{
-    call denite#custom#option('default', {
-                \ 'auto_accel': v:true,
-                \ 'prompt': '>',
-                \ 'source_names': 'short',
-                \ })
-        call denite#custom#option('default', 'direction', 'top')
+# -----------------------------------------------------------------------------
+#  参考  # {{{
+    # on_i
+    # 1: インサートモードに入った時に読込み
+    # on_ft
+    # 指定したファイルタイプの時に読込み
+    # on_path
+    # バッファ名が一致した時に読込み
+    # .*を指定すると何かのファイルを開いた時に読込まれる
+    # filer などの"Plugin" で使うと便利
+    # on_source
+    # 記載された"Plugin" が読み込まれた後に読込み
+    # on_cmd
+    # コマンドが実行された時に読込み
+    # 主に ['Unite', 'UniteResume'] のような"Plugin" のコマンドを指定す
+    # on_map
+    # on_cmdのマッピング版、['<Plug>(neosnippet_expand_or_jump)'] のように指定
+    # depends
+    # "Plugin" 間で依存性がある場合に使用
+    # 記述しても自動的にインストールされない点は neobundle.vim 挙動が違う
+    # if
+    # has("nvim") のように条件に一致した場合のみ読込み
 
-    " <C-n>/<C-p>: 上下移動
-    call denite#custom#map('normal',
-                \ '<C-n>', '<denite:move_to_next_line>')
-    call denite#custom#map('normal',
-                \ '<C-p>', '<denite:move_to_previous_line>')
-    call denite#custom#map('insert',
-                \ '<C-n>', '<denite:move_to_next_line>')
-    call denite#custom#map('insert',
-                \ '<C-p>', '<denite:move_to_previous_line>')
+    # hook の種類
+    # hook の名前      実行タイミング          lazy OFF lazy ON
+    # hook_add         dein.vim に追加された時 OK       OK
+    # hook_source      読込み直前              NG       OK
+    # hook_post_source 読込み直後              NG       OK
+    # hook_post_update 更新直後                OK       OK
+    # < REF: https://leico.github.io/TechnicalNote/VimR/VimR-dein-toml >
+    # }}}
+# -----------------------------------------------------------------------------
 
-    " <C-j>/<C-k>: 入力履歴移動
-    call denite#custom#map('insert',
-                \ '<C-j>', '<denite:assign_next_text>')
-    call denite#custom#map('insert',
-                \ '<C-k>', '<denite:assign_previous_text>')
-
-    " <C-t>: "tabopen"
-    call denite#custom#map('insert',
-                \ "<C-t>", '<denite:do_action:tabopen>')
-    " <C-v>: "vsplit"
-    call denite#custom#map('insert',
-                \ "<C-v>", '<denite:do_action:vsplit>')
-    call denite#custom#map('normal',
-                \ "v", '<denite:do_action:vsplit>')
-
-    " jj :ノーマルモード
-    call denite#custom#map('insert',
-                \ 'jj', '<denite:enter_mode:normal>')
-    " <C-s>: 水平画面分割して開く
-    call denite#custom#map('insert',
-                \ '<C-s>', '<denite:do_action:split>')
-    " <C-i>: 垂直画面分割して開く
-    call denite#custom#map('insert',
-                \ '<C-i>', '<denite:do_action:vsplit>')
-    " <C-o>: 新規タブで開く
-    call denite#custom#map('insert',
-                \ '<C-o>', '<denite:do_action:tabopen>')
-
-    " KILL: エラー解消できず
-    " " RipGrep
-    " if executable("rg")
-    "     " 検索対象から以下を除外
-    "     call denite#custom#var(
-    "                 \ 'command',
-    "                 \ 'grep',
-    "                 \ 'file_rec',
-    "                 \ ['!.git',
-    "                 \ '--files',
-    "                 \ '--glob',
-    "                 \ 'rg'
-    "                 \ ])
-    "
-    "     let g:denite_source_grep_command       = 'rg'
-    "     let g:denite_source_grep_default_opts  = '-n --no-heading --color never'
-    "     let g:unite_source_grep_recursive_opt  = ''
-    "     " Hit数制御
-    "     let g:unite_source_grep_max_candidates = 200
-    "     " "Windows" 設定
-    "     let g:unite_source_grep_encoding='utf-8'
-    " endif
-
-    " The Silver searcher
-    if executable("ag")
-        let s:ignore_globs = [
-                    \ '.git',
-                    \ '.svn',
-                    \ 'node_modules'
-                    \ ]
-
-        " 検索対象から以下を除外
-        call denite#custom#var(
-                    \ 'command',
-                    \ 'file/rec',
-                    \ ['ag',
-                    \ '--follow',]
-                    \  + map(deepcopy(s:ignore_globs),
-                    \ { k, v -> '--ignore=' . v }) +
-                    \ ['--nocolor',
-                    \ '--nogroup',
-                    \ '-g',
-                    \ ''
-                    \ ])
-
-        " "file_rec" 検索時に "FuzzyMatch" を有効にし
-        " 検索対象から指定のファイルを除外
-        call denite#custom#source(
-                    \ 'file/rec',
-                    \ 'matchers',
-                    \ ['matcher_fuzzy',
-                    \ 'matcher_project_files',
-                    \ 'matcher_ignore_globs'
-                    \ ])
-
-        " 他ソース向けに "ignore_globs" 初期化
-        call denite#custom#filter(
-                    \ 'matcher/ignore_globs',
-                    \ 'ignore_globs',
-                    \ s:ignore_globs
-                    \ )
-    endif
-
-    " FuzzyMatch
-    if executable("matcher_fuzzy")
-        " "file_rec" 検索時に "FuzzyMatch" を有効にし
-        " 検索対象から指定のファイルを除外
-        call denite#custom#source(
-                    \ 'file_rec',
-                    \ 'matchers',
-                    \ ['matcher_fuzzy',
-                    \ 'matcher_project_files',
-                    \ 'matcher_ignore_globs'])
-
-        " 検索対象外のファイル指定
-        call denite#custom#filter(
-                    \ 'ignore_globs',
-                    \ 'matcher_ignore_globs',
-                    \ s:ignore_globs,
-                    \ ['*.make',
-                    \ '*.min.*',
-                    \ '*.o',
-                    \ '.git/',
-                    \ '.ropeproject/',
-                    \ '__pycache__/',
-                    \ 'build/',
-                    \ 'fonts/',
-                    \ 'images/',
-                    \ 'img/',
-                    \ 'venv/',
-                    \ 'ropeproject/'])
-    endif
-'''  # }}}
-on_i = 1
-on_cmd = ['Denite']
-# "[De|U]nite" 用 "Source" 郡
-# "[De|U]nite" 用 "mru"
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-on_source = ['dein.vim', 'unite.vim', 'denite.nvim']
-on_path = '.*'
-[[plugins]]
-repo = 'koron/codic-vim'
-# "NyaoVim" と "OniVim" で必要
-[[plugins]]
-repo = 'Shougo/unite.vim'
-
-# 入力補完
-    # 最新
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-if = "has('python3') && has('timers')"
-on_i = 1
-hook_add = '''  " {{{
-    " "hook_source" に移動
-    " let g:deoplete#auto_complete_delay = 0
-    let g:deoplete#enable_at_startup = 1
-'''  # }}}
-
-on_event = ['InsertCharPre']
-hook_source = '''  " {{{
-    inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-    inoremap <expr><C-l> deoplete#complete_common_string()
-    inoremap <expr><C-i> deoplete#complete_common_string()
-    inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-                \ neosnippet#expandable_or_jumpable() ?
-                \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-
-    " let g:deoplete#auto_complete_start_length = 1
-    let g:deoplete#enable_camel_case          = 0
-    let g:deoplete#enable_ignore_case         = 0
-    " let g:deoplete#enable_refresh_always      = 0
-    " let g:deoplete#enable_smart_case          = 1
-    " let g:deoplete#file#enable_buffer_path    = 1
-    " let g:deoplete#max_list                   = 10000
-
-    call deoplete#custom#option({
-    \ 'auto_complete_delay': 0,
-    \ 'auto_complete_start_length': 1,
-    \ 'refresh_always': v:false,
-    \ 'smart_case': v:true,
-    \ 'max_list': 10000,
-    \ })
-    " \ 'profile': v:true,
-    " \ })
-    " call deoplete#custom#source(
-    call deoplete#custom#var(
-    \ 'file', 'enable_buffer_path', v:true)
-'''  # }}}
+# タイムスタンプ 挿入
+# [[plugins]]
+# repo    = 'vim-scripts/autodate.vim'
+# if      = "!has('nvim')"
 
 [[plugins]]
-repo = 'Shougo/deoplete-rct'
+repo    = 'vim-denops/denops.vim'
+# if      = "has('nvim')"
 [[plugins]]
-repo = 'Shougo/neco-vim'
-[[plugins]]
-repo = 'Shougo/neco-syntax'
-[[plugins]]
-repo = 'ujihisa/neco-look'
+repo    = 'yukimemi/dps-autodate'
+depends = 'denops.vim'
+# if      = "has('nvim')"
 
-# 構文解析
+# チートシート表示
 [[plugins]]
-repo = 'w0rp/ale'
-if = "has('job') && has('channel') && has('timers')"
-[[plugins]]
-repo = 'scrooloose/syntastic'
-if = "!has('job') || !has('channel') || !has('timers')"
+repo    = 'reireias/vim-cheatsheet'
+on_cmd  = ['Cheat']
 
-# スニペット
+# ウィンドウ リサイズ
 [[plugins]]
-repo = 'Shougo/neosnippet'
-depends = ['neosnippet-snippets', 'context_filetype.vim']
-on_i = 1
-on_ft = ['snippet']
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo    = 'simeji/winresizer'
 
-# "NeoVim" の "Terminal" ラッパープラグイン
+# テキスト整形
 [[plugins]]
-repo = 'kassio/neoterm'
-if = "has('nvim')"
-hook_add = '''
-  let g:neoterm_repl_python = 0
-  let g:neoterm_autoinsert  = 1
-  " opens in insert mode
-  let g:neoterm_default_mod = "botright"
-'''
+repo    = 'junegunn/vim-easy-align'
+on_map  = ['<Plug>(EasyAlign)']
 
-# Markdown
-    # プレビュー
+# Undo履歴
 [[plugins]]
-repo = 'kannokanno/previm'
-    # MEMO: "Markdown" のみ対応
-on_ft = ['markdown','mkd']
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-    # MEMO: "Markdown" のみ対応
-on_ft = ['markdown','mkd']
-    # シンタックスハイライト
-[[plugins]]
-repo = 'rcmdnk/vim-markdown'
-on_ft = ['markdown','mkd']
-hook_add = '''
-    let g:vim_markdown_frontmatter = 1
-    let g:vim_markdown_math        = 1
-'''
+repo    = 'sjl/gundo.vim'
+on_cmd  = ['GundoToggle']
 
-# Fuzzy Matcher
+# 置換プレビュー
 [[plugins]]
-repo = 'junegunn/fzf'
-build = './install --bin'
-merged = '0'
+repo    = 'osyo-manga/vim-over'
+on_cmd  = ['OverCommandLine']
+
+# "*.toml" シンタックスハイライト
 [[plugins]]
-repo = 'junegunn/fzf.vim'
+repo    = 'cespare/vim-toml'
+on_ft   = ['toml']
+
+# "*.fish" シンタックスハイライト
+[[plugins]]
+repo    = 'dag/vim-fish'
+on_ft   = ['fish']
+
+# Tagbar
+[[plugins]]
+repo    = 'majutsushi/tagbar'
+on_cmd  = ['TagbarToggle']
+
+# TagList
+[[plugins]]
+repo    = 'vim-scripts/taglist.vim'
+on_cmd  = ['TlistOpen']
+
+# CtrlP
+[[plugins]]
+repo    = 'ctrlpvim/ctrlp.vim'
+on_map  = ['<C-l>']
+
+# fzf
+[[plugins]]
+repo    = 'junegunn/fzf'
+build   = './install --bin'
+merged  = '0'
+on_cmd  = ['FZF']
+[[plugins]]
+repo    = 'junegunn/fzf.vim'
 depends = ['fzf']
-hook_add = '''  " {{{
-    command! -bang -nargs=* Rg
-                \ call fzf#vim#grep(
-                \   'rg --hidden --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-                \   <bang>0 ? fzf#vim#with_preview('up:60%')
-                \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-                \   <bang>0)
-    command! -bang -nargs=* Rgs
-                \ call fzf#vim#grep(
-                \   'rg --hidden --column --line-number --no-heading --color=always --smart-case --encoding Shift_JIS '.shellescape(<q-args>), 1,
-                \   <bang>0 ? fzf#vim#with_preview('up:60%')
-                \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-                \   <bang>0)
-    command! -bang -nargs=* Ag
-                \ call fzf#vim#grep(
-                \   'ag --hidden --column --color --ignore .git '.shellescape(<q-args>), 0,
-                \   <bang>0 ? fzf#vim#with_preview('up:60%')
-                \           : fzf#vim#with_preview('right:50%', '?'),
-                \   <bang>0)
-'''  # }}}
 
-# fish syntax
+# Git
 [[plugins]]
-repo = 'dag/vim-fish'
-on_ft = ['fish']
+repo    = 'tpope/vim-fugitive'
+# 左に差分を表示
+[[plugins]]
+repo    = 'cohama/agit.vim'
+on_cmd  = ['Agit']
+
+# ALE
+[[plugins]]
+repo    = 'w0rp/ale'
+if      = "has('job') && has('channel') && has('timers')"
+[[plugins]]
+repo    = 'scrooloose/syntastic'
+if      = "!has('job') || !has('channel') || !has('timers')"
+
+# LSP(Language Server Protocol)
+[[plugins]]
+repo    = 'prabirshrestha/vim-lsp'
+on_map  = ['<F6>']
+[[plugins]]
+repo    = 'mattn/vim-lsp-settings'
+on_map  = ['<F6>']
+[[plugins]]
+repo    = 'mattn/vim-lsp-icons'
+on_map  = ['<F6>']
+
+# Vim 起動時間計測
+[[plugins]]
+repo    = 'dstein64/vim-startuptime'
+on_cmd  = ['StartupTime']
+[[plugins]]
+repo    = 'mattn/benchvimrc-vim'
+on_cmd  = ['BenchVimrc']
+
+# MEMO: "KaoriYa" 以外の環境で必要か確認
+# # 日本語ヘルプ
+# [[plugins]]
+# repo    = 'vim-jp/vimdoc-ja'
+# Windows CMD NeoVim 必要
+# if      = "((has('win32') || has('win64')) && has('nvim'))"

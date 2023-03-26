@@ -17,7 +17,7 @@ gm_echo ">> ${PROCESS^}"
 # バッテリー残量を％表記に
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
-# 日付と時刻のフォーマット（24時間表示、秒表示あり、日付・曜日を表示）
+# 日付と時刻のフォーマット(24時間表示、秒表示あり、日付・曜日を表示)
 defaults write com.apple.menuextra.clock DateFormat -string "M\u6708d\u65e5(EEE)  H:mm:ss"
 
 result_echo $? "${PROCESS}"

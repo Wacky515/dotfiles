@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Make symbolic link
 # Created:     2017/02/08 **:**:**
-# Last Change: 2021/03/02 22:28:32.
+# Last Change: 2023/03/19 18:00:00.
 
 set -ueo pipefail
 export LC_ALL=C
@@ -33,7 +33,6 @@ if [ $? = 0 ]
 then
     gm_echo ">> .gitconfig.os link success!"
 fi
-echo -n -e "\n"
 
 gm_echo ">> Start dotfiles link"
 
@@ -43,14 +42,13 @@ gm_echo ">> Start dotfiles link"
 
 # "fish" 設定
 if [ ! -e ~/.config/fish/ ]; then
-    sudo -- bash -c "mkdir -m 777 ~/.config/fish/"
+    sudo -- bash -c "mkdir -p -m 777 ~/.config/fish/"
 fi
 for g in *.fish
 do
     gm_echo ">> Set ${g}"
     ln -snfv ${DOT_DIR}/${g} ~/.config/fish/${g}
 done
-echo -n -e "\n"
 
 # "NeoVim" 設定
 if [ ! -e ~/.config/nvim/ ]; then
@@ -59,18 +57,6 @@ fi
 sudo ln -snfv ${DOT_DIR}/nvim/init.vim  ~/.config/nvim/init.vim
 sudo ln -snfv ${DOT_DIR}/nvim/ginit.vim ~/.config/nvim/ginit.vim
 sudo ln -snfv ${DOT_DIR}/.vim/colors ~/.config/nvim/colors
-
-if [ ! -e ~/.config/nyaovim/ ]; then
-    bash -c "mkdir -m 777 ~/.config/nyaovim/"
-fi
-sudo ln -snfv ${DOT_DIR}/nyaovimrc.html ~/.config/nyaovim/nyaovimrc.html
-
-# "OniVim" 設定
-if [ ! -e ~/.config/oni/ ]; then
-    sudo -- bash -c "mkdir -m 777 ~/.config/oni/"
-fi
-sudo ln -snfv ${DOT_DIR}/config.js ~/.config/oni/config.js
-# sudo ln -snfv ${DOT_DIR}/config.tsx ~/.config/oni/config.tsx
 
 for f in .??*
 do

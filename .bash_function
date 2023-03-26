@@ -37,20 +37,20 @@ function has() {
         # 8 => Concealed on
     # }}}
 
-## "echo" 強調（情報メッセージ用: 緑色）
+## "echo" 強調(情報メッセージ用: 緑色)
 ## MEMO: "Mac" で化けるので "printf" にした
 ## TODO: "Linux" で動作確認
 function gm_echo() {
     printf "\e[32m$*\e[m\n"
 }
 
-## "echo" 強調（警告メッセージ用: 黄色）
+## "echo" 強調(警告メッセージ用: 黄色)
 function ym_echo() {
     # echo -e "\e[33m$*\e[m"
     printf "\e[33m$*\e[m\n"
 }
 
-## "echo" 強調（異常メッセージ用: 赤色 太字 下線）
+## "echo" 強調(異常メッセージ用: 赤色 太字 下線)
 function rb_echo() {
     # echo -e "\e[31;4m$*\e[m"
     printf "\e[31;4m$*\e[m\n"

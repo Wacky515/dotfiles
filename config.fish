@@ -1,5 +1,5 @@
 # Created:     2018/**/** **:**:**
-# Last Change: 2021/02/21 21:28:49.
+# Last Change: 2023/03/11 21:05:57.
 
 cd ~/dotfiles
 
@@ -56,6 +56,8 @@ end
 # end
 
 # FIXME: Windows10、インストール失敗する
+# FIXME: Fisher インストールコマンドが変更になっている
+# FIXME: 長い行の折返し
 function ins_fisher
     if fisher -v > /dev/null 2>&1
         echo ">> Installed fisher"
@@ -63,23 +65,11 @@ function ins_fisher
         echo ">> Install fisher"
         set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
         curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-        # curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
-        # curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
-        # curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
         fish -c fisher
         fisher add oh-my-fish/theme-bobthefish
         fisher add jethrokuan/fzf
     end
 end
-
-# 上記と重複  # {{{
-# if not functions -q fisher
-#     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
-#     curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-#     fish -c fisher
-# end
-# }}}
-# REF: https://github.com/jorgebucaran/fisher
 
 function win_setting
     # ".bashrc" はエイリアス設定不可
@@ -102,6 +92,13 @@ switch (uname)
         echo ">> Start setting for fish on Mac"
         set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
         ins_fisher
+        # Set PATH, MANPATH, etc., for Homebrew.
+        switch (uname -m)
+            case 'arm64'
+                eval "$(/opt/homebrew/bin/brew shellenv)"
+            case 'x86_64'
+                eval "$(/usr/local/bin/brew shellenv)"
+        end
 
     # "Windows" 用設定
     case 'msys'

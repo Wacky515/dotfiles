@@ -1,5 +1,5 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2023/03/27 02:28:022
+# Last Change: 2023/03/27 02:30:062
 
 [user]
 	name = 脇田 純
@@ -26,7 +26,6 @@
 [core]
 	editor       = gvim
     quotepath=false
-	# excludesfile = /Users/wacky515/.gitignore
 	excludesfile = ~/.gitignore
 
 [include]
@@ -40,11 +39,10 @@
 	path =
 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 
 [commit]
-	# template = /Users/wacky515/.stCommitMsg
 	template = ~/.stCommitMsg
 
 [safe]

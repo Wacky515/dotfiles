@@ -1,3 +1,0 @@
-# TODO
-
-- Make symbolic link

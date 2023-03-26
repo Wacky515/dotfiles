@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @(#) Install fish
 # Created:     2018/05/03 10:54:13
-# Last Change: 2020/08/01 21:17:56.
+# Last Change: 2023/01/15 18:56:54.
 
 set -euo pipefail
 export LC_ALL=C
@@ -20,12 +20,12 @@ fi
 
 if ! has "fish"; then
     brew install fish
-    if [ ! grep -q "/usr/local/bin/fish" /etc/shells ]; then
-        sudo bash -c "echo /usr/local/bin/fish | sudo tee -a /etc/shells"
+    if [ ! grep -q "/opt/homebrew/bin/fish" /etc/shells ]; then
+        sudo bash -c "/opt/homebrew/bin/fish | sudo tee -a /etc/shells"
     else
         gm_echo ">> Already install fish"
     fi
-    chsh -s /usr/local/bin/fish
+    chsh -s /opt/homebrew/bin/fish
 fi
 
 # fish
