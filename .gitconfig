@@ -1,5 +1,5 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2020/11/08 22:43:42
+# Last Change: 2023/03/27 02:28:022
 
 [user]
 	name = 脇田 純
@@ -37,7 +37,7 @@
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
@@ -46,3 +46,7 @@
 [commit]
 	# template = /Users/wacky515/.stCommitMsg
 	template = ~/.stCommitMsg
+
+[safe]
+	# directory = C:/Users/wacky/dotfiles
+	directory = ~/dotfiles
