@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2021/12/25 19:05:37
-" Last Change: 2023/03/23 09:34:05.
+" Last Change: 2023/03/27 14:07:58.
 
 " ------------------------------------------------------------------------------
 "  基本設定
@@ -31,7 +31,6 @@ syntax match   melfaFloat       "\.\d\+\%([de][-+]\=\d*\)\=[f!#]\="
 syntax match   melfaLocalVar    "\.\d\+\%([de][-+]\=\d*\)\=[f!#]\="
 syntax match   melfaExternalVar "\.\d\+\%([de][-+]\=\d*\)\=[f!#]\="
 
-" MEMO: /b: 単語の行頭を表す正規表現 使う
 syntax keyword melfaDefine      Dim
 syntax keyword melfaDefine      FPrm
 syntax keyword melfaDefine      Plt
@@ -40,7 +39,9 @@ syntax match   melfaVarType     "\sM*\zsM"
 syntax match   melfaVarType     "\sP*\zsP"
 syntax match   melfaVarType     "\sJ*\zsJ"
 syntax match   melfaVarType     "\sC*\zsC"
-" FIXME: P_J_ の J_ マッチしてしまう
+
+" FIXME: "P_J_*" の "J_" にマッチしてしまう
+" MEMO: \b: 単語の行頭を表す正規表現 使う
 syntax match   melfaExtVarType  "M_"
 syntax match   melfaExtVarType  "P_"
 syntax match   melfaExtVarType  "J_"
@@ -124,20 +125,8 @@ highlight link melfaJump        DiffText
 
 highlight link melfaTimer       Define
 
-" NOTWORK: khighlight melfaProgramCtrlH     ctermfg=203 guifg=#00ff00
+" NOTWORK: highlight melfaProgramCtrlH     ctermfg=203 guifg=#00ff00
 " highlight link melfaProgramCtrl melfaProgramCtrlH
 highlight link melfaProgramCtrl Define
 
 highlight link melfaComment     Comment
-
-" ------------------------------------------------------------------------------
-"  ユーザー定義補完
-" ------------------------------------------------------------------------------
-inoremap <F6> <C-R>=MyCmpl()<CR>
-func! MyCmpl()
-  call complete(col('.'), [
-    \ {'word': 'foo', 'abbr': '1: foo', 'menu': 'hoge', 'info': 'FOO - HOGE'},
-    \ {'word': 'bar', 'abbr': '2: bar', 'menu': 'piyo', 'info': 'BAR - PIYO'},
-    \ {'word': 'baz', 'abbr': '3: baz', 'menu': 'fuga', 'info': 'BAZ - FUGA'}])
-  return ''
-endfunc
