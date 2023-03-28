@@ -12,7 +12,7 @@ set background=dark
 augroup MyAutoCmd
     autocmd VimEnter * nested colorscheme iceberg
     " タブ文字 色設定		  " < タブ文字見本
-    " NOTWORK: "Windows NeoVim" では動作しない
+    " NOTWORK: "Mac | Windows NeoVim" では動作しない
     autocmd VimEnter * highlight SpecialKey guibg=NONE guifg=Red
     " 改行文字 色設定
     autocmd VimEnter * highlight NonText    guibg=NONE guifg=DarkGreen
