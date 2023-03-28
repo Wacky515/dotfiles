@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2023/03/04 16:27:00
-" Last Change: 2023/03/27 08:24:44.
+" Last Change: 2023/03/28 20:58:30.
 
 " ------------------------------------------------------------------------------
 "  外観テーマ
@@ -13,6 +13,7 @@ augroup MyAutoCmd
     autocmd VimEnter * nested colorscheme iceberg
     " タブ文字 色設定		  " < タブ文字見本
     " NOTWORK: "Mac | Windows NeoVim" では動作しない
+    " MEMO:    "Mac | Windows GVim"   では動作する
     autocmd VimEnter * highlight SpecialKey guibg=NONE guifg=Red
     " 改行文字 色設定
     autocmd VimEnter * highlight NonText    guibg=NONE guifg=DarkGreen

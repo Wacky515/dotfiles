@@ -1,5 +1,5 @@
 # Created:     201*/**/** **:**:**
-# Last Change: 2020/05/03 13:43:47.
+# Last Change: 2023/03/28 21:02:59.
 # MEMO: "Shell" を起動する度に実行したい一般的な設定
 #       環境変数は ".bash_profile" で設定
 #       標準出力や標準エラー出力に出力しない
@@ -8,6 +8,7 @@
 ## 関数
 [ -f ~/.bash_function ] && source ~/.bash_function
 
+# TODO: 非表示にする
 cd ~/dotfiles
 
 # OS 別設定
@@ -23,7 +24,7 @@ cd ~/dotfiles
 #         echo ">> Start setting for Bash on Mac"
 #         echo ">> NO SETTING"
 #         ;;
-#         
+#
 #     # "Windows" 用設定
 #     msys)
 #         echo ">> Start setting for Bash on Windows Msys2"
