@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2023/03/04 16:27:00
-" Last Change: 2023/03/31 09:41:47.
+" Last Change: 2023/03/31 09:53:10.
 
 " ------------------------------------------------------------------------------
 "  外観テーマ
@@ -12,7 +12,8 @@ set background=dark
 augroup MyAutoCmd
     autocmd VimEnter * nested colorscheme iceberg
     " タブ文字 色設定		  " < タブ文字見本
-    " NOTWORK: "Windows NeoVim" では動作しない
+    " NOTWORK: "Mac | Windows NeoVim" では動作しない
+    " MEMO:    "Mac | Windows GVim"   では動作する
     autocmd VimEnter * highlight SpecialKey guibg=NONE guifg=Red
     " 改行文字 色設定
     autocmd VimEnter * highlight NonText    guibg=NONE guifg=DarkGreen
@@ -37,8 +38,7 @@ set guioptions+=b
 if has("unix") && !has("nvim")
     set transparency=10
 elseif ((has("win32") || has("win64")) && has("Kaoriya"))
-    " :autocmd GUIEnter * set transparency=235
-    set transparency=235
+    :autocmd GUIEnter * set transparency=235
 endif
 
 " メッセージ 文字化け対策
