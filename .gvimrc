@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2023/03/04 16:27:00
-" Last Change: 2023/03/27 08:24:44.
+" Last Change: 2023/03/31 09:41:47.
 
 " ------------------------------------------------------------------------------
 "  外観テーマ
@@ -36,8 +36,9 @@ set guioptions+=b
     " MEMO: "Linux" の "NeoVim" は設定できない
 if has("unix") && !has("nvim")
     set transparency=10
-elseif (has(("win32") || ("win64") && has("Kaoriya")))
-    :autocmd GUIEnter * set transparency=235
+elseif ((has("win32") || has("win64")) && has("Kaoriya"))
+    " :autocmd GUIEnter * set transparency=235
+    set transparency=235
 endif
 
 " メッセージ 文字化け対策
