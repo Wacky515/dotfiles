@@ -97,4 +97,8 @@ options     head
 	echo "${0:TARGET}" 1>&2
 	exit 1
 
+snippet     nodisp
+options     head
+	> /dev/null 2>&1
+
 # vim: set noexpandtab :
