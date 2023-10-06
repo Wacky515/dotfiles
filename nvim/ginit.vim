@@ -46,7 +46,7 @@ elseif (has("win32") || has("win64"))
 
     " muRata setting
     elseif hostname() == "HBAMB1448"
-        Guifont! Cica:h14
+        Guifont! Cica:h11
     elseif hostname() == "HBAMB819"
         Guifont! Cica:h13
     else
