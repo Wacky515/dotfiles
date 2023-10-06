@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2020/04/15 10:45:50
-rem Last Change: 2020/10/24 22:23:59.
+rem Last Change: 2023/09/06 10:17:55.
 
 set batch_title=Install gtran
 
@@ -39,7 +39,7 @@ git --version > nul 2>&1
 if %errorlevel% equ 0 goto gclone
 
 echo ^>^> Try install git
-cinst -y git
+choco install -y git
 git --version > nul 2>&1
 
 echo ^>^> Field install git automatically
@@ -74,7 +74,7 @@ echo ^>^> Install Chocolatey
 echo ^>^> Check installed Go or not
 go version > nul 2>&1
 if %errorlevel% equ 0 goto install_gtran
-cinst golang -y
+choco install golang -y
 
 :install_gtran
 pushd %userprofile%

@@ -110,14 +110,14 @@ if %errorlevel% equ 0 (
 )
 
 :inst_must_apps
-rem 必須パッケージ "cinst"
+rem 必須パッケージ "choco install"
 echo ^>^> Install must apps
 
 echo ^>^> Check installed 7zip or not
 7z.exe > nul 2>&1
 if not %errorlevel% equ 0 (
     echo ^>^> Install 7zip
-    cinst -y -r --no-progress 7zip
+    choco install -y -r --no-progress 7zip
 ) else (
     echo ^>^> Already installed 7zip
 )
@@ -126,7 +126,7 @@ echo ^>^> Check installed Git or not
 git --version > nul 2>&1
 if not %errorlevel% equ 0 (
     echo ^>^> Install Git
-    cinst -y -r --no-progress git
+    choco install -y -r --no-progress git
 ) else (
     echo ^>^> Already installed Git
 )
@@ -141,17 +141,17 @@ if %errorlevel% equ 0 (
 
     ping 172.16.84.100 /n 1 > nul 2>&1
     if %errorlevel% equ 0 goto chk_inst_megasync_in_proxy
-    cinst -y -r --no-progress megasync
+    choco install -y -r --no-progress megasync
     goto chk_inst_git
 
     :chk_inst_megasync_in_proxy
-    if not exist %homepath%\OneDeive\仕事\ cinst -y -r --no-progress megasync
+    if not exist %homepath%\OneDeive\仕事\ choco install -y -r --no-progress megasync
     echo ^>^> FAILED INSTALL MEGASYNC AUTOMATICALLY, CONNECT WITHOUT PROXY
     pause
     exit /b 0013
 
     :inst_megasync
-    cinst -y -r --no-progress megasync
+    choco install -y -r --no-progress megasync
 )
 
 :chk_inst_git
@@ -168,7 +168,7 @@ REM FIXME: 最初回は判別不可能なご様子、当バッチの再実行必要 < HBAWS077はできた
 git --version > nul 2>&1
 if %errorlevel% equ 0 goto git_clone
 echo ^>^> Try install git
-cinst -y -r --no-progress git
+choco install -y -r --no-progress git
 
 echo ^>^> Check installed Git or not 3rd time
 REM FIXME: 最初回は判別不可能なご様子、当バッチの再実行必要 < HBAWS077はできた
@@ -362,12 +362,12 @@ rem "*_packages_*.config" を読み込み、インストール
 if exist %conf_file% (
     echo ^>^> Install apps for this PC
     for %%i in (%conf_file%) do (
-        cinst -y -r --no-progress %%i
+        choco install -y -r --no-progress %%i
     )
 ) else (
     pushd %conf_dept%
     echo ^>^> Setting default parameter
-    cinst -y -r --no-progress %conf_defa%
+    choco install -y -r --no-progress %conf_defa%
 )
 echo ^>^> Update Chocolatey
 cup all -y -r --no-progress

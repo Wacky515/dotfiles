@@ -51,7 +51,7 @@ echo ^>^> Install Chocolatey
 
 :install_npm
 echo ^>^> Install Node Package Manager
-cinst -y nodejs.install
+choco install -y nodejs.install
 
 :install_textlint
 echo ^>^> %batch_title%
