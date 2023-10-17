@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2023/03/11 21:42:11.
+rem Last Change: 2023/10/17 17:26:34.
 rem FIXME: ’·‚¢s‚ðÜ‚è•Ô‚·
 
 set batch_title=Initialize dotfiles
@@ -129,29 +129,6 @@ if not %errorlevel% equ 0 (
     choco install -y -r --no-progress git
 ) else (
     echo ^>^> Already installed Git
-)
-
-echo ^>^> Check installed MEGA sync or not
-megasync --version > nul 2>&1
-if %errorlevel% equ 0 (
-    echo ^>^> Already installed MEGA sync
-    goto chk_inst_git
-) else (
-    echo ^>^> Install MEGA sync
-
-    ping 172.16.84.100 /n 1 > nul 2>&1
-    if %errorlevel% equ 0 goto chk_inst_megasync_in_proxy
-    choco install -y -r --no-progress megasync
-    goto chk_inst_git
-
-    :chk_inst_megasync_in_proxy
-    if not exist %homepath%\OneDeive\ŽdŽ–\ choco install -y -r --no-progress megasync
-    echo ^>^> FAILED INSTALL MEGASYNC AUTOMATICALLY, CONNECT WITHOUT PROXY
-    pause
-    exit /b 0013
-
-    :inst_megasync
-    choco install -y -r --no-progress megasync
 )
 
 :chk_inst_git
