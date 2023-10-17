@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2023/10/18 07:15:51.
+rem Last Change: 2023/10/18 07:24:44.
 rem FIXME: ’·‚¢s‚ðÜ‚è•Ô‚·
 
 set batch_title=Initialize dotfiles
@@ -368,7 +368,7 @@ call sub_setting_all.cmd
 rem pause
 
 echo ^>^> Chocolatey update
-cup all -y
+choco update all -y
 rem pause
 
 rem ---------------------------------------------------------------------------

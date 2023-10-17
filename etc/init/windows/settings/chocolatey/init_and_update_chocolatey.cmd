@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2017/02/17 00:54:41
-rem Last Change: 2023/09/06 10:08:34.
+rem Last Change: 2023/10/18 07:25:37.
 
 set batch_title=Update Chocolatey
 title %batch_title%
@@ -67,7 +67,7 @@ if exist %config_files% (
     choco install -y - no-progress packages.config
 )
 
-cup all -y
+choco update all -y
 
 rem デスクトップショートカット 作成
 pushd %odr_path%
