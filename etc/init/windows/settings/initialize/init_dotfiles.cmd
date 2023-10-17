@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2023/10/17 17:26:34.
+rem Last Change: 2023/10/18 06:59:15.
 rem FIXME: 長い行を折り返す
 
 set batch_title=Initialize dotfiles
@@ -99,7 +99,7 @@ if %std_disp% equ 1 (
 :chk_choco
 rem "Chocolatey" インストール済みかチェック
 echo ^>^> Check installed Chocolatey or not
-chocolatey -v > nul 2>&1
+choco -v > nul 2>&1
 if %errorlevel% equ 0 (
     echo ^>^> Already installed Chocolatey
     goto inst_must_apps
