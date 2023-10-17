@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2023/10/18 06:59:15.
+rem Last Change: 2023/10/18 07:15:51.
 rem FIXME: ’·‚¢s‚ðÜ‚è•Ô‚·
 
 set batch_title=Initialize dotfiles
@@ -345,9 +345,10 @@ if exist %conf_file% (
     pushd %conf_dept%
     echo ^>^> Setting default parameter
     choco install -y -r --no-progress %conf_defa%
+
 )
 echo ^>^> Update Chocolatey
-cup all -y -r --no-progress
+choco update all -y -r --no-progress
 rem ---------------------------------------------------------------------------
 
 :install_all
