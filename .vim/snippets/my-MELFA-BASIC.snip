@@ -1,0 +1,84 @@
+snippet header
+abbr    ヘッダ
+options head
+    ' ###############################################
+    ' # Unit Name:    ${1:UNIT}
+    ' # Program No.:  ${2:NO}
+    ' # Program Name: ${3:NAME}
+    ' # Created:      __DATE__
+    ' # Last Change:  2024/01/17 12:24:05*
+    ' # Author:       MM12167
+    ' # Copyright:    (c) Murata Manufacturing Co., Ltd.
+    ' ###############################################
+    '
+    ' 引数宣言
+    ' NONE
+    ' 変数宣言
+    ' NONE
+    ' 初期値設定
+    ' NONE
+
+snippet if
+abbr    IF文
+regexp  '^\s*'
+options head
+    If ${1:CONDITION} Then
+      ${2:TRUE}
+    Endif
+
+snippet ifel
+abbr    IF-ELSE文
+regexp  '^\s*'
+options head
+    If ${1:CONDITION} Then
+      ${2:TRUE}
+    Else
+      ${4:ELSE}
+    Endif
+
+snippet 1if
+abbr    IF文(ワンライナー)
+regexp  '^\s*'
+options head
+    If ${1:CONDITION} Then ${2:TRUE}
+
+snippet 1ifel
+abbr    IF-ELSE文(ワンライナー)
+regexp  '^\s*'
+options head
+    If ${1:CONDITION} Then ${2:TRUE} Else ${4:ELSE}
+
+snippet toolcl
+abbr    ツール変換データ 初期値
+options head
+    Tool P_NTool ' ツール変換データ 初期値
+
+snippet finep
+abbr    mm単位直線距離位置決め制御 開始
+options head
+    Fine ${1:POS}, P ' mm単位位置決め制御 開始
+
+snippet fine0
+abbr    mm単位直線距離位置決め制御 解除
+options head
+    Fine 0, P ' mm単位位置決め制御 解除
+
+snippet orcl
+abbr    オーバーライド 初期値
+options head
+    Ovrd M_NOvrd ' オーバーライド 初期値
+
+snippet fbc
+abbr    現在位置 セット
+options head
+    PC=P_Fbc ' 現在位置 セット
+
+snippet splb
+abbr    区切り線 大
+options head
+    ' ###############################################
+
+snippet spls
+abbr    区切り線 小
+options head
+    ' ***********************************************

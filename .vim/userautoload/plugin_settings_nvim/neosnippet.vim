@@ -1,12 +1,12 @@
 scriptencoding utf-8
 " Created:     2018/03/19 09:07:48
-" Last Change: 2023/03/19 09:21:48.
+" Last Change: 2024/01/12 15:05:13.
 
 " ------------------------------------------------------------------------------
 "  マップキー
 " ------------------------------------------------------------------------------
 " <F8>:         スニペット登録/編集
-nnoremap <F8> :vsplit <CR> :NeoSnippetEdit<CR>
+nnoremap <F8> :<C-u>vsplit<CR>:<C-u>NeoSnippetEdit<CR>
 
 " <C-k>:        ターゲットジャンプ
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
