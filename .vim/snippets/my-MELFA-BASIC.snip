@@ -1,15 +1,15 @@
 snippet header
 abbr    ヘッダ
 options head
-    ' ###############################################
+    ' #################################################################################################
     ' # Unit Name:    ${1:UNIT}
     ' # Program No.:  ${2:NO}
     ' # Program Name: ${3:NAME}
     ' # Created:      __DATE__
-    ' # Last Change:  2024/01/17 12:24:05*
+    ' # Last Change:  2024/02/15 12:28:30*
     ' # Author:       MM12167
     ' # Copyright:    (c) Murata Manufacturing Co., Ltd.
-    ' ###############################################
+    ' #################################################################################################
     '
     ' 引数宣言
     ' NONE
@@ -51,14 +51,24 @@ options head
 snippet toolcl
 abbr    ツール変換データ 初期値
 options head
-    Tool P_NTool ' ツール変換データ 初期値
+    Tool P_NTool ' 制御点を初期値に戻す
+
+snippet fine
+abbr    パルス位置決め制御 開始
+options head
+    Fine ${1:POS}, P ' mm単位位置決め制御 開始
+
+snippet fine0
+abbr    パルス位置決め制御 解除
+options head
+    Fine 0, P ' mm単位位置決め制御 解除
 
 snippet finep
 abbr    mm単位直線距離位置決め制御 開始
 options head
     Fine ${1:POS}, P ' mm単位位置決め制御 開始
 
-snippet fine0
+snippet finep0
 abbr    mm単位直線距離位置決め制御 解除
 options head
     Fine 0, P ' mm単位位置決め制御 解除
@@ -76,9 +86,9 @@ options head
 snippet splb
 abbr    区切り線 大
 options head
-    ' ###############################################
+    ' #################################################################################################
 
 snippet spls
 abbr    区切り線 小
 options head
-    ' ***********************************************
+    ' *************************************************************************************************
