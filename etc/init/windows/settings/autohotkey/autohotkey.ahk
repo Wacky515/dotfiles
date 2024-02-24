@@ -83,7 +83,7 @@ F13 & D::Send,{Delete}
 F13 & K::Send,{ShiftDown}{End}{ShiftUp}^x
 F13 & U::Send,{ShiftDown}{Home}{ShiftUp}^x
 
-; カーソル前後を入替え
+; カーソル前後の文字を入替え
 F13 & T::
     if WinActive("ahk_class VirtualConsoleClass"){
         Return
