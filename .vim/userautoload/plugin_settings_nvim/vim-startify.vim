@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Created:     2018/12/13 07:39:11
-" Last Change: 2023/03/18 16:57:40.
+" Last Change: 2024/11/04 18:05:52.
 
 " ------------------------------------------------------------------------------
 "  マップキー
@@ -39,8 +39,6 @@ let g:startify_bookmarks = [
             \ "~/dotfiles/etc/init/osx/settings",
             \ "~/dotfiles/etc/init/linux/settings",
             \ "~/dotfiles/etc/init/windows/settings",
-            \ "C:/Box/000_MyFolder/Docments/工具・機械要素購入.md",
-            \ "C:/Box/000_MyFolder/Docments/出張各種申請_MEMO.md"
             \ ]
 
 " アスキーアート 中央揃え
