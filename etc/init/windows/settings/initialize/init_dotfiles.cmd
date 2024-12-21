@@ -206,21 +206,21 @@ echo ^>^> Not exist "InitApps"
 :cp_rd
 rem DEP: Rドライブをコピー
 echo ^>^> In proxy
-if not exist %userprofile%\OneDrive\仕事\Settings\ (
+if not exist %OneDrive%\仕事\Settings\ (
     echo ^>^> Copy "Settngs" from R Drive
-    mkdir %userprofile%\OneDrive\仕事\Settings\
+    mkdir %OneDrive%\仕事\Settings\
     net use v: /delete > nul 2>&1
     net use v: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\Settings
-    robocopy /s /e /np /njh /njs v: %userprofile%\OneDrive\仕事\Settings\
+    robocopy /s /e /np /njh /njs v: %OneDrive%\仕事\Settings\
     net use v: /delete > nul 2>&1
 )
 
-if not exist %userprofile%\OneDrive\仕事\InitApps\ (
+if not exist %OneDrive%\仕事\InitApps\ (
     echo ^>^> Copy "InitApps" from R Drive
-    mkdir %userprofile%\OneDrive\仕事\InitApps\
+    mkdir %OneDrive%\仕事\InitApps\
     net use w: /delete > nul 2>&1
     net use w: \\M5FSV01\HONSHAB\E2M0\E2M-4\【秘】-E2M4-1\10.個人ファイル\Wakita\仕事\InitApps
-    robocopy /s /e /np /njh /njs w: %userprofile%\OneDrive\仕事\InitApps\
+    robocopy /s /e /np /njh /njs w: %OneDrive%\仕事\InitApps\
     net use w: /delete > nul 2>&1
 )
 goto install_apps
@@ -249,7 +249,7 @@ if %con_stg_time% geq 3 (
 )
 if %errorlevel% neq 0 goto com_settings
 
-robocopy /s /e /ns /nc /nfl /ndl /np /njh t: %userprofile%\OneDrive\仕事\Settings\
+robocopy /s /e /ns /nc /nfl /ndl /np /njh t: %OneDrive%\仕事\Settings\
 echo ^>^> Robocopy exit code: %errorlevel%
 if %errorlevel% leq 1 (
     echo ^>^> Success copy "Settings"
@@ -274,7 +274,7 @@ if %con_ita_time% geq 3 (
 )
 if %errorlevel% neq 0 goto com_initapps
 
-robocopy /s /e /ns /nc /nfl /ndl /np /njh u: %userprofile%\OneDrive\仕事\InitApps\
+robocopy /s /e /ns /nc /nfl /ndl /np /njh u: %OneDrive%\仕事\InitApps\
 echo ^>^> Robocopy exit code: %errorlevel%
 if %errorlevel% leq 1 (
     echo ^>^> Success copy "InitApps"
@@ -293,15 +293,15 @@ goto dl_mega
 
 :dl_mega
 echo ^>^> Not in proxy, download MEGA sync
-if exist %userprofile%\OneDrive\仕事\Settings\ (
-    rmdir /s %userprofile%\OneDrive\仕事\Settings\
+if exist %OneDrive%\仕事\Settings\ (
+    rmdir /s %OneDrive%\仕事\Settings\
 )
 echo ^>^> Please download "Settings" folder manually, then any key in
 start https://mega.nz/#F!ubhxia6L
 pause
 
-"C:\Program Files\7-Zip\7z.exe" x -y -o%userprofile%\OneDrive\仕事\ %userprofile%\OneDrive\仕事\Settings.zip
-if exist %userprofile%\OneDrive\仕事\Settings\ (
+"C:\Program Files\7-Zip\7z.exe" x -y -o%OneDrive%\仕事\ %OneDrive%\仕事\Settings.zip
+if exist %OneDrive%\仕事\Settings\ (
     echo ^>^> Success set "Settings" manually
 ) else (
     echo ^>^> FAILED SET "SETTINGS" MANUALLY, ABORT THIS SCRIPT!
@@ -309,15 +309,15 @@ if exist %userprofile%\OneDrive\仕事\Settings\ (
     goto end
 )
 
-if exist %userprofile%\OneDrive\仕事\InitApps\ (
-    rmdir /s %userprofile%\OneDrive\仕事\InitApps\
+if exist %OneDrive%\仕事\InitApps\ (
+    rmdir /s %OneDrive%\仕事\InitApps\
 )
 
 echo ^>^> Please download "InitApps" folder manually, then any key in
 start https://mega.nz/#F!yTATTABQ
 pause
 
-"C:\Program Files\7-Zip\7z.exe" x -y -o%userprofile%\OneDrive\仕事\ %userprofile%\OneDrive\仕事\InitApps.zip
+"C:\Program Files\7-Zip\7z.exe" x -y -o%OneDrive%\仕事\ %OneDrive%\仕事\InitApps.zip
 if %errorlevel% equ 0 (
     echo ^>^> Success copy "InitApps" manually
 ) else (
@@ -385,17 +385,17 @@ rem     echo ^>^> Del init_dotfiles
 rem     rmdir /s /q %userprofile%\init_dotfiles > nul 2>&1
 rem )
 
-if exist %userprofile%\OneDrive\仕事\Settings.zip (
+if exist %OneDrive%\仕事\Settings.zip (
     echo ^>^> Del Settings.zip
-    del %userprofile%\OneDrive\仕事\Settings.zip > nul 2>&1
+    del %OneDrive%\仕事\Settings.zip > nul 2>&1
 )
 
 if exist %userprofiley%\OneDrive\仕事\InitApps.zip (
     echo ^>^> Del InitApps.zip
-    del %userprofile%\OneDrive\仕事\InitApps.zip > nul 2>&1
+    del %OneDrive%\仕事\InitApps.zip > nul 2>&1
 )
 
-call %userprofile%\OneDrive\仕事\InitApps\Batch\empty.cmd > nul 2>&1
+call %OneDrive%\仕事\InitApps\Batch\empty.cmd > nul 2>&1
 
 rem link.cmd 実行
 rem pushd %userprofile%\dotfiles\
