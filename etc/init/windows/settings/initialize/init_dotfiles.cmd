@@ -188,7 +188,7 @@ ping 10.0.1.1 /n 1 > nul 2>&1
 if %errorlevel% equ 0 goto cp_nas
 
 echo ^>^> Check exist "Settings" or not
-if exist %OneDrive%\仕事\Wallpaper\ (
+if exist %OneDrive%\仕事\Settings\Wallpaper\ (
     echo ^>^> Already exist "Settings", Install apps
     goto chk_init_apps
 )
