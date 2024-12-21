@@ -31,7 +31,7 @@ exit
 :main_routine
 set bat_path=%~dp0
 set conf_file=packages_%computername%.config
-set conf_path=%onedrive%\仕事\Settings\Chocolatey\
+set conf_path=%OneDrive%\仕事\Settings\Chocolatey\
 set conf_dept=%userprofile%\dotfiles\etc\init\windows\settings\chocolatey\
 set conf_defa=%conf_path%\packages.config
 
@@ -188,7 +188,7 @@ ping 10.0.1.1 /n 1 > nul 2>&1
 if %errorlevel% equ 0 goto cp_nas
 
 echo ^>^> Check exist "Settings" or not
-if exist %OneDrive%\仕事\Settings\Wallpaper\ (
+if exist %OneDrive%\Wallpaper\ (
     echo ^>^> Already exist "Settings", Install apps
     goto chk_init_apps
 )
@@ -197,7 +197,7 @@ goto dl_mega
 
 :chk_init_apps
 echo ^>^> Check exist "InitApps" or not
-if exist %userprofile%\OneDrive\仕事\InitApps\x64\ (
+if exist %OneDrive%\仕事\InitApps\x64\ (
     echo ^>^> Already exist "InitApps", Install apps
     goto install_apps
 )
