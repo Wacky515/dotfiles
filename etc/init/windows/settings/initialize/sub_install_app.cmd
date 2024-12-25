@@ -1,13 +1,13 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/10/25 21:46:58.
+rem Last Change: 2024/12/25 10:40:05.
 
 set batch_title=Install initialize App
 title %batch_title%
 
 set dir_7zip="C:\ProgramData\chocolatey\tools\7z.exe"
-set src_dir=%userprofile%\OneDrive\仕事\InitApps\
+set src_dir=%OneDrive%\仕事\InitApps\
 rem set bat_path=%~dp0
 
 rem rem スクリプトがある "Dir" に "cd"

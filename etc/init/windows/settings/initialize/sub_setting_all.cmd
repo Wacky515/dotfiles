@@ -1,13 +1,13 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/10/25 21:44:09.
+rem Last Change: 2024/12/25 10:40:05.
 
 set batch_title=Initialize batch scripts for setting
 title %batch_title%
 
 set git_path=%userprofile%\dotfiles\etc\init\windows\settings
-set meg_path=%userprofile%\OneDrive\仕事\Settings\
+set meg_path=%OneDrive%\仕事\Settings\
 rem set bat_path=%~dp0
 
 rem rem スクリプトがある "Dir" に "cd"

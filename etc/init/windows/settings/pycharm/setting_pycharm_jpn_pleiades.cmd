@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** ** **:**:**
-rem Last Change: 2023/03/11 21:48:24.
+rem Last Change: 2024/12/25 10:40:05.
 rem FIXME: 長い行を折り返す
 
 set batch_title=Setting PyCharm Japanese
@@ -23,7 +23,7 @@ rem rem スクリプトがある "Dir" に "cd"
 rem set bat_path=%~dp0
 rem pushd %bat_path%
 
-pushd %userprofile%\OneDrive\仕事\Settings\PyCharm\
+pushd %OneDrive%\仕事\Settings\PyCharm\
 if %errorlevel% equ 1 (
     echo ^>^> SETTING FOLDER NOT FOUND
     goto end

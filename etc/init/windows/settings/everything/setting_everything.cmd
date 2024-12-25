@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/01/01 00:00:00
-rem Last Change: 2020/11/01 10:20:01.
+rem Last Change: 2024/12/25 10:40:05.
 
 set batch_title=Setting Everything
 title %batch_title%
@@ -33,7 +33,7 @@ set ss=%time:~6,2%
 set tstmp=%yyyy%-%mm%-%dd%_%hh%-%mi%-%ss%
 
 set ini_dir=%appdata%\Everything\
-set src_dir=%userprofile%\OneDrive\仕事\Settings\Everything\
+set src_dir=%OneDrive%\仕事\Settings\Everything\
 set backup=%ini_dir%\old\%tstmp%
 
 rem スクリプトがある "Dir" に "cd"

@@ -1,8 +1,8 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2023/10/18 07:24:44.
-rem FIXME: é•·ã„è¡Œã‚’æŠ˜ã‚Šè¿”ã™
+rem Last Change: 2024/12/25 13:07:22.
+rem FIXME: ’·‚¢s‚ğÜ‚è•Ô‚·
 
 set batch_title=Initialize dotfiles
 title %batch_title%
@@ -18,26 +18,24 @@ set ss=%time_zero_suppress:~6,2%
 
 set maketime=%yyyy%-%mm%-%dd%_%hh%-%mn%-%ss%
 
-rem ç®¡ç†è€…æ¨©é™ã§èµ·å‹•ã•ã‚ŒãŸã‹ãƒã‚§ãƒƒã‚¯
+rem ŠÇ—ÒŒ ŒÀ‚Å‹N“®‚³‚ê‚½‚©ƒ`ƒFƒbƒN
 whoami /PRIV | find "SeLoadDriverPrivilege" > nul
 
-rem ç®¡ç†è€…æ¨©é™ãªã‚‰ãƒ¡ã‚¤ãƒ³å‡¦ç†
+rem ŠÇ—ÒŒ ŒÀ‚È‚çƒƒCƒ“ˆ—
 if not errorlevel 1 goto main_routine
 
-rem ç®¡ç†è€…æ¨©é™ã§ãªã‘ã‚Œã°ç®¡ç†è€…æ¨©é™ã§å†èµ·å‹•
+rem ŠÇ—ÒŒ ŒÀ‚Å‚È‚¯‚ê‚ÎŠÇ—ÒŒ ŒÀ‚ÅÄ‹N“®
 @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
 exit
 
 :main_routine
 set bat_path=%~dp0
 set conf_file=packages_%computername%.config
-set conf_path=%OneDrive%\ä»•äº‹\Settings\Chocolatey\
 set conf_dept=%userprofile%\dotfiles\etc\init\windows\settings\chocolatey\
-set conf_defa=%conf_path%\packages.config
 
-rem rem ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "cd"
+rem rem ƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "cd"
 rem pushd %bat_path%
-rem ãƒ›ãƒ¼ãƒ ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã« "cd"
+rem ƒz[ƒ€ƒfƒBƒŒƒNƒgƒŠ‚É "cd"
 pushd %userprofile%
 
 echo ^>^> %batch_title%
@@ -97,7 +95,7 @@ if %std_disp% equ 1 (
 )
 
 :chk_choco
-rem "Chocolatey" ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«æ¸ˆã¿ã‹ãƒã‚§ãƒƒã‚¯
+rem "Chocolatey" ƒCƒ“ƒXƒg[ƒ‹Ï‚İ‚©ƒ`ƒFƒbƒN
 echo ^>^> Check installed Chocolatey or not
 choco -v > nul 2>&1
 if %errorlevel% equ 0 (
@@ -110,7 +108,7 @@ if %errorlevel% equ 0 (
 )
 
 :inst_must_apps
-rem å¿…é ˆãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ "choco install"
+rem •K{ƒpƒbƒP[ƒW "choco install"
 echo ^>^> Install must apps
 
 echo ^>^> Check installed 7zip or not
@@ -141,14 +139,14 @@ if "%~n0" == "init_dotfiles_crlf" (
 )
 
 echo ^>^> Check installed Git or not 2nd time
-REM FIXME: æœ€åˆå›ã¯åˆ¤åˆ¥ä¸å¯èƒ½ãªã”æ§˜å­ã€å½“ãƒãƒƒãƒã®å†å®Ÿè¡Œå¿…è¦ < HBAWS077ã¯ã§ããŸ
+REM FIXME: Å‰‰ñ‚Í”»•Ê•s‰Â”\‚È‚²—lqA“–ƒoƒbƒ`‚ÌÄÀs•K—v < HBAWS077‚Í‚Å‚«‚½
 git --version > nul 2>&1
 if %errorlevel% equ 0 goto git_clone
 echo ^>^> Try install git
 choco install -y -r --no-progress git
 
 echo ^>^> Check installed Git or not 3rd time
-REM FIXME: æœ€åˆå›ã¯åˆ¤åˆ¥ä¸å¯èƒ½ãªã”æ§˜å­ã€å½“ãƒãƒƒãƒã®å†å®Ÿè¡Œå¿…è¦ < HBAWS077ã¯ã§ããŸ
+REM FIXME: Å‰‰ñ‚Í”»•Ê•s‰Â”\‚È‚²—lqA“–ƒoƒbƒ`‚ÌÄÀs•K—v < HBAWS077‚Í‚Å‚«‚½
 git --version > nul 2>&1
 if %errorlevel% equ 0 goto git_clone
 echo ^>^> FAILED INSTALL GIT AUTOMATICALLY, ABORT THIS SCRIPT!
@@ -176,166 +174,137 @@ if not exist %userprofile%\dotfiles\.git\ (
     echo ^>^> Already Git clone
 )
 
-rem link.cmd å®Ÿè¡Œ
+rem link.cmd Às
 pushd %userprofile%\dotfiles\
 call link.cmd
 
-rem Proxyç’°å¢ƒã‹ç¢ºèª
-ping 172.16.84.100 /n 1 > nul 2>&1
-rem DEP: if %errorlevel% equ 0 goto cp_rd
-if %errorlevel% equ 0 goto inst_box
-ping 10.0.1.1 /n 1 > nul 2>&1
-if %errorlevel% equ 0 goto cp_nas
-
 echo ^>^> Check exist "Settings" or not
-if exist %OneDrive%\ä»•äº‹\Settings\Wallpaper\ (
+if exist %OneDrive%\d–\Settings\Wallpaper\ (
     echo ^>^> Already exist "Settings", Install apps
     goto chk_init_apps
 )
-echo ^>^> Not exist "Settings"
-goto dl_mega
+echo ^>^> NOT EXIST "Settings", ABORT
+
+rem rem ProxyŠÂ‹«‚©Šm”F
+rem ping 172.16.199.254 /n 1 > nul 2>&1
+rem if %errorlevel% equ 0 goto cp_box
+rem ping 192.168.50.1 /n 1 > nul 2>&1
+rem if %errorlevel% equ 0 goto cp_nas
+
+pause
+exit
+
+rem :cp_box
+rem echo ^>^> In proxy
+rem if not exist C:\Box\000_MyFolder\Settings\ (
+rem     echo ^>^> CHECK BOX DRIVE,ABORT
+rem     pause
+rem     exit
+rem )
+rem
+rem if not exist C:\Box\000_MyFolder\InitApps\ (
+rem     echo ^>^> CHECK BOX DRIVE,ABORT
+rem     pause
+rem     exit
+rem )
+rem goto install_apps
+
+rem :cp_nas
+rem echo ^>^> In home network, connect NAS
+rem set nas_settings=\\SaladStationII\share\d–\Settings
+rem set nas_initapps=\\SaladStationII\share\d–\InitApps
+rem set /a result_nas_copy=0
+rem set /a con_stg_time=0
+rem
+rem echo ^>^> Copy "Settings" from NAS
+rem net use t: /delete > nul 2>&1
+rem
+rem :com_settings
+rem set /a con_stg_time+=1
+rem net use t: %nas_settings% /user:admin
+rem echo ^>^> Con times: %con_stg_time%
+rem echo ^>^> Com exit code: %errorlevel%
+rem if %con_stg_time% geq 3 (
+rem     echo ^>^> FAIL INPUT PASSWORD OVER 3 TIMES, ABORT THIS SCRIPT!
+rem     goto end
+rem )
+rem if %errorlevel% neq 0 goto com_settings
+rem
+rem robocopy /s /e /ns /nc /nfl /ndl /np /njh t: %OneDrive%\d–\Settings\
+rem echo ^>^> Robocopy exit code: %errorlevel%
+rem if %errorlevel% leq 1 (
+rem     echo ^>^> Success copy "Settings"
+rem ) else (
+rem     echo ^>^> FAILED COPY "Settings"
+rem     set /a result_nas_copy+=1
+rem )
+rem net use t: /delete > nul 2>&1
+rem
+rem set /a con_ita_time=0
+rem echo ^>^> Copy "InitApps" from NAS
+rem net use u: /delete > nul 2>&1
+rem
+rem :com_initapps
+rem set /a con_ita_time+=1
+rem net use u: %nas_initapps% /user:admin
+rem echo ^>^> Con times: %con_ita_time%
+rem echo ^>^> Com exit code: %errorlevel%
+rem if %con_ita_time% geq 3 (
+rem     echo ^>^> FAIL INPUT PASSWORD OVER 3 TIMES, ABORT THIS SCRIPT!
+rem     goto end
+rem )
+rem if %errorlevel% neq 0 goto com_initapps
+rem
+rem robocopy /s /e /ns /nc /nfl /ndl /np /njh u: %OneDrive%\d–\InitApps\
+rem echo ^>^> Robocopy exit code: %errorlevel%
+rem if %errorlevel% leq 1 (
+rem     echo ^>^> Success copy "InitApps"
+rem     net use u: /delete > nul 2>&1
+rem     goto install_apps
+rem ) else (
+rem     echo ^>^> FAILED COPY "InitApps"
+rem     set /a result_nas_copy+=2
+rem     net use u: /delete > nul 2>&1
+rem )
+rem if %result_nas_copy% neq 0 (
+rem     echo ^>^> FAILED COPY FROM NAS, ABORT
+rem     pause
+rem     exit
+rem )
+rem goto install_apps
+
+rem ProxyŠÂ‹«‚©Šm”F
+ping 172.16.199.254 /n 1 > nul 2>&1
+if %errorlevel% equ 0 (
+    set C:\Box\000_MyFolder\Settings\Chocolatey\
+goto :chk_init_apps
+)
+
+ping 192.168.50.1 /n 1 > nul 2>&1
+if %errorlevel% equ 0 (
+    set conf_path=%OneDrive%\d–\Settings\Chocolatey\
+)
 
 :chk_init_apps
+set conf_defa=%conf_path%\packages.config
+
 echo ^>^> Check exist "InitApps" or not
-if exist %OneDrive%\ä»•äº‹\InitApps\x64\ (
+if exist %OneDrive%\d–\InitApps\x64\ (
     echo ^>^> Already exist "InitApps", Install apps
     goto install_apps
 )
-echo ^>^> Not exist "InitApps"
-
-:cp_rd
-rem DEP: Rãƒ‰ãƒ©ã‚¤ãƒ–ã‚’ã‚³ãƒ”ãƒ¼
-echo ^>^> In proxy
-if not exist %OneDrive%\ä»•äº‹\Settings\ (
-    echo ^>^> Copy "Settngs" from R Drive
-    mkdir %OneDrive%\ä»•äº‹\Settings\
-    net use v: /delete > nul 2>&1
-    net use v: \\M5FSV01\HONSHAB\E2M0\E2M-4\ã€ç§˜ã€‘-E2M4-1\10.å€‹äººãƒ•ã‚¡ã‚¤ãƒ«\Wakita\ä»•äº‹\Settings
-    robocopy /s /e /np /njh /njs v: %OneDrive%\ä»•äº‹\Settings\
-    net use v: /delete > nul 2>&1
-)
-
-if not exist %OneDrive%\ä»•äº‹\InitApps\ (
-    echo ^>^> Copy "InitApps" from R Drive
-    mkdir %OneDrive%\ä»•äº‹\InitApps\
-    net use w: /delete > nul 2>&1
-    net use w: \\M5FSV01\HONSHAB\E2M0\E2M-4\ã€ç§˜ã€‘-E2M4-1\10.å€‹äººãƒ•ã‚¡ã‚¤ãƒ«\Wakita\ä»•äº‹\InitApps
-    robocopy /s /e /np /njh /njs w: %OneDrive%\ä»•äº‹\InitApps\
-    net use w: /delete > nul 2>&1
-)
-goto install_apps
-
-: inst_box
-goto install_apps
-
-:cp_nas
-echo ^>^> In home network, connect NAS
-set nas_settings=\\SaladStationII\share\ä»•äº‹\Settings
-set nas_initapps=\\SaladStationII\share\ä»•äº‹\InitApps
-set /a result_nas_copy=0
-set /a con_stg_time=0
-
-echo ^>^> Copy "Settings" from NAS
-net use t: /delete > nul 2>&1
-
-:com_settings
-set /a con_stg_time+=1
-net use t: %nas_settings% /user:admin
-echo ^>^> Con times: %con_stg_time%
-echo ^>^> Com exit code: %errorlevel%
-if %con_stg_time% geq 3 (
-    echo ^>^> FAIL INPUT PASSWORD OVER 3 TIMES, ABORT THIS SCRIPT!
-    goto end
-)
-if %errorlevel% neq 0 goto com_settings
-
-robocopy /s /e /ns /nc /nfl /ndl /np /njh t: %OneDrive%\ä»•äº‹\Settings\
-echo ^>^> Robocopy exit code: %errorlevel%
-if %errorlevel% leq 1 (
-    echo ^>^> Success copy "Settings"
-) else (
-    echo ^>^> FAILED COPY "SETTINGS"
-    set /a result_nas_copy+=1
-)
-net use t: /delete > nul 2>&1
-
-set /a con_ita_time=0
-echo ^>^> Copy "InitApps" from NAS
-net use u: /delete > nul 2>&1
-
-:com_initapps
-set /a con_ita_time+=1
-net use u: %nas_initapps% /user:admin
-echo ^>^> Con times: %con_ita_time%
-echo ^>^> Com exit code: %errorlevel%
-if %con_ita_time% geq 3 (
-    echo ^>^> FAIL INPUT PASSWORD OVER 3 TIMES, ABORT THIS SCRIPT!
-    goto end
-)
-if %errorlevel% neq 0 goto com_initapps
-
-robocopy /s /e /ns /nc /nfl /ndl /np /njh u: %OneDrive%\ä»•äº‹\InitApps\
-echo ^>^> Robocopy exit code: %errorlevel%
-if %errorlevel% leq 1 (
-    echo ^>^> Success copy "InitApps"
-    net use u: /delete > nul 2>&1
-    goto install_apps
-) else (
-    echo ^>^> FAILED COPY "INITAPPS"
-    set /a result_nas_copy+=2
-    net use u: /delete > nul 2>&1
-)
-if %result_nas_copy% neq 0 (
-goto dl_mega
-) else (
-    goto install_apps
-)
-
-:dl_mega
-echo ^>^> Not in proxy, download MEGA sync
-if exist %OneDrive%\ä»•äº‹\Settings\ (
-    rmdir /s %OneDrive%\ä»•äº‹\Settings\
-)
-echo ^>^> Please download "Settings" folder manually, then any key in
-start https://mega.nz/#F!ubhxia6L
-pause
-
-"C:\Program Files\7-Zip\7z.exe" x -y -o%OneDrive%\ä»•äº‹\ %OneDrive%\ä»•äº‹\Settings.zip
-if exist %OneDrive%\ä»•äº‹\Settings\ (
-    echo ^>^> Success set "Settings" manually
-) else (
-    echo ^>^> FAILED SET "SETTINGS" MANUALLY, ABORT THIS SCRIPT!
-    pause
-    goto end
-)
-
-if exist %OneDrive%\ä»•äº‹\InitApps\ (
-    rmdir /s %OneDrive%\ä»•äº‹\InitApps\
-)
-
-echo ^>^> Please download "InitApps" folder manually, then any key in
-start https://mega.nz/#F!yTATTABQ
-pause
-
-"C:\Program Files\7-Zip\7z.exe" x -y -o%OneDrive%\ä»•äº‹\ %OneDrive%\ä»•äº‹\InitApps.zip
-if %errorlevel% equ 0 (
-    echo ^>^> Success copy "InitApps" manually
-) else (
-    echo ^>^> FAILED COPY "INITAPPS" MANUALLY, ABORT THIS SCRIPT!
-    goto end
-)
-goto install_apps
+echo ^>^> NOT EXIST "InitApps"
 
 :install_apps
-rem "*.config" ã®ã‚ã‚‹ "Dir" ã« "pushd"
+rem "*.config" ‚Ì‚ ‚é "Dir" ‚É "pushd"
 pushd %conf_path%
 
 echo ^>^> Install apps by Chocolatey
 rem ---------------------------------------------------------------------------
-rem Testæ™‚ ã‚¹ã‚­ãƒƒãƒ—
+rem Test ƒXƒLƒbƒv
 rem ---------------------------------------------------------------------------
 if %test% equ 1 goto instll_all
-rem "*_packages_*.config" ã‚’èª­ã¿è¾¼ã¿ã€ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
+rem "*_packages_*.config" ‚ğ“Ç‚İ‚İAƒCƒ“ƒXƒg[ƒ‹
 if exist %conf_file% (
     echo ^>^> Install apps for this PC
     for %%i in (%conf_file%) do (
@@ -352,15 +321,15 @@ choco update all -y -r --no-progress
 rem ---------------------------------------------------------------------------
 
 :install_all
-rem å†åº¦ã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒã‚ã‚‹ "Dir" ã« "pushd"
-rem MEMO: "init_dotfiles" ã§å®Ÿè¡Œã•ã‚Œã¦ã„ã‚‹å ´åˆãŒã‚ã‚‹ã®ã§çµ¶å¯¾ãƒ‘ã‚¹æŒ‡å®š
+rem Ä“xƒXƒNƒŠƒvƒg‚ª‚ ‚é "Dir" ‚É "pushd"
+rem MEMO: "init_dotfiles" ‚ÅÀs‚³‚ê‚Ä‚¢‚éê‡‚ª‚ ‚é‚Ì‚Åâ‘ÎƒpƒXw’è
 pushd %userprofile%\dotfiles\etc\init\windows\settings\initialize\
 
-rem "git\init\settings" ã¨ "(~|R:*)\ä»•äº‹\Settings" ã® "setting_*.cmd" å®Ÿè¡Œ
+rem "git\init\settings" ‚Æ "(~|R:*)\d–\Settings" ‚Ì "setting_*.cmd" Às
 call sub_install_all.cmd
 rem pause
 
-rem ãƒ›ãƒ¼ãƒ ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã« *.7z ã§åœ§ç¸®ã—ãŸã‚¢ãƒ—ãƒªã‚’å±•é–‹
+rem ƒz[ƒ€ƒfƒBƒŒƒNƒgƒŠ‚É *.7z ‚Åˆ³k‚µ‚½ƒAƒvƒŠ‚ğ“WŠJ
 call sub_install_app.cmd
 rem pause
 
@@ -372,7 +341,7 @@ choco update all -y
 rem pause
 
 rem ---------------------------------------------------------------------------
-rem Testæ™‚ ã‚¹ã‚­ãƒƒãƒ—
+rem Test ƒXƒLƒbƒv
 rem ---------------------------------------------------------------------------
 if %test% equ 1 goto erase
 call sub_install_font.cmd
@@ -385,21 +354,17 @@ rem     echo ^>^> Del init_dotfiles
 rem     rmdir /s /q %userprofile%\init_dotfiles > nul 2>&1
 rem )
 
-if exist %OneDrive%\ä»•äº‹\Settings.zip (
+if exist %OneDrive%\d–\Settings.zip (
     echo ^>^> Del Settings.zip
-    del %OneDrive%\ä»•äº‹\Settings.zip > nul 2>&1
+    del %OneDrive%\d–\Settings.zip > nul 2>&1
 )
 
-if exist %userprofiley%\OneDrive\ä»•äº‹\InitApps.zip (
+if exist %OneDrive%\d–\InitApps.zip (
     echo ^>^> Del InitApps.zip
-    del %OneDrive%\ä»•äº‹\InitApps.zip > nul 2>&1
+    del %OneDrive%\d–\InitApps.zip > nul 2>&1
 )
 
-call %OneDrive%\ä»•äº‹\InitApps\Batch\empty.cmd > nul 2>&1
-
-rem link.cmd å®Ÿè¡Œ
-rem pushd %userprofile%\dotfiles\
-rem call link.cmd
+call %OneDrive%\d–\InitApps\Batch\empty.cmd > nul 2>&1
 
 rem Chocolatey update
 call %userprofile%\dotfiles\etc\init\windows\settings\chocolatey\init_and_update_chocolatey.cmd

@@ -1,12 +1,12 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
-rem Last Change: 2020/11/01 17:53:32.
+rem Last Change: 2024/12/25 10:40:05.
 
 set batch_title=Install initialize font
 title %batch_title%
 
-set src_dir=%userprofile%\OneDrive\仕事\InitApps\
+set src_dir=%OneDrive%\仕事\InitApps\
 rem set bat_path=%~dp0
 
 rem rem スクリプトがある "Dir" に "cd"
