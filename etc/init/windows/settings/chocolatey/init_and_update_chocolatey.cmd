@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2017/02/17 00:54:41
-rem Last Change: 2023/10/18 07:25:37.
+rem Last Change: 2024/12/27 11:20:46.
 
 set batch_title=Update Chocolatey
 title %batch_title%
@@ -20,7 +20,14 @@ exit
 set bat_path=%~dp0
 set dot_path=%userprofile%\dotfiles\
 set cho_path=%dot_path%\etc\init\windows\settings\chocolatey\
-set odr_path=%onedrive%\仕事\Settings\Chocolatey\
+
+rem Proxy環境か確認
+ping 172.16.199.254 /n 1 > nul 2>&1
+if %errorlevel% equ 0 (
+    set odr_path=C:\Box\000_MyFolder\Settings\Chocolatey\
+) else (
+    set odr_path=%OneDrive%\仕事\Settings\Chocolatey\
+)
 
 set config_files=packages_%computername%.config
 
@@ -43,7 +50,6 @@ if %errorlevel% equ 0 goto update
 
 echo ^>^> Install Chocolatey
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "(iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))) >$null 2>&1" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
-
 echo ^>^> Already installed Chocolatey
 
 :update
@@ -54,7 +60,6 @@ if not exist %cho_path% (
     goto end
 )
 pushd %odr_path%
-rem pushd %cho_path%
 
 rem "***_packages_***.config" を読込み、インストール
 if exist %config_files% (
@@ -66,8 +71,8 @@ if exist %config_files% (
     pushd %cho_path%
     choco install -y - no-progress packages.config
 )
-
-choco update all -y
+choco upgrade all -y
+rem choco update all -y
 
 rem デスクトップショートカット 作成
 pushd %odr_path%

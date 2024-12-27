@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2018/05/10 19:22:34
-rem Last Change: 2024/12/25 13:07:22.
+rem Last Change: 2024/12/27 11:20:36.
 rem FIXME: ’·‚¢s‚ðÜ‚è•Ô‚·
 
 set batch_title=Initialize dotfiles
@@ -276,7 +276,7 @@ rem goto install_apps
 rem ProxyŠÂ‹«‚©Šm”F
 ping 172.16.199.254 /n 1 > nul 2>&1
 if %errorlevel% equ 0 (
-    set C:\Box\000_MyFolder\Settings\Chocolatey\
+    set conf_path=C:\Box\000_MyFolder\Settings\Chocolatey\
 goto :chk_init_apps
 )
 
