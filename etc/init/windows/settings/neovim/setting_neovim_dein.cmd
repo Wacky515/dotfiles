@@ -3,7 +3,7 @@ setlocal enabledelayedexpansion
 rem Created:     201*/**/** **:**:**
 rem Last Change: 2024/12/25 10:40:05.
 
-set batch_title=batch_titleSetting NeoVim's dein
+set batch_title=Setting NeoVim's dein
 
 title %batch_title%
 
