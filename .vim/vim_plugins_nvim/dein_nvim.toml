@@ -1,5 +1,5 @@
 # Created:     2018/12/19 08:49:17.
-# Last Change: 2023/03/26 14:51:30.
+# Last Change: 2025/05/12 10:44:58.
 
 # ------------------------------------------------------------------------------
 #  参考  # {{{
@@ -65,12 +65,13 @@ repo    = 'airblade/vim-gitgutter'
 [[plugins]]
 repo    = 'mhinz/vim-startify'
 
+# 2025/05/12 Vim の Ver が適合しないため、コメントアウト
 # 自動補完
-[[plugins]]
-repo    = 'neoclide/coc.nvim'
-rev     = 'release'
-on_i    = 1
-merged  = '0'
+# [[plugins]]
+# repo    = 'neoclide/coc.nvim'
+# rev     = 'release'
+# on_i    = 1
+# merged  = '0'
 
 # スニペット入力
 [[plugins]]
