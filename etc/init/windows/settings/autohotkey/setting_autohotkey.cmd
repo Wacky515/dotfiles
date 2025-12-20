@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2022/01/31 20:24:47
-rem Last Change: 2022/03/05 13:27:56.
+rem Last Change: 2025/11/15 09:40:56.
 
 set batch_title=Setting AutoHotkey
 
@@ -27,7 +27,6 @@ echo ^>^> %batch_title%
 rem echo ^>^> Start
 
 rem スタートアップにシンボリックリンク 作成
-rem mklink %appdata%"\Microsoft\Windows\Start Menu\Programs\Startup\autohotkey.ahk" %bat_path%"\autohotkey.ahk"
 mklink %appdata%"\Microsoft\Windows\Start Menu\Programs\Startup\delay_startup_autohotkey.cmd" %bat_path%"\delay_startup_autohotkey.cmd"
 
 endlocal

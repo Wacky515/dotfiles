@@ -1,9 +1,9 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2022/03/05 13:18:34
-rem Last Change: 2022/03/06 09:14:41.
+rem Last Change: 2025/11/15 09:40:17.
 
-set batch_title=Delay start up autohotkey
+set batch_title=Delay startup autohotkey
 
 title %batch_title%
 
@@ -18,7 +18,7 @@ rem ŠÇ—ŽÒŒ ŒÀ‚Å‚È‚¯‚ê‚ÎŠÇ—ŽÒŒ ŒÀ‚ÅÄ‹N“®
 exit
 
 :main_routine
-timeout 10 >nul
+timeout 20 >nul
 
 start "" "%userprofile%\dotfiles\etc\init\windows\settings\autohotkey\autohotkey.ahk"
 
