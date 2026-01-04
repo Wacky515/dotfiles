@@ -1,24 +1,18 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2023/03/26 16:29:00.
+" Last Change: 2026/01/05 08:37:31.
 
-" !!!: 必ず先頭に記述
-" ".vimrc" をリローダブルにするため
-" "autocmd(マクロ)" の "MyAutoCmd" グループ初期化
+" !!!: 必ず先頭に記述(".vimrc" をリローダブルにするため)
+" "autocmd(マクロ)" の "MyAutoCmd" グループ初期化(再読み込み時の二重定義防止)
 augroup MyAutoCmd
     autocmd!
 augroup END
 
-" "filetype" 初期化
-filetype off
-" 最終行でON
-filetype plugin indent off
+" <Space> を "Leader" に設定
+let mapleader = "\<Space>"
 
 " "vimproc" 読込み時、"*.dll" 自動DL & 更新
 let g:vimproc#download_windows_dll = 1
-
-" <Space> を "Leader" に設定
-let mapleader = "\<Space>"
 
 " ------------------------------------------------------------------------------
 "  "Vim" 設定ファイルの読込み  " {{{
@@ -28,16 +22,12 @@ let mapleader = "\<Space>"
         " "Plugin" 設定は後半に読込み
         " }}}
 " ------------------------------------------------------------------------------
-" "MacVim" の "colors/*.vim" 設定
-if (!has("mac") && !has("gui_running"))
-    runtime! colors/*.vim
-endif
-
 " "Windows" の設定ファイルの場所を、"Mac/Linux" 環境にあわせる
-if (has("win32") || has("win64"))
+if has("win32") || has("win64")
     set runtimepath+=$HOME/.vim
 endif
 
+" todo: 記述順は一考する
 runtime! userautoload/init_settings/*.vim
 
 " ------------------------------------------------------------------------------
@@ -45,9 +35,9 @@ runtime! userautoload/init_settings/*.vim
     " MEMO: "init.vim" へ不可分
     " }}}
 " ------------------------------------------------------------------------------
-if has("vim_starting")
+if !exists('g:python3_host_prog')
     if has("mac")
-        if hostname() == "SaladBookAirM1"
+        if hostname() ==# "SaladBookAirM1"
             let g:python3_host_prog = "/opt/homebrew/bin/python3"
         else
             let g:python3_host_prog = "/usr/local/bin/python3"
@@ -56,13 +46,13 @@ if has("vim_starting")
 
     elseif has("unix")
         let g:python3_host_prog = "/usr/bin/python3"
-        let g:python_host_prog  = "/usr/bin/Python"
+        let g:python_host_prog  = "/usr/bin/python"
 
-    elseif (has("win32") || has("win64"))
+    elseif has("win32") || has("win64")
         let g:python3_host_prog =
-            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe"
+            \ fnameescape("C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe")
         let g:python_host_prog  =
-            \ "C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe"
+            \  fnameescape("C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe")
     endif
 endif
 
@@ -72,7 +62,7 @@ endif
     " }}}
 " ------------------------------------------------------------------------------
 " "dein.vim" の更新チェック高速化設定
-set runtimepath+=~/OneDrive/Vim/dein
+set runtimepath+=expand("~/OneDrive/Vim/dein")
 runtime! dein_token.vim
 
 if !&compatible
@@ -103,7 +93,7 @@ let g:dein#install_log_filename = s:dein_dir . "/dein.log"
 " "dein.vim" がなければ "git clone"
 if !isdirectory(s:dein_dir)
     call mkdir(s:dein_dir, "p")
-    silent execute printf("!git clone %s %s", "https://github.com/Shougo/dein.vim", s:dein_dir)
+    silent execute printf("!git clone https://github.com/Shougo/dein.vim %s", s:dein_dir)
 endif
 " REF: < http://yuheikagaya.hatenablog.jp/entry/2016/03/20/171907 >
 
@@ -117,7 +107,7 @@ if dein#load_state(s:plugin_dir)
     let s:lazy_toml_nvim   = g:plugin_dir_nvim . "/dein_lazy_nvim.toml"
     let s:python_toml_nvim = g:plugin_dir_nvim . "/dein_python_nvim.toml"
 
-    "*.toml" を読込み、キャッシュ
+    " "*.toml" を読込み、キャッシュ
     call dein#load_toml(s:toml_nvim,            {"lazy": 0})
     call dein#load_toml(s:lazy_toml_nvim,       {"lazy": 1})
 
@@ -158,14 +148,14 @@ runtime! chat_gpt/*.vim
 " ------------------------------------------------------------------------------
 " CHK: ".gvimrc" と統一しなくていいか？
     " "init.vim + Mac" では動作せず
-if (!has("gui_runnig") && (has("mac") || has("win32") || has("win64")))
+if !has("gui_running") && (has("mac") || has("win32") || has("win64"))
     " "colorscheme" 設定
         " !!!: "visual.vim" で無く、ここに記述
     " MEMO: "Mac" では見にくい
     " set termguicolors
     set background=dark
     augroup MyAutoCmd
-        autocmd vimenter * nested colorscheme hybrid
+        autocmd VimEnter * colorscheme hybrid
         " NOTWORK: "Mac" では動作しない
         " " 改行文字 色設定
         " autocmd VimEnter * highlight NonText    guibg=NONE guifg=DarkGreen
@@ -200,10 +190,6 @@ endif
     " }}}
 " ------------------------------------------------------------------------------
 if has("syntax")
-  syntax on
+    syntax on
 endif
-
-" MEMO:
-    " 読込んだ"Plugin" 含めてファイルタイプの検出と
-    " ファイルタイプ別に"Plugin" 、インデントを有効化
 filetype plugin indent on
