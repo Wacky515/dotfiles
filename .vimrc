@@ -1,9 +1,9 @@
 scriptencoding utf-8
 " Created:     2016/07/31 **:**:**
-" Last Change: 2026/01/05 08:37:31.
+" Last Change: 2026/01/06 07:47:31.
 
-" !!!: 必ず先頭に記述(".vimrc" をリローダブルにするため)
-" "autocmd(マクロ)" の "MyAutoCmd" グループ初期化(再読み込み時の二重定義防止)
+" !!!: 必ず先頭に記述(".vimrc" を再読込可能にする為)
+" "autocmd(マクロ)" の "MyAutoCmd" グループ初期化(再読込時の二重定義防止)
 augroup MyAutoCmd
     autocmd!
 augroup END
@@ -24,11 +24,14 @@ let g:vimproc#download_windows_dll = 1
 " ------------------------------------------------------------------------------
 " "Windows" の設定ファイルの場所を、"Mac/Linux" 環境にあわせる
 if has("win32") || has("win64")
-    set runtimepath+=$HOME/.vim
+    execute "set runtimepath+=".expand('~/.vim')
 endif
 
-" todo: 記述順は一考する
-runtime! userautoload/init_settings/*.vim
+" globpath + sort (読込順固定)に変更
+for f in sort(split(globpath(&runtimepath,
+            \ "userautoload/init_settings/*.vim"), '\n'))
+    execute 'source' f
+endfor
 
 " ------------------------------------------------------------------------------
 "  "Python" の "Path" 設定読込み  " {{{
@@ -38,21 +41,23 @@ runtime! userautoload/init_settings/*.vim
 if !exists('g:python3_host_prog')
     if has("mac")
         if hostname() ==# "SaladBookAirM1"
-            let g:python3_host_prog = "/opt/homebrew/bin/python3"
+            let g:python3_host_prog = fnameescape("/opt/homebrew/bin/python3")
         else
-            let g:python3_host_prog = "/usr/local/bin/python3"
+            let g:python3_host_prog = fnameescape("/usr/local/bin/python3")
         endif
-        let g:python_host_prog  = "/usr/bin/python"
+        let g:python_host_prog      = fnameescape("/usr/bin/python")
 
     elseif has("unix")
-        let g:python3_host_prog = "/usr/bin/python3"
-        let g:python_host_prog  = "/usr/bin/python"
+        let g:python3_host_prog = fnameescape("/usr/bin/python3")
+        let g:python_host_prog  = fnameescape("/usr/bin/python")
 
     elseif has("win32") || has("win64")
         let g:python3_host_prog =
-            \ fnameescape("C:\\tools\\miniconda3\\envs\\vim_mcon_env_py36\\python.exe")
+                    \ fnameescape("C:\\tools\\miniconda3\\envs\\"
+                    \ ."vim_mcon_env_py36\\python.exe")
         let g:python_host_prog  =
-            \  fnameescape("C:\\tools\\miniconda3\\envs\\vim_mcon_env_py27\\python.exe")
+                    \  fnameescape("C:\\tools\\miniconda3\\envs\\"
+                    \ ."vim_mcon_env_py27\\python.exe")
     endif
 endif
 
@@ -65,7 +70,7 @@ endif
 set runtimepath+=expand("~/OneDrive/Vim/dein")
 runtime! dein_token.vim
 
-if !&compatible
+if &compatible
     set nocompatible
 endif
 
@@ -93,7 +98,8 @@ let g:dein#install_log_filename = s:dein_dir . "/dein.log"
 " "dein.vim" がなければ "git clone"
 if !isdirectory(s:dein_dir)
     call mkdir(s:dein_dir, "p")
-    silent execute printf("!git clone https://github.com/Shougo/dein.vim %s", s:dein_dir)
+    silent execute printf("!git clone https://github.com/Shougo/dein.vim %s",
+                \ s:dein_dir)
 endif
 " REF: < http://yuheikagaya.hatenablog.jp/entry/2016/03/20/171907 >
 
@@ -119,7 +125,8 @@ if dein#load_state(s:plugin_dir)
     " Chat GPT
     " NOTWORK: " チャット
     call dein#add("mattn/vim-chatgpt")
-        " TODO: silent execute printf("go install github.com/mattn/chatgpt@latest")
+        " TODO:
+        " silent execute printf("go install github.com/mattn/chatgpt@latest")
     " NOTWORK: " コミットメッセージ提案
     call dein#add("ktakayama/gpt-commit-msg.vim")
     " Git Copilot
@@ -135,13 +142,18 @@ if has("vim_starting") && dein#check_install()
     call dein#install()
 endif
 
-" "Plugin" の設定ファイル読込み
-runtime! userautoload/plugin_settings_nvim/*.vim
+" "Plugin" の設定ファイル読込み(読込順序固定)
+for f in sort(split(globpath(&runtimepath,
+            \ "userautoload/plugin_settings_nvim/*.vim"), '\n'))
+    execute 'source' f
+endfor
 
 " ------------------------------------------------------------------------------
  " "Chat GPT" の "API" 読込み
 " ------------------------------------------------------------------------------
-runtime! chat_gpt/*.vim
+for f in sort(split(globpath(&runtimepath, "chat_gpt/*.vim"), '\n'))
+    execute 'source' f
+endfor
 
 " ------------------------------------------------------------------------------
 "  最終処理
@@ -192,4 +204,5 @@ endif
 if has("syntax")
     syntax on
 endif
+
 filetype plugin indent on
