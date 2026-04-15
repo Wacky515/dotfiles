@@ -1,91 +1,146 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2017/02/17 00:54:41
-rem Last Change: 2024/12/27 11:20:46.
+rem Last Change: 2026/04/08 07:24:07.
 
-set batch_title=Update Chocolatey
+set batch_title="Update Chocolatey"
 title %batch_title%
+set "bat_path=%~dp0"
 
-rem 管理者権限で起動されたかチェック
-whoami /PRIV | find "SeLoadDriverPrivilege" > NUL
+rem 共通関数群
+set "func_dir=%HOMEPATH%\dotfiles\etc\init\windows\batch_function"
+set "func_path=%func_dir%\batch_function.cmd"
 
-rem 管理者権限ならメイン処理
-if not errorlevel 1 goto main_routine
-
-rem 管理者権限でなければ管理者権限で再起動
-@powershell -NoProfile -ExecutionPolicy Unrestricted -Command "Start-Process %~f0 -Verb Runas"
-exit
-
-:main_routine
-set bat_path=%~dp0
-set dot_path=%userprofile%\dotfiles\
-set cho_path=%dot_path%\etc\init\windows\settings\chocolatey\
-
-rem Proxy環境か確認
-ping 172.16.199.254 /n 1 > nul 2>&1
-if %errorlevel% equ 0 (
-    set odr_path=C:\Box\000_MyFolder\Settings\Chocolatey\
+if not exist "%func_path%" (
+    echo [ERROR] Common function batch not found: "%func_path%"
+    exit /b 9999
 ) else (
-    set odr_path=%OneDrive%\仕事\Settings\Chocolatey\
+    echo [INFO] Common function batch found: "%func_path%"
 )
 
-set config_files=packages_%computername%.config
+rem 頻出の call を変数化
+set "lmsg=call "%func_path%" logmsg %~nx0"
+
+rem 管理者権限で起動されたかチェック
+net session >nul 2>&1
+if %errorlevel% equ 0 (
+    rem 管理者権限あり
+    %lmsg% INFO "Administrator privileges detected"
+) else (
+    rem 管理者権限なし、再起動して権限付与
+    %lmsg% INFO "Relaunching with Administrator privileges"
+    powershell -NoProfile -ExecutionPolicy Bypass -Command ^
+    "Start-Process '%~f0' -Verb RunAs"
+    exit /b 0
+)
+
+:main_routine
+set "dot_path=%userprofile%\dotfiles"
+set "cho_path=%dot_path%\etc\init\windows\settings\chocolatey"
+
+rem Proxy環境か確認
+ping 172.16.199.254 -n 1 -w 200 >nul 2>&1
+if %errorlevel%==0 (
+    set "cho_path=C:\Box\000_MyFolder\Settings\Chocolatey"
+) else (
+    set "cho_path=%OneDrive%\仕事\Settings\Chocolatey"
+)
+
+set "config_files=packages_%computername%.config"
 
 rem rem スクリプトがある "Dir" に "cd"
 rem pushd %bat_path%
 
-echo ^>^> %batch_title%
+%lmsg% INFO %batch_title%
 
 rem "dotfiles" に "cd"
-if not exist %dot_path% (
-    echo ^>^> CLONE DOTFILES FIRST, ABORT THIS SCRIPT!
+if not exist "%dot_path%" (
+    %lmsg% ERROR "CLONE DOTFILES FIRST, ABORT THIS SCRIPT!"
     goto end
 ) else (
-    pushd %dot_path%
+    pushd "%dot_path%"
 )
 
 rem "Chocolatey" インストール済みかチェック
-choco -v > nul 2>&1
-if %errorlevel% equ 0 goto update
+choco -v >nul 2>&1
+if %errorlevel%==0 goto update
 
-echo ^>^> Install Chocolatey
-@powershell -NoProfile -ExecutionPolicy unrestricted -Command "(iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))) >$null 2>&1" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
-echo ^>^> Already installed Chocolatey
+%lmsg% INFO "Install Chocolatey"
+powershell -NoProfile -c "iwr chocolatey.org/install.ps1|iex" >nul 2>&1" && ^
+set "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 
-:update
-echo ^>^> Update software condition
-if not exist %cho_path% (
-    rem TODO: 自動で "git clone" する
-    echo ^>^> CLONE CHOCOLATEY DIRECTORY FIRST, ABORT THIS SCRIPT!
+choco -v >nul 2>&1
+if not %errorlevel%==0 (
+    %lmsg% ERROR "Chocolatey install failed"
     goto end
 )
-pushd %odr_path%
+%lmsg% INFO "Chocolatey installed"
+
+:update
+%lmsg% INFO "Update software condition"
+if not exist "%cho_path%" (
+    rem TODO: 自動で "git clone" する
+    %lmsg% ERROR "CLONE CHOCOLATEY DIRECTORY FIRST, ABORT THIS SCRIPT!"
+    goto end
+)
+pushd "%cho_path%"
 
 rem "***_packages_***.config" を読込み、インストール
-if exist %config_files% (
-    echo ^>^> Setting for this PC
-    for %%i in (%config_files%) do (
-        choco install -y - no-progress %%i
+if exist "%config_files%" (
+    %lmsg% INFO "Setting for this PC: %config_files%"
+    choco install -y --no-progress "%config_files%"
+    if not %errorlevel%==0 (
+        %lmsg% ERROR "Install from %config_files% failed"
+        goto end
     )
 ) else (
-    pushd %cho_path%
-    choco install -y - no-progress packages.config
+    %lmsg% INFO "Using default packages.config"
+    if exist "packages.config" (
+        choco install "packages.config" -y --no-progress
+        if not %errorlevel%==0 (
+            %lmsg% ERROR "Install from packages.config failed"
+        )
+    ) else (
+        %lmsg% ERROR "packages config file not found"
+        goto end
+    )
 )
-choco upgrade all -y
-rem choco update all -y
+
+rem Chocolatey 本体を先に更新
+%lmsg% INFO "Upgrade Chocolatey itself"
+choco upgrade chocolatey -y --no-progress
+if not %errorlevel%==0 (
+    %lmsg% ERROR "Chocolatey self-upgrade failed"
+)
+
+rem 更新対象の確認
+%lmsg% INFO "Check outdated packages"
+choco outdated
+if %errorlevel%==2 (
+    %lmsg% INFO "No outdated packages"
+) else (
+    rem インストール済みパッケージをすべて更新
+    %lmsg% INFO "Upgrade all installed Chocolatey packages"
+    choco upgrade all -y --no-progress
+    if not %errorlevel%==0 (
+        %lmsg% ERROR "Package upgrade failed"
+    ) else (
+        %lmsg% INFO "All installed Chocolatey packages upgraded"
+    )
+)
 
 rem デスクトップショートカット 作成
-pushd %odr_path%
-if not exist %userprofile%\Desktop\init_and_update_chocolatey.lnk (
+pushd "%cho_path%"
+if not exist "%userprofile%\Desktop\init_and_update_chocolatey.lnk" (
     goto cplnk
 ) else (
-    echo ^>^> Already set desktop shortcut
+    %lmsg% INFO "Already set desktop shortcut"
     goto end
 )
 
 :cplnk
-echo ^>^> Set desktop shortcut
-copy init_and_update_chocolatey.lnk %userprofile%\Desktop\
+%lmsg% INFO "Set desktop shortcut"
+copy /Y "init_and_update_chocolatey.lnk" "%userprofile%\Desktop\" >nul
 
 :end
 endlocal

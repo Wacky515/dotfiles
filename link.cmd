@@ -1,186 +1,143 @@
 @echo off
 setlocal enabledelayedexpansion
 rem Created:     2016/08/17 **:**:**
-rem Last Change: 2026/01/06 08:15:24.
+rem Last Change: 2026/01/28 13:42:58.
 
-set batch_title=Make link dotfiles
-title %batch_title%
+set "bat_title=Make link dotfiles"
+title %bat_title%
+set "bat_path=%~dp0"
+
+rem 共通関数群
+set "func_dir=%bat_path%\etc\init\windows\batch_function"
+set "func_path=%func_dir%\batch_function.cmd"
+
+if not exist "%func_path%" (
+    echo [ERROR] Common function batch not found: "%func_path%"
+    exit /b 9999
+) else (
+    echo [INFO] Common function batch found: "%func_path%"
+)
+
+rem 頻出の call を変数化
+set "lmsg=call "%func_path%" logmsg %~nx0"
+set "mklk=call "%func_path%" make_link %~nx0"
 
 rem 管理者権限で起動されたかチェック
 net session >nul 2>&1
 if %errorlevel% equ 0 (
-    goto main_routine
+    rem 管理者権限あり
+    %lmsg% INFO "Administrator privileges detected"
 ) else (
-    rem 管理者権限でなければ管理者権限で再起動
-    powershell -NoProfile -ExecutionPolicy Bypass -Command "Start-Process '%~f0' -Verb RunAs"
-    exit
+    rem 管理者権限なし、再起動して権限付与
+    %lmsg% INFO "Relaunching with Administrator privileges"
+    powershell -NoProfile -ExecutionPolicy Bypass -Command ^
+    "Start-Process '%~f0' -Verb RunAs"
+    exit /b 0
 )
 
 :main_routine
-set bat_path=%~dp0
 pushd "%bat_path%"
 
-echo ^>^> Start make symbolic link homepath ^<-^> dotfiles
+%lmsg% INFO "Start making symbolic link between homepath and dotfiles"
 
 rem "NeoVim" のリンク設定
-rem "NeoVim" インストール済みかチェック
-echo ^>^> Check install NeoVim or not
+%lmsg% INFO "Check install NeoVim or not"
 nvim -v > nul 2>&1
 if %errorlevel% equ 0 (
-    echo ^>^> Already installed NeoVim, Judge by -v option
+    %lmsg% INFO "NeoVim is already installed, verified with the -v option"
     goto link_nvim
 ) else if exist "C:\tools\neovim\Neovim\bin\nvim-qt.exe" (
-    echo ^>^> Already installed NeoVim, exist nvim-qt.exe
+    %lmsg% INFO "NeoVim is already installed; nvim-qt.exe was found"
     goto link_nvim
 ) else if exist "C:\ProgramData\chocolatey\bin\nvim-qt.exe" (
-    echo ^>^> Already installed NeoVim, exist nvim-qt.exe
+    %lmsg% INFO "NeoVim is already installed; nvim-qt.exe was found"
     goto link_nvim
 ) else (
-    echo ^>^> NOT INSTALLED NEOVIM, SKIP MAKE LINK
+    %lmsg% ERROR "NEOVIM IS NOT INSTALLED; SKIPPING LINK CREATION"
     goto link_git
 )
 
 :link_nvim
-echo ^>^> Make link NeoVim
-set src_nvim=%userprofile%\dotfiles\nvim\
+%lmsg% INFO "Make link NeoVim"
 if defined XDG_CONFIG_HOME (
-    echo ^>^> Set NeoVim link in XDG CONFIG HOME
-    set dst_nvim=%XDG_CONFIG_HOME%\nvim\
+    %lmsg% INFO "Creating NeoVim link in XDG_CONFIG_HOME"
+    set "dst_nvim=%XDG_CONFIG_HOME%\nvim"
 ) else (
-    echo ^>^> Set NeoVim link in Local AppData
-    set dst_nvim=%LOCALAPPDATA%\nvim\
+    %lmsg% INFO "Creating NeoVim link in LOCALAPPDATA"
+    set "dst_nvim=%LOCALAPPDATA%\nvim"
 )
+set "src_nvim=%USERPROFILE%\dotfiles\nvim"
 
-if exist "%dst_nvim%" (
-    echo ^>^> Delete nvim directory
-    rem MEMO: シンボリックリンクされたディレクトリの削除は "rmdir"
-    rmdir "%dst_nvim%"
-)
-
-if exist "%src_nvim%" (
-    mklink /d "%dst_nvim%" "%src_nvim%" > nul 2>&1
-    if %errorlevel% equ 0 (
-        echo ^>^> init.vim, ginit.vim for NeoVim link success
-    ) else (
-        echo ^>^> FAILED LINK INIT.VIM, GINIT.VIM FOR NEOVIM
-        echo ^>^> ERROR CODE: %errorlevel%
-    )
-) else (
-    echo ^>^> SOURCE NVIM DIR NOT FOUND, SKIP LINK
-)
+%mklk% "%dst_nvim%" "%src_nvim%" /d "NeoVim Config"
 
 :link_git
-echo ^>^> Make link .gitconfig
-rem ".gitconfig" のリンク設定
-if exist "%bat_path%\.gitconfig" (
-    mklink "%userprofile%\.gitconfig" "%bat_path%\.gitconfig" > nul 2>&1
-)
+%lmsg% INFO "Make link .gitconfig"
 
-if %errorlevel% equ 0 (
-    echo ^>^> .gitconfig link success
-) else (
-    echo ^>^> FAILED LINK .GITCONFIG
-    echo ^>^> ERROR CODE: %errorlevel%
-)
+set "git_dst=%USERPROFILE%\.gitconfig"
+set "git_src=%bat_path%\.gitconfig"
 
-if exist "%bat_path%\.gitconfig.windows" (
-    mklink "%userprofile%\.gitconfig.os" "%bat_path%\.gitconfig.windows" > nul 2>&1
-)
+set "gitos_dst=%USERPROFILE%\.gitconfig.os"
+set "gitos_src=%bat_path%\.gitconfig.windows"
 
-if %errorlevel% equ 0 (
-    echo ^>^> .gitconfig.os link success
-) else (
-    echo ^>^> FAILED LINK .GITCONFIG.OS
-    echo ^>^> ERROR CODE: %errorlevel%
-)
+%mklk% "%git_dst%" "%git_src%" "" ".gitconfig global"
+%mklk% "%gitos_dst%" "%gitos_src%" "" ".gitconfig.os"
 
-rem ".vim" のリンク設定
-echo ^>^> Make link .vim
-if exist "%userprofile%\.vim\" (
-    echo ^>^> Delete .vim directory
-    rem MEMO: シンボリックリンクされたディレクトリの削除は "rmdir"
-    rmdir "%userprofile%\.vim\"
-)
+:link_dot_vim
+%lmsg% INFO "Make link .vim"
 
-if exist "%bat_path%\.vim\" (
-    mklink /d "%userprofile%\.vim\" "%bat_path%\.vim\" > nul 2>&1
-)
+set "vim_dst=%USERPROFILE%\.vim"
+set "vim_src=%bat_path%\.vim"
 
-if %errorlevel% equ 0 (
-    echo ^>^> .vim link success
-) else (
-    echo ^>^> FAILED LINK .VIM
-    echo ^>^> ERROR CODE: %errorlevel%
-)
+%mklk% "%vim_dst%" "%vim_src%" /d ".vim directory"
 
-rem "config.fish" のリンク設定
-echo ^>^> Make link config.fish
-if exist "%bat_path%\config.fish" (
-    mklink "%userprofile%\.config\fish\config.fish" "%bat_path%\config.fish" > nul 2>&1
-)
+:link_conf_fish
+%lmsg% INFO "Make link config.fish"
 
-if %errorlevel% equ 0 (
-    echo ^>^> config.fish link success
-) else (
-    echo ^>^> FAILED LINK CONFIG.FISH
-    echo ^>^> ERROR CODE: %errorlevel%
-)
+set "fish_dir=%USERPROFILE%\.config\fish"
+call "%func_path%" make_dir %~nx0 "%fish_dir%"
 
-rem "pip" のリンク設定
-echo ^>^> Make link pip.ini
-if not exist %appdata%\pip\ (
-    mkdir %appdata%\pip\
-)
+set "fish_dst=%fish_dir%\config.fish"
+set "fish_src=%bat_path%\config.fish"
 
-mklink %appdata%\pip\pip.ini %bat_path%\pip.ini > nul 2>&1
-if %errorlevel% equ 0 (
-    echo ^>^> pip.ini link^(Global^) success
-) else (
-    echo ^>^> FAILED LINK PIP.INI ^(GLOBAL^)
-    echo ^>^> ERROR CODE: %errorlevel%
-)
+%mklk% "%fish_dst%" "%fish_src%" "" "config.fish"
+
+:link_pip
+%lmsg% INFO "Make link pip.ini"
+
+set "pip_dir=%APPDATA%\pip"
+call "%func_path%" make_dir %~nx0 "%pip_dir%"
+
+set "pip_dst=%pip_dir%\pip.ini"
+set "pip_src=%bat_path%\pip.ini"
+
+%mklk% "%pip_dst%" "%pip_src%" "" "pip.ini (Global)"
 
 if defined VIRTUAL_ENV (
-    mklink "%VIRTUAL_ENV%\pip.ini" "%bat_path%\pip.ini" > nul 2>&1
-    if %errorlevel% equ 0 (
-        echo ^>^> pip.ini link^(Virtual^) success
-    ) else (
-        echo ^>^> FAILED LINK PIP.INI ^(VIRTUAL^)
-        echo ^>^> ERROR CODE: %errorlevel%
-    )
+    %mklk% "%VIRTUAL_ENV%\pip.ini" "%pip_src%" "" "pip.ini (Virtual)"
 )
 
 :lnk_dot
-rem "mklink" 時にスキップするドットファイル
-for %%j in (.*) do (
-    if %%j == .bash_history (
-        rem 消すな
-        rem pass
-    ) else if %%j == .gitconfig (
-        rem 消すな
-        rem pass
-    ) else if %%j == .gitconfig.linux (
-        rem 消すな
-        rem pass
-    ) else if %%j == .gitconfig.windows (
-        rem 消すな
-        rem pass
-    ) else if %%j == .zsh_history (
-        rem 消すな
-        rem pass
-    ) else if %%j == .oyainputconf (
-        rem 消すな
-        rem pass
+rem "mklink" 時にスキップするファイル
+set "skip_list=.bash_history .zsh_history"
+set "skip_list=%skip_list% .gitconfig .gitconfig.linux .gitconfig.windows"
+set "skip_list=%skip_list% .oyainputconf"
+
+for %%i in (%bat_path%\.*) do (
+    echo %skip_list% | findstr /i /c:"%%~nxi" >nul
+    if not errorlevel 1 (
+        %lmsg% INFO "Skip link for %%i (in skip_list)"
     ) else (
-        mklink "%userprofile%\%%j" ".\dotfiles\%%j" > nul 2>&1
+        set "dst=%USERPROFILE%\%%~nxi"
+        set "src=%%i"
+        %mklk% "!dst!" "!src!" "" "dotfile %%i"
     )
 )
 
 :end
-echo ^>^> End set link
+%lmsg% INFO "End set link"
 
 popd
 endlocal
 
-pause
+rem pause
 exit /b 0
